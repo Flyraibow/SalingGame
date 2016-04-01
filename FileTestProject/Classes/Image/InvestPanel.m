@@ -1,0 +1,147 @@
+//
+//  InvestPanel.m
+//  FileTestProject
+//
+//  Created by LIU YUJIE on 2/1/16.
+//  Copyright © 2016 Yujie Liu. All rights reserved.
+//
+
+#import "InvestPanel.h"
+#import "BGImage.h"
+#import "DefaultButton.h"
+#import "LocalString.h"
+#import "GameDataManager.h"
+#import "GameCityData.h"
+#import "SpendMoneyProtocol.h"
+
+@interface InvestPanel () <SpendMoneyProtocol>
+
+@end
+
+@implementation InvestPanel
+{
+    CCLabelTTF *_labMoney;
+    NSMutableArray *_array;
+    int _unitMoney;
+    NSString *_cityNo;
+    InvestType _type;
+    int _selectNum;
+    int _maxNum;
+}
+
+-(instancetype)initWithCityId:(NSString *)cityNo investType:(InvestType)type
+{
+    if (self = [self init]) {
+        _cityNo = cityNo;
+        _type = type;
+        CCNodeColor *node = [BGImage getShadowForBackground];
+        [self addChild:node];
+        CCSprite *sprite = [CCSprite spriteWithImageNamed:@"invest.png"];
+        sprite.anchorPoint = ccp(0.5, 0.5);
+        sprite.positionType = CCPositionTypeNormalized;
+        sprite.position = ccp(0.5, 0.5);
+        [self addChild:sprite];
+        
+        DefaultButton *closeButton = [DefaultButton buttonWithTitle:getLocalString(@"lab_close")];
+        [closeButton setTarget:self selector:@selector(clickCloseButton)];
+        closeButton.positionType = CCPositionTypeNormalized;
+        closeButton.anchorPoint = ccp(1,0);
+        closeButton.position = ccp(0.8, 0.03);
+        [sprite addChild:closeButton];
+        
+        DefaultButton *sureButton = [DefaultButton buttonWithTitle:getLocalString(@"lab_sure")];
+        [sureButton setTarget:self selector:@selector(clickSureButton)];
+        sureButton.positionType = CCPositionTypeNormalized;
+        sureButton.anchorPoint = ccp(0,0);
+        sureButton.position = ccp(0.2, 0.03);
+        [sprite addChild:sureButton];
+        
+        CCLabelTTF *label = [CCLabelTTF labelWithString:getLocalString(@"lab_invest_money") fontName:nil fontSize:12];
+        label.positionType = CCPositionTypeNormalized;
+        label.position = ccp(0.28, 0.9);
+        [sprite addChild:label];
+        
+        GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityNo];
+        if (type == InvestTypeCommerce) {
+            _unitMoney = cityData.commerceValue;
+        } else if (type == InvestTypeMilltary) {
+            _unitMoney = cityData.milltaryValue;
+        } else  if (type == InvestTypeSignup) {
+            _unitMoney = cityData.commerceValue + cityData.milltaryValue;
+        }
+        _labMoney = [CCLabelTTF labelWithString:[@(_unitMoney) stringValue] fontName:nil fontSize:14];
+        _labMoney.anchorPoint = ccp(1.0, 0.5);
+        _labMoney.positionType = CCPositionTypeNormalized;
+        _labMoney.position = ccp(0.85, 0.9);
+        [sprite addChild:_labMoney];
+        
+        _array = [NSMutableArray new];
+        for (int i = 0; i < 20; ++i) {
+            CCSprite *icon = [CCSprite spriteWithImageNamed:@"money_bag.png"];
+            icon.positionType = CCPositionTypeNormalized;
+            int x = i % 5;
+            int y = i / 5;
+            icon.position = ccp(0.177 * x + 0.142, - 0.168 * y + 0.743);
+            [sprite addChild:icon];
+            if (i) icon.visible = NO;
+            [_array addObject:icon];
+        }
+        _selectNum = 0;
+        _maxNum = (int)[GameDataManager sharedGameData].myGuild.money / _unitMoney;
+    }
+    return self;
+}
+
+-(void)clickCloseButton
+{
+    [self removeFromParent];
+}
+
+
+-(void)spendMoneySucceed:(SpendMoneyType)type
+{
+    GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
+    int money = _unitMoney * (_selectNum + 1);
+    [cityData investByGuild:[GameDataManager sharedGameData].myGuild.guildId investUnits:_selectNum + 1 money:money type:_type];
+    [self.delegate investSucceed];
+}
+
+-(void)spendMoneyFail:(SpendMoneyType)type
+{
+    [self.delegate investFailure];
+}
+
+-(void)clickSureButton
+{
+    int money = _unitMoney * (_selectNum + 1);
+    
+    [[GameDataManager sharedGameData].myGuild spendMoney:money target:self spendMoneyType:SpendMoneyTypeInvest];
+   
+    [self removeFromParent];
+}
+
+
+-(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
+    CGSize viewSize = [[CCDirector sharedDirector] viewSize];
+    CGPoint location = [touch locationInView:[touch view]];
+    location.x -= viewSize.width / 2 - 122 ;
+    location.y -= viewSize.height / 2 - 91;
+    if (location.x > 0 && location.x <= 250 && location.y >= 0 && location.y <= 192) {
+        int index = location.x / 50 + (int)(location.y / 48) * 5;
+        if (index >= _maxNum) {
+            index = _maxNum - 1;
+        }
+        _selectNum = index;
+        for (int i = 0; i <= index; ++i) {
+            CCSprite *icon = [_array objectAtIndex:i];
+            icon.visible = YES;
+        }
+        for (int i = index + 1; i < 20; ++i) {
+            CCSprite *icon = [_array objectAtIndex:i];
+            icon.visible = NO;
+        }
+        _labMoney.string = [@(_unitMoney * (index+1)) stringValue];
+    }
+}
+
+@end
