@@ -1261,7 +1261,6 @@
 		27C26D8A1C695291009EDE53 /* TeamData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeamData.m; path = Classes/DataProcessing/TeamData.m; sourceTree = "<group>"; };
 		27C26D8E1C69657A009EDE53 /* OccupationUpdateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OccupationUpdateProtocol.h; path = Classes/Protocol/OccupationUpdateProtocol.h; sourceTree = "<group>"; };
 		27C26D931C6977DC009EDE53 /* testC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = testC; sourceTree = BUILT_PRODUCTS_DIR; };
-		27C26DAD1C69DF14009EDE53 /* InvestValueChangeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InvestValueChangeProtocol.h; path = Classes/Protocol/InvestValueChangeProtocol.h; sourceTree = "<group>"; };
 		27C26DAE1C6BEF1B009EDE53 /* CG_Bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CG_Bg.png; path = Resources/Graph/Background/CG_Bg.png; sourceTree = "<group>"; };
 		27C26DB01C6BEFFF009EDE53 /* CGStoryScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGStoryScene.h; path = Classes/UIScene/CGStoryScene.h; sourceTree = "<group>"; };
 		27C26DB11C6BEFFF009EDE53 /* CGStoryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGStoryScene.m; path = Classes/UIScene/CGStoryScene.m; sourceTree = "<group>"; };
@@ -2792,7 +2791,6 @@
 				27C26D441C6402FD009EDE53 /* DateUpdateProtocol.h */,
 				27C26D451C640F51009EDE53 /* UpdateMoneyProtocol.h */,
 				27C26D8E1C69657A009EDE53 /* OccupationUpdateProtocol.h */,
-				27C26DAD1C69DF14009EDE53 /* InvestValueChangeProtocol.h */,
 				27C26DE11C71708C009EDE53 /* SailSceneGoProtocol.h */,
 				27C26DE21C717611009EDE53 /* SailSceneShipProtocol.h */,
 				27C26DE31C71A876009EDE53 /* CityChangeProtocol.h */,

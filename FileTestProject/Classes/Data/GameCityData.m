@@ -332,9 +332,7 @@ static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
     _commerceValue = MIN(_commerceValue, 10000);
     _milltaryValue += _milltaryInvestRecord / 200;
     _milltaryValue = MIN(_milltaryValue, 10000);
-    if ([_cityNo isEqualToString:[GameDataManager sharedGameData].myGuild.myTeam.currentCityId]) {
-        [[GameDataManager sharedGameData] sendInvestValueUpdate:_commerceValue milltary:_milltaryValue];
-    }
+    
     if (_commerceInvestRecord > 0) {
         // 更新货物总数
         NSArray *goodsList = [_goodsDict allKeys];
@@ -402,6 +400,9 @@ static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
         double value = [[_goodsPriceDict objectForKey:categoryId] doubleValue];
         value = (1 + value) / 2 + (arc4random() % 2 - 1.0) / 100.0;
         [_goodsPriceDict setObject:[@(value) stringValue] forKey:categoryId];
+    }
+    if ([_cityNo isEqualToString:[GameDataManager sharedGameData].myGuild.myTeam.currentCityId]) {
+        [[GameDataManager sharedGameData] moveToCity:_cityNo];
     }
 }
 

@@ -135,9 +135,9 @@ static NSString* const NPCSkills = @"NPCSkills";
     return [NSString stringWithFormat:@"%@ · %@",self.firstName, self.lastName];
 }
 
--(NSString *)smallPortrait
+-(NSString *)portrait
 {
-    return [NSString stringWithFormat:@"SmallPortrait%@.png", self.npcData.smallPotrait];
+    return [NSString stringWithFormat:@"dialogPortrait%@.png", self.npcData.dialogPotraitId];
 }
 
 @end

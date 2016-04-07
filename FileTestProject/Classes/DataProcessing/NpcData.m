@@ -39,8 +39,9 @@
 		_npcId = [buffer readString];
 		_character = [buffer readString];
 		_dialogPotraitId = [buffer readString];
-		_smallPotrait = [buffer readString];
 		_potraitId = [buffer readString];
+		_portraitPosX = [buffer readInt];
+		_portraitPosY = [buffer readInt];
 		_level = [buffer readInt];
 		_hp = [buffer readInt];
 		_equipWeapon = [buffer readString];

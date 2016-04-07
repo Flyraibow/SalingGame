@@ -19,14 +19,12 @@
 #import "DateUpdateProtocol.h"
 #import "GameCityData.h"
 #import "OccupationUpdateProtocol.h"
-#import "InvestValueChangeProtocol.h"
 #import "GameStoryTriggerManager.h"
 #import "CGStoryScene.h"
 
 @interface CityScene() <
 DateUpdateProtocol,
 OccupationUpdateProtocol,
-InvestValueChangeProtocol,
 CGStorySceneDelegate,
 CityBuildingDelegate>
 
@@ -165,7 +163,6 @@ CityBuildingDelegate>
     
     [[GameDataManager sharedGameData] addTimeUpdateClass:self];
     [[GameDataManager sharedGameData] addOccupationUpdateClass:self];
-    [[GameDataManager sharedGameData] addInvestValueUpdateClass:self];
     [[GameDataManager sharedGameData] addCityChangeClass:self];
     return self;
 }
@@ -184,16 +181,6 @@ CityBuildingDelegate>
     }
 }
 
--(void)commerceValueChange:(int)commerce
-{
-    _labMerchantValue.string = [@(commerce) stringValue];
-}
-
--(void)milltaryValueChange:(int)milltary
-{
-    _labWeaponValue.string = [@(milltary) stringValue];
-}
-
 -(void)changeCity:(NSString *)cityNo
 {
     _cityNo = cityNo;
@@ -204,16 +191,16 @@ CityBuildingDelegate>
     [_cityBg setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"city_bg_%d.png", _cityData.cityBackground]]];
     _cityType.string = getLocalStringByInt(@"city_type_",_cityData.cityType);
     _cityBelong.string = getLocalStringByInt(@"city_country_", _cityData.country);
-    _labWeaponValue.string = [NSString stringWithFormat:@"%d", _cityData.milltary];
-    _labMerchantValue.string = [@(_cityData.commerce) stringValue];
+    _labWeaponValue.string = [NSString stringWithFormat:@"%d", cityData.milltaryValue];
+    _labMerchantValue.string = [@(cityData.commerceValue) stringValue];
     _cityState.string = getLocalStringByInt(@"city_state_", cityData.cityState);
-    NSArray *array = [_cityData.goods componentsSeparatedByString:@";"];
-    for (int i = 0; i < array.count; ++i) {
-        NSString *goodsId = [array objectAtIndex:i];
-        CCLabelTTF *labGoods = [_labCityGoodsArray objectAtIndex:i];
+    
+    NSUInteger i = 0;
+    for (NSString *goodsId in cityData.goodsDict) {
+        CCLabelTTF *labGoods = [_labCityGoodsArray objectAtIndex:i++];
         labGoods.string = getLocalStringByString(@"goods_name_", goodsId);
     }
-    for (NSUInteger i = array.count; i < 5; ++i) {
+    for (; i < 5; ++i) {
         CCLabelTTF *labGoods = [_labCityGoodsArray objectAtIndex:i];
         labGoods.string = @"";
     }
@@ -237,7 +224,7 @@ CityBuildingDelegate>
 
 -(void)playMusic
 {
-    [[OALSimpleAudio sharedInstance] playBg:[NSString stringWithFormat:@"city_%d.mp3", _cityData.musicId] loop:YES];
+    [GameDataManager sharedGameData].currentMusic = [NSString stringWithFormat:@"city_%d.mp3", _cityData.musicId];
 }
 
 -(void)storyEnd

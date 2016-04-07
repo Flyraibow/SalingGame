@@ -12,6 +12,7 @@
 #import "LocalString.h"
 #import "DialogPanel.h"
 #import "GameDataManager.h"
+#import "DuelScene.h"
 
 typedef enum : NSUInteger {
     StoryCommandTypeNone,
@@ -32,6 +33,7 @@ typedef enum : NSUInteger {
     StoryCommandTypeShowDialogSelection,
     StoryCommandTypeChangeLogicData,
     StoryCommandTypeSpecial,
+    StoryCommandTypeDuel,
 } StoryCommandType;
 
 @interface StoryActionData : NSObject
@@ -122,7 +124,7 @@ typedef enum : NSUInteger {
 
 @end
 
-@interface CGStoryScene() <DialogInteractProtocol>
+@interface CGStoryScene() <DialogInteractProtocol, DuelSceneDelegate>
 
 @end
 
@@ -143,6 +145,7 @@ typedef enum : NSUInteger {
     CGFloat _touchTime;
     NSArray *_selectionResult;
     NSString *_storyId;
+    NSString *_duelResult;
 }
 
 -(instancetype)initWithStoryId:(NSString *)storyId
@@ -384,6 +387,19 @@ typedef enum : NSUInteger {
                     case StoryCommandTypeSpecial:
                     {
                         [[GameDataManager sharedGameData] setSpecialLogical:storyData.parameter1 parameter2:storyData.parameter2 parameter3:storyData.parameter3 parameter4:storyData.parameter4];
+                        break;
+                    }
+                    case StoryCommandTypeDuel:
+                    {
+                        _waitingClick = YES;
+                        flag = NO;
+                        NSString *heroId = [storyData.parameter1 componentsSeparatedByString:@";"][0];
+                        NSString *enemyId = [storyData.parameter1 componentsSeparatedByString:@";"][1];
+                        _duelResult = storyData.parameter2;
+                        DuelScene *duelScene = [[DuelScene alloc] initWithRoleId:heroId roleId:enemyId];
+                        duelScene.delegate = self;
+                        [[CCDirector sharedDirector] pushScene:duelScene];
+                        break;
                     }
                     default:
                         break;
@@ -394,6 +410,19 @@ typedef enum : NSUInteger {
                 [self.delegate storyEnd];
             }
         }
+    }
+}
+
+-(void)duelEnds:(DuelResult)result
+{
+    NSString *storyId;
+    if (result == DuelResultWin) {
+        storyId = [_duelResult componentsSeparatedByString:@";"][0];
+    } else {
+        storyId = [_duelResult componentsSeparatedByString:@";"][1];
+    }
+    if (![storyId isEqualToString:@"0"]) {
+        [self gotoStory:storyId];
     }
 }
 
@@ -425,11 +454,16 @@ typedef enum : NSUInteger {
         [self removeChild:_dialogPanel];
     } else {
         // goto Story Id:
-        CGStoryScene *storyScene = [[CGStoryScene alloc] initWithStoryId:selectStoryId];
-        storyScene.delegate = self.delegate;
-        [[CCDirector sharedDirector] presentScene:storyScene];
-        [storyScene runStory];
+        [self gotoStory:selectStoryId];
     }
+}
+
+-(void)gotoStory:(NSString *)storyId
+{
+    CGStoryScene *storyScene = [[CGStoryScene alloc] initWithStoryId:storyId];
+    storyScene.delegate = self.delegate;
+    [[CCDirector sharedDirector] presentScene:storyScene];
+    [storyScene runStory];
 }
 
 @end

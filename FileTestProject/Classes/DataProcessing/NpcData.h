@@ -6,8 +6,9 @@
 @property (nonatomic, readonly) NSString *npcId;
 @property (nonatomic, readonly) NSString *character;
 @property (nonatomic, readonly) NSString *dialogPotraitId;
-@property (nonatomic, readonly) NSString *smallPotrait;
 @property (nonatomic, readonly) NSString *potraitId;
+@property (nonatomic, readonly) int portraitPosX;
+@property (nonatomic, readonly) int portraitPosY;
 @property (nonatomic, readonly) int level;
 @property (nonatomic, readonly) int hp;
 @property (nonatomic, readonly) NSString *equipWeapon;

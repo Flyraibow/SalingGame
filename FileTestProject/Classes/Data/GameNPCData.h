@@ -41,7 +41,7 @@
 @property (nonatomic, readonly, assign) int maxHp;
 @property (nonatomic, assign) int currHp;
 @property (nonatomic, readonly) NSString *fullName;
-@property (nonatomic, readonly) NSString *smallPortrait;
+@property (nonatomic, readonly) NSString *portrait;
 
 -(instancetype)initWithNpcId:(NSString *)npcId;
 

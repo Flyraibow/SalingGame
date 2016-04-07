@@ -45,7 +45,6 @@ static int const frameOffsetY = 20;
 
 -(void)setCityNo:(NSString *)cityNo
 {
-    _cityNo = cityNo;
     GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityNo];
     NSArray *buildingArr = [cityData.buildingSet allObjects];
     for (NSString *buildingNo in _btnCityBuildingDict) {
@@ -80,9 +79,12 @@ static int const frameOffsetY = 20;
             btnCityBuilding.visible = YES;
         }
     }
-    if (_currentChildSprite != nil && _currentChildSprite.parent == self.scene) {
-        [_currentChildSprite removeFromParent];
-        _currentChildSprite = nil;
+    if ([_cityNo isEqualToString:cityNo] == NO) {
+        if (_currentChildSprite != nil && _currentChildSprite.parent == self.scene) {
+            [_currentChildSprite removeFromParent];
+            _currentChildSprite = nil;
+        }
+        _cityNo = cityNo;
     }
 }
 

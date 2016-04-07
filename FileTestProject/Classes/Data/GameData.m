@@ -13,6 +13,7 @@
 #import "GameShipGoodsData.h"
 #import "GameDataManager.h"
 #import "GameNPCData.h"
+#import "OALSimpleAudio.h"
 
 @implementation  GameDialogData
 @end
@@ -21,7 +22,6 @@
 {
     NSMutableSet *_timeUpdateSet;
     NSMutableSet *_occupationUpdateSet;
-    NSMutableSet *_investValueUpdateSet;
     NSMutableSet *_cityChangeSet;
 }
 
@@ -30,6 +30,7 @@ static NSString* const GameGuildDic= @"GameGuildDic";
 static NSString* const GameMyGuild= @"GameMyGuild";
 static NSString* const GameCityDic = @"GameCityDic";
 static NSString* const GameLogicData = @"GameLogicData";
+static NSString* const GameMuiscData = @"GameMusicData";
 
 -(instancetype)init
 {
@@ -62,7 +63,6 @@ static NSString* const GameLogicData = @"GameLogicData";
     }
     _timeUpdateSet = [NSMutableSet new];
     _occupationUpdateSet = [NSMutableSet new];
-    _investValueUpdateSet = [NSMutableSet new];
     _cityChangeSet = [NSMutableSet new];
     // initialize the logic Data
     _logicData = [NSMutableDictionary new];
@@ -137,9 +137,9 @@ static NSString* const GameLogicData = @"GameLogicData";
             // 角色离开队伍
             [self.myGuild.myTeam addNpcId:parameter3];
         }
-        
     }
 }
+
 
 -(void)setLogicDataWithLogicId:(NSString *)logicId value:(NSString *)logicValue changeValueType:(ChangeValueType)type
 {
@@ -197,6 +197,7 @@ static NSString* const GameLogicData = @"GameLogicData";
         _myGuild = [aDecoder decodeObjectForKey:GameMyGuild];
         _cityDic = [aDecoder decodeObjectForKey:GameCityDic];
         _logicData = [aDecoder decodeObjectForKey:GameLogicData];
+        self.currentMusic = [aDecoder decodeObjectForKey:GameMuiscData];
     }
     return self;
 }
@@ -209,6 +210,7 @@ static NSString* const GameLogicData = @"GameLogicData";
     [aCoder encodeObject:_myGuild forKey:GameMyGuild];
     [aCoder encodeObject:_cityDic forKey:GameCityDic];
     [aCoder encodeObject:_logicData forKey:GameLogicData];
+    [aCoder encodeObject:_currentMusic forKey:GameMuiscData];
 }
 
 -(void)addTimeUpdateClass:(id<DateUpdateProtocol>)target
@@ -231,31 +233,12 @@ static NSString* const GameLogicData = @"GameLogicData";
     [_occupationUpdateSet removeObject:target];
 }
 
--(void)addInvestValueUpdateClass:(id<InvestValueChangeProtocol>)target
-{
-    [_investValueUpdateSet addObject:target];
-}
-
--(void)removeInvestValueUpdateClass:(id)target
-{
-    [_investValueUpdateSet removeObject:target];
-}
-
 -(void)sendOccupationUpdateInfo:(NSString *)cityNo data:(NSMutableDictionary *)dict
 {
     for (id<OccupationUpdateProtocol> target in _occupationUpdateSet) {
         [target occupationUpdateCityNo:cityNo data:dict];
     }
 }
-
--(void)sendInvestValueUpdate:(int)commerce milltary:(int)milltary
-{
-    for (id<InvestValueChangeProtocol> target in _investValueUpdateSet) {
-        [target commerceValueChange:commerce];
-        [target milltaryValueChange:milltary];
-    }
-}
-
 
 -(void)addCityChangeClass:(id<CityChangeProtocol>)target
 {
@@ -353,6 +336,15 @@ static NSString* const GameLogicData = @"GameLogicData";
     _myGuild.myTeam.currentCityId = cityNo;
     for (id<CityChangeProtocol> target in _cityChangeSet) {
         [target changeCity:cityNo];
+    }
+}
+
+-(void)setCurrentMusic:(NSString *)currentMusic
+{
+    if (![_currentMusic isEqualToString:currentMusic]) {
+        _currentMusic = [currentMusic copy];
+        
+        [[OALSimpleAudio sharedInstance] playBg:currentMusic loop:YES];
     }
 }
 

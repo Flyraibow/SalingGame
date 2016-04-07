@@ -10,7 +10,6 @@
 #import "MyGuild.h"
 #import "DateUpdateProtocol.h"
 #import "OccupationUpdateProtocol.h"
-#import "InvestValueChangeProtocol.h"
 #import "CityChangeProtocol.h"
 
 typedef enum : NSUInteger {
@@ -41,6 +40,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) int day;
 @property (nonatomic) MyGuild *myGuild;
 @property (nonatomic, readonly) NSMutableArray *dialogList;
+@property (nonatomic, copy) NSString *currentMusic;
 
 -(void)initGuildData;
 
@@ -71,12 +71,6 @@ typedef enum : NSUInteger {
 -(void)removeOccupationUpdateClass:(id)target;
 
 -(void)sendOccupationUpdateInfo:(NSString *)cityNo data:(NSMutableDictionary *)dict;
-
--(void)addInvestValueUpdateClass:(id<InvestValueChangeProtocol>)target;
-
--(void)removeInvestValueUpdateClass:(id)target;
-
--(void)sendInvestValueUpdate:(int)commerce milltary:(int)milltary;
 
 -(void)addCityChangeClass:(id<CityChangeProtocol>)target;
 
