@@ -14,6 +14,7 @@
 #import "GameShipData.h"
 #import "DataManager.h"
 #import "ShipIcon.h"
+#import "ShipScene.h"
 
 @interface ShipExchangeUnit() <SpendMoneyProtocol>
 
@@ -24,8 +25,7 @@
     CCLabelTTF *_labName;
     ShipIcon *_iconFrame;
     CCLabelTTF *_labPrice;
-    DefaultButton *_btnBuy;
-    ShipData *_shipData;
+    DefaultButton *_btnAction;
     GameShipData *_gameShipData;
     NSInteger _dealPrice;
 }
@@ -50,16 +50,20 @@
     _labPrice.position = ccp(_iconFrame.position.x + _iconFrame.contentSize.width + 10,_labName.position.y - _labName.contentSize.height - 10);
     [self addChild:_labPrice];
     
-    _btnBuy = [DefaultButton buttonWithTitle:nil];
-    _btnBuy.positionType = CCPositionTypeNormalized;
-    _btnBuy.anchorPoint = ccp(0.5, 0);
-    _btnBuy.position = ccp(0.5,0.03);
-    [self addChild:_btnBuy];
+    // TODO: 添加其他的属性，如水手，炮数，威力，船速，物资仓库，货物仓库，耐久，灵活
+    
+    _btnAction = [DefaultButton buttonWithTitle:nil];
+    _btnAction.positionType = CCPositionTypeNormalized;
+    _btnAction.anchorPoint = ccp(0.5, 0);
+    _btnAction.position = ccp(0.5,0.03);
+    [_btnAction setTarget:self selector:@selector(clickAction)];
+    [self addChild:_btnAction];
 }
 
--(instancetype)initWithGameShipData:(GameShipData *)gameShipData
+-(instancetype)initWithGameShipData:(GameShipData *)gameShipData sceneType:(ShipSceneType)sceneType
 {
     if (self = [super initWithImageNamed:@"ShipFrame.png"]) {
+        _sceneType = sceneType;
         _gameShipData = gameShipData;
         ShipData *shipData = [[DataManager sharedDataManager].getShipDic getShipById:gameShipData.shipNo];
         [self commonInitFunction:shipData.icon];
@@ -67,25 +71,14 @@
         // TODO: change the price in the future
         _labName.string = gameShipData.shipName;
         _dealPrice = shipData.price;
-        _labPrice.string = [NSString stringWithFormat:getLocalString(@"ship_price"), _dealPrice] ;
-        _btnBuy.title = getLocalString(@"ship_sell");
-        [_btnBuy setTarget:self selector:@selector(clickSell)];
-    }
-    return self;
-}
-
--(instancetype) initWithShipData:(ShipData *)shipData
-{
-    if (self = [super initWithImageNamed:@"ShipFrame.png"]) {
-        _shipData = shipData;
-        
-        [self commonInitFunction:shipData.icon];
-        
-        _labName.string = getLocalStringByString(@"ship_name_",shipData.shipId);
-        _labPrice.string = [NSString stringWithFormat:getLocalString(@"ship_price"), shipData.price] ;
-        _btnBuy.title = getLocalString(@"ship_buy");
-        [_btnBuy setTarget:self selector:@selector(clickBuy)];
-        
+        _labPrice.string = [NSString stringWithFormat:getLocalString(@"ship_price"), _dealPrice];
+        if (sceneType == ShipSceneTypeBuy) {
+            _btnAction.title = getLocalString(@"ship_buy");
+        } else if (sceneType == ShipSceneTypeSell) {
+            _btnAction.title = getLocalString(@"ship_sell");
+        } else if (sceneType == ShipSceneTypeModify) {
+            _btnAction.title = getLocalString(@"ship_modify");
+        }
     }
     return self;
 }
@@ -96,19 +89,24 @@
     _iconFrame.opacity = opacity;
     _labName.opacity = opacity;
     _labPrice.opacity = opacity;
-    _btnBuy.opacity = opacity;
+    _btnAction.opacity = opacity;
 }
 
--(void)clickBuy
+-(void)clickAction
 {
-    [[GameDataManager sharedGameData].myGuild spendMoney:_shipData.price target:self spendMoneyType:SpendMoneyTypeBuyShip];
-}
+    if (_sceneType == ShipSceneTypeBuy) {
+        [[GameDataManager sharedGameData].myGuild spendMoney:_gameShipData.price target:self spendMoneyType:SpendMoneyTypeBuyShip];
 
--(void)clickSell
-{
-    [[GameDataManager sharedGameData].myGuild.myTeam.shipList removeObject:_gameShipData];
-    [[GameDataManager sharedGameData].myGuild gainMoney:_dealPrice];
-    [self.delegate ShipDealComplete];
+    } else if (_sceneType == ShipSceneTypeSell) {
+        [[GameDataManager sharedGameData].myGuild.myTeam.shipList removeObject:_gameShipData];
+        [[GameDataManager sharedGameData].myGuild gainMoney:_dealPrice];
+        [self.delegate ShipDealComplete];
+    } else if (_sceneType == ShipSceneTypeModify) {
+        // TODO: 进入改造页面
+        ShipScene *scene = [[ShipScene alloc] initWithShipData:_gameShipData shipSceneType:ShipSceneTypeModify];
+        [[CCDirector sharedDirector] pushScene:scene];
+    }
+    
 }
 
 -(void)spendMoneyFail:(SpendMoneyType)type
@@ -119,7 +117,7 @@
 -(void)spendMoneySucceed:(SpendMoneyType)type
 {
     CCLOG(@"buy ship success");
-    [[GameDataManager sharedGameData].myGuild getShip:[[GameShipData alloc] initWithShipData:_shipData]];
+    [[GameDataManager sharedGameData].myGuild getShip:_gameShipData];
     [self.delegate ShipDealComplete];
 }
 

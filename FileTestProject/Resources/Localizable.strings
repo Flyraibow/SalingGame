@@ -127,6 +127,7 @@
 "ship_price" = "%d金币";
 "ship_buy" = "购买";
 "ship_sell" = "售出";
+"ship_modify" = "改造";
 
 "MerchantValue" = "发展度";
 "WeaponValue" = "武装度";
@@ -205,6 +206,7 @@
 "dialog_3"="使用何种雇佣方式";
 "dialog_4"="没有船，无法出海";
 "dialog_5"="水手不足，需要先雇佣水手";
+"dialog_6"="没有可以改造的船只";
 "goods_name_1"="小麦";
 "goods_name_2"="水稻";
 "goods_name_3"="玉米";

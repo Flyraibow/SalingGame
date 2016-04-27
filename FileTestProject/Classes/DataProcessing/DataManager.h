@@ -12,6 +12,7 @@
 #import "RouteData.h"
 #import "SeaAreaData.h"
 #import "ShipData.h"
+#import "ShipStyleData.h"
 #import "SkillData.h"
 #import "StoryData.h"
 #import "StoryTriggerData.h"
@@ -49,6 +50,8 @@
 -(SeaAreaDic*)getSeaAreaDic;
 
 -(ShipDic*)getShipDic;
+
+-(ShipStyleDic*)getShipStyleDic;
 
 -(SkillDic*)getSkillDic;
 

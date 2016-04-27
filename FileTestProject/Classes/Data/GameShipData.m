@@ -28,6 +28,7 @@ static NSString* const GameShipSpareRoom = @"GameShipSpareRoom";
 static NSString* const GameShipDuration = @"GameShipDuration";
 static NSString* const GameShipMaxDuration = @"GameShipMaxDuration";
 static NSString* const GameShipGoodsList = @"GameShipGoodsList";
+static NSString* const GameShipEquipList = @"GameShipEquipList";
 
 @implementation GameShipData
 
@@ -53,7 +54,10 @@ static NSString* const GameShipGoodsList = @"GameShipGoodsList";
         for (int i = 0; i < _capacity; ++i) {
             [_goodsList addObject:[GameShipGoodsData new]];
         }
-        _shipIcon = shipData.icon;
+        ShipStyleData *shipStyle = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:[@(shipData.style) stringValue]];
+        _equipList = [shipStyle.equipList componentsSeparatedByString:@";"];
+        _shipData = shipData;
+        _belongToGuild = nil;
     }
     return self;
 }
@@ -79,7 +83,8 @@ static NSString* const GameShipGoodsList = @"GameShipGoodsList";
         _duration = [aDecoder decodeIntForKey:GameShipDuration];
         _maxDuration = [aDecoder decodeIntForKey:GameShipMaxDuration];
         _goodsList = [aDecoder decodeObjectForKey:GameShipGoodsList];
-        _shipIcon = [[[DataManager sharedDataManager] getShipDic] getShipById:_shipNo].icon;
+        _shipData = [[[DataManager sharedDataManager] getShipDic] getShipById:_shipNo];
+        _equipList = [aDecoder decodeObjectForKey:GameShipEquipList];
     }
     return self;
 }
@@ -103,6 +108,22 @@ static NSString* const GameShipGoodsList = @"GameShipGoodsList";
     [aCoder encodeInt:_duration forKey:GameShipDuration];
     [aCoder encodeInt:_maxDuration forKey:GameShipMaxDuration];
     [aCoder encodeObject:_goodsList forKey:GameShipGoodsList];
+    [aCoder encodeObject:_equipList forKey:GameShipEquipList];
+}
+
+-(NSString *)shipIcon
+{
+    return _shipData.icon;
+}
+
+-(int)price
+{
+    if (self.belongToGuild == nil) {
+        return _shipData.price;
+    } else {
+        // TODO: 如果改造过，可能钱会些许不同
+        return _shipData.price * 0.6;
+    }
 }
 
 @end

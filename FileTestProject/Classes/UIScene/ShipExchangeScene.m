@@ -9,7 +9,6 @@
 #import "ShipExchangeScene.h"
 #import "BGImage.h"
 #import "DefaultButton.h"
-#import "ShipExchangeUnit.h"
 #import "LocalString.h"
 #import "GameDataManager.h"
 #import "DataManager.h"
@@ -84,32 +83,11 @@
     return self;
 }
 
--(instancetype)initWithShipList:(NSArray *)shipList
+-(instancetype)initWithShipList:(NSArray *)shipList sceneType:(ShipSceneType)sceneType
 {
     if (self = [self init]) {
-        
-        _labTitle.string = getLocalString(@"shipyard_sell");
-        
-        for (NSUInteger i = 0; i < shipList.count; ++i) {
-            GameShipData *shipData = [shipList objectAtIndex:i];
-            ShipExchangeUnit *shipUnit = [[ShipExchangeUnit alloc] initWithGameShipData:shipData];
-            shipUnit.positionType = CCPositionTypeNormalized;
-            shipUnit.position = ccp(0.3 + _number * 0.4,0.48);
-            shipUnit.delegate = self;
-            _number++;
-            if (_number > 2) {
-                shipUnit.opacity = 0;
-            }
-            [_sprite addChild:shipUnit];
-            [_array addObject:shipUnit];
-        }
-        
-        if (_number <= 2) {
-            _rightBtn.enabled = NO;
-        } else {
-            _rightBtn.enabled = YES;
-        }
-        
+        _sceneType = sceneType;
+        [self showShipList:shipList];
     }
     return self;
 }
@@ -118,37 +96,54 @@
 {
     if (self = [self init]) {
         
-        _labTitle.string = getLocalString(@"shipyard_buy");
+        _sceneType = ShipSceneTypeBuy;
         
         GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityNo];
-        NSDictionary *shipDic = [[DataManager sharedDataManager].getShipDic getDictionary];
-        _number = 0;
-        _index = 0;
+        
         NSArray *shipList = [cityData.shipsSet sortByNumberAscending:YES];
-        for (NSString *shipNo in shipList) {
-            ShipData *shipData = [shipDic objectForKey:shipNo];
-            if (shipData != nil) {
-                ShipExchangeUnit *sprite1 = [[ShipExchangeUnit alloc] initWithShipData:shipData];
-                sprite1.positionType = CCPositionTypeNormalized;
-                sprite1.position = ccp(0.3 + _number * 0.4,0.48);
-                sprite1.delegate = self;
-                _number++;
-                if (_number > 2) {
-                    sprite1.opacity = 0;
-                }
-                [_sprite addChild:sprite1];
-                [_array addObject:sprite1];
-            }
-        }
-        if (_number <= 2) {
-            _rightBtn.enabled = NO;
-        } else {
-            _rightBtn.enabled = YES;
-        }
-        
-        
+        [self showShipList:shipList];
     }
     return self;
+}
+
+-(void)showShipList:(NSArray *)shipList
+{
+    if (_sceneType == ShipSceneTypeBuy) {
+        _labTitle.string = getLocalString(@"shipyard_buy");
+    } else if (_sceneType == ShipSceneTypeSell) {
+        _labTitle.string = getLocalString(@"shipyard_sell");
+    } else if (_sceneType == ShipSceneTypeModify) {
+        _labTitle.string = getLocalString(@"shipyard_modify");
+    }
+    _number = 0;
+    _index = 0;
+    ShipDic *shipDic = [[DataManager sharedDataManager] getShipDic];
+    for (NSUInteger i = 0; i < shipList.count; ++i) {
+        GameShipData *shipData = nil;
+        if (_sceneType == ShipSceneTypeBuy) {
+            shipData = [[GameShipData alloc] initWithShipData:[shipDic getShipById:[shipList objectAtIndex:i]]];
+        } else {
+            shipData = [shipList objectAtIndex:i];
+        }
+        
+        ShipExchangeUnit *shipUnit = [[ShipExchangeUnit alloc] initWithGameShipData:shipData sceneType:_sceneType];
+        shipUnit.positionType = CCPositionTypeNormalized;
+        shipUnit.position = ccp(0.3 + _number * 0.4,0.48);
+        shipUnit.delegate = self;
+        _number++;
+        if (_number > 2) {
+            shipUnit.opacity = 0;
+        }
+        [_sprite addChild:shipUnit];
+        [_array addObject:shipUnit];
+    }
+    
+    if (_number <= 2) {
+        _rightBtn.enabled = NO;
+    } else {
+        _rightBtn.enabled = YES;
+    }
+    
 }
 
 -(void)clickRightButton

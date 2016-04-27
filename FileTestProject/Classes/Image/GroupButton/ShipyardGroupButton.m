@@ -54,13 +54,19 @@
         MyGuild *myGuild = [GameDataManager sharedGameData].myGuild ;
         [self.baseSprite showDialog:myGuild.leaderId text:getDialogText(@"2")];
     } else {
-        [[CCDirector sharedDirector] pushScene:[[ShipExchangeScene alloc] initWithShipList:[GameDataManager sharedGameData].myGuild.myTeam.shipList]];
+        [[CCDirector sharedDirector] pushScene:[[ShipExchangeScene alloc] initWithShipList:[GameDataManager sharedGameData].myGuild.myTeam.shipList sceneType:ShipSceneTypeSell]];
     }
 }
 
 -(void)clickModifyBtn
 {
-    
+    // TODO: add restriction of ship numbers
+    if ([GameDataManager sharedGameData].myGuild.myTeam.shipList.count <= 0) {
+        MyGuild *myGuild = [GameDataManager sharedGameData].myGuild ;
+        [self.baseSprite showDialog:myGuild.leaderId text:getDialogText(@"6")];
+    } else {
+        [[CCDirector sharedDirector] pushScene:[[ShipExchangeScene alloc] initWithShipList:[GameDataManager sharedGameData].myGuild.myTeam.shipList sceneType:ShipSceneTypeModify]];
+    }
 }
 
 -(void)clickFixBtn

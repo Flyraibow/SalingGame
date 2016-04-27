@@ -12,6 +12,12 @@
 #import "ShipData.h"
 #import "GameShipData.h"
 
+typedef enum : NSUInteger {
+    ShipSceneTypeBuy,
+    ShipSceneTypeSell,
+    ShipSceneTypeModify,
+} ShipSceneType;
+
 @protocol ShipExchangeBuySuccessProtocol <NSObject>
 
 -(void)ShipDealComplete;
@@ -21,8 +27,8 @@
 @interface ShipExchangeUnit : CCSprite
 
 @property (nonatomic, weak) id<ShipExchangeBuySuccessProtocol> delegate;
+@property (nonatomic, assign, readonly) ShipSceneType sceneType;
 
--(instancetype)initWithShipData:(ShipData *)shipData;
--(instancetype)initWithGameShipData:(GameShipData *)gameShipData;
+-(instancetype)initWithGameShipData:(GameShipData *)gameShipData sceneType:(ShipSceneType)sceneType;
 
 @end

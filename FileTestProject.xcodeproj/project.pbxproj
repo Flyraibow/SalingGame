@@ -15,6 +15,53 @@
 		270AB1CA1C9A695D00533B47 /* duleDialog.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1C91C9A695D00533B47 /* duleDialog.png */; };
 		270AB1CE1C9BCC1900533B47 /* DuelBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1CD1C9BCC1900533B47 /* DuelBackground.png */; };
 		270AB1D01C9BCE5300533B47 /* duelDeck.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1CF1C9BCE5300533B47 /* duelDeck.png */; };
+		270AB1D81CB780B300533B47 /* ShipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 270AB1D71CB780B300533B47 /* ShipScene.m */; };
+		270AB1DD1CB78F4000533B47 /* Deckship3.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1DA1CB78F4000533B47 /* Deckship3.png */; };
+		270AB1DE1CB78F4000533B47 /* Deckship2.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1DB1CB78F4000533B47 /* Deckship2.png */; };
+		270AB1DF1CB78F4000533B47 /* Deckship1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1DC1CB78F4000533B47 /* Deckship1.png */; };
+		270AB1E21CB790F400533B47 /* ShipStyleData.m in Sources */ = {isa = PBXBuildFile; fileRef = 270AB1E11CB790F400533B47 /* ShipStyleData.m */; };
+		270AB1E61CC0A9AF00533B47 /* Shipdeck2.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1E41CC0A9AF00533B47 /* Shipdeck2.png */; };
+		270AB1E71CC0A9AF00533B47 /* Shipdeck1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1E51CC0A9AF00533B47 /* Shipdeck1.png */; };
+		270AB1EA1CC0AA4F00533B47 /* ShipdeckIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 270AB1E91CC0AA4F00533B47 /* ShipdeckIcon.m */; };
+		270AB1EE1CC0B60700533B47 /* Shipdeck4.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1EB1CC0B60700533B47 /* Shipdeck4.png */; };
+		270AB1EF1CC0B60700533B47 /* Shipdeck3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1EC1CC0B60700533B47 /* Shipdeck3_1.png */; };
+		270AB1F01CC0B60700533B47 /* Shipdeck3.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1ED1CC0B60700533B47 /* Shipdeck3.png */; };
+		270AB2061CC75C9000533B47 /* Shipdeck6.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1F21CC75C9000533B47 /* Shipdeck6.png */; };
+		270AB2071CC75C9000533B47 /* Shipdeck8_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1F31CC75C9000533B47 /* Shipdeck8_3.png */; };
+		270AB2081CC75C9000533B47 /* Shipdeck8_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1F41CC75C9000533B47 /* Shipdeck8_4.png */; };
+		270AB2091CC75C9000533B47 /* Shipdeck5.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1F51CC75C9000533B47 /* Shipdeck5.png */; };
+		270AB20A1CC75C9000533B47 /* Shipdeck2_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1F61CC75C9000533B47 /* Shipdeck2_2.png */; };
+		270AB20B1CC75C9000533B47 /* Shipdeck2_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1F71CC75C9000533B47 /* Shipdeck2_3.png */; };
+		270AB20C1CC75C9000533B47 /* Shipdeck8.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1F81CC75C9000533B47 /* Shipdeck8.png */; };
+		270AB20D1CC75C9000533B47 /* Shipdeck2_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1F91CC75C9000533B47 /* Shipdeck2_1.png */; };
+		270AB20E1CC75C9000533B47 /* Shipdeck7_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1FA1CC75C9000533B47 /* Shipdeck7_7.png */; };
+		270AB20F1CC75C9000533B47 /* Shipdeck7_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1FB1CC75C9000533B47 /* Shipdeck7_8.png */; };
+		270AB2101CC75C9000533B47 /* Shipdeck7_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1FC1CC75C9000533B47 /* Shipdeck7_2.png */; };
+		270AB2111CC75C9000533B47 /* Shipdeck7_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1FD1CC75C9000533B47 /* Shipdeck7_3.png */; };
+		270AB2121CC75C9000533B47 /* Shipdeck7_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1FE1CC75C9000533B47 /* Shipdeck7_4.png */; };
+		270AB2131CC75C9000533B47 /* Shipdeck7_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1FF1CC75C9000533B47 /* Shipdeck7_5.png */; };
+		270AB2141CC75C9000533B47 /* Shipdeck7_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2001CC75C9000533B47 /* Shipdeck7_6.png */; };
+		270AB2151CC75C9000533B47 /* Shipdeck7_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2011CC75C9000533B47 /* Shipdeck7_1.png */; };
+		270AB2161CC75C9000533B47 /* Shipdeck7.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2021CC75C9000533B47 /* Shipdeck7.png */; };
+		270AB2171CC75C9000533B47 /* Shipdeck8_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2031CC75C9000533B47 /* Shipdeck8_1.png */; };
+		270AB2181CC75C9000533B47 /* Shipdeck8_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2041CC75C9000533B47 /* Shipdeck8_2.png */; };
+		270AB2191CC75C9000533B47 /* Shipdeck8_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2051CC75C9000533B47 /* Shipdeck8_5.png */; };
+		270AB2281CC75D3400533B47 /* 35-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB21A1CC75D3400533B47 /* 35-1.png */; };
+		270AB2291CC75D3400533B47 /* 37-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB21B1CC75D3400533B47 /* 37-1.png */; };
+		270AB22A1CC75D3400533B47 /* 38-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB21C1CC75D3400533B47 /* 38-1.png */; };
+		270AB22B1CC75D3400533B47 /* 39-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB21D1CC75D3400533B47 /* 39-1.png */; };
+		270AB22C1CC75D3400533B47 /* Shipdeck1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB21E1CC75D3400533B47 /* Shipdeck1_1.png */; };
+		270AB22D1CC75D3400533B47 /* 30-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB21F1CC75D3400533B47 /* 30-1.png */; };
+		270AB22E1CC75D3400533B47 /* 31-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2201CC75D3400533B47 /* 31-1.png */; };
+		270AB22F1CC75D3400533B47 /* 32-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2211CC75D3400533B47 /* 32-1.png */; };
+		270AB2301CC75D3400533B47 /* 33-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2221CC75D3400533B47 /* 33-1.png */; };
+		270AB2311CC75D3400533B47 /* 34-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2231CC75D3400533B47 /* 34-1.png */; };
+		270AB2321CC75D3400533B47 /* 24-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2241CC75D3400533B47 /* 24-1.png */; };
+		270AB2331CC75D3400533B47 /* 25-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2251CC75D3400533B47 /* 25-1.png */; };
+		270AB2341CC75D3400533B47 /* 27-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2261CC75D3400533B47 /* 27-1.png */; };
+		270AB2351CC75D3400533B47 /* 23-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2271CC75D3400533B47 /* 23-1.png */; };
+		274EE2721CCA00E20082B982 /* Shipdeck_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 274EE2711CCA00E20082B982 /* Shipdeck_select.png */; };
+		274EE2741CCA01960082B982 /* Shipdeck_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 274EE2731CCA01960082B982 /* Shipdeck_selected.png */; };
 		278F4A4A1C83D31400D724EF /* StoryTriggerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F4A491C83D31400D724EF /* StoryTriggerData.m */; };
 		278F4A4D1C83D65800D724EF /* GameStoryTriggerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F4A4C1C83D65800D724EF /* GameStoryTriggerManager.m */; };
 		278F4A501C8405F900D724EF /* LogicDataData.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F4A4F1C8405F900D724EF /* LogicDataData.m */; };
@@ -579,6 +626,56 @@
 		270AB1C91C9A695D00533B47 /* duleDialog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = duleDialog.png; path = Resources/Graph/Frame/duleDialog.png; sourceTree = "<group>"; };
 		270AB1CD1C9BCC1900533B47 /* DuelBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DuelBackground.png; path = Resources/Graph/Background/DuelBackground.png; sourceTree = "<group>"; };
 		270AB1CF1C9BCE5300533B47 /* duelDeck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = duelDeck.png; path = Resources/Graph/Frame/duelDeck.png; sourceTree = "<group>"; };
+		270AB1D61CB780B300533B47 /* ShipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipScene.h; path = Classes/UIScene/ShipScene.h; sourceTree = "<group>"; };
+		270AB1D71CB780B300533B47 /* ShipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipScene.m; path = Classes/UIScene/ShipScene.m; sourceTree = "<group>"; };
+		270AB1DA1CB78F4000533B47 /* Deckship3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Deckship3.png; path = Resources/Graph/Ship/Deckship3.png; sourceTree = "<group>"; };
+		270AB1DB1CB78F4000533B47 /* Deckship2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Deckship2.png; path = Resources/Graph/Ship/Deckship2.png; sourceTree = "<group>"; };
+		270AB1DC1CB78F4000533B47 /* Deckship1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Deckship1.png; path = Resources/Graph/Ship/Deckship1.png; sourceTree = "<group>"; };
+		270AB1E01CB790F400533B47 /* ShipStyleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipStyleData.h; path = Classes/DataProcessing/ShipStyleData.h; sourceTree = "<group>"; };
+		270AB1E11CB790F400533B47 /* ShipStyleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipStyleData.m; path = Classes/DataProcessing/ShipStyleData.m; sourceTree = "<group>"; };
+		270AB1E41CC0A9AF00533B47 /* Shipdeck2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck2.png; path = Resources/Graph/Ship/Shipdeck2.png; sourceTree = "<group>"; };
+		270AB1E51CC0A9AF00533B47 /* Shipdeck1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck1.png; path = Resources/Graph/Ship/Shipdeck1.png; sourceTree = "<group>"; };
+		270AB1E81CC0AA4F00533B47 /* ShipdeckIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipdeckIcon.h; path = Classes/Image/Icon/ShipdeckIcon.h; sourceTree = "<group>"; };
+		270AB1E91CC0AA4F00533B47 /* ShipdeckIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipdeckIcon.m; path = Classes/Image/Icon/ShipdeckIcon.m; sourceTree = "<group>"; };
+		270AB1EB1CC0B60700533B47 /* Shipdeck4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck4.png; path = Resources/Graph/Ship/Shipdeck4.png; sourceTree = "<group>"; };
+		270AB1EC1CC0B60700533B47 /* Shipdeck3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck3_1.png; path = Resources/Graph/Ship/Shipdeck3_1.png; sourceTree = "<group>"; };
+		270AB1ED1CC0B60700533B47 /* Shipdeck3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck3.png; path = Resources/Graph/Ship/Shipdeck3.png; sourceTree = "<group>"; };
+		270AB1F21CC75C9000533B47 /* Shipdeck6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck6.png; path = Resources/Graph/Ship/Shipdeck6.png; sourceTree = "<group>"; };
+		270AB1F31CC75C9000533B47 /* Shipdeck8_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck8_3.png; path = Resources/Graph/Ship/Shipdeck8_3.png; sourceTree = "<group>"; };
+		270AB1F41CC75C9000533B47 /* Shipdeck8_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck8_4.png; path = Resources/Graph/Ship/Shipdeck8_4.png; sourceTree = "<group>"; };
+		270AB1F51CC75C9000533B47 /* Shipdeck5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck5.png; path = Resources/Graph/Ship/Shipdeck5.png; sourceTree = "<group>"; };
+		270AB1F61CC75C9000533B47 /* Shipdeck2_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck2_2.png; path = Resources/Graph/Ship/Shipdeck2_2.png; sourceTree = "<group>"; };
+		270AB1F71CC75C9000533B47 /* Shipdeck2_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck2_3.png; path = Resources/Graph/Ship/Shipdeck2_3.png; sourceTree = "<group>"; };
+		270AB1F81CC75C9000533B47 /* Shipdeck8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck8.png; path = Resources/Graph/Ship/Shipdeck8.png; sourceTree = "<group>"; };
+		270AB1F91CC75C9000533B47 /* Shipdeck2_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck2_1.png; path = Resources/Graph/Ship/Shipdeck2_1.png; sourceTree = "<group>"; };
+		270AB1FA1CC75C9000533B47 /* Shipdeck7_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck7_7.png; path = Resources/Graph/Ship/Shipdeck7_7.png; sourceTree = "<group>"; };
+		270AB1FB1CC75C9000533B47 /* Shipdeck7_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck7_8.png; path = Resources/Graph/Ship/Shipdeck7_8.png; sourceTree = "<group>"; };
+		270AB1FC1CC75C9000533B47 /* Shipdeck7_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck7_2.png; path = Resources/Graph/Ship/Shipdeck7_2.png; sourceTree = "<group>"; };
+		270AB1FD1CC75C9000533B47 /* Shipdeck7_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck7_3.png; path = Resources/Graph/Ship/Shipdeck7_3.png; sourceTree = "<group>"; };
+		270AB1FE1CC75C9000533B47 /* Shipdeck7_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck7_4.png; path = Resources/Graph/Ship/Shipdeck7_4.png; sourceTree = "<group>"; };
+		270AB1FF1CC75C9000533B47 /* Shipdeck7_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck7_5.png; path = Resources/Graph/Ship/Shipdeck7_5.png; sourceTree = "<group>"; };
+		270AB2001CC75C9000533B47 /* Shipdeck7_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck7_6.png; path = Resources/Graph/Ship/Shipdeck7_6.png; sourceTree = "<group>"; };
+		270AB2011CC75C9000533B47 /* Shipdeck7_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck7_1.png; path = Resources/Graph/Ship/Shipdeck7_1.png; sourceTree = "<group>"; };
+		270AB2021CC75C9000533B47 /* Shipdeck7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck7.png; path = Resources/Graph/Ship/Shipdeck7.png; sourceTree = "<group>"; };
+		270AB2031CC75C9000533B47 /* Shipdeck8_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck8_1.png; path = Resources/Graph/Ship/Shipdeck8_1.png; sourceTree = "<group>"; };
+		270AB2041CC75C9000533B47 /* Shipdeck8_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck8_2.png; path = Resources/Graph/Ship/Shipdeck8_2.png; sourceTree = "<group>"; };
+		270AB2051CC75C9000533B47 /* Shipdeck8_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck8_5.png; path = Resources/Graph/Ship/Shipdeck8_5.png; sourceTree = "<group>"; };
+		270AB21A1CC75D3400533B47 /* 35-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "35-1.png"; path = "Resources/Graph/Ship/35-1.png"; sourceTree = "<group>"; };
+		270AB21B1CC75D3400533B47 /* 37-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37-1.png"; path = "Resources/Graph/Ship/37-1.png"; sourceTree = "<group>"; };
+		270AB21C1CC75D3400533B47 /* 38-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "38-1.png"; path = "Resources/Graph/Ship/38-1.png"; sourceTree = "<group>"; };
+		270AB21D1CC75D3400533B47 /* 39-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "39-1.png"; path = "Resources/Graph/Ship/39-1.png"; sourceTree = "<group>"; };
+		270AB21E1CC75D3400533B47 /* Shipdeck1_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck1_1.png; path = Resources/Graph/Ship/Shipdeck1_1.png; sourceTree = "<group>"; };
+		270AB21F1CC75D3400533B47 /* 30-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "30-1.png"; path = "Resources/Graph/Ship/30-1.png"; sourceTree = "<group>"; };
+		270AB2201CC75D3400533B47 /* 31-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "31-1.png"; path = "Resources/Graph/Ship/31-1.png"; sourceTree = "<group>"; };
+		270AB2211CC75D3400533B47 /* 32-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "32-1.png"; path = "Resources/Graph/Ship/32-1.png"; sourceTree = "<group>"; };
+		270AB2221CC75D3400533B47 /* 33-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "33-1.png"; path = "Resources/Graph/Ship/33-1.png"; sourceTree = "<group>"; };
+		270AB2231CC75D3400533B47 /* 34-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "34-1.png"; path = "Resources/Graph/Ship/34-1.png"; sourceTree = "<group>"; };
+		270AB2241CC75D3400533B47 /* 24-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "24-1.png"; path = "Resources/Graph/Ship/24-1.png"; sourceTree = "<group>"; };
+		270AB2251CC75D3400533B47 /* 25-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "25-1.png"; path = "Resources/Graph/Ship/25-1.png"; sourceTree = "<group>"; };
+		270AB2261CC75D3400533B47 /* 27-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "27-1.png"; path = "Resources/Graph/Ship/27-1.png"; sourceTree = "<group>"; };
+		270AB2271CC75D3400533B47 /* 23-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "23-1.png"; path = "Resources/Graph/Ship/23-1.png"; sourceTree = "<group>"; };
+		274EE2711CCA00E20082B982 /* Shipdeck_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck_select.png; path = Resources/Graph/Ship/Shipdeck_select.png; sourceTree = "<group>"; };
+		274EE2731CCA01960082B982 /* Shipdeck_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck_selected.png; path = Resources/Graph/Ship/Shipdeck_selected.png; sourceTree = "<group>"; };
 		278F4A481C83D31400D724EF /* StoryTriggerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryTriggerData.h; path = Classes/DataProcessing/StoryTriggerData.h; sourceTree = "<group>"; };
 		278F4A491C83D31400D724EF /* StoryTriggerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryTriggerData.m; path = Classes/DataProcessing/StoryTriggerData.m; sourceTree = "<group>"; };
 		278F4A4B1C83D65800D724EF /* GameStoryTriggerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameStoryTriggerManager.h; path = Classes/Data/GameStoryTriggerManager.h; sourceTree = "<group>"; };
@@ -1489,6 +1586,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270AB1D91CB78F1600533B47 /* Ship */ = {
+			isa = PBXGroup;
+			children = (
+				274EE2731CCA01960082B982 /* Shipdeck_selected.png */,
+				274EE2711CCA00E20082B982 /* Shipdeck_select.png */,
+				270AB21A1CC75D3400533B47 /* 35-1.png */,
+				270AB21B1CC75D3400533B47 /* 37-1.png */,
+				270AB21C1CC75D3400533B47 /* 38-1.png */,
+				270AB21D1CC75D3400533B47 /* 39-1.png */,
+				270AB21E1CC75D3400533B47 /* Shipdeck1_1.png */,
+				270AB21F1CC75D3400533B47 /* 30-1.png */,
+				270AB2201CC75D3400533B47 /* 31-1.png */,
+				270AB2211CC75D3400533B47 /* 32-1.png */,
+				270AB2221CC75D3400533B47 /* 33-1.png */,
+				270AB2231CC75D3400533B47 /* 34-1.png */,
+				270AB2241CC75D3400533B47 /* 24-1.png */,
+				270AB2251CC75D3400533B47 /* 25-1.png */,
+				270AB2261CC75D3400533B47 /* 27-1.png */,
+				270AB2271CC75D3400533B47 /* 23-1.png */,
+				270AB1F21CC75C9000533B47 /* Shipdeck6.png */,
+				270AB1F31CC75C9000533B47 /* Shipdeck8_3.png */,
+				270AB1F41CC75C9000533B47 /* Shipdeck8_4.png */,
+				270AB1F51CC75C9000533B47 /* Shipdeck5.png */,
+				270AB1F61CC75C9000533B47 /* Shipdeck2_2.png */,
+				270AB1F71CC75C9000533B47 /* Shipdeck2_3.png */,
+				270AB1F81CC75C9000533B47 /* Shipdeck8.png */,
+				270AB1F91CC75C9000533B47 /* Shipdeck2_1.png */,
+				270AB1FA1CC75C9000533B47 /* Shipdeck7_7.png */,
+				270AB1FB1CC75C9000533B47 /* Shipdeck7_8.png */,
+				270AB1FC1CC75C9000533B47 /* Shipdeck7_2.png */,
+				270AB1FD1CC75C9000533B47 /* Shipdeck7_3.png */,
+				270AB1FE1CC75C9000533B47 /* Shipdeck7_4.png */,
+				270AB1FF1CC75C9000533B47 /* Shipdeck7_5.png */,
+				270AB2001CC75C9000533B47 /* Shipdeck7_6.png */,
+				270AB2011CC75C9000533B47 /* Shipdeck7_1.png */,
+				270AB2021CC75C9000533B47 /* Shipdeck7.png */,
+				270AB2031CC75C9000533B47 /* Shipdeck8_1.png */,
+				270AB2041CC75C9000533B47 /* Shipdeck8_2.png */,
+				270AB2051CC75C9000533B47 /* Shipdeck8_5.png */,
+				270AB1EB1CC0B60700533B47 /* Shipdeck4.png */,
+				270AB1EC1CC0B60700533B47 /* Shipdeck3_1.png */,
+				270AB1ED1CC0B60700533B47 /* Shipdeck3.png */,
+				270AB1E41CC0A9AF00533B47 /* Shipdeck2.png */,
+				270AB1E51CC0A9AF00533B47 /* Shipdeck1.png */,
+				270AB1DA1CB78F4000533B47 /* Deckship3.png */,
+				270AB1DB1CB78F4000533B47 /* Deckship2.png */,
+				270AB1DC1CB78F4000533B47 /* Deckship1.png */,
+			);
+			name = Ship;
+			sourceTree = "<group>";
+		};
 		278F4A511C8427EB00D724EF /* BGM */ = {
 			isa = PBXGroup;
 			children = (
@@ -2412,6 +2560,8 @@
 		279BAD061C59E9480069EF5D /* DataProcessing */ = {
 			isa = PBXGroup;
 			children = (
+				270AB1E01CB790F400533B47 /* ShipStyleData.h */,
+				270AB1E11CB790F400533B47 /* ShipStyleData.m */,
 				270AB1C31C993D4000533B47 /* ActionData.h */,
 				270AB1C41C993D4000533B47 /* ActionData.m */,
 				27ACAB011C94EFB6005C0881 /* SkillData.h */,
@@ -2557,6 +2707,8 @@
 				27C26E321C802F98009EDE53 /* RoleDescriptionScene.m */,
 				270AB1C61C9A61C700533B47 /* DuelScene.h */,
 				270AB1C71C9A61C700533B47 /* DuelScene.m */,
+				270AB1D61CB780B300533B47 /* ShipScene.h */,
+				270AB1D71CB780B300533B47 /* ShipScene.m */,
 			);
 			name = UIScene;
 			sourceTree = "<group>";
@@ -2813,6 +2965,8 @@
 				27C26E511C8125BD009EDE53 /* DialogPhotoIcon.m */,
 				27ACAB201C966EAC005C0881 /* RoleAnimation.h */,
 				27ACAB211C966EAC005C0881 /* RoleAnimation.m */,
+				270AB1E81CC0AA4F00533B47 /* ShipdeckIcon.h */,
+				270AB1E91CC0AA4F00533B47 /* ShipdeckIcon.m */,
 			);
 			name = Icon;
 			sourceTree = "<group>";
@@ -2876,6 +3030,7 @@
 		27E040B01C5C2EA90068171E /* Graph */ = {
 			isa = PBXGroup;
 			children = (
+				270AB1D91CB78F1600533B47 /* Ship */,
 				27ACAB231C96748A005C0881 /* Character */,
 				27C26DCE1C6FF867009EDE53 /* Map */,
 				27C26DC01C6C124E009EDE53 /* Photo */,
@@ -3120,6 +3275,7 @@
 				27C26DF91C741A4E009EDE53 /* Map7.jpg in Resources */,
 				27C26CFA1C608E74009EDE53 /* money_bag.png in Resources */,
 				27ACAB751C9674C4005C0881 /* c000_19-1.png in Resources */,
+				270AB2161CC75C9000533B47 /* Shipdeck7.png in Resources */,
 				270AB1CE1C9BCC1900533B47 /* DuelBackground.png in Resources */,
 				27ACAB7E1C9674C4005C0881 /* c008_7-1.png in Resources */,
 				27ACAB731C9674C4005C0881 /* c000_17-1.png in Resources */,
@@ -3127,6 +3283,7 @@
 				27C26F2B1C82A7C1009EDE53 /* goods18.jpg in Resources */,
 				27ACAB8E1C9674C4005C0881 /* c045_2-1.png in Resources */,
 				27C26EE71C82A7C1009EDE53 /* goods86.jpg in Resources */,
+				270AB2191CC75C9000533B47 /* Shipdeck8_5.png in Resources */,
 				27ACAB7F1C9674C4005C0881 /* c008_8-1.png in Resources */,
 				27C26EFE1C82A7C1009EDE53 /* goods63.jpg in Resources */,
 				27C26F351C82A7C1009EDE53 /* goods9.jpg in Resources */,
@@ -3147,11 +3304,14 @@
 				27C26EE01C82A7C1009EDE53 /* goods93.jpg in Resources */,
 				27C26DFE1C741A4E009EDE53 /* Map2.jpg in Resources */,
 				27C26F1C1C82A7C1009EDE53 /* goods33.jpg in Resources */,
+				270AB1EF1CC0B60700533B47 /* Shipdeck3_1.png in Resources */,
 				27ACAB8F1C9674C4005C0881 /* c045_3-1.png in Resources */,
+				270AB2331CC75D3400533B47 /* 25-1.png in Resources */,
 				27C26CE51C5FDA1B009EDE53 /* citySystemBar.png in Resources */,
 				27C26EE41C82A7C1009EDE53 /* goods89.jpg in Resources */,
 				279BACEB1C59E3B90069EF5D /* LICENSE_Chipmunk.txt in Resources */,
 				27C26E4C1C811090009EDE53 /* Portrait2.png in Resources */,
+				270AB2341CC75D3400533B47 /* 27-1.png in Resources */,
 				27C26F4A1C82A7C1009EDE53 /* ship10.jpg in Resources */,
 				27C26F411C82A7C1009EDE53 /* ship19.jpg in Resources */,
 				27ACAB7A1C9674C4005C0881 /* c008_3-1.png in Resources */,
@@ -3166,12 +3326,14 @@
 				27C26CDF1C5F48B6009EDE53 /* city_building_10.png in Resources */,
 				27C26EFC1C82A7C1009EDE53 /* goods65.jpg in Resources */,
 				279BAA531C59E3B50069EF5D /* Icon-120.png in Resources */,
+				270AB1DE1CB78F4000533B47 /* Deckship2.png in Resources */,
 				27ACAB7C1C9674C4005C0881 /* c008_5-1.png in Resources */,
 				27C26D531C6470BC009EDE53 /* ShipFrame.png in Resources */,
 				27C26F191C82A7C1009EDE53 /* goods36.jpg in Resources */,
 				27C26F1A1C82A7C1009EDE53 /* goods35.jpg in Resources */,
 				279BAA491C59E3B50069EF5D /* Icon@2x.png in Resources */,
 				27C26CDD1C5F48B6009EDE53 /* city_building_8.png in Resources */,
+				270AB2291CC75D3400533B47 /* 37-1.png in Resources */,
 				27C26F221C82A7C1009EDE53 /* goods27.jpg in Resources */,
 				27E040B31C5C2F3B0068171E /* bg1.jpg in Resources */,
 				27ACAB921C9674C4005C0881 /* c045_6-1.png in Resources */,
@@ -3179,10 +3341,13 @@
 				27ACAB6F1C9674C4005C0881 /* c000_13-1.png in Resources */,
 				27C26F481C82A7C1009EDE53 /* ship12.jpg in Resources */,
 				279BAA5B1C59E3B50069EF5D /* Icon-Small@2x.png in Resources */,
+				270AB2121CC75C9000533B47 /* Shipdeck7_4.png in Resources */,
+				270AB1DD1CB78F4000533B47 /* Deckship3.png in Resources */,
 				27ACAB661C9674C4005C0881 /* c000_4-1.png in Resources */,
 				27ACAB981C9674C4005C0881 /* c045_12-1.png in Resources */,
 				27C26F0C1C82A7C1009EDE53 /* goods49.jpg in Resources */,
 				27C26F0E1C82A7C1009EDE53 /* goods47.jpg in Resources */,
+				270AB2181CC75C9000533B47 /* Shipdeck8_2.png in Resources */,
 				27C26E4D1C811090009EDE53 /* SmallPortrait1.png in Resources */,
 				27C26F3F1C82A7C1009EDE53 /* ship21.jpg in Resources */,
 				27C26F151C82A7C1009EDE53 /* goods40.jpg in Resources */,
@@ -3209,30 +3374,38 @@
 				27C26D5F1C6492C8009EDE53 /* ship1.jpg in Resources */,
 				27C26EF71C82A7C1009EDE53 /* goods70.jpg in Resources */,
 				27C26F1E1C82A7C1009EDE53 /* goods31.jpg in Resources */,
+				270AB22D1CC75D3400533B47 /* 30-1.png in Resources */,
 				27ACAB781C9674C4005C0881 /* c008_1-1.png in Resources */,
 				279BAA3E1C59E3B50069EF5D /* Default.png in Resources */,
+				270AB2301CC75D3400533B47 /* 33-1.png in Resources */,
 				27C26F3B1C82A7C1009EDE53 /* ship25.jpg in Resources */,
+				270AB22E1CC75D3400533B47 /* 31-1.png in Resources */,
 				27ACAB851C9674C4005C0881 /* c008_14-1.png in Resources */,
 				27C26CDC1C5F48B6009EDE53 /* city_building_7.png in Resources */,
 				27C26EDE1C82A7C1009EDE53 /* goods95.jpg in Resources */,
 				27C26CDE1C5F48B6009EDE53 /* city_building_9.png in Resources */,
 				27C26D611C6492C8009EDE53 /* ship3.jpg in Resources */,
 				27C26ED71C82A7C1009EDE53 /* goods102.jpg in Resources */,
+				270AB2091CC75C9000533B47 /* Shipdeck5.png in Resources */,
 				27E040C11C5C3A940068171E /* bgBGM.m4v in Resources */,
 				279BAA471C59E3B50069EF5D /* Icon.png in Resources */,
 				27C26DBF1C6C102E009EDE53 /* photoFrame.png in Resources */,
+				270AB2071CC75C9000533B47 /* Shipdeck8_3.png in Resources */,
 				27C26F4F1C82A7C1009EDE53 /* ship5.jpg in Resources */,
 				27C26EE51C82A7C1009EDE53 /* goods88.jpg in Resources */,
 				27ACAB951C9674C4005C0881 /* c045_9-1.png in Resources */,
 				27C26D591C647A05009EDE53 /* rightArrowButton.png in Resources */,
 				27C26F391C82A7C1009EDE53 /* goods4.jpg in Resources */,
 				27C26EFA1C82A7C1009EDE53 /* goods67.jpg in Resources */,
+				270AB22F1CC75D3400533B47 /* 32-1.png in Resources */,
 				27C26F071C82A7C1009EDE53 /* goods54.jpg in Resources */,
 				279BAA551C59E3B50069EF5D /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
+				270AB20D1CC75C9000533B47 /* Shipdeck2_1.png in Resources */,
 				27C26DBA1C6C00BF009EDE53 /* dialogFrame.png in Resources */,
 				27C26EF11C82A7C1009EDE53 /* goods76.jpg in Resources */,
 				27C26F0F1C82A7C1009EDE53 /* goods46.jpg in Resources */,
 				270AB1C21C97EA0500533B47 /* RoleInfoPanel.jpg in Resources */,
+				270AB20B1CC75C9000533B47 /* Shipdeck2_3.png in Resources */,
 				27C26F1D1C82A7C1009EDE53 /* goods32.jpg in Resources */,
 				27C26EE11C82A7C1009EDE53 /* goods92.jpg in Resources */,
 				27C26ED61C82A7C1009EDE53 /* goods103.jpg in Resources */,
@@ -3249,15 +3422,18 @@
 				27C26D651C649ADB009EDE53 /* shipIconFrame.png in Resources */,
 				27C26DCD1C6DD552009EDE53 /* sailScene.png in Resources */,
 				27ACABA11C9674C4005C0881 /* c045_21-1.png in Resources */,
+				270AB20F1CC75C9000533B47 /* Shipdeck7_8.png in Resources */,
 				27C26CFE1C615F1B009EDE53 /* trade.png in Resources */,
 				27ACAB971C9674C4005C0881 /* c045_11-1.png in Resources */,
 				27C26EDB1C82A7C1009EDE53 /* goods98.jpg in Resources */,
 				27C26F0B1C82A7C1009EDE53 /* goods50.jpg in Resources */,
 				27C26F3E1C82A7C1009EDE53 /* ship22.jpg in Resources */,
 				27C26F1F1C82A7C1009EDE53 /* goods30.jpg in Resources */,
+				270AB1DF1CB78F4000533B47 /* Deckship1.png in Resources */,
 				27C26F471C82A7C1009EDE53 /* ship13.jpg in Resources */,
 				27ACAB8A1C9674C4005C0881 /* c008_19-1.png in Resources */,
 				27ACAAED1C88CEB9005C0881 /* dialogPortraitExchange1.png in Resources */,
+				274EE2741CCA01960082B982 /* Shipdeck_selected.png in Resources */,
 				27C26D7E1C65BFFE009EDE53 /* goods2.jpg in Resources */,
 				27ACAB801C9674C4005C0881 /* c008_9-1.png in Resources */,
 				27C26F4D1C82A7C1009EDE53 /* ship7.jpg in Resources */,
@@ -3267,8 +3443,10 @@
 				27C26F001C82A7C1009EDE53 /* goods61.jpg in Resources */,
 				279BAA441C59E3B50069EF5D /* Default-Landscape~ipad.png in Resources */,
 				27C26F441C82A7C1009EDE53 /* ship16.jpg in Resources */,
+				270AB2351CC75D3400533B47 /* 23-1.png in Resources */,
 				27C26E471C8100D0009EDE53 /* seaWave.m4v in Resources */,
 				27C26F031C82A7C1009EDE53 /* goods58.jpg in Resources */,
+				270AB1F01CC0B60700533B47 /* Shipdeck3.png in Resources */,
 				279BAA591C59E3B50069EF5D /* Icon-Small.png in Resources */,
 				279BAA571C59E3B50069EF5D /* Icon-Small-50.png in Resources */,
 				27ACABA01C9674C4005C0881 /* c045_20-1.png in Resources */,
@@ -3278,6 +3456,7 @@
 				27C26F281C82A7C1009EDE53 /* goods21.jpg in Resources */,
 				279BACF81C59E3B90069EF5D /* white_square.png in Resources */,
 				27C26EF21C82A7C1009EDE53 /* goods75.jpg in Resources */,
+				270AB2151CC75C9000533B47 /* Shipdeck7_1.png in Resources */,
 				27C26EE31C82A7C1009EDE53 /* goods90.jpg in Resources */,
 				27ACAB6E1C9674C4005C0881 /* c000_12-1.png in Resources */,
 				27C26E2A1C80151E009EDE53 /* peopleFrame.png in Resources */,
@@ -3299,14 +3478,17 @@
 				27ACAB961C9674C4005C0881 /* c045_10-1.png in Resources */,
 				27C26D761C658928009EDE53 /* goodsIconFrame.png in Resources */,
 				279BAA4B1C59E3B50069EF5D /* Icon-72.png in Resources */,
+				270AB20A1CC75C9000533B47 /* Shipdeck2_2.png in Resources */,
 				27ACAB761C9674C4005C0881 /* c000_20-1.png in Resources */,
 				27C26E591C819504009EDE53 /* dialogPortrait3.png in Resources */,
 				27C26D7F1C65BFFE009EDE53 /* goods3.jpg in Resources */,
 				27C26DFB1C741A4E009EDE53 /* Map5.jpg in Resources */,
 				27C26EFB1C82A7C1009EDE53 /* goods66.jpg in Resources */,
+				270AB20C1CC75C9000533B47 /* Shipdeck8.png in Resources */,
 				279BAB461C59E3B70069EF5D /* LICENSE_cocos2d.txt in Resources */,
 				27C26EDC1C82A7C1009EDE53 /* goods97.jpg in Resources */,
 				27C26CDB1C5F48B6009EDE53 /* city_building_6.png in Resources */,
+				270AB2281CC75D3400533B47 /* 35-1.png in Resources */,
 				27ACAB7D1C9674C4005C0881 /* c008_6-1.png in Resources */,
 				27C26DC81C6DB238009EDE53 /* dialogPortrait1.png in Resources */,
 				27C26F2C1C82A7C1009EDE53 /* goods4.psd in Resources */,
@@ -3321,7 +3503,9 @@
 				27C26CF01C604E61009EDE53 /* invest.png in Resources */,
 				27ACAB881C9674C4005C0881 /* c008_17-1.png in Resources */,
 				27C26F041C82A7C1009EDE53 /* goods57.jpg in Resources */,
+				270AB2101CC75C9000533B47 /* Shipdeck7_2.png in Resources */,
 				27C26F401C82A7C1009EDE53 /* ship20.jpg in Resources */,
+				274EE2721CCA00E20082B982 /* Shipdeck_select.png in Resources */,
 				27ACAB9D1C9674C4005C0881 /* c045_17-1.png in Resources */,
 				27ACAB6C1C9674C4005C0881 /* c000_10-1.png in Resources */,
 				27C26CE01C5F48B6009EDE53 /* city_building_11.png in Resources */,
@@ -3329,12 +3513,15 @@
 				27C26F3C1C82A7C1009EDE53 /* ship24.jpg in Resources */,
 				27ACAB051C94FC63005C0881 /* InfoBox.jpg in Resources */,
 				27C26DD41C700860009EDE53 /* city1.png in Resources */,
+				270AB22A1CC75D3400533B47 /* 38-1.png in Resources */,
 				27C26E451C80F73B009EDE53 /* seagull.m4v in Resources */,
 				27C26EFF1C82A7C1009EDE53 /* goods62.jpg in Resources */,
 				279BAA421C59E3B50069EF5D /* Default-568h@2x.png in Resources */,
 				27C26F4C1C82A7C1009EDE53 /* ship8.jpg in Resources */,
 				27E040BA1C5C35020068171E /* button_up.png in Resources */,
+				270AB20E1CC75C9000533B47 /* Shipdeck7_7.png in Resources */,
 				279BAA621C59E3B50069EF5D /* iTunesArtwork in Resources */,
+				270AB2111CC75C9000533B47 /* Shipdeck7_3.png in Resources */,
 				27C26E491C810221009EDE53 /* CG_2.png in Resources */,
 				27ACAB6D1C9674C4005C0881 /* c000_11-1.png in Resources */,
 				27C26F261C82A7C1009EDE53 /* goods23.jpg in Resources */,
@@ -3347,10 +3534,13 @@
 				27C26F141C82A7C1009EDE53 /* goods41.jpg in Resources */,
 				27ACAB931C9674C4005C0881 /* c045_7-1.png in Resources */,
 				27C26F081C82A7C1009EDE53 /* goods53.jpg in Resources */,
+				270AB2061CC75C9000533B47 /* Shipdeck6.png in Resources */,
 				279BAA5D1C59E3B50069EF5D /* Icon-Spotlight-iOS7.png in Resources */,
 				27ACAB711C9674C4005C0881 /* c000_15-1.png in Resources */,
+				270AB1E71CC0A9AF00533B47 /* Shipdeck1.png in Resources */,
 				27C26D5B1C647B01009EDE53 /* leftArrowButton.png in Resources */,
 				27C26F171C82A7C1009EDE53 /* goods38.jpg in Resources */,
+				270AB22C1CC75D3400533B47 /* Shipdeck1_1.png in Resources */,
 				27C26DD01C6FF879009EDE53 /* Map1.jpg in Resources */,
 				27C26F011C82A7C1009EDE53 /* goods60.jpg in Resources */,
 				27C26F251C82A7C1009EDE53 /* goods24.jpg in Resources */,
@@ -3358,10 +3548,15 @@
 				27ACAB9B1C9674C4005C0881 /* c045_15-1.png in Resources */,
 				27C26F491C82A7C1009EDE53 /* ship11.jpg in Resources */,
 				279BAA511C59E3B50069EF5D /* Icon-76@2x.png in Resources */,
+				270AB2081CC75C9000533B47 /* Shipdeck8_4.png in Resources */,
+				270AB2311CC75D3400533B47 /* 34-1.png in Resources */,
 				27ACAB861C9674C4005C0881 /* c008_15-1.png in Resources */,
 				27ACAB8D1C9674C4005C0881 /* c045_1-1.png in Resources */,
 				27ACAB891C9674C4005C0881 /* c008_18-1.png in Resources */,
+				270AB1EE1CC0B60700533B47 /* Shipdeck4.png in Resources */,
+				270AB2131CC75C9000533B47 /* Shipdeck7_5.png in Resources */,
 				27ACAB811C9674C4005C0881 /* c008_10-1.png in Resources */,
+				270AB2321CC75D3400533B47 /* 24-1.png in Resources */,
 				270AB1CA1C9A695D00533B47 /* duleDialog.png in Resources */,
 				27ACAB911C9674C4005C0881 /* c045_5-1.png in Resources */,
 				279BAA5F1C59E3B50069EF5D /* Icon-Spotlight-iOS7@2x.png in Resources */,
@@ -3374,6 +3569,7 @@
 				27C26EEA1C82A7C1009EDE53 /* goods83.jpg in Resources */,
 				27ACAB9C1C9674C4005C0881 /* c045_16-1.png in Resources */,
 				27C26E431C80DE32009EDE53 /* CG_1.png in Resources */,
+				270AB22B1CC75D3400533B47 /* 39-1.png in Resources */,
 				27ACAB701C9674C4005C0881 /* c000_14-1.png in Resources */,
 				27ACAB8B1C9674C4005C0881 /* c008_20-1.png in Resources */,
 				27ACAB9E1C9674C4005C0881 /* c045_18-1.png in Resources */,
@@ -3381,6 +3577,9 @@
 				27C26F091C82A7C1009EDE53 /* goods52.jpg in Resources */,
 				27C26EF31C82A7C1009EDE53 /* goods74.jpg in Resources */,
 				27C26F101C82A7C1009EDE53 /* goods45.jpg in Resources */,
+				270AB1E61CC0A9AF00533B47 /* Shipdeck2.png in Resources */,
+				270AB2141CC75C9000533B47 /* Shipdeck7_6.png in Resources */,
+				270AB2171CC75C9000533B47 /* Shipdeck8_1.png in Resources */,
 				27C26DFC1C741A4E009EDE53 /* Map4.jpg in Resources */,
 				27C26F371C82A7C1009EDE53 /* goods7.jpg in Resources */,
 				27C26EF51C82A7C1009EDE53 /* goods72.jpg in Resources */,
@@ -3506,6 +3705,7 @@
 				279BAAAA1C59E3B60069EF5D /* CCAnimation.m in Sources */,
 				279BAC101C59E3B80069EF5D /* CCBKeyframe.m in Sources */,
 				27C26D8D1C695291009EDE53 /* TeamData.m in Sources */,
+				270AB1EA1CC0AA4F00533B47 /* ShipdeckIcon.m in Sources */,
 				279BAB991C59E3B70069EF5D /* CCButton.m in Sources */,
 				279BAC6B1C59E3B90069EF5D /* IOSVersion.m in Sources */,
 				279BAC631C59E3B80069EF5D /* OALAudioSession.m in Sources */,
@@ -3542,6 +3742,7 @@
 				279BAC161C59E3B80069EF5D /* CCBsequence.m in Sources */,
 				279BAADB1C59E3B60069EF5D /* CCNode.m in Sources */,
 				279BAA841C59E3B60069EF5D /* CCRenderer.m in Sources */,
+				270AB1E21CB790F400533B47 /* ShipStyleData.m in Sources */,
 				27C26DB21C6BEFFF009EDE53 /* CGStoryScene.m in Sources */,
 				279BAB841C59E3B70069EF5D /* CCEffectColor.m in Sources */,
 				279BAAE21C59E3B60069EF5D /* CCParallaxNode.m in Sources */,
@@ -3564,6 +3765,7 @@
 				279BAB3A1C59E3B70069EF5D /* CCTiledMapObjectGroup.m in Sources */,
 				278F4A4D1C83D65800D724EF /* GameStoryTriggerManager.m in Sources */,
 				279BABDC1C59E3B80069EF5D /* NSEvent+CC.m in Sources */,
+				270AB1D81CB780B300533B47 /* ShipScene.m in Sources */,
 				279BAAA31C59E3B60069EF5D /* CCActionProgressTimer.m in Sources */,
 				27C26D571C647156009EDE53 /* ShipExchangeUnit.m in Sources */,
 				279BABF51C59E3B80069EF5D /* CGPointExtension.m in Sources */,

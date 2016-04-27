@@ -18,6 +18,7 @@ static DataManager *_sharedDataManager;
 	RouteDic *_routeDic;
 	SeaAreaDic *_seaAreaDic;
 	ShipDic *_shipDic;
+	ShipStyleDic *_shipStyleDic;
 	SkillDic *_skillDic;
 	StoryDic *_storyDic;
 	StoryTriggerDic *_storyTriggerDic;
@@ -44,6 +45,7 @@ static DataManager *_sharedDataManager;
 		_routeDic = [[RouteDic alloc] initWithByteBuffer:buffer];
 		_seaAreaDic = [[SeaAreaDic alloc] initWithByteBuffer:buffer];
 		_shipDic = [[ShipDic alloc] initWithByteBuffer:buffer];
+		_shipStyleDic = [[ShipStyleDic alloc] initWithByteBuffer:buffer];
 		_skillDic = [[SkillDic alloc] initWithByteBuffer:buffer];
 		_storyDic = [[StoryDic alloc] initWithByteBuffer:buffer];
 		_storyTriggerDic = [[StoryTriggerDic alloc] initWithByteBuffer:buffer];
@@ -130,6 +132,11 @@ static DataManager *_sharedDataManager;
 -(ShipDic *)getShipDic
 {
 	return _shipDic;
+}
+
+-(ShipStyleDic *)getShipStyleDic
+{
+	return _shipStyleDic;
 }
 
 -(SkillDic *)getSkillDic

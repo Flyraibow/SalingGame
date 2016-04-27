@@ -30,6 +30,9 @@
 @property (nonatomic, readonly) int cannonPower;
 @property (nonatomic, readonly) int spareRoom;
 @property (nonatomic, readonly) NSMutableArray *goodsList;
+@property (nonatomic, readonly, weak) ShipData *shipData;
+@property (nonatomic, readonly) int price;
+@property (nonatomic, readonly) NSArray *equipList;
 
 
 -(instancetype)initWithShipData:(ShipData *)shipData;

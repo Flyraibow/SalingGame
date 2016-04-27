@@ -8,11 +8,14 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
+#import "ShipExchangeUnit.h"
 
 @interface ShipExchangeScene : CCScene
 
+@property (nonatomic, assign, readonly) ShipSceneType sceneType;
+
 -(instancetype)initWithCityNo:(NSString *)cityNo;
 
--(instancetype)initWithShipList:(NSArray *)shipList;
+-(instancetype)initWithShipList:(NSArray *)shipList sceneType:(ShipSceneType)sceneType;
 
 @end
