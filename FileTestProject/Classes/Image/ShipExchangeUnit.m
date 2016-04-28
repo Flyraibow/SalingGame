@@ -28,6 +28,19 @@
     DefaultButton *_btnAction;
     GameShipData *_gameShipData;
     NSInteger _dealPrice;
+    
+    CCLabelTTF *_labShipSize;
+    CCLabelTTF *_labShipStyle;
+    CCLabelTTF *_labShipCapacity;
+    CCLabelTTF *_labShipFoodCapacity;
+    CCLabelTTF *_labShipDuration;
+    CCLabelTTF *_labShipAgile;
+    CCLabelTTF *_labShipMinSailorNum;
+    CCLabelTTF *_labShipMaxSailorNum;
+    CCLabelTTF *_labShipSpeed;
+    CCLabelTTF *_labShipCannonNum;
+    CCLabelTTF *_labShipCannonPower;
+    CCLabelTTF *_labShipSpareRoomNum;
 }
 
 -(void)commonInitFunction:(NSString *)iconId;
@@ -50,7 +63,32 @@
     _labPrice.position = ccp(_iconFrame.position.x + _iconFrame.contentSize.width + 10,_labName.position.y - _labName.contentSize.height - 10);
     [self addChild:_labPrice];
     
-    // TODO: 添加其他的属性，如水手，炮数，威力，船速，物资仓库，货物仓库，耐久，灵活
+    // TODO: 添加其他的属性，如水手，炮数，威力，船速，物资仓库，货物仓库，耐久，灵活//completed
+    _labShipDuration = [CCLabelTTF labelWithString:@"1" fontName:nil fontSize:13];
+    _labShipDuration.positionType = CCPositionTypePoints;
+    _labShipDuration.anchorPoint = ccp(0, 1);
+    _labShipDuration.position = ccp(_iconFrame.position.x + _iconFrame.contentSize.width-50,_labPrice.position.y - _labPrice.contentSize.height - 15);
+    [self addChild:_labShipDuration];
+
+    _labShipMinSailorNum = [CCLabelTTF labelWithString:@"1" fontName:nil fontSize:13];
+    _labShipMinSailorNum.positionType = CCPositionTypePoints;
+    _labShipMinSailorNum.anchorPoint = ccp(0, 1);
+    _labShipMinSailorNum.position = ccp(_iconFrame.position.x + _iconFrame.contentSize.width -50,_labShipDuration.position.y - _labShipDuration.contentSize.height - 6);
+    [self addChild:_labShipMinSailorNum];
+    
+    _labShipSpeed = [CCLabelTTF labelWithString:@"1" fontName:nil fontSize:13];
+    _labShipSpeed.positionType = CCPositionTypePoints;
+    _labShipSpeed.anchorPoint = ccp(0, 1);
+    _labShipSpeed.position = ccp(_iconFrame.position.x + _iconFrame.contentSize.width -50,_labShipMinSailorNum.position.y - _labShipMinSailorNum.contentSize.height - 6);
+    [self addChild:_labShipSpeed];
+    
+    _labShipCannonNum = [CCLabelTTF labelWithString:@"1" fontName:nil fontSize:13];
+    _labShipCannonNum.positionType = CCPositionTypePoints;
+    _labShipCannonNum.anchorPoint = ccp(0, 1);
+    _labShipCannonNum.position = ccp(_iconFrame.position.x + _iconFrame.contentSize.width -50,_labShipSpeed.position.y - _labShipSpeed.contentSize.height - 6);
+    [self addChild:_labShipCannonNum];
+    
+    
     
     _btnAction = [DefaultButton buttonWithTitle:nil];
     _btnAction.positionType = CCPositionTypeNormalized;
@@ -72,6 +110,19 @@
         _labName.string = gameShipData.shipName;
         _dealPrice = shipData.price;
         _labPrice.string = [NSString stringWithFormat:getLocalString(@"ship_price"), _dealPrice];
+
+        //这里
+//        CCLabelTTF *_labShipDuration;
+         _labShipDuration.string=[NSString stringWithFormat:getLocalString(@"ship_duration"),shipData.duration];
+//        CCLabelTTF *_labShipMinSailorNum;
+         _labShipMinSailorNum.string=[NSString stringWithFormat:getLocalString(@"ship_minSailorNum"),shipData.minSailorNum];
+//        CCLabelTTF *_labShipSpeed;
+         _labShipSpeed.string=[NSString stringWithFormat:getLocalString(@"ship_speed"),shipData.speed];
+//        CCLabelTTF *_labShipCannonNum;
+         _labShipCannonNum.string=[NSString stringWithFormat:getLocalString(@"ship_cannonNum"),shipData.cannonNum];
+        
+        
+        
         if (sceneType == ShipSceneTypeBuy) {
             _btnAction.title = getLocalString(@"ship_buy");
         } else if (sceneType == ShipSceneTypeSell) {
