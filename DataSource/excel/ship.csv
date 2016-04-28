@@ -1,0 +1,1 @@
+shipId,guildName,icon,size,style,capacity,foodCapacity,duration,agile,price,minSailorNum,maxSailorNum,speed,cannonNum,cannonPower,spareRoomNumid,-,string,int,int,int,int,int,int,int,int,int,int,int,int,int1,___,1,1,1,1,1,20,60,500,1,5,4,0,0,02,_____,1,2,2,2,1,35,50,1500,3,15,5,2,1,03,_____,2,3,3,3,2,55,50,5000,15,45,6,10,2,14,_____,3,4,4,5,4,80,45,74000,60,120,8,30,3,2

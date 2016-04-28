@@ -1,0 +1,76 @@
+"ship_price" = "%d金币";
+"ship_buy" = "购买";
+"ship_sell" = "售出";
+"ship_modify" = "改造";
+
+"MerchantValue" = "发展度";
+"WeaponValue" = "武装度";
+"cityGoods" = "特产品";
+"lab_invest_money" = "投资额";
+
+"citySystemBar_1" = "航线图";
+"citySystemBar_2" = "航海日志";
+"citySystemBar_3" = "船只信息";
+"citySystemBar_4" = "船员信息";
+"citySystemBar_5" = "系统";
+
+"government_sign_up" = "签约";
+"government_invest" = "投资";
+"government_recommend" = "递交推荐信";
+
+"tavern_drink" = "喝酒";
+"tavern_buy_drink" = "请客";
+"tavern_hire" = "雇佣";
+"tavern_spread" = "散布谣言";
+"tavern_hire_full" = "满编雇佣";
+"tavern_hire_minimum" = "最小雇佣";
+
+"lab_goods_level" = "等级 %d";
+
+"lab_sold" = "卖出品";
+"lab_sell" = "特产品";
+"lab_income" = "总收入";
+"lab_outcome" = "总支出";
+"lab_balance" = "剩余金额";
+
+"exchange_trade" = "交易";
+"exchange_invest" = "商业投资";
+"exchange_information" = "商业情报";
+"shop_buy" = "购买";
+"shop_sale" = "贩卖";
+"shop_task" = "任务委托";
+"shop_mail" = "写信";
+"shipyard_buy" = "购入船只";
+"shipyard_sell" = "售出船只";
+"shipyard_modify" = "改造船只";
+"shipyard_fix" = "修理船只";
+"dock_sail" = "出海";
+"dock_supply" = "补给";
+
+"inn_one_day" = "休息一天";
+"inn_ten_day" = "休息十天";
+"inn_thirty_day" = "休息三十天";
+
+"lab_date" = "%d月 %d日";
+"lab_date_wy" = "%d年 %d月 %d日";
+"lab_hold_money" = "金币:";
+
+"btn_sure" = "确定";
+"btn_cancel" = "取消";
+"lab_close" = "关闭";
+"lab_sure" = "确定";
+"lab_save" = "储存";
+"lab_load" = "读取";
+"lab_setting" = "环境设定";
+
+"need_to_sign_before_exchange" = "对不起，你必须要先签约才能在这里做交易";
+"get_contract_money" = "独占契约，获得%d金币";
+
+"btn_show_buy_price" = "进价表示";
+"btn_show_level" = "等级表示";
+
+"ship_name_feihong" = "飞虹特别号";
+"dialog_signup_failure" = "对不起，我们城市无法再和其他势力签约。";
+"dialog_invest_failure" = "对不起你的钱不够。";
+"dialog_invest_success" = "投资成功";
+"dialog_signup" = "听说你要和我们签约？";
