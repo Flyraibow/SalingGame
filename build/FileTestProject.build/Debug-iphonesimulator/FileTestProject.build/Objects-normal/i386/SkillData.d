@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/SkillData.m \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/SkillData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/ByteBuffer.h
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/SkillData.m \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/SkillData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ByteBuffer.h

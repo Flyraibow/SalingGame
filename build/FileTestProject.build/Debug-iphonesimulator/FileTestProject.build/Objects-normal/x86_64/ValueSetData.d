@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/ValueSetData.m \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/ValueSetData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/ByteBuffer.h
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ValueSetData.m \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ValueSetData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ByteBuffer.h

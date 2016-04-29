@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Libraries/cocos2d/Support/CCRendererGLSupport.m
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Libraries/cocos2d/Support/CCRendererGLSupport.m

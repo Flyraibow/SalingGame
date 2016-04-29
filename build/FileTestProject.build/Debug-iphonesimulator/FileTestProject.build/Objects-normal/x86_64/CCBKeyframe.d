@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Libraries/CCBReader/CCBKeyframe.m \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Libraries/CCBReader/CCBKeyframe.h
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Libraries/CCBReader/CCBKeyframe.m \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Libraries/CCBReader/CCBKeyframe.h

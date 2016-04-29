@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Libraries/ObjectAL/Support/IOSVersion.m \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Libraries/ObjectAL/Support/IOSVersion.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Libraries/ObjectAL/Support/SynthesizeSingleton.h
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Libraries/ObjectAL/Support/IOSVersion.m \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Libraries/ObjectAL/Support/IOSVersion.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Libraries/ObjectAL/Support/SynthesizeSingleton.h

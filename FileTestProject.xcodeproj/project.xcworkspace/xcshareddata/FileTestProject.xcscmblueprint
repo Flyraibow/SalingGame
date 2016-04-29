@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "354F8ED6FA2544869C4E297809844D67B15CFA60",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5E4C801480677784B56FCC3BB71426A85BD8CCB3" : 0,
+    "354F8ED6FA2544869C4E297809844D67B15CFA60" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "55194FC1-6468-49CC-A210-7255EA89376A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5E4C801480677784B56FCC3BB71426A85BD8CCB3" : "",
+    "354F8ED6FA2544869C4E297809844D67B15CFA60" : "SalingGame\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FileTestProject",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FileTestProject.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Flyraibow\/SalingGame.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "354F8ED6FA2544869C4E297809844D67B15CFA60"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:loveSherlock\/learngit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5E4C801480677784B56FCC3BB71426A85BD8CCB3"
+    }
+  ]
+}

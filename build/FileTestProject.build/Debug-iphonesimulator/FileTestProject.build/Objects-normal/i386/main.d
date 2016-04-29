@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Supporting\ Files/main.m
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Supporting\ Files/main.m

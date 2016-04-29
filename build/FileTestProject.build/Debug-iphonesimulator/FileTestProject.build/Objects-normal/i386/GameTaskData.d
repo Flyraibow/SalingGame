@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/Data/GameTaskData.m \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/Data/GameTaskData.h
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/Data/GameTaskData.m \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/Data/GameTaskData.h

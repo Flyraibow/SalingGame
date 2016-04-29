@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/ShipData.m \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/ShipData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/ByteBuffer.h
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ShipData.m \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ShipData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ByteBuffer.h

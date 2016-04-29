@@ -1,23 +1,24 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/Data/GameRouteData.m \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/Data/GameRouteData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/RouteData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/ByteBuffer.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/DataManager.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/ActionData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/CityData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/CityBuildingData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/DefaultDialogData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/GoodsData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/GoodsCategoriesData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/GuildData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/LogicDataData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/NpcData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/RoleInitialData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/SeaAreaData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/ShipData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/SkillData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/StoryData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/StoryTriggerData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/TeamData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/ValueSetData.h
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/Data/GameRouteData.m \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/Data/GameRouteData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/RouteData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ByteBuffer.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/DataManager.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ActionData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/CityData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/CityBuildingData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/DefaultDialogData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/GoodsData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/GoodsCategoriesData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/GuildData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/LogicDataData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/NpcData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/RoleInitialData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/SeaAreaData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ShipData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ShipStyleData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/SkillData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/StoryData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/StoryTriggerData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/TeamData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ValueSetData.h

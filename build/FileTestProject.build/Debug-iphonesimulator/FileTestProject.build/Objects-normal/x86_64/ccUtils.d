@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Libraries/cocos2d/Support/ccUtils.c \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Libraries/cocos2d/Support/ccUtils.h
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Libraries/cocos2d/Support/ccUtils.c \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Libraries/cocos2d/Support/ccUtils.h

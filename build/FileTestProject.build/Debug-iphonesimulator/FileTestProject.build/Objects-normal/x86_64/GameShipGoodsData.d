@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/Data/GameShipGoodsData.m \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/Data/GameShipGoodsData.h
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/Data/GameShipGoodsData.m \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/Data/GameShipGoodsData.h

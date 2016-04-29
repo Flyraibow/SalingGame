@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Libraries/cocos2d/Support/base64.c \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Libraries/cocos2d/Support/base64.h
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Libraries/cocos2d/Support/base64.c \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Libraries/cocos2d/Support/base64.h

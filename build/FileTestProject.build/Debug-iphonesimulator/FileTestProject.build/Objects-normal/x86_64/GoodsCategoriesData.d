@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/GoodsCategoriesData.m \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/GoodsCategoriesData.h \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/DataProcessing/ByteBuffer.h
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/GoodsCategoriesData.m \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/GoodsCategoriesData.h \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/DataProcessing/ByteBuffer.h

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/Ext/NSArray+Sort.m \
-  /Users/liuyujie/Documents/XCode/FileTestProject/FileTestProject/Classes/Ext/NSArray+Sort.h
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/Ext/NSArray+Sort.m \
+  /Users/fanxz/GitHub/SalingGame/FileTestProject/Classes/Ext/NSArray+Sort.h
