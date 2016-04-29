@@ -30,47 +30,50 @@
     if (self = [super init]) {
         _contentSize = [CCDirector sharedDirector].viewSize;
         _bgSprite = [CCSprite spriteWithImageNamed:@"bg_trade_info.png"];
-        _bgSprite.anchorPoint = ccp(0,1);
+        _bgSprite.anchorPoint = ccp(0,0);
         _bgSprite.scale = _contentSize.height / _bgSprite.contentSize.height;
         [self addChild:_bgSprite];
         
         self.positionType = CCPositionTypeNormalized;
-        self.position = ccp(0 ,1);
-    }
-    
-    _labCategory = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
-    _labCategory.positionType = CCPositionTypeNormalized;
-    _labCategory.position = ccp(0.1,0.875);
-    _labCategory.string=[NSString stringWithFormat:getLocalString(@"lab_tradeinfo_category"),nil];
-    [_bgSprite addChild:_labCategory];
-    
-    _labPrice = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
-    _labPrice.positionType = CCPositionTypeNormalized;
-    _labPrice.position = ccp(0.215, 0.875);
-    _labPrice.string=[NSString stringWithFormat:getLocalString(@"lab_tradeinfo_price"),nil];
-    [_bgSprite addChild:_labPrice];
-
-    _labTitle = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:12];
-    _labTitle.positionType = CCPositionTypeNormalized;
-    _labTitle.position = ccp(0.55, 0.94);
-    [_bgSprite addChild:_labTitle];
-    
-    _labPriceList=[NSMutableDictionary new];
-    
-    for(int i = 0; i < 19; i++)
-    {
-        CCLabelTTF *labCategoryName=[CCLabelTTF labelWithString:getLocalStringByInt(@"category_name_", i+1) fontName:nil fontSize:14];
-        labCategoryName.positionType = CCPositionTypeNormalized;
-        labCategoryName.position = ccp(0.1, 0.81 - i * 0.0417);
+        self.anchorPoint = ccp(0, 0);
+        self.position = ccp(0 ,0);
+        self.contentSize = _bgSprite.boundingBox.size;
+        self.userInteractionEnabled = YES;
         
-        [_bgSprite addChild:labCategoryName];
+        _labCategory = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
+        _labCategory.positionType = CCPositionTypeNormalized;
+        _labCategory.position = ccp(0.1,0.875);
+        _labCategory.string=[NSString stringWithFormat:getLocalString(@"lab_tradeinfo_category"),nil];
+        [_bgSprite addChild:_labCategory];
         
-        CCLabelTTF *labPricePercentage=[CCLabelTTF labelWithString:@"100%" fontName:nil fontSize:14];
-        labPricePercentage.positionType = CCPositionTypeNormalized;
-        labPricePercentage.anchorPoint = ccp(1, 0.5);
-        labPricePercentage.position = ccp(0.263, 0.81 - i * 0.0417);
-        [_labPriceList setObject:labPricePercentage forKey:@(i+1)];
-        [_bgSprite addChild:labPricePercentage];
+        _labPrice = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
+        _labPrice.positionType = CCPositionTypeNormalized;
+        _labPrice.position = ccp(0.215, 0.875);
+        _labPrice.string=[NSString stringWithFormat:getLocalString(@"lab_tradeinfo_price"),nil];
+        [_bgSprite addChild:_labPrice];
+        
+        _labTitle = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:12];
+        _labTitle.positionType = CCPositionTypeNormalized;
+        _labTitle.position = ccp(0.55, 0.94);
+        [_bgSprite addChild:_labTitle];
+        
+        _labPriceList=[NSMutableDictionary new];
+        
+        for(int i = 0; i < 19; i++)
+        {
+            CCLabelTTF *labCategoryName=[CCLabelTTF labelWithString:getLocalStringByInt(@"category_name_", i+1) fontName:nil fontSize:14];
+            labCategoryName.positionType = CCPositionTypeNormalized;
+            labCategoryName.position = ccp(0.1, 0.81 - i * 0.0417);
+            
+            [_bgSprite addChild:labCategoryName];
+            
+            CCLabelTTF *labPricePercentage=[CCLabelTTF labelWithString:@"100%" fontName:nil fontSize:14];
+            labPricePercentage.positionType = CCPositionTypeNormalized;
+            labPricePercentage.anchorPoint = ccp(1, 0.5);
+            labPricePercentage.position = ccp(0.263, 0.81 - i * 0.0417);
+            [_labPriceList setObject:labPricePercentage forKey:@(i+1)];
+            [_bgSprite addChild:labPricePercentage];
+        }
     }
     
     return self;
@@ -98,9 +101,14 @@
     
 }
 
+-(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    
+}
+
 -(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
-    // 点击屏幕
+    
 }
 
 @end
