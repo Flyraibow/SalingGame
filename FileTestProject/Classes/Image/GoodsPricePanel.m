@@ -18,11 +18,15 @@
     CCSprite *_bgSprite;
     CGSize _contentSize;
     
+    
     NSString *_cityNo;
     CCLabelTTF *_labCategory;
     CCLabelTTF *_labPrice;
     CCLabelTTF *_labTitle;
     NSMutableDictionary *_labPriceList;
+    NSMutableArray *_goodsList;
+    NSString *_cateNo;
+    CCLabelTTF *_labCate;
 }
 
 -(instancetype)init
@@ -74,11 +78,34 @@
             [_labPriceList setObject:labPricePercentage forKey:@(i+1)];
             [_bgSprite addChild:labPricePercentage];
         }
+        
+        DefaultButton *closeBtn = [DefaultButton buttonWithTitle:getLocalString(@"lab_close")];
+        closeBtn.anchorPoint = ccp(1, 0.5);
+        closeBtn.positionType = CCPositionTypeNormalized;
+        closeBtn.position = ccp(0.95, 0.05);
+        closeBtn.scale = 0.4;
+        [self addChild:closeBtn];
+        [closeBtn setTarget:self selector:@selector(clickCloseBtn)];
+        
+        _goodsList=[NSMutableArray new];
+        
+        _labCate = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
+        _labCate.positionType = CCPositionTypeNormalized;
+        _labCate.position = ccp(0.52,0.875);
+        [_bgSprite addChild:_labCate];
     }
     
     return self;
 }
-
+-(void)setCateNo:(NSString *)cateNo
+{
+    _cateNo=cateNo;
+    for(int i=0;i<_goodsList.count;i++)
+    {
+        [_bgSprite removeChild:[_goodsList objectAtIndex:i]];
+    }
+    _labCate.string=[NSString stringWithFormat:getLocalStringByInt(@"category_name_", [_cateNo intValue]+1),nil];
+}
 -(void)setCityNo:(NSString *)cityNo
 {
     _cityNo = cityNo;
@@ -98,7 +125,7 @@
 
     NSString *cityInformation = getLocalStringByString(@"city_name_", cityNo);
     _labTitle.string = [NSString stringWithFormat:getLocalString(@"city_information"),cityInformation];
-    
+    [self setCateNo:@"0"];//默认显示种类1
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
@@ -108,7 +135,20 @@
 
 -(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
+    CGPoint point = [touch locationInNode:_bgSprite];
+    if (point.x >= 17 && point.x <= 115 && point.y <=315 && point.y>=10)
+    {
+        int index=(315-point.y)/(double)(305/19);
+//        CCLOG(@"position :  %d , %d",(int)point.x,(int)point.y);
+//        CCLOG(@"index :  %d ",index);
+        [self setCateNo:[NSString stringWithFormat:@"%d",index]];
+    }
     
+}
+
+-(void)clickCloseBtn
+{
+    [self removeFromParent];
 }
 
 @end
