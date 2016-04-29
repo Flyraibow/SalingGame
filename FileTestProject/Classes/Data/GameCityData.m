@@ -293,14 +293,14 @@ static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
     for (NSString *goodsId in buyRecords) {
         // 汇率浮动
         int price = [self getBuyPriceForGoodsId:goodsId level:[self getGoodsLevel:goodsId]] * [[buyRecords objectForKey:goodsId] intValue];
-        double value = 1 + (price) / 1000000.0;
+        double value = 1 + (price) / 100000.0;
         if ([_goodsPriceDict objectForKey:goodsId] != nil) {
             value *= [[_goodsPriceDict objectForKey:goodsId] doubleValue];
         }
         [_goodsPriceDict setObject:[@(value) stringValue] forKey:goodsId];
         
         NSNumber *categoryId = @([[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId].type);
-        value = 1 + (price) / 4000000.0;
+        value = 1 + (price) / 500000.0;
         if ([_categoryPriceDict objectForKey:categoryId] != nil) {
             value *= [[_categoryPriceDict objectForKey:categoryId] doubleValue];
         }
@@ -310,14 +310,14 @@ static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
     for (NSString *goodsId in sellRecords) {
         // 汇率浮动
         int price = [self getSalePriceForGoodsId:goodsId level:[self getGoodsLevel:goodsId]] * [[sellRecords objectForKey:goodsId] intValue];
-        double value = 1 - (price) / 1000000.0;
+        double value = 1 - (price) / 100000.0;
         if ([_goodsPriceDict objectForKey:goodsId] != nil) {
             value *= [[_goodsPriceDict objectForKey:goodsId] doubleValue];
         }
         [_goodsPriceDict setObject:[@(value) stringValue] forKey:goodsId];
         
         NSNumber *categoryId = @([[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId].type);
-        value = 1 - (price) / 4000000.0;
+        value = 1 - (price) / 500000.0;
         if ([_categoryPriceDict objectForKey:categoryId] != nil) {
             value *= [[_categoryPriceDict objectForKey:categoryId] doubleValue];
         }

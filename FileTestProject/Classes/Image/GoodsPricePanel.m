@@ -57,7 +57,7 @@
     
     _labPriceList=[NSMutableDictionary new];
     
-    for(int i=0;i<19;i++)
+    for(int i = 0; i < 19; i++)
     {
         CCLabelTTF *labCategoryName=[CCLabelTTF labelWithString:getLocalStringByInt(@"category_name_", i+1) fontName:nil fontSize:14];
         labCategoryName.positionType = CCPositionTypeNormalized;
@@ -69,7 +69,7 @@
         labPricePercentage.positionType = CCPositionTypeNormalized;
         labPricePercentage.anchorPoint = ccp(1, 0.5);
         labPricePercentage.position = ccp(0.263, 0.81 - i * 0.0417);
-        [_labPriceList setObject:labPricePercentage forKey:@(i)];
+        [_labPriceList setObject:labPricePercentage forKey:@(i+1)];
         [_bgSprite addChild:labPricePercentage];
     }
     
@@ -79,22 +79,22 @@
 -(void)setCityNo:(NSString *)cityNo
 {
     _cityNo = cityNo;
-    for(int i=0;i<19;i++)
+    for(int i = 0; i < 19; i++)
     {
-        CCLabelTTF *pric = [_labPriceList objectForKey:@(i)];
+        CCLabelTTF *pric = [_labPriceList objectForKey:@(i+1)];
         pric.string = @"100%";
     }
     GameCityData *gameCityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityNo];
     NSMutableDictionary *categoryPriceDict=gameCityData.categoryPriceDict;
-    for(NSString * key in categoryPriceDict)
+    for(NSNumber * key in categoryPriceDict)
     {
-        NSString *value=[categoryPriceDict objectForKey:key];
-        CCLabelTTF *pric=[_labPriceList objectForKey:key];
-        pric.string=[NSString stringWithFormat:@("%@%%"),value];
+        double value = [[categoryPriceDict objectForKey:key] doubleValue];
+        CCLabelTTF *pric = [_labPriceList objectForKey:key];
+        pric.string = [NSString stringWithFormat:@("%d%%"),(int)(value * 100)];
     }
 
-    NSString *cityInformation=[NSString stringWithFormat:getLocalString([NSString stringWithFormat:@("city_name_%@"),_cityNo]),nil];
-    _labTitle.string=[NSString stringWithFormat:getLocalString(@"city_information"),cityInformation];
+    NSString *cityInformation = getLocalStringByString(@"city_name_", cityNo);
+    _labTitle.string = [NSString stringWithFormat:getLocalString(@"city_information"),cityInformation];
     
 }
 
