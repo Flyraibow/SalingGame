@@ -1,7 +1,6 @@
 "ship_price" = "%d金币";
 "ship_buy" = "购买";
 "ship_sell" = "售出";
-"ship_modify" = "改造";
 
 "MerchantValue" = "发展度";
 "WeaponValue" = "武装度";
@@ -74,3 +73,9 @@
 "dialog_invest_failure" = "对不起你的钱不够。";
 "dialog_invest_success" = "投资成功";
 "dialog_signup" = "听说你要和我们签约？";
+
+"ship_duration" = "船只耐久度: %d";
+"ship_speed" = "船速: %d节/小时";
+"ship_cannonNum" = "船载加农炮数量: %d门";
+"ship_minSailorNum" = "最少所需水手数量: %d人";
+"city_information"="%@物价资讯";
