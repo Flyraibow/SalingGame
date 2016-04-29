@@ -13,6 +13,9 @@
 #import "DataManager.h"
 #import "GameDataManager.h"
 #import "GameCityData.h"
+#import "DataManager.h"
+#import "GoodsData.h"
+
 @implementation GoodsPricePanel
 {
     CCSprite *_bgSprite;
@@ -27,6 +30,7 @@
     NSMutableArray *_goodsList;
     NSString *_cateNo;
     CCLabelTTF *_labCate;
+    NSDictionary *_goodsDic;
 }
 
 -(instancetype)init
@@ -93,6 +97,8 @@
         _labCate.positionType = CCPositionTypeNormalized;
         _labCate.position = ccp(0.52,0.875);
         [_bgSprite addChild:_labCate];
+        
+        _goodsDic = [[[DataManager sharedDataManager] getGoodsDic] getDictionary];
     }
     
     return self;
@@ -105,6 +111,13 @@
         [_bgSprite removeChild:[_goodsList objectAtIndex:i]];
     }
     _labCate.string=[NSString stringWithFormat:getLocalStringByInt(@"category_name_", [_cateNo intValue]+1),nil];
+    
+    for (NSString *goodsId in _goodsDic) {
+        GoodsData *goodsData = [_goodsDic objectForKey:goodsId];
+        if (goodsData.type == [cateNo intValue]) {
+            // goods 在这个类型里面
+        }
+    }
 }
 -(void)setCityNo:(NSString *)cityNo
 {
