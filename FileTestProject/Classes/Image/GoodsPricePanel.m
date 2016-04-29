@@ -22,7 +22,6 @@
     CCLabelTTF *_labCategory;
     CCLabelTTF *_labPrice;
     CCLabelTTF *_labTitle;
-    NSMutableDictionary *_labCategoryList;
     NSMutableDictionary *_labPriceList;
 }
 
@@ -39,62 +38,52 @@
         self.position = ccp(0 ,1);
     }
     
-    _labCategory = [CCLabelTTF labelWithString:@"1" fontName:nil fontSize:14];
-    _labCategory.positionType = CCPositionTypePoints;
-    _labCategory.anchorPoint = ccp(0, 1);
-    _labCategory.position = ccp(_bgSprite.position.x +18,self.contentSize.height - 30);
-    _labCategory.string=[NSString stringWithFormat:getLocalString(@"种类"),nil];
-    [self addChild:_labCategory];
+    _labCategory = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
+    _labCategory.positionType = CCPositionTypeNormalized;
+    _labCategory.position = ccp(0.1,0.875);
+    _labCategory.string=[NSString stringWithFormat:getLocalString(@"lab_tradeinfo_category"),nil];
+    [_bgSprite addChild:_labCategory];
     
-    _labPrice = [CCLabelTTF labelWithString:@"1" fontName:nil fontSize:14];
-    _labPrice.positionType = CCPositionTypePoints;
-    _labPrice.anchorPoint = ccp(0, 1);
-    _labPrice.position = ccp(_bgSprite.position.x +60,self.contentSize.height - 30);
-    _labPrice.string=[NSString stringWithFormat:getLocalString(@"行情"),nil];
-    [self addChild:_labPrice];
+    _labPrice = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
+    _labPrice.positionType = CCPositionTypeNormalized;
+    _labPrice.position = ccp(0.215, 0.875);
+    _labPrice.string=[NSString stringWithFormat:getLocalString(@"lab_tradeinfo_price"),nil];
+    [_bgSprite addChild:_labPrice];
 
-    _labTitle = [CCLabelTTF labelWithString:@"1" fontName:nil fontSize:14];
-    _labTitle.positionType = CCPositionTypePoints;
-    _labTitle.anchorPoint = ccp(0, 1);
-    _labTitle.position = ccp(_bgSprite.position.x +160,self.contentSize.height - 10);
-    [self addChild:_labTitle];
+    _labTitle = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:12];
+    _labTitle.positionType = CCPositionTypeNormalized;
+    _labTitle.position = ccp(0.55, 0.94);
+    [_bgSprite addChild:_labTitle];
     
-    _labCategoryList=[NSMutableDictionary new];
     _labPriceList=[NSMutableDictionary new];
     
     for(int i=0;i<19;i++)
     {
-        CCLabelTTF *temp=[CCLabelTTF labelWithString:@"1" fontName:nil fontSize:12];
-        temp.positionType = CCPositionTypePoints;
-        temp.anchorPoint = ccp(0, 1);
-        temp.position = ccp(_bgSprite.position.x +16,self.contentSize.height - 30 -22-i*13.3);
-        [_labCategoryList setObject:temp forKey:@(i)];
-        [self addChild:temp];
+        CCLabelTTF *labCategoryName=[CCLabelTTF labelWithString:getLocalStringByInt(@"category_name_", i+1) fontName:nil fontSize:14];
+        labCategoryName.positionType = CCPositionTypeNormalized;
+        labCategoryName.position = ccp(0.1, 0.81 - i * 0.0417);
         
-        CCLabelTTF *temp2=[CCLabelTTF labelWithString:@"1" fontName:nil fontSize:12];
-        temp2.positionType = CCPositionTypePoints;
-        temp2.anchorPoint = ccp(0, 1);
-        temp2.position = ccp(_bgSprite.position.x +60,self.contentSize.height - 30 -22-i*13.3);
-        temp2.string=[NSString stringWithFormat:@("100%%"),nil];
-        [_labPriceList setObject:temp2 forKey:@(i)];
-        [self addChild:temp2];
+        [_bgSprite addChild:labCategoryName];
+        
+        CCLabelTTF *labPricePercentage=[CCLabelTTF labelWithString:@"100%" fontName:nil fontSize:14];
+        labPricePercentage.positionType = CCPositionTypeNormalized;
+        labPricePercentage.anchorPoint = ccp(1, 0.5);
+        labPricePercentage.position = ccp(0.263, 0.81 - i * 0.0417);
+        [_labPriceList setObject:labPricePercentage forKey:@(i)];
+        [_bgSprite addChild:labPricePercentage];
     }
     
-    for(int i=0;i<19;i++)
-    {
-        NSString *temp=[NSString stringWithFormat:@("category_name_%d"),i+1];
-        CCLabelTTF *cate=[_labCategoryList objectForKey:@(i)];
-        cate.string=[NSString stringWithFormat:getLocalString(temp),nil];
-    }
     return self;
 }
 
 -(void)setCityNo:(NSString *)cityNo
 {
     _cityNo = cityNo;
-    
-    NSDictionary *cityDic = [[DataManager sharedDataManager].getCityDic getDictionary];
-    CityData *cityData = [cityDic objectForKey:cityNo];
+    for(int i=0;i<19;i++)
+    {
+        CCLabelTTF *pric = [_labPriceList objectForKey:@(i)];
+        pric.string = @"100%";
+    }
     GameCityData *gameCityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityNo];
     NSMutableDictionary *categoryPriceDict=gameCityData.categoryPriceDict;
     for(NSString * key in categoryPriceDict)

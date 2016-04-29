@@ -45,6 +45,7 @@
 "shipyard_fix" = "修理船只";
 "dock_sail" = "出海";
 "dock_supply" = "补给";
+"shipy_modify" = "改造";
 
 "inn_one_day" = "休息一天";
 "inn_ten_day" = "休息十天";
@@ -79,3 +80,6 @@
 "ship_cannonNum" = "船载加农炮数量: %d门";
 "ship_minSailorNum" = "最少所需水手数量: %d人";
 "city_information"="%@物价资讯";
+
+"lab_tradeinfo_category" = "种类";
+"lab_tradeinfo_price" = "行情";

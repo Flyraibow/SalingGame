@@ -1,3 +1,22 @@
+"category_name_1"="食品";
+"category_name_2"="调味料";
+"category_name_3"="珍品";
+"category_name_4"="香辣料";
+"category_name_5"="嗜好品";
+"category_name_6"="酒类";
+"category_name_7"="贵金属";
+"category_name_8"="工艺品";
+"category_name_9"="纤维";
+"category_name_10"="纺织品";
+"category_name_11"="奢侈品";
+"category_name_12"="香料";
+"category_name_13"="装饰品";
+"category_name_14"="宝石";
+"category_name_15"="药";
+"category_name_16"="染料";
+"category_name_17"="武器";
+"category_name_18"="矿石";
+"category_name_19"="杂货";
 "city_country_1"="中国";
 "city_country_2"="朝鲜";
 "city_country_3"="日本";
@@ -127,11 +146,7 @@
 "ship_price" = "%d金币";
 "ship_buy" = "购买";
 "ship_sell" = "售出";
-"ship_modify" = "改造";
-"ship_duration" = "船只耐久度: %d";
-"ship_speed" = "船速: %d节/小时";
-"ship_cannonNum" = "船载加农炮数量: %d门";
-"ship_minSailorNum" = "最少所需水手数量: %d人";
+
 "MerchantValue" = "发展度";
 "WeaponValue" = "武装度";
 "cityGoods" = "特产品";
@@ -203,6 +218,15 @@
 "dialog_invest_failure" = "对不起你的钱不够。";
 "dialog_invest_success" = "投资成功";
 "dialog_signup" = "听说你要和我们签约？";
+
+"ship_duration" = "船只耐久度: %d";
+"ship_speed" = "船速: %d节/小时";
+"ship_cannonNum" = "船载加农炮数量: %d门";
+"ship_minSailorNum" = "最少所需水手数量: %d人";
+"city_information"="%@物价资讯";
+
+"lab_tradeinfo_category" = "种类";
+"lab_tradeinfo_price" = "行情";
 
 "dialog_1"="我已经有五条船了，无法再购买了";
 "dialog_2"="没有多余的船只";
@@ -313,27 +337,6 @@
 "goods_name_101"="蜡";
 "goods_name_102"="糖胶";
 "goods_name_103"="鸟粪石";
-
-"category_name_1"="食品";
-"category_name_2"="调味料";
-"category_name_3"="珍品";
-"category_name_4"="香辣料";
-"category_name_5"="嗜好品";
-"category_name_6"="酒类";
-"category_name_7"="贵金属";
-"category_name_8"="工艺品";
-"category_name_9"="纤维";
-"category_name_10"="纺织品";
-"category_name_11"="奢侈品";
-"category_name_12"="香料";
-"category_name_13"="装饰品";
-"category_name_14"="宝石";
-"category_name_15"="药";
-"category_name_16"="染料";
-"category_name_17"="武器";
-"category_name_18"="矿石";
-"category_name_19"="杂货";
-
 "guild_name_1"="海雷丁军";
 "guild_name_2"="卡斯特路商会";
 "npc_description_1"="北非海盗王。凭借恐怖的战斗力得到老首领的上市，成为继承人。横行南地中海，令人闻风丧胆。";
@@ -365,4 +368,3 @@
 "story_text_13"="我的剧团名字是：@{guild:myGuildId}， 我叫：@{npc:myLeaderId}.今天的日期为：@{id:date}.";
 "story_text_14"="测试文字14";
 "story_text_15"="我要加入你们的队伍";
-"city_information"="%@物价资讯";
