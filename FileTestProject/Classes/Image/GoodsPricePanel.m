@@ -98,4 +98,9 @@
     
 }
 
+-(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    // 点击屏幕
+}
+
 @end
