@@ -17,6 +17,10 @@
 "category_name_17"="武器";
 "category_name_18"="矿石";
 "category_name_19"="杂货";
+"category_type_1"="每月到货";
+"category_type_2"="单月到货";
+"category_type_3"="双月到货";
+"category_type_4"="3,6,9,12 月到货";
 "city_country_1"="中国";
 "city_country_2"="朝鲜";
 "city_country_3"="日本";
@@ -190,6 +194,7 @@
 "shipyard_fix" = "修理船只";
 "dock_sail" = "出海";
 "dock_supply" = "补给";
+"shipy_modify" = "改造";
 
 "inn_one_day" = "休息一天";
 "inn_ten_day" = "休息十天";

@@ -182,6 +182,15 @@ static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
     return basePrice;
 }
 
+-(int)getBuyPriceForGoodsId:(NSString *)goodsId
+{
+    if ([_goodsDict objectForKey:goodsId] == nil) {
+        // 此城市不贩卖这种商品
+        return 0;
+    }
+    return [self getBuyPriceForGoodsId:goodsId level:[self getGoodsLevel:goodsId]];
+}
+
 -(int)getBuyPriceForGoodsId:(NSString *)goodsId level:(int)level
 {
     NSDictionary *dict = [DataManager sharedDataManager].getPriceDic;

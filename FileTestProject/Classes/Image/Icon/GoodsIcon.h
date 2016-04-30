@@ -13,6 +13,7 @@ typedef enum : NSUInteger {
     GoodsIconTypeCityGoods,
     GoodsIconTypeShipGoods,
     GoodsIconTypeSoldGoods,
+    GoodsIconTypeShowPrice,
 } GoodsIconType;
 
 typedef enum : NSUInteger {
@@ -20,6 +21,7 @@ typedef enum : NSUInteger {
     ShowLevel,
     ShowCityGoods,
     ShowNewBuyGoods,
+    ShowPriceType,
 } ShowType;
 
 @protocol GoodsIconSelectionDelegate <NSObject>
@@ -40,6 +42,10 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) int price;
 @property (nonatomic, assign) int buyPrice;
 @property (nonatomic, assign) int level;
+
+-(instancetype)initWithShowType:(ShowType)type;
+
+-(void)setGoodsId:(NSString *)goodsId buyPrice:(int)buyPrice salePrice:(int)salePrice isOnsale:(BOOL)isOnsale;
 
 -(void)setGoods:(NSString *)goodsId price:(int)price level:(int)level buyPrice:(int)buyPrice;;
 

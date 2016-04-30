@@ -107,7 +107,7 @@
             CCLabelTTF *labGoods = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
             labGoods.positionType = CCPositionTypeNormalized;
             labGoods.anchorPoint = ccp(0,0);
-            labGoods.position = ccp(0.1, 0.30 - i * 0.053);
+            labGoods.position = ccp(0.1, 0.30 - i * 0.052);
             [self addChild:labGoods];
             [_labCityGoodsArray addObject:labGoods];
         }

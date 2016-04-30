@@ -74,6 +74,8 @@ typedef enum : NSUInteger {
 
 -(int)getSalePriceForGoodsId:(NSString *)goodsId level:(int)level;
 
+-(int)getBuyPriceForGoodsId:(NSString *)goodsId;
+
 -(int)getBuyPriceForGoodsId:(NSString *)goodsId level:(int)level;
 
 @end

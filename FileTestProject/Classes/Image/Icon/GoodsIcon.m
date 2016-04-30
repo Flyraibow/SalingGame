@@ -25,6 +25,14 @@
 
 @synthesize goodsId = _goodsId;
 
+-(instancetype)initWithShowType:(ShowType)type
+{
+    if (self = [self init]) {
+        _type = type;
+    }
+    return self;
+}
+
 -(instancetype)init
 {
     if (self = [super initWithImageNamed:@"goodsIconFrame.png"]) {
@@ -54,19 +62,49 @@
     return self;
 }
 
+-(void)setGoodsId:(NSString *)goodsId
+{
+    if (![_goodsId isEqualToString:goodsId]) {
+        if (goodsId != nil) {
+            GoodsData *goodsData = [[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId];
+            if (![_iconNo isEqualToString:goodsData.iconId]) {
+                _iconNo = goodsData.iconId;
+                [_icon setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"goods%@.jpg", _iconNo]]];
+            }
+            _labGoodsName.string = getGoodsName(goodsId);
+        } else {
+            _icon.visible = NO;
+            _labGoodsName.string = @"";
+        }
+    }
+}
+
+//只显示名字，卖价和买家， 如果buyprice = 0 表示缺失
+-(void)setGoodsId:(NSString *)goodsId buyPrice:(int)buyPrice salePrice:(int)salePrice isOnsale:(BOOL)isOnsale
+{
+    self.goodsId = goodsId;
+    if (buyPrice > 0) {
+        _labLevel.string = [@(buyPrice) stringValue];
+    } else {
+        _labLevel.string = @"-";
+    }
+    _labPrice.string = [@(salePrice) stringValue];
+    if (isOnsale) {
+        _labPrice.color = [CCColor redColor];
+    } else {
+        _labPrice.color = [CCColor whiteColor];
+    }
+}
+
 
 -(void)setGoods:(NSString *)goodsId price:(int)price level:(int)level buyPrice:(int)buyPrice
 {
-    _goodsId = goodsId;
+    self.goodsId = goodsId;
     _level = level;
     _price = price;
     _buyPrice = buyPrice;
     if (goodsId != nil) {
-        GoodsData *goodsData = [[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId];
-        if (![_iconNo isEqualToString:goodsData.iconId]) {
-            _iconNo = goodsData.iconId;
-            [_icon setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"goods%@.jpg", _iconNo]]];
-        }
+        
         CCColor *blueColor = [CCColor colorWithRed:0.5 green:0.5 blue:1];
         if (_type == ShowNewBuyGoods) {
             _labGoodsName.color = blueColor;
@@ -85,15 +123,12 @@
             _labPrice.color = [CCColor whiteColor];
         }
         _labPrice.string = [@(price) stringValue];
-        _labGoodsName.string = getGoodsName(goodsId);
         
         self.userInteractionEnabled = YES;
         _icon.visible = YES;
     } else {
-        _labGoodsName.string = @"";
         _labLevel.string = @"";
         _labPrice.string = @"";
-        _icon.visible = NO;
         self.userInteractionEnabled = NO;
     }
 }

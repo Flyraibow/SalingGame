@@ -105,49 +105,54 @@
         _goodsCateType=[[[DataManager sharedDataManager]getGoodsCategoriesDic]getDictionary];
         
         _labCateType = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
+        _labCateType.anchorPoint = ccp(0, 0.5);
         _labCateType.positionType = CCPositionTypeNormalized;
-        _labCateType.position = ccp(0.68, 0.875);
+        _labCateType.position = ccp(0.6, 0.875);
         [_bgSprite addChild:_labCateType];
 
     }
     
     return self;
 }
+
 -(void)setCateNo:(NSString *)cateNo
 {
-    _cateNo=cateNo;
-    for(int i=0;i<_goodsList.count;i++)
-    {
-        [_bgSprite removeChild:[_goodsList objectAtIndex:i]];
-    }
-    _labCate.string=[NSString stringWithFormat:getLocalStringByInt(@"category_name_", [_cateNo intValue]+1),nil];
-    GoodsCategoriesData *categoryData=[_goodsCateType objectForKey:_cateNo];
-    _labCateType.string=[NSString stringWithFormat:getLocalStringByInt(@"category_type_", categoryData.updateType),nil];
-    NSLog(@"catagory_tpye:%d",categoryData.updateType);
-    int index=0;
-    
-    for (NSString *goodsId in _goodsDic) {
-        GoodsData *goodsData = [_goodsDic objectForKey:goodsId];
-        if (goodsData.type == [cateNo intValue]+1) {
-            // goods 在这个类型里面
-
-//            NSLog(@"%@",_labCate.string);
-//            NSLog(@"goodsId:%@",goodsData.goodsId);
-//            NSLog(@"goodsType:%d",goodsData.type);
-//            NSLog(@"goodsIconId:%@",goodsData.iconId);
-            int x=index/4;
-            int y=index%4;
-            index++;
-            //下面这段就是第一二次加载是好的，然后第三次就报错
-//            CCSprite *icon = [CCSprite new];
-//            icon.anchorPoint = ccp(0.9, 0);
-//            icon.position = ccp(0.5+ x * 0.1,0.5+y*0.1);
-//            icon.positionType = CCPositionTypeNormalized;
-//            [icon setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"goods%@.jpg", goodsData.iconId]]];
-//            
-//            [_goodsList addObject:icon];
-//            [_bgSprite addChild:icon];
-
+    if (![_cateNo isEqualToString:cateNo]) {
+        _cateNo = cateNo;
+        for(int i = 0; i < _goodsList.count; i++)
+        {
+            [_bgSprite removeChild:[_goodsList objectAtIndex:i]];
+        }
+        [_goodsList removeAllObjects];
+        _labCate.string = [NSString stringWithFormat:getLocalStringByInt(@"category_name_", [_cateNo intValue]),nil];
+        GoodsCategoriesData *categoryData = [_goodsCateType objectForKey:_cateNo];
+        _labCateType.string = [NSString stringWithFormat:getLocalStringByInt(@"category_type_", categoryData.updateType),nil];
+        
+        int index = 0;
+        
+        GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
+        
+        for (NSString *goodsId in _goodsDic) {
+            GoodsData *goodsData = [_goodsDic objectForKey:goodsId];
+            if (goodsData.type == [cateNo intValue]) {
+                int x=index%4;
+                int y=index/4;
+                index++;
+                
+                GoodsIcon *goodsIcon = [[GoodsIcon alloc] initWithShowType:ShowPriceType];
+                int buyPrice = [cityData getBuyPriceForGoodsId:goodsId];
+                int salePrice = [cityData getSalePriceForGoodsId:goodsId level:5];
+                
+                // TODO: 以后如果某个产品在流行热销中，价格会显示成红色，并且左上角增加流行索引，可以帮助玩家找到那个产品在热销。
+                // 暂时因为没有设置热销商品，暂时不考虑
+                [goodsIcon setGoodsId:goodsId buyPrice:buyPrice salePrice:salePrice isOnsale:NO];
+                goodsIcon.positionType = CCPositionTypeNormalized;
+                goodsIcon.position = ccp(0.5+ x * 0.13,0.7-y*0.25);
+                
+                [_goodsList addObject:goodsIcon];
+                [_bgSprite addChild:goodsIcon];
+                
+            }
         }
     }
 }
@@ -170,7 +175,7 @@
 
     NSString *cityInformation = getLocalStringByString(@"city_name_", cityNo);
     _labTitle.string = [NSString stringWithFormat:getLocalString(@"city_information"),cityInformation];
-    [self setCateNo:@"0"];//默认显示种类1
+    [self setCateNo:@"1"];//默认显示种类1
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
@@ -183,9 +188,7 @@
     CGPoint point = [touch locationInNode:_bgSprite];
     if (point.x >= 17 && point.x <= 115 && point.y <=315 && point.y>=10)
     {
-        int index=(315-point.y)/(double)(305/19);
-//        CCLOG(@"position :  %d , %d",(int)point.x,(int)point.y);
-//        CCLOG(@"index :  %d ",index);
+        int index=(315-point.y)/(double)(305/19) + 1;
         [self setCateNo:[NSString stringWithFormat:@"%d",index]];
     }
     

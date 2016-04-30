@@ -115,13 +115,12 @@
         
         _soldGoodsList = [NSMutableArray new];
         for (int i = 0; i < 5; ++i) {
-            GoodsIcon *icon = [[GoodsIcon alloc] init];
+            GoodsIcon *icon = [[GoodsIcon alloc] initWithShowType:_type];
             icon.positionType = CCPositionTypePoints;
             icon.anchorPoint = ccp(0, 0.5);
             icon.goodsIndex = i;
             icon.goodsType = GoodsIconTypeSoldGoods;
             icon.delegate = self;
-            icon.type = _type;
             double scale = (contentSize.width / 2 - 15) / 5 / icon.contentSize.width;
             icon.scale = scale;
             icon.position = ccp(contentSize.width / 2 + i * icon.contentSize.width * icon.scale, contentSize.height*0.53);
@@ -131,8 +130,7 @@
         
         _shipGoodsList = [NSMutableArray new];
         for (int i = 0; i < 5; ++i) {
-            GoodsIcon *icon = [[GoodsIcon alloc] init];
-            icon.type = _type;
+            GoodsIcon *icon = [[GoodsIcon alloc] initWithShowType:_type];
             icon.positionType = CCPositionTypePoints;
             icon.anchorPoint = ccp(0, 0.5);
             double scale = (contentSize.width / 2 - 15) / 5 / icon.contentSize.width;
@@ -223,8 +221,7 @@
         for (NSString *goodsId in goodsList) {
             int level = [_cityData getGoodsLevel:goodsId];
             int price = [_cityData getBuyPriceForGoodsId:goodsId level:level];
-            GoodsIcon *icon = [[GoodsIcon alloc] init];
-            icon.type = ShowCityGoods;
+            GoodsIcon *icon = [[GoodsIcon alloc] initWithShowType:ShowCityGoods];
             [icon setGoods:goodsId price:price level:level buyPrice:-1];
             icon.positionType = CCPositionTypeMake(CCPositionUnitPoints, CCPositionUnitNormalized,CCPositionReferenceCornerBottomLeft);
             icon.anchorPoint = ccp(0, 0);
