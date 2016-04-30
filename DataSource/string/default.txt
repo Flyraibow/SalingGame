@@ -45,7 +45,7 @@
 "shipyard_fix" = "修理船只";
 "dock_sail" = "出海";
 "dock_supply" = "补给";
-"shipy_modify" = "改造";
+"ship_modify" = "改造";
 
 "inn_one_day" = "休息一天";
 "inn_ten_day" = "休息十天";
