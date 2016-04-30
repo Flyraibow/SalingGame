@@ -86,3 +86,6 @@
 
 "lab_buy_price"="买价";
 "lab_sell_price"="卖价";
+
+"lab_ship_info"="船只信息";
+"lab_sailor_info"="船员信息";

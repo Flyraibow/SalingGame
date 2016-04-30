@@ -16,12 +16,14 @@
 #import "UpdateMoneyProtocol.h"
 #import "SailScene.h"
 #import "RolePanel.h"
+#import "ShipInfoButtonGroup.h"
 
 typedef enum : NSUInteger {
     Button_Sail_MAP = 1,
     Button_Diary,
+    Button_Deck,
     Button_Ship_Info,
-    Button_Sailor_Info,
+    //Button_Sailor_Info,
     Button_System
 } Button_Type;
 
@@ -78,18 +80,26 @@ typedef enum : NSUInteger {
 -(void)clickSystemButton:(DefaultButton *)button
 {
     int index = [button.name intValue];
-    if (index == Button_System) {
+    if (index == Button_System)
+    {
         SystemGroupButton *systemButtonGroup = [SystemGroupButton new];
         [self.scene addChild:systemButtonGroup];
-    } else if(index == Button_Sailor_Info) {
-        RolePanel *rolePanel = [[RolePanel alloc] init];
-        [self.scene addChild:rolePanel];
+    }
+    else if(index == Button_Deck)
+    {
         
-    } else if(index == Button_Ship_Info) {
+    }
+    else if(index == Button_Ship_Info)//资讯包含船只信息和船员信息
+    {
+        ShipInfoButtonGroup *shipInfoButtonGroup=[ShipInfoButtonGroup new];
+        [self.scene addChild:shipInfoButtonGroup];        
+    }
+    else if(index == Button_Diary)
+    {
         
-    } else if(index == Button_Diary) {
-        
-    } else if(index == Button_Sail_MAP) {
+    }
+    else if(index == Button_Sail_MAP)
+    {
         SailScene *sailScene = [[SailScene alloc] initWithType:SailSceneTypeRead];
         [[CCDirector sharedDirector] pushScene:sailScene];
     }
