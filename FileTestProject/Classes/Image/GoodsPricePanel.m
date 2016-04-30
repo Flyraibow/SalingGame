@@ -15,6 +15,7 @@
 #import "GameCityData.h"
 #import "DataManager.h"
 #import "GoodsData.h"
+#import "GoodsIcon.h"
 
 @implementation GoodsPricePanel
 {
@@ -111,11 +112,29 @@
         [_bgSprite removeChild:[_goodsList objectAtIndex:i]];
     }
     _labCate.string=[NSString stringWithFormat:getLocalStringByInt(@"category_name_", [_cateNo intValue]+1),nil];
+    int index=0;
     
     for (NSString *goodsId in _goodsDic) {
         GoodsData *goodsData = [_goodsDic objectForKey:goodsId];
-        if (goodsData.type == [cateNo intValue]) {
+        if (goodsData.type == [cateNo intValue]+1) {
             // goods 在这个类型里面
+
+            NSLog(@"%@",_labCate.string);
+            NSLog(@"goodsId:%@",goodsData.goodsId);
+            NSLog(@"goodsType:%d",goodsData.type);
+            NSLog(@"goodsIconId:%@",goodsData.iconId);
+            int x=index/4;
+            int y=index%4;
+            index++;
+            CCSprite *icon = [CCSprite new];
+            icon.anchorPoint = ccp(0.9, 0);
+            icon.position = ccp(0.5+ x * 0.1,0.5+y*0.1);
+            icon.positionType = CCPositionTypeNormalized;
+            [icon setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"goods%@.jpg", goodsData.iconId]]];
+            
+            [_goodsList addObject:icon];
+            [_bgSprite addChild:icon];
+
         }
     }
 }
