@@ -34,6 +34,7 @@
     NSDictionary *_goodsDic;
     NSDictionary *_goodsCateType;
     CCLabelTTF *_labCateType;
+    NSMutableArray *_labSellBuyList;
 }
 
 -(instancetype)init
@@ -109,6 +110,8 @@
         _labCateType.positionType = CCPositionTypeNormalized;
         _labCateType.position = ccp(0.6, 0.875);
         [_bgSprite addChild:_labCateType];
+        
+        _labSellBuyList=[NSMutableArray new];
 
     }
     
@@ -124,6 +127,12 @@
             [_bgSprite removeChild:[_goodsList objectAtIndex:i]];
         }
         [_goodsList removeAllObjects];
+        for(int i = 0; i < _labSellBuyList.count; i++)
+        {
+            [_bgSprite removeChild:[_labSellBuyList objectAtIndex:i]];
+        }
+        [_labSellBuyList removeAllObjects];
+        
         _labCate.string = [NSString stringWithFormat:getLocalStringByInt(@"category_name_", [_cateNo intValue]),nil];
         GoodsCategoriesData *categoryData = [_goodsCateType objectForKey:_cateNo];
         _labCateType.string = [NSString stringWithFormat:getLocalStringByInt(@"category_type_", categoryData.updateType),nil];
@@ -132,9 +141,11 @@
         
         GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
         
-        for (NSString *goodsId in _goodsDic) {
+        for (NSString *goodsId in _goodsDic)
+        {
             GoodsData *goodsData = [_goodsDic objectForKey:goodsId];
-            if (goodsData.type == [cateNo intValue]) {
+            if (goodsData.type == [cateNo intValue])
+            {
                 int x=index%4;
                 int y=index/4;
                 index++;
@@ -153,6 +164,26 @@
                 [_bgSprite addChild:goodsIcon];
                 
             }
+        }
+        int num=index/4+(index%4==0?0:1);
+        for(int i=0;i<num;i++)
+        {
+            CCLabelTTF *labBuy=[CCLabelTTF labelWithString:@"" fontName:nil fontSize:13];
+            labBuy.anchorPoint = ccp(0, 0.5);
+            labBuy.positionType = CCPositionTypeNormalized;
+            labBuy.position =ccp(0.36, 0.59-i*0.25);
+            labBuy.string=[NSString stringWithFormat:getLocalString(@"lab_buy_price"),nil];
+            [_bgSprite addChild:labBuy];
+            [_labSellBuyList addObject:labBuy];
+            
+            CCLabelTTF *labSell=[CCLabelTTF labelWithString:@"" fontName:nil fontSize:13];
+            labSell.anchorPoint = ccp(0, 0.5);
+            labSell.positionType = CCPositionTypeNormalized;
+            labSell.position = ccp(0.36, 0.64-i*0.25);
+            labSell.string=[NSString stringWithFormat:getLocalString(@"lab_sell_price"),nil];
+            [_bgSprite addChild:labSell];
+            [_labSellBuyList addObject:labSell];
+            
         }
     }
 }

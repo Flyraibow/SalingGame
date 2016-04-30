@@ -9,8 +9,8 @@
 
 "citySystemBar_1" = "航线图";
 "citySystemBar_2" = "航海日志";
-"citySystemBar_3" = "船只信息";
-"citySystemBar_4" = "船员信息";
+"citySystemBar_3" = "甲板";
+"citySystemBar_4" = "资讯";
 "citySystemBar_5" = "系统";
 
 "government_sign_up" = "签约";
@@ -83,3 +83,6 @@
 
 "lab_tradeinfo_category" = "种类";
 "lab_tradeinfo_price" = "行情";
+
+"lab_buy_price"="买价";
+"lab_sell_price"="卖价";
