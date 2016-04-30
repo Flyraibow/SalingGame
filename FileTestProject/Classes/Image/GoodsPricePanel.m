@@ -32,6 +32,8 @@
     NSString *_cateNo;
     CCLabelTTF *_labCate;
     NSDictionary *_goodsDic;
+    NSDictionary *_goodsCateType;
+    CCLabelTTF *_labCateType;
 }
 
 -(instancetype)init
@@ -100,6 +102,13 @@
         [_bgSprite addChild:_labCate];
         
         _goodsDic = [[[DataManager sharedDataManager] getGoodsDic] getDictionary];
+        _goodsCateType=[[[DataManager sharedDataManager]getGoodsCategoriesDic]getDictionary];
+        
+        _labCateType = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
+        _labCateType.positionType = CCPositionTypeNormalized;
+        _labCateType.position = ccp(0.68, 0.875);
+        [_bgSprite addChild:_labCateType];
+
     }
     
     return self;
@@ -112,6 +121,9 @@
         [_bgSprite removeChild:[_goodsList objectAtIndex:i]];
     }
     _labCate.string=[NSString stringWithFormat:getLocalStringByInt(@"category_name_", [_cateNo intValue]+1),nil];
+    GoodsCategoriesData *categoryData=[_goodsCateType objectForKey:_cateNo];
+    _labCateType.string=[NSString stringWithFormat:getLocalStringByInt(@"category_type_", categoryData.updateType),nil];
+    NSLog(@"catagory_tpye:%d",categoryData.updateType);
     int index=0;
     
     for (NSString *goodsId in _goodsDic) {
@@ -119,21 +131,22 @@
         if (goodsData.type == [cateNo intValue]+1) {
             // goods 在这个类型里面
 
-            NSLog(@"%@",_labCate.string);
-            NSLog(@"goodsId:%@",goodsData.goodsId);
-            NSLog(@"goodsType:%d",goodsData.type);
-            NSLog(@"goodsIconId:%@",goodsData.iconId);
+//            NSLog(@"%@",_labCate.string);
+//            NSLog(@"goodsId:%@",goodsData.goodsId);
+//            NSLog(@"goodsType:%d",goodsData.type);
+//            NSLog(@"goodsIconId:%@",goodsData.iconId);
             int x=index/4;
             int y=index%4;
             index++;
-            CCSprite *icon = [CCSprite new];
-            icon.anchorPoint = ccp(0.9, 0);
-            icon.position = ccp(0.5+ x * 0.1,0.5+y*0.1);
-            icon.positionType = CCPositionTypeNormalized;
-            [icon setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"goods%@.jpg", goodsData.iconId]]];
-            
-            [_goodsList addObject:icon];
-            [_bgSprite addChild:icon];
+            //下面这段就是第一二次加载是好的，然后第三次就报错
+//            CCSprite *icon = [CCSprite new];
+//            icon.anchorPoint = ccp(0.9, 0);
+//            icon.position = ccp(0.5+ x * 0.1,0.5+y*0.1);
+//            icon.positionType = CCPositionTypeNormalized;
+//            [icon setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"goods%@.jpg", goodsData.iconId]]];
+//            
+//            [_goodsList addObject:icon];
+//            [_bgSprite addChild:icon];
 
         }
     }
