@@ -65,6 +65,7 @@
 -(void)setGoodsId:(NSString *)goodsId
 {
     if (![_goodsId isEqualToString:goodsId]) {
+        _goodsId = goodsId;
         if (goodsId != nil) {
             GoodsData *goodsData = [[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId];
             if (![_iconNo isEqualToString:goodsData.iconId]) {

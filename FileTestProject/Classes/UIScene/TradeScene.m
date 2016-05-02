@@ -230,7 +230,6 @@
             icon.position = ccp(10 + index * icon.contentSize.width * icon.scale, 0.03);
             [icon setNumber:[_cityData getGoodsNumForGuild:[GameDataManager sharedGameData].myGuild.guildId goodsId:goodsId]];
             icon.goodsIndex = index;
-            icon.goodsId = goodsId;
             icon.goodsType = GoodsIconTypeCityGoods;
             icon.delegate = self;
             [_cityGoodsList addObject:icon];
