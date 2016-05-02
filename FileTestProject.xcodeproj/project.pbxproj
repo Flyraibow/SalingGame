@@ -600,6 +600,7 @@
 		27E040C11C5C3A940068171E /* bgBGM.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 27E040C01C5C3A940068171E /* bgBGM.m4v */; };
 		27E040C41C5C3E820068171E /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27E040C31C5C3E820068171E /* button.wav */; };
 		27E040C71C5C9E9E0068171E /* StoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E040C61C5C9E9E0068171E /* StoryData.m */; };
+		2B20FCF81CD804530028E718 /* ShipInfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* ShipInfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1558,6 +1559,8 @@
 		27E040C31C5C3E820068171E /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = button.wav; path = Resources/Sound/SE/button.wav; sourceTree = "<group>"; };
 		27E040C51C5C9E9E0068171E /* StoryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryData.h; path = Classes/DataProcessing/StoryData.h; sourceTree = "<group>"; };
 		27E040C61C5C9E9E0068171E /* StoryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryData.m; path = Classes/DataProcessing/StoryData.m; sourceTree = "<group>"; };
+		2B20FCF61CD804530028E718 /* ShipInfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipInfoButtonGroup.h; path = Classes/Image/GroupButton/ShipInfoButtonGroup.h; sourceTree = "<group>"; };
+		2B20FCF71CD804530028E718 /* ShipInfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipInfoButtonGroup.m; path = Classes/Image/GroupButton/ShipInfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2930,6 +2933,8 @@
 				27C26D391C634BC2009EDE53 /* ShopGroupButton.m */,
 				27C26D3B1C634CF2009EDE53 /* ShipyardGroupButton.h */,
 				27C26D3C1C634CF2009EDE53 /* ShipyardGroupButton.m */,
+				2B20FCF61CD804530028E718 /* ShipInfoButtonGroup.h */,
+				2B20FCF71CD804530028E718 /* ShipInfoButtonGroup.m */,
 				27C26D3E1C634F4D009EDE53 /* DockGroupButton.h */,
 				27C26D3F1C634F4D009EDE53 /* DockGroupButton.m */,
 			);
@@ -3823,6 +3828,7 @@
 				279BAA961C59E3B60069EF5D /* CCActionEase.m in Sources */,
 				279BABD91C59E3B80069EF5D /* CCWindow.m in Sources */,
 				279BABC91C59E3B80069EF5D /* CCGLView.m in Sources */,
+				2B20FCF81CD804530028E718 /* ShipInfoButtonGroup.m in Sources */,
 				27ACAAF61C897F64005C0881 /* BaseDialogSprite.m in Sources */,
 				279BAB251C59E3B70069EF5D /* CCSpriteFrameCache.m in Sources */,
 				279BAB151C59E3B70069EF5D /* CCScheduler.m in Sources */,
