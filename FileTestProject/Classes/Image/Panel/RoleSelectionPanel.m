@@ -60,6 +60,8 @@
     }
     _selectedAnimation = roleAnimation;
     [self.delegate selectRole:_selectedAnimation.roleId];
+    NSLog(@"%@",_selectedAnimation.roleId);
+    NSLog(@"%@",self.delegate);
 }
 
 @end
