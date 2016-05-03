@@ -15,6 +15,8 @@
 {
     NSString *_roleId;
     CCLabelTTF *_labNpcName;
+    CCSprite *_photo;
+    CCLabelTTF *_labGender;
 }
 
 -(instancetype)init
@@ -32,13 +34,20 @@
         [closeButton setTarget:self selector:@selector(clickCloseButton)];
         [self addChild:closeButton];
         
-        [self setRoleId:@("1")];
+        _labNpcName = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
+        _labNpcName.positionType = CCPositionTypeNormalized;
+        _labNpcName.anchorPoint=ccp(0,1);
+        _labNpcName.position = ccp(0.22, 0.95);
+        [self addChild:_labNpcName];
         
-//        _labNpcName = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
-//        _labNpcName.positionType = CCPositionTypeNormalized;
-//        _labNpcName.position = ccp(0.1, 0.5);
-//        _labNpcName.anchorPoint=ccp(0,1);
-//        [self addChild:_labNpcName];
+        _labGender = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
+        _labGender.positionType = CCPositionTypeNormalized;
+        _labGender.anchorPoint=ccp(0,1);
+        _labGender.position = ccp(0.715, 0.765);
+        [self addChild:_labGender];
+        
+        //[self setRoleId:@("1")];
+
     }
     
     return self;
@@ -52,25 +61,19 @@
     {
         _roleId=roleId;
         GameNPCData *npcData=[[GameNPCData alloc]initWithNpcId:_roleId];
-        NSLog(@"%@",npcData.npcId);
-        NSLog(@"%@",npcData.firstName);
-        NSLog(@"%@",npcData.lastName);
-        NSLog(@"%@",npcData.fullName);
-        NSLog(@"%@",npcData.portrait);
-        CCSprite *photo = [CCSprite spriteWithImageNamed:npcData.portrait];
-        _labNpcName = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
-        _labNpcName.positionType = CCPositionTypeNormalized;
-        _labNpcName.position = ccp(0.1, 0.5);
-        _labNpcName.anchorPoint=ccp(0,1);
-        [self addChild:_labNpcName];
-
+                
         _labNpcName.string=npcData.fullName;
-        photo.anchorPoint=ccp(0,1);
-        photo.positionType=CCPositionTypeNormalized;
-        photo.position=ccp(0.045,0.90);
-        photo.scale=0.44;
-        [self addChild:photo];
-
+        if(_photo!=nil)
+            [self removeChild:_photo];
+        _photo = [CCSprite spriteWithImageNamed:npcData.portrait];
+        _photo.anchorPoint=ccp(0,1);
+        _photo.positionType=CCPositionTypeNormalized;
+        _photo.position=ccp(0.045,0.90);
+        _photo.scale=0.44;
+        [self addChild:_photo];
+        
+        _labGender.string=@"男";
+        
 
     }
 }

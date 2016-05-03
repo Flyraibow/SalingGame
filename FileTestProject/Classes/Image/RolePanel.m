@@ -32,13 +32,18 @@
         self.position = ccp(0.5, 0.5);
         self.userInteractionEnabled = YES;
         [self addChild:[BGImage getShadowForBackground]];
-        _roleSelectionPanel = [[RoleSelectionPanel alloc] init];
-        _roleSelectionPanel.scale = _contentSize.height * 0.4 / _roleSelectionPanel.contentSize.height;
-        [self addChild:_roleSelectionPanel];
+        
         _roleInfoPanel = [[RoleInfoPanel alloc] init];
         _roleInfoPanel.scale = _contentSize.height * 0.6 / _roleInfoPanel.contentSize.height;
         _roleInfoPanel.delegate = self;
         [self addChild:_roleInfoPanel];
+        
+        _roleSelectionPanel = [RoleSelectionPanel alloc];
+        _roleSelectionPanel.delegate=self;
+        _roleSelectionPanel = [_roleSelectionPanel init];
+        _roleSelectionPanel.scale = _contentSize.height * 0.4 / _roleSelectionPanel.contentSize.height;
+        [self addChild:_roleSelectionPanel];
+        
     }
     return self;
 }
