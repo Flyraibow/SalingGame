@@ -6,6 +6,7 @@
 #import "GoodsData.h"
 #import "GoodsCategoriesData.h"
 #import "GuildData.h"
+#import "ItemData.h"
 #import "LogicDataData.h"
 #import "NpcData.h"
 #import "RoleInitialData.h"
@@ -38,6 +39,8 @@
 -(GoodsCategoriesDic*)getGoodsCategoriesDic;
 
 -(GuildDic*)getGuildDic;
+
+-(ItemDic*)getItemDic;
 
 -(LogicDataDic*)getLogicDataDic;
 

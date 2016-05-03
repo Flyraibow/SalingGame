@@ -38,6 +38,7 @@
 	if (self) {
 		_npcId = [buffer readString];
 		_character = [buffer readString];
+		_gender = [buffer readInt];
 		_dialogPotraitId = [buffer readString];
 		_potraitId = [buffer readString];
 		_portraitPosX = [buffer readInt];

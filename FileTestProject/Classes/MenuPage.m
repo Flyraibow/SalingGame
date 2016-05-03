@@ -18,6 +18,8 @@
 #import "DialogPanel.h"
 #import "LocalString.h"
 #import "DuelScene.h"
+#import "ItemInfoPanel.h"
+#import "ItemBrowsePanel.h"
 
 @interface MenuPage() <DialogInteractProtocol>
 
@@ -102,8 +104,10 @@
 //    [panel addSelections:[NSArray arrayWithObjects:@"test", @"@{npc:1}",@"@{city:1}",@"@{goods:34}", nil]];
 //    [self addChild:panel];
     
-    DuelScene *duelScene = [[DuelScene alloc] initWithRoleId:@"1" roleId:@"2"];
-    [[CCDirector sharedDirector] pushScene:duelScene];
+//    DuelScene *duelScene = [[DuelScene alloc] initWithRoleId:@"1" roleId:@"2"];
+//    [[CCDirector sharedDirector] pushScene:duelScene];
+    ItemBrowsePanel *item = [[ItemBrowsePanel alloc] init];
+    [self addChild:item];
 }
 
 -(void)selectIndex:(int)index

@@ -350,6 +350,12 @@
 "goods_name_103"="鸟粪石";
 "guild_name_1"="海雷丁军";
 "guild_name_2"="卡斯特路商会";
+"item_category_1"="  武器  ";
+"item_category_2"="  防具  ";
+"item_category_3"=" 装备品  ";
+"item_category_4"="航海用品";
+"item_category_5"="  其他  ";
+"item_category_6"="地图和证";
 "npc_description_1"="北非海盗王。凭借恐怖的战斗力得到老首领的上市，成为继承人。横行南地中海，令人闻风丧胆。";
 "npc_description_2"="莫名的憧憬着要当一名水手的葡萄牙少年。受朋友的鼓动而出海。推荐初次玩此游戏的玩家选择他。";
 "npc_firstname_1"="海雷丁";

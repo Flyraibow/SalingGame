@@ -12,6 +12,7 @@ static DataManager *_sharedDataManager;
 	GoodsDic *_goodsDic;
 	GoodsCategoriesDic *_goodsCategoriesDic;
 	GuildDic *_guildDic;
+	ItemDic *_ItemDic;
 	LogicDataDic *_logicDataDic;
 	NpcDic *_npcDic;
 	RoleInitialDic *_roleInitialDic;
@@ -39,6 +40,7 @@ static DataManager *_sharedDataManager;
 		_goodsDic = [[GoodsDic alloc] initWithByteBuffer:buffer];
 		_goodsCategoriesDic = [[GoodsCategoriesDic alloc] initWithByteBuffer:buffer];
 		_guildDic = [[GuildDic alloc] initWithByteBuffer:buffer];
+		_ItemDic = [[ItemDic alloc] initWithByteBuffer:buffer];
 		_logicDataDic = [[LogicDataDic alloc] initWithByteBuffer:buffer];
 		_npcDic = [[NpcDic alloc] initWithByteBuffer:buffer];
 		_roleInitialDic = [[RoleInitialDic alloc] initWithByteBuffer:buffer];
@@ -102,6 +104,11 @@ static DataManager *_sharedDataManager;
 -(GuildDic *)getGuildDic
 {
 	return _guildDic;
+}
+
+-(ItemDic *)getItemDic
+{
+	return _ItemDic;
 }
 
 -(LogicDataDic *)getLogicDataDic
