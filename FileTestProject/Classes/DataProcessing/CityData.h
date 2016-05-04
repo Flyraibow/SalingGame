@@ -22,6 +22,7 @@
 @property (nonatomic, readonly) int cityPosY;
 @property (nonatomic, readonly) NSString *unlockGoodsByItem;
 @property (nonatomic, readonly) NSString *unlockShipsByCommerce;
+@property (nonatomic, readonly) NSString *sellItemId;
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 

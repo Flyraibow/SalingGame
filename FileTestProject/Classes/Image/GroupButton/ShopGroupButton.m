@@ -10,6 +10,7 @@
 #import "DefaultButton.h"
 #import "LocalString.h"
 #import "BGImage.h"
+#import "ItemBrowsePanel.h"
 
 
 @implementation ShopGroupButton
@@ -32,7 +33,8 @@
 
 -(void)clickBuyBtn
 {
-    
+    ItemBrowsePanel *item = [[ItemBrowsePanel alloc] init];
+    [self addChild:item];
 }
 
 -(void)clickSaleBtn
