@@ -11,15 +11,26 @@
 #import "LabelButton.h"
 #import "LocalString.h"
 #import "DefaultButton.h"
+#import "GameDataManager.h"
+#import "DataManager.h"
+#import "ItemData.h"
+#import "ItemIcon.h"
+
+@interface ItemBrowsePanel() <ItemIconSelectionDelegate>
+
+@end
 
 @implementation ItemBrowsePanel
 {
     CCSprite *_panel;
     NSMutableArray *_buttonList;
     LabelButton *_selectedButton;
+    NSMutableDictionary *_itemDictionary;
+    ItemBrowsePanelType _panelType;
+    NSMutableArray *_showItemSpriteList;
 }
 
--(instancetype)init
+-(instancetype)initWithItems:(NSArray *)items panelType:(ItemBrowsePanelType)type
 {
     if (self = [super initWithNodeColor:[BGImage getShadowForBackground]]) {
         self.contentSize = [CCDirector sharedDirector].viewSize;
@@ -27,6 +38,7 @@
         self.position = ccp(0.5, 0.5);
         self.anchorPoint = ccp(0.5, 0.5);
         
+        _panelType = type;
         _panel = [CCSprite spriteWithImageNamed:@"ItemBrowsePanel.jpg"];
         _panel.positionType = CCPositionTypeNormalized;
         _panel.position = ccp(0.5, 0.1);
@@ -56,7 +68,20 @@
             [_panel addChild:labButton];
             [_buttonList addObject:labButton];
         }
-        
+        _itemDictionary = [NSMutableDictionary new];
+        ItemDic *itemDic = [[DataManager sharedDataManager] getItemDic];
+        for (int i = 0; i < items.count; ++i) {
+            NSString *itemId = items[i];
+            ItemData *item = [itemDic getItemById:itemId];
+            NSString *categoryNo = [@(item.type) stringValue];
+            NSMutableArray *array = [_itemDictionary objectForKey:categoryNo];
+            if (array == nil) {
+                array = [NSMutableArray new];
+                [_itemDictionary setObject:array forKey:categoryNo];
+            }
+            [array addObject:item];
+        }
+        _showItemSpriteList = [NSMutableArray new];
         [self setItemCategoryId:@"1"];
     }
     return self;
@@ -67,6 +92,31 @@
     _selectedButton.selected = NO;
     _selectedButton = _buttonList[[categoryId intValue] - 1];
     _selectedButton.selected = YES;
+    
+    NSMutableArray *itemList = [_itemDictionary objectForKey:categoryId];
+    int i = 0;
+    for (; i < itemList.count; ++i) {
+        ItemData *item = itemList[i];
+        ItemIcon *itemIcon;
+        if (i < _showItemSpriteList.count) {
+            itemIcon = _showItemSpriteList[i];
+            itemIcon.visible = YES;
+        } else {
+            itemIcon = [[ItemIcon alloc] init];
+            itemIcon.delegate = self;
+            itemIcon.positionType = CCPositionTypeNormalized;
+            int x = i % 8;
+            int y = i / 8;
+            itemIcon.position = ccp( 1.0 / 16 * (1 + x * 2), 0.9 - y * 0.1);
+            [_panel addChild: itemIcon];
+            [_showItemSpriteList addObject:itemIcon];
+        }
+        itemIcon.itemData = item;
+    }
+    for (; i < _showItemSpriteList.count; ++i) {
+        ItemIcon *itemIcon = _showItemSpriteList[i];
+        itemIcon.visible = NO;
+    }
 }
 
 -(void)clickLabelButton:(LabelButton *)button
@@ -81,6 +131,11 @@
 -(void)clickCloseButton
 {
     [self removeFromParent];
+}
+
+-(void)selectItem:(ItemData *)itemData
+{
+    NSLog(@"select Item: %@", itemData.iconId);
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @interface ShopGroupButton : BaseButtonGroup
 
+-(instancetype)initWithCityNo:(NSString *)cityNo;
+
 @end

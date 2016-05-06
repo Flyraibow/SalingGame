@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FileTestProject/Classes/Data/GameCityData.m"
-            timestampString = "483935190.483982"
+            timestampString = "484039169.542088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "335"
-            endingLineNumber = "335"
+            startingLineNumber = "348"
+            endingLineNumber = "348"
             landmarkName = "-addTransactionRecord:buyRecord:sellRecord:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FileTestProject/Classes/Data/GameCityData.m"
-            timestampString = "483935190.483982"
+            timestampString = "484039169.542088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "414"
-            endingLineNumber = "414"
+            startingLineNumber = "427"
+            endingLineNumber = "427"
             landmarkName = "-newMonth:"
             landmarkType = "5">
          </BreakpointContent>
@@ -80,6 +80,22 @@
             startingLineNumber = "58"
             endingLineNumber = "58"
             landmarkName = "-initWithShipData:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FileTestProject/Classes/Image/Icon/ItemIcon.m"
+            timestampString = "484213729.869784"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-setItemData:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

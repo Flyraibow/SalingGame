@@ -816,6 +816,7 @@
 		27FBB7521CD85090002B106B /* ItemBrowsePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7511CD85090002B106B /* ItemBrowsePanel.m */; };
 		27FBB7561CD852E0002B106B /* LabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7551CD852E0002B106B /* LabelButton.m */; };
 		27FBB7591CD85310002B106B /* DefaultButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7581CD85310002B106B /* DefaultButton.m */; };
+		27FBB7691CDC7938002B106B /* ItemIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7681CDC7938002B106B /* ItemIcon.m */; };
 		2B20FCF81CD804530028E718 /* ShipInfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* ShipInfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
@@ -1995,6 +1996,8 @@
 		27FBB7551CD852E0002B106B /* LabelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabelButton.m; path = Classes/Image/Element/LabelButton.m; sourceTree = "<group>"; };
 		27FBB7571CD85310002B106B /* DefaultButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultButton.h; path = Classes/Image/Element/DefaultButton.h; sourceTree = "<group>"; };
 		27FBB7581CD85310002B106B /* DefaultButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultButton.m; path = Classes/Image/Element/DefaultButton.m; sourceTree = "<group>"; };
+		27FBB7671CDC7938002B106B /* ItemIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemIcon.h; path = Classes/Image/Icon/ItemIcon.h; sourceTree = "<group>"; };
+		27FBB7681CDC7938002B106B /* ItemIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemIcon.m; path = Classes/Image/Icon/ItemIcon.m; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* ShipInfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipInfoButtonGroup.h; path = Classes/Image/GroupButton/ShipInfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* ShipInfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipInfoButtonGroup.m; path = Classes/Image/GroupButton/ShipInfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3416,6 +3419,8 @@
 				27ACAB211C966EAC005C0881 /* RoleAnimation.m */,
 				270AB1E81CC0AA4F00533B47 /* ShipdeckIcon.h */,
 				270AB1E91CC0AA4F00533B47 /* ShipdeckIcon.m */,
+				27FBB7671CDC7938002B106B /* ItemIcon.h */,
+				27FBB7681CDC7938002B106B /* ItemIcon.m */,
 			);
 			name = Icon;
 			sourceTree = "<group>";
@@ -4537,6 +4542,7 @@
 				279BAA8C1C59E3B60069EF5D /* CCCache.m in Sources */,
 				279BAC5C1C59E3B80069EF5D /* ALWrapper.m in Sources */,
 				27C26DDE1C714A7C009EDE53 /* CityDataPanel.m in Sources */,
+				27FBB7691CDC7938002B106B /* ItemIcon.m in Sources */,
 				279BAB8D1C59E3B70069EF5D /* CCEffectNode.m in Sources */,
 				27C26D6E1C6584A9009EDE53 /* TradeScene.m in Sources */,
 				279BAD091C59EF300069EF5D /* ByteBuffer.m in Sources */,

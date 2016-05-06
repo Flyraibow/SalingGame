@@ -123,7 +123,7 @@ static int const frameOffsetY = 20;
         _currentChildSprite = shipyardButton;
     } else if (buttonId == 6) {
         // 点击道具店
-        ShopGroupButton *shopButton = [ShopGroupButton new];
+        ShopGroupButton *shopButton = [[ShopGroupButton alloc] initWithCityNo:_cityNo];
         shopButton.baseSprite = self;
         [self.scene addChild:shopButton];
         _currentChildSprite = shopButton;
