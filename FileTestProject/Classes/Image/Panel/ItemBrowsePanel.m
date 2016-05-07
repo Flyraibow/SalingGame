@@ -16,7 +16,7 @@
 #import "ItemData.h"
 #import "ItemIcon.h"
 
-@interface ItemBrowsePanel() <ItemIconSelectionDelegate>
+@interface ItemBrowsePanel() <ItemIconSelectionDelegate, ItemInfoPanelDelegate>
 
 @end
 
@@ -135,7 +135,20 @@
 
 -(void)selectItem:(ItemData *)itemData
 {
-    NSLog(@"select Item: %@", itemData.iconId);
+    ItemInfoPanel *panel = [[ItemInfoPanel alloc] initWithItemData:itemData panelType:_panelType];
+    panel.delegate = self;
+    _panel.visible = NO;
+    [self addChild:panel];
+}
+
+-(void)closeItemInfoPanel
+{
+    _panel.visible = YES;
+}
+
+-(void)selectItemFromInfoPanel:(ItemData *)itemData
+{
+    
 }
 
 @end

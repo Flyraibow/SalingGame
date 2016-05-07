@@ -9,12 +9,7 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "BaseFrame.h"
-
-typedef enum : NSUInteger {
-    ItemBrowsePanelTypeBuy,
-    ItemBrowsePanelTypeSell,
-    ItemBrowsePanelTypeBrowse,
-} ItemBrowsePanelType;
+#import "ItemInfoPanel.h"
 
 @interface ItemBrowsePanel : BaseFrame
 
