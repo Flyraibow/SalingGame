@@ -30,7 +30,7 @@
     CGFloat _basePosX;
     NSArray *_selectedArray;
     BaseButtonGroup *_buttonGroup;
-    __weak void(^_hander)(int index);
+    void(^_hander)(int index);
 }
 
 -(instancetype)initWithContentSize:(CGSize)contentSize
@@ -95,11 +95,7 @@
 -(void)clickButton:(DefaultButton *)button
 {
     int index = [button.name intValue];
-    if (_hander != nil) {
-        _hander(index);
-    } else {
-        [self.delegate selectIndex:index];
-    }
+    _hander(index);
 }
 
 -(NSString *)replaceTextWithDefaultRegex:(NSString *)text
@@ -173,11 +169,6 @@
     } else {
         [self setDialogWithPhotoNo:@"0" npcName:getNpcFirstName(npcId) text:text];
     }
-}
-
--(void)addSelections:(NSArray *)selectArray
-{
-    [self addSelections:selectArray callback:nil];
 }
 
 -(void)addSelections:(NSArray *)selectArray callback:(void(^)(int index))handler

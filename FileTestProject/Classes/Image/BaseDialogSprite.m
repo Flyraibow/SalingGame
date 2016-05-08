@@ -48,16 +48,20 @@
     _showingDialog = YES;
 }
 
--(void)showDialog:(NSString *)portraitId npcName:(NSString *)npcName text:(NSString *)text options:(NSArray *)array
+-(void)showDialog:(NSString *)portraitId
+          npcName:(NSString *)npcName
+             text:(NSString *)text
+          options:(NSArray *)array
+         callback:(void (^)(int))handler
 {
     [self showDialog:portraitId npcName:npcName text:text];
-    [_dialogPanel addSelections:array];
+    [_dialogPanel addSelections:array callback:handler];
 }
 
--(void)showDialog:(NSString *)npcId text:(NSString *)text options:(NSArray *)array
+-(void)showDialog:(NSString *)npcId text:(NSString *)text options:(NSArray *)array callback:(void (^)(int))handler
 {
     [self showDialog:npcId text:text];
-    [_dialogPanel addSelections:array];
+    [_dialogPanel addSelections:array callback:handler];
 }
 
 

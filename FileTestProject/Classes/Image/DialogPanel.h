@@ -13,7 +13,6 @@
 
 @optional
 -(void)confirm;
--(void)selectIndex:(int)index;
 
 @end
 
@@ -27,8 +26,6 @@
 -(void)setDialogWithPhotoNo:(NSString *)photoNo npcName:(NSString *)npcName text:(NSString *)text;
 
 -(void)setDialogWithNpcId:(NSString *)npcId text:(NSString *)text;
-
--(void)addSelections:(NSArray *)selectArray;
 
 -(void)addSelections:(NSArray *)selectArray callback:(void(^)(int index))handler;
 

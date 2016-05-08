@@ -352,7 +352,20 @@ typedef enum : NSUInteger {
                             StoryData *storyData1 = [_storyList objectAtIndex:_currentIndex];
                             if (storyData1.command == StoryCommandTypeShowDialogSelection) {
                                 NSArray *selections = [getStorySelectionText(storyData1.parameter1) componentsSeparatedByString:@";"];
-                                [_dialogPanel addSelections:selections];
+                                __weak id weakSelf = self;
+                                __weak NSArray *weakReult = _selectionResult;
+                                __weak DialogPanel *weakDialogPanel = _dialogPanel;
+                                [_dialogPanel addSelections:selections callback:^(int index) {
+                                    NSString *selectStoryId = [weakReult objectAtIndex:index];
+                                    if ([selectStoryId isEqualToString:@"0"]) {
+                                        _selectinDialog = NO;
+                                        _inDialog = NO;
+                                        [weakSelf removeChild:weakDialogPanel];
+                                    } else {
+                                        // goto Story Id:
+                                        [weakSelf gotoStory:selectStoryId];
+                                    }
+                                }];
                                 _selectionResult = [storyData1.parameter2 componentsSeparatedByString:@";"];
                                 _selectinDialog = YES;
                                 _currentIndex++;
@@ -443,19 +456,6 @@ typedef enum : NSUInteger {
 {
     [self removeChild:_dialogPanel];
     _inDialog = NO;
-}
-
--(void)selectIndex:(int)index
-{
-    NSString *selectStoryId = [_selectionResult objectAtIndex:index];
-    if ([selectStoryId isEqualToString:@"0"]) {
-        _selectinDialog = NO;
-        _inDialog = NO;
-        [self removeChild:_dialogPanel];
-    } else {
-        // goto Story Id:
-        [self gotoStory:selectStoryId];
-    }
 }
 
 -(void)gotoStory:(NSString *)storyId

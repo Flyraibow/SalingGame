@@ -15,8 +15,16 @@
 
 -(void)showDialog:(NSString *)portraitId npcName:(NSString *)npcName text:(NSString *)text;
 -(void)showDialog:(NSString *)npcId text:(NSString *)text;
--(void)showDialog:(NSString *)portraitId npcName:(NSString *)npcName text:(NSString *)text options:(NSArray *)array;
--(void)showDialog:(NSString *)npcId text:(NSString *)text options:(NSArray *)array;
+-(void)showDialog:(NSString *)portraitId
+          npcName:(NSString *)npcName
+             text:(NSString *)text
+          options:(NSArray *)array
+         callback:(void(^)(int index))handler;
+
+-(void)showDialog:(NSString *)npcId
+             text:(NSString *)text
+          options:(NSArray *)array
+         callback:(void(^)(int index))handler;
 
 -(void)removeDialogPanel;
 @end

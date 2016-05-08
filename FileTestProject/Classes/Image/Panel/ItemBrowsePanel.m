@@ -29,6 +29,7 @@
     NSMutableDictionary *_itemDictionary;
     ItemBrowsePanelType _panelType;
     NSMutableArray *_showItemSpriteList;
+    ItemInfoPanel *_itemInfoPanel;
 }
 
 -(instancetype)initWithItems:(NSArray *)items panelType:(ItemBrowsePanelType)type
@@ -136,10 +137,9 @@
 
 -(void)selectItem:(ItemData *)itemData
 {
-    ItemInfoPanel *panel = [[ItemInfoPanel alloc] initWithItemData:itemData panelType:_panelType];
-    panel.delegate = self;
-    _panel.visible = NO;
-    [self addChild:panel];
+    _itemInfoPanel = [[ItemInfoPanel alloc] initWithItemData:itemData panelType:_panelType];
+    _itemInfoPanel.delegate = self;
+    [self addChild:_itemInfoPanel];
 }
 
 -(void)closeItemInfoPanel
@@ -153,12 +153,15 @@
         // 调用对话，询问是否购买
         DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
         // TODO: 处理文字
-        [dialogPanel setDialogWithPhotoNo:@"Portrait1.png" npcName:@"道具店老板" text:@"你确定要购买吗？"];
-         [dialogPanel addSelections:@[@"购买", @"不买"] callback:^(int index) {
+        __weak DialogPanel *weakDialogPanel = dialogPanel;
+        __weak ItemInfoPanel *weakItemInfoPanel = _itemInfoPanel;
+        [dialogPanel setDialogWithPhotoNo:@"1" npcName:@"道具店老板" text:@"你确定要购买吗？"];
+        [dialogPanel addSelections:@[@"购买", @"不买"] callback:^(int index) {
+            [self removeChild:weakDialogPanel];
             if (index == 0) {
-                NSLog(@"买");
-            } else {
-                NSLog(@"不买");
+                [self removeChild:weakItemInfoPanel];
+                _panel.visible = YES;
+                //[GameDataManager sharedGameData].myGuild
             }
          }];
         [self addChild:dialogPanel];
