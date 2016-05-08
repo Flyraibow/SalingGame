@@ -63,6 +63,11 @@
 "lab_load" = "读取";
 "lab_setting" = "环境设定";
 
+"lab_buy" = "购买";
+"lab_sell" = "售出";
+"lab_equip" = "装备";
+"lab_use" = "使用";
+
 "need_to_sign_before_exchange" = "对不起，你必须要先签约才能在这里做交易";
 "get_contract_money" = "独占契约，获得%d金币";
 

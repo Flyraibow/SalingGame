@@ -92,4 +92,9 @@ static NSString* getDialogText(NSString *dialogId)
     return getLocalStringByString(@"dialog_", dialogId);
 }
 
+static NSString* getItemName(NSString *itemId)
+{
+    return getLocalStringByString(@"item_name_", itemId);
+}
+
 #endif /* LocalString_h */

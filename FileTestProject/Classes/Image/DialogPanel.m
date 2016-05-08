@@ -30,6 +30,7 @@
     CGFloat _basePosX;
     NSArray *_selectedArray;
     BaseButtonGroup *_buttonGroup;
+    __weak void(^_hander)(int index);
 }
 
 -(instancetype)initWithContentSize:(CGSize)contentSize
@@ -94,7 +95,11 @@
 -(void)clickButton:(DefaultButton *)button
 {
     int index = [button.name intValue];
-    [self.delegate selectIndex:index];
+    if (_hander != nil) {
+        _hander(index);
+    } else {
+        [self.delegate selectIndex:index];
+    }
 }
 
 -(NSString *)replaceTextWithDefaultRegex:(NSString *)text
@@ -172,6 +177,12 @@
 
 -(void)addSelections:(NSArray *)selectArray
 {
+    [self addSelections:selectArray callback:nil];
+}
+
+-(void)addSelections:(NSArray *)selectArray callback:(void(^)(int index))handler
+{
+    _hander = handler;
     NSMutableArray *buttonList = [NSMutableArray new];
     for (int i = 0; i < selectArray.count; ++i) {
         NSString *buttonText = [self replaceTextWithDefaultRegex:selectArray[i]];

@@ -806,7 +806,6 @@
 		27FBB73E1CD843F6002B106B /* item205.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB66E1CD843F6002B106B /* item205.png */; };
 		27FBB73F1CD843F6002B106B /* item206.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB66F1CD843F6002B106B /* item206.png */; };
 		27FBB7401CD843F6002B106B /* item207.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB6701CD843F6002B106B /* item207.png */; };
-		27FBB7411CD843F6002B106B /* item208.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB6711CD843F6002B106B /* item208.png */; };
 		27FBB7441CD844A1002B106B /* ItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7431CD844A1002B106B /* ItemData.m */; };
 		27FBB7471CD84693002B106B /* ItemInfoPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7461CD84693002B106B /* ItemInfoPanel.m */; };
 		27FBB7491CD847A9002B106B /* itemDescFrame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7481CD847A9002B106B /* itemDescFrame.jpg */; };
@@ -817,6 +816,8 @@
 		27FBB7561CD852E0002B106B /* LabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7551CD852E0002B106B /* LabelButton.m */; };
 		27FBB7591CD85310002B106B /* DefaultButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7581CD85310002B106B /* DefaultButton.m */; };
 		27FBB7691CDC7938002B106B /* ItemIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7681CDC7938002B106B /* ItemIcon.m */; };
+		27FBB7731CDF0812002B106B /* item0.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7721CDF0812002B106B /* item0.png */; };
+		27FBB7771CDF116C002B106B /* GamePanelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7761CDF116C002B106B /* GamePanelManager.m */; };
 		2B20FCF81CD804530028E718 /* ShipInfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* ShipInfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
@@ -1981,7 +1982,6 @@
 		27FBB66E1CD843F6002B106B /* item205.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item205.png; path = Resources/Graph/Item/item205.png; sourceTree = "<group>"; };
 		27FBB66F1CD843F6002B106B /* item206.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item206.png; path = Resources/Graph/Item/item206.png; sourceTree = "<group>"; };
 		27FBB6701CD843F6002B106B /* item207.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item207.png; path = Resources/Graph/Item/item207.png; sourceTree = "<group>"; };
-		27FBB6711CD843F6002B106B /* item208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item208.png; path = Resources/Graph/Item/item208.png; sourceTree = "<group>"; };
 		27FBB7421CD844A1002B106B /* ItemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemData.h; path = Classes/DataProcessing/ItemData.h; sourceTree = "<group>"; };
 		27FBB7431CD844A1002B106B /* ItemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemData.m; path = Classes/DataProcessing/ItemData.m; sourceTree = "<group>"; };
 		27FBB7451CD84693002B106B /* ItemInfoPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemInfoPanel.h; path = Classes/Image/Panel/ItemInfoPanel.h; sourceTree = "<group>"; };
@@ -1998,6 +1998,9 @@
 		27FBB7581CD85310002B106B /* DefaultButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultButton.m; path = Classes/Image/Element/DefaultButton.m; sourceTree = "<group>"; };
 		27FBB7671CDC7938002B106B /* ItemIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemIcon.h; path = Classes/Image/Icon/ItemIcon.h; sourceTree = "<group>"; };
 		27FBB7681CDC7938002B106B /* ItemIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemIcon.m; path = Classes/Image/Icon/ItemIcon.m; sourceTree = "<group>"; };
+		27FBB7721CDF0812002B106B /* item0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item0.png; path = Resources/Graph/Item/item0.png; sourceTree = "<group>"; };
+		27FBB7751CDF116C002B106B /* GamePanelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePanelManager.h; path = Classes/Manager/GamePanelManager.h; sourceTree = "<group>"; };
+		27FBB7761CDF116C002B106B /* GamePanelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamePanelManager.m; path = Classes/Manager/GamePanelManager.m; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* ShipInfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipInfoButtonGroup.h; path = Classes/Image/GroupButton/ShipInfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* ShipInfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipInfoButtonGroup.m; path = Classes/Image/GroupButton/ShipInfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2981,6 +2984,7 @@
 		279BACF01C59E3B90069EF5D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				27FBB7741CDF114C002B106B /* Manager */,
 				27C26E361C803A37009EDE53 /* Ext */,
 				27C26D411C63FA74009EDE53 /* Protocol */,
 				27C26D021C616198009EDE53 /* Data */,
@@ -3594,6 +3598,7 @@
 		27FBB5A11CD843CF002B106B /* Item */ = {
 			isa = PBXGroup;
 			children = (
+				27FBB7721CDF0812002B106B /* item0.png */,
 				27FBB5A21CD843F5002B106B /* item1.png */,
 				27FBB5A31CD843F5002B106B /* item2.png */,
 				27FBB5A41CD843F5002B106B /* item3.png */,
@@ -3801,7 +3806,6 @@
 				27FBB66E1CD843F6002B106B /* item205.png */,
 				27FBB66F1CD843F6002B106B /* item206.png */,
 				27FBB6701CD843F6002B106B /* item207.png */,
-				27FBB6711CD843F6002B106B /* item208.png */,
 			);
 			name = Item;
 			sourceTree = "<group>";
@@ -3815,6 +3819,15 @@
 				27FBB7551CD852E0002B106B /* LabelButton.m */,
 			);
 			name = Element;
+			sourceTree = "<group>";
+		};
+		27FBB7741CDF114C002B106B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				27FBB7751CDF116C002B106B /* GamePanelManager.h */,
+				27FBB7761CDF116C002B106B /* GamePanelManager.m */,
+			);
+			name = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3995,7 +4008,6 @@
 				27FBB6731CD843F6002B106B /* item2.png in Resources */,
 				27FBB6881CD843F6002B106B /* item23.png in Resources */,
 				27C26F461C82A7C1009EDE53 /* ship14.jpg in Resources */,
-				27FBB7411CD843F6002B106B /* item208.png in Resources */,
 				270AB1D01C9BCE5300533B47 /* duelDeck.png in Resources */,
 				27C26F241C82A7C1009EDE53 /* goods25.jpg in Resources */,
 				27FBB6A61CD843F6002B106B /* item53.png in Resources */,
@@ -4444,6 +4456,7 @@
 				27FBB6CB1CD843F6002B106B /* item90.png in Resources */,
 				27ACAB821C9674C4005C0881 /* c008_11-1.png in Resources */,
 				27C26E411C803F74009EDE53 /* Portrait1.png in Resources */,
+				27FBB7731CDF0812002B106B /* item0.png in Resources */,
 				27FBB70A1CD843F6002B106B /* item153.png in Resources */,
 				27FBB6EF1CD843F6002B106B /* item126.png in Resources */,
 				27FBB69C1CD843F6002B106B /* item43.png in Resources */,
@@ -4656,6 +4669,7 @@
 				27C26DDB1C701BD1009EDE53 /* ShipSailModel.m in Sources */,
 				279BABD61C59E3B80069EF5D /* CCGLView.m in Sources */,
 				279BAAA01C59E3B60069EF5D /* CCActionManager.m in Sources */,
+				27FBB7771CDF116C002B106B /* GamePanelManager.m in Sources */,
 				279BABA61C59E3B70069EF5D /* CCSlider.m in Sources */,
 				27FBB7471CD84693002B106B /* ItemInfoPanel.m in Sources */,
 				27C26D3A1C634BC2009EDE53 /* ShopGroupButton.m in Sources */,

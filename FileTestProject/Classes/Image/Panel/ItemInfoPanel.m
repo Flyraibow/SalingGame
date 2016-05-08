@@ -34,13 +34,41 @@
         _itemPanel.position = ccp(0.5, 0.5);
         [self addChild:_itemPanel];
         
+        CCLabelTTF *labName = [CCLabelTTF labelWithString:getItemName(itemData.itemId) fontName:nil fontSize:14];
+        labName.positionType = CCPositionTypeNormalized;
+        labName.anchorPoint = ccp(0, 0.5);
+        labName.position = ccp(0.08, 0.9);
+        [_itemPanel addChild:labName];
+        
         DefaultButton *closeButton = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_close")];
         closeButton.positionType = CCPositionTypeNormalized;
         closeButton.anchorPoint = ccp(1, 0);
-        closeButton.position = ccp(0.98, 0.02);
+        closeButton.position = ccp(0.98, 0.05);
         closeButton.scale = 0.5;
         [closeButton setTarget:self selector:@selector(clickCloseButton)];
         [_itemPanel addChild:closeButton];
+        
+        DefaultButton *selectButton = nil;
+        if (type == ItemBrowsePanelTypeBuy) {
+            selectButton = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_buy")];
+        } else if (type == ItemBrowsePanelTypeSell) {
+            selectButton = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_buy")];
+        } else if (type == ItemBrowsePanelTypeBrowse) {
+            if (itemData.type <= 3) {
+                selectButton = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_equip")];
+            } else if (itemData.value > 0) {
+                selectButton = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_use")];
+            }
+        }
+        
+        if (selectButton != nil) {
+            selectButton.positionType = CCPositionTypeNormalized;
+            selectButton.anchorPoint = ccp(1, 0);
+            selectButton.position = ccp(0.73, 0.05);
+            selectButton.scale = 0.5;
+            [selectButton setTarget:self selector:@selector(selectItem)];
+            [_itemPanel addChild:selectButton];
+        }
     }
     return self;
 }
@@ -49,6 +77,11 @@
 {
     [_delegate closeItemInfoPanel];
     [self removeFromParent];
+}
+
+-(void)selectItem
+{
+    [_delegate selectItemFromInfoPanel:_itemData];
 }
 
 @end

@@ -30,4 +30,6 @@
 
 -(void)addSelections:(NSArray *)selectArray;
 
+-(void)addSelections:(NSArray *)selectArray callback:(void(^)(int index))handler;
+
 @end

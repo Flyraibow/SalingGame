@@ -15,8 +15,9 @@
 #import "DataManager.h"
 #import "ItemData.h"
 #import "ItemIcon.h"
+#import "GamePanelManager.h"
 
-@interface ItemBrowsePanel() <ItemIconSelectionDelegate, ItemInfoPanelDelegate>
+@interface ItemBrowsePanel() <ItemIconSelectionDelegate, ItemInfoPanelDelegate, DialogInteractProtocol>
 
 @end
 
@@ -148,7 +149,21 @@
 
 -(void)selectItemFromInfoPanel:(ItemData *)itemData
 {
-    
+    if (_panelType == ItemBrowsePanelTypeBuy) {
+        // 调用对话，询问是否购买
+        DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
+        // TODO: 处理文字
+        [dialogPanel setDialogWithPhotoNo:@"Portrait1.png" npcName:@"道具店老板" text:@"你确定要购买吗？"];
+         [dialogPanel addSelections:@[@"购买", @"不买"] callback:^(int index) {
+            if (index == 0) {
+                NSLog(@"买");
+            } else {
+                NSLog(@"不买");
+            }
+         }];
+        [self addChild:dialogPanel];
+        
+    }
 }
 
 @end
