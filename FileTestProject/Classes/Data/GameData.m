@@ -41,13 +41,13 @@ static NSString* const GameMuiscData = @"GameMusicData";
         for(NSString *key in cityDic)
         {
             GameCityData *cityData = [[GameCityData alloc] initWithCityData:[cityDic objectForKey:key]];
-            [_cityDic setObject:cityData forKey:key];
+            [(NSMutableDictionary *)_cityDic setObject:cityData forKey:key];
         }
         _npcDic = [NSMutableDictionary new];
         NSDictionary *npcDic = [[DataManager sharedDataManager].getNpcDic getDictionary];
         for (NSString *npcId in npcDic) {
             GameNPCData *gameNPCData = [[GameNPCData alloc] initWithNpcId:npcId];
-            [_npcDic setObject:gameNPCData forKey:npcId];
+            [(NSMutableDictionary *)_npcDic setObject:gameNPCData forKey:npcId];
         }
     }
     return self;
@@ -59,7 +59,7 @@ static NSString* const GameMuiscData = @"GameMusicData";
     NSDictionary *guildDic = [[DataManager sharedDataManager].getGuildDic getDictionary];
     for (id key in guildDic) {
         GameGuildData *guildData = [[GameGuildData alloc] initWithGuildData:[guildDic objectForKey:key]];
-        [_guildDic setObject:guildData forKey:key];
+        [(NSMutableDictionary *)_guildDic setObject:guildData forKey:key];
     }
     _timeUpdateSet = [NSMutableSet new];
     _occupationUpdateSet = [NSMutableSet new];
@@ -68,7 +68,7 @@ static NSString* const GameMuiscData = @"GameMusicData";
     _logicData = [NSMutableDictionary new];
     NSDictionary *logicDataType = [[[DataManager sharedDataManager] getLogicDataDic] getDictionary];
     for (NSString *logicId in logicDataType) {
-        [_logicData setObject:@"0" forKey:logicId];
+        [(NSMutableDictionary *)_logicData setObject:@"0" forKey:logicId];
     }
 }
 
@@ -179,7 +179,7 @@ static NSString* const GameMuiscData = @"GameMusicData";
         } else {
             // Expression : TODO
         }
-        [_logicData setObject:newValue forKey:logicId];
+        [(NSMutableDictionary *)_logicData setObject:newValue forKey:logicId];
     }
 }
 
@@ -318,7 +318,7 @@ static NSString* const GameMuiscData = @"GameMusicData";
         dialogData.npcName = @"";
         NSString *text = [NSString stringWithFormat:getLocalString(@"get_contract_money"), contractMoney];
         dialogData.text = text;
-        [_dialogList addObject:dialogData];
+        [(NSMutableArray *)_dialogList addObject:dialogData];
     }
 }
 

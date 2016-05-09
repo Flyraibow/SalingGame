@@ -31,16 +31,17 @@ typedef enum : NSUInteger {
 
 @interface GameData : NSObject <NSCoding>
 
-@property (nonatomic, readonly) NSMutableDictionary *cityDic;
-@property (nonatomic, readonly) NSMutableDictionary *npcDic;
-@property (nonatomic, readonly) NSMutableDictionary *guildDic;
-@property (nonatomic, readonly) NSMutableDictionary *logicData;
+@property (nonatomic, readonly) NSDictionary *cityDic;
+@property (nonatomic, readonly) NSDictionary *npcDic;
+@property (nonatomic, readonly) NSDictionary *guildDic;
+@property (nonatomic, readonly) NSDictionary *logicData;
 @property (nonatomic, readonly) int year;
 @property (nonatomic, readonly) int month;
 @property (nonatomic, readonly) int day;
 @property (nonatomic) MyGuild *myGuild;
-@property (nonatomic, readonly) NSMutableArray *dialogList;
+@property (nonatomic, readonly) NSArray *dialogList;
 @property (nonatomic, copy) NSString *currentMusic;
+@property (nonatomic, readonly) NSDictionary *itemDic;
 
 -(void)initGuildData;
 

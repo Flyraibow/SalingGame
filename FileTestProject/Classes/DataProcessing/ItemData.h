@@ -5,9 +5,11 @@
 
 @property (nonatomic, readonly) NSString *itemId;
 @property (nonatomic, readonly) NSString *iconId;
+@property (nonatomic, readonly) int category;
 @property (nonatomic, readonly) int type;
 @property (nonatomic, readonly) int value;
 @property (nonatomic, readonly) int job;
+@property (nonatomic, readonly) int price;
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 

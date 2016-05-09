@@ -75,7 +75,7 @@
         for (int i = 0; i < items.count; ++i) {
             NSString *itemId = items[i];
             ItemData *item = [itemDic getItemById:itemId];
-            NSString *categoryNo = [@(item.type) stringValue];
+            NSString *categoryNo = [@(item.category) stringValue];
             NSMutableArray *array = [_itemDictionary objectForKey:categoryNo];
             if (array == nil) {
                 array = [NSMutableArray new];
@@ -156,7 +156,7 @@
         __weak DialogPanel *weakDialogPanel = dialogPanel;
         __weak ItemInfoPanel *weakItemInfoPanel = _itemInfoPanel;
         [dialogPanel setDialogWithPhotoNo:@"1" npcName:@"道具店老板" text:@"你确定要购买吗？"];
-        [dialogPanel addSelections:@[@"购买", @"不买"] callback:^(int index) {
+        [dialogPanel addSelections:@[getLocalString(@"lab_buy"), getLocalString(@"btn_cancel")] callback:^(int index) {
             [self removeChild:weakDialogPanel];
             if (index == 0) {
                 [self removeChild:weakItemInfoPanel];

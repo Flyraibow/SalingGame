@@ -818,6 +818,7 @@
 		27FBB7691CDC7938002B106B /* ItemIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7681CDC7938002B106B /* ItemIcon.m */; };
 		27FBB7731CDF0812002B106B /* item0.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7721CDF0812002B106B /* item0.png */; };
 		27FBB7771CDF116C002B106B /* GamePanelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7761CDF116C002B106B /* GamePanelManager.m */; };
+		27FBB77A1CE0144C002B106B /* GameItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7791CE0144C002B106B /* GameItemData.m */; };
 		2B20FCF81CD804530028E718 /* ShipInfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* ShipInfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
@@ -2001,6 +2002,8 @@
 		27FBB7721CDF0812002B106B /* item0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item0.png; path = Resources/Graph/Item/item0.png; sourceTree = "<group>"; };
 		27FBB7751CDF116C002B106B /* GamePanelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePanelManager.h; path = Classes/Manager/GamePanelManager.h; sourceTree = "<group>"; };
 		27FBB7761CDF116C002B106B /* GamePanelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamePanelManager.m; path = Classes/Manager/GamePanelManager.m; sourceTree = "<group>"; };
+		27FBB7781CE0144C002B106B /* GameItemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameItemData.h; path = Classes/Data/GameItemData.h; sourceTree = "<group>"; };
+		27FBB7791CE0144C002B106B /* GameItemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameItemData.m; path = Classes/Data/GameItemData.m; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* ShipInfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipInfoButtonGroup.h; path = Classes/Image/GroupButton/ShipInfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* ShipInfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipInfoButtonGroup.m; path = Classes/Image/GroupButton/ShipInfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3357,6 +3360,8 @@
 				27C26E1E1C7DA86D009EDE53 /* GameRouteData.m */,
 				278F4A4B1C83D65800D724EF /* GameStoryTriggerManager.h */,
 				278F4A4C1C83D65800D724EF /* GameStoryTriggerManager.m */,
+				27FBB7781CE0144C002B106B /* GameItemData.h */,
+				27FBB7791CE0144C002B106B /* GameItemData.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -4687,6 +4692,7 @@
 				27C26D8C1C695291009EDE53 /* NpcData.m in Sources */,
 				279BABAC1C59E3B70069EF5D /* CCTextField.m in Sources */,
 				279BAAE61C59E3B60069EF5D /* CCParticleBatchNode.m in Sources */,
+				27FBB77A1CE0144C002B106B /* GameItemData.m in Sources */,
 				27C26D051C6161BE009EDE53 /* GameDataManager.m in Sources */,
 				279BAB221C59E3B70069EF5D /* CCSpriteFrame.m in Sources */,
 				279BAC421C59E3B80069EF5D /* ALBuffer.m in Sources */,

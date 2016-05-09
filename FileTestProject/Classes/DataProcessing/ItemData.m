@@ -38,9 +38,11 @@
 	if (self) {
 		_itemId = [buffer readString];
 		_iconId = [buffer readString];
+		_category = [buffer readInt];
 		_type = [buffer readInt];
 		_value = [buffer readInt];
 		_job = [buffer readInt];
+		_price = [buffer readInt];
 	}
 	return self;
 }
