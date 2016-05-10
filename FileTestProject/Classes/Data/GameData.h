@@ -77,4 +77,8 @@ typedef enum : NSUInteger {
 
 -(void)removeCityChangeClass:(id)target;
 
+-(NSArray *)itemListByCity:(NSString *)cityId;
+
+-(NSArray *)itemListByGuild:(NSString *)guildId;
+
 @end

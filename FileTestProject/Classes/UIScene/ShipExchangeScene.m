@@ -28,7 +28,7 @@
     int _number;
     CCSprite *_sprite;
     CCButton *_rightBtn;
-    CCButton *_leftbtn;
+    CCButton *_leftBtn;
     NSMutableArray *_array;
     BOOL _moving;
 }
@@ -61,14 +61,14 @@
         [self addChild:_rightBtn];
         
         
-        _leftbtn = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:@"leftArrowButton.png"]];
-        _leftbtn.positionType = CCPositionTypeNormalized;
-        _leftbtn.anchorPoint = ccp(0, 0.5);
-        _leftbtn.position = ccp(0.05, 0.5);
-        [_leftbtn setTarget:self selector:@selector(clickLeftButton)];
-        [self addChild:_leftbtn];
+        _leftBtn = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:@"leftArrowButton.png"]];
+        _leftBtn.positionType = CCPositionTypeNormalized;
+        _leftBtn.anchorPoint = ccp(0, 0.5);
+        _leftBtn.position = ccp(0.05, 0.5);
+        [_leftBtn setTarget:self selector:@selector(clickLeftButton)];
+        [self addChild:_leftBtn];
         
-        _leftbtn.enabled = NO;
+        _leftBtn.enabled = NO;
         
         DefaultButton *btnClose = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_close")];
         btnClose.positionType = CCPositionTypeNormalized;
@@ -149,8 +149,9 @@
 -(void)clickRightButton
 {
     if (_index + 2 < _number) {
-        if(++_index >= _number - 2) _rightBtn.enabled = NO;
-        _leftbtn.enabled = YES;
+        if(++_index >= _number - 2)
+            _rightBtn.enabled = NO;
+        _leftBtn.enabled = YES;
         _moving = YES;
     }
 }
@@ -158,7 +159,8 @@
 -(void)clickLeftButton
 {
     if (_index > 0) {
-        if (--_index <= 0) _leftbtn.enabled = NO;
+        if (--_index <= 0)
+            _leftBtn.enabled = NO;
         _rightBtn.enabled = YES;
         _moving = YES;
     }

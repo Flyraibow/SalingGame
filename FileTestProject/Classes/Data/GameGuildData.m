@@ -114,4 +114,15 @@ static NSString* const GameGuildCityKnowledgeSet = @"GameGuildCityKnowledgeSet";
     _money += value;
 }
 
+
+-(void)addItem:(NSString *)itemId
+{
+    
+}
+
+-(void)removeItem:(NSString *)itemId
+{
+    
+}
+
 @end

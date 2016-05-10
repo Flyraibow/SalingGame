@@ -55,7 +55,6 @@
 		_cityPosY = [buffer readInt];
 		_unlockGoodsByItem = [buffer readString];
 		_unlockShipsByCommerce = [buffer readString];
-		_sellItemId = [buffer readString];
 	}
 	return self;
 }

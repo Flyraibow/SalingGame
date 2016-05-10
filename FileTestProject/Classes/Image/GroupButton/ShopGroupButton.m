@@ -39,8 +39,8 @@
 
 -(void)clickBuyBtn
 {
-    GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
-    ItemBrowsePanel *item = [[ItemBrowsePanel alloc] initWithItems:cityData.itemList panelType:ItemBrowsePanelTypeBuy];
+    NSArray *itemList = [[GameDataManager sharedGameData] itemListByCity:_cityNo];
+    ItemBrowsePanel *item = [[ItemBrowsePanel alloc] initWithItems:itemList panelType:ItemBrowsePanelTypeBuy];
     [self addChild:item];
 }
 

@@ -13,6 +13,7 @@
 #import "GameShipGoodsData.h"
 #import "GameDataManager.h"
 #import "GameNPCData.h"
+#import "GameItemData.h"
 #import "OALSimpleAudio.h"
 
 @implementation  GameDialogData
@@ -31,13 +32,15 @@ static NSString* const GameMyGuild= @"GameMyGuild";
 static NSString* const GameCityDic = @"GameCityDic";
 static NSString* const GameLogicData = @"GameLogicData";
 static NSString* const GameMuiscData = @"GameMusicData";
+static NSString* const GameItemDataState = @"GameItemDataState";
 
 -(instancetype)init
 {
     if (self = [super init]) {
         _dialogList = [NSMutableArray new];
         _cityDic = [NSMutableDictionary new];
-        NSDictionary *cityDic= [[DataManager sharedDataManager].getCityDic getDictionary];
+        _itemDic = [NSMutableDictionary new];
+        NSDictionary *cityDic = [[DataManager sharedDataManager].getCityDic getDictionary];
         for(NSString *key in cityDic)
         {
             GameCityData *cityData = [[GameCityData alloc] initWithCityData:[cityDic objectForKey:key]];
@@ -48,6 +51,11 @@ static NSString* const GameMuiscData = @"GameMusicData";
         for (NSString *npcId in npcDic) {
             GameNPCData *gameNPCData = [[GameNPCData alloc] initWithNpcId:npcId];
             [(NSMutableDictionary *)_npcDic setObject:gameNPCData forKey:npcId];
+        }
+        NSDictionary *itemDic = [[DataManager sharedDataManager].getItemDic getDictionary];
+        for (NSString *itemId in itemDic) {
+            GameItemData *gameItemData = [[GameItemData alloc] initWithItemData:itemDic[itemId]];
+            [(NSMutableDictionary *)_itemDic setObject:gameItemData forKey:itemId];
         }
     }
     return self;
@@ -197,6 +205,12 @@ static NSString* const GameMuiscData = @"GameMusicData";
         _myGuild = [aDecoder decodeObjectForKey:GameMyGuild];
         _cityDic = [aDecoder decodeObjectForKey:GameCityDic];
         _logicData = [aDecoder decodeObjectForKey:GameLogicData];
+        _itemDic = [aDecoder decodeObjectForKey:GameItemDataState];
+        NSDictionary *itemDic = [[DataManager sharedDataManager].getItemDic getDictionary];
+        for (NSString *itemNo in _itemDic) {
+            GameItemData *gameItemData = _itemDic[itemNo];
+            gameItemData.itemData = itemDic[itemNo];
+        }
         self.currentMusic = [aDecoder decodeObjectForKey:GameMuiscData];
     }
     return self;
@@ -211,6 +225,7 @@ static NSString* const GameMuiscData = @"GameMusicData";
     [aCoder encodeObject:_cityDic forKey:GameCityDic];
     [aCoder encodeObject:_logicData forKey:GameLogicData];
     [aCoder encodeObject:_currentMusic forKey:GameMuiscData];
+    [aCoder encodeObject:_itemDic forKey:GameItemDataState];
 }
 
 -(void)addTimeUpdateClass:(id<DateUpdateProtocol>)target
@@ -346,6 +361,31 @@ static NSString* const GameMuiscData = @"GameMusicData";
         
         [[OALSimpleAudio sharedInstance] playBg:currentMusic loop:YES];
     }
+}
+
+
+-(NSArray *)itemListByCity:(NSString *)cityId
+{
+    NSMutableArray *itemList = [NSMutableArray new];
+    for (NSString *itemId in _itemDic) {
+        GameItemData *gameItemData = [_itemDic objectForKey:itemId];
+        if ([gameItemData.cityNo isEqualToString:cityId]) {
+            [itemList addObject:gameItemData];
+        }
+    }
+    return itemList;
+}
+
+-(NSArray *)itemListByGuild:(NSString *)guildId
+{
+    NSMutableArray *itemList = [NSMutableArray new];
+    for (NSString *itemId in _itemDic) {
+        GameItemData *gameItemData = [_itemDic objectForKey:itemId];
+        if ([gameItemData.guildId isEqualToString:guildId]) {
+            [itemList addObject:gameItemData];
+        }
+    }
+    return itemList;
 }
 
 @end

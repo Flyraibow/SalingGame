@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FileTestProject/Classes/Data/GameCityData.m"
-            timestampString = "484039169.542088"
+            timestampString = "484554842.236335"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
+            startingLineNumber = "336"
+            endingLineNumber = "336"
             landmarkName = "-addTransactionRecord:buyRecord:sellRecord:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FileTestProject/Classes/Data/GameCityData.m"
-            timestampString = "484039169.542088"
+            timestampString = "484554842.236335"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "427"
-            endingLineNumber = "427"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
             landmarkName = "-newMonth:"
             landmarkType = "5">
          </BreakpointContent>
@@ -102,16 +102,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FileTestProject/Classes/Image/DialogPanel.m"
-            timestampString = "484385145.810941"
+            filePath = "FileTestProject/Classes/Image/Panel/ItemBrowsePanel.m"
+            timestampString = "484554842.236335"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "-addSelections:callback:"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-selectItem:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FileTestProject/Classes/Image/Panel/ItemInfoPanel.m"
+            timestampString = "484469815.482956"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-setItemData:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -10,6 +10,8 @@
 @property (nonatomic, readonly) int value;
 @property (nonatomic, readonly) int job;
 @property (nonatomic, readonly) int price;
+@property (nonatomic, readonly) NSString *ownerCityId;
+@property (nonatomic, readonly) NSString *ownerGuildId;
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 

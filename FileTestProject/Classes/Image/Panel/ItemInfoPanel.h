@@ -23,12 +23,17 @@ typedef enum : NSUInteger {
 
 -(void)selectItemFromInfoPanel:(ItemData *)itemData;
 
+-(void)selectPrevItem;
+
+-(void)selectNextItem;
+
 @end
 
 @interface ItemInfoPanel : BaseFrame
 
 @property (nonatomic, weak) id<ItemInfoPanelDelegate> delegate;
+@property (nonatomic) ItemData *itemData;
 
--(instancetype)initWithItemData:(ItemData *)itemData panelType:(ItemBrowsePanelType)type;;
+-(instancetype)initWithPanelType:(ItemBrowsePanelType)type;
 
 @end

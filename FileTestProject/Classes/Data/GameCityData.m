@@ -26,7 +26,6 @@ static NSString* const CityMilltaryInvestRecord = @"CityMilltaryInvestRecord";
 static NSString* const CityCommerceInvestRecord = @"CityCommerceInvestRecord";
 static NSString* const CityCategoryPriceDict = @"CityCategoryPriceDict";
 static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
-static NSString* const CityItemsList = @"CityItemsList";
 
 -(instancetype)initWithCityData:(CityData *)cityData
 {
@@ -53,15 +52,6 @@ static NSString* const CityItemsList = @"CityItemsList";
         for (int i = 0; i < goodsList.count; ++i) {
             int maxNum = [self getGoodsNum:goodsList[i]];
             [_goodsDict setObject:@(maxNum) forKey:goodsList[i]];
-        }
-        
-        _itemList = [NSMutableArray new];
-        NSArray *itemList = [cityData.sellItemId componentsSeparatedByString:@";"];
-        for (int i = 0; i < itemList.count; ++i) {
-            NSString *itemNo = itemList[i];
-            if (itemNo.length > 0) {
-                [_itemList addObject:itemNo];
-            }
         }
         
         _transactionRecordDict = [NSMutableDictionary new];
@@ -93,7 +83,6 @@ static NSString* const CityItemsList = @"CityItemsList";
         _milltaryInvestRecord = [aDecoder decodeIntegerForKey:CityMilltaryInvestRecord];
         _categoryPriceDict = [aDecoder decodeObjectForKey:CityCategoryPriceDict];
         _goodsPriceDict = [aDecoder decodeObjectForKey:CityGoodsPriceDict];
-        _itemList = [aDecoder decodeObjectForKey:CityItemsList];
     }
     return self;
 }
@@ -114,7 +103,6 @@ static NSString* const CityItemsList = @"CityItemsList";
     [aCoder encodeInteger:_milltaryInvestRecord forKey:CityMilltaryInvestRecord];
     [aCoder encodeObject:_categoryPriceDict forKey:CityCategoryPriceDict];
     [aCoder encodeObject:_goodsPriceDict forKey:CityGoodsPriceDict];
-    [aCoder encodeObject:_itemList forKey:CityItemsList];
 }
 
 -(void)addBuilding:(NSString *)buildingNo
