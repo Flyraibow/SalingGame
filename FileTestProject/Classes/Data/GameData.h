@@ -39,7 +39,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) int month;
 @property (nonatomic, readonly) int day;
 @property (nonatomic) MyGuild *myGuild;
-@property (nonatomic, readonly) NSArray *dialogList;
+@property (nonatomic, readonly) NSMutableArray *dialogList;   // 临时对话
 @property (nonatomic, copy) NSString *currentMusic;
 @property (nonatomic, readonly) NSDictionary *itemDic;
 

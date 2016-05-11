@@ -819,7 +819,9 @@
 		27FBB7731CDF0812002B106B /* item0.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7721CDF0812002B106B /* item0.png */; };
 		27FBB7771CDF116C002B106B /* GamePanelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7761CDF116C002B106B /* GamePanelManager.m */; };
 		27FBB77A1CE0144C002B106B /* GameItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7791CE0144C002B106B /* GameItemData.m */; };
-		2B20FCF81CD804530028E718 /* ShipInfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* ShipInfoButtonGroup.m */; };
+		27FBB77D1CE309B7002B106B /* downArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB77B1CE309B7002B106B /* downArrowButton.png */; };
+		27FBB77E1CE309B7002B106B /* upArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB77C1CE309B7002B106B /* upArrowButton.png */; };
+		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -2004,8 +2006,10 @@
 		27FBB7761CDF116C002B106B /* GamePanelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamePanelManager.m; path = Classes/Manager/GamePanelManager.m; sourceTree = "<group>"; };
 		27FBB7781CE0144C002B106B /* GameItemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameItemData.h; path = Classes/Data/GameItemData.h; sourceTree = "<group>"; };
 		27FBB7791CE0144C002B106B /* GameItemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameItemData.m; path = Classes/Data/GameItemData.m; sourceTree = "<group>"; };
-		2B20FCF61CD804530028E718 /* ShipInfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipInfoButtonGroup.h; path = Classes/Image/GroupButton/ShipInfoButtonGroup.h; sourceTree = "<group>"; };
-		2B20FCF71CD804530028E718 /* ShipInfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipInfoButtonGroup.m; path = Classes/Image/GroupButton/ShipInfoButtonGroup.m; sourceTree = "<group>"; };
+		27FBB77B1CE309B7002B106B /* downArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = downArrowButton.png; path = Resources/Graph/Button/downArrowButton.png; sourceTree = "<group>"; };
+		27FBB77C1CE309B7002B106B /* upArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upArrowButton.png; path = Resources/Graph/Button/upArrowButton.png; sourceTree = "<group>"; };
+		2B20FCF61CD804530028E718 /* InfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoButtonGroup.h; path = Classes/Image/GroupButton/InfoButtonGroup.h; sourceTree = "<group>"; };
+		2B20FCF71CD804530028E718 /* InfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoButtonGroup.m; path = Classes/Image/GroupButton/InfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3389,8 +3393,8 @@
 				27C26D391C634BC2009EDE53 /* ShopGroupButton.m */,
 				27C26D3B1C634CF2009EDE53 /* ShipyardGroupButton.h */,
 				27C26D3C1C634CF2009EDE53 /* ShipyardGroupButton.m */,
-				2B20FCF61CD804530028E718 /* ShipInfoButtonGroup.h */,
-				2B20FCF71CD804530028E718 /* ShipInfoButtonGroup.m */,
+				2B20FCF61CD804530028E718 /* InfoButtonGroup.h */,
+				2B20FCF71CD804530028E718 /* InfoButtonGroup.m */,
 				27C26D3E1C634F4D009EDE53 /* DockGroupButton.h */,
 				27C26D3F1C634F4D009EDE53 /* DockGroupButton.m */,
 			);
@@ -3559,6 +3563,8 @@
 		27E040B81C5C34F20068171E /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				27FBB77B1CE309B7002B106B /* downArrowButton.png */,
+				27FBB77C1CE309B7002B106B /* upArrowButton.png */,
 				27FBB74C1CD8505C002B106B /* ItemLabelButton_Down.png */,
 				27FBB74D1CD8505C002B106B /* ItemLabelButton_Up.png */,
 				27C26D5A1C647B01009EDE53 /* leftArrowButton.png */,
@@ -4428,6 +4434,8 @@
 				27C26D5B1C647B01009EDE53 /* leftArrowButton.png in Resources */,
 				27C26F171C82A7C1009EDE53 /* goods38.jpg in Resources */,
 				270AB22C1CC75D3400533B47 /* Shipdeck1_1.png in Resources */,
+				27FBB77E1CE309B7002B106B /* upArrowButton.png in Resources */,
+				27FBB77D1CE309B7002B106B /* downArrowButton.png in Resources */,
 				27FBB68C1CD843F6002B106B /* item27.png in Resources */,
 				27C26DD01C6FF879009EDE53 /* Map1.jpg in Resources */,
 				27C26F011C82A7C1009EDE53 /* goods60.jpg in Resources */,
@@ -4741,7 +4749,7 @@
 				279BAA961C59E3B60069EF5D /* CCActionEase.m in Sources */,
 				279BABD91C59E3B80069EF5D /* CCWindow.m in Sources */,
 				279BABC91C59E3B80069EF5D /* CCGLView.m in Sources */,
-				2B20FCF81CD804530028E718 /* ShipInfoButtonGroup.m in Sources */,
+				2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */,
 				27ACAAF61C897F64005C0881 /* BaseDialogSprite.m in Sources */,
 				279BAB251C59E3B70069EF5D /* CCSpriteFrameCache.m in Sources */,
 				279BAB151C59E3B70069EF5D /* CCScheduler.m in Sources */,

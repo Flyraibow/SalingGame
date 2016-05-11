@@ -89,12 +89,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FileTestProject/Classes/Image/Icon/ItemIcon.m"
-            timestampString = "484213729.869784"
+            filePath = "FileTestProject/Classes/Image/Panel/ItemInfoPanel.m"
+            timestampString = "484469815.482956"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "-setItemData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,28 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FileTestProject/Classes/Image/Panel/ItemBrowsePanel.m"
-            timestampString = "484554842.236335"
+            timestampString = "484643695.665505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "-selectItem:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FileTestProject/Classes/Image/Panel/ItemInfoPanel.m"
-            timestampString = "484469815.482956"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "-setItemData:"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "-selectItemFromInfoPanel:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

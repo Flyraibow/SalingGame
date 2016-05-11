@@ -22,4 +22,7 @@
 
 -(instancetype)initWithItemData:(ItemData *)itemData;
 
+-(void)boughtByGuildNo:(NSString *)guildNo;
+-(void)sellToCityNo:(NSString *)cityNo;
+
 @end

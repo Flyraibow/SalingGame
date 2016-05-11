@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GuildData.h"
+#import "GameItemData.h"
 
 @interface GameGuildData : NSObject <NSCoding>
 
@@ -25,7 +26,7 @@
 -(void)gainMoney:(NSInteger)value;
 -(void)spendMoney:(NSInteger)value;
 -(void)setMoney:(NSInteger)money;
--(void)addItem:(NSString *)itemId;
--(void)removeItem:(NSString *)itemId;
+-(void)buyItem:(GameItemData *)gameItemData withMoney:(int)money;
+-(void)sellItem:(GameItemData *)gameItemData withMoney:(int)money toCityId:(NSString *)cityId;
 
 @end

@@ -70,6 +70,12 @@ static NSString* const GameUsedStorySet = @"GameUsedStorySet";
     [self updateMoney];
 }
 
+-(void)spendMoney:(NSInteger)value
+{
+    [super spendMoney:value];
+    [self updateMoney];
+}
+
 -(void)spendMoney:(NSInteger)value target:(id<SpendMoneyProtocol>)target spendMoneyType:(SpendMoneyType)type
 {
     if (self.money < value) {

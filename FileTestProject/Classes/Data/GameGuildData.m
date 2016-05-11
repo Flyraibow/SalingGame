@@ -115,14 +115,16 @@ static NSString* const GameGuildCityKnowledgeSet = @"GameGuildCityKnowledgeSet";
 }
 
 
--(void)addItem:(NSString *)itemId
+-(void)buyItem:(GameItemData *)gameItemData withMoney:(int)money
 {
-    
+    [self spendMoney:money];
+    [gameItemData boughtByGuildNo:_guildId];
 }
 
--(void)removeItem:(NSString *)itemId
+-(void)sellItem:(GameItemData *)gameItemData withMoney:(int)money toCityId:(NSString *)cityId
 {
-    
+    [self gainMoney:money];
+    [gameItemData sellToCityNo:cityId];
 }
 
 @end

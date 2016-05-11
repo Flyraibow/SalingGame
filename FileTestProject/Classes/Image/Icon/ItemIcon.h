@@ -8,17 +8,17 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "ItemData.h"
+#import "GameItemData.h"
 
 @protocol ItemIconSelectionDelegate <NSObject>
 
--(void)selectItem:(ItemData *)itemData;
+-(void)selectItem:(GameItemData *)itemData;
 
 @end
 
 @interface ItemIcon : CCSprite
 
-@property (nonatomic, weak) ItemData* itemData;
+@property (nonatomic, weak) GameItemData* itemData;
 
 @property (nonatomic, weak) id<ItemIconSelectionDelegate> delegate;
 

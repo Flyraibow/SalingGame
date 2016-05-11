@@ -15,7 +15,7 @@
 @implementation ItemInfoPanel
 {
     CCSprite *_itemPanel;
-    ItemData *_itemData;
+    GameItemData *_itemData;
     ItemBrowsePanelType _type;
     DefaultButton *_selectButton;
     CCButton *_leftBtn;
@@ -96,19 +96,19 @@
     return self;
 }
 
--(void)setItemData:(ItemData *)itemData
+-(void)setItemData:(GameItemData *)itemData
 {
     if (_itemData != itemData) {
         
         _itemData = itemData;
         _labName.string = getItemName(itemData.itemId);
         _labDescription.string = getItemDescription(itemData.itemId);
-        _labType.string = getItemType(itemData.type);
+        _labType.string = getItemType(itemData.itemData.type);
         
         if (_itemIcon != nil) {
             [_itemIcon removeFromParent];
         }
-        _itemIcon = [[CCSprite alloc] initWithImageNamed:[NSString stringWithFormat:@"item%@.png", itemData.iconId]];
+        _itemIcon = [[CCSprite alloc] initWithImageNamed:[NSString stringWithFormat:@"item%@.png", itemData.itemData.iconId]];
         [_itemIcon setRect:CGRectMake(191, 152, 56, 56)];
         [_itemPanel addChild:_itemIcon];
         
@@ -119,10 +119,10 @@
             _selectButton.title = getLocalString(@"lab_sell");
             _selectButton.visible = YES;
         } else if (_type == ItemBrowsePanelTypeBrowse) {
-            if (itemData.category <= 3) {
+            if (itemData.itemData.category <= 3) {
                 _selectButton.title = getLocalString(@"lab_equip");
                 _selectButton.visible = YES;
-            } else if (itemData.value > 0) {
+            } else if (itemData.itemData.value > 0) {
                 _selectButton.title = getLocalString(@"lab_use");
                 _selectButton.visible = YES;
             } else {

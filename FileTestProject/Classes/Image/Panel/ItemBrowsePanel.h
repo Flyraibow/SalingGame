@@ -13,6 +13,8 @@
 
 @interface ItemBrowsePanel : BaseFrame
 
+@property (nonatomic, weak) NSString *cityNo;           //用于连接城市
+
 // 设置items的id列表， 城市和玩家身上都要有这个属性
 -(instancetype)initWithItems:(NSArray *)items panelType:(ItemBrowsePanelType)type;
 

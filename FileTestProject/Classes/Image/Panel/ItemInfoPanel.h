@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "BaseFrame.h"
-#import "ItemData.h"
+#import "GameItemData.h"
 
 typedef enum : NSUInteger {
     ItemBrowsePanelTypeBuy,
@@ -21,7 +21,7 @@ typedef enum : NSUInteger {
 
 -(void)closeItemInfoPanel;
 
--(void)selectItemFromInfoPanel:(ItemData *)itemData;
+-(void)selectItemFromInfoPanel:(GameItemData *)gameItemData;
 
 -(void)selectPrevItem;
 
@@ -32,7 +32,7 @@ typedef enum : NSUInteger {
 @interface ItemInfoPanel : BaseFrame
 
 @property (nonatomic, weak) id<ItemInfoPanelDelegate> delegate;
-@property (nonatomic) ItemData *itemData;
+@property (nonatomic) GameItemData *itemData;
 
 -(instancetype)initWithPanelType:(ItemBrowsePanelType)type;
 

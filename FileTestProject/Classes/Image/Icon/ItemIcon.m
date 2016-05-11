@@ -21,9 +21,10 @@
     return self;
 }
 
--(void)setItemData:(ItemData *)itemData
+-(void)setItemData:(GameItemData *)gameItemData
 {
-    if (![itemData.iconId isEqualToString:_itemData.iconId]) {
+    ItemData *itemData = gameItemData.itemData;
+    if (![itemData.iconId isEqualToString:_itemData.itemData.iconId]) {
         [_itemSprite removeFromParent];
         _itemSprite = [CCSprite spriteWithImageNamed:[NSString stringWithFormat:@"item%@.png", itemData.iconId]];
         _itemSprite.contentSize = self.contentSize;
@@ -32,7 +33,7 @@
         _itemSprite.position = ccp(0.5, 0.5);
         [self addChild:_itemSprite];
     }
-    _itemData = itemData;
+    _itemData = gameItemData;
 }
 
 

@@ -61,4 +61,16 @@ static NSString* const GameItemItemId= @"GameItemItemId";
     [aCoder encodeObject:_itemId forKey:GameItemItemId];
 }
 
+-(void)boughtByGuildNo:(NSString *)guildNo
+{
+    _guildId = guildNo;
+    _cityNo = @"0";
+}
+
+-(void)sellToCityNo:(NSString *)cityNo
+{
+    _cityNo = cityNo;
+    _guildId = @"0";
+}
+
 @end

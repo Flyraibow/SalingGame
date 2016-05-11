@@ -1,5 +1,5 @@
 //
-//  ShipInfoButtonGroup.h
+//  InfoButtonGroup.h
 //  FileTestProject
 //
 //  Created by FANXUEZHOU on 16/4/30.
@@ -8,6 +8,6 @@
 
 #import "BaseButtonGroup.h"
 
-@interface ShipInfoButtonGroup : BaseButtonGroup
+@interface InfoButtonGroup : BaseButtonGroup
 
 @end

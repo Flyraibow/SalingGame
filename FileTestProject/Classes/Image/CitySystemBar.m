@@ -16,7 +16,7 @@
 #import "UpdateMoneyProtocol.h"
 #import "SailScene.h"
 #import "RolePanel.h"
-#import "ShipInfoButtonGroup.h"
+#import "InfoButtonGroup.h"
 
 typedef enum : NSUInteger {
     Button_Sail_MAP = 1,
@@ -91,8 +91,8 @@ typedef enum : NSUInteger {
     }
     else if(index == Button_Ship_Info)//资讯包含船只信息和船员信息
     {
-        ShipInfoButtonGroup *shipInfoButtonGroup=[ShipInfoButtonGroup new];
-        [self.scene addChild:shipInfoButtonGroup];        
+        InfoButtonGroup *infoButtonGroup = [InfoButtonGroup new];
+        [self.scene addChild:infoButtonGroup];
     }
     else if(index == Button_Diary)
     {
