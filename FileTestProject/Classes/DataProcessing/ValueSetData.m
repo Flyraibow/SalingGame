@@ -21,7 +21,7 @@
 	return self;
 }
 
--(NSMutableArray *)getValueSetGroupByGroupId:(NSString *)groupIdName
+-(NSArray *)getValueSetGroupByGroupId:(NSString *)groupIdName
 {
 	return [_groupData objectForKey:groupIdName];
 }

@@ -9,12 +9,13 @@
 #import "DialogPanel.h"
 #import "DataManager.h"
 #import "LocalString.h"
-#import "DefaultDialogData.h"
 #import <objc/message.h>
 #import "BaseButtonGroup.h"
 #import "DefaultButton.h"
 #import "DialogPhotoIcon.h"
 #import "GameDataManager.h"
+#import "DefaultButton.h"
+#import "NSString+Ext.h"
 
 @implementation DialogPanel
 {
@@ -185,6 +186,16 @@
     _buttonGroup = [[BaseButtonGroup alloc] initWithNSArray:buttonList];
     [self addChild:_buttonGroup];
     self.userInteractionEnabled = NO;
+}
+
+-(void)setDefaultDialog:(NSString *)defaultDialogId arguments:(NSArray *)arguments;
+{
+    DefaultDialogData *defaultDialogData = [[[DataManager sharedDataManager] getDefaultDialogDic] getDefaultDialogById:defaultDialogId];
+    NSString *dialogPhotoId = nil;
+    NSString *dialogNameName = getLocalString(defaultDialogData.dialogName);
+    NSString *dialogText = [NSString stringWithFormat:getLocalString(defaultDialogData.dialogId) arguments:arguments];
+    [self setDialogWithPhotoNo:dialogPhotoId npcName:dialogNameName text:dialogText];
+
 }
 
 @end

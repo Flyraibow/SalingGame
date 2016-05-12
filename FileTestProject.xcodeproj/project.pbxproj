@@ -821,6 +821,7 @@
 		27FBB77A1CE0144C002B106B /* GameItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7791CE0144C002B106B /* GameItemData.m */; };
 		27FBB77D1CE309B7002B106B /* downArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB77B1CE309B7002B106B /* downArrowButton.png */; };
 		27FBB77E1CE309B7002B106B /* upArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB77C1CE309B7002B106B /* upArrowButton.png */; };
+		27FBB7841CE46D5B002B106B /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7831CE46D5B002B106B /* NSString+Ext.m */; };
 		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
@@ -2008,6 +2009,8 @@
 		27FBB7791CE0144C002B106B /* GameItemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameItemData.m; path = Classes/Data/GameItemData.m; sourceTree = "<group>"; };
 		27FBB77B1CE309B7002B106B /* downArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = downArrowButton.png; path = Resources/Graph/Button/downArrowButton.png; sourceTree = "<group>"; };
 		27FBB77C1CE309B7002B106B /* upArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upArrowButton.png; path = Resources/Graph/Button/upArrowButton.png; sourceTree = "<group>"; };
+		27FBB7821CE46D5B002B106B /* NSString+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Ext.h"; path = "Classes/Ext/NSString+Ext.h"; sourceTree = "<group>"; };
+		27FBB7831CE46D5B002B106B /* NSString+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Ext.m"; path = "Classes/Ext/NSString+Ext.m"; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* InfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoButtonGroup.h; path = Classes/Image/GroupButton/InfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* InfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoButtonGroup.m; path = Classes/Image/GroupButton/InfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3490,6 +3493,8 @@
 				27ACAAEF1C8953F4005C0881 /* NSSet+Sort.m */,
 				27ACAAF11C8954F3005C0881 /* NSArray+Sort.h */,
 				27ACAAF21C8954F3005C0881 /* NSArray+Sort.m */,
+				27FBB7821CE46D5B002B106B /* NSString+Ext.h */,
+				27FBB7831CE46D5B002B106B /* NSString+Ext.m */,
 			);
 			name = Ext;
 			sourceTree = "<group>";
@@ -4634,6 +4639,7 @@
 				279BAC5F1C59E3B80069EF5D /* OpenALManager.m in Sources */,
 				279BAA801C59E3B60069EF5D /* CCTouchEvent.m in Sources */,
 				27C26D741C65889A009EDE53 /* GoodsIcon.m in Sources */,
+				27FBB7841CE46D5B002B106B /* NSString+Ext.m in Sources */,
 				279BAB401C59E3B70069EF5D /* CCTransition.m in Sources */,
 				279BABA01C59E3B70069EF5D /* CCControlTextureFactory.m in Sources */,
 				279BAA991C59E3B60069EF5D /* CCActionInstant.m in Sources */,

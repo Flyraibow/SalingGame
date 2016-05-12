@@ -1,7 +1,7 @@
 #import "DefaultDialogData.h"
 @implementation DefaultDialogDic
 {
-	NSMutableDictionary *_groupData;
+	NSMutableDictionary *_data;
 }
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
@@ -9,21 +9,23 @@
 	self = [self init];
 	if (self) {
 		int amount = [buffer readInt];
-		_groupData = [NSMutableDictionary new];
+		_data = [NSMutableDictionary new];
 		for (int i = 0; i < amount; ++i) {
 			DefaultDialogData *data = [[DefaultDialogData alloc] initWithByteBuffer:buffer];
-			if ([_groupData objectForKey:data.dialogId] == nil) {
-				[_groupData setObject:[NSMutableArray new] forKey:data.dialogId];
-			}
-			[[_groupData objectForKey:data.dialogId] addObject:data];
+			[_data setObject:data forKey:data.dialogId];
 		}
 	}
 	return self;
 }
 
--(NSMutableArray *)getDefaultDialogGroupByGroupId:(NSString *)groupIdName
+-(DefaultDialogData *)getDefaultDialogById:(NSString *)dialogId
 {
-	return [_groupData objectForKey:groupIdName];
+	return [_data objectForKey:dialogId];
+}
+
+-(NSDictionary *)getDictionary
+{
+	return _data;
 }
 
 @end
@@ -39,7 +41,6 @@
 		_npcParameter = [buffer readInt];
 		_photoId = [buffer readString];
 		_dialogName = [buffer readString];
-		_dialogText = [buffer readString];
 		_backgroundId = [buffer readString];
 	}
 	return self;

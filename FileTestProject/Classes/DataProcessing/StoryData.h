@@ -18,6 +18,6 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(NSMutableArray *)getStoryGroupByGroupId:(NSString *)groupIdName;
+-(NSArray *)getStoryGroupByGroupId:(NSString *)groupIdName;
 
 @end

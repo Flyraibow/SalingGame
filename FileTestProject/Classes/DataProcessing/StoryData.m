@@ -21,7 +21,7 @@
 	return self;
 }
 
--(NSMutableArray *)getStoryGroupByGroupId:(NSString *)groupIdName
+-(NSArray *)getStoryGroupByGroupId:(NSString *)groupIdName
 {
 	return [_groupData objectForKey:groupIdName];
 }

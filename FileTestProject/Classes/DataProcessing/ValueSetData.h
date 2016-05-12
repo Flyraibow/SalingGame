@@ -19,6 +19,6 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(NSMutableArray *)getValueSetGroupByGroupId:(NSString *)groupIdName;
+-(NSArray *)getValueSetGroupByGroupId:(NSString *)groupIdName;
 
 @end

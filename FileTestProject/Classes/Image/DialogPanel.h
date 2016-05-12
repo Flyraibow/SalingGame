@@ -29,4 +29,6 @@
 
 -(void)addSelections:(NSArray *)selectArray callback:(void(^)(int index))handler;
 
+-(void)setDefaultDialog:(NSString *)defaultDialogId arguments:(NSArray *)arguments;
+
 @end

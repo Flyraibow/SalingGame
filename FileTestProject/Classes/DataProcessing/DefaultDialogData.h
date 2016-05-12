@@ -8,7 +8,6 @@
 @property (nonatomic, readonly) int npcParameter;
 @property (nonatomic, readonly) NSString *photoId;
 @property (nonatomic, readonly) NSString *dialogName;
-@property (nonatomic, readonly) NSString *dialogText;
 @property (nonatomic, readonly) NSString *backgroundId;
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
@@ -19,6 +18,8 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(NSMutableArray *)getDefaultDialogGroupByGroupId:(NSString *)groupIdName;
+-(DefaultDialogData *)getDefaultDialogById:(NSString *)dialogId;
+
+-(NSDictionary *)getDictionary;
 
 @end

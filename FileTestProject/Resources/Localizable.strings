@@ -245,6 +245,11 @@
 
 "lab_ship_info"="船只信息";
 "lab_sailor_info"="船员信息";
+"lab_item_info"="宝物信息";
+
+"name_shop_owner"="道具所老板";
+
+"dialog_new_item_discover" = "啊，这是...%@, 你能把它送给我们么？";
 
 "dialog_1"="我已经有五条船了，无法再购买了";
 "dialog_2"="没有多余的船只";

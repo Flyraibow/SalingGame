@@ -1,0 +1,1 @@
+"dialog_new_item_discover" = "啊，这是...%@, 你能把它送给我们么？";
