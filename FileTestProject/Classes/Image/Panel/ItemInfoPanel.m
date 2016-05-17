@@ -24,6 +24,8 @@
     CCLabelTTF *_labType;
     CCLabelTTF *_labDescription;
     CCSprite *_itemIcon;
+    CCLabelTTF *_labValue;
+    CCLabelTTF *_labEquipType;
 }
 
 -(instancetype)initWithPanelType:(ItemBrowsePanelType)type
@@ -72,18 +74,18 @@
         
         _rightBtn = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:@"rightArrowButton.png"]];
         _rightBtn.positionType = CCPositionTypeNormalized;
-        _rightBtn.anchorPoint = ccp(1, 0.5);
-        _rightBtn.position = ccp(0.95, 0.5);
+        _rightBtn.anchorPoint = ccp(0.5, 0.5);
+        _rightBtn.position = ccp(0.43, 0.1);
         [_rightBtn setTarget:self selector:@selector(clickRightButton)];
-        [self addChild:_rightBtn];
+        [_itemPanel addChild:_rightBtn];
         
         
         _leftBtn = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:@"leftArrowButton.png"]];
         _leftBtn.positionType = CCPositionTypeNormalized;
-        _leftBtn.anchorPoint = ccp(0, 0.5);
-        _leftBtn.position = ccp(0.05, 0.5);
+        _leftBtn.anchorPoint = ccp(0.5, 0.5);
+        _leftBtn.position = ccp(0.27, 0.1);
         [_leftBtn setTarget:self selector:@selector(clickLeftButton)];
-        [self addChild:_leftBtn];
+        [_itemPanel addChild:_leftBtn];
         
         _selectButton = [DefaultButton buttonWithTitle:@""];
         _selectButton.positionType = CCPositionTypeNormalized;
@@ -92,6 +94,30 @@
         _selectButton.scale = 0.5;
         [_selectButton setTarget:self selector:@selector(selectItem)];
         [_itemPanel addChild:_selectButton];
+        
+        CCLabelTTF *labValueStr = [CCLabelTTF labelWithString:getLocalString(@"lab_equip_value") fontName:nil fontSize:12];
+        labValueStr.positionType = CCPositionTypeNormalized;
+        labValueStr.anchorPoint = ccp(0.5, 0.5);
+        labValueStr.position = ccp(0.82, 0.312);
+        [_itemPanel addChild:labValueStr];
+        
+        CCLabelTTF *labRelativeJob = [CCLabelTTF labelWithString:getLocalString(@"lab_relative_job") fontName:nil fontSize:12];
+        labRelativeJob.positionType = CCPositionTypeNormalized;
+        labRelativeJob.anchorPoint = ccp(0.5, 0.5);
+        labRelativeJob.position = ccp(0.82, 0.5);
+        [_itemPanel addChild:labRelativeJob];
+        
+        _labValue = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:12];
+        _labValue.positionType = CCPositionTypeNormalized;
+        _labValue.anchorPoint = ccp(0.5, 0.5);
+        _labValue.position = ccp(0.82, 0.22);
+        [_itemPanel addChild:_labValue];
+        
+        _labEquipType = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:12];
+        _labEquipType.positionType = CCPositionTypeNormalized;
+        _labEquipType.anchorPoint = ccp(0.5, 0.5);
+        _labEquipType.position = ccp(0.82, 0.41);
+        [_itemPanel addChild:_labEquipType];
     }
     return self;
 }
@@ -104,6 +130,17 @@
         _labName.string = getItemName(itemData.itemId);
         _labDescription.string = getItemDescription(itemData.itemId);
         _labType.string = getItemType(itemData.itemData.type);
+        
+        if (itemData.itemData.type <= 3 && itemData.itemData.value > 0) {
+            _labValue.string = [@(itemData.itemData.value) stringValue];
+        } else {
+            _labValue.string = @"-";
+        }
+        if (itemData.itemData.type == 3) {
+            _labEquipType.string = getLocalStringByInt(@"job_name_", itemData.itemData.job);
+        } else {
+            _labEquipType.string = @"-";
+        }
         
         if (_itemIcon != nil) {
             [_itemIcon removeFromParent];

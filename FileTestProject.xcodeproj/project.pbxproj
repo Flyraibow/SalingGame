@@ -822,6 +822,7 @@
 		27FBB77D1CE309B7002B106B /* downArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB77B1CE309B7002B106B /* downArrowButton.png */; };
 		27FBB77E1CE309B7002B106B /* upArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB77C1CE309B7002B106B /* upArrowButton.png */; };
 		27FBB7841CE46D5B002B106B /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7831CE46D5B002B106B /* NSString+Ext.m */; };
+		27FBB7871CEAE0AE002B106B /* dialogPortrait6_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7861CEAE0AE002B106B /* dialogPortrait6_1.png */; };
 		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
@@ -2011,6 +2012,7 @@
 		27FBB77C1CE309B7002B106B /* upArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upArrowButton.png; path = Resources/Graph/Button/upArrowButton.png; sourceTree = "<group>"; };
 		27FBB7821CE46D5B002B106B /* NSString+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Ext.h"; path = "Classes/Ext/NSString+Ext.h"; sourceTree = "<group>"; };
 		27FBB7831CE46D5B002B106B /* NSString+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Ext.m"; path = "Classes/Ext/NSString+Ext.m"; sourceTree = "<group>"; };
+		27FBB7861CEAE0AE002B106B /* dialogPortrait6_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dialogPortrait6_1.png; path = Resources/Graph/Portrait/dialogPortrait6_1.png; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* InfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoButtonGroup.h; path = Classes/Image/GroupButton/InfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* InfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoButtonGroup.m; path = Classes/Image/GroupButton/InfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3502,6 +3504,7 @@
 		27E040B01C5C2EA90068171E /* Graph */ = {
 			isa = PBXGroup;
 			children = (
+				27FBB7851CEAE09C002B106B /* Portrait */,
 				27FBB5A11CD843CF002B106B /* Item */,
 				270AB1D91CB78F1600533B47 /* Ship */,
 				27ACAB231C96748A005C0881 /* Character */,
@@ -3846,6 +3849,14 @@
 			name = Manager;
 			sourceTree = "<group>";
 		};
+		27FBB7851CEAE09C002B106B /* Portrait */ = {
+			isa = PBXGroup;
+			children = (
+				27FBB7861CEAE0AE002B106B /* dialogPortrait6_1.png */,
+			);
+			name = Portrait;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4052,6 +4063,7 @@
 				27C26E4C1C811090009EDE53 /* Portrait2.png in Resources */,
 				27FBB71A1CD843F6002B106B /* item169.png in Resources */,
 				27FBB7211CD843F6002B106B /* item176.png in Resources */,
+				27FBB7871CEAE0AE002B106B /* dialogPortrait6_1.png in Resources */,
 				27FBB7191CD843F6002B106B /* item168.png in Resources */,
 				27FBB68B1CD843F6002B106B /* item26.png in Resources */,
 				270AB2341CC75D3400533B47 /* 27-1.png in Resources */,

@@ -96,4 +96,8 @@
 "lab_sailor_info"="船员信息";
 "lab_item_info"="宝物信息";
 
-"name_shop_owner"="道具所老板";
+"name_shop_owner"="同业公会的总管";
+"name_exchange_owner"="交易所老板";
+
+"lab_relative_job" = "相关职务";
+"lab_equip_value" = "效果值";

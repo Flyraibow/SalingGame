@@ -188,14 +188,28 @@
     self.userInteractionEnabled = NO;
 }
 
--(void)setDefaultDialog:(NSString *)defaultDialogId arguments:(NSArray *)arguments;
+-(void)setDefaultDialog:(NSString *)defaultDialogId arguments:(NSArray *)arguments cityStyle:(int)cityStyle
 {
     DefaultDialogData *defaultDialogData = [[[DataManager sharedDataManager] getDefaultDialogDic] getDefaultDialogById:defaultDialogId];
     NSString *dialogPhotoId = nil;
+    if (defaultDialogData.npcType == 2) {
+        if (cityStyle > 0) {
+            dialogPhotoId = [NSString stringWithFormat:@"%d_%d", defaultDialogData.npcParameter, cityStyle];
+        }
+    } else if (defaultDialogData.npcType == 1) {
+        dialogPhotoId = [@(defaultDialogData.npcParameter) stringValue];
+    } else if (defaultDialogData.npcType == 3) {
+        // 先计算出npc的id， 再显示
+        
+    }
     NSString *dialogNameName = getLocalString(defaultDialogData.dialogName);
     NSString *dialogText = [NSString stringWithFormat:getLocalString(defaultDialogData.dialogId) arguments:arguments];
     [self setDialogWithPhotoNo:dialogPhotoId npcName:dialogNameName text:dialogText];
+}
 
+-(void)setDefaultDialog:(NSString *)defaultDialogId arguments:(NSArray *)arguments;
+{
+    [self setDefaultDialog:defaultDialogId arguments:arguments cityStyle:0];
 }
 
 @end

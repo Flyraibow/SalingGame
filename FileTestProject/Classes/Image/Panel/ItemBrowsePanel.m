@@ -193,11 +193,15 @@ const static int kShowLinesNumber = 4;
 -(void)selectItem:(GameItemData *)gameItemData
 {
     _selecteItemIndex = [_itemList indexOfObject:gameItemData];
-    _itemInfoPanel = [[ItemInfoPanel alloc] initWithPanelType:_panelType];
+    if (_itemInfoPanel == nil) {
+        _itemInfoPanel = [[ItemInfoPanel alloc] initWithPanelType:_panelType];
+        _itemInfoPanel.delegate = self;
+        [self addChild:_itemInfoPanel];
+    } else if (_itemInfoPanel.parent == nil) {
+        [self addChild:_itemInfoPanel];
+    }
     _itemInfoPanel.itemData = gameItemData;
-    _itemInfoPanel.delegate = self;
     _panel.visible = NO;
-    [self addChild:_itemInfoPanel];
 }
 
 -(void)closeItemInfoPanel
@@ -207,20 +211,46 @@ const static int kShowLinesNumber = 4;
 
 -(void)selectPrevItem
 {
-    // TODO: 调整顺序，目前不是按照看到的顺序排的
-    if (_selecteItemIndex > 0) {
-        GameItemData *gameItemData = [_itemList objectAtIndex:--_selecteItemIndex];
-        _itemInfoPanel.itemData = gameItemData;
+    GameItemData *gameItemData = [_itemList objectAtIndex:_selecteItemIndex];
+    NSArray *gameItemList = [_itemDictionary objectForKey:[@(gameItemData.itemData.category) stringValue]];
+    NSUInteger index = [gameItemList indexOfObject:gameItemData];
+    if (index > 0) {
+        gameItemData = gameItemList[--index];
+    } else {
+        int category = gameItemData.itemData.category;
+        int originCategory = category;
+        do {
+            --category;
+            if (category <= 0) {
+                category = 6;
+            }
+            gameItemList = [_itemDictionary objectForKey:[@(category) stringValue]];
+        } while (gameItemList.count == 0 && originCategory != category);
+        gameItemData = gameItemList[gameItemList.count - 1];
     }
+    [self selectItem:gameItemData];
 }
 
 -(void)selectNextItem
 {
-    // TODO: 调整顺序，目前不是按照看到的顺序排的
-    if (_selecteItemIndex + 1 < _itemList.count) {
-        GameItemData *gameItemData = [_itemList objectAtIndex:++_selecteItemIndex];
-        _itemInfoPanel.itemData = gameItemData;
+    GameItemData *gameItemData = [_itemList objectAtIndex:_selecteItemIndex];
+    NSArray *gameItemList = [_itemDictionary objectForKey:[@(gameItemData.itemData.category) stringValue]];
+    NSUInteger index = [gameItemList indexOfObject:gameItemData];
+    if (index + 1 < gameItemList.count) {
+        gameItemData = gameItemList[++index];
+    } else {
+        int category = gameItemData.itemData.category;
+        int originCategory = category;
+        do {
+            ++category;
+            if (category > 6) {
+                category = 1;
+            }
+            gameItemList = [_itemDictionary objectForKey:[@(category) stringValue]];
+        } while (gameItemList.count == 0 && originCategory != category);
+        gameItemData = gameItemList[0];
     }
+    [self selectItem:gameItemData];
 }
 
 -(void)selectItemFromInfoPanel:(GameItemData *)gameItemData
@@ -228,10 +258,10 @@ const static int kShowLinesNumber = 4;
     if (_panelType == ItemBrowsePanelTypeBuy) {
         // 调用对话，询问是否购买
         DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
-        // TODO: 处理文字, 这部分因为不重要，所以放在后面改，先把流程走通
         __weak DialogPanel *weakDialogPanel = dialogPanel;
         __weak ItemInfoPanel *weakItemInfoPanel = _itemInfoPanel;
-        [dialogPanel setDialogWithPhotoNo:@"1" npcName:@"道具店老板" text:@"你确定要购买吗？"];
+        CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
+        [dialogPanel setDefaultDialog:@"dialog_buy_item" arguments:@[getItemName(gameItemData.itemId), @(gameItemData.itemData.price)] cityStyle:cityData.cityStyle];
         [dialogPanel addSelections:@[getLocalString(@"lab_buy"), getLocalString(@"btn_cancel")] callback:^(int index) {
             [self removeChild:weakDialogPanel];
             if (index == 0) {
@@ -250,19 +280,18 @@ const static int kShowLinesNumber = 4;
         [self addChild:dialogPanel];
     } else if (_panelType == ItemBrowsePanelTypeSell) {
         DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
-        // TODO: 处理文字, 这部分因为不重要，所以放在后面改，先把流程走通
         __weak DialogPanel *weakDialogPanel = dialogPanel;
         __weak ItemInfoPanel *weakItemInfoPanel = _itemInfoPanel;
-        [dialogPanel setDialogWithPhotoNo:@"1" npcName:@"道具店老板" text:@"你确定要卖出吗？"];
+        CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
+        int price = gameItemData.itemData.price * 0.5;
+        [dialogPanel setDefaultDialog:@"dialog_sell_item" arguments:@[getItemName(gameItemData.itemId), @(price)] cityStyle:cityData.cityStyle];
         [dialogPanel addSelections:@[getLocalString(@"lab_sell"), getLocalString(@"btn_cancel")] callback:^(int index) {
             [self removeChild:weakDialogPanel];
             if (index == 0) {
                 [self removeChild:weakItemInfoPanel];
                 _panel.visible = YES;
                 MyGuild *myguild = [GameDataManager sharedGameData].myGuild;
-                
-                [myguild sellItem:gameItemData withMoney:gameItemData.itemData.price * 0.5 toCityId:_cityNo];
-                //刷新界面
+                [myguild sellItem:gameItemData withMoney:price toCityId:_cityNo];
                 NSMutableArray *items = [_itemList mutableCopy];
                 [items removeObject:gameItemData];
                 [self setItems:items];

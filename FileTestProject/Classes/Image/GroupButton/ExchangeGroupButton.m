@@ -40,6 +40,8 @@
 
 -(void)clickTradeBtn
 {
+    // 如果城市新产物需要的道具在手上，则触发剧情
+    
     GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
     if (cityData != nil) {
         int percentage = [[cityData.guildOccupation objectForKey:[GameDataManager sharedGameData].myGuild.guildId] intValue];
