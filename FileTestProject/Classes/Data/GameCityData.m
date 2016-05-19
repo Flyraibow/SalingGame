@@ -26,6 +26,7 @@ static NSString* const CityMilltaryInvestRecord = @"CityMilltaryInvestRecord";
 static NSString* const CityCommerceInvestRecord = @"CityCommerceInvestRecord";
 static NSString* const CityCategoryPriceDict = @"CityCategoryPriceDict";
 static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
+static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
 
 -(instancetype)initWithCityData:(CityData *)cityData
 {
@@ -52,6 +53,15 @@ static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
         for (int i = 0; i < goodsList.count; ++i) {
             int maxNum = [self getGoodsNum:goodsList[i]];
             [_goodsDict setObject:@(maxNum) forKey:goodsList[i]];
+        }
+        NSArray *unlockGoodsList = [cityData.unlockGoodsByItem componentsSeparatedByString:@";"];
+        _unlockGoodsDict = [NSMutableDictionary new];
+        for (int i = 0; i < unlockGoodsList.count; ++i) {
+            NSString *unlockPairStr = unlockGoodsList[i];
+            if (unlockPairStr.length > 0) {
+                NSArray *unlockPair = [unlockPairStr componentsSeparatedByString:@"_"];
+                [(NSMutableDictionary *)_unlockGoodsDict setObject:unlockPair[0] forKey:unlockPair[1]];
+            }
         }
         
         _transactionRecordDict = [NSMutableDictionary new];
@@ -83,6 +93,7 @@ static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
         _milltaryInvestRecord = [aDecoder decodeIntegerForKey:CityMilltaryInvestRecord];
         _categoryPriceDict = [aDecoder decodeObjectForKey:CityCategoryPriceDict];
         _goodsPriceDict = [aDecoder decodeObjectForKey:CityGoodsPriceDict];
+        _unlockGoodsDict = [aDecoder decodeObjectForKey:CityUnlockGoodsDict];
     }
     return self;
 }
@@ -103,6 +114,7 @@ static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
     [aCoder encodeInteger:_milltaryInvestRecord forKey:CityMilltaryInvestRecord];
     [aCoder encodeObject:_categoryPriceDict forKey:CityCategoryPriceDict];
     [aCoder encodeObject:_goodsPriceDict forKey:CityGoodsPriceDict];
+    [aCoder encodeObject:_unlockGoodsDict forKey:CityUnlockGoodsDict];
 }
 
 -(void)addBuilding:(NSString *)buildingNo
@@ -413,6 +425,19 @@ static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
     }
     if ([_cityNo isEqualToString:[GameDataManager sharedGameData].myGuild.myTeam.currentCityId]) {
         [[GameDataManager sharedGameData] moveToCity:_cityNo];
+    }
+}
+
+-(void)unlockGoodsByItem:(NSString *)itemId
+{
+    NSString *goodsId = [_unlockGoodsDict objectForKey:itemId];
+    if (goodsId != nil) {
+        [(NSMutableDictionary *)_unlockGoodsDict removeObjectForKey:itemId];
+        int maxNum = [self getGoodsNum:goodsId];
+        [_goodsDict setObject:@(maxNum) forKey:goodsId];
+        if ([_cityNo isEqualToString:[GameDataManager sharedGameData].myGuild.myTeam.currentCityId]) {
+            [[GameDataManager sharedGameData] moveToCity:_cityNo];
+        }
     }
 }
 

@@ -44,6 +44,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSMutableDictionary *guildOccupation;
 @property (nonatomic, readonly) NSInteger commerceInvestRecord;
 @property (nonatomic, readonly) NSInteger milltaryInvestRecord;
+@property (nonatomic, readonly) NSDictionary *unlockGoodsDict;
 
 
 -(instancetype)initWithCityData:(CityData *)cityData;
@@ -77,5 +78,7 @@ typedef enum : NSUInteger {
 -(int)getBuyPriceForGoodsId:(NSString *)goodsId;
 
 -(int)getBuyPriceForGoodsId:(NSString *)goodsId level:(int)level;
+
+-(void)unlockGoodsByItem:(NSString *)itemId;
 
 @end

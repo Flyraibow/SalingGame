@@ -24,5 +24,6 @@
 
 -(void)boughtByGuildNo:(NSString *)guildNo;
 -(void)sellToCityNo:(NSString *)cityNo;
+-(void)unlockGoods;
 
 @end

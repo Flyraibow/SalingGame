@@ -17,6 +17,11 @@
 #import "DataManager.h"
 #import "CityBuildingGroup.h"
 #import "SailScene.h"
+#import "GamePanelManager.h"
+
+@interface ExchangeGroupButton()<DialogInteractProtocol>
+
+@end
 
 @implementation ExchangeGroupButton
 {
@@ -41,10 +46,31 @@
 -(void)clickTradeBtn
 {
     // 如果城市新产物需要的道具在手上，则触发剧情
-    
-    GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
-    if (cityData != nil) {
-        int percentage = [[cityData.guildOccupation objectForKey:[GameDataManager sharedGameData].myGuild.guildId] intValue];
+    GameCityData *gameCityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
+    MyGuild *myGuild = [GameDataManager sharedGameData].myGuild;
+    for (NSString *itemId in gameCityData.unlockGoodsDict) {
+        GameItemData * gameItemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
+        if ([gameItemData.guildId isEqualToString:myGuild.guildId]) {
+            DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
+            __weak CCSprite *weakSelf = self;
+            __weak DialogPanel *weakDialogPanel = dialogPanel;
+            CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
+            [dialogPanel setDefaultDialog:@"dialog_new_item_discover" arguments:@[getItemName(itemId)] cityStyle:cityData.cityStyle];
+            [dialogPanel addSelections:@[getLocalString(@"lab_yes"), getLocalString(@"lab_no")] callback:^(int index) {
+                weakSelf.visible = YES;
+                [weakSelf.scene removeChild:weakDialogPanel];
+                if (index == 0) {
+                    [gameCityData unlockGoodsByItem:itemId];
+                    [gameItemData unlockGoods];
+                }
+            }];
+            self.visible = NO;
+            [self.scene addChild:dialogPanel];
+            return;
+        }
+    }
+    if (gameCityData != nil) {
+        int percentage = [[gameCityData.guildOccupation objectForKey:myGuild.guildId] intValue];
         if (percentage > 0) {
             [[CCDirector sharedDirector] pushScene:[[TradeScene alloc] initWithCityNo:_cityNo]];
         } else {

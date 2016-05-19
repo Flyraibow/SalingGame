@@ -101,3 +101,5 @@
 
 "lab_relative_job" = "相关职务";
 "lab_equip_value" = "效果值";
+"lab_yes"="好";
+"lab_no"="不好";
