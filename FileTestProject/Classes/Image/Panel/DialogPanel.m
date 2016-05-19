@@ -89,7 +89,11 @@
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
     if (!_selecting) {
-        [_delegate confirm];
+        if ([_delegate respondsToSelector:@selector(confirm)]) {
+            [_delegate confirm];
+        } else {
+            [self removeFromParent];
+        }
     }
 }
 

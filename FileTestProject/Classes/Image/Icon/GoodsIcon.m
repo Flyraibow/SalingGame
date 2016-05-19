@@ -95,6 +95,7 @@
     } else {
         _labPrice.color = [CCColor whiteColor];
     }
+    self.userInteractionEnabled = YES;
 }
 
 

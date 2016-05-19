@@ -275,14 +275,11 @@
 		27ACAAED1C88CEB9005C0881 /* dialogPortraitExchange1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27ACAAEC1C88CEB9005C0881 /* dialogPortraitExchange1.png */; };
 		27ACAAF01C8953F4005C0881 /* NSSet+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACAAEF1C8953F4005C0881 /* NSSet+Sort.m */; };
 		27ACAAF31C8954F3005C0881 /* NSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACAAF21C8954F3005C0881 /* NSArray+Sort.m */; };
-		27ACAAF61C897F64005C0881 /* BaseDialogSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACAAF51C897F64005C0881 /* BaseDialogSprite.m */; };
 		27ACAAF91C8EC5B0005C0881 /* CityBuildingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACAAF81C8EC5B0005C0881 /* CityBuildingData.m */; };
 		27ACAAFB1C8ECDF0005C0881 /* dialogPortraitGovernment1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27ACAAFA1C8ECDF0005C0881 /* dialogPortraitGovernment1.png */; };
-		27ACAAFE1C92B77E005C0881 /* GoodsPricePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACAAFD1C92B77E005C0881 /* GoodsPricePanel.m */; };
 		27ACAB001C92BB3F005C0881 /* bg_trade_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 27ACAAFF1C92BB3F005C0881 /* bg_trade_info.png */; };
 		27ACAB031C94EFB6005C0881 /* SkillData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACAB021C94EFB6005C0881 /* SkillData.m */; };
 		27ACAB051C94FC63005C0881 /* InfoBox.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27ACAB041C94FC63005C0881 /* InfoBox.jpg */; };
-		27ACAB081C94FEDA005C0881 /* RolePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACAB071C94FEDA005C0881 /* RolePanel.m */; };
 		27ACAB1F1C962CB3005C0881 /* RoleSelectionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACAB1E1C962CB3005C0881 /* RoleSelectionPanel.m */; };
 		27ACAB221C966EAC005C0881 /* RoleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACAB211C966EAC005C0881 /* RoleAnimation.m */; };
 		27ACAB631C9674C4005C0881 /* c000_1-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27ACAB241C9674C4005C0881 /* c000_1-1.png */; };
@@ -370,8 +367,6 @@
 		27C26CE51C5FDA1B009EDE53 /* citySystemBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26CE41C5FDA1B009EDE53 /* citySystemBar.png */; };
 		27C26CED1C603D6A009EDE53 /* ProgressScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26CEC1C603D6A009EDE53 /* ProgressScene.m */; };
 		27C26CF01C604E61009EDE53 /* invest.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26CEF1C604E61009EDE53 /* invest.png */; };
-		27C26CF31C604F1D009EDE53 /* BaseFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26CF21C604F1D009EDE53 /* BaseFrame.m */; };
-		27C26CF61C60616E009EDE53 /* InvestPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26CF51C60616E009EDE53 /* InvestPanel.m */; };
 		27C26CFA1C608E74009EDE53 /* money_bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26CF91C608E74009EDE53 /* money_bag.png */; };
 		27C26CFD1C615F1B009EDE53 /* DataFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26CFB1C615F1B009EDE53 /* DataFrame.png */; };
 		27C26CFE1C615F1B009EDE53 /* trade.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26CFC1C615F1B009EDE53 /* trade.png */; };
@@ -399,7 +394,6 @@
 		27C26D4B1C6462CA009EDE53 /* ShipData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D4A1C6462CA009EDE53 /* ShipData.m */; };
 		27C26D511C646F1B009EDE53 /* ShipExchangeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D501C646F1B009EDE53 /* ShipExchangeScene.m */; };
 		27C26D531C6470BC009EDE53 /* ShipFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D521C6470BC009EDE53 /* ShipFrame.png */; };
-		27C26D571C647156009EDE53 /* ShipExchangeUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D561C647156009EDE53 /* ShipExchangeUnit.m */; };
 		27C26D591C647A05009EDE53 /* rightArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D581C647A05009EDE53 /* rightArrowButton.png */; };
 		27C26D5B1C647B01009EDE53 /* leftArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D5A1C647B01009EDE53 /* leftArrowButton.png */; };
 		27C26D5F1C6492C8009EDE53 /* ship1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D5C1C6492C8009EDE53 /* ship1.jpg */; };
@@ -423,7 +417,6 @@
 		27C26D8D1C695291009EDE53 /* TeamData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D8A1C695291009EDE53 /* TeamData.m */; };
 		27C26DAF1C6BEF1C009EDE53 /* CG_Bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DAE1C6BEF1B009EDE53 /* CG_Bg.png */; };
 		27C26DB21C6BEFFF009EDE53 /* CGStoryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DB11C6BEFFF009EDE53 /* CGStoryScene.m */; };
-		27C26DB81C6BFF99009EDE53 /* DialogPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DB71C6BFF99009EDE53 /* DialogPanel.m */; };
 		27C26DBA1C6C00BF009EDE53 /* dialogFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DB91C6C00BF009EDE53 /* dialogFrame.png */; };
 		27C26DBD1C6C0476009EDE53 /* DefaultDialogData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DBC1C6C0476009EDE53 /* DefaultDialogData.m */; };
 		27C26DBF1C6C102E009EDE53 /* photoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DBE1C6C102E009EDE53 /* photoFrame.png */; };
@@ -435,7 +428,6 @@
 		27C26DD61C70141E009EDE53 /* BlackFrame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DD51C70141E009EDE53 /* BlackFrame.jpg */; };
 		27C26DD81C70198D009EDE53 /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DD71C70198D009EDE53 /* ship.png */; };
 		27C26DDB1C701BD1009EDE53 /* ShipSailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DDA1C701BD1009EDE53 /* ShipSailModel.m */; };
-		27C26DDE1C714A7C009EDE53 /* CityDataPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DDD1C714A7C009EDE53 /* CityDataPanel.m */; };
 		27C26DE01C714A92009EDE53 /* cityInfoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DDF1C714A92009EDE53 /* cityInfoFrame.png */; };
 		27C26DE61C729419009EDE53 /* SeaAreaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DE51C729419009EDE53 /* SeaAreaData.m */; };
 		27C26DF91C741A4E009EDE53 /* Map7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DF31C741A4E009EDE53 /* Map7.jpg */; };
@@ -594,7 +586,6 @@
 		27E0409C1C5AA5B80068171E /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E0409B1C5AA5B80068171E /* DataManager.m */; };
 		27E040AD1C5C2ABC0068171E /* MenuPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E040AC1C5C2ABC0068171E /* MenuPage.m */; };
 		27E040B31C5C2F3B0068171E /* bg1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27E040B21C5C2F3B0068171E /* bg1.jpg */; };
-		27E040B71C5C31850068171E /* BGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E040B61C5C31850068171E /* BGImage.m */; };
 		27E040BA1C5C35020068171E /* button_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E040B91C5C35020068171E /* button_up.png */; };
 		27E040C11C5C3A940068171E /* bgBGM.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 27E040C01C5C3A940068171E /* bgBGM.m4v */; };
 		27E040C41C5C3E820068171E /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27E040C31C5C3E820068171E /* button.wav */; };
@@ -824,6 +815,15 @@
 		27FBB7841CE46D5B002B106B /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7831CE46D5B002B106B /* NSString+Ext.m */; };
 		27FBB7871CEAE0AE002B106B /* dialogPortrait6_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7861CEAE0AE002B106B /* dialogPortrait6_1.png */; };
 		27FBB7891CEC487E002B106B /* dialogPortrait4_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7881CEC487E002B106B /* dialogPortrait4_1.png */; };
+		27FBB7901CED8F6E002B106B /* BaseDialogSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB78B1CED8F6E002B106B /* BaseDialogSprite.m */; };
+		27FBB7911CED8F6E002B106B /* BaseFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB78D1CED8F6E002B106B /* BaseFrame.m */; };
+		27FBB7921CED8F6E002B106B /* BGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB78F1CED8F6E002B106B /* BGImage.m */; };
+		27FBB79D1CED8F8F002B106B /* CityDataPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7941CED8F8F002B106B /* CityDataPanel.m */; };
+		27FBB79E1CED8F8F002B106B /* DialogPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7961CED8F8F002B106B /* DialogPanel.m */; };
+		27FBB79F1CED8F8F002B106B /* GoodsPricePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7981CED8F8F002B106B /* GoodsPricePanel.m */; };
+		27FBB7A01CED8F8F002B106B /* InvestPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB79A1CED8F8F002B106B /* InvestPanel.m */; };
+		27FBB7A11CED8F8F002B106B /* RolePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB79C1CED8F8F002B106B /* RolePanel.m */; };
+		27FBB7A41CED8FA4002B106B /* ShipExchangeUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7A31CED8FA4002B106B /* ShipExchangeUnit.m */; };
 		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
@@ -1382,19 +1382,13 @@
 		27ACAAEF1C8953F4005C0881 /* NSSet+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSSet+Sort.m"; path = "Classes/Ext/NSSet+Sort.m"; sourceTree = "<group>"; };
 		27ACAAF11C8954F3005C0881 /* NSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Sort.h"; path = "Classes/Ext/NSArray+Sort.h"; sourceTree = "<group>"; };
 		27ACAAF21C8954F3005C0881 /* NSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Sort.m"; path = "Classes/Ext/NSArray+Sort.m"; sourceTree = "<group>"; };
-		27ACAAF41C897F64005C0881 /* BaseDialogSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseDialogSprite.h; path = Classes/Image/BaseDialogSprite.h; sourceTree = "<group>"; };
-		27ACAAF51C897F64005C0881 /* BaseDialogSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseDialogSprite.m; path = Classes/Image/BaseDialogSprite.m; sourceTree = "<group>"; };
 		27ACAAF71C8EC5B0005C0881 /* CityBuildingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityBuildingData.h; path = Classes/DataProcessing/CityBuildingData.h; sourceTree = "<group>"; };
 		27ACAAF81C8EC5B0005C0881 /* CityBuildingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityBuildingData.m; path = Classes/DataProcessing/CityBuildingData.m; sourceTree = "<group>"; };
 		27ACAAFA1C8ECDF0005C0881 /* dialogPortraitGovernment1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dialogPortraitGovernment1.png; path = Resources/Graph/Photo/dialogPortraitGovernment1.png; sourceTree = "<group>"; };
-		27ACAAFC1C92B77E005C0881 /* GoodsPricePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsPricePanel.h; path = Classes/Image/GoodsPricePanel.h; sourceTree = "<group>"; };
-		27ACAAFD1C92B77E005C0881 /* GoodsPricePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsPricePanel.m; path = Classes/Image/GoodsPricePanel.m; sourceTree = "<group>"; };
 		27ACAAFF1C92BB3F005C0881 /* bg_trade_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_trade_info.png; path = Resources/Graph/Background/bg_trade_info.png; sourceTree = "<group>"; };
 		27ACAB011C94EFB6005C0881 /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkillData.h; path = Classes/DataProcessing/SkillData.h; sourceTree = "<group>"; };
 		27ACAB021C94EFB6005C0881 /* SkillData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SkillData.m; path = Classes/DataProcessing/SkillData.m; sourceTree = "<group>"; };
 		27ACAB041C94FC63005C0881 /* InfoBox.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InfoBox.jpg; path = Resources/Graph/Frame/InfoBox.jpg; sourceTree = "<group>"; };
-		27ACAB061C94FEDA005C0881 /* RolePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RolePanel.h; path = Classes/Image/RolePanel.h; sourceTree = "<group>"; };
-		27ACAB071C94FEDA005C0881 /* RolePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RolePanel.m; path = Classes/Image/RolePanel.m; sourceTree = "<group>"; };
 		27ACAB1D1C962CB3005C0881 /* RoleSelectionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoleSelectionPanel.h; path = Classes/Image/Panel/RoleSelectionPanel.h; sourceTree = "<group>"; };
 		27ACAB1E1C962CB3005C0881 /* RoleSelectionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoleSelectionPanel.m; path = Classes/Image/Panel/RoleSelectionPanel.m; sourceTree = "<group>"; };
 		27ACAB201C966EAC005C0881 /* RoleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoleAnimation.h; path = Classes/Image/Icon/RoleAnimation.h; sourceTree = "<group>"; };
@@ -1490,10 +1484,6 @@
 		27C26CEB1C603D6A009EDE53 /* ProgressScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressScene.h; path = Classes/UIScene/ProgressScene.h; sourceTree = "<group>"; };
 		27C26CEC1C603D6A009EDE53 /* ProgressScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressScene.m; path = Classes/UIScene/ProgressScene.m; sourceTree = "<group>"; };
 		27C26CEF1C604E61009EDE53 /* invest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = invest.png; path = Resources/Graph/Frame/invest.png; sourceTree = "<group>"; };
-		27C26CF11C604F1D009EDE53 /* BaseFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseFrame.h; path = Classes/Image/BaseFrame.h; sourceTree = "<group>"; };
-		27C26CF21C604F1D009EDE53 /* BaseFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseFrame.m; path = Classes/Image/BaseFrame.m; sourceTree = "<group>"; };
-		27C26CF41C60616E009EDE53 /* InvestPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InvestPanel.h; path = Classes/Image/InvestPanel.h; sourceTree = "<group>"; };
-		27C26CF51C60616E009EDE53 /* InvestPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InvestPanel.m; path = Classes/Image/InvestPanel.m; sourceTree = "<group>"; };
 		27C26CF91C608E74009EDE53 /* money_bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = money_bag.png; path = Resources/Graph/Icon/money_bag.png; sourceTree = "<group>"; };
 		27C26CFB1C615F1B009EDE53 /* DataFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DataFrame.png; path = Resources/Graph/Frame/DataFrame.png; sourceTree = "<group>"; };
 		27C26CFC1C615F1B009EDE53 /* trade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trade.png; path = Resources/Graph/Frame/trade.png; sourceTree = "<group>"; };
@@ -1547,8 +1537,6 @@
 		27C26D4F1C646F1B009EDE53 /* ShipExchangeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipExchangeScene.h; path = Classes/UIScene/ShipExchangeScene.h; sourceTree = "<group>"; };
 		27C26D501C646F1B009EDE53 /* ShipExchangeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipExchangeScene.m; path = Classes/UIScene/ShipExchangeScene.m; sourceTree = "<group>"; };
 		27C26D521C6470BC009EDE53 /* ShipFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipFrame.png; path = Resources/Graph/Frame/ShipFrame.png; sourceTree = "<group>"; };
-		27C26D551C647156009EDE53 /* ShipExchangeUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipExchangeUnit.h; path = Classes/Image/ShipExchangeUnit.h; sourceTree = "<group>"; };
-		27C26D561C647156009EDE53 /* ShipExchangeUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipExchangeUnit.m; path = Classes/Image/ShipExchangeUnit.m; sourceTree = "<group>"; };
 		27C26D581C647A05009EDE53 /* rightArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightArrowButton.png; path = Resources/Graph/Button/rightArrowButton.png; sourceTree = "<group>"; };
 		27C26D5A1C647B01009EDE53 /* leftArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftArrowButton.png; path = Resources/Graph/Button/leftArrowButton.png; sourceTree = "<group>"; };
 		27C26D5C1C6492C8009EDE53 /* ship1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ship1.jpg; path = Resources/Graph/Icon/ship1.jpg; sourceTree = "<group>"; };
@@ -1584,8 +1572,6 @@
 		27C26DAE1C6BEF1B009EDE53 /* CG_Bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CG_Bg.png; path = Resources/Graph/Background/CG_Bg.png; sourceTree = "<group>"; };
 		27C26DB01C6BEFFF009EDE53 /* CGStoryScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGStoryScene.h; path = Classes/UIScene/CGStoryScene.h; sourceTree = "<group>"; };
 		27C26DB11C6BEFFF009EDE53 /* CGStoryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGStoryScene.m; path = Classes/UIScene/CGStoryScene.m; sourceTree = "<group>"; };
-		27C26DB61C6BFF99009EDE53 /* DialogPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogPanel.h; path = Classes/Image/DialogPanel.h; sourceTree = "<group>"; };
-		27C26DB71C6BFF99009EDE53 /* DialogPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DialogPanel.m; path = Classes/Image/DialogPanel.m; sourceTree = "<group>"; };
 		27C26DB91C6C00BF009EDE53 /* dialogFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dialogFrame.png; path = Resources/Graph/Frame/dialogFrame.png; sourceTree = "<group>"; };
 		27C26DBB1C6C0476009EDE53 /* DefaultDialogData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultDialogData.h; path = Classes/DataProcessing/DefaultDialogData.h; sourceTree = "<group>"; };
 		27C26DBC1C6C0476009EDE53 /* DefaultDialogData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultDialogData.m; path = Classes/DataProcessing/DefaultDialogData.m; sourceTree = "<group>"; };
@@ -1600,8 +1586,6 @@
 		27C26DD71C70198D009EDE53 /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship.png; path = Resources/Graph/Map/ship.png; sourceTree = "<group>"; };
 		27C26DD91C701BD1009EDE53 /* ShipSailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipSailModel.h; path = Classes/Image/Icon/ShipSailModel.h; sourceTree = "<group>"; };
 		27C26DDA1C701BD1009EDE53 /* ShipSailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSailModel.m; path = Classes/Image/Icon/ShipSailModel.m; sourceTree = "<group>"; };
-		27C26DDC1C714A7C009EDE53 /* CityDataPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDataPanel.h; path = Classes/Image/CityDataPanel.h; sourceTree = "<group>"; };
-		27C26DDD1C714A7C009EDE53 /* CityDataPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityDataPanel.m; path = Classes/Image/CityDataPanel.m; sourceTree = "<group>"; };
 		27C26DDF1C714A92009EDE53 /* cityInfoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cityInfoFrame.png; path = Resources/Graph/Frame/cityInfoFrame.png; sourceTree = "<group>"; };
 		27C26DE11C71708C009EDE53 /* SailSceneGoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SailSceneGoProtocol.h; path = Classes/Protocol/SailSceneGoProtocol.h; sourceTree = "<group>"; };
 		27C26DE21C717611009EDE53 /* SailSceneShipProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SailSceneShipProtocol.h; path = Classes/Protocol/SailSceneShipProtocol.h; sourceTree = "<group>"; };
@@ -1774,8 +1758,6 @@
 		27E040AB1C5C2ABC0068171E /* MenuPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuPage.h; path = Classes/MenuPage.h; sourceTree = "<group>"; };
 		27E040AC1C5C2ABC0068171E /* MenuPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuPage.m; path = Classes/MenuPage.m; sourceTree = "<group>"; };
 		27E040B21C5C2F3B0068171E /* bg1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg1.jpg; path = Resources/Graph/Background/bg1.jpg; sourceTree = "<group>"; };
-		27E040B51C5C31850068171E /* BGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BGImage.h; path = Classes/Image/BGImage.h; sourceTree = "<group>"; };
-		27E040B61C5C31850068171E /* BGImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BGImage.m; path = Classes/Image/BGImage.m; sourceTree = "<group>"; };
 		27E040B91C5C35020068171E /* button_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_up.png; path = Resources/Graph/Button/button_up.png; sourceTree = "<group>"; };
 		27E040C01C5C3A940068171E /* bgBGM.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = bgBGM.m4v; path = Resources/Sound/bgBGM.m4v; sourceTree = "<group>"; };
 		27E040C31C5C3E820068171E /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = button.wav; path = Resources/Sound/SE/button.wav; sourceTree = "<group>"; };
@@ -2015,6 +1997,24 @@
 		27FBB7831CE46D5B002B106B /* NSString+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Ext.m"; path = "Classes/Ext/NSString+Ext.m"; sourceTree = "<group>"; };
 		27FBB7861CEAE0AE002B106B /* dialogPortrait6_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dialogPortrait6_1.png; path = Resources/Graph/Portrait/dialogPortrait6_1.png; sourceTree = "<group>"; };
 		27FBB7881CEC487E002B106B /* dialogPortrait4_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dialogPortrait4_1.png; path = Resources/Graph/Portrait/dialogPortrait4_1.png; sourceTree = "<group>"; };
+		27FBB78A1CED8F6E002B106B /* BaseDialogSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseDialogSprite.h; path = Classes/Image/Element/BaseDialogSprite.h; sourceTree = "<group>"; };
+		27FBB78B1CED8F6E002B106B /* BaseDialogSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseDialogSprite.m; path = Classes/Image/Element/BaseDialogSprite.m; sourceTree = "<group>"; };
+		27FBB78C1CED8F6E002B106B /* BaseFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseFrame.h; path = Classes/Image/Element/BaseFrame.h; sourceTree = "<group>"; };
+		27FBB78D1CED8F6E002B106B /* BaseFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseFrame.m; path = Classes/Image/Element/BaseFrame.m; sourceTree = "<group>"; };
+		27FBB78E1CED8F6E002B106B /* BGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BGImage.h; path = Classes/Image/Element/BGImage.h; sourceTree = "<group>"; };
+		27FBB78F1CED8F6E002B106B /* BGImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BGImage.m; path = Classes/Image/Element/BGImage.m; sourceTree = "<group>"; };
+		27FBB7931CED8F8F002B106B /* CityDataPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDataPanel.h; path = Classes/Image/Panel/CityDataPanel.h; sourceTree = "<group>"; };
+		27FBB7941CED8F8F002B106B /* CityDataPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityDataPanel.m; path = Classes/Image/Panel/CityDataPanel.m; sourceTree = "<group>"; };
+		27FBB7951CED8F8F002B106B /* DialogPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogPanel.h; path = Classes/Image/Panel/DialogPanel.h; sourceTree = "<group>"; };
+		27FBB7961CED8F8F002B106B /* DialogPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DialogPanel.m; path = Classes/Image/Panel/DialogPanel.m; sourceTree = "<group>"; };
+		27FBB7971CED8F8F002B106B /* GoodsPricePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsPricePanel.h; path = Classes/Image/Panel/GoodsPricePanel.h; sourceTree = "<group>"; };
+		27FBB7981CED8F8F002B106B /* GoodsPricePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsPricePanel.m; path = Classes/Image/Panel/GoodsPricePanel.m; sourceTree = "<group>"; };
+		27FBB7991CED8F8F002B106B /* InvestPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InvestPanel.h; path = Classes/Image/Panel/InvestPanel.h; sourceTree = "<group>"; };
+		27FBB79A1CED8F8F002B106B /* InvestPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InvestPanel.m; path = Classes/Image/Panel/InvestPanel.m; sourceTree = "<group>"; };
+		27FBB79B1CED8F8F002B106B /* RolePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RolePanel.h; path = Classes/Image/Panel/RolePanel.h; sourceTree = "<group>"; };
+		27FBB79C1CED8F8F002B106B /* RolePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RolePanel.m; path = Classes/Image/Panel/RolePanel.m; sourceTree = "<group>"; };
+		27FBB7A21CED8FA4002B106B /* ShipExchangeUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipExchangeUnit.h; path = Classes/Image/Icon/ShipExchangeUnit.h; sourceTree = "<group>"; };
+		27FBB7A31CED8FA4002B106B /* ShipExchangeUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipExchangeUnit.m; path = Classes/Image/Icon/ShipExchangeUnit.m; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* InfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoButtonGroup.h; path = Classes/Image/GroupButton/InfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* InfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoButtonGroup.m; path = Classes/Image/GroupButton/InfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3080,6 +3080,16 @@
 				27FBB7461CD84693002B106B /* ItemInfoPanel.m */,
 				27FBB7501CD85090002B106B /* ItemBrowsePanel.h */,
 				27FBB7511CD85090002B106B /* ItemBrowsePanel.m */,
+				27FBB7931CED8F8F002B106B /* CityDataPanel.h */,
+				27FBB7941CED8F8F002B106B /* CityDataPanel.m */,
+				27FBB7951CED8F8F002B106B /* DialogPanel.h */,
+				27FBB7961CED8F8F002B106B /* DialogPanel.m */,
+				27FBB7971CED8F8F002B106B /* GoodsPricePanel.h */,
+				27FBB7981CED8F8F002B106B /* GoodsPricePanel.m */,
+				27FBB7991CED8F8F002B106B /* InvestPanel.h */,
+				27FBB79A1CED8F8F002B106B /* InvestPanel.m */,
+				27FBB79B1CED8F8F002B106B /* RolePanel.h */,
+				27FBB79C1CED8F8F002B106B /* RolePanel.m */,
 			);
 			name = Panel;
 			sourceTree = "<group>";
@@ -3380,8 +3390,6 @@
 		27C26D181C62836D009EDE53 /* GroupButton */ = {
 			isa = PBXGroup;
 			children = (
-				27ACAAF41C897F64005C0881 /* BaseDialogSprite.h */,
-				27ACAAF51C897F64005C0881 /* BaseDialogSprite.m */,
 				27C26D251C63312E009EDE53 /* BaseButtonGroup.h */,
 				27C26D261C63312E009EDE53 /* BaseButtonGroup.m */,
 				27C26D191C6283A9009EDE53 /* SystemGroupButton.h */,
@@ -3441,6 +3449,8 @@
 				270AB1E91CC0AA4F00533B47 /* ShipdeckIcon.m */,
 				27FBB7671CDC7938002B106B /* ItemIcon.h */,
 				27FBB7681CDC7938002B106B /* ItemIcon.m */,
+				27FBB7A21CED8FA4002B106B /* ShipExchangeUnit.h */,
+				27FBB7A31CED8FA4002B106B /* ShipExchangeUnit.m */,
 			);
 			name = Icon;
 			sourceTree = "<group>";
@@ -3544,28 +3554,12 @@
 				27ACAB1C1C962C7E005C0881 /* Panel */,
 				27C26D711C65884D009EDE53 /* Icon */,
 				27C26D181C62836D009EDE53 /* GroupButton */,
-				27E040B51C5C31850068171E /* BGImage.h */,
-				27E040B61C5C31850068171E /* BGImage.m */,
 				27C26CE11C5FD954009EDE53 /* CitySystemBar.h */,
 				27C26CE21C5FD954009EDE53 /* CitySystemBar.m */,
-				27C26CF11C604F1D009EDE53 /* BaseFrame.h */,
-				27C26CF21C604F1D009EDE53 /* BaseFrame.m */,
-				27C26CF41C60616E009EDE53 /* InvestPanel.h */,
-				27C26CF51C60616E009EDE53 /* InvestPanel.m */,
 				27C26CFF1C615F99009EDE53 /* DataButton.h */,
 				27C26D001C615F99009EDE53 /* DataButton.m */,
-				27C26D551C647156009EDE53 /* ShipExchangeUnit.h */,
-				27C26D561C647156009EDE53 /* ShipExchangeUnit.m */,
-				27C26DB61C6BFF99009EDE53 /* DialogPanel.h */,
-				27C26DB71C6BFF99009EDE53 /* DialogPanel.m */,
-				27C26DDC1C714A7C009EDE53 /* CityDataPanel.h */,
-				27C26DDD1C714A7C009EDE53 /* CityDataPanel.m */,
 				27C26E201C7DB179009EDE53 /* SailSceneDrawLayer.h */,
 				27C26E211C7DB179009EDE53 /* SailSceneDrawLayer.m */,
-				27ACAAFC1C92B77E005C0881 /* GoodsPricePanel.h */,
-				27ACAAFD1C92B77E005C0881 /* GoodsPricePanel.m */,
-				27ACAB061C94FEDA005C0881 /* RolePanel.h */,
-				27ACAB071C94FEDA005C0881 /* RolePanel.m */,
 			);
 			name = Image;
 			sourceTree = "<group>";
@@ -3834,6 +3828,12 @@
 		27FBB7531CD852A8002B106B /* Element */ = {
 			isa = PBXGroup;
 			children = (
+				27FBB78A1CED8F6E002B106B /* BaseDialogSprite.h */,
+				27FBB78B1CED8F6E002B106B /* BaseDialogSprite.m */,
+				27FBB78C1CED8F6E002B106B /* BaseFrame.h */,
+				27FBB78D1CED8F6E002B106B /* BaseFrame.m */,
+				27FBB78E1CED8F6E002B106B /* BGImage.h */,
+				27FBB78F1CED8F6E002B106B /* BGImage.m */,
 				27FBB7571CD85310002B106B /* DefaultButton.h */,
 				27FBB7581CD85310002B106B /* DefaultButton.m */,
 				27FBB7541CD852E0002B106B /* LabelButton.h */,
@@ -4588,10 +4588,11 @@
 				27C26D201C62EAEE009EDE53 /* RoleInitialData.m in Sources */,
 				279BAA8C1C59E3B60069EF5D /* CCCache.m in Sources */,
 				279BAC5C1C59E3B80069EF5D /* ALWrapper.m in Sources */,
-				27C26DDE1C714A7C009EDE53 /* CityDataPanel.m in Sources */,
 				27FBB7691CDC7938002B106B /* ItemIcon.m in Sources */,
 				279BAB8D1C59E3B70069EF5D /* CCEffectNode.m in Sources */,
 				27C26D6E1C6584A9009EDE53 /* TradeScene.m in Sources */,
+				27FBB79D1CED8F8F002B106B /* CityDataPanel.m in Sources */,
+				27FBB7A41CED8FA4002B106B /* ShipExchangeUnit.m in Sources */,
 				279BAD091C59EF300069EF5D /* ByteBuffer.m in Sources */,
 				279BAB8A1C59E3B70069EF5D /* CCEffectPixellate.m in Sources */,
 				279BAAB11C59E3B60069EF5D /* CCClippingNode.m in Sources */,
@@ -4600,13 +4601,14 @@
 				279BAC0A1C59E3B80069EF5D /* CCAnimationManager.m in Sources */,
 				279BAB901C59E3B70069EF5D /* CCEffectStack.m in Sources */,
 				279BAB441C59E3B70069EF5D /* cocos2d.m in Sources */,
-				27C26CF61C60616E009EDE53 /* InvestPanel.m in Sources */,
 				279BAC4B1C59E3B80069EF5D /* ALContext.m in Sources */,
 				279BAB371C59E3B70069EF5D /* CCTiledMapLayer.m in Sources */,
 				27FBB7591CD85310002B106B /* DefaultButton.m in Sources */,
 				27C26D681C64A664009EDE53 /* GameTeamData.m in Sources */,
+				27FBB7A11CED8F8F002B106B /* RolePanel.m in Sources */,
 				27C26D011C615F99009EDE53 /* DataButton.m in Sources */,
 				279BAA711C59E3B50069EF5D /* CCRenderDispatch.m in Sources */,
+				27FBB7911CED8F6E002B106B /* BaseFrame.m in Sources */,
 				279BABB11C59E3B80069EF5D /* CCPlatformTextField.m in Sources */,
 				279BAB871C59E3B70069EF5D /* CCEffectColorPulse.m in Sources */,
 				279BAC361C59E3B80069EF5D /* OALAudioTrackNotifications.m in Sources */,
@@ -4614,10 +4616,10 @@
 				279BAB121C59E3B70069EF5D /* CCScene.m in Sources */,
 				27C26DCB1C6DCDC0009EDE53 /* SailScene.m in Sources */,
 				279BABE41C59E3B80069EF5D /* CCFileUtils.m in Sources */,
+				27FBB7A01CED8F8F002B106B /* InvestPanel.m in Sources */,
 				270AB1C81C9A61C700533B47 /* DuelScene.m in Sources */,
 				27C26DE61C729419009EDE53 /* SeaAreaData.m in Sources */,
 				279BABDE1C59E3B80069EF5D /* CCRendererGLSupport.m in Sources */,
-				27ACAB081C94FEDA005C0881 /* RolePanel.m in Sources */,
 				279BAA751C59E3B50069EF5D /* CCRendererBasicTypes.m in Sources */,
 				27ACAB221C966EAC005C0881 /* RoleAnimation.m in Sources */,
 				279BAAF91C59E3B60069EF5D /* CCPhysicsJoint.m in Sources */,
@@ -4631,17 +4633,15 @@
 				27C26D841C672FC1009EDE53 /* GameShipGoodsData.m in Sources */,
 				279BAB301C59E3B70069EF5D /* CCTexturePVR.m in Sources */,
 				279BAC3C1C59E3B80069EF5D /* OALSimpleAudio.m in Sources */,
-				27C26CF31C604F1D009EDE53 /* BaseFrame.m in Sources */,
+				27FBB79E1CED8F8F002B106B /* DialogPanel.m in Sources */,
 				279BAB9C1C59E3B70069EF5D /* CCControl.m in Sources */,
 				279BAB031C59E3B60069EF5D /* CCProgressNode.m in Sources */,
 				27C26CC81C5F3AD9009EDE53 /* GoodsData.m in Sources */,
 				27C26D0E1C617DB4009EDE53 /* GameCityData.m in Sources */,
 				279BAB7B1C59E3B70069EF5D /* CCEffect.m in Sources */,
 				270AB1C01C97E8BB00533B47 /* RoleInfoPanel.m in Sources */,
-				27ACAAFE1C92B77E005C0881 /* GoodsPricePanel.m in Sources */,
 				279BAACB1C59E3B60069EF5D /* CCNodeColor.m in Sources */,
 				279BAAED1C59E3B60069EF5D /* CCParticleSystem.m in Sources */,
-				27C26DB81C6BFF99009EDE53 /* DialogPanel.m in Sources */,
 				27C26E251C800F4A009EDE53 /* SelectPeopleScene.m in Sources */,
 				279BAA931C59E3B60069EF5D /* CCActionCatmullRom.m in Sources */,
 				279BAAAA1C59E3B60069EF5D /* CCAnimation.m in Sources */,
@@ -4656,6 +4656,7 @@
 				279BAA801C59E3B60069EF5D /* CCTouchEvent.m in Sources */,
 				27C26D741C65889A009EDE53 /* GoodsIcon.m in Sources */,
 				27FBB7841CE46D5B002B106B /* NSString+Ext.m in Sources */,
+				27FBB7921CED8F6E002B106B /* BGImage.m in Sources */,
 				279BAB401C59E3B70069EF5D /* CCTransition.m in Sources */,
 				279BABA01C59E3B70069EF5D /* CCControlTextureFactory.m in Sources */,
 				279BAA991C59E3B60069EF5D /* CCActionInstant.m in Sources */,
@@ -4682,7 +4683,6 @@
 				279BAC771C59E3B90069EF5D /* OALAudioFile.m in Sources */,
 				27FBB7441CD844A1002B106B /* ItemData.m in Sources */,
 				278F4A4A1C83D31400D724EF /* StoryTriggerData.m in Sources */,
-				27E040B71C5C31850068171E /* BGImage.m in Sources */,
 				279BAC161C59E3B80069EF5D /* CCBsequence.m in Sources */,
 				279BAADB1C59E3B60069EF5D /* CCNode.m in Sources */,
 				279BAA841C59E3B60069EF5D /* CCRenderer.m in Sources */,
@@ -4714,7 +4714,6 @@
 				279BABDC1C59E3B80069EF5D /* NSEvent+CC.m in Sources */,
 				270AB1D81CB780B300533B47 /* ShipScene.m in Sources */,
 				279BAAA31C59E3B60069EF5D /* CCActionProgressTimer.m in Sources */,
-				27C26D571C647156009EDE53 /* ShipExchangeUnit.m in Sources */,
 				279BABF51C59E3B80069EF5D /* CGPointExtension.m in Sources */,
 				27ACAAF91C8EC5B0005C0881 /* CityBuildingData.m in Sources */,
 				279BAAC81C59E3B60069EF5D /* CCLabelTTF.m in Sources */,
@@ -4772,7 +4771,6 @@
 				279BABD91C59E3B80069EF5D /* CCWindow.m in Sources */,
 				279BABC91C59E3B80069EF5D /* CCGLView.m in Sources */,
 				2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */,
-				27ACAAF61C897F64005C0881 /* BaseDialogSprite.m in Sources */,
 				279BAB251C59E3B70069EF5D /* CCSpriteFrameCache.m in Sources */,
 				279BAB151C59E3B70069EF5D /* CCScheduler.m in Sources */,
 				27C26D241C6330FC009EDE53 /* CityBuildingGroup.m in Sources */,
@@ -4780,11 +4778,13 @@
 				27ACAB031C94EFB6005C0881 /* SkillData.m in Sources */,
 				279BAACF1C59E3B60069EF5D /* CCLayout.m in Sources */,
 				27C26CBB1C5EF701009EDE53 /* CityScene.m in Sources */,
+				27FBB7901CED8F6E002B106B /* BaseDialogSprite.m in Sources */,
 				279BAC511C59E3B80069EF5D /* ALListener.m in Sources */,
 				279BABFB1C59E3B80069EF5D /* NSThread+performBlock.m in Sources */,
 				279BAAAD1C59E3B60069EF5D /* CCAnimationCache.m in Sources */,
 				279BAB2D1C59E3B70069EF5D /* CCTextureCache.m in Sources */,
 				279BABA31C59E3B70069EF5D /* CCScrollView.m in Sources */,
+				27FBB79F1CED8F8F002B106B /* GoodsPricePanel.m in Sources */,
 				279BAC711C59E3B90069EF5D /* NSMutableArray+WeakReferences.m in Sources */,
 				27FBB7521CD85090002B106B /* ItemBrowsePanel.m in Sources */,
 			);

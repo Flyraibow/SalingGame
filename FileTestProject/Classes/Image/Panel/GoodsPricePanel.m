@@ -16,12 +16,17 @@
 #import "DataManager.h"
 #import "GoodsData.h"
 #import "GoodsIcon.h"
+#import "DialogPanel.h"
+
+@interface GoodsPricePanel() <GoodsIconSelectionDelegate, DialogInteractProtocol>
+
+@end
 
 @implementation GoodsPricePanel
 {
     CCSprite *_bgSprite;
     CGSize _contentSize;
-    
+    DialogPanel *_dialogPanel;
     
     NSString *_cityNo;
     CCLabelTTF *_labCategory;
@@ -153,6 +158,7 @@
                 GoodsIcon *goodsIcon = [[GoodsIcon alloc] initWithShowType:ShowPriceType];
                 int buyPrice = [cityData getBuyPriceForGoodsId:goodsId];
                 int salePrice = [cityData getSalePriceForGoodsId:goodsId level:5];
+                goodsIcon.delegate = self;
                 
                 // TODO: 以后如果某个产品在流行热销中，价格会显示成红色，并且左上角增加流行索引，可以帮助玩家找到那个产品在热销。
                 // 暂时因为没有设置热销商品，暂时不考虑
@@ -228,6 +234,16 @@
 -(void)clickCloseBtn
 {
     [self removeFromParent];
+}
+
+-(void)selectGoodsIcon:(id)goodsIcon
+{
+    GoodsIcon *icon = goodsIcon;
+    if (_dialogPanel == nil) {
+        _dialogPanel = [[DialogPanel alloc] init];
+    }
+    [_dialogPanel setDialogWithPhotoNo:nil npcName:@"" text:getGoodsDescription(icon.goodsId)];
+    [self.scene addChild:_dialogPanel];
 }
 
 @end

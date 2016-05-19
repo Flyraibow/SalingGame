@@ -107,4 +107,9 @@ static NSString* getItemDescription(NSString *itemId)
     return getLocalStringByString(@"item_description_", itemId);
 }
 
+static NSString* getGoodsDescription(NSString *goodsId)
+{
+    return getLocalStringByString(@"goods_description_", goodsId);
+}
+
 #endif /* LocalString_h */

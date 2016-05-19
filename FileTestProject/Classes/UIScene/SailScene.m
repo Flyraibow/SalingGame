@@ -92,14 +92,14 @@ SailSceneShipProtocol>
         [_rightButton setTarget:self selector:@selector(clickRightButton)];
         [_mapSprite addChild:_rightButton];
         
-        _upButton = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed: @"leftArrowButton.png"]];
+        _upButton = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed: @"upArrowButton.png"]];
         _upButton.positionType = CCPositionTypeNormalized;
         _upButton.position = ccp(0.5, 1);
         _upButton.anchorPoint = ccp(0.5, 1);
         [_upButton setTarget:self selector:@selector(clickUpButton)];
         [_mapSprite addChild:_upButton];
         
-        _downButton = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed: @"rightArrowButton.png"]];
+        _downButton = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed: @"downArrowButton.png"]];
         _downButton.positionType = CCPositionTypeNormalized;
         _downButton.position = ccp(0.5, 0);
         _downButton.anchorPoint = ccp(0.5, 0);
