@@ -97,15 +97,18 @@
 
 -(void)clickTest
 {
-    DialogPanel *panel = [[DialogPanel alloc] init];
+//    DialogPanel *panel = [[DialogPanel alloc] init];
 //    NSString *npcName = getNpcFullName(@"1");
 //    NSString *text = getStoryText(@"12");
-    panel.delegate = self;
-    [panel setDefaultDialog:@"dialog_buy_item" arguments:@[@"东方宝典", @"1000"] cityStyle:1];
-    [self addChild:panel];
+//    panel.delegate = self;
+//    [panel setDefaultDialog:@"dialog_buy_item" arguments:@[@"东方宝典", @"1000"] cityStyle:1];
+//    [self addChild:panel];
     
 //    DuelScene *duelScene = [[DuelScene alloc] initWithRoleId:@"1" roleId:@"2"];
 //    [[CCDirector sharedDirector] pushScene:duelScene];
+    CGStoryScene *storyScene = [[CGStoryScene alloc] initWithStoryId:@"2"];
+    [storyScene runStory];
+    [[CCDirector sharedDirector] pushScene:storyScene];
 }
 
 

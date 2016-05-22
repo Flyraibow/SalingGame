@@ -206,7 +206,11 @@
         // 先计算出npc的id， 再显示
         
     }
-    NSString *dialogNameName = getLocalString(defaultDialogData.dialogName);
+    NSString *dialogNameName = @"";
+    if (![defaultDialogData.dialogName isEqualToString:@"0"]) {
+        dialogNameName = getLocalString(defaultDialogData.dialogName);
+    }
+    
     NSString *dialogText = [NSString stringWithFormat:getLocalString(defaultDialogData.dialogId) arguments:arguments];
     [self setDialogWithPhotoNo:dialogPhotoId npcName:dialogNameName text:dialogText];
 }

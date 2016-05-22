@@ -1,3 +1,5 @@
 "dialog_new_item_discover" = "啊，这是...%@, 你能把它送给我们么？";
 "dialog_buy_item" = "您确定要购买 %@吗？价格是 %@金币";
 "dialog_sell_item" = "你想卖掉 %@吗？ 价格是 %@金币";
+"dialog_gain_money" = "得到了%@枚金币";
+"dialog_lose_money" = "失去了%@枚金币";

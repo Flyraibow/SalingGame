@@ -175,6 +175,8 @@ typedef enum : NSUInteger {
         _text.position = ccp(posX, 0.05);
         [self addChild:_text z:101];
         _touchTime = 0;
+        _dialogPanel = [[DialogPanel alloc] initWithContentSize:CGSizeMake(_contentSize.height / 3 * 4, _contentSize.height)];
+        _dialogPanel.delegate = self;
     }
     return self;
 }
@@ -300,7 +302,7 @@ typedef enum : NSUInteger {
                     {
                         CCSprite *sprite = [_photoDict objectForKey:storyData.parameter1];
                         [self removeChild:sprite];
-                        [_photoDict removeObjectForKey:sprite];
+                        [_photoDict removeObjectForKey:storyData.parameter1];
                         break;
                     }
                     case StoryCommandTypeWaitTime:
@@ -332,10 +334,6 @@ typedef enum : NSUInteger {
                     }
                     case StoryCommandTypeShowDialog:
                     {
-                        if (_dialogPanel == nil) {
-                            _dialogPanel = [[DialogPanel alloc] initWithContentSize:CGSizeMake(_contentSize.height / 3 * 4, _contentSize.height)];
-                            _dialogPanel.delegate = self;
-                        }
                         [self addChild:_dialogPanel z:102];
                         NSString *npcName;
                         if ([storyData.parameter2 isEqualToString:@"0"]) {
@@ -400,6 +398,18 @@ typedef enum : NSUInteger {
                     case StoryCommandTypeSpecial:
                     {
                         [[GameDataManager sharedGameData] setSpecialLogical:storyData.parameter1 parameter2:storyData.parameter2 parameter3:storyData.parameter3 parameter4:storyData.parameter4];
+                        if ([storyData.parameter1 isEqualToString:@"money"]) {
+                            [self addChild:_dialogPanel z:102];
+                            if ([storyData.parameter2 intValue] == 1) {
+                                [_dialogPanel setDefaultDialog:@"dialog_gain_money" arguments:@[storyData.parameter3]];
+                                _inDialog = YES;
+                                flag = NO;
+                            } else if ([storyData.parameter2 intValue] == 2) {
+                                [_dialogPanel setDefaultDialog:@"dialog_lose_money" arguments:@[storyData.parameter3]];
+                                _inDialog = YES;
+                                flag = NO;
+                            }
+                        }
                         break;
                     }
                     case StoryCommandTypeDuel:

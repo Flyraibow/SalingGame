@@ -145,6 +145,14 @@ static NSString* const GameItemDataState = @"GameItemDataState";
             // 角色离开队伍
             [self.myGuild.myTeam addNpcId:parameter3];
         }
+    } else if ([logicName isEqualToString:@"money"]) {
+        if ([parameter2 intValue] == 1) {
+            [self.myGuild gainMoney:[parameter3 intValue]];
+        } else if ([parameter2 intValue] == 2) {
+            [self.myGuild gainMoney:-[parameter3 intValue]];
+        } else if ([parameter2 intValue] == 3) {
+            [self.myGuild setMoney:[parameter3 intValue]];
+        }
     }
 }
 
