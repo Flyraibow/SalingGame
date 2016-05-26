@@ -13,6 +13,9 @@
 #import "DialogPanel.h"
 #import "GameDataManager.h"
 #import "DuelScene.h"
+#import "GameNPCData.h"
+#import "BaseButtonGroup.h"
+#import "DefaultButton.h"
 
 typedef enum : NSUInteger {
     StoryCommandTypeNone,
@@ -146,6 +149,7 @@ typedef enum : NSUInteger {
     NSArray *_selectionResult;
     NSString *_storyId;
     NSString *_duelResult;
+    BaseButtonGroup *_buttonGroup;
 }
 
 -(instancetype)initWithStoryId:(NSString *)storyId
@@ -349,7 +353,8 @@ typedef enum : NSUInteger {
                         if (selectionsFlag) {
                             StoryData *storyData1 = [_storyList objectAtIndex:_currentIndex];
                             if (storyData1.command == StoryCommandTypeShowDialogSelection) {
-                                NSArray *selections = [getStorySelectionText(storyData1.parameter1) componentsSeparatedByString:@";"];
+                                NSArray *selections = [getStoryText(storyData1.parameter1) componentsSeparatedByString:@";"];
+                                _selectionResult = [storyData1.parameter2 componentsSeparatedByString:@";"];
                                 __weak id weakSelf = self;
                                 __weak NSArray *weakReult = _selectionResult;
                                 __weak DialogPanel *weakDialogPanel = _dialogPanel;
@@ -364,11 +369,44 @@ typedef enum : NSUInteger {
                                         [weakSelf gotoStory:selectStoryId];
                                     }
                                 }];
-                                _selectionResult = [storyData1.parameter2 componentsSeparatedByString:@";"];
                                 _selectinDialog = YES;
                                 _currentIndex++;
                             }
                         }
+                        break;
+                    }
+                    case StoryCommandTypeShowDialogSelection:
+                    {
+                        NSMutableArray *buttonList = [NSMutableArray new];
+                        NSArray *selections = [getStoryText(storyData.parameter1) componentsSeparatedByString:@";"];
+                        for (int i = 0; i < selections.count; ++i) {
+                            NSString *buttonText = [_dialogPanel replaceTextWithDefaultRegex:selections[i]];
+                            DefaultButton *defaultButton = [[DefaultButton alloc] initWithTitle:buttonText];
+                            defaultButton.name = [@(i) stringValue];
+                            [buttonList addObject:defaultButton];
+                        }
+                        _selectionResult = [storyData.parameter2 componentsSeparatedByString:@";"];
+                        _buttonGroup = [[BaseButtonGroup alloc] initWithNSArray:buttonList];
+                        __weak id weakSelf = self;
+                        __weak NSArray *weakReult = _selectionResult;
+                        __weak BaseButtonGroup *weakButtonGroup = _buttonGroup;
+                        [_buttonGroup setCallback:^(int index) {
+                            NSString *selectStoryId = [weakReult objectAtIndex:index];
+                            if ([selectStoryId isEqualToString:@"0"]) {
+                                _selectinDialog = NO;
+                                _inDialog = NO;
+                                [weakSelf removeChild:weakButtonGroup];
+                            } else {
+                                // goto Story Id:
+                                [weakSelf gotoStory:selectStoryId];
+                            }
+                        }];
+                        [self addChild:_buttonGroup];
+                        self.userInteractionEnabled = NO;
+                        _inDialog = YES;
+                        flag = NO;
+                        _selectinDialog = YES;
+                        _currentIndex++;
                         break;
                     }
                     case StoryCommandTypeShowText:
@@ -406,6 +444,22 @@ typedef enum : NSUInteger {
                                 flag = NO;
                             } else if ([storyData.parameter2 intValue] == 2) {
                                 [_dialogPanel setDefaultDialog:@"dialog_lose_money" arguments:@[storyData.parameter3]];
+                                _inDialog = YES;
+                                flag = NO;
+                            }
+                            
+                            [[OALSimpleAudio sharedInstance] playEffect:@"golds.wav"];
+                        } else if ([storyData.parameter1 isEqualToString:@"npc"]) {
+                            [self addChild:_dialogPanel z:102];
+                            GameNPCData *npcData = [[GameDataManager sharedGameData].npcDic objectForKey:storyData.parameter3];
+                            if ([storyData.parameter2 intValue] == 1) {
+                                [_dialogPanel setDefaultDialog:@"dialog_add_friend" arguments:@[npcData.fullName]];
+                                _inDialog = YES;
+                                flag = NO;
+                                _waitTime = 2.0;
+                                [[OALSimpleAudio sharedInstance] playEffect:@"addTeam.wav"];
+                            } else if ([storyData.parameter2 intValue] == 2) {
+                                [_dialogPanel setDefaultDialog:@"dialog_lose_friend" arguments:@[npcData.fullName]];
                                 _inDialog = YES;
                                 flag = NO;
                             }

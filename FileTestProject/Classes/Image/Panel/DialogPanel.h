@@ -33,4 +33,6 @@
 
 -(void)setDefaultDialog:(NSString *)defaultDialogId arguments:(NSArray *)arguments;
 
+-(NSString *)replaceTextWithDefaultRegex:(NSString *)text;
+
 @end

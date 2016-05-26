@@ -3,3 +3,5 @@
 "dialog_sell_item" = "你想卖掉 %@吗？ 价格是 %@金币";
 "dialog_gain_money" = "得到了%@枚金币";
 "dialog_lose_money" = "失去了%@枚金币";
+"dialog_add_friend" = "%@成为伙伴！";
+"dialog_lose_friend" = "%@离开队伍！";

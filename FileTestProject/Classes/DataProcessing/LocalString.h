@@ -82,11 +82,6 @@ static NSString* getStoryText(NSString *textId)
     return getLocalStringByString(@"story_text_", textId);
 }
 
-static NSString* getStorySelectionText(NSString *textId)
-{
-    return getLocalStringByString(@"story_selection_", textId);
-}
-
 static NSString* getDialogText(NSString *dialogId)
 {
     return getLocalStringByString(@"dialog_", dialogId);

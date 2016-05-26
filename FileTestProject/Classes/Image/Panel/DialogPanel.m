@@ -58,14 +58,14 @@
         _dialogPanel.anchorPoint = ccp(0, 0);
         _dialogPanel.position = ccp(_basePosX + _photoIcon.size.width / _windowSize.width, 0);
         [self addChild:_dialogPanel];
-        _labelName = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:15];
+        _labelName = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:20];
         _labelName.color = [CCColor blackColor];
         _labelName.positionType = CCPositionTypeNormalized;
         _labelName.anchorPoint = ccp(0, 0.5);
         _labelName.position = ccp(0.1, 0.85);
         [_dialogPanel addChild:_labelName];
 
-        _labelContent = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14 dimensions:CGSizeMake(_dialogPanel.contentSize.width * 0.8 , 100)];
+        _labelContent = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:18 dimensions:CGSizeMake(_dialogPanel.contentSize.width * 0.8 , 100)];
         _labelContent.color = [CCColor blackColor];
         _labelContent.positionType = CCPositionTypeNormalized;
         _labelContent.anchorPoint = ccp(0, 1);

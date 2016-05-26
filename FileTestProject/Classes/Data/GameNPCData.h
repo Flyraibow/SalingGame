@@ -45,5 +45,4 @@
 
 -(instancetype)initWithNpcId:(NSString *)npcId;
 
-
 @end

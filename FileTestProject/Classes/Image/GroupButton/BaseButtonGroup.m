@@ -13,6 +13,9 @@
 #import "DataManager.h"
 
 @implementation BaseButtonGroup
+{
+    NSMutableArray *_buttonList;
+}
 
 -(instancetype)initWithNSArray:(NSArray *)buttonGroup
 {
@@ -41,6 +44,7 @@
         } else {
             array = buttonGroup;
         }
+        _buttonList = [NSMutableArray new];
         NSUInteger buttonNumber = array.count;
         for (int i = 0; i < buttonNumber; ++i) {
             CCButton *button = [array objectAtIndex:i];
@@ -48,6 +52,7 @@
             button.anchorPoint = ccp(0.5, 0.5);
             button.position = ccp(contentSize.width / 2, contentSize.height / 2 + (buttonNumber / 2.0 - i) * 30);
             [self addChild:button];
+            [_buttonList addObject:button];
         }
     }
     return self;
@@ -67,6 +72,18 @@
 -(void)clickCloseButton
 {
     [self removeFromParent];
+}
+
+
+-(void)setCallback:(void(^)(int index))handler
+{
+    for (int i = 0; i < _buttonList.count; ++i) {
+        CCButton *button = [_buttonList objectAtIndex:i];
+        __block int ii = i;
+        [button setBlock:^(id sender) {
+            handler(ii);
+        }];
+    }
 }
 
 
