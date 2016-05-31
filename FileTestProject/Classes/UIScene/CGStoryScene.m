@@ -37,6 +37,7 @@ typedef enum : NSUInteger {
     StoryCommandTypeChangeLogicData,
     StoryCommandTypeSpecial,
     StoryCommandTypeDuel,
+    StoryCommandTypeChangeStoryLock,
 } StoryCommandType;
 
 @interface StoryActionData : NSObject
@@ -406,7 +407,6 @@ typedef enum : NSUInteger {
                         _inDialog = YES;
                         flag = NO;
                         _selectinDialog = YES;
-                        _currentIndex++;
                         break;
                     }
                     case StoryCommandTypeShowText:
@@ -422,15 +422,20 @@ typedef enum : NSUInteger {
                     case StoryCommandTypeChangeLogicData:
                     {
                         NSString *logicId = storyData.parameter1;
-                        NSString *value;
-                        if ([storyData.parameter4 intValue] == 1) {
-                            value = [[GameDataManager sharedGameData] getLogicData:storyData.parameter3];
+                        if ([storyData.parameter2 intValue] == -1) {
+                            // remove logic
+                            [[GameDataManager sharedGameData] removeLogicDataWithLogicId:logicId];
                         } else {
-                            value = storyData.parameter3;
+                            NSString *value;
+                            if ([storyData.parameter4 intValue] == 1) {
+                                value = [[GameDataManager sharedGameData] getLogicData:storyData.parameter3];
+                            } else {
+                                value = storyData.parameter3;
+                            }
+                            
+                            ChangeValueType valueChangeType = [storyData.parameter2 intValue];
+                            [[GameDataManager sharedGameData] setLogicDataWithLogicId:logicId value:value changeValueType:valueChangeType];
                         }
-                        
-                        ChangeValueType valueChangeType = [storyData.parameter2 intValue];
-                        [[GameDataManager sharedGameData] setLogicDataWithLogicId:logicId value:value changeValueType:valueChangeType];
                         break;
                     }
                     case StoryCommandTypeSpecial:
@@ -476,6 +481,13 @@ typedef enum : NSUInteger {
                         DuelScene *duelScene = [[DuelScene alloc] initWithRoleId:heroId roleId:enemyId];
                         duelScene.delegate = self;
                         [[CCDirector sharedDirector] pushScene:duelScene];
+                        break;
+                    }
+                    case StoryCommandTypeChangeStoryLock:
+                    {
+                        BOOL locked = [storyData.parameter1 intValue] == 1;
+                        NSString *storyId = storyData.parameter2;
+                        [[GameDataManager sharedGameData] setStoryLockWithStoryId:storyId locked:locked];
                         break;
                     }
                     default:

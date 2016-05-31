@@ -37,6 +37,7 @@
 	self = [self init];
 	if (self) {
 		_storyId = [buffer readString];
+		_locked = [buffer readInt];
 		_heroId = [buffer readString];
 		_cityId = [buffer readString];
 		_prefixStoryId = [buffer readString];

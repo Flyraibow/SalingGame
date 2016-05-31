@@ -255,6 +255,13 @@
 "lab_yes"="好";
 "lab_no"="不好";
 
+"lab_strength" = "力量";
+"lab_charm" = "魅力";
+"lab_intelligence" = "智力";
+"lab_eloquence" = "口才";
+"lab_luck" = "运气";
+"lab_agile" = "敏捷";
+
 "dialog_new_item_discover" = "啊，这是...%@, 你能把它送给我们么？";
 "dialog_buy_item" = "您确定要购买 %@吗？价格是 %@金币";
 "dialog_sell_item" = "你想卖掉 %@吗？ 价格是 %@金币";
@@ -1033,7 +1040,8 @@
 "story_text_112"="学学吧;自己也能做的";
 "story_text_113"="恩。那么开始准备吧。先去交易所吗？";
 "story_text_114"="在任何城市，出海前去交易所、酒馆、广场转转的好。";
-"story_text_115"="这是一段测试文字,这里有人物：@{npc:1},还有物品：@{goods:1},还有船只:@{ship:1},还有城市:@{city:cityId},还有国家:@{country:1},我的军团军团:@{guild:myGuildId},我的当前金币是:@{id:money}.";
-"story_text_116"="我的剧团名字是：@{guild:myGuildId}， 我叫：@{npc:myLeaderId}.今天的日期为：@{id:date}.";
-"story_text_117"="测试文字14";
-"story_text_118"="我要加入你们的队伍";
+"story_text_115"="交易品低价买入高价卖出，这是交易的基本常识。";
+"story_text_116"="这是一段测试文字,这里有人物：@{npc:1},还有物品：@{goods:1},还有船只:@{ship:1},还有城市:@{city:cityId},还有国家:@{country:1},我的军团军团:@{guild:myGuildId},我的当前金币是:@{id:money}.";
+"story_text_117"="我的剧团名字是：@{guild:myGuildId}， 我叫：@{npc:myLeaderId}.今天的日期为：@{id:date}.";
+"story_text_118"="测试文字14";
+"story_text_119"="我要加入你们的队伍";

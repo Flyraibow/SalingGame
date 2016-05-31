@@ -31,6 +31,7 @@ static NSString* const GameGuildDic= @"GameGuildDic";
 static NSString* const GameMyGuild= @"GameMyGuild";
 static NSString* const GameCityDic = @"GameCityDic";
 static NSString* const GameLogicData = @"GameLogicData";
+static NSString* const GameStoryLockData = @"GameStoryLockData";
 static NSString* const GameMuiscData = @"GameMusicData";
 static NSString* const GameItemDataState = @"GameItemDataState";
 
@@ -77,6 +78,12 @@ static NSString* const GameItemDataState = @"GameItemDataState";
     NSDictionary *logicDataType = [[[DataManager sharedDataManager] getLogicDataDic] getDictionary];
     for (NSString *logicId in logicDataType) {
         [(NSMutableDictionary *)_logicData setObject:@"0" forKey:logicId];
+    }
+    _storyLockData = [NSMutableDictionary new];
+    NSDictionary *storyTriggerDic = [[[DataManager sharedDataManager] getStoryTriggerDic] getDictionary];
+    for (NSString *storyId in storyTriggerDic) {
+        StoryTriggerData *storyTriggerData = [storyTriggerDic objectForKey:storyId];
+        [(NSMutableDictionary *)_storyLockData setObject:@(storyTriggerData.locked == 1) forKey:storyId];
     }
 }
 
@@ -199,6 +206,16 @@ static NSString* const GameItemDataState = @"GameItemDataState";
     }
 }
 
+-(void)removeLogicDataWithLogicId:(NSString *)logicId
+{
+    [(NSMutableDictionary *)_logicData removeObjectForKey:logicId];
+}
+
+-(void)setStoryLockWithStoryId:(NSString *)storyId locked:(BOOL)locked
+{
+    [(NSMutableDictionary *)_storyLockData setObject:@(locked) forKey:storyId];
+}
+
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [self init];
@@ -214,6 +231,7 @@ static NSString* const GameItemDataState = @"GameItemDataState";
         _cityDic = [aDecoder decodeObjectForKey:GameCityDic];
         _logicData = [aDecoder decodeObjectForKey:GameLogicData];
         _itemDic = [aDecoder decodeObjectForKey:GameItemDataState];
+        _storyLockData = [aDecoder decodeObjectForKey:GameStoryLockData];
         NSDictionary *itemDic = [[DataManager sharedDataManager].getItemDic getDictionary];
         for (NSString *itemNo in _itemDic) {
             GameItemData *gameItemData = _itemDic[itemNo];
@@ -234,6 +252,7 @@ static NSString* const GameItemDataState = @"GameItemDataState";
     [aCoder encodeObject:_logicData forKey:GameLogicData];
     [aCoder encodeObject:_currentMusic forKey:GameMuiscData];
     [aCoder encodeObject:_itemDic forKey:GameItemDataState];
+    [aCoder encodeObject:_storyLockData forKey:GameStoryLockData];
 }
 
 -(void)addTimeUpdateClass:(id<DateUpdateProtocol>)target

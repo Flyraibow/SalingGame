@@ -53,7 +53,7 @@
 		_agile = [buffer readInt];
 		_charm = [buffer readInt];
 		_eloquence = [buffer readInt];
-		_lucky = [buffer readInt];
+		_luck = [buffer readInt];
 		_skillList = [buffer readString];
 	}
 	return self;

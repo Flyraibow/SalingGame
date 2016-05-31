@@ -4,6 +4,7 @@
 @interface StoryTriggerData : NSObject
 
 @property (nonatomic, readonly) NSString *storyId;
+@property (nonatomic, readonly) int locked;
 @property (nonatomic, readonly) NSString *heroId;
 @property (nonatomic, readonly) NSString *cityId;
 @property (nonatomic, readonly) NSString *prefixStoryId;

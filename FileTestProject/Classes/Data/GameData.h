@@ -35,6 +35,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSDictionary *npcDic;
 @property (nonatomic, readonly) NSDictionary *guildDic;
 @property (nonatomic, readonly) NSDictionary *logicData;
+@property (nonatomic, readonly) NSDictionary *storyLockData;
 @property (nonatomic, readonly) int year;
 @property (nonatomic, readonly) int month;
 @property (nonatomic, readonly) int day;
@@ -52,6 +53,10 @@ typedef enum : NSUInteger {
 -(void)setSpecialLogical:(NSString *)logicName parameter2:(NSString *)parameter2 parameter3:(NSString *)parameter3 parameter4:(NSString *)parameter4;
 
 -(void)setLogicDataWithLogicId:(NSString *)logicId value:(NSString *)logicValue changeValueType:(ChangeValueType)type;
+
+-(void)setStoryLockWithStoryId:(NSString *)storyId locked:(BOOL)locked;
+
+-(void)removeLogicDataWithLogicId:(NSString *)logicId;
 
 -(void)setYear:(int)year month:(int)month day:(int)day;
 

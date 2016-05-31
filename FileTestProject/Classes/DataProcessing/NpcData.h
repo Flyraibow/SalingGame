@@ -20,7 +20,7 @@
 @property (nonatomic, readonly) int agile;
 @property (nonatomic, readonly) int charm;
 @property (nonatomic, readonly) int eloquence;
-@property (nonatomic, readonly) int lucky;
+@property (nonatomic, readonly) int luck;
 @property (nonatomic, readonly) NSString *skillList;
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;

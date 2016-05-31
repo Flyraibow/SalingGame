@@ -21,8 +21,13 @@
     NSString *currentStoryId = nil;
     NSDictionary *storyTriggerDic = [[[DataManager sharedDataManager] getStoryTriggerDic] getDictionary];
     MyGuild *myGuild = [GameDataManager sharedGameData].myGuild;
+    NSDictionary *storyLockedDic = [GameDataManager sharedGameData].storyLockData;
     NSSet *usedStorySet = myGuild.usedStorySet;
     for (NSString *storyId in storyTriggerDic) {
+        // 没有被锁
+        if ([[storyLockedDic objectForKey:storyId] boolValue]) {
+            continue;
+        }
         // 主角符合
         StoryTriggerData *storyTriggerData = [storyTriggerDic objectForKey:storyId];
         if (![storyTriggerData.heroId isEqualToString:@"0"] && ![storyTriggerData.heroId isEqualToString:myGuild.leaderId]) {

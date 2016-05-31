@@ -90,7 +90,7 @@ static int const frameOffsetY = 20;
 
 -(void)clickBuilding:(CCButton *)button
 {
-    CCLOG(@"click building:%@",button.name);
+    // 剧情检测
     [self.delegate checkStory:button.name];
     int buttonId = [button.name intValue];
     if (buttonId <= 1) {
