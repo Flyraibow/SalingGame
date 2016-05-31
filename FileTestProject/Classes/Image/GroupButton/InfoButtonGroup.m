@@ -39,7 +39,15 @@
 
 -(void)clickSailorInfo
 {
-    RolePanel *rolePanel = [[RolePanel alloc] init];
+    NSArray *teamList = [GameDataManager sharedGameData].myGuild.teamList;
+    teamList = [teamList arrayByAddingObject:[GameDataManager sharedGameData].myGuild.myTeam];
+    NSMutableArray *npcList = [NSMutableArray new];
+    for (int i = 0; i < teamList.count; ++i) {
+        GameTeamData *teamData = teamList[i];
+        [npcList addObjectsFromArray:teamData.npcList];
+    }
+    
+    RolePanel *rolePanel = [[RolePanel alloc] initWithNpcList:npcList type:RolePanelTypeNormal];
     [self.scene addChild:rolePanel];
 }
 

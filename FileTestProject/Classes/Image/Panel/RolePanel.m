@@ -10,6 +10,7 @@
 #import "RoleSelectionPanel.h"
 #import "RoleInfoPanel.h"
 #import "BGImage.h"
+#import "GameNPCData.h"
 
 @interface RolePanel() <RoleInfoPanelDelegate, RoleSelectionPanelDelegate>
 
@@ -23,9 +24,11 @@
     CGSize _contentSize;
 }
 
--(instancetype)init
+-(instancetype)initWithNpcList:(NSArray *)npcList type:(RolePanelType)type
 {
     if (self = [super init]) {
+        _type = type;
+        
         _contentSize = [CCDirector sharedDirector].viewSize;
         self.contentSize = _contentSize;
         self.positionType = CCPositionTypeNormalized;
@@ -38,12 +41,15 @@
         _roleInfoPanel.delegate = self;
         [self addChild:_roleInfoPanel];
         
-        _roleSelectionPanel = [RoleSelectionPanel alloc];
+        _roleSelectionPanel = [[RoleSelectionPanel alloc] initWithNPCList:npcList];
         _roleSelectionPanel.delegate=self;
-        _roleSelectionPanel = [_roleSelectionPanel init];
         _roleSelectionPanel.scale = _contentSize.height * 0.4 / _roleSelectionPanel.contentSize.height;
         [self addChild:_roleSelectionPanel];
         
+        if (npcList.count) {
+            GameNPCData *npcData = npcList[0];
+            [self selectRole:npcData.npcId];
+        }
     }
     return self;
 }

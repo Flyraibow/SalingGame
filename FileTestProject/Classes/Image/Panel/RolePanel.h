@@ -9,6 +9,14 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
+typedef enum : NSUInteger {
+    RolePanelTypeNormal,
+} RolePanelType;
+
 @interface RolePanel : CCSprite
+
+@property (nonatomic, readonly) RolePanelType type;
+
+-(instancetype)initWithNpcList:(NSArray *)npcList type:(RolePanelType)type;
 
 @end

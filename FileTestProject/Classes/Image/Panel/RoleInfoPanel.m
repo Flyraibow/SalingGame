@@ -10,6 +10,7 @@
 #import "DefaultButton.h"
 #import "LocalString.h"
 #import "GameNPCData.h"
+#import "CCSprite+Ext.h"
 
 @implementation RoleInfoPanel
 {
@@ -17,6 +18,12 @@
     CCLabelTTF *_labNpcName;
     CCSprite *_photo;
     CCLabelTTF *_labGender;
+    CCLabelTTF *_labLuck;
+    CCLabelTTF *_labStrength;
+    CCLabelTTF *_labAgile;
+    CCLabelTTF *_labCharm;
+    CCLabelTTF *_labIntelligence;
+    CCLabelTTF *_labEloquence;
 }
 
 -(instancetype)init
@@ -36,7 +43,7 @@
         
         _labNpcName = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
         _labNpcName.positionType = CCPositionTypeNormalized;
-        _labNpcName.anchorPoint=ccp(0,1);
+        _labNpcName.anchorPoint = ccp(0,1);
         _labNpcName.position = ccp(0.22, 0.95);
         [self addChild:_labNpcName];
         
@@ -46,8 +53,35 @@
         _labGender.position = ccp(0.715, 0.765);
         [self addChild:_labGender];
         
-        //[self setRoleId:@("1")];
-
+        _labStrength = [CCLabelTTF labelWithString:getLocalString(@"lab_strength") fontName:nil fontSize:12];
+        _labStrength.positionType = CCPositionTypePoints;
+        _labStrength.position = ccp(504, 225);
+        [self addChild:_labStrength];
+        
+        _labIntelligence = [CCLabelTTF labelWithString:getLocalString(@"lab_intelligence") fontName:nil fontSize:12];
+        _labIntelligence.positionType = CCPositionTypePoints;
+        _labIntelligence.position = ccp(602, 225);
+        [self addChild:_labIntelligence];
+        
+        _labEloquence = [CCLabelTTF labelWithString:getLocalString(@"lab_eloquence") fontName:nil fontSize:12];
+        _labEloquence.positionType = CCPositionTypePoints;
+        _labEloquence.position = ccp(613, 185);
+        [self addChild:_labEloquence];
+        
+        _labCharm = [CCLabelTTF labelWithString:getLocalString(@"lab_charm") fontName:nil fontSize:12];
+        _labCharm.positionType = CCPositionTypePoints;
+        _labCharm.position = ccp(602, 145);
+        [self addChild:_labCharm];
+        
+        _labLuck = [CCLabelTTF labelWithString:getLocalString(@"lab_luck") fontName:nil fontSize:12];
+        _labLuck.positionType = CCPositionTypePoints;
+        _labLuck.position = ccp(506, 145);
+        [self addChild:_labLuck];
+        
+        _labAgile = [CCLabelTTF labelWithString:getLocalString(@"lab_agile") fontName:nil fontSize:12];
+        _labAgile.positionType = CCPositionTypePoints;
+        _labAgile.position = ccp(493, 185);
+        [self addChild:_labAgile];
     }
     
     return self;
@@ -56,7 +90,6 @@
 
 -(void)setRoleId:(NSString *)roleId
 {
-    NSLog(@"test of set RoleId");
     if(![_roleId isEqualToString:roleId])
     {
         _roleId=roleId;
@@ -66,15 +99,10 @@
         if(_photo!=nil)
             [self removeChild:_photo];
         _photo = [CCSprite spriteWithImageNamed:npcData.portrait];
-        _photo.anchorPoint=ccp(0,1);
-        _photo.positionType=CCPositionTypeNormalized;
-        _photo.position=ccp(0.045,0.90);
-        _photo.scale=0.44;
+        [_photo setRect:CGRectMake(25, 154, 78, 95)];
         [self addChild:_photo];
         
-        _labGender.string=@"男";
-        
-
+        _labGender.string = getLocalStringByInt(@"gender_", npcData.npcData.gender + 1);
     }
 }
 

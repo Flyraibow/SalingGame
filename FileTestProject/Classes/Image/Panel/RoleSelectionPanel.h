@@ -19,4 +19,6 @@
 
 @property (nonatomic) id<RoleSelectionPanelDelegate> delegate;
 
+-(instancetype)initWithNPCList:(NSArray *)npcList;
+
 @end

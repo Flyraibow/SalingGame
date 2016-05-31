@@ -103,3 +103,10 @@
 "lab_equip_value" = "效果值";
 "lab_yes"="好";
 "lab_no"="不好";
+
+"lab_strength" = "力量";
+"lab_charm" = "魅力";
+"lab_intelligence" = "智力";
+"lab_eloquence" = "口才";
+"lab_luck" = "运气";
+"lab_agile" = "敏捷";
