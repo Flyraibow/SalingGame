@@ -879,6 +879,7 @@
 		27FBB8101CF2700A002B106B /* c009_20-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7E61CF2700A002B106B /* c009_20-1.png */; };
 		27FBB8111CF2700A002B106B /* c009_21-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7E71CF2700A002B106B /* c009_21-1.png */; };
 		27FBB8151CF27142002B106B /* Town_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8141CF27142002B106B /* Town_3.png */; };
+		27FBB8171CFEBF82002B106B /* CG_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8161CFEBF82002B106B /* CG_6.png */; };
 		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
@@ -2125,6 +2126,7 @@
 		27FBB7E61CF2700A002B106B /* c009_20-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "c009_20-1.png"; path = "Resources/Graph/Character/c009_20-1.png"; sourceTree = "<group>"; };
 		27FBB7E71CF2700A002B106B /* c009_21-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "c009_21-1.png"; path = "Resources/Graph/Character/c009_21-1.png"; sourceTree = "<group>"; };
 		27FBB8141CF27142002B106B /* Town_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Town_3.png; path = Resources/Graph/Town/Town_3.png; sourceTree = "<group>"; };
+		27FBB8161CFEBF82002B106B /* CG_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CG_6.png; path = Resources/Graph/CG/CG_6.png; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* InfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoButtonGroup.h; path = Classes/Image/GroupButton/InfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* InfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoButtonGroup.m; path = Classes/Image/GroupButton/InfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3612,6 +3614,7 @@
 		27C26DB31C6BF52A009EDE53 /* CG */ = {
 			isa = PBXGroup;
 			children = (
+				27FBB8161CFEBF82002B106B /* CG_6.png */,
 				27FBB7A71CF171BD002B106B /* CG_4.png */,
 				27FBB7A81CF171BD002B106B /* CG_5.png */,
 				27C26E531C819434009EDE53 /* CG_3.png */,
@@ -4528,6 +4531,7 @@
 				27FBB6AA1CD843F6002B106B /* item57.png in Resources */,
 				27FBB8091CF2700A002B106B /* c009_13-1.png in Resources */,
 				27FBB7BD1CF26FCA002B106B /* addTeam.wav in Resources */,
+				27FBB8171CFEBF82002B106B /* CG_6.png in Resources */,
 				27FBB7A91CF171BD002B106B /* CG_4.png in Resources */,
 				27FBB7401CD843F6002B106B /* item207.png in Resources */,
 				27FBB6AF1CD843F6002B106B /* item62.png in Resources */,

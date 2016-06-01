@@ -26,5 +26,4 @@
 -(void)confirm;
 -(void)setCallback:(void(^)(int index))handler;
 
-
 @end

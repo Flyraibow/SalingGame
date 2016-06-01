@@ -18,10 +18,11 @@
 
 @interface CityBuildingGroup : BaseDialogSprite
 
-@property (nonatomic) id<CityBuildingDelegate> delegate;
+@property (nonatomic, weak) id<CityBuildingDelegate> delegate;
 
 -(void)setCityNo:(NSString *)cityNo;
 
 -(void)setHidden:(BOOL)hidden;
+-(void)closeButtonGroup:(id)buttonGroup;
 
 @end

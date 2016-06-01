@@ -180,5 +180,10 @@ static int const frameOffsetY = 20;
     }
 }
 
+-(void)closeButtonGroup:(id)buttonGroup
+{
+    [_delegate checkStory:@"0"];
+}
+
 
 @end

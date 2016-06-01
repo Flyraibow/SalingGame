@@ -72,6 +72,7 @@
 -(void)clickCloseButton
 {
     [self removeFromParent];
+    [_baseSprite closeButtonGroup:self];
 }
 
 
