@@ -11,7 +11,7 @@
 #import "GameShipData.h"
 
 typedef enum : NSUInteger {
-    DeckShipSceneDock,
+    DeckShipSceneDeck,
     DeckShipSceneModify,
 } DeckShipSceneType;
 

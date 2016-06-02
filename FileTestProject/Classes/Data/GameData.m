@@ -132,7 +132,7 @@ static NSString* const GameItemDataState = @"GameItemDataState";
         int index = 0;
         for (int i = 0; i < goodsList.count; ++i) {
             NSString *goodsStr = [goodsList objectAtIndex:i];
-            if (goodsStr.length > 0) {
+            if (goodsStr.length > 1) {
                 NSString *goodsId = [goodsStr componentsSeparatedByString:@"_"][0];
                 int goodsLevel = [[goodsStr componentsSeparatedByString:@"_"][1] intValue];
                 GameShipGoodsData *goodsData = [[GameShipGoodsData alloc] initWithGoodsId:goodsId price:0 level:goodsLevel];

@@ -17,6 +17,7 @@
 #import "SailScene.h"
 #import "RolePanel.h"
 #import "InfoButtonGroup.h"
+#import "ShipScene.h"
 
 typedef enum : NSUInteger {
     Button_Sail_MAP = 1,
@@ -87,7 +88,11 @@ typedef enum : NSUInteger {
     }
     else if(index == Button_Deck)
     {
-        
+        if ([GameDataManager sharedGameData].myGuild.myTeam.shipList.count > 0) {
+            GameShipData *shipData = [[GameDataManager sharedGameData].myGuild.myTeam.shipList objectAtIndex:0];
+            ShipScene *shipScene = [[ShipScene alloc] initWithShipData:shipData shipSceneType:DeckShipSceneDeck];
+            [[CCDirector sharedDirector] pushScene:shipScene];
+        }
     }
     else if(index == Button_Ship_Info)//资讯包含船只信息和船员信息
     {

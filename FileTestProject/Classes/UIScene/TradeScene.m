@@ -121,7 +121,7 @@
             icon.goodsIndex = i;
             icon.goodsType = GoodsIconTypeSoldGoods;
             icon.delegate = self;
-            double scale = (contentSize.width / 2 - 15) / 5 / icon.contentSize.width;
+            double scale = (contentSize.width / 2 - 30) / 5 / icon.contentSize.width;
             icon.scale = scale;
             icon.position = ccp(contentSize.width / 2 + i * icon.contentSize.width * icon.scale, contentSize.height*0.53);
             [_soldGoodsList addObject:icon];
@@ -133,7 +133,7 @@
             GoodsIcon *icon = [[GoodsIcon alloc] initWithShowType:_type];
             icon.positionType = CCPositionTypePoints;
             icon.anchorPoint = ccp(0, 0.5);
-            double scale = (contentSize.width / 2 - 15) / 5 / icon.contentSize.width;
+            double scale = (contentSize.width / 2 - 30) / 5 / icon.contentSize.width;
             icon.scale = scale;
             icon.position = ccp(10 + i * icon.contentSize.width * icon.scale, contentSize.height*0.53);
             icon.visible = NO;
@@ -225,7 +225,7 @@
             [icon setGoods:goodsId price:price level:level buyPrice:-1];
             icon.positionType = CCPositionTypeMake(CCPositionUnitPoints, CCPositionUnitNormalized,CCPositionReferenceCornerBottomLeft);
             icon.anchorPoint = ccp(0, 0);
-            double scale = (contentSize.width / 2 - 15) / 5 / icon.contentSize.width;
+            double scale = (contentSize.width / 2 - 30) / 5 / icon.contentSize.width;
             icon.scale = scale;
             icon.position = ccp(10 + index * icon.contentSize.width * icon.scale, 0.03);
             [icon setNumber:[_cityData getGoodsNumForGuild:[GameDataManager sharedGameData].myGuild.guildId goodsId:goodsId]];

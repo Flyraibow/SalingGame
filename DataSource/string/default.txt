@@ -110,3 +110,5 @@
 "lab_eloquence" = "口才";
 "lab_luck" = "运气";
 "lab_agile" = "敏捷";
+
+"lab_ship_kalutila" = "卡鲁提拉号";
