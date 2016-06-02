@@ -880,6 +880,7 @@
 		27FBB8111CF2700A002B106B /* c009_21-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7E71CF2700A002B106B /* c009_21-1.png */; };
 		27FBB8151CF27142002B106B /* Town_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8141CF27142002B106B /* Town_3.png */; };
 		27FBB8171CFEBF82002B106B /* CG_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8161CFEBF82002B106B /* CG_6.png */; };
+		27FBB8191D000054002B106B /* CG_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8181D000054002B106B /* CG_7.png */; };
 		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
@@ -2127,6 +2128,7 @@
 		27FBB7E71CF2700A002B106B /* c009_21-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "c009_21-1.png"; path = "Resources/Graph/Character/c009_21-1.png"; sourceTree = "<group>"; };
 		27FBB8141CF27142002B106B /* Town_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Town_3.png; path = Resources/Graph/Town/Town_3.png; sourceTree = "<group>"; };
 		27FBB8161CFEBF82002B106B /* CG_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CG_6.png; path = Resources/Graph/CG/CG_6.png; sourceTree = "<group>"; };
+		27FBB8181D000054002B106B /* CG_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CG_7.png; path = Resources/Graph/CG/CG_7.png; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* InfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoButtonGroup.h; path = Classes/Image/GroupButton/InfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* InfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoButtonGroup.m; path = Classes/Image/GroupButton/InfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3614,6 +3616,7 @@
 		27C26DB31C6BF52A009EDE53 /* CG */ = {
 			isa = PBXGroup;
 			children = (
+				27FBB8181D000054002B106B /* CG_7.png */,
 				27FBB8161CFEBF82002B106B /* CG_6.png */,
 				27FBB7A71CF171BD002B106B /* CG_4.png */,
 				27FBB7A81CF171BD002B106B /* CG_5.png */,
@@ -4607,6 +4610,7 @@
 				27C26CF01C604E61009EDE53 /* invest.png in Resources */,
 				27FBB6E11CD843F6002B106B /* item112.png in Resources */,
 				27ACAB881C9674C4005C0881 /* c008_17-1.png in Resources */,
+				27FBB8191D000054002B106B /* CG_7.png in Resources */,
 				27FBB7A61CF1660C002B106B /* city_2.mp3 in Resources */,
 				27C26F041C82A7C1009EDE53 /* goods57.jpg in Resources */,
 				270AB2101CC75C9000533B47 /* Shipdeck7_2.png in Resources */,

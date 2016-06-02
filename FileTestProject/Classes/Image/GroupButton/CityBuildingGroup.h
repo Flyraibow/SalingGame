@@ -25,4 +25,6 @@
 -(void)setHidden:(BOOL)hidden;
 -(void)closeButtonGroup:(id)buttonGroup;
 
+-(void)gotoBuildingNo:(NSString *)buildingNo;
+
 @end

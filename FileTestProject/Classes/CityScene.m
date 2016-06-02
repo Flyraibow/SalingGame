@@ -217,14 +217,18 @@ CityBuildingDelegate>
     if (storyId != nil) {
         CGStoryScene *cgScene = [[CGStoryScene alloc] initWithStoryId:storyId];
         cgScene.delegate = self;
-        [[CCDirector sharedDirector] pushScene: cgScene];
-        [cgScene runStory];
+        [[CCDirector sharedDirector] pushScene:cgScene];
     }
 }
 
 -(void)playMusic
 {
     [GameDataManager sharedGameData].currentMusic = [NSString stringWithFormat:@"city_%d.mp3", _cityData.musicId];
+}
+
+-(void)gotoBuildingNo:(NSString *)buildingNo
+{
+    [_cityBuildingGroup gotoBuildingNo:buildingNo];
 }
 
 -(void)storyEnd

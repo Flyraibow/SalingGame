@@ -38,6 +38,8 @@ typedef enum : NSUInteger {
     StoryCommandTypeSpecial,
     StoryCommandTypeDuel,
     StoryCommandTypeChangeStoryLock,
+    StoryCommandTypeGotoStory,
+    StoryCommandTypeGotoBuilding,
 } StoryCommandType;
 
 @interface StoryActionData : NSObject
@@ -147,16 +149,15 @@ typedef enum : NSUInteger {
     BOOL _inDialog;
     BOOL _selectinDialog;
     CGFloat _touchTime;
-    NSArray *_selectionResult;
     NSString *_storyId;
     NSString *_duelResult;
+    NSString *_duelResultMode;
     BaseButtonGroup *_buttonGroup;
 }
 
 -(instancetype)initWithStoryId:(NSString *)storyId
 {
     if (self = [super init]) {
-        _storyId = storyId;
         _contentSize = [CCDirector sharedDirector].viewSize;
         CCSprite *coverSprite = [CCSprite spriteWithImageNamed:@"CG_Bg.png"];
         coverSprite.scale = _contentSize.height / coverSprite.contentSize.height;
@@ -164,11 +165,6 @@ typedef enum : NSUInteger {
         coverSprite.position = ccp(0.5, 0.5);
         [self addChild:coverSprite z:100];
         
-        _storyList = [[[DataManager sharedDataManager] getStoryDic] getStoryGroupByGroupId:storyId];
-        _running = NO;
-        _waitingClick = NO;
-        _inDialog = NO;
-        _selectinDialog = NO;
         self.userInteractionEnabled = YES;
         
         _photoDict = [NSMutableDictionary new];
@@ -182,12 +178,31 @@ typedef enum : NSUInteger {
         _touchTime = 0;
         _dialogPanel = [[DialogPanel alloc] initWithContentSize:CGSizeMake(_contentSize.height / 3 * 4, _contentSize.height)];
         _dialogPanel.delegate = self;
+        
+        [self setStoryId:storyId removeAllPhoto:NO];
     }
     return self;
 }
 
--(void)runStory
+-(void)setStoryId:(NSString *)storyId removeAllPhoto:(BOOL)removeAllPhoto
 {
+    if (removeAllPhoto) {
+        // remove current photo,
+        for (NSString *photoId in _photoDict) {
+            CCSprite *photo = [_photoDict objectForKey:photoId];
+            [photo removeFromParent];
+        }
+        [_photoDict removeAllObjects];
+        [_actionSet removeAllObjects];
+    }
+    _currentIndex = 0;
+    _storyId = storyId;
+    _running = NO;
+    _waitingClick = NO;
+    _inDialog = NO;
+    _selectinDialog = NO;
+    _storyList = [[[DataManager sharedDataManager] getStoryDic] getStoryGroupByGroupId:storyId];
+    
     _running = YES;
     [[GameDataManager sharedGameData].myGuild addStoryId:_storyId];
 }
@@ -354,23 +369,8 @@ typedef enum : NSUInteger {
                         if (selectionsFlag) {
                             StoryData *storyData1 = [_storyList objectAtIndex:_currentIndex];
                             if (storyData1.command == StoryCommandTypeShowDialogSelection) {
-                                NSArray *selections = [getStoryText(storyData1.parameter1) componentsSeparatedByString:@";"];
-                                _selectionResult = [storyData1.parameter2 componentsSeparatedByString:@";"];
-                                __weak id weakSelf = self;
-                                __weak NSArray *weakReult = _selectionResult;
-                                __weak DialogPanel *weakDialogPanel = _dialogPanel;
-                                [_dialogPanel addSelections:selections callback:^(int index) {
-                                    NSString *selectStoryId = [weakReult objectAtIndex:index];
-                                    if ([selectStoryId isEqualToString:@"0"]) {
-                                        _selectinDialog = NO;
-                                        _inDialog = NO;
-                                        [weakSelf removeChild:weakDialogPanel];
-                                    } else {
-                                        // goto Story Id:
-                                        [weakSelf gotoStory:selectStoryId];
-                                    }
-                                }];
-                                _selectinDialog = YES;
+                                [self showStorySelection:storyData1];
+                                flag = NO;
                                 _currentIndex++;
                             }
                         }
@@ -378,35 +378,8 @@ typedef enum : NSUInteger {
                     }
                     case StoryCommandTypeShowDialogSelection:
                     {
-                        NSMutableArray *buttonList = [NSMutableArray new];
-                        NSArray *selections = [getStoryText(storyData.parameter1) componentsSeparatedByString:@";"];
-                        for (int i = 0; i < selections.count; ++i) {
-                            NSString *buttonText = [_dialogPanel replaceTextWithDefaultRegex:selections[i]];
-                            DefaultButton *defaultButton = [[DefaultButton alloc] initWithTitle:buttonText];
-                            defaultButton.name = [@(i) stringValue];
-                            [buttonList addObject:defaultButton];
-                        }
-                        _selectionResult = [storyData.parameter2 componentsSeparatedByString:@";"];
-                        _buttonGroup = [[BaseButtonGroup alloc] initWithNSArray:buttonList];
-                        __weak id weakSelf = self;
-                        __weak NSArray *weakReult = _selectionResult;
-                        __weak BaseButtonGroup *weakButtonGroup = _buttonGroup;
-                        [_buttonGroup setCallback:^(int index) {
-                            NSString *selectStoryId = [weakReult objectAtIndex:index];
-                            if ([selectStoryId isEqualToString:@"0"]) {
-                                _selectinDialog = NO;
-                                _inDialog = NO;
-                                [weakSelf removeChild:weakButtonGroup];
-                            } else {
-                                // goto Story Id:
-                                [weakSelf gotoStory:selectStoryId];
-                            }
-                        }];
-                        [self addChild:_buttonGroup];
-                        self.userInteractionEnabled = NO;
-                        _inDialog = YES;
+                        [self showStorySelection:storyData];
                         flag = NO;
-                        _selectinDialog = YES;
                         break;
                     }
                     case StoryCommandTypeShowText:
@@ -478,6 +451,7 @@ typedef enum : NSUInteger {
                         NSString *heroId = [storyData.parameter1 componentsSeparatedByString:@";"][0];
                         NSString *enemyId = [storyData.parameter1 componentsSeparatedByString:@";"][1];
                         _duelResult = storyData.parameter2;
+                        _duelResultMode = storyData.parameter3;
                         DuelScene *duelScene = [[DuelScene alloc] initWithRoleId:heroId roleId:enemyId];
                         duelScene.delegate = self;
                         [[CCDirector sharedDirector] pushScene:duelScene];
@@ -488,6 +462,16 @@ typedef enum : NSUInteger {
                         BOOL locked = [storyData.parameter1 intValue] == 1;
                         NSString *storyId = storyData.parameter2;
                         [[GameDataManager sharedGameData] setStoryLockWithStoryId:storyId locked:locked];
+                        break;
+                    }
+                    case StoryCommandTypeGotoStory:
+                    {
+                        [self setStoryId:storyData.parameter1 removeAllPhoto:[storyData.parameter2 boolValue]];
+                        break;
+                    }
+                    case StoryCommandTypeGotoBuilding:
+                    {
+                        [_delegate gotoBuildingNo:storyData.parameter1];
                         break;
                     }
                     default:
@@ -502,16 +486,57 @@ typedef enum : NSUInteger {
     }
 }
 
+-(void)showStorySelection:(StoryData *)storyData
+{
+    NSMutableArray *buttonList = [NSMutableArray new];
+    NSArray *selections = [getStoryText(storyData.parameter1) componentsSeparatedByString:@";"];
+    for (int i = 0; i < selections.count; ++i) {
+        NSString *buttonText = [_dialogPanel replaceTextWithDefaultRegex:selections[i]];
+        DefaultButton *defaultButton = [[DefaultButton alloc] initWithTitle:buttonText];
+        defaultButton.name = [@(i) stringValue];
+        [buttonList addObject:defaultButton];
+    }
+    __weak StoryData *weakStoryData = storyData;
+    _buttonGroup = [[BaseButtonGroup alloc] initWithNSArray:buttonList];
+    __weak id weakSelf = self;
+    
+    __weak BaseButtonGroup *weakButtonGroup = _buttonGroup;
+    [_buttonGroup setCallback:^(int index) {
+        NSArray *selectionResultList = [weakStoryData.parameter2 componentsSeparatedByString:@";"];
+        NSArray *resultModeList = [weakStoryData.parameter3 componentsSeparatedByString:@";"];
+        NSString *selectStoryId = [selectionResultList objectAtIndex:index];
+        [weakSelf removeChild:weakButtonGroup];
+        if ([selectStoryId isEqualToString:@"0"]) {
+            _selectinDialog = NO;
+            _inDialog = NO;
+        } else {
+            // goto Story Id:
+            BOOL removeStoryPhoto = NO;
+            if (resultModeList.count > index) {
+                removeStoryPhoto = [resultModeList[index] boolValue];
+            }
+            [weakSelf setStoryId:selectStoryId removeAllPhoto:removeStoryPhoto];
+        }
+    }];
+    [self addChild:_buttonGroup];
+    self.userInteractionEnabled = NO;
+    _inDialog = YES;
+    _selectinDialog = YES;
+}
+
 -(void)duelEnds:(DuelResult)result
 {
     NSString *storyId;
+    BOOL gotoStoryMode;
     if (result == DuelResultWin) {
         storyId = [_duelResult componentsSeparatedByString:@";"][0];
+        gotoStoryMode = [[_duelResultMode componentsSeparatedByString:@";"][0] boolValue];
     } else {
         storyId = [_duelResult componentsSeparatedByString:@";"][1];
+        gotoStoryMode = [[_duelResultMode componentsSeparatedByString:@";"][1] boolValue];
     }
     if (![storyId isEqualToString:@"0"]) {
-        [self gotoStory:storyId];
+        [self setStoryId:storyId removeAllPhoto:gotoStoryMode];
     }
 }
 
@@ -532,14 +557,6 @@ typedef enum : NSUInteger {
 {
     [self removeChild:_dialogPanel];
     _inDialog = NO;
-}
-
--(void)gotoStory:(NSString *)storyId
-{
-    CGStoryScene *storyScene = [[CGStoryScene alloc] initWithStoryId:storyId];
-    storyScene.delegate = self.delegate;
-    [[CCDirector sharedDirector] presentScene:storyScene];
-    [storyScene runStory];
 }
 
 @end

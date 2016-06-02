@@ -13,6 +13,8 @@
 
 -(void)storyEnd;
 
+-(void)gotoBuildingNo:(NSString *)buildingNo;
+
 @end
 
 @interface CGStoryScene : CCScene
@@ -20,7 +22,5 @@
 @property (nonatomic) id<CGStorySceneDelegate> delegate;
 
 -(instancetype)initWithStoryId:(NSString *)storyId;
-
--(void)runStory;
 
 @end

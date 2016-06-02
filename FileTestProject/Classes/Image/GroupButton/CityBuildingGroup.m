@@ -88,62 +88,71 @@ static int const frameOffsetY = 20;
     }
 }
 
--(void)clickBuilding:(CCButton *)button
+-(void)gotoBuildingNo:(NSString *)buildingNo
 {
-    // 剧情检测
-    [self.delegate checkStory:button.name];
-    int buttonId = [button.name intValue];
-    if (buttonId <= 1) {
+    if (_currentChildSprite != nil && _currentChildSprite.parent != nil) {
+        [_currentChildSprite removeFromParent];
+        _currentChildSprite = nil;
+    }
+    int buildingId = [buildingNo intValue];
+    if (buildingId <= 1) {
         // 点击总督府
         GovernmentGroupButton *governmentButton = [[GovernmentGroupButton alloc] initWithCityNo:_cityNo];
         governmentButton.baseSprite = self;
         [self.scene addChild:governmentButton];
         _currentChildSprite = governmentButton;
-    } else if (buttonId == 2) {
+    } else if (buildingId == 2) {
         // 点击酒馆
         TavernGroupButton *tavernButton = [TavernGroupButton new];
         tavernButton.baseSprite = self;
         [self.scene addChild:tavernButton];
         _currentChildSprite = tavernButton;
         
-    } else if (buttonId == 3) {
+    } else if (buildingId == 3) {
         // 点击广场
         
-    } else if (buttonId == 4) {
+    } else if (buildingId == 4) {
         // 点击交易所
         ExchangeGroupButton *exchangeButton = [[ExchangeGroupButton alloc] initWithCityNo:_cityNo];
         exchangeButton.baseSprite = self;
         [self.scene addChild:exchangeButton];
         _currentChildSprite = exchangeButton;
-    } else if (buttonId == 5) {
+    } else if (buildingId == 5) {
         // 点击造船厂
         ShipyardGroupButton *shipyardButton = [[ShipyardGroupButton alloc] initWithCityNo:_cityNo];
         shipyardButton.baseSprite = self;
         [self.scene addChild:shipyardButton];
         _currentChildSprite = shipyardButton;
-    } else if (buttonId == 6) {
+    } else if (buildingId == 6) {
         // 点击道具店
         ShopGroupButton *shopButton = [[ShopGroupButton alloc] initWithCityNo:_cityNo];
         shopButton.baseSprite = self;
         [self.scene addChild:shopButton];
         _currentChildSprite = shopButton;
-    } else if (buttonId == 7) {
+    } else if (buildingId == 7) {
         // 点击码头
         DockGroupButton *dockButton = [DockGroupButton new];
         dockButton.baseSprite = self;
         [self.scene addChild:dockButton];
         _currentChildSprite = dockButton;
-    } else if (buttonId == 8) {
+    } else if (buildingId == 8) {
         // 点击旅店
         InnGroupButton *innButton = [InnGroupButton new];
         innButton.baseSprite = self;
         [self.scene addChild:innButton];
         _currentChildSprite = innButton;
-    } else if (buttonId >= 9) {
+    } else if (buildingId >= 9) {
         // 点击遗迹等
     }
-    _currentChildSprite.buildingNo = button.name;
+    _currentChildSprite.buildingNo = buildingNo;
     _currentChildSprite.cityStle = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo].cityStyle;
+}
+
+-(void)clickBuilding:(CCButton *)button
+{
+    // 剧情检测
+    [self.delegate checkStory:button.name];
+    [self gotoBuildingNo:button.name];
 }
 
 

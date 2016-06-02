@@ -107,7 +107,6 @@
 //    DuelScene *duelScene = [[DuelScene alloc] initWithRoleId:@"1" roleId:@"2"];
 //    [[CCDirector sharedDirector] pushScene:duelScene];
     CGStoryScene *storyScene = [[CGStoryScene alloc] initWithStoryId:@"2"];
-    [storyScene runStory];
     [[CCDirector sharedDirector] pushScene:storyScene];
 }
 
