@@ -11,6 +11,9 @@
 #import "DefaultButton.h"
 #import "LocalString.h"
 #import "ShipdeckIcon.h"
+#import "GameDataManager.h"
+#import "GameNPCData.h"
+#import "RoleJobAnimation.h"
 
 @implementation ShipScene
 {
@@ -18,7 +21,8 @@
     CCSprite *_deckShipSprite;
     ShipStyleData *_shipStyleData;
     CGSize _viewSize;
-    
+    NSMutableArray *_roleAnimationList;
+    NSMutableDictionary *_roomIconDict;
 }
 
 -(instancetype)initWithShipData:(GameShipData *)shipData shipSceneType:(DeckShipSceneType)shipSceneType
@@ -34,7 +38,9 @@
         _deckShipSprite.scale = _viewSize.height / _deckShipSprite.contentSize.height;
         [self addChild:_deckShipSprite];
         
+        _roomIconDict = [NSMutableDictionary new];
         NSArray *roomList = [_shipStyleData.roomList componentsSeparatedByString:@";"];
+        int roomId = 1;
         for (int i = 0; i < roomList.count; ++i) {
             NSString *info = roomList[i];
             if (info.length > 0) {
@@ -50,6 +56,8 @@
                 shipdeckIcon.anchorPoint = ccp(0, 0);
                 shipdeckIcon.position = ccp(x, y);
                 [_deckShipSprite addChild:shipdeckIcon];
+                [_roomIconDict setObject:shipdeckIcon forKey:@(roomId)];
+                shipdeckIcon.roomId = roomId++;
             }
         }
         
@@ -69,8 +77,39 @@
             [btnSure setTarget:self selector:@selector(clickBtnSure)];
             [_deckShipSprite addChild:btnSure];
             btnClose.label.string = getLocalString(@"lab_cancel");
+        } else if (_shipSceneType == DeckShipSceneDeck) {
+            // TODO： 如果是甲板模式，分为两个小模式，都显示小人，其中一个可以随意调动小人的位置，另一个，用于查看小人状态。
+            _roleAnimationList = [NSMutableArray new];
+            NSArray *npcList = [GameDataManager sharedGameData].myGuild.myTeam.npcList;
+            for (int i = 0; i < npcList.count; ++i) {
+                GameNPCData *gameNPCData = [npcList objectAtIndex:i];
+                RoleJobAnimation *roleAnimation = [[RoleJobAnimation alloc] initWithRoleId:gameNPCData.npcId];
+                roleAnimation.npcData = gameNPCData;
+                roleAnimation.positionType = CCPositionTypeNormalized;
+                roleAnimation.position = ccp(0.5, 0.4);
+                [_roleAnimationList addObject:roleAnimation];
+                if (gameNPCData.job != NPCJobTypeNone || gameNPCData.roomId) {
+                    ShipdeckIcon *shipIcon;
+                    if (gameNPCData.roomId > 0) {
+                        shipIcon = [_roomIconDict objectForKey:@(gameNPCData.roomId)];
+                    } else {
+                        // 根据职业寻找到合适的房间
+                        for (NSNumber *rmId in _roomIconDict) {
+                            shipIcon = [_roomIconDict objectForKey:rmId];
+                            if (shipIcon.job == gameNPCData.job && shipIcon.roleJobAnimation == nil) {
+                                break;
+                            }
+                        }
+                    }
+                    [roleAnimation setJob:gameNPCData.job];
+                    if (shipIcon != nil && shipIcon.job == gameNPCData.job) {
+                        [shipIcon setRoleJobAnimation:roleAnimation];
+                    }
+                }
+            }
+            // 暂时先显示小人再说
         }
-        // TODO： 如果是甲板模式，显示小人，还可以自定义模式
+        
     }
     return self;
 }

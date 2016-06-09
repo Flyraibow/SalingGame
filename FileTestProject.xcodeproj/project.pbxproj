@@ -281,7 +281,6 @@
 		27ACAB031C94EFB6005C0881 /* SkillData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACAB021C94EFB6005C0881 /* SkillData.m */; };
 		27ACAB051C94FC63005C0881 /* InfoBox.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27ACAB041C94FC63005C0881 /* InfoBox.jpg */; };
 		27ACAB1F1C962CB3005C0881 /* RoleSelectionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACAB1E1C962CB3005C0881 /* RoleSelectionPanel.m */; };
-		27ACAB221C966EAC005C0881 /* RoleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27ACAB211C966EAC005C0881 /* RoleAnimation.m */; };
 		27ACAB631C9674C4005C0881 /* c000_1-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27ACAB241C9674C4005C0881 /* c000_1-1.png */; };
 		27ACAB641C9674C4005C0881 /* c000_2-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27ACAB251C9674C4005C0881 /* c000_2-1.png */; };
 		27ACAB651C9674C4005C0881 /* c000_3-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27ACAB261C9674C4005C0881 /* c000_3-1.png */; };
@@ -882,6 +881,8 @@
 		27FBB8171CFEBF82002B106B /* CG_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8161CFEBF82002B106B /* CG_6.png */; };
 		27FBB8191D000054002B106B /* CG_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8181D000054002B106B /* CG_7.png */; };
 		27FBB81B1D000E4F002B106B /* Deckship4.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB81A1D000E4F002B106B /* Deckship4.png */; };
+		27FBB8461D092EB1002B106B /* RoleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB8451D092EB1002B106B /* RoleAnimation.m */; };
+		27FBB8491D092ECF002B106B /* RoleJobAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB8481D092ECF002B106B /* RoleJobAnimation.m */; };
 		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
@@ -1449,8 +1450,6 @@
 		27ACAB041C94FC63005C0881 /* InfoBox.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = InfoBox.jpg; path = Resources/Graph/Frame/InfoBox.jpg; sourceTree = "<group>"; };
 		27ACAB1D1C962CB3005C0881 /* RoleSelectionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoleSelectionPanel.h; path = Classes/Image/Panel/RoleSelectionPanel.h; sourceTree = "<group>"; };
 		27ACAB1E1C962CB3005C0881 /* RoleSelectionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoleSelectionPanel.m; path = Classes/Image/Panel/RoleSelectionPanel.m; sourceTree = "<group>"; };
-		27ACAB201C966EAC005C0881 /* RoleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoleAnimation.h; path = Classes/Image/Icon/RoleAnimation.h; sourceTree = "<group>"; };
-		27ACAB211C966EAC005C0881 /* RoleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoleAnimation.m; path = Classes/Image/Icon/RoleAnimation.m; sourceTree = "<group>"; };
 		27ACAB241C9674C4005C0881 /* c000_1-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "c000_1-1.png"; path = "Resources/Graph/Character/c000_1-1.png"; sourceTree = "<group>"; };
 		27ACAB251C9674C4005C0881 /* c000_2-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "c000_2-1.png"; path = "Resources/Graph/Character/c000_2-1.png"; sourceTree = "<group>"; };
 		27ACAB261C9674C4005C0881 /* c000_3-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "c000_3-1.png"; path = "Resources/Graph/Character/c000_3-1.png"; sourceTree = "<group>"; };
@@ -2131,6 +2130,10 @@
 		27FBB8161CFEBF82002B106B /* CG_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CG_6.png; path = Resources/Graph/CG/CG_6.png; sourceTree = "<group>"; };
 		27FBB8181D000054002B106B /* CG_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CG_7.png; path = Resources/Graph/CG/CG_7.png; sourceTree = "<group>"; };
 		27FBB81A1D000E4F002B106B /* Deckship4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Deckship4.png; path = Resources/Graph/Ship/Deckship4.png; sourceTree = "<group>"; };
+		27FBB8441D092EB1002B106B /* RoleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoleAnimation.h; path = Classes/Image/Animation/RoleAnimation.h; sourceTree = "<group>"; };
+		27FBB8451D092EB1002B106B /* RoleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoleAnimation.m; path = Classes/Image/Animation/RoleAnimation.m; sourceTree = "<group>"; };
+		27FBB8471D092ECF002B106B /* RoleJobAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoleJobAnimation.h; path = Classes/Image/Animation/RoleJobAnimation.h; sourceTree = "<group>"; };
+		27FBB8481D092ECF002B106B /* RoleJobAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoleJobAnimation.m; path = Classes/Image/Animation/RoleJobAnimation.m; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* InfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoButtonGroup.h; path = Classes/Image/GroupButton/InfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* InfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoButtonGroup.m; path = Classes/Image/GroupButton/InfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3604,8 +3607,6 @@
 				27C26E271C801418009EDE53 /* SelectPeopleIcon.m */,
 				27C26E501C8125BD009EDE53 /* DialogPhotoIcon.h */,
 				27C26E511C8125BD009EDE53 /* DialogPhotoIcon.m */,
-				27ACAB201C966EAC005C0881 /* RoleAnimation.h */,
-				27ACAB211C966EAC005C0881 /* RoleAnimation.m */,
 				270AB1E81CC0AA4F00533B47 /* ShipdeckIcon.h */,
 				270AB1E91CC0AA4F00533B47 /* ShipdeckIcon.m */,
 				27FBB7671CDC7938002B106B /* ItemIcon.h */,
@@ -3717,6 +3718,7 @@
 		27E040B41C5C315B0068171E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				27FBB8431D092E7D002B106B /* Animation */,
 				27FBB7531CD852A8002B106B /* Element */,
 				27ACAB1C1C962C7E005C0881 /* Panel */,
 				27C26D711C65884D009EDE53 /* Icon */,
@@ -4040,6 +4042,17 @@
 				27FBB7AE1CF171FB002B106B /* Town_1.png */,
 			);
 			name = Town;
+			sourceTree = "<group>";
+		};
+		27FBB8431D092E7D002B106B /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				27FBB8441D092EB1002B106B /* RoleAnimation.h */,
+				27FBB8451D092EB1002B106B /* RoleAnimation.m */,
+				27FBB8471D092ECF002B106B /* RoleJobAnimation.h */,
+				27FBB8481D092ECF002B106B /* RoleJobAnimation.m */,
+			);
+			name = Animation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -4851,6 +4864,7 @@
 				27FBB7911CED8F6E002B106B /* BaseFrame.m in Sources */,
 				279BABB11C59E3B80069EF5D /* CCPlatformTextField.m in Sources */,
 				279BAB871C59E3B70069EF5D /* CCEffectColorPulse.m in Sources */,
+				27FBB8461D092EB1002B106B /* RoleAnimation.m in Sources */,
 				279BAC361C59E3B80069EF5D /* OALAudioTrackNotifications.m in Sources */,
 				27C26E1F1C7DA86D009EDE53 /* GameRouteData.m in Sources */,
 				279BAB121C59E3B70069EF5D /* CCScene.m in Sources */,
@@ -4861,7 +4875,6 @@
 				27C26DE61C729419009EDE53 /* SeaAreaData.m in Sources */,
 				279BABDE1C59E3B80069EF5D /* CCRendererGLSupport.m in Sources */,
 				279BAA751C59E3B50069EF5D /* CCRendererBasicTypes.m in Sources */,
-				27ACAB221C966EAC005C0881 /* RoleAnimation.m in Sources */,
 				279BAAF91C59E3B60069EF5D /* CCPhysicsJoint.m in Sources */,
 				27C26D311C634410009EDE53 /* InnGroupButton.m in Sources */,
 				27C26D8B1C695291009EDE53 /* GuildData.m in Sources */,
@@ -4948,6 +4961,7 @@
 				279BABA61C59E3B70069EF5D /* CCSlider.m in Sources */,
 				27FBB7471CD84693002B106B /* ItemInfoPanel.m in Sources */,
 				27C26D3A1C634BC2009EDE53 /* ShopGroupButton.m in Sources */,
+				27FBB8491D092ECF002B106B /* RoleJobAnimation.m in Sources */,
 				279BAC331C59E3B80069EF5D /* OALAudioTrack.m in Sources */,
 				279BAB3A1C59E3B70069EF5D /* CCTiledMapObjectGroup.m in Sources */,
 				278F4A4D1C83D65800D724EF /* GameStoryTriggerManager.m in Sources */,

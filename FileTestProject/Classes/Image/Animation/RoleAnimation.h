@@ -8,6 +8,7 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
+#import "GameNPCData.h"
 
 typedef enum : NSUInteger {
     ActionTypeNone,
@@ -52,6 +53,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, copy) NSString *roleId;
 @property (nonatomic, assign) ActionType action;
+@property (nonatomic, assign) NPCJobType job;
 @property (nonatomic, assign) BOOL loops;
 @property (nonatomic, assign, readonly) BOOL stopped;
 @property (nonatomic) id<RoleSelectionProtocol> delegate;

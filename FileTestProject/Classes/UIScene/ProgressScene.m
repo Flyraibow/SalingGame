@@ -52,16 +52,16 @@
         button1.position = ccp(0.5,0.6);
         button1.scaleX = bgImage.scaleX;
         button1.scaleY = bgImage.scaleY;
-        [button1 setTarget:self selector:@selector(clickButton)];
+        [button1 setTarget:self selector:@selector(clickButton:)];
         button1.name = @"0";
         [self addChild:button1];
         
         DataButton *button2 = [[DataButton alloc] init];
         button2.positionType = CCPositionTypeNormalized;
-        button2.position = ccp(0.5,0.6);
+        button2.position = ccp(0.5,0.3);
         button2.scaleX = bgImage.scaleX;
         button2.scaleY = bgImage.scaleY;
-        [button2 setTarget:self selector:@selector(clickButton)];
+        [button2 setTarget:self selector:@selector(clickButton:)];
         button2.name = @"1";
         [self addChild:button2];
     }

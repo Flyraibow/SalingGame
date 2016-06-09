@@ -39,7 +39,10 @@ static NSString* const GameTeamNPCData = @"GameTeamNPCData";
         }
         NSMutableArray *npcList = [NSMutableArray new];
         NSDictionary *npcDic = [GameDataManager sharedGameData].npcDic;
-        [npcList addObject:[npcDic objectForKey:_leaderId]];
+        GameNPCData *leaderData = [npcDic objectForKey:_leaderId];
+        leaderData.isCaptain = YES;
+        leaderData.job = NPCJobTypeCaptain;
+        [npcList addObject:leaderData];
         NSArray *npcStrList = [teamData.npcList componentsSeparatedByString:@";"];
         for (NSString *npcId in npcStrList) {
             if (npcId.length > 0) {
@@ -71,7 +74,7 @@ static NSString* const GameTeamNPCData = @"GameTeamNPCData";
 {
     [aCoder encodeInteger:_teamMoney forKey:GameTeamMoney];
     [aCoder encodeObject:_teamId forKey:GameTeamId];
-    [aCoder encodeObject:_leaderId forKey:GameTeamId];
+    [aCoder encodeObject:_leaderId forKey:GameTeamLeader];
     [aCoder encodeObject:_shipList forKey:GameTeamShipList];
     [aCoder encodeObject:_belongToGuildId forKey:GameTeamBelongGuildId];
     [aCoder encodeObject:_currentCityId forKey:GameTeamCurrentCity];

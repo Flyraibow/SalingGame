@@ -61,6 +61,11 @@ static NSString* const NPCCharm = @"NPCCharm";
 static NSString* const NPCLuck = @"NPCLuck";
 static NSString* const NPCEloquence = @"NPCEloquence";
 static NSString* const NPCSkills = @"NPCSkills";
+static NSString* const NPCJob = @"NPCJob";
+static NSString* const NPCIsCaptain = @"NPCIsCaptain";
+static NSString* const NPCRoomId = @"NPCRoomId";
+static NSString* const NPCMaxHP = @"NPCMaxHP";
+static NSString* const NPCCurrentHP = @"NPCCurrentHP";
 
 
 -(instancetype)initWithNpcId:(NSString *)npcId
@@ -79,6 +84,7 @@ static NSString* const NPCSkills = @"NPCSkills";
         _eloquence = _npcData.eloquence;
         _maxHp = _npcData.hp;
         _currHp = _maxHp;
+        _isCaptain = NO;
         NSMutableDictionary *skillDataDict = [NSMutableDictionary new];
         NSArray *skillArray = [_npcData.skillList componentsSeparatedByString:@";"];
         for (NSString *skillStr in skillArray) {
@@ -109,6 +115,11 @@ static NSString* const NPCSkills = @"NPCSkills";
         _eloquence = [aDecoder decodeIntForKey:NPCEloquence];
         _intelligence = [aDecoder decodeIntForKey:NPCIntelligence];
         _skillDataDict = [aDecoder decodeObjectForKey:NPCSkills];
+        _isCaptain = [aDecoder decodeBoolForKey:NPCIsCaptain];
+        _job = [aDecoder decodeIntegerForKey:NPCJob];
+        _roomId = [aDecoder decodeIntForKey:NPCRoomId];
+        _maxHp = [aDecoder decodeIntForKey:NPCMaxHP];
+        _currHp = [aDecoder decodeIntForKey:NPCCurrentHP];
         
         _npcData = [[[DataManager sharedDataManager] getNpcDic] getNpcById:_npcId];
     }
@@ -128,6 +139,11 @@ static NSString* const NPCSkills = @"NPCSkills";
     [aCoder encodeInt:_intelligence forKey:NPCIntelligence];
     [aCoder encodeInt:_charm forKey:NPCCharm];
     [aCoder encodeInt:_skillDataDict forKey:NPCSkills];
+    [aCoder encodeBool:_isCaptain forKey:NPCIsCaptain];
+    [aCoder encodeInteger:_job forKey:NPCJob];
+    [aCoder encodeInt:_roomId forKey:NPCRoomId];
+    [aCoder encodeInt:_maxHp forKey:NPCMaxHP];
+    [aCoder encodeInt:_currHp forKey:NPCCurrentHP];
 }
 
 -(NSString *)fullName

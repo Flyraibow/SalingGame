@@ -57,7 +57,7 @@ static NSString* const GameItemItemId= @"GameItemItemId";
     [aCoder encodeObject:_cityNo forKey:GameItemCityNo];
     [aCoder encodeObject:_guildId forKey:GameItemGuildNo];
     [aCoder encodeObject:_roleId forKey:GameItemRoleId];
-    [aCoder encodeObject:_shipId forKey:GameItemRoleId];
+    [aCoder encodeObject:_shipId forKey:GameItemShipId];
     [aCoder encodeObject:_itemId forKey:GameItemItemId];
 }
 

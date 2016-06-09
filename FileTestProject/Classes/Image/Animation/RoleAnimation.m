@@ -12,7 +12,7 @@
 static NSMutableDictionary *_sharedActionDictionary;
 
 static int const FRAME_HEIGHT = 48;
-static CGFloat const FRAME_INTERVAL = 0.8f;
+static CGFloat const FRAME_INTERVAL = 0.7f;
 
 @implementation RoleAnimation
 {
@@ -125,6 +125,63 @@ static CGFloat const FRAME_INTERVAL = 0.8f;
     }
 }
 
+-(void)setJob:(NPCJobType)job
+{
+    if (_job != job) {
+        _job = job;
+        ActionType actionType = ActionTypeNone;
+        switch (job) {
+            case NPCJobTypeChef:
+                actionType = ActionTypeCooking;
+                break;
+            case NPCJobTypeDeck:
+                actionType = ActionTypeMoping;
+                break;
+            case NPCJobTypeCannon:
+                actionType = ActionTypeLoadingShell;
+                break;
+            case NPCJobTypeNone:
+                actionType = ActionTypeRelaxing;
+                break;
+            case NPCJobTypeDoctor:
+                actionType = ActionTypeMedicating;
+                break;
+            case NPCJobTypePriest:
+                actionType = ActionTypePraying;
+                break;
+            case NPCJobTypeCaptain:
+            case NPCJobTypeThinker:
+            case NPCJobTypeAccounter:
+            case NPCJobTypeViseCaptain:
+            case NPCJobTypeSecondCaptain:
+                actionType = ActionTypeLeading;
+                break;
+            case NPCJobTypeRaiser:
+                actionType = ActionTypeFeeding;
+                break;
+            case NPCJobTypeLookout:
+                actionType = ActionTypeObserve;
+                break;
+            case NPCJobTypeCarpenter:
+                actionType = ActionTypeFixing;
+                break;
+            case NPCJobTypeSteerRoom:
+                actionType = ActionTypeHelming;
+                break;
+            case NPCJobTypeCalibration:
+                actionType = ActionTypeMeasuring;
+                break;
+            case NPCJobTypeChargeCaptain:
+                actionType = ActionTypeSwording;
+                break;
+            case NPCJobTypeOperatingSail:
+                actionType = ActionTypePullingSail;
+                break;
+        }
+        [self setAction:actionType];
+    }
+}
+
 -(void)setAction:(ActionType)action role:(NSString *)roleId;
 {
     if (_action == action && [roleId isEqualToString:_roleId]) {
@@ -141,7 +198,7 @@ static CGFloat const FRAME_INTERVAL = 0.8f;
     }
     _stopped = NO;
     NSArray *animationList = [RoleAnimation getFrameListForRole:_roleId forAction:action];
-    CCAnimation *animation = [[CCAnimation alloc] initWithAnimationFrames:animationList delayPerUnit:0.2 loops:YES];
+    CCAnimation *animation = [[CCAnimation alloc] initWithAnimationFrames:animationList delayPerUnit:FRAME_INTERVAL loops:YES];
     CCActionAnimate *animationAction = [CCActionAnimate actionWithAnimation:animation];
     _actionAnimation = [CCActionRepeatForever actionWithAction:animationAction];
     _totalDuration = animation.duration;

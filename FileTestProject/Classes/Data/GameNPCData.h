@@ -9,6 +9,27 @@
 #import <Foundation/Foundation.h>
 #import "DataManager.h"
 
+typedef enum : NSUInteger {
+    NPCJobTypeNone,
+    NPCJobTypeCaptain,
+    NPCJobTypeOperatingSail,
+    NPCJobTypeLookout,
+    NPCJobTypeDeck,
+    NPCJobTypeCalibration,
+    NPCJobTypeSteerRoom,
+    NPCJobTypeViseCaptain,
+    NPCJobTypeChargeCaptain,
+    NPCJobTypeCannon,
+    NPCJobTypeCarpenter,
+    NPCJobTypeDoctor,
+    NPCJobTypeChef,
+    NPCJobTypeRaiser,
+    NPCJobTypePriest,
+    NPCJobTypeThinker,
+    NPCJobTypeAccounter,
+    NPCJobTypeSecondCaptain,
+} NPCJobType;
+
 @interface GameSkillData : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *skillId;
@@ -42,6 +63,9 @@
 @property (nonatomic, assign) int currHp;
 @property (nonatomic, readonly) NSString *fullName;
 @property (nonatomic, readonly) NSString *portrait;
+@property (nonatomic, assign) BOOL isCaptain;
+@property (nonatomic, assign) NPCJobType job;
+@property (nonatomic, readonly) int roomId;
 
 -(instancetype)initWithNpcId:(NSString *)npcId;
 
