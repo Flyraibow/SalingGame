@@ -12,6 +12,6 @@
 @interface RoleJobAnimation : RoleAnimation
 
 @property (nonatomic, weak) GameNPCData *npcData;
-@property (nonatomic, readonly) int roomId;
+@property (nonatomic, assign) int roomId;
 
 @end

@@ -24,7 +24,7 @@
 		270AB1E71CC0A9AF00533B47 /* Shipdeck1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1E51CC0A9AF00533B47 /* Shipdeck1.png */; };
 		270AB1EA1CC0AA4F00533B47 /* ShipdeckIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 270AB1E91CC0AA4F00533B47 /* ShipdeckIcon.m */; };
 		270AB1EE1CC0B60700533B47 /* Shipdeck4.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1EB1CC0B60700533B47 /* Shipdeck4.png */; };
-		270AB1EF1CC0B60700533B47 /* Shipdeck3_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1EC1CC0B60700533B47 /* Shipdeck3_1.png */; };
+		270AB1EF1CC0B60700533B47 /* Shipdeck9.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1EC1CC0B60700533B47 /* Shipdeck9.png */; };
 		270AB1F01CC0B60700533B47 /* Shipdeck3.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1ED1CC0B60700533B47 /* Shipdeck3.png */; };
 		270AB2061CC75C9000533B47 /* Shipdeck6.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1F21CC75C9000533B47 /* Shipdeck6.png */; };
 		270AB2071CC75C9000533B47 /* Shipdeck8_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB1F31CC75C9000533B47 /* Shipdeck8_3.png */; };
@@ -545,7 +545,6 @@
 		27C26F291C82A7C1009EDE53 /* goods20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26EAE1C82A7C1009EDE53 /* goods20.jpg */; };
 		27C26F2A1C82A7C1009EDE53 /* goods19.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26EAF1C82A7C1009EDE53 /* goods19.jpg */; };
 		27C26F2B1C82A7C1009EDE53 /* goods18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26EB01C82A7C1009EDE53 /* goods18.jpg */; };
-		27C26F2C1C82A7C1009EDE53 /* goods4.psd in Resources */ = {isa = PBXBuildFile; fileRef = 27C26EB11C82A7C1009EDE53 /* goods4.psd */; };
 		27C26F2D1C82A7C1009EDE53 /* goods17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26EB21C82A7C1009EDE53 /* goods17.jpg */; };
 		27C26F2E1C82A7C1009EDE53 /* goods16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26EB31C82A7C1009EDE53 /* goods16.jpg */; };
 		27C26F2F1C82A7C1009EDE53 /* goods15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26EB41C82A7C1009EDE53 /* goods15.jpg */; };
@@ -883,6 +882,10 @@
 		27FBB81B1D000E4F002B106B /* Deckship4.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB81A1D000E4F002B106B /* Deckship4.png */; };
 		27FBB8461D092EB1002B106B /* RoleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB8451D092EB1002B106B /* RoleAnimation.m */; };
 		27FBB8491D092ECF002B106B /* RoleJobAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB8481D092ECF002B106B /* RoleJobAnimation.m */; };
+		27FBB84E1D0A9445002B106B /* button_role_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB84A1D0A9445002B106B /* button_role_check.png */; };
+		27FBB84F1D0A9445002B106B /* button_role_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB84B1D0A9445002B106B /* button_role_down.png */; };
+		27FBB8501D0A9445002B106B /* button_role_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB84C1D0A9445002B106B /* button_role_up.png */; };
+		27FBB8511D0A9445002B106B /* button_role_design.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB84D1D0A9445002B106B /* button_role_design.png */; };
 		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
@@ -922,7 +925,7 @@
 		270AB1E81CC0AA4F00533B47 /* ShipdeckIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipdeckIcon.h; path = Classes/Image/Icon/ShipdeckIcon.h; sourceTree = "<group>"; };
 		270AB1E91CC0AA4F00533B47 /* ShipdeckIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipdeckIcon.m; path = Classes/Image/Icon/ShipdeckIcon.m; sourceTree = "<group>"; };
 		270AB1EB1CC0B60700533B47 /* Shipdeck4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck4.png; path = Resources/Graph/Ship/Shipdeck4.png; sourceTree = "<group>"; };
-		270AB1EC1CC0B60700533B47 /* Shipdeck3_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck3_1.png; path = Resources/Graph/Ship/Shipdeck3_1.png; sourceTree = "<group>"; };
+		270AB1EC1CC0B60700533B47 /* Shipdeck9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck9.png; path = Resources/Graph/Ship/Shipdeck9.png; sourceTree = "<group>"; };
 		270AB1ED1CC0B60700533B47 /* Shipdeck3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck3.png; path = Resources/Graph/Ship/Shipdeck3.png; sourceTree = "<group>"; };
 		270AB1F21CC75C9000533B47 /* Shipdeck6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck6.png; path = Resources/Graph/Ship/Shipdeck6.png; sourceTree = "<group>"; };
 		270AB1F31CC75C9000533B47 /* Shipdeck8_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck8_3.png; path = Resources/Graph/Ship/Shipdeck8_3.png; sourceTree = "<group>"; };
@@ -1773,7 +1776,6 @@
 		27C26EAE1C82A7C1009EDE53 /* goods20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = goods20.jpg; path = Resources/Graph/Icon/goods20.jpg; sourceTree = "<group>"; };
 		27C26EAF1C82A7C1009EDE53 /* goods19.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = goods19.jpg; path = Resources/Graph/Icon/goods19.jpg; sourceTree = "<group>"; };
 		27C26EB01C82A7C1009EDE53 /* goods18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = goods18.jpg; path = Resources/Graph/Icon/goods18.jpg; sourceTree = "<group>"; };
-		27C26EB11C82A7C1009EDE53 /* goods4.psd */ = {isa = PBXFileReference; lastKnownFileType = file; name = goods4.psd; path = Resources/Graph/Icon/goods4.psd; sourceTree = "<group>"; };
 		27C26EB21C82A7C1009EDE53 /* goods17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = goods17.jpg; path = Resources/Graph/Icon/goods17.jpg; sourceTree = "<group>"; };
 		27C26EB31C82A7C1009EDE53 /* goods16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = goods16.jpg; path = Resources/Graph/Icon/goods16.jpg; sourceTree = "<group>"; };
 		27C26EB41C82A7C1009EDE53 /* goods15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = goods15.jpg; path = Resources/Graph/Icon/goods15.jpg; sourceTree = "<group>"; };
@@ -2134,6 +2136,10 @@
 		27FBB8451D092EB1002B106B /* RoleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoleAnimation.m; path = Classes/Image/Animation/RoleAnimation.m; sourceTree = "<group>"; };
 		27FBB8471D092ECF002B106B /* RoleJobAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoleJobAnimation.h; path = Classes/Image/Animation/RoleJobAnimation.h; sourceTree = "<group>"; };
 		27FBB8481D092ECF002B106B /* RoleJobAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoleJobAnimation.m; path = Classes/Image/Animation/RoleJobAnimation.m; sourceTree = "<group>"; };
+		27FBB84A1D0A9445002B106B /* button_role_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_role_check.png; path = Resources/Graph/Button/button_role_check.png; sourceTree = "<group>"; };
+		27FBB84B1D0A9445002B106B /* button_role_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_role_down.png; path = Resources/Graph/Button/button_role_down.png; sourceTree = "<group>"; };
+		27FBB84C1D0A9445002B106B /* button_role_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_role_up.png; path = Resources/Graph/Button/button_role_up.png; sourceTree = "<group>"; };
+		27FBB84D1D0A9445002B106B /* button_role_design.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_role_design.png; path = Resources/Graph/Button/button_role_design.png; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* InfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoButtonGroup.h; path = Classes/Image/GroupButton/InfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* InfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoButtonGroup.m; path = Classes/Image/GroupButton/InfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2205,7 +2211,7 @@
 				270AB2041CC75C9000533B47 /* Shipdeck8_2.png */,
 				270AB2051CC75C9000533B47 /* Shipdeck8_5.png */,
 				270AB1EB1CC0B60700533B47 /* Shipdeck4.png */,
-				270AB1EC1CC0B60700533B47 /* Shipdeck3_1.png */,
+				270AB1EC1CC0B60700533B47 /* Shipdeck9.png */,
 				270AB1ED1CC0B60700533B47 /* Shipdeck3.png */,
 				270AB1E41CC0A9AF00533B47 /* Shipdeck2.png */,
 				270AB1E51CC0A9AF00533B47 /* Shipdeck1.png */,
@@ -3469,7 +3475,6 @@
 				27C26EAE1C82A7C1009EDE53 /* goods20.jpg */,
 				27C26EAF1C82A7C1009EDE53 /* goods19.jpg */,
 				27C26EB01C82A7C1009EDE53 /* goods18.jpg */,
-				27C26EB11C82A7C1009EDE53 /* goods4.psd */,
 				27C26EB21C82A7C1009EDE53 /* goods17.jpg */,
 				27C26EB31C82A7C1009EDE53 /* goods16.jpg */,
 				27C26EB41C82A7C1009EDE53 /* goods15.jpg */,
@@ -3736,6 +3741,10 @@
 		27E040B81C5C34F20068171E /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				27FBB84A1D0A9445002B106B /* button_role_check.png */,
+				27FBB84B1D0A9445002B106B /* button_role_down.png */,
+				27FBB84C1D0A9445002B106B /* button_role_up.png */,
+				27FBB84D1D0A9445002B106B /* button_role_design.png */,
 				27FBB77B1CE309B7002B106B /* downArrowButton.png */,
 				27FBB77C1CE309B7002B106B /* upArrowButton.png */,
 				27FBB74C1CD8505C002B106B /* ItemLabelButton_Down.png */,
@@ -4209,6 +4218,7 @@
 				270AB1CE1C9BCC1900533B47 /* DuelBackground.png in Resources */,
 				27ACAB7E1C9674C4005C0881 /* c008_7-1.png in Resources */,
 				27FBB7091CD843F6002B106B /* item152.png in Resources */,
+				27FBB8501D0A9445002B106B /* button_role_up.png in Resources */,
 				27FBB7EC1CF2700A002B106B /* c007_5-1.png in Resources */,
 				27FBB6F21CD843F6002B106B /* item129.png in Resources */,
 				27FBB68F1CD843F6002B106B /* item30.png in Resources */,
@@ -4258,7 +4268,7 @@
 				27FBB6821CD843F6002B106B /* item17.png in Resources */,
 				27C26F1C1C82A7C1009EDE53 /* goods33.jpg in Resources */,
 				27FBB72D1CD843F6002B106B /* item188.png in Resources */,
-				270AB1EF1CC0B60700533B47 /* Shipdeck3_1.png in Resources */,
+				270AB1EF1CC0B60700533B47 /* Shipdeck9.png in Resources */,
 				27ACAB8F1C9674C4005C0881 /* c045_3-1.png in Resources */,
 				270AB2331CC75D3400533B47 /* 25-1.png in Resources */,
 				27FBB6C31CD843F6002B106B /* item82.png in Resources */,
@@ -4354,6 +4364,7 @@
 				27C26F3F1C82A7C1009EDE53 /* ship21.jpg in Resources */,
 				27FBB6791CD843F6002B106B /* item8.png in Resources */,
 				27C26F151C82A7C1009EDE53 /* goods40.jpg in Resources */,
+				27FBB8511D0A9445002B106B /* button_role_design.png in Resources */,
 				27FBB7361CD843F6002B106B /* item197.png in Resources */,
 				27C26CD51C5F48B6009EDE53 /* city_building_0.png in Resources */,
 				27FBB6C61CD843F6002B106B /* item85.png in Resources */,
@@ -4425,6 +4436,7 @@
 				270AB22F1CC75D3400533B47 /* 32-1.png in Resources */,
 				27FBB6C51CD843F6002B106B /* item84.png in Resources */,
 				27FBB74F1CD8505C002B106B /* ItemLabelButton_Up.png in Resources */,
+				27FBB84F1D0A9445002B106B /* button_role_down.png in Resources */,
 				27FBB7321CD843F6002B106B /* item193.png in Resources */,
 				27C26F071C82A7C1009EDE53 /* goods54.jpg in Resources */,
 				27FBB6C41CD843F6002B106B /* item83.png in Resources */,
@@ -4609,7 +4621,6 @@
 				27ACAB7D1C9674C4005C0881 /* c008_6-1.png in Resources */,
 				27FBB7491CD847A9002B106B /* itemDescFrame.jpg in Resources */,
 				27C26DC81C6DB238009EDE53 /* dialogPortrait1.png in Resources */,
-				27C26F2C1C82A7C1009EDE53 /* goods4.psd in Resources */,
 				27FBB80C1CF2700A002B106B /* c009_16-1.png in Resources */,
 				27FBB8111CF2700A002B106B /* c009_21-1.png in Resources */,
 				27C26F4E1C82A7C1009EDE53 /* ship6.jpg in Resources */,
@@ -4702,6 +4713,7 @@
 				27FBB68C1CD843F6002B106B /* item27.png in Resources */,
 				27C26DD01C6FF879009EDE53 /* Map1.jpg in Resources */,
 				27C26F011C82A7C1009EDE53 /* goods60.jpg in Resources */,
+				27FBB84E1D0A9445002B106B /* button_role_check.png in Resources */,
 				27C26F251C82A7C1009EDE53 /* goods24.jpg in Resources */,
 				27ACAB8C1C9674C4005C0881 /* c008_21-1.png in Resources */,
 				27ACAB9B1C9674C4005C0881 /* c045_15-1.png in Resources */,

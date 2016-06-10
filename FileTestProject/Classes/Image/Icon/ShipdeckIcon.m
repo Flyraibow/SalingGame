@@ -23,6 +23,8 @@ typedef enum : NSUInteger {
 @implementation ShipdeckIcon
 {
     DeckShipSceneType _shipSceneType;
+    CCSprite *_selectableSprite;
+    CCSprite *_selectedSprite;
 }
 
 -(instancetype)initWithShipdeckType:(ShipdeckType)shipType
@@ -47,8 +49,28 @@ typedef enum : NSUInteger {
         if (shipSceneType == DeckShipSceneDeck) {
             [self initJob:shipType equipType:equipType];
         }
+        _selectableSprite = [CCSprite spriteWithImageNamed:@"Shipdeck_select.png"];
+        _selectableSprite.positionType = CCPositionTypeNormalized;
+        _selectableSprite.position = ccp(0.5, 0.5);
+        _selectableSprite.visible = NO;
+        [self addChild:_selectableSprite];
+        
+        _selectedSprite = [CCSprite spriteWithImageNamed:@"Shipdeck_selected.png"];
+        _selectedSprite.positionType = CCPositionTypeNormalized;
+        _selectedSprite.position = ccp(0.5, 0.5);
+        _selectedSprite.visible = NO;
+        [self addChild:_selectedSprite];
+        
+        self.canSelect = NO;
+        self.selected = NO;
+        self.userInteractionEnabled = YES;
     }
     return self;
+}
+
+-(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    
 }
 
 -(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
@@ -56,14 +78,40 @@ typedef enum : NSUInteger {
     if (_shipSceneType == DeckShipSceneModify) {
         // TODO：检查是否能修改，可能需要用到delegate 从上面检查
         // 如果成功则更换房间样式，注：只是暂时的，最后确定的时候才会正式换。
+    } else if (_shipSceneType == DeckShipSceneDeck) {
+        if (self.canSelect) {
+            [_delegate selectShipdeckIcon:self];
+        }
+    }
+}
+
+-(void)setCanSelect:(BOOL)canSelect
+{
+    if (_canSelect != canSelect) {
+        _canSelect = canSelect;
+        _selectableSprite.visible = canSelect;
+    }
+}
+
+-(void)setSelected:(BOOL)selected
+{
+    if (_selected != selected) {
+        _selected = selected;
+        _selectedSprite.visible = selected;
     }
 }
 
 -(void)setRoleJobAnimation:(RoleJobAnimation *)roleJobAnimation
 {
-    if (_roleJobAnimation == nil) {
+    if ((_roleJobAnimation != roleJobAnimation) && roleJobAnimation) {
+        if (roleJobAnimation.parent) {
+            [roleJobAnimation removeFromParent];
+        }
+        roleJobAnimation.roomId = _roomId;
+        roleJobAnimation.job = _job;
         [self addChild:roleJobAnimation];
     }
+    _roleJobAnimation = roleJobAnimation;
 }
 
 -(void)initJob:(ShipdeckType)shipType
@@ -92,6 +140,9 @@ typedef enum : NSUInteger {
         case ShipdeckTypeViseCaptainRoom:
             _job = NPCJobTypeViseCaptain;
             break;
+        case ShipdeckTypeMeasureRoom:
+            _job = NPCJobTypeCalibration;
+            break;
         case ShipdeckTypeFunctionRoom:
         {
             switch ((FunctionRoomEquipType)equipType) {
@@ -116,7 +167,9 @@ typedef enum : NSUInteger {
                 case FunctionRoomEquipTypeCarpenter:
                     _job = NPCJobTypeCarpenter;
                     break;
-                default:
+                case FunctionRoomEquipTypeLiving:
+                case FunctionRoomEquipTypeDancing:
+                    _job = NPCJobTypeRelax;
                     break;
             }
             break;

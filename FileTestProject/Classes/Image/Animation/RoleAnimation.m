@@ -177,6 +177,9 @@ static CGFloat const FRAME_INTERVAL = 0.7f;
             case NPCJobTypeOperatingSail:
                 actionType = ActionTypePullingSail;
                 break;
+            case NPCJobTypeRelax:
+                actionType = ActionTypeRelaxing;
+                break;
         }
         [self setAction:actionType];
     }

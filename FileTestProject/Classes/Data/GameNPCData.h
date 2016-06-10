@@ -28,6 +28,7 @@ typedef enum : NSUInteger {
     NPCJobTypeThinker,
     NPCJobTypeAccounter,
     NPCJobTypeSecondCaptain,
+    NPCJobTypeRelax,
 } NPCJobType;
 
 @interface GameSkillData : NSObject <NSCoding>

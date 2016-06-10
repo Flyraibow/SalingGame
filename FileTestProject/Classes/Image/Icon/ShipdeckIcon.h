@@ -21,13 +21,23 @@ typedef enum : NSUInteger {
     ShipdeckTypeViseCaptainRoom,
     ShipdeckTypeFunctionRoom,
     ShipdeckTypeStorageRoom,
+    ShipdeckTypeMeasureRoom,
 } ShipdeckType;
+
+@protocol ShipdeckIconSelectProtocol <NSObject>
+
+-(void)selectShipdeckIcon:(id)shipdeckIcon;
+
+@end
 
 @interface ShipdeckIcon : CCSprite
 
 @property (nonatomic, assign) int roomId;
 @property (nonatomic, readonly) NPCJobType job;
 @property (nonatomic, weak) RoleJobAnimation *roleJobAnimation;
+@property (nonatomic, weak) id<ShipdeckIconSelectProtocol> delegate;
+@property (nonatomic, assign) BOOL canSelect;
+@property (nonatomic, assign) BOOL selected;
 
 -(instancetype)initWithShipdeckType:(ShipdeckType)shipType equipType:(int)equipType sceneType:(DeckShipSceneType)shipSceneType;
 

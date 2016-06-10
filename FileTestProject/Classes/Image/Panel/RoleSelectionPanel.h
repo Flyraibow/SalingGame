@@ -19,6 +19,7 @@
 
 @property (nonatomic) id<RoleSelectionPanelDelegate> delegate;
 
+// 该list为GameNPCData
 -(instancetype)initWithNPCList:(NSArray *)npcList;
 
 @end
