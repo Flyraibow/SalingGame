@@ -110,6 +110,12 @@ typedef enum : NSUInteger {
         roleJobAnimation.roomId = _roomId;
         roleJobAnimation.job = _job;
         [self addChild:roleJobAnimation];
+    } else if (roleJobAnimation == nil) {
+        if (_roleJobAnimation && _roleJobAnimation.parent == self) {
+            _roleJobAnimation.roomId = 0;
+            _roleJobAnimation.job = NPCJobTypeNone;
+            [_roleJobAnimation removeFromParent];
+        }
     }
     _roleJobAnimation = roleJobAnimation;
 }
