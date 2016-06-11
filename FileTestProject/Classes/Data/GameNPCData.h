@@ -66,8 +66,10 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSString *portrait;
 @property (nonatomic, assign) BOOL isCaptain;
 @property (nonatomic, assign) NPCJobType job;
-@property (nonatomic, readonly) int roomId;
+@property (nonatomic, assign) int roomId;
 
 -(instancetype)initWithNpcId:(NSString *)npcId;
+
+-(BOOL)isableTodo:(NPCJobType)job;
 
 @end

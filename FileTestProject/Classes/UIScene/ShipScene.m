@@ -78,14 +78,15 @@
         [btnClose setTarget:self selector:@selector(clickBtnClose)];
         [_deckShipSprite addChild:btnClose];
         
+        DefaultButton *btnSure = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_sure")];
+        btnSure.positionType = CCPositionTypeNormalized;
+        btnSure.anchorPoint = ccp(1, 0);
+        btnSure.position = ccp(0.99,0.05);
+        [btnSure setTarget:self selector:@selector(clickBtnSure)];
+        [_deckShipSprite addChild:btnSure];
         // TODO： 如果是改造模式，显示当前资金，日期，改造累计费用, 确认
         if (_shipSceneType == DeckShipSceneModify) {
-            DefaultButton *btnSure = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_sure")];
-            btnSure.positionType = CCPositionTypeNormalized;
-            btnSure.anchorPoint = ccp(1, 0);
-            btnSure.position = ccp(0.99,0.05);
-            [btnSure setTarget:self selector:@selector(clickBtnSure)];
-            [_deckShipSprite addChild:btnSure];
+            
             btnClose.label.string = getLocalString(@"lab_cancel");
         } else if (_shipSceneType == DeckShipSceneDeck) {
             // TODO： 如果是甲板模式，分为两个小模式，都显示小人，其中一个可以随意调动小人的位置，另一个，用于查看小人状态。
@@ -145,17 +146,36 @@
 
 -(void)clickBtnSure
 {
-    
+    if (_shipSceneType == DeckShipSceneDeck)
+    {
+        for (int i = 0; i < _roleAnimationList.count; ++i) {
+            RoleJobAnimation *roleAnimation = _roleAnimationList[i];
+            roleAnimation.npcData.roomId = roleAnimation.roomId;
+            roleAnimation.npcData.job = roleAnimation.job;
+        }
+    }
+    [self clickBtnClose];
 }
 
 -(void)clickRoleSelectButton
 {
-    // 打开人物选择面板
-    if (_roleSelectionPanel == nil) {
+    if (_selectedRole) {
+        // 把人物放进待定区
+        [_unselectedNpcList addObject:_selectedRole.npcData];
+        ShipdeckIcon *prevDeckIcon;
+        if (_selectedRole.roomId) {
+            prevDeckIcon = [_roomIconDict objectForKey:@(_selectedRole.roomId)];
+            prevDeckIcon.roleJobAnimation = nil;
+            prevDeckIcon.selected = NO;
+        }
+        [self limitSelectRoomToRole];
+        _selectedRole = nil;
+    } else {
+        // 打开人物选择面板
         _roleSelectionPanel = [[RoleSelectionPanel alloc] initWithNPCList:_unselectedNpcList];
         _roleSelectionPanel.delegate = self;
+        [self addChild:_roleSelectionPanel];
     }
-    [self addChild:_roleSelectionPanel];
 }
 
 -(void)selectRole:(NSString *)roleId
@@ -165,12 +185,18 @@
         if ([roleJobAnimation.npcData.npcId isEqualToString:roleId]) {
             _selectedRole = roleJobAnimation;
             [self removeChild:_roleSelectionPanel];
-            for (NSNumber *roomId in _roomIconDict) {
-                ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
-                icon.canSelect = icon.job != NPCJobTypeNone;
-            }
+            _roleSelectionPanel = nil;
+            [self setSelectableFor:roleJobAnimation];
             break;
         }
+    }
+}
+
+-(void)setSelectableFor:(RoleJobAnimation *)roleJobAnimation
+{
+    for (NSNumber *roomId in _roomIconDict) {
+        ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
+        icon.canSelect = [roleJobAnimation.npcData isableTodo:icon.job];
     }
 }
 
@@ -185,15 +211,25 @@
         if (_selectedRole.roomId) {
             prevDeckIcon = [_roomIconDict objectForKey:@(_selectedRole.roomId)];
             prevDeckIcon.selected = NO;
+        } else {
+            // 如果原来是待定人员， 那么把待定人员中的他移除
+            [_unselectedNpcList removeObject:_selectedRole.npcData];
         }
         //先把所选的放进这个格子里面
         deckIcon.roleJobAnimation = _selectedRole;
-        prevDeckIcon.roleJobAnimation = roleAnimation;
-        // 把可选的格子再次限制在有人的格子上
-        for (NSNumber *roomId in _roomIconDict) {
-            ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
-            icon.canSelect = icon.roleJobAnimation != nil;
+        //要确定能否交换，如果无法交换，则把当前的这个人放回待定区域
+        if (roleAnimation) {
+            if ([roleAnimation.npcData isableTodo:prevDeckIcon.job]) {
+                prevDeckIcon.roleJobAnimation = roleAnimation;
+            } else {
+                [_unselectedNpcList addObject:roleAnimation.npcData];
+                prevDeckIcon.roleJobAnimation = nil;
+            }
+        } else {
+            prevDeckIcon.roleJobAnimation = roleAnimation;
         }
+        // 把可选的格子再次限制在有人的格子上
+        [self limitSelectRoomToRole];
         if (roleAnimation) {
             _selectedRole = nil;
             return;
@@ -202,16 +238,23 @@
     if (roleAnimation != _selectedRole) {
         _selectedRole = roleAnimation;
         if (roleAnimation) {
-            // 把其他相关的格子都变成可选
+            // 把其他相关的格子都变成可选,包括待定人员的格子
+            _btnRoleSelect.enabled = YES;
             deckIcon.selected = YES;
-            for (NSNumber *roomId in _roomIconDict) {
-                ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
-                icon.canSelect = icon.job != NPCJobTypeNone;
-            }
+            [self setSelectableFor:roleAnimation];
         }
     } else {
         _selectedRole = NO;
         deckIcon.selected = NO;
+    }
+}
+
+-(void)limitSelectRoomToRole
+{
+    _btnRoleSelect.enabled = _unselectedNpcList.count;
+    for (NSNumber *roomId in _roomIconDict) {
+        ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
+        icon.canSelect = icon.roleJobAnimation != nil;
     }
 }
 

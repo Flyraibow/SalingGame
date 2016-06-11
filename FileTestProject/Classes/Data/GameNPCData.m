@@ -156,4 +156,15 @@ static NSString* const NPCCurrentHP = @"NPCCurrentHP";
     return [NSString stringWithFormat:@"dialogPortrait%@.png", self.npcData.dialogPotraitId];
 }
 
+
+-(BOOL)isableTodo:(NPCJobType)job
+{
+    if (job == NPCJobTypeNone) {
+        return NO;
+    } else if (job == NPCJobTypeCaptain) {
+        return _isCaptain;
+    }
+    return YES;
+}
+
 @end

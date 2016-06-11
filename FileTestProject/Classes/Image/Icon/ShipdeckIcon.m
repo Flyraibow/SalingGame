@@ -103,15 +103,22 @@ typedef enum : NSUInteger {
 
 -(void)setRoleJobAnimation:(RoleJobAnimation *)roleJobAnimation
 {
-    if ((_roleJobAnimation != roleJobAnimation) && roleJobAnimation) {
-        if (roleJobAnimation.parent) {
-            [roleJobAnimation removeFromParent];
+    if ((_roleJobAnimation != roleJobAnimation)) {
+        if (_roleJobAnimation && _roleJobAnimation.parent == self) {
+            _roleJobAnimation.roomId = 0;
+            _roleJobAnimation.job = NPCJobTypeNone;
+            [_roleJobAnimation removeFromParent];
         }
-        roleJobAnimation.roomId = _roomId;
-        roleJobAnimation.job = _job;
-        [self addChild:roleJobAnimation];
+        if (roleJobAnimation) {
+            if (roleJobAnimation.parent) {
+                [roleJobAnimation removeFromParent];
+            }
+            roleJobAnimation.roomId = _roomId;
+            roleJobAnimation.job = _job;
+            [self addChild:roleJobAnimation];
+        }
+        _roleJobAnimation = roleJobAnimation;
     }
-    _roleJobAnimation = roleJobAnimation;
 }
 
 -(void)initJob:(ShipdeckType)shipType
