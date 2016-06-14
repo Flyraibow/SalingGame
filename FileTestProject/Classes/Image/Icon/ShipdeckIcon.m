@@ -109,7 +109,6 @@ typedef enum : NSUInteger {
             _roleJobAnimation.job = NPCJobTypeNone;
             [_roleJobAnimation removeFromParent];
         }
-<<<<<<< HEAD
         if (roleJobAnimation) {
             if (roleJobAnimation.parent) {
                 [roleJobAnimation removeFromParent];
@@ -119,17 +118,12 @@ typedef enum : NSUInteger {
             [self addChild:roleJobAnimation];
         }
         _roleJobAnimation = roleJobAnimation;
-=======
-        roleJobAnimation.roomId = _roomId;
-        roleJobAnimation.job = _job;
-        [self addChild:roleJobAnimation];
     } else if (roleJobAnimation == nil) {
         if (_roleJobAnimation && _roleJobAnimation.parent == self) {
             _roleJobAnimation.roomId = 0;
             _roleJobAnimation.job = NPCJobTypeNone;
             [_roleJobAnimation removeFromParent];
         }
->>>>>>> db9a66287953ed30ba54683c8d49c6b741eb4946
     }
 }
 

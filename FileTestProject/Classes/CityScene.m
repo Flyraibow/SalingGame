@@ -55,7 +55,7 @@ CityBuildingDelegate>
     assert(self);
     // city data
     CGSize contentSize = [[CCDirector sharedDirector] viewSize];
-    _cityBg = [CCSprite spriteWithImageNamed:@"city_bg_1.png"];
+    _cityBg = [CCSprite spriteWithImageNamed:@"Town_1.png"];
     _cityBg.positionType = CCPositionTypePoints;
     _cityBg.scaleX = contentSize.width / _cityBg.contentSize.width * 0.75;
     _cityBg.scaleY = contentSize.height / _cityBg.contentSize.height;
@@ -188,7 +188,7 @@ CityBuildingDelegate>
     GameCityData *cityData = [[ GameDataManager sharedGameData].cityDic objectForKey:cityNo];
     [self playMusic];
     _cityName.string = getLocalStringByString(@"city_name_", cityNo);
-    [_cityBg setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"city_bg_%d.png", _cityData.cityBackground]]];
+    [_cityBg setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"Town_%d.png", _cityData.cityBackground]]];
     _cityType.string = getLocalStringByInt(@"city_type_",_cityData.cityType);
     _cityBelong.string = getLocalStringByInt(@"city_country_", _cityData.country);
     _labWeaponValue.string = [NSString stringWithFormat:@"%d", cityData.milltaryValue];

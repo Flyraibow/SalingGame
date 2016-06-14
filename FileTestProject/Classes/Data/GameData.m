@@ -384,7 +384,7 @@ static NSString* const GameItemDataState = @"GameItemDataState";
 -(void)setCurrentMusic:(NSString *)currentMusic
 {
     if (![_currentMusic isEqualToString:currentMusic]) {
-        _currentMusic = [currentMusic copy];
+        _currentMusic = currentMusic;
         
         [[OALSimpleAudio sharedInstance] playBg:currentMusic loop:YES];
     }

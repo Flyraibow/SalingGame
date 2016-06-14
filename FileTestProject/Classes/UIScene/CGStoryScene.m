@@ -339,7 +339,7 @@ typedef enum : NSUInteger {
                     }
                     case StoryCommandTypePlayBGM:
                     {
-                        [[OALSimpleAudio sharedInstance] playBg:storyData.parameter1 loop:[storyData.parameter2 intValue] == 0];
+                        [GameDataManager sharedGameData].currentMusic = storyData.parameter1;
                         break;
                     }
                     case StoryCommandTypePlaySE:
