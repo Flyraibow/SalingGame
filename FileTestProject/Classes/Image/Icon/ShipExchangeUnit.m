@@ -154,7 +154,7 @@
         [self.delegate ShipDealComplete];
     } else if (_sceneType == ShipSceneTypeModify) {
         // TODO: 进入改造页面
-        ShipScene *scene = [[ShipScene alloc] initWithShipData:_gameShipData shipSceneType:ShipSceneTypeModify];
+        ShipScene *scene = [[ShipScene alloc] initWithShipData:_gameShipData shipSceneType:DeckShipSceneModify];
         [[CCDirector sharedDirector] pushScene:scene];
     }
     

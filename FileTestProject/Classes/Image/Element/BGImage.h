@@ -15,6 +15,7 @@
 +(CCSprite *)getBgImageByName:(NSString *)imageName;
 
 +(CCNodeColor *)getShadowForBackground;
++(CCNodeColor *)getTransparentBackground;
 
 +(void)initWithGroundSize:(CGSize)contentSize;
 

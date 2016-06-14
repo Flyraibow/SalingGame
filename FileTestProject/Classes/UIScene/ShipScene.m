@@ -15,8 +15,12 @@
 #import "GameNPCData.h"
 #import "RoleJobAnimation.h"
 #import "RoleSelectionPanel.h"
+#import "MoneyPanel.h"
+#import "TimePanel.h"
+#import "LabelPanel.h"
+#import "TextInputPanel.h"
 
-@interface ShipScene() < RoleSelectionPanelDelegate, ShipdeckIconSelectProtocol>
+@interface ShipScene() < RoleSelectionPanelDelegate, ShipdeckIconSelectProtocol, TextInputPanelDelegate>
 
 @end
 
@@ -32,6 +36,11 @@
     NSMutableArray *_unselectedNpcList;
     RoleSelectionPanel *_roleSelectionPanel;
     RoleJobAnimation *_selectedRole;
+    MoneyPanel *_myMoneylPanel;
+    MoneyPanel *_spendingMoneyPanel;
+    TimePanel *_spendTimePanel;
+    LabelPanel *_shipName;
+    LabelPanel *_cannonName;
 }
 
 -(instancetype)initWithShipData:(GameShipData *)shipData shipSceneType:(DeckShipSceneType)shipSceneType
@@ -71,14 +80,14 @@
             }
         }
         
-        DefaultButton *btnClose = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_close")];
+        DefaultButton *btnClose = [[DefaultButton alloc] initWithTitle:getLocalString(@"btn_cancel")];
         btnClose.positionType = CCPositionTypeNormalized;
         btnClose.anchorPoint = ccp(1, 0);
         btnClose.position = ccp(0.99,0);
         [btnClose setTarget:self selector:@selector(clickBtnClose)];
         [_deckShipSprite addChild:btnClose];
         
-        DefaultButton *btnSure = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_sure")];
+        DefaultButton *btnSure = [[DefaultButton alloc] initWithTitle:getLocalString(@"btn_sure")];
         btnSure.positionType = CCPositionTypeNormalized;
         btnSure.anchorPoint = ccp(1, 0);
         btnSure.position = ccp(0.99,0.05);
@@ -86,8 +95,54 @@
         [_deckShipSprite addChild:btnSure];
         // TODO： 如果是改造模式，显示当前资金，日期，改造累计费用, 确认
         if (_shipSceneType == DeckShipSceneModify) {
+            _myMoneylPanel = [[MoneyPanel alloc] initWithText:getLocalString(@"lab_ship_modify_my_money")];
+            _myMoneylPanel.anchorPoint = ccp(0, 0);
+            _myMoneylPanel.positionType = CCPositionTypeNormalized;
+            _myMoneylPanel.position = ccp(0.01, 0.01);
+            [_myMoneylPanel setMoney:[GameDataManager sharedGameData].myGuild.money];
+            [_deckShipSprite addChild:_myMoneylPanel];
             
-            btnClose.label.string = getLocalString(@"lab_cancel");
+            _spendingMoneyPanel = [[MoneyPanel alloc] initWithText:getLocalString(@"lab_ship_modify_spend_money")];
+            _spendingMoneyPanel.anchorPoint = ccp(0, 0);
+            _spendingMoneyPanel.positionType = CCPositionTypeNormalized;
+            _spendingMoneyPanel.position = ccp(0.21, 0.01);
+            [_deckShipSprite addChild:_spendingMoneyPanel];
+            
+            _spendTimePanel = [[TimePanel alloc] init];
+            _spendTimePanel.anchorPoint = ccp(1, 0);
+            _spendTimePanel.positionType = CCPositionTypeNormalized;
+            _spendTimePanel.position = ccp(0.99, 0.13);
+            [_deckShipSprite addChild:_spendTimePanel];
+            
+            _shipName = [[LabelPanel alloc] initWithFrameName:@"frame_label1.png"];
+            _shipName.anchorPoint = ccp(0, 0);
+            _shipName.positionType = CCPositionTypeNormalized;
+            _shipName.position = ccp(0.42, 0.05);
+            _shipName.label.string = shipData.shipName;
+            [_deckShipSprite addChild:_shipName];
+            
+            _cannonName = [[LabelPanel alloc] initWithFrameName:@"frame_label2.png"];
+            _cannonName.anchorPoint = ccp(0, 0);
+            _cannonName.positionType = CCPositionTypeNormalized;
+            _cannonName.position = ccp(0.42, 0.01);
+            _cannonName.label.string = shipData.shipName;
+            [_deckShipSprite addChild:_cannonName];
+            
+            DefaultButton *btnChangeShipName = [DefaultButton buttonWithTitle:getLocalString(@"btn_ship_modify_change_name")];
+            btnChangeShipName.anchorPoint = ccp(0, 0);
+            btnChangeShipName.positionType = CCPositionTypeNormalized;
+            btnChangeShipName.position = ccp(0.68, 0.05);
+            [btnChangeShipName setTarget:self selector:@selector(clickChangeShipName)];
+            [_deckShipSprite addChild:btnChangeShipName];
+            
+            
+            DefaultButton *btnChangeCannon = [DefaultButton buttonWithTitle:getLocalString(@"btn_ship_modify_change_cannon")];
+            btnChangeCannon.anchorPoint = ccp(0, 0);
+            btnChangeCannon.positionType = CCPositionTypeNormalized;
+            btnChangeCannon.position = ccp(0.68, 0.00);
+            [btnChangeCannon setTarget:self selector:@selector(clickChangeCannon)];
+            [_deckShipSprite addChild:btnChangeCannon];
+            
         } else if (_shipSceneType == DeckShipSceneDeck) {
             // TODO： 如果是甲板模式，分为两个小模式，都显示小人，其中一个可以随意调动小人的位置，另一个，用于查看小人状态。
             CCSpriteFrame *roleSelectUp = [CCSpriteFrame frameWithImageNamed:@"button_role_up.png"];
@@ -153,6 +208,8 @@
             roleAnimation.npcData.roomId = roleAnimation.roomId;
             roleAnimation.npcData.job = roleAnimation.job;
         }
+    } else if (_shipSceneType == DeckShipSceneModify){
+        _shipData.shipName = _shipName.label.string;
     }
     [self clickBtnClose];
 }
@@ -256,6 +313,27 @@
         ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
         icon.canSelect = icon.roleJobAnimation != nil;
     }
+}
+
+/////////改造船只/////////////////
+
+-(void)clickChangeShipName
+{
+    TextInputPanel *textInputPanel = [[TextInputPanel alloc] initWithText:_shipName.label.string];
+    textInputPanel.positionType = CCPositionTypeNormalized;
+    textInputPanel.position = ccp(0.5, 0.5);
+    textInputPanel.delegate = self;
+    [self addChild:textInputPanel];
+}
+
+-(void)setText:(NSString *)text
+{
+    _shipName.label.string = text;
+}
+
+-(void)clickChangeCannon
+{
+    
 }
 
 @end

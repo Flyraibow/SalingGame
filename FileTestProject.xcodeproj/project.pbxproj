@@ -885,6 +885,16 @@
 		27FBB84F1D0A9445002B106B /* button_role_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB84B1D0A9445002B106B /* button_role_down.png */; };
 		27FBB8501D0A9445002B106B /* button_role_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB84C1D0A9445002B106B /* button_role_up.png */; };
 		27FBB8511D0A9445002B106B /* button_role_design.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB84D1D0A9445002B106B /* button_role_design.png */; };
+		27FBB8531D0FAE1A002B106B /* frame_money.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8521D0FAE1A002B106B /* frame_money.png */; };
+		27FBB8561D0FAE5A002B106B /* MoneyPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB8551D0FAE5A002B106B /* MoneyPanel.m */; };
+		27FBB85A1D0FB79F002B106B /* frame_label2.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8571D0FB79F002B106B /* frame_label2.png */; };
+		27FBB85B1D0FB79F002B106B /* frame_label1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8581D0FB79F002B106B /* frame_label1.png */; };
+		27FBB85C1D0FB79F002B106B /* duelDeck1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8591D0FB79F002B106B /* duelDeck1.png */; };
+		27FBB85F1D0FB7F4002B106B /* TimePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB85E1D0FB7F4002B106B /* TimePanel.m */; };
+		27FBB8621D0FBA98002B106B /* LabelPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB8611D0FBA98002B106B /* LabelPanel.m */; };
+		27FBB8641D0FBD38002B106B /* frame_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8631D0FBD38002B106B /* frame_time.png */; };
+		27FBB8671D0FC0F5002B106B /* TextInputPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB8661D0FC0F5002B106B /* TextInputPanel.m */; };
+		27FBB8691D0FCCBE002B106B /* frame_input_panel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */; };
 		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
 /* End PBXBuildFile section */
 
@@ -2138,6 +2148,20 @@
 		27FBB84B1D0A9445002B106B /* button_role_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_role_down.png; path = Resources/Graph/Button/button_role_down.png; sourceTree = "<group>"; };
 		27FBB84C1D0A9445002B106B /* button_role_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_role_up.png; path = Resources/Graph/Button/button_role_up.png; sourceTree = "<group>"; };
 		27FBB84D1D0A9445002B106B /* button_role_design.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_role_design.png; path = Resources/Graph/Button/button_role_design.png; sourceTree = "<group>"; };
+		27FBB8521D0FAE1A002B106B /* frame_money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frame_money.png; path = Resources/Graph/Frame/frame_money.png; sourceTree = "<group>"; };
+		27FBB8541D0FAE5A002B106B /* MoneyPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoneyPanel.h; path = Classes/Image/Panel/MoneyPanel.h; sourceTree = "<group>"; };
+		27FBB8551D0FAE5A002B106B /* MoneyPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoneyPanel.m; path = Classes/Image/Panel/MoneyPanel.m; sourceTree = "<group>"; };
+		27FBB8571D0FB79F002B106B /* frame_label2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frame_label2.png; path = Resources/Graph/Frame/frame_label2.png; sourceTree = "<group>"; };
+		27FBB8581D0FB79F002B106B /* frame_label1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frame_label1.png; path = Resources/Graph/Frame/frame_label1.png; sourceTree = "<group>"; };
+		27FBB8591D0FB79F002B106B /* duelDeck1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = duelDeck1.png; path = Resources/Graph/Frame/duelDeck1.png; sourceTree = "<group>"; };
+		27FBB85D1D0FB7F4002B106B /* TimePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimePanel.h; path = Classes/Image/Panel/TimePanel.h; sourceTree = "<group>"; };
+		27FBB85E1D0FB7F4002B106B /* TimePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimePanel.m; path = Classes/Image/Panel/TimePanel.m; sourceTree = "<group>"; };
+		27FBB8601D0FBA98002B106B /* LabelPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabelPanel.h; path = Classes/Image/Panel/LabelPanel.h; sourceTree = "<group>"; };
+		27FBB8611D0FBA98002B106B /* LabelPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabelPanel.m; path = Classes/Image/Panel/LabelPanel.m; sourceTree = "<group>"; };
+		27FBB8631D0FBD38002B106B /* frame_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frame_time.png; path = Resources/Graph/Frame/frame_time.png; sourceTree = "<group>"; };
+		27FBB8651D0FC0F5002B106B /* TextInputPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextInputPanel.h; path = Classes/Image/Panel/TextInputPanel.h; sourceTree = "<group>"; };
+		27FBB8661D0FC0F5002B106B /* TextInputPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextInputPanel.m; path = Classes/Image/Panel/TextInputPanel.m; sourceTree = "<group>"; };
+		27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = frame_input_panel.jpg; path = Resources/Graph/Frame/frame_input_panel.jpg; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* InfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoButtonGroup.h; path = Classes/Image/GroupButton/InfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* InfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoButtonGroup.m; path = Classes/Image/GroupButton/InfoButtonGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3216,6 +3240,14 @@
 				27FBB79A1CED8F8F002B106B /* InvestPanel.m */,
 				27FBB79B1CED8F8F002B106B /* RolePanel.h */,
 				27FBB79C1CED8F8F002B106B /* RolePanel.m */,
+				27FBB8541D0FAE5A002B106B /* MoneyPanel.h */,
+				27FBB8551D0FAE5A002B106B /* MoneyPanel.m */,
+				27FBB85D1D0FB7F4002B106B /* TimePanel.h */,
+				27FBB85E1D0FB7F4002B106B /* TimePanel.m */,
+				27FBB8601D0FBA98002B106B /* LabelPanel.h */,
+				27FBB8611D0FBA98002B106B /* LabelPanel.m */,
+				27FBB8651D0FC0F5002B106B /* TextInputPanel.h */,
+				27FBB8661D0FC0F5002B106B /* TextInputPanel.m */,
 			);
 			name = Panel;
 			sourceTree = "<group>";
@@ -3360,6 +3392,12 @@
 		27C26CEE1C604E4F009EDE53 /* Frame */ = {
 			isa = PBXGroup;
 			children = (
+				27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */,
+				27FBB8631D0FBD38002B106B /* frame_time.png */,
+				27FBB8571D0FB79F002B106B /* frame_label2.png */,
+				27FBB8581D0FB79F002B106B /* frame_label1.png */,
+				27FBB8591D0FB79F002B106B /* duelDeck1.png */,
+				27FBB8521D0FAE1A002B106B /* frame_money.png */,
 				27FBB74A1CD85042002B106B /* ItemBrowsePanel.jpg */,
 				27FBB7481CD847A9002B106B /* itemDescFrame.jpg */,
 				270AB1CF1C9BCE5300533B47 /* duelDeck.png */,
@@ -4455,6 +4493,7 @@
 				27C26ED61C82A7C1009EDE53 /* goods103.jpg in Resources */,
 				27FBB7EB1CF2700A002B106B /* c007_4-1.png in Resources */,
 				27C26F061C82A7C1009EDE53 /* goods55.jpg in Resources */,
+				27FBB8641D0FBD38002B106B /* frame_time.png in Resources */,
 				27ACAB741C9674C4005C0881 /* c000_18-1.png in Resources */,
 				27FBB80B1CF2700A002B106B /* c009_15-1.png in Resources */,
 				27FBB6741CD843F6002B106B /* item3.png in Resources */,
@@ -4483,6 +4522,7 @@
 				27ACABA11C9674C4005C0881 /* c045_21-1.png in Resources */,
 				27FBB6721CD843F6002B106B /* item1.png in Resources */,
 				27FBB6AB1CD843F6002B106B /* item58.png in Resources */,
+				27FBB8531D0FAE1A002B106B /* frame_money.png in Resources */,
 				270AB20F1CC75C9000533B47 /* Shipdeck7_8.png in Resources */,
 				27C26CFE1C615F1B009EDE53 /* trade.png in Resources */,
 				27ACAB971C9674C4005C0881 /* c045_11-1.png in Resources */,
@@ -4525,6 +4565,7 @@
 				27FBB7AA1CF171BD002B106B /* CG_5.png in Resources */,
 				279BAA571C59E3B50069EF5D /* Icon-Small-50.png in Resources */,
 				27ACABA01C9674C4005C0881 /* c045_20-1.png in Resources */,
+				27FBB85C1D0FB79F002B106B /* duelDeck1.png in Resources */,
 				27FBB6DC1CD843F6002B106B /* item107.png in Resources */,
 				27FBB6A01CD843F6002B106B /* item47.png in Resources */,
 				27FBB6AD1CD843F6002B106B /* item60.png in Resources */,
@@ -4540,6 +4581,7 @@
 				27FBB8041CF2700A002B106B /* c009_8-1.png in Resources */,
 				27FBB73C1CD843F6002B106B /* item203.png in Resources */,
 				27FBB7181CD843F6002B106B /* item167.png in Resources */,
+				27FBB85A1D0FB79F002B106B /* frame_label2.png in Resources */,
 				27FBB8071CF2700A002B106B /* c009_11-1.png in Resources */,
 				27C26F4B1C82A7C1009EDE53 /* ship9.jpg in Resources */,
 				27FBB68D1CD843F6002B106B /* item28.png in Resources */,
@@ -4554,6 +4596,7 @@
 				27ACAB6E1C9674C4005C0881 /* c000_12-1.png in Resources */,
 				27FBB7FB1CF2700A002B106B /* c007_20-1.png in Resources */,
 				27FBB6B81CD843F6002B106B /* item71.png in Resources */,
+				27FBB85B1D0FB79F002B106B /* frame_label1.png in Resources */,
 				27FBB72B1CD843F6002B106B /* item186.png in Resources */,
 				27FBB7071CD843F6002B106B /* item150.png in Resources */,
 				27C26E2A1C80151E009EDE53 /* peopleFrame.png in Resources */,
@@ -4606,6 +4649,7 @@
 				27FBB6951CD843F6002B106B /* item36.png in Resources */,
 				27FBB6AE1CD843F6002B106B /* item61.png in Resources */,
 				27FBB68E1CD843F6002B106B /* item29.png in Resources */,
+				27FBB8691D0FCCBE002B106B /* frame_input_panel.jpg in Resources */,
 				27C26DFB1C741A4E009EDE53 /* Map5.jpg in Resources */,
 				27C26EFB1C82A7C1009EDE53 /* goods66.jpg in Resources */,
 				27FBB7101CD843F6002B106B /* item159.png in Resources */,
@@ -4883,6 +4927,7 @@
 				27C26DE61C729419009EDE53 /* SeaAreaData.m in Sources */,
 				279BABDE1C59E3B80069EF5D /* CCRendererGLSupport.m in Sources */,
 				279BAA751C59E3B50069EF5D /* CCRendererBasicTypes.m in Sources */,
+				27FBB8561D0FAE5A002B106B /* MoneyPanel.m in Sources */,
 				279BAAF91C59E3B60069EF5D /* CCPhysicsJoint.m in Sources */,
 				27C26D311C634410009EDE53 /* InnGroupButton.m in Sources */,
 				27C26D8B1C695291009EDE53 /* GuildData.m in Sources */,
@@ -4895,6 +4940,7 @@
 				279BAB301C59E3B70069EF5D /* CCTexturePVR.m in Sources */,
 				279BAC3C1C59E3B80069EF5D /* OALSimpleAudio.m in Sources */,
 				27FBB79E1CED8F8F002B106B /* DialogPanel.m in Sources */,
+				27FBB85F1D0FB7F4002B106B /* TimePanel.m in Sources */,
 				279BAB9C1C59E3B70069EF5D /* CCControl.m in Sources */,
 				279BAB031C59E3B60069EF5D /* CCProgressNode.m in Sources */,
 				27C26CC81C5F3AD9009EDE53 /* GoodsData.m in Sources */,
@@ -5009,6 +5055,7 @@
 				27C26CE31C5FD954009EDE53 /* CitySystemBar.m in Sources */,
 				279BAA6E1C59E3B50069EF5D /* CCNoARC.m in Sources */,
 				27C26D2E1C633F70009EDE53 /* GovernmentGroupButton.m in Sources */,
+				27FBB8621D0FBA98002B106B /* LabelPanel.m in Sources */,
 				27ACAB1F1C962CB3005C0881 /* RoleSelectionPanel.m in Sources */,
 				279BABC11C59E3B80069EF5D /* CCTouchIOS.m in Sources */,
 				27C26D111C617E07009EDE53 /* GameNPCData.m in Sources */,
@@ -5035,6 +5082,7 @@
 				2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */,
 				279BAB251C59E3B70069EF5D /* CCSpriteFrameCache.m in Sources */,
 				279BAB151C59E3B70069EF5D /* CCScheduler.m in Sources */,
+				27FBB8671D0FC0F5002B106B /* TextInputPanel.m in Sources */,
 				27C26D241C6330FC009EDE53 /* CityBuildingGroup.m in Sources */,
 				27C26D3D1C634CF2009EDE53 /* ShipyardGroupButton.m in Sources */,
 				27ACAB031C94EFB6005C0881 /* SkillData.m in Sources */,

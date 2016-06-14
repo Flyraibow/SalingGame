@@ -262,6 +262,12 @@
 "lab_luck" = "运气";
 "lab_agile" = "敏捷";
 
+"lab_ship_modify_my_money" = "所持金";
+"lab_ship_modify_spend_money" = "费用";
+"lab_ship_modify_spend_day" = "%d日";
+"btn_ship_modify_change_name" = "变更船名";
+"btn_ship_modify_change_cannon" = "购买大炮";
+
 "lab_ship_kalutila" = "卡鲁提拉号";
 
 "dialog_new_item_discover" = "啊，这是...%@, 你能把它送给我们么？";
