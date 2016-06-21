@@ -21,6 +21,7 @@
 #import "ItemInfoPanel.h"
 #import "ItemBrowsePanel.h"
 #import "NSString+Ext.h"
+#import "CannonSelectionPanel.h"
 
 @interface MenuPage() <DialogInteractProtocol>
 
@@ -106,8 +107,11 @@
     
 //    DuelScene *duelScene = [[DuelScene alloc] initWithRoleId:@"1" roleId:@"2"];
 //    [[CCDirector sharedDirector] pushScene:duelScene];
-    CGStoryScene *storyScene = [[CGStoryScene alloc] initWithStoryId:@"2"];
-    [[CCDirector sharedDirector] pushScene:storyScene];
+//    CGStoryScene *storyScene = [[CGStoryScene alloc] initWithStoryId:@"2"];
+//    [[CCDirector sharedDirector] pushScene:storyScene];
+    CannonSelectionPanel *frame = [[CannonSelectionPanel alloc] initWithCannonList:@[@(1),@(2),@(3),@(4),@(5),@(6)] currPower:1];
+    [self addChild:frame];
+    
 }
 
 

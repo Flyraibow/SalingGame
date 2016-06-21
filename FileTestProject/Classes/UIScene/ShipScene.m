@@ -19,8 +19,9 @@
 #import "TimePanel.h"
 #import "LabelPanel.h"
 #import "TextInputPanel.h"
+#import "CannonSelectionPanel.h"
 
-@interface ShipScene() < RoleSelectionPanelDelegate, ShipdeckIconSelectProtocol, TextInputPanelDelegate>
+@interface ShipScene() < RoleSelectionPanelDelegate, ShipdeckIconSelectProtocol, TextInputPanelDelegate, CannonSelectionPanelDelegate>
 
 @end
 
@@ -41,6 +42,8 @@
     TimePanel *_spendTimePanel;
     LabelPanel *_shipName;
     LabelPanel *_cannonName;
+    CannonSelectionPanel *_cannonSelectionPanel;
+    int _currentCannonPower;
 }
 
 -(instancetype)initWithShipData:(GameShipData *)shipData shipSceneType:(DeckShipSceneType)shipSceneType
@@ -95,6 +98,7 @@
         [_deckShipSprite addChild:btnSure];
         // TODO： 如果是改造模式，显示当前资金，日期，改造累计费用, 确认
         if (_shipSceneType == DeckShipSceneModify) {
+            _currentCannonPower = _shipData.cannonPower;
             _myMoneylPanel = [[MoneyPanel alloc] initWithText:getLocalString(@"lab_ship_modify_my_money")];
             _myMoneylPanel.anchorPoint = ccp(0, 0);
             _myMoneylPanel.positionType = CCPositionTypeNormalized;
@@ -125,7 +129,7 @@
             _cannonName.anchorPoint = ccp(0, 0);
             _cannonName.positionType = CCPositionTypeNormalized;
             _cannonName.position = ccp(0.42, 0.01);
-            _cannonName.label.string = shipData.shipName;
+            _cannonName.label.string = getCannonName(_currentCannonPower);
             [_deckShipSprite addChild:_cannonName];
             
             DefaultButton *btnChangeShipName = [DefaultButton buttonWithTitle:getLocalString(@"btn_ship_modify_change_name")];
@@ -210,6 +214,7 @@
         }
     } else if (_shipSceneType == DeckShipSceneModify){
         _shipData.shipName = _shipName.label.string;
+        [_delegate shipModified:_shipData];
     }
     [self clickBtnClose];
 }
@@ -333,7 +338,18 @@
 
 -(void)clickChangeCannon
 {
-    
+    if (_cannonSelectionPanel == nil) {
+        //
+        _cannonSelectionPanel = [[CannonSelectionPanel alloc] initWithCannonList:@[@(1),@(2),@(3),@(4)] currPower:_currentCannonPower];
+        _cannonSelectionPanel.delegate = self;
+    }
+    [self addChild:_cannonSelectionPanel];
 }
+
+-(void)selectCannon:(int)cannonPower
+{
+    _cannonName.label.string = getCannonName(cannonPower);
+}
+
 
 @end

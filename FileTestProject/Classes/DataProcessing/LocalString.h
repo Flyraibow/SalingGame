@@ -107,4 +107,14 @@ static NSString* getGoodsDescription(NSString *goodsId)
     return getLocalStringByString(@"goods_description_", goodsId);
 }
 
+static NSString* getCannonName(int cannonPower)
+{
+    return getLocalStringByInt(@"cannon_name_", cannonPower);
+}
+
+static NSString* getCannonDescription(int cannonPower)
+{
+    return getLocalStringByInt(@"cannon_description_", cannonPower);
+}
+
 #endif /* LocalString_h */

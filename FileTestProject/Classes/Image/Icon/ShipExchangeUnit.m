@@ -16,7 +16,7 @@
 #import "ShipIcon.h"
 #import "ShipScene.h"
 
-@interface ShipExchangeUnit() <SpendMoneyProtocol>
+@interface ShipExchangeUnit() <SpendMoneyProtocol, ShipSceneModifiedDelegate>
 
 @end
 
@@ -87,9 +87,7 @@
     _labShipCannonNum.anchorPoint = ccp(0, 1);
     _labShipCannonNum.position = ccp(_iconFrame.position.x + _iconFrame.contentSize.width -50,_labShipSpeed.position.y - _labShipSpeed.contentSize.height - 6);
     [self addChild:_labShipCannonNum];
-    
-    
-    
+
     _btnAction = [DefaultButton buttonWithTitle:nil];
     _btnAction.positionType = CCPositionTypeNormalized;
     _btnAction.anchorPoint = ccp(0.5, 0);
@@ -102,26 +100,8 @@
 {
     if (self = [super initWithImageNamed:@"ShipFrame.png"]) {
         _sceneType = sceneType;
-        _gameShipData = gameShipData;
-        ShipData *shipData = [[DataManager sharedDataManager].getShipDic getShipById:gameShipData.shipNo];
-        [self commonInitFunction:shipData.icon];
-        
-        // TODO: change the price in the future
-        _labName.string = gameShipData.shipName;
-        _dealPrice = shipData.price;
-        _labPrice.string = [NSString stringWithFormat:getLocalString(@"ship_price"), _dealPrice];
-
-        //这里
-//        CCLabelTTF *_labShipDuration;
-         _labShipDuration.string=[NSString stringWithFormat:getLocalString(@"ship_duration"),shipData.duration];
-//        CCLabelTTF *_labShipMinSailorNum;
-         _labShipMinSailorNum.string=[NSString stringWithFormat:getLocalString(@"ship_minSailorNum"),shipData.minSailorNum];
-//        CCLabelTTF *_labShipSpeed;
-         _labShipSpeed.string=[NSString stringWithFormat:getLocalString(@"ship_speed"),shipData.speed];
-//        CCLabelTTF *_labShipCannonNum;
-         _labShipCannonNum.string=[NSString stringWithFormat:getLocalString(@"ship_cannonNum"),shipData.cannonNum];
-        
-        
+        [self commonInitFunction:gameShipData.shipData.icon];
+        [self shipModified:gameShipData];
         
         if (sceneType == ShipSceneTypeBuy) {
             _btnAction.title = getLocalString(@"ship_buy");
@@ -155,9 +135,22 @@
     } else if (_sceneType == ShipSceneTypeModify) {
         // TODO: 进入改造页面
         ShipScene *scene = [[ShipScene alloc] initWithShipData:_gameShipData shipSceneType:DeckShipSceneModify];
+        scene.delegate = self;
         [[CCDirector sharedDirector] pushScene:scene];
     }
-    
+}
+
+-(void)shipModified:(GameShipData *)shipData
+{
+    // TODO: change the price in the future
+    _gameShipData = shipData;
+    _labName.string = _gameShipData.shipName;
+    _dealPrice = shipData.price;
+    _labPrice.string = [NSString stringWithFormat:getLocalString(@"ship_price"), _dealPrice];
+    _labShipDuration.string = [NSString stringWithFormat:getLocalString(@"ship_duration"),shipData.duration];
+    _labShipMinSailorNum.string = [NSString stringWithFormat:getLocalString(@"ship_minSailorNum"),shipData.minSailorNum];
+    _labShipSpeed.string = [NSString stringWithFormat:getLocalString(@"ship_speed"),shipData.speed];
+    _labShipCannonNum.string = [NSString stringWithFormat:getLocalString(@"ship_cannonNum"),shipData.cannonNum];
 }
 
 -(void)spendMoneyFail:(SpendMoneyType)type

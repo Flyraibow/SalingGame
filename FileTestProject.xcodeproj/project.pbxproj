@@ -60,6 +60,16 @@
 		270AB2331CC75D3400533B47 /* 25-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2251CC75D3400533B47 /* 25-1.png */; };
 		270AB2341CC75D3400533B47 /* 27-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2261CC75D3400533B47 /* 27-1.png */; };
 		270AB2351CC75D3400533B47 /* 23-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 270AB2271CC75D3400533B47 /* 23-1.png */; };
+		2723D4A81D18FCE3000B1990 /* default_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 2723D4A71D18FCE3000B1990 /* default_frame.png */; };
+		2723D4AB1D18FD4A000B1990 /* PopUpFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2723D4AA1D18FD4A000B1990 /* PopUpFrame.m */; };
+		2723D4AE1D190043000B1990 /* CannonSelectionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2723D4AD1D190043000B1990 /* CannonSelectionPanel.m */; };
+		2723D4B11D190239000B1990 /* CannonUnitIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2723D4B01D190239000B1990 /* CannonUnitIcon.m */; };
+		2723D4B81D19034F000B1990 /* cannon4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2723D4B21D19034F000B1990 /* cannon4.png */; };
+		2723D4B91D19034F000B1990 /* cannon5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2723D4B31D19034F000B1990 /* cannon5.png */; };
+		2723D4BA1D19034F000B1990 /* cannon6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2723D4B41D19034F000B1990 /* cannon6.png */; };
+		2723D4BB1D19034F000B1990 /* cannon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2723D4B51D19034F000B1990 /* cannon1.png */; };
+		2723D4BC1D19034F000B1990 /* cannon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2723D4B61D19034F000B1990 /* cannon2.png */; };
+		2723D4BD1D19034F000B1990 /* cannon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2723D4B71D19034F000B1990 /* cannon3.png */; };
 		274EE2721CCA00E20082B982 /* Shipdeck_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 274EE2711CCA00E20082B982 /* Shipdeck_select.png */; };
 		274EE2741CCA01960082B982 /* Shipdeck_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 274EE2731CCA01960082B982 /* Shipdeck_selected.png */; };
 		278F4A4A1C83D31400D724EF /* StoryTriggerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F4A491C83D31400D724EF /* StoryTriggerData.m */; };
@@ -970,6 +980,19 @@
 		270AB2251CC75D3400533B47 /* 25-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "25-1.png"; path = "Resources/Graph/Ship/25-1.png"; sourceTree = "<group>"; };
 		270AB2261CC75D3400533B47 /* 27-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "27-1.png"; path = "Resources/Graph/Ship/27-1.png"; sourceTree = "<group>"; };
 		270AB2271CC75D3400533B47 /* 23-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "23-1.png"; path = "Resources/Graph/Ship/23-1.png"; sourceTree = "<group>"; };
+		2723D4A71D18FCE3000B1990 /* default_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_frame.png; path = Resources/Graph/Frame/default_frame.png; sourceTree = "<group>"; };
+		2723D4A91D18FD4A000B1990 /* PopUpFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpFrame.h; path = Classes/Image/Element/PopUpFrame.h; sourceTree = "<group>"; };
+		2723D4AA1D18FD4A000B1990 /* PopUpFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopUpFrame.m; path = Classes/Image/Element/PopUpFrame.m; sourceTree = "<group>"; };
+		2723D4AC1D190043000B1990 /* CannonSelectionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CannonSelectionPanel.h; path = Classes/Image/Panel/CannonSelectionPanel.h; sourceTree = "<group>"; };
+		2723D4AD1D190043000B1990 /* CannonSelectionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CannonSelectionPanel.m; path = Classes/Image/Panel/CannonSelectionPanel.m; sourceTree = "<group>"; };
+		2723D4AF1D190239000B1990 /* CannonUnitIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CannonUnitIcon.h; path = Classes/Image/Icon/CannonUnitIcon.h; sourceTree = "<group>"; };
+		2723D4B01D190239000B1990 /* CannonUnitIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CannonUnitIcon.m; path = Classes/Image/Icon/CannonUnitIcon.m; sourceTree = "<group>"; };
+		2723D4B21D19034F000B1990 /* cannon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cannon4.png; path = Resources/Graph/Icon/cannon4.png; sourceTree = "<group>"; };
+		2723D4B31D19034F000B1990 /* cannon5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cannon5.png; path = Resources/Graph/Icon/cannon5.png; sourceTree = "<group>"; };
+		2723D4B41D19034F000B1990 /* cannon6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cannon6.png; path = Resources/Graph/Icon/cannon6.png; sourceTree = "<group>"; };
+		2723D4B51D19034F000B1990 /* cannon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cannon1.png; path = Resources/Graph/Icon/cannon1.png; sourceTree = "<group>"; };
+		2723D4B61D19034F000B1990 /* cannon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cannon2.png; path = Resources/Graph/Icon/cannon2.png; sourceTree = "<group>"; };
+		2723D4B71D19034F000B1990 /* cannon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cannon3.png; path = Resources/Graph/Icon/cannon3.png; sourceTree = "<group>"; };
 		274EE2711CCA00E20082B982 /* Shipdeck_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck_select.png; path = Resources/Graph/Ship/Shipdeck_select.png; sourceTree = "<group>"; };
 		274EE2731CCA01960082B982 /* Shipdeck_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck_selected.png; path = Resources/Graph/Ship/Shipdeck_selected.png; sourceTree = "<group>"; };
 		278F4A481C83D31400D724EF /* StoryTriggerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryTriggerData.h; path = Classes/DataProcessing/StoryTriggerData.h; sourceTree = "<group>"; };
@@ -3248,6 +3271,8 @@
 				27FBB8611D0FBA98002B106B /* LabelPanel.m */,
 				27FBB8651D0FC0F5002B106B /* TextInputPanel.h */,
 				27FBB8661D0FC0F5002B106B /* TextInputPanel.m */,
+				2723D4AC1D190043000B1990 /* CannonSelectionPanel.h */,
+				2723D4AD1D190043000B1990 /* CannonSelectionPanel.m */,
 			);
 			name = Panel;
 			sourceTree = "<group>";
@@ -3392,6 +3417,7 @@
 		27C26CEE1C604E4F009EDE53 /* Frame */ = {
 			isa = PBXGroup;
 			children = (
+				2723D4A71D18FCE3000B1990 /* default_frame.png */,
 				27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */,
 				27FBB8631D0FBD38002B106B /* frame_time.png */,
 				27FBB8571D0FB79F002B106B /* frame_label2.png */,
@@ -3425,6 +3451,12 @@
 		27C26CF81C608E66009EDE53 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				2723D4B21D19034F000B1990 /* cannon4.png */,
+				2723D4B31D19034F000B1990 /* cannon5.png */,
+				2723D4B41D19034F000B1990 /* cannon6.png */,
+				2723D4B51D19034F000B1990 /* cannon1.png */,
+				2723D4B61D19034F000B1990 /* cannon2.png */,
+				2723D4B71D19034F000B1990 /* cannon3.png */,
 				27C26E5B1C82A7C1009EDE53 /* goods103.jpg */,
 				27C26E5C1C82A7C1009EDE53 /* goods102.jpg */,
 				27C26E5D1C82A7C1009EDE53 /* goods101.jpg */,
@@ -3654,6 +3686,8 @@
 				27FBB7681CDC7938002B106B /* ItemIcon.m */,
 				27FBB7A21CED8FA4002B106B /* ShipExchangeUnit.h */,
 				27FBB7A31CED8FA4002B106B /* ShipExchangeUnit.m */,
+				2723D4AF1D190239000B1990 /* CannonUnitIcon.h */,
+				2723D4B01D190239000B1990 /* CannonUnitIcon.m */,
 			);
 			name = Icon;
 			sourceTree = "<group>";
@@ -4055,6 +4089,8 @@
 				27FBB7581CD85310002B106B /* DefaultButton.m */,
 				27FBB7541CD852E0002B106B /* LabelButton.h */,
 				27FBB7551CD852E0002B106B /* LabelButton.m */,
+				2723D4A91D18FD4A000B1990 /* PopUpFrame.h */,
+				2723D4AA1D18FD4A000B1990 /* PopUpFrame.m */,
 			);
 			name = Element;
 			sourceTree = "<group>";
@@ -4329,6 +4365,7 @@
 				27C26E581C819504009EDE53 /* dialogPortrait2.png in Resources */,
 				27FBB80D1CF2700A002B106B /* c009_17-1.png in Resources */,
 				27FBB7081CD843F6002B106B /* item151.png in Resources */,
+				2723D4BC1D19034F000B1990 /* cannon2.png in Resources */,
 				27FBB7241CD843F6002B106B /* item179.png in Resources */,
 				27E040C41C5C3E820068171E /* button.wav in Resources */,
 				27C26F331C82A7C1009EDE53 /* goods11.jpg in Resources */,
@@ -4529,6 +4566,7 @@
 				27C26EDB1C82A7C1009EDE53 /* goods98.jpg in Resources */,
 				27C26F0B1C82A7C1009EDE53 /* goods50.jpg in Resources */,
 				27C26F3E1C82A7C1009EDE53 /* ship22.jpg in Resources */,
+				2723D4BB1D19034F000B1990 /* cannon1.png in Resources */,
 				27C26F1F1C82A7C1009EDE53 /* goods30.jpg in Resources */,
 				27FBB7351CD843F6002B106B /* item196.png in Resources */,
 				270AB1DF1CB78F4000533B47 /* Deckship1.png in Resources */,
@@ -4547,6 +4585,7 @@
 				27C26CC41C5F2D95009EDE53 /* Localizable.strings in Resources */,
 				27C26D601C6492C8009EDE53 /* ship2.jpg in Resources */,
 				27ACAB651C9674C4005C0881 /* c000_3-1.png in Resources */,
+				2723D4B91D19034F000B1990 /* cannon5.png in Resources */,
 				27C26F001C82A7C1009EDE53 /* goods61.jpg in Resources */,
 				27FBB8031CF2700A002B106B /* c009_7-1.png in Resources */,
 				27FBB6D81CD843F6002B106B /* item103.png in Resources */,
@@ -4568,6 +4607,7 @@
 				27FBB85C1D0FB79F002B106B /* duelDeck1.png in Resources */,
 				27FBB6DC1CD843F6002B106B /* item107.png in Resources */,
 				27FBB6A01CD843F6002B106B /* item47.png in Resources */,
+				2723D4A81D18FCE3000B1990 /* default_frame.png in Resources */,
 				27FBB6AD1CD843F6002B106B /* item60.png in Resources */,
 				27FBB7E91CF2700A002B106B /* c007_2-1.png in Resources */,
 				27FBB6FA1CD843F6002B106B /* item137.png in Resources */,
@@ -4587,6 +4627,7 @@
 				27FBB68D1CD843F6002B106B /* item28.png in Resources */,
 				27FBB6CD1CD843F6002B106B /* item92.png in Resources */,
 				27FBB6E51CD843F6002B106B /* item116.png in Resources */,
+				2723D4BA1D19034F000B1990 /* cannon6.png in Resources */,
 				27C26F281C82A7C1009EDE53 /* goods21.jpg in Resources */,
 				279BACF81C59E3B90069EF5D /* white_square.png in Resources */,
 				27FBB6F71CD843F6002B106B /* item134.png in Resources */,
@@ -4678,6 +4719,7 @@
 				27C26F3A1C82A7C1009EDE53 /* goods5.jpg in Resources */,
 				27C26CF01C604E61009EDE53 /* invest.png in Resources */,
 				27FBB6E11CD843F6002B106B /* item112.png in Resources */,
+				2723D4BD1D19034F000B1990 /* cannon3.png in Resources */,
 				27ACAB881C9674C4005C0881 /* c008_17-1.png in Resources */,
 				27FBB8191D000054002B106B /* CG_7.png in Resources */,
 				27FBB7A61CF1660C002B106B /* city_2.mp3 in Resources */,
@@ -4810,6 +4852,7 @@
 				27C26F101C82A7C1009EDE53 /* goods45.jpg in Resources */,
 				27FBB72E1CD843F6002B106B /* item189.png in Resources */,
 				270AB1E61CC0A9AF00533B47 /* Shipdeck2.png in Resources */,
+				2723D4B81D19034F000B1990 /* cannon4.png in Resources */,
 				270AB2141CC75C9000533B47 /* Shipdeck7_6.png in Resources */,
 				270AB2171CC75C9000533B47 /* Shipdeck8_1.png in Resources */,
 				27C26DFC1C741A4E009EDE53 /* Map4.jpg in Resources */,
@@ -4947,6 +4990,7 @@
 				27C26D0E1C617DB4009EDE53 /* GameCityData.m in Sources */,
 				279BAB7B1C59E3B70069EF5D /* CCEffect.m in Sources */,
 				270AB1C01C97E8BB00533B47 /* RoleInfoPanel.m in Sources */,
+				2723D4AE1D190043000B1990 /* CannonSelectionPanel.m in Sources */,
 				279BAACB1C59E3B60069EF5D /* CCNodeColor.m in Sources */,
 				279BAAED1C59E3B60069EF5D /* CCParticleSystem.m in Sources */,
 				27C26E251C800F4A009EDE53 /* SelectPeopleScene.m in Sources */,
@@ -4964,6 +5008,7 @@
 				27C26D741C65889A009EDE53 /* GoodsIcon.m in Sources */,
 				27FBB7841CE46D5B002B106B /* NSString+Ext.m in Sources */,
 				27FBB7921CED8F6E002B106B /* BGImage.m in Sources */,
+				2723D4B11D190239000B1990 /* CannonUnitIcon.m in Sources */,
 				279BAB401C59E3B70069EF5D /* CCTransition.m in Sources */,
 				279BABA01C59E3B70069EF5D /* CCControlTextureFactory.m in Sources */,
 				279BAA991C59E3B60069EF5D /* CCActionInstant.m in Sources */,
@@ -4990,6 +5035,7 @@
 				279BAC771C59E3B90069EF5D /* OALAudioFile.m in Sources */,
 				27FBB7441CD844A1002B106B /* ItemData.m in Sources */,
 				278F4A4A1C83D31400D724EF /* StoryTriggerData.m in Sources */,
+				2723D4AB1D18FD4A000B1990 /* PopUpFrame.m in Sources */,
 				279BAC161C59E3B80069EF5D /* CCBsequence.m in Sources */,
 				279BAADB1C59E3B60069EF5D /* CCNode.m in Sources */,
 				279BAA841C59E3B60069EF5D /* CCRenderer.m in Sources */,

@@ -15,9 +15,16 @@ typedef enum : NSUInteger {
     DeckShipSceneModify,
 } DeckShipSceneType;
 
+@protocol ShipSceneModifiedDelegate <NSObject>
+
+-(void)shipModified:(GameShipData *)shipData;
+
+@end
+
 @interface ShipScene : CCScene
 
 @property (nonatomic, readonly, assign) DeckShipSceneType shipSceneType;
+@property (nonatomic, weak) id<ShipSceneModifiedDelegate> delegate;
 
 -(instancetype)initWithShipData:(GameShipData *)shipData shipSceneType:(DeckShipSceneType)shipSceneType;
 
