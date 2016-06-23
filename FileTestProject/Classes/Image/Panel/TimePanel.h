@@ -11,6 +11,6 @@
 
 @interface TimePanel : CCSprite
 
--(void)setDay:(int)day;
+@property (nonatomic) int day;
 
 @end

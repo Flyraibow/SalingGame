@@ -20,8 +20,15 @@
 #import "LabelPanel.h"
 #import "TextInputPanel.h"
 #import "CannonSelectionPanel.h"
+#import "GamePanelManager.h"
 
-@interface ShipScene() < RoleSelectionPanelDelegate, ShipdeckIconSelectProtocol, TextInputPanelDelegate, CannonSelectionPanelDelegate>
+@interface ShipScene()
+< RoleSelectionPanelDelegate,
+ShipdeckIconSelectProtocol,
+TextInputPanelDelegate,
+CannonSelectionPanelDelegate,
+DateUpdateProtocol,
+DialogInteractProtocol>
 
 @end
 
@@ -44,6 +51,8 @@
     LabelPanel *_cannonName;
     CannonSelectionPanel *_cannonSelectionPanel;
     int _currentCannonPower;
+    BOOL _timing;
+    CCTime _currentTime;
 }
 
 -(instancetype)initWithShipData:(GameShipData *)shipData shipSceneType:(DeckShipSceneType)shipSceneType
@@ -82,7 +91,8 @@
                 shipdeckIcon.roomId = roomId++;
             }
         }
-        
+        _currentTime = 0;
+        _timing = NO;
         DefaultButton *btnClose = [[DefaultButton alloc] initWithTitle:getLocalString(@"btn_cancel")];
         btnClose.positionType = CCPositionTypeNormalized;
         btnClose.anchorPoint = ccp(1, 0);
@@ -212,11 +222,58 @@
             roleAnimation.npcData.roomId = roleAnimation.roomId;
             roleAnimation.npcData.job = roleAnimation.job;
         }
+        [self clickBtnClose];
     } else if (_shipSceneType == DeckShipSceneModify){
-        _shipData.shipName = _shipName.label.string;
-        [_delegate shipModified:_shipData];
+        // wait days until the work is done
+        if (_spendTimePanel.day == 0) {
+            _shipData.shipName = _shipName.label.string;
+            _shipData.cannonPower = _currentCannonPower;
+            [_delegate shipModified:_shipData];
+            [self clickBtnClose];
+        } else {
+            [[GameDataManager sharedGameData] addTimeUpdateClass:self];
+            _timing = YES;
+        }
     }
-    [self clickBtnClose];
+}
+
+-(void)update:(CCTime)delta
+{
+    if (_timing) {
+        _currentTime += delta;
+        if (_currentTime > 1.0) {
+            _currentTime -= 1.0;
+            [[GameDataManager sharedGameData] spendOneDay];
+        }
+    }
+}
+
+-(void)updateDate
+{
+    _spendTimePanel.day -= 1;
+    if (_spendTimePanel.day == 0) {
+        _timing = NO;
+        [self clickBtnSure];
+    } else {
+        [self processDialog];
+    }
+}
+
+-(void)processDialog
+{
+    NSMutableArray *dialogList = [GameDataManager sharedGameData].dialogList;
+    if (dialogList.count > 0) {
+        _timing = NO;
+        GameDialogData *dialogData = [dialogList objectAtIndex:0];
+        DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
+        __weak ShipScene *weakSelf = self;
+        [dialogPanel setDialogWithPhotoNo:dialogData.portrait npcName:dialogData.npcName text:dialogData.text handler:^{
+            [weakSelf processDialog];
+        }];
+        [dialogList removeObjectAtIndex:0];
+    } else {
+        _timing = YES;
+    }
 }
 
 -(void)clickRoleSelectButton
@@ -339,8 +396,24 @@
 -(void)clickChangeCannon
 {
     if (_cannonSelectionPanel == nil) {
-        //
-        _cannonSelectionPanel = [[CannonSelectionPanel alloc] initWithCannonList:@[@(1),@(2),@(3),@(4)] currPower:_currentCannonPower];
+        // 获取当前的城市资料，计算出可以生产的大炮种类，因为暂时只有这里可以改造，所以，就把规则写在这里了。
+        NSString *cityId = [GameDataManager sharedGameData].myGuild.myTeam.currentCityId;
+        GameCityData * cityData =[[GameDataManager sharedGameData].cityDic objectForKey:cityId];
+        NSArray *cannonList;
+        if (cityData.commerceValue < 1000) {
+            cannonList = @[@(1)];
+        } else if (cityData.commerceValue < 2000) {
+            cannonList = @[@(1), @(2)];
+        } else if (cityData.commerceValue < 3500) {
+            cannonList = @[@(1), @(2), @(3)];
+        } else if (cityData.commerceValue < 5000) {
+            cannonList = @[@(1), @(2), @(3), @(4)];
+        } else if (cityData.commerceValue < 9000) {
+            cannonList = @[@(1), @(2), @(3), @(4), @(5)];
+        } else {
+            cannonList = @[@(1), @(2), @(3), @(4), @(5), @(6)];
+        }
+        _cannonSelectionPanel = [[CannonSelectionPanel alloc] initWithCannonList:cannonList currPower:_currentCannonPower];
         _cannonSelectionPanel.delegate = self;
     }
     [self addChild:_cannonSelectionPanel];
@@ -348,8 +421,22 @@
 
 -(void)selectCannon:(int)cannonPower
 {
+    _currentCannonPower = cannonPower;
     _cannonName.label.string = getCannonName(cannonPower);
+    [self computeTimeAndMoney];
 }
+
+-(void)computeTimeAndMoney
+{
+    int totalTime = 0;
+    int totolMoney = 0;
+    if (_shipData.cannonPower != _currentCannonPower) {
+        totalTime += 5;
+    }
+    
+    [_spendTimePanel setDay:totalTime];
+}
+
 
 
 @end

@@ -25,6 +25,8 @@
 // used in story mode
 -(void)setDialogWithPhotoNo:(NSString *)photoNo npcName:(NSString *)npcName text:(NSString *)text;
 
+-(void)setDialogWithPhotoNo:(NSString *)photoNo npcName:(NSString *)npcName text:(NSString *)text handler:(void(^)())handler;
+
 -(void)setDialogWithNpcId:(NSString *)npcId text:(NSString *)text;
 
 -(void)addSelections:(NSArray *)selectArray callback:(void(^)(int index))handler;

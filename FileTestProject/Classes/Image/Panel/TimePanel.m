@@ -14,6 +14,8 @@
     CCLabelTTF *_labelDay;
 }
 
+@synthesize day = _day;
+
 -(instancetype)init
 {
     if (self = [super initWithImageNamed:@"frame_time.png"]) {
@@ -29,6 +31,7 @@
 
 -(void)setDay:(int)day
 {
+    _day = day;
     _labelDay.string = [NSString stringWithFormat:getLocalString(@"lab_ship_modify_spend_day"), day];
 }
 @end

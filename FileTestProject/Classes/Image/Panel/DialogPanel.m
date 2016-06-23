@@ -31,7 +31,8 @@
     CGFloat _basePosX;
     NSArray *_selectedArray;
     BaseButtonGroup *_buttonGroup;
-    void(^_hander)(int index);
+    void(^_handler)(int index);
+    void(^_confirmHandler)();
 }
 
 -(instancetype)initWithContentSize:(CGSize)contentSize
@@ -71,6 +72,7 @@
         _labelContent.anchorPoint = ccp(0, 1);
         _labelContent.position = ccp(0.1, 0.75);
         
+        _confirmHandler = nil;
         [_dialogPanel addChild:_labelContent];
         _selecting = NO;
     }
@@ -92,6 +94,7 @@
         if ([_delegate respondsToSelector:@selector(confirm)]) {
             [_delegate confirm];
         } else {
+            if (_confirmHandler != nil) _confirmHandler();
             [self removeFromParent];
         }
     }
@@ -100,7 +103,7 @@
 -(void)clickButton:(DefaultButton *)button
 {
     int index = [button.name intValue];
-    _hander(index);
+    _handler(index);
 }
 
 -(NSString *)replaceTextWithDefaultRegex:(NSString *)text
@@ -148,6 +151,12 @@
 
 -(void)setDialogWithPhotoNo:(NSString *)photoNo npcName:(NSString *)npcName text:(NSString *)text
 {
+    [self setDialogWithPhotoNo:photoNo npcName:npcName text:text handler:nil];
+}
+
+-(void)setDialogWithPhotoNo:(NSString *)photoNo npcName:(NSString *)npcName text:(NSString *)text handler:(void (^)())handler
+{
+    _confirmHandler = handler;
     if (_buttonGroup != nil) {
         [self removeChild:_buttonGroup];
         _buttonGroup = nil;
@@ -178,7 +187,7 @@
 
 -(void)addSelections:(NSArray *)selectArray callback:(void(^)(int index))handler
 {
-    _hander = handler;
+    _handler = handler;
     NSMutableArray *buttonList = [NSMutableArray new];
     for (int i = 0; i < selectArray.count; ++i) {
         NSString *buttonText = [self replaceTextWithDefaultRegex:selectArray[i]];

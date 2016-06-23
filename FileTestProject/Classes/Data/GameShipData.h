@@ -26,8 +26,8 @@
 @property (nonatomic, readonly) int maxDuration;
 @property (nonatomic, readonly) int agile;
 @property (nonatomic, readonly) int speed;
-@property (nonatomic, readonly) int cannonNum;
-@property (nonatomic, readonly) int cannonPower;
+@property (nonatomic, assign) int cannonNum;
+@property (nonatomic, assign) int cannonPower;
 @property (nonatomic, readonly) int spareRoom;
 @property (nonatomic, readonly) NSMutableArray *goodsList;
 @property (nonatomic, readonly, weak) ShipData *shipData;

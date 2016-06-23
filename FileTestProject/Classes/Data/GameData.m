@@ -41,6 +41,7 @@ static NSString* const GameItemDataState = @"GameItemDataState";
         _dialogList = [NSMutableArray new];
         _cityDic = [NSMutableDictionary new];
         _itemDic = [NSMutableDictionary new];
+        [self commonInit];
         NSDictionary *cityDic = [[DataManager sharedDataManager].getCityDic getDictionary];
         for(NSString *key in cityDic)
         {
@@ -62,6 +63,13 @@ static NSString* const GameItemDataState = @"GameItemDataState";
     return self;
 }
 
+-(void)commonInit
+{
+    _timeUpdateSet = [NSMutableSet new];
+    _occupationUpdateSet = [NSMutableSet new];
+    _cityChangeSet = [NSMutableSet new];
+}
+
 -(void)initGuildData
 {
     _guildDic = [NSMutableDictionary new];
@@ -70,9 +78,6 @@ static NSString* const GameItemDataState = @"GameItemDataState";
         GameGuildData *guildData = [[GameGuildData alloc] initWithGuildData:[guildDic objectForKey:key]];
         [(NSMutableDictionary *)_guildDic setObject:guildData forKey:key];
     }
-    _timeUpdateSet = [NSMutableSet new];
-    _occupationUpdateSet = [NSMutableSet new];
-    _cityChangeSet = [NSMutableSet new];
     // initialize the logic Data
     _logicData = [NSMutableDictionary new];
     NSDictionary *logicDataType = [[[DataManager sharedDataManager] getLogicDataDic] getDictionary];
@@ -226,6 +231,7 @@ static NSString* const GameItemDataState = @"GameItemDataState";
         _month = date % 100;
         date /= 100;
         _year = date % 1000;
+        [self commonInit];
         _guildDic = [aDecoder decodeObjectForKey:GameGuildDic];
         _myGuild = [aDecoder decodeObjectForKey:GameMyGuild];
         _cityDic = [aDecoder decodeObjectForKey:GameCityDic];
@@ -238,6 +244,7 @@ static NSString* const GameItemDataState = @"GameItemDataState";
             gameItemData.itemData = itemDic[itemNo];
         }
         self.currentMusic = [aDecoder decodeObjectForKey:GameMuiscData];
+        
     }
     return self;
 }
