@@ -49,7 +49,7 @@
 		_maxSailorNum = [buffer readInt];
 		_speed = [buffer readInt];
 		_cannonNum = [buffer readInt];
-		_cannonPower = [buffer readInt];
+		_cannonId = [buffer readInt];
 		_spareRoomNum = [buffer readInt];
 	}
 	return self;

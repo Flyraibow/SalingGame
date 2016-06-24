@@ -19,6 +19,6 @@
 
 @property (nonatomic, weak) id<CannonSelectionPanelDelegate> delegate;
 
--(instancetype)initWithCannonList:(NSArray *)cannonList currPower:(int)cannonPower;
+-(instancetype)initWithCannonList:(NSArray *)cannonList currCannonId:(int)cannonId;
 
 @end

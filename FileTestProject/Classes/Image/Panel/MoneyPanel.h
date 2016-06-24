@@ -13,6 +13,6 @@
 
 -(instancetype)initWithText:(NSString *)labelText;
 
--(void)setMoney:(NSInteger)money;
+@property (nonatomic, assign) NSInteger money;
 
 @end

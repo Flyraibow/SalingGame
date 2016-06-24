@@ -109,8 +109,8 @@
 //    [[CCDirector sharedDirector] pushScene:duelScene];
 //    CGStoryScene *storyScene = [[CGStoryScene alloc] initWithStoryId:@"2"];
 //    [[CCDirector sharedDirector] pushScene:storyScene];
-    CannonSelectionPanel *frame = [[CannonSelectionPanel alloc] initWithCannonList:@[@(1),@(2),@(3),@(4),@(5),@(6)] currPower:1];
-    [self addChild:frame];
+//    CannonSelectionPanel *frame = [[CannonSelectionPanel alloc] initWithCannonList:@[@(1),@(2),@(3),@(4),@(5),@(6)] currPower:1];
+//    [self addChild:frame];
     
 }
 

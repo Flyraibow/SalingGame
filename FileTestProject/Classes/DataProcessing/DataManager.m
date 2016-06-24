@@ -6,6 +6,7 @@ static DataManager *_sharedDataManager;
 @implementation DataManager
 {
 	ActionDic *_actionDic;
+	CannonDic *_cannonDic;
 	CityDic *_cityDic;
 	CityBuildingDic *_cityBuildingDic;
 	DefaultDialogDic *_defaultDialogDic;
@@ -34,6 +35,7 @@ static DataManager *_sharedDataManager;
 	if (self) {
 		ByteBuffer *buffer = [[ByteBuffer alloc] initWithData:data];
 		_actionDic = [[ActionDic alloc] initWithByteBuffer:buffer];
+		_cannonDic = [[CannonDic alloc] initWithByteBuffer:buffer];
 		_cityDic = [[CityDic alloc] initWithByteBuffer:buffer];
 		_cityBuildingDic = [[CityBuildingDic alloc] initWithByteBuffer:buffer];
 		_defaultDialogDic = [[DefaultDialogDic alloc] initWithByteBuffer:buffer];
@@ -74,6 +76,11 @@ static DataManager *_sharedDataManager;
 -(ActionDic *)getActionDic
 {
 	return _actionDic;
+}
+
+-(CannonDic *)getCannonDic
+{
+	return _cannonDic;
 }
 
 -(CityDic *)getCityDic

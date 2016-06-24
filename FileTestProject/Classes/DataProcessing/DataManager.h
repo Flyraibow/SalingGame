@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "ActionData.h"
+#import "CannonData.h"
 #import "CityData.h"
 #import "CityBuildingData.h"
 #import "DefaultDialogData.h"
@@ -27,6 +28,8 @@
 +(DataManager *)sharedDataManager;
 
 -(ActionDic*)getActionDic;
+
+-(CannonDic*)getCannonDic;
 
 -(CityDic*)getCityDic;
 

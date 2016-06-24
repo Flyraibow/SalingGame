@@ -171,7 +171,7 @@ CityBuildingDelegate>
 {
     _labDate.string = [[GameDataManager sharedGameData] getDateStringWithYear:YES];
     //如果有对话，使用
-    if ([GameDataManager sharedGameData].myGuild.myTeam.onTheSea == NO) {
+    if (self.scene == [CCDirector sharedDirector].runningScene) {
         NSMutableArray *dialogList = [GameDataManager sharedGameData].dialogList;
         if (dialogList.count > 0) {
             GameDialogData *dialogData = [dialogList objectAtIndex:0];

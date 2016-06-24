@@ -17,7 +17,7 @@
 
 @implementation CannonSelectionPanel
 
--(instancetype)initWithCannonList:(NSArray *)cannonList currPower:(int)cannonPower
+-(instancetype)initWithCannonList:(NSArray *)cannonList currCannonId:(int)cannonId
 {
     NSUInteger count = cannonList.count;
     CGFloat width = kCannonUnitIconWidth;

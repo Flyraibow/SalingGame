@@ -16,7 +16,7 @@
 @property (nonatomic, readonly) int maxSailorNum;
 @property (nonatomic, readonly) int speed;
 @property (nonatomic, readonly) int cannonNum;
-@property (nonatomic, readonly) int cannonPower;
+@property (nonatomic, readonly) int cannonId;
 @property (nonatomic, readonly) int spareRoomNum;
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;

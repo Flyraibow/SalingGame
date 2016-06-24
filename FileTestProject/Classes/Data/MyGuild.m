@@ -38,6 +38,7 @@ static NSString* const GameUsedStorySet = @"GameUsedStorySet";
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        _moneyUpdateSet = [NSMutableSet new];
         _myTeam = [aDecoder decodeObjectForKey:GameGuildMyTeam];
         _usedStorySet = [aDecoder decodeObjectForKey:GameUsedStorySet];
     }

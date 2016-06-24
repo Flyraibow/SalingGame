@@ -21,6 +21,7 @@
 #import "TextInputPanel.h"
 #import "CannonSelectionPanel.h"
 #import "GamePanelManager.h"
+#import "CannonData.h"
 
 @interface ShipScene()
 < RoleSelectionPanelDelegate,
@@ -28,7 +29,8 @@ ShipdeckIconSelectProtocol,
 TextInputPanelDelegate,
 CannonSelectionPanelDelegate,
 DateUpdateProtocol,
-DialogInteractProtocol>
+DialogInteractProtocol,
+UpdateMoneyProtocol>
 
 @end
 
@@ -50,9 +52,11 @@ DialogInteractProtocol>
     LabelPanel *_shipName;
     LabelPanel *_cannonName;
     CannonSelectionPanel *_cannonSelectionPanel;
-    int _currentCannonPower;
+    int _currentCannonId;
     BOOL _timing;
     CCTime _currentTime;
+    NSArray *_cannonList;
+    NSString *_cityNo;
 }
 
 -(instancetype)initWithShipData:(GameShipData *)shipData shipSceneType:(DeckShipSceneType)shipSceneType
@@ -108,7 +112,7 @@ DialogInteractProtocol>
         [_deckShipSprite addChild:btnSure];
         // TODO： 如果是改造模式，显示当前资金，日期，改造累计费用, 确认
         if (_shipSceneType == DeckShipSceneModify) {
-            _currentCannonPower = _shipData.cannonPower;
+            _currentCannonId = _shipData.cannonId;
             _myMoneylPanel = [[MoneyPanel alloc] initWithText:getLocalString(@"lab_ship_modify_my_money")];
             _myMoneylPanel.anchorPoint = ccp(0, 0);
             _myMoneylPanel.positionType = CCPositionTypeNormalized;
@@ -139,7 +143,7 @@ DialogInteractProtocol>
             _cannonName.anchorPoint = ccp(0, 0);
             _cannonName.positionType = CCPositionTypeNormalized;
             _cannonName.position = ccp(0.42, 0.01);
-            _cannonName.label.string = getCannonName(_currentCannonPower);
+            _cannonName.label.string = getCannonName(_currentCannonId);
             [_deckShipSprite addChild:_cannonName];
             
             DefaultButton *btnChangeShipName = [DefaultButton buttonWithTitle:getLocalString(@"btn_ship_modify_change_name")];
@@ -156,6 +160,9 @@ DialogInteractProtocol>
             btnChangeCannon.position = ccp(0.68, 0.00);
             [btnChangeCannon setTarget:self selector:@selector(clickChangeCannon)];
             [_deckShipSprite addChild:btnChangeCannon];
+            
+            _cityNo = [GameDataManager sharedGameData].myGuild.myTeam.currentCityId;
+            [[GameDataManager sharedGameData].myGuild addMoneyUpdateClass:self];
             
         } else if (_shipSceneType == DeckShipSceneDeck) {
             // TODO： 如果是甲板模式，分为两个小模式，都显示小人，其中一个可以随意调动小人的位置，另一个，用于查看小人状态。
@@ -210,6 +217,8 @@ DialogInteractProtocol>
 
 -(void)clickBtnClose
 {
+    [[GameDataManager sharedGameData].myGuild removeMoneyUpdateClass:self];
+    [[GameDataManager sharedGameData] removeTimeUpdateClass:self];
     [[CCDirector sharedDirector] popScene];
 }
 
@@ -227,12 +236,32 @@ DialogInteractProtocol>
         // wait days until the work is done
         if (_spendTimePanel.day == 0) {
             _shipData.shipName = _shipName.label.string;
-            _shipData.cannonPower = _currentCannonPower;
+            _shipData.cannonId = _currentCannonId;
             [_delegate shipModified:_shipData];
             [self clickBtnClose];
         } else {
-            [[GameDataManager sharedGameData] addTimeUpdateClass:self];
-            _timing = YES;
+            // 先加一个确认的对话框
+            DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
+            __weak DialogPanel *weakDialogPanel = dialogPanel;
+            CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
+            [dialogPanel setDefaultDialog:@"dialog_modify_ship_confirm" arguments:@[@(_spendingMoneyPanel.money), @(_spendTimePanel.day)] cityStyle:cityData.cityStyle];
+            [dialogPanel addSelections:@[getLocalString(@"lab_yes"), getLocalString(@"lab_no")] callback:^(int index) {
+                if (index == 0) {
+                    if ([GameDataManager sharedGameData].myGuild.money < _spendingMoneyPanel.money) {
+                        [weakDialogPanel setDefaultDialog:@"dialog_no_enough_money" arguments:nil];
+                    } else {
+                        [[GameDataManager sharedGameData] addTimeUpdateClass:self];
+                        [[GameDataManager sharedGameData].myGuild spendMoney:_spendingMoneyPanel.money];
+                        _timing = YES;
+                        [[OALSimpleAudio sharedInstance] playEffect:@"carpenter.wav"];
+                        [weakDialogPanel removeFromParent];
+                    }
+                } else {
+                    [weakDialogPanel removeFromParent];
+                }
+            }];
+            [self addChild:dialogPanel];
+            
         }
     }
 }
@@ -271,6 +300,7 @@ DialogInteractProtocol>
             [weakSelf processDialog];
         }];
         [dialogList removeObjectAtIndex:0];
+        [self addChild:dialogPanel];
     } else {
         _timing = YES;
     }
@@ -393,27 +423,27 @@ DialogInteractProtocol>
     _shipName.label.string = text;
 }
 
+-(NSArray *)cannonList
+{
+    if (_cannonList == nil) {
+        NSMutableArray *cannonList = [NSMutableArray new];
+        GameCityData * cityData =[[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
+        NSDictionary *cannonDic = [[[DataManager sharedDataManager] getCannonDic] getDictionary];
+        for (NSString *cannonId in cannonDic) {
+            CannonData *cannonData = [cannonDic objectForKey:cannonId];
+            if (cannonData.milltaryValue <= cityData.milltaryValue) {
+                [cannonList addObject:cannonData.cannonId];
+            }
+        }
+        _cannonList = [cannonList sortedArrayUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES]]];
+    }
+    return _cannonList;
+}
+
 -(void)clickChangeCannon
 {
     if (_cannonSelectionPanel == nil) {
-        // 获取当前的城市资料，计算出可以生产的大炮种类，因为暂时只有这里可以改造，所以，就把规则写在这里了。
-        NSString *cityId = [GameDataManager sharedGameData].myGuild.myTeam.currentCityId;
-        GameCityData * cityData =[[GameDataManager sharedGameData].cityDic objectForKey:cityId];
-        NSArray *cannonList;
-        if (cityData.commerceValue < 1000) {
-            cannonList = @[@(1)];
-        } else if (cityData.commerceValue < 2000) {
-            cannonList = @[@(1), @(2)];
-        } else if (cityData.commerceValue < 3500) {
-            cannonList = @[@(1), @(2), @(3)];
-        } else if (cityData.commerceValue < 5000) {
-            cannonList = @[@(1), @(2), @(3), @(4)];
-        } else if (cityData.commerceValue < 9000) {
-            cannonList = @[@(1), @(2), @(3), @(4), @(5)];
-        } else {
-            cannonList = @[@(1), @(2), @(3), @(4), @(5), @(6)];
-        }
-        _cannonSelectionPanel = [[CannonSelectionPanel alloc] initWithCannonList:cannonList currPower:_currentCannonPower];
+        _cannonSelectionPanel = [[CannonSelectionPanel alloc] initWithCannonList:[self cannonList] currCannonId:_currentCannonId];
         _cannonSelectionPanel.delegate = self;
     }
     [self addChild:_cannonSelectionPanel];
@@ -421,7 +451,7 @@ DialogInteractProtocol>
 
 -(void)selectCannon:(int)cannonPower
 {
-    _currentCannonPower = cannonPower;
+    _currentCannonId = cannonPower;
     _cannonName.label.string = getCannonName(cannonPower);
     [self computeTimeAndMoney];
 }
@@ -430,13 +460,22 @@ DialogInteractProtocol>
 {
     int totalTime = 0;
     int totolMoney = 0;
-    if (_shipData.cannonPower != _currentCannonPower) {
+    if (_shipData.cannonId!= _currentCannonId) {
         totalTime += 5;
+        CannonDic *cannonDic = [[DataManager sharedDataManager] getCannonDic];
+        CannonData *prevCannonData = [cannonDic getCannonById:[@(_shipData.cannonId) stringValue]];
+        CannonData *currCannonData = [cannonDic getCannonById:[@(_currentCannonId) stringValue]];
+        totolMoney += currCannonData.price * _shipData.cannonNum - prevCannonData.price * _shipData.cannonNum / 2;
     }
-    
+    [_spendingMoneyPanel setMoney:totolMoney];
     [_spendTimePanel setDay:totalTime];
 }
 
+
+-(void)updateMoney:(NSInteger)money
+{
+    _myMoneylPanel.money = money;
+}
 
 
 @end

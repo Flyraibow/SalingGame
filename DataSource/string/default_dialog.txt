@@ -5,3 +5,5 @@
 "dialog_lose_money" = "失去了%@枚金币";
 "dialog_add_friend" = "%@成为伙伴！";
 "dialog_lose_friend" = "%@离开队伍！";
+"dialog_modify_ship_confirm" = "这次改造需要%@金币，以及%@天时间，你确定吗？";
+"dialog_no_enough_money" = "我的钱不够了";

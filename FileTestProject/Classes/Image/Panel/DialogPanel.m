@@ -16,6 +16,7 @@
 #import "GameDataManager.h"
 #import "DefaultButton.h"
 #import "NSString+Ext.h"
+#import "GameNPCData.h"
 
 @implementation DialogPanel
 {
@@ -213,11 +214,17 @@
         dialogPhotoId = [@(defaultDialogData.npcParameter) stringValue];
     } else if (defaultDialogData.npcType == 3) {
         // 先计算出npc的id， 再显示
-        
+    } else if (defaultDialogData.npcType == 4) {
+        // 船长自己
+        dialogPhotoId = [GameDataManager sharedGameData].myGuild.leaderId;
     }
+    
     NSString *dialogNameName = @"";
     if (![defaultDialogData.dialogName isEqualToString:@"0"]) {
         dialogNameName = getLocalString(defaultDialogData.dialogName);
+    } else if (defaultDialogData.npcType == 4) {
+        GameNPCData *npcData = [[GameDataManager sharedGameData].npcDic objectForKey:dialogPhotoId];
+        dialogNameName = npcData.fullName;
     }
     
     NSString *dialogText = [NSString stringWithFormat:getLocalString(defaultDialogData.dialogId) arguments:arguments];

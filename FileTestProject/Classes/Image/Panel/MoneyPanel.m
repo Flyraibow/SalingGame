@@ -22,6 +22,7 @@
         textLabel.position = ccp(0.15, 0.75);
         [self addChild:textLabel];
         
+        _money = 0;
         _labelMoney = [CCLabelTTF labelWithString:@"0" fontName:nil fontSize:14];
         _labelMoney.positionType = CCPositionTypeNormalized;
         _labelMoney.anchorPoint = ccp(1, 0.5);
@@ -33,6 +34,7 @@
 
 -(void)setMoney:(NSInteger)money
 {
+    _money = money;
     _labelMoney.string = [@(money) stringValue];
 }
 
