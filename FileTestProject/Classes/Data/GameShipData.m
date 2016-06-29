@@ -54,10 +54,12 @@ static NSString* const GameShipEquipList = @"GameShipEquipList";
         for (int i = 0; i < _capacity; ++i) {
             [_goodsList addObject:[GameShipGoodsData new]];
         }
-        ShipStyleData *shipStyle = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:[@(shipData.style) stringValue]];
-        _equipList = [shipStyle.equipList componentsSeparatedByString:@";"];
+        _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:[@(shipData.style) stringValue]];
+        _equipList = [[_shipStyleData.equipList componentsSeparatedByString:@";"] mutableCopy];
         _shipData = shipData;
         _belongToGuild = nil;
+        
+        
     }
     return self;
 }
@@ -85,6 +87,7 @@ static NSString* const GameShipEquipList = @"GameShipEquipList";
         _goodsList = [aDecoder decodeObjectForKey:GameShipGoodsList];
         _shipData = [[[DataManager sharedDataManager] getShipDic] getShipById:_shipNo];
         _equipList = [aDecoder decodeObjectForKey:GameShipEquipList];
+        _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:[@(_shipData.style) stringValue]];
     }
     return self;
 }

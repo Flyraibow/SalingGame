@@ -8,21 +8,8 @@
 
 #import "ShipdeckIcon.h"
 
-typedef enum : NSUInteger {
-    FunctionRoomEquipTypeLiving,
-    FunctionRoomEquipTypeCarpenter,
-    FunctionRoomEquipTypeDoctor,
-    FunctionRoomEquipTypeCooking,
-    FunctionRoomEquipTypeDancing,
-    FunctionRoomEquipTypeFeeding,
-    FunctionRoomEquipTypePraying,
-    FunctionRoomEquipTypeStrategy,
-    FunctionRoomEquipTypeAccouting,
-} FunctionRoomEquipType;
-
 @implementation ShipdeckIcon
 {
-    DeckShipSceneType _shipSceneType;
     CCSprite *_selectableSprite;
     CCSprite *_selectedSprite;
 }
@@ -32,40 +19,52 @@ typedef enum : NSUInteger {
                           sceneType:(DeckShipSceneType)shipSceneType
 {
     _shipSceneType = shipSceneType;
-    NSString *shipdeckStr;
-    if (equipType == 0) {
-        // 如果该房间为原生态
-        shipdeckStr = [NSString stringWithFormat:@"Shipdeck%zd.png", shipType];
-    } else {
-        // 如果该房间已经被改造过了，某些图标在甲板界面的时候还是按照原本的显示，但是在改造界面上则需要修改
-        if (shipSceneType == DeckShipSceneModify || shipType == ShipdeckTypeFunctionRoom || shipType == ShipdeckTypeStorageRoom) {
-            shipdeckStr = [NSString stringWithFormat:@"Shipdeck%zd_%d.png", shipType, equipType];
-        } else {
-            shipdeckStr = [NSString stringWithFormat:@"Shipdeck%zd.png", shipType];
-        }
-    }
+    _shipDeckType = shipType;
+    _equipType = equipType;
+    NSString *shipdeckStr = [self shipiconString];
     if (self = [super initWithImageNamed:shipdeckStr]) {
-        // TODO: 如果是可以改造的，且现在是改造模式则 显示选择框
-        if (shipSceneType == DeckShipSceneDeck) {
-            [self initJob:shipType equipType:equipType];
-        }
         _selectableSprite = [CCSprite spriteWithImageNamed:@"Shipdeck_select.png"];
         _selectableSprite.positionType = CCPositionTypeNormalized;
         _selectableSprite.position = ccp(0.5, 0.5);
         _selectableSprite.visible = NO;
         [self addChild:_selectableSprite];
-        
-        _selectedSprite = [CCSprite spriteWithImageNamed:@"Shipdeck_selected.png"];
-        _selectedSprite.positionType = CCPositionTypeNormalized;
-        _selectedSprite.position = ccp(0.5, 0.5);
-        _selectedSprite.visible = NO;
-        [self addChild:_selectedSprite];
-        
         self.canSelect = NO;
+
+        // TODO: 如果是可以改造的，且现在是改造模式则 显示选择框
+        if (shipSceneType == DeckShipSceneDeck) {
+            [self initJob:shipType equipType:equipType];
+            _selectedSprite = [CCSprite spriteWithImageNamed:@"Shipdeck_selected.png"];
+            _selectedSprite.positionType = CCPositionTypeNormalized;
+            _selectedSprite.position = ccp(0.5, 0.5);
+            _selectedSprite.visible = NO;
+            [self addChild:_selectedSprite];
+        } else if (shipSceneType == DeckShipSceneModify) {
+            if (shipType == ShipdeckTypeFunctionRoom) {
+                self.canSelect = YES;
+            }
+        }
+        
         self.selected = NO;
         self.userInteractionEnabled = YES;
     }
     return self;
+}
+
+-(NSString *)shipiconString
+{
+    NSString *shipdeckStr;
+    if (_equipType == 0) {
+        // 如果该房间为原生态
+        shipdeckStr = [NSString stringWithFormat:@"Shipdeck%zd.png", _shipDeckType];
+    } else {
+        // 如果该房间已经被改造过了，某些图标在甲板界面的时候还是按照原本的显示，但是在改造界面上则需要修改
+        if (_shipSceneType == DeckShipSceneModify || _shipDeckType == ShipdeckTypeFunctionRoom || _shipDeckType == ShipdeckTypeStorageRoom) {
+            shipdeckStr = [NSString stringWithFormat:@"Shipdeck%zd_%d.png", _shipDeckType, _equipType];
+        } else {
+            shipdeckStr = [NSString stringWithFormat:@"Shipdeck%zd.png", _shipDeckType];
+        }
+    }
+    return shipdeckStr;
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
@@ -77,6 +76,19 @@ typedef enum : NSUInteger {
 {
     if (_shipSceneType == DeckShipSceneModify) {
         // TODO：检查是否能修改，可能需要用到delegate 从上面检查
+        if (self.canSelect) {
+            if (_shipDeckType != ShipdeckTypeDeck) {
+                int equipType = [_delegate nextShipdeckEquipType:self];
+                if (equipType != _equipType) {
+                    _equipType = equipType;
+                    NSString *shipdeckStr = [self shipiconString];
+                    [self setSpriteFrame:[CCSpriteFrame frameWithImageNamed:shipdeckStr]];
+                    [_delegate computeTimeAndMoney];
+                }
+            } else {
+                // 船首像的逻辑另外算
+            }
+        }
         // 如果成功则更换房间样式，注：只是暂时的，最后确定的时候才会正式换。
     } else if (_shipSceneType == DeckShipSceneDeck) {
         if (self.canSelect) {

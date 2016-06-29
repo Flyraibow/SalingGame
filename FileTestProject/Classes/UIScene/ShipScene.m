@@ -38,7 +38,6 @@ UpdateMoneyProtocol>
 {
     GameShipData *_shipData;
     CCSprite *_deckShipSprite;
-    ShipStyleData *_shipStyleData;
     CGSize _viewSize;
     NSMutableArray *_roleAnimationList;
     NSMutableDictionary *_roomIconDict;
@@ -57,6 +56,7 @@ UpdateMoneyProtocol>
     CCTime _currentTime;
     NSArray *_cannonList;
     NSString *_cityNo;
+    NSMutableDictionary *_originEquipDict;
 }
 
 -(instancetype)initWithShipData:(GameShipData *)shipData shipSceneType:(DeckShipSceneType)shipSceneType
@@ -65,16 +65,15 @@ UpdateMoneyProtocol>
         _viewSize = [CCDirector sharedDirector].viewSize;
         _shipData = shipData;
         _shipSceneType = shipSceneType;
-        _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:[@(_shipData.shipData.style) stringValue]];
-        _deckShipSprite = [CCSprite spriteWithImageNamed:[NSString stringWithFormat:@"Deckship%d.png", _shipStyleData.deckShipIcon]];
+        _deckShipSprite = [CCSprite spriteWithImageNamed:[NSString stringWithFormat:@"Deckship%d.png", shipData.shipStyleData.deckShipIcon]];
         _deckShipSprite.positionType = CCPositionTypeNormalized;
         _deckShipSprite.position = ccp(0.5, 0.5);
         _deckShipSprite.scale = _viewSize.height / _deckShipSprite.contentSize.height;
         [self addChild:_deckShipSprite];
         
         _roomIconDict = [NSMutableDictionary new];
-        NSArray *roomList = [_shipStyleData.roomList componentsSeparatedByString:@";"];
-        int roomId = 1;
+        _originEquipDict = [NSMutableDictionary new];
+        NSArray *roomList = [shipData.shipStyleData.roomList componentsSeparatedByString:@";"];
         for (int i = 0; i < roomList.count; ++i) {
             NSString *info = roomList[i];
             if (info.length > 0) {
@@ -83,6 +82,7 @@ UpdateMoneyProtocol>
                 int x = [infoList[1] intValue];
                 int y = [infoList[2] intValue];
                 int equipType =[_shipData.equipList[i] intValue];
+                [_originEquipDict setObject:@(equipType) forKey:@(i)];
                 ShipdeckIcon *shipdeckIcon = [[ShipdeckIcon alloc] initWithShipdeckType:type
                                                                               equipType:equipType
                                                                               sceneType:shipSceneType];
@@ -91,8 +91,8 @@ UpdateMoneyProtocol>
                 shipdeckIcon.position = ccp(x, y);
                 shipdeckIcon.delegate = self;
                 [_deckShipSprite addChild:shipdeckIcon];
-                [_roomIconDict setObject:shipdeckIcon forKey:@(roomId)];
-                shipdeckIcon.roomId = roomId++;
+                [_roomIconDict setObject:shipdeckIcon forKey:@(i)];
+                shipdeckIcon.roomId = i;
             }
         }
         _currentTime = 0;
@@ -237,6 +237,10 @@ UpdateMoneyProtocol>
         if (_spendTimePanel.day == 0) {
             _shipData.shipName = _shipName.label.string;
             _shipData.cannonId = _currentCannonId;
+            for (NSNumber *roomId in _roomIconDict) {
+                ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
+                _shipData.equipList[[roomId intValue]] = @(icon.equipType);
+            }
             [_delegate shipModified:_shipData];
             [self clickBtnClose];
         } else {
@@ -347,6 +351,30 @@ UpdateMoneyProtocol>
         ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
         icon.canSelect = [roleJobAnimation.npcData isableTodo:icon.job];
     }
+}
+
+-(int)nextShipdeckEquipType:(id)shipdeckIcon
+{
+    ShipdeckIcon *shipdeck = shipdeckIcon;
+    int equipType = shipdeck.equipType;
+    if (shipdeck.shipDeckType == ShipdeckTypeFunctionRoom) {
+        // TODO: 暂时没有考虑名族，以后可能某些港口或者船长是没有办法改造礼拜室的
+        // 除了休息室可以建造多个，其他的房间最多一个
+        NSMutableSet *functionRoomSet = [NSMutableSet new];
+        for (NSNumber *roomId in _roomIconDict) {
+            ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
+            if (icon.shipDeckType == ShipdeckTypeFunctionRoom && icon != shipdeck) {
+                [functionRoomSet addObject:@(icon.equipType)];
+            }
+        }
+        for (int i = (equipType + 1) % FunctionRoomEquipTypeCount; i != equipType; i = (i + 1) % FunctionRoomEquipTypeCount) {
+            if (i == FunctionRoomEquipTypeLiving || ![functionRoomSet containsObject:@(i)]) {
+                equipType = i;
+                break;
+            }
+        }
+    }
+    return equipType;
 }
 
 -(void)selectShipdeckIcon:(id)shipdeckIcon
@@ -467,6 +495,15 @@ UpdateMoneyProtocol>
         CannonData *currCannonData = [cannonDic getCannonById:[@(_currentCannonId) stringValue]];
         totolMoney += currCannonData.price * _shipData.cannonNum - prevCannonData.price * _shipData.cannonNum / 2;
     }
+    BOOL functionRoomChanged = NO;
+    for (NSNumber *roomId in _roomIconDict) {
+        ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
+        if (!functionRoomChanged && icon.shipDeckType == ShipdeckTypeFunctionRoom && icon.equipType != [[_originEquipDict objectForKey:roomId] intValue]) {
+            functionRoomChanged = YES;
+            totalTime += 2;
+        }
+    }
+    
     [_spendingMoneyPanel setMoney:totolMoney];
     [_spendTimePanel setDay:totalTime];
 }

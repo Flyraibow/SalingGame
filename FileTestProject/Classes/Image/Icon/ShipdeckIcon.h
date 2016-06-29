@@ -24,9 +24,24 @@ typedef enum : NSUInteger {
     ShipdeckTypeMeasureRoom,
 } ShipdeckType;
 
+typedef enum : NSUInteger {
+    FunctionRoomEquipTypeLiving,
+    FunctionRoomEquipTypeCarpenter,
+    FunctionRoomEquipTypeDoctor,
+    FunctionRoomEquipTypeCooking,
+    FunctionRoomEquipTypeDancing,
+    FunctionRoomEquipTypeFeeding,
+    FunctionRoomEquipTypePraying,
+    FunctionRoomEquipTypeStrategy,
+    FunctionRoomEquipTypeAccouting,
+    FunctionRoomEquipTypeCount,
+} FunctionRoomEquipType;
+
 @protocol ShipdeckIconSelectProtocol <NSObject>
 
 -(void)selectShipdeckIcon:(id)shipdeckIcon;
+-(int)nextShipdeckEquipType:(id)shipdeckIcon;
+-(void)computeTimeAndMoney;
 
 @end
 
@@ -38,6 +53,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) id<ShipdeckIconSelectProtocol> delegate;
 @property (nonatomic, assign) BOOL canSelect;
 @property (nonatomic, assign) BOOL selected;
+@property (nonatomic, readonly, assign) DeckShipSceneType shipSceneType;
+@property (nonatomic, readonly, assign) ShipdeckType shipDeckType;
+@property (nonatomic, readonly, assign) int equipType;
 
 -(instancetype)initWithShipdeckType:(ShipdeckType)shipType equipType:(int)equipType sceneType:(DeckShipSceneType)shipSceneType;
 

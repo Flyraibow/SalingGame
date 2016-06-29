@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ShipData.h"
+#import "ShipStyleData.h"
 
 @interface GameShipData : NSObject <NSCoding>
 
@@ -32,7 +33,8 @@
 @property (nonatomic, readonly) NSMutableArray *goodsList;
 @property (nonatomic, readonly, weak) ShipData *shipData;
 @property (nonatomic, readonly) int price;
-@property (nonatomic, readonly) NSArray *equipList;
+@property (nonatomic, readonly) NSMutableArray *equipList;
+@property (nonatomic, readonly, weak) ShipStyleData *shipStyleData;
 
 
 -(instancetype)initWithShipData:(ShipData *)shipData;
