@@ -38,19 +38,14 @@
 	if (self) {
 		_shipId = [buffer readString];
 		_icon = [buffer readString];
-		_size = [buffer readInt];
 		_style = [buffer readInt];
-		_capacity = [buffer readInt];
-		_foodCapacity = [buffer readInt];
 		_duration = [buffer readInt];
 		_agile = [buffer readInt];
 		_price = [buffer readInt];
 		_minSailorNum = [buffer readInt];
 		_maxSailorNum = [buffer readInt];
 		_speed = [buffer readInt];
-		_cannonNum = [buffer readInt];
 		_cannonId = [buffer readInt];
-		_spareRoomNum = [buffer readInt];
 	}
 	return self;
 }

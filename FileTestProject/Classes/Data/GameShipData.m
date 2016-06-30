@@ -14,49 +14,39 @@
 static NSString* const GameShipNo = @"GameShipNo";
 static NSString* const GameShipName = @"GameShipName";
 static NSString* const GameShipBelongToGuild = @"GameShipBelongToGuild";
-static NSString* const GameShipMaxSailorNum = @"GameShipMaxSailorNum";
-static NSString* const GameShipMinSailorNum = @"GameShipMinSailorNum";
 static NSString* const GameShipCurSailorNum = @"GameShipCurSailorNum";
-static NSString* const GameShipCapacity = @"GameShipCapacity";
 static NSString* const GameShipFoodCapacity = @"GameShipFoodCapacity";
-static NSString* const GameShipMaxFoodCapacity = @"GameShipMaxFoodCapacity";
 static NSString* const GameShipAgile = @"GameShipAgile";
 static NSString* const GameShipSpeed = @"GameShipSpeed";
 static NSString* const GameShipCannonId = @"GameShipCannonId";
-static NSString* const GameShipCannonNum = @"GameShipCannonNum";
-static NSString* const GameShipSpareRoom = @"GameShipSpareRoom";
 static NSString* const GameShipDuration = @"GameShipDuration";
-static NSString* const GameShipMaxDuration = @"GameShipMaxDuration";
 static NSString* const GameShipGoodsList = @"GameShipGoodsList";
 static NSString* const GameShipEquipList = @"GameShipEquipList";
 
 @implementation GameShipData
+{
+    int _goodsRooms;
+    int _foodRooms;
+    int _sailorRooms;
+}
 
 -(instancetype)initWithShipData:(ShipData *)shipData
 {
     if (self = [super init]) {
         _shipNo = shipData.shipId;
         _shipName = getLocalStringByString(@"ship_name_", _shipNo);
-        _maxSailorNum = shipData.maxSailorNum;
-        _minSailorNum = shipData.minSailorNum;
+        
+        _shipData = shipData;
+        _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:[@(shipData.style) stringValue]];
+        _goodsList = [NSMutableArray new];
+        self.equipList = [[_shipStyleData.equipList componentsSeparatedByString:@";"] mutableCopy];
+        
         _curSailorNum = 0;
-        _capacity = shipData.capacity;
-        _maxFoodCapacity = shipData.foodCapacity;
         _foodCapacity = 0;
         _agile = shipData.agile;
         _speed = shipData.speed;
         _cannonId = shipData.cannonId;
-        _cannonNum = shipData.cannonNum;
-        _spareRoom = shipData.spareRoomNum;
-        _maxDuration = shipData.duration;
-        _duration = _maxDuration;
-        _goodsList = [NSMutableArray new];
-        for (int i = 0; i < _capacity; ++i) {
-            [_goodsList addObject:[GameShipGoodsData new]];
-        }
-        _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:[@(shipData.style) stringValue]];
-        _equipList = [[_shipStyleData.equipList componentsSeparatedByString:@";"] mutableCopy];
-        _shipData = shipData;
+        _duration = self.maxDuration;
         _belongToGuild = nil;
         
         
@@ -71,23 +61,16 @@ static NSString* const GameShipEquipList = @"GameShipEquipList";
         _shipNo = [aDecoder decodeObjectForKey:GameShipNo];
         _shipName = [aDecoder decodeObjectForKey:GameShipName];
         _belongToGuild = [aDecoder decodeObjectForKey: GameShipBelongToGuild];
-        _maxSailorNum = [aDecoder decodeIntForKey:GameShipMaxSailorNum];
-        _minSailorNum = [aDecoder decodeIntForKey:GameShipMinSailorNum];
         _curSailorNum = [aDecoder decodeIntForKey:GameShipCurSailorNum];
-        _capacity = [aDecoder decodeIntForKey: GameShipCapacity];
-        _foodCapacity = [aDecoder decodeIntForKey:GameShipFoodCapacity];
-        _maxFoodCapacity = [aDecoder decodeIntForKey:GameShipMaxFoodCapacity];
+        _foodCapacity = [aDecoder decodeDoubleForKey:GameShipFoodCapacity];
         _agile = [aDecoder decodeIntForKey:GameShipAgile];
         _speed = [aDecoder decodeIntForKey:GameShipSpeed];
         _cannonId = [aDecoder decodeIntForKey:GameShipCannonId];
-        _cannonNum = [aDecoder decodeIntForKey:GameShipCannonNum];
-        _spareRoom = [aDecoder decodeIntForKey:GameShipSpareRoom];
         _duration = [aDecoder decodeIntForKey:GameShipDuration];
-        _maxDuration = [aDecoder decodeIntForKey:GameShipMaxDuration];
         _goodsList = [aDecoder decodeObjectForKey:GameShipGoodsList];
         _shipData = [[[DataManager sharedDataManager] getShipDic] getShipById:_shipNo];
-        _equipList = [aDecoder decodeObjectForKey:GameShipEquipList];
         _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:[@(_shipData.style) stringValue]];
+        self.equipList = [aDecoder decodeObjectForKey:GameShipEquipList];
     }
     return self;
 }
@@ -97,19 +80,12 @@ static NSString* const GameShipEquipList = @"GameShipEquipList";
     [aCoder encodeObject:_shipNo forKey:GameShipNo];
     [aCoder encodeObject:_shipName forKey:GameShipName];
     [aCoder encodeObject:_belongToGuild forKey: GameShipBelongToGuild];
-    [aCoder encodeInt:_maxSailorNum forKey:GameShipMaxSailorNum];
-    [aCoder encodeInt:_minSailorNum forKey:GameShipMinSailorNum];
     [aCoder encodeInt:_curSailorNum forKey:GameShipCurSailorNum];
-    [aCoder encodeInt:_capacity forKey:GameShipCapacity];
-    [aCoder encodeInt:_foodCapacity forKey:GameShipFoodCapacity];
-    [aCoder encodeInt:_maxFoodCapacity forKey:GameShipMaxFoodCapacity];
+    [aCoder encodeDouble:_foodCapacity forKey:GameShipFoodCapacity];
     [aCoder encodeInt:_agile forKey:GameShipAgile];
     [aCoder encodeInt:_speed forKey:GameShipSpeed];
     [aCoder encodeInt:_cannonId forKey:GameShipCannonId];
-    [aCoder encodeInt:_cannonNum forKey:GameShipCannonNum];
-    [aCoder encodeInt:_spareRoom forKey:GameShipSpareRoom];
     [aCoder encodeInt:_duration forKey:GameShipDuration];
-    [aCoder encodeInt:_maxDuration forKey:GameShipMaxDuration];
     [aCoder encodeObject:_goodsList forKey:GameShipGoodsList];
     [aCoder encodeObject:_equipList forKey:GameShipEquipList];
 }
@@ -117,6 +93,77 @@ static NSString* const GameShipEquipList = @"GameShipEquipList";
 -(NSString *)shipIcon
 {
     return _shipData.icon;
+}
+
+-(void)setEquipList:(NSArray *)equipList
+{
+    int foodCapacity = 0;
+    int goodsCapacity = 0;
+    int sailorRooms = 0;
+    int cannonRooms = 0;
+    NSArray *roomList = [_shipStyleData.roomList componentsSeparatedByString:@";"];
+    for (int i = 0; i < roomList.count; ++i) {
+        NSString *info = roomList[i];
+        if (info.length > 0) {
+            NSArray *infoList = [info componentsSeparatedByString:@"_"];
+            int shipdeckType = [infoList[0] intValue];
+            int equipType =[equipList[i] intValue];
+            if (shipdeckType == ShipdeckTypeStorageRoom) {
+                if (equipType == StorageRoomTypeGoods) {
+                    goodsCapacity++;
+                } else if (equipType == StorageRoomTypeFood) {
+                    foodCapacity++;
+                } else if (equipType == StorageRoomTypeSailor) {
+                    sailorRooms++;
+                } else if (equipType == StorageRoomTypeCannon) {
+                    cannonRooms++;
+                }
+            }
+        }
+    }
+    _foodCapacity = MAX(foodCapacity, _foodCapacity);
+    if (_goodsList.count > goodsCapacity) {
+        [(NSMutableArray *)_goodsList removeObjectsInRange:NSMakeRange(goodsCapacity, _goodsList.count - goodsCapacity)];
+    }
+    for (NSInteger i = _goodsList.count; i < goodsCapacity; ++i) {
+        [(NSMutableArray *)_goodsList addObject:[GameShipGoodsData new]];
+    }
+    _goodsRooms = goodsCapacity;
+    _cannonRooms = cannonRooms;
+    _sailorRooms = sailorRooms;
+    _foodRooms = foodCapacity;
+    
+    _equipList = equipList;
+}
+
+-(int)maxSailorNum
+{
+    return _shipData.maxSailorNum + _sailorRooms * 80;
+}
+
+-(int)minSailorNum
+{
+    return _shipData.minSailorNum + _cannonRooms * 30;
+}
+
+-(int)capacity
+{
+    return _goodsRooms;
+}
+
+-(int)maxFoodCapacity
+{
+    return _foodRooms;
+}
+
+-(int)cannonNum
+{
+    return _cannonRooms * 24 + 2;
+}
+
+-(int)maxDuration
+{
+    return _shipData.duration;
 }
 
 -(int)price

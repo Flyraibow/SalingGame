@@ -11,32 +11,6 @@
 #import "ShipScene.h"
 #import "RoleJobAnimation.h"
 
-typedef enum : NSUInteger {
-    ShipdeckTypeNone,
-    ShipdeckTypeOperationSail,
-    ShipdeckTypeLookout,
-    ShipdeckTypeDeck,
-    ShipdeckTypeSteerRoom,
-    ShipdeckTypeCaptainRoom,
-    ShipdeckTypeViseCaptainRoom,
-    ShipdeckTypeFunctionRoom,
-    ShipdeckTypeStorageRoom,
-    ShipdeckTypeMeasureRoom,
-} ShipdeckType;
-
-typedef enum : NSUInteger {
-    FunctionRoomEquipTypeLiving,
-    FunctionRoomEquipTypeCarpenter,
-    FunctionRoomEquipTypeDoctor,
-    FunctionRoomEquipTypeCooking,
-    FunctionRoomEquipTypeDancing,
-    FunctionRoomEquipTypeFeeding,
-    FunctionRoomEquipTypePraying,
-    FunctionRoomEquipTypeStrategy,
-    FunctionRoomEquipTypeAccouting,
-    FunctionRoomEquipTypeCount,
-} FunctionRoomEquipType;
-
 @protocol ShipdeckIconSelectProtocol <NSObject>
 
 -(void)selectShipdeckIcon:(id)shipdeckIcon;

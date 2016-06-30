@@ -13,6 +13,7 @@
 #import "RolePanel.h"
 #import "ItemBrowsePanel.h"
 #import "GameDataManager.h"
+#import "ShipExchangeScene.h"
 
 @implementation InfoButtonGroup
 
@@ -34,7 +35,16 @@
 
 -(void)clickShipInfo
 {
-    NSLog(@"clickShipInfo");
+    // TODO: 列出我所有的船，不仅仅是当前舰队的
+    MyGuild *myGuild = [GameDataManager sharedGameData].myGuild;
+    NSMutableArray *shipList = [myGuild.myTeam.shipList copy];
+    for (int i = 0; i < myGuild.teamList.count; ++i) {
+        GameTeamData *teamData = myGuild.teamList[i];
+        [shipList addObjectsFromArray:teamData.shipList];
+    }
+    
+    ShipExchangeScene *shipInfoScene = [[ShipExchangeScene alloc] initWithShipList:shipList sceneType:ShipSceneTypeInfo];
+    [[CCDirector sharedDirector] pushScene:shipInfoScene];
 }
 
 -(void)clickSailorInfo

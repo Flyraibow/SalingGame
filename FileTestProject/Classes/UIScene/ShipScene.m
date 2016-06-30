@@ -57,6 +57,7 @@ UpdateMoneyProtocol>
     NSArray *_cannonList;
     NSString *_cityNo;
     NSMutableDictionary *_originEquipDict;
+    int _previousCannonRooms;
 }
 
 -(instancetype)initWithShipData:(GameShipData *)shipData shipSceneType:(DeckShipSceneType)shipSceneType
@@ -73,6 +74,7 @@ UpdateMoneyProtocol>
         
         _roomIconDict = [NSMutableDictionary new];
         _originEquipDict = [NSMutableDictionary new];
+        _previousCannonRooms = _shipData.cannonRooms;
         NSArray *roomList = [shipData.shipStyleData.roomList componentsSeparatedByString:@";"];
         for (int i = 0; i < roomList.count; ++i) {
             NSString *info = roomList[i];
@@ -90,6 +92,9 @@ UpdateMoneyProtocol>
                 shipdeckIcon.anchorPoint = ccp(0, 0);
                 shipdeckIcon.position = ccp(x, y);
                 shipdeckIcon.delegate = self;
+                if (type == ShipdeckTypeStorageRoom && equipType == StorageRoomTypeCannon) {
+                    _previousCannonRooms++;
+                }
                 [_deckShipSprite addChild:shipdeckIcon];
                 [_roomIconDict setObject:shipdeckIcon forKey:@(i)];
                 shipdeckIcon.roomId = i;
@@ -237,10 +242,12 @@ UpdateMoneyProtocol>
         if (_spendTimePanel.day == 0) {
             _shipData.shipName = _shipName.label.string;
             _shipData.cannonId = _currentCannonId;
+            NSMutableArray *equipList = [_shipData.equipList mutableCopy];
             for (NSNumber *roomId in _roomIconDict) {
                 ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
-                _shipData.equipList[[roomId intValue]] = @(icon.equipType);
+                equipList[[roomId intValue]] = @(icon.equipType);
             }
+            _shipData.equipList = equipList;
             [_delegate shipModified:_shipData];
             [self clickBtnClose];
         } else {
@@ -358,7 +365,6 @@ UpdateMoneyProtocol>
     ShipdeckIcon *shipdeck = shipdeckIcon;
     int equipType = shipdeck.equipType;
     if (shipdeck.shipDeckType == ShipdeckTypeFunctionRoom) {
-        // TODO: 暂时没有考虑名族，以后可能某些港口或者船长是没有办法改造礼拜室的
         // 除了休息室可以建造多个，其他的房间最多一个
         NSMutableSet *functionRoomSet = [NSMutableSet new];
         for (NSNumber *roomId in _roomIconDict) {
@@ -369,8 +375,39 @@ UpdateMoneyProtocol>
         }
         for (int i = (equipType + 1) % FunctionRoomEquipTypeCount; i != equipType; i = (i + 1) % FunctionRoomEquipTypeCount) {
             if (i == FunctionRoomEquipTypeLiving || ![functionRoomSet containsObject:@(i)]) {
-                equipType = i;
-                break;
+                return i;
+            }
+        }
+    } else if (shipdeck.shipDeckType == ShipdeckTypeStorageRoom) {
+        int foodStorageNumber = 0;
+        int goodsStorageNumber = 0;
+        int cannonRoomNumber = 0;
+        int sailorRoomNumber = 0;
+        for (NSNumber *roomId in _roomIconDict) {
+            ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
+            if (icon.shipDeckType == ShipdeckTypeStorageRoom && icon != shipdeck) {
+                if (icon.equipType == StorageRoomTypeFood) {
+                    foodStorageNumber++;
+                } else if (icon.equipType == StorageRoomTypeGoods) {
+                    goodsStorageNumber++;
+                } else if (icon.equipType == StorageRoomTypeSailor) {
+                    sailorRoomNumber++;
+                } else if (icon.equipType == StorageRoomTypeCannon) {
+                    cannonRoomNumber++;
+                }
+            }
+        }
+        if (foodStorageNumber <= 0) {
+            return StorageRoomTypeFood;
+        } else {
+            for (int i = (equipType + 1) % StorageRoomTypeCount; i != equipType; i = (i + 1) % StorageRoomTypeCount) {
+                if ((i == StorageRoomTypeGoods && goodsStorageNumber < 5) ||
+                    (i == StorageRoomTypeSailor && sailorRoomNumber < 4) ||
+                    (i == StorageRoomTypeCannon && cannonRoomNumber < 4) ||
+                    (i == StorageRoomTypeNone && _shipData.equipList[shipdeck.roomId] == StorageRoomTypeNone) ||
+                    (i == StorageRoomTypeFood)) {
+                    return i;
+                }
             }
         }
     }
@@ -488,21 +525,47 @@ UpdateMoneyProtocol>
 {
     int totalTime = 0;
     int totolMoney = 0;
-    if (_shipData.cannonId!= _currentCannonId) {
-        totalTime += 5;
+    
+    BOOL functionRoomChanged = NO;
+    BOOL storageRoomChanged = NO;
+    int cannonRooms = 0;
+    for (NSNumber *roomId in _roomIconDict) {
+        ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
+        if (icon.shipDeckType == ShipdeckTypeFunctionRoom) {
+            if (!functionRoomChanged && icon.equipType != [[_originEquipDict objectForKey:roomId] intValue]) {
+                functionRoomChanged = YES;
+                totalTime += 2;
+            }
+        } else if (icon.shipDeckType == ShipdeckTypeStorageRoom) {
+            if (!storageRoomChanged && icon.equipType != [[_originEquipDict objectForKey:roomId] intValue]) {
+                storageRoomChanged = YES;
+                totalTime += 2;
+            }
+            if (icon.equipType == StorageRoomTypeCannon) {
+                cannonRooms++;
+            }
+        }
+    }
+    int cannonNumber = _shipData.cannonNum + (cannonRooms - _previousCannonRooms) * 24;
+    if (_shipData.cannonId!= _currentCannonId || cannonNumber != _shipData.cannonNum) {
         CannonDic *cannonDic = [[DataManager sharedDataManager] getCannonDic];
         CannonData *prevCannonData = [cannonDic getCannonById:[@(_shipData.cannonId) stringValue]];
         CannonData *currCannonData = [cannonDic getCannonById:[@(_currentCannonId) stringValue]];
-        totolMoney += currCannonData.price * _shipData.cannonNum - prevCannonData.price * _shipData.cannonNum / 2;
-    }
-    BOOL functionRoomChanged = NO;
-    for (NSNumber *roomId in _roomIconDict) {
-        ShipdeckIcon *icon = [_roomIconDict objectForKey:roomId];
-        if (!functionRoomChanged && icon.shipDeckType == ShipdeckTypeFunctionRoom && icon.equipType != [[_originEquipDict objectForKey:roomId] intValue]) {
-            functionRoomChanged = YES;
-            totalTime += 2;
+        NSInteger previousPrice = prevCannonData.price * _shipData.cannonNum;
+        NSInteger exchangePrice = 0;
+        if (_shipData.cannonId!= _currentCannonId) {
+            totalTime += 5;
+            previousPrice /= 2;
+            exchangePrice = currCannonData.price * cannonNumber;
+        } else {
+            exchangePrice = (cannonNumber - _shipData.cannonNum) * currCannonData.price;
+            if (cannonNumber < _shipData.cannonNum) {
+                exchangePrice /= 2;
+            }
         }
+        totolMoney += exchangePrice - previousPrice ;
     }
+    
     
     [_spendingMoneyPanel setMoney:totolMoney];
     [_spendTimePanel setDay:totalTime];

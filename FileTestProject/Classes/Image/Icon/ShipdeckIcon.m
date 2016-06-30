@@ -39,7 +39,7 @@
             _selectedSprite.visible = NO;
             [self addChild:_selectedSprite];
         } else if (shipSceneType == DeckShipSceneModify) {
-            if (shipType == ShipdeckTypeFunctionRoom) {
+            if (shipType == ShipdeckTypeFunctionRoom || shipType == ShipdeckTypeStorageRoom) {
                 self.canSelect = YES;
             }
         }

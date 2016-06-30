@@ -140,10 +140,10 @@ static NSString* const GameItemDataState = @"GameItemDataState";
             if (goodsStr.length > 1) {
                 NSString *goodsId = [goodsStr componentsSeparatedByString:@"_"][0];
                 int goodsLevel = [[goodsStr componentsSeparatedByString:@"_"][1] intValue];
-                GameShipGoodsData *goodsData = [[GameShipGoodsData alloc] initWithGoodsId:goodsId price:0 level:goodsLevel];
                 if (index < ship.capacity)
                 {
-                    [ship.goodsList replaceObjectAtIndex:index++ withObject:goodsData];
+                    GameShipGoodsData *goodsData = ship.goodsList[index++];
+                    [goodsData setGoodsId:goodsId price:0 level:goodsLevel];
                 }
             }
         }

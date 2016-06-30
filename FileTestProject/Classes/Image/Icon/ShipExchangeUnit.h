@@ -16,6 +16,7 @@ typedef enum : NSUInteger {
     ShipSceneTypeBuy,
     ShipSceneTypeSell,
     ShipSceneTypeModify,
+    ShipSceneTypeInfo,
 } ShipSceneType;
 
 @protocol ShipExchangeBuySuccessProtocol <NSObject>
