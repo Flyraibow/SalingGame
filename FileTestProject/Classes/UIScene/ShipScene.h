@@ -13,6 +13,7 @@
 typedef enum : NSUInteger {
     DeckShipSceneDeck,
     DeckShipSceneModify,
+    DeckShipSceneInfo,
 } DeckShipSceneType;
 
 @protocol ShipSceneModifiedDelegate <NSObject>

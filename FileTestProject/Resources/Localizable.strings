@@ -209,6 +209,7 @@
 "dock_sail" = "出海";
 "dock_supply" = "补给";
 "ship_modify" = "改造";
+"ship_Info" = "查看";
 
 "inn_one_day" = "休息一天";
 "inn_ten_day" = "休息十天";
@@ -243,10 +244,11 @@
 "dialog_invest_success" = "投资成功";
 "dialog_signup" = "听说你要和我们签约？";
 
-"ship_duration" = "船只耐久度: %d";
-"ship_speed" = "船速: %d节/小时";
-"ship_cannonNum" = "船载加农炮数量: %d门";
-"ship_minSailorNum" = "最少所需水手数量: %d人";
+"ship_duration" = "耐久:%d/%d";
+"ship_speed" = "船速:%d";
+"ship_agile" = "灵敏:%d";
+"ship_cannonNum" = "大炮:%@ * %d";
+"ship_minSailorNum" = "水手:%d/%d/%d";
 "city_information"="%@物价资讯";
 
 "lab_tradeinfo_category" = "种类";

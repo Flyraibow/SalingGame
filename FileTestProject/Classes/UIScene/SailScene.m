@@ -295,6 +295,10 @@ SailSceneShipProtocol>
 -(void)SailSceneGo:(NSString *)cityNo
 {
     _toCityNo = cityNo;
+    if ([_ship.currentCityNo isEqualToString:cityNo]) {
+        [[CCDirector sharedDirector] popScene];
+        return;
+    }
     NSArray *routes = [GameRouteData searchRoutes:_ship.currentCityNo city2:cityNo];
     // invisible some buttons and close the cityPanel;
     [self setShipMovingState:YES];
