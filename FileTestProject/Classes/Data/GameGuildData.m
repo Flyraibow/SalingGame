@@ -75,7 +75,7 @@ static NSString* const GameGuildCityKnowledgeSet = @"GameGuildCityKnowledgeSet";
     self = [self init];
     if (self) {
         _guildId = [aDecoder decodeObjectForKey:GameGuildId];
-        _money = [aDecoder decodeIntegerForKey: GameGuildMoney];
+        self.money = [aDecoder decodeIntegerForKey: GameGuildMoney];
         _guildName = [aDecoder decodeObjectForKey:GameGuildName];
         _cityControlDic = [aDecoder decodeObjectForKey:GameGuildCityControlDic];
         _leaderId = [aDecoder decodeObjectForKey:GameGuildLeaderId];
@@ -98,22 +98,12 @@ static NSString* const GameGuildCityKnowledgeSet = @"GameGuildCityKnowledgeSet";
 
 -(void)spendMoney:(NSInteger)value
 {
-    _money -= value;
-    if (_money < 0) {
-        _money = 0;
+    NSInteger money = self.money - value;
+    if (money < 0) {
+        money = 0;
     }
+    self.money = money;
 }
-
--(void)setMoney:(NSInteger)money
-{
-    _money = money;
-}
-
--(void)gainMoney:(NSInteger)value
-{
-    _money += value;
-}
-
 
 -(void)buyItem:(GameItemData *)gameItemData withMoney:(int)money
 {
@@ -123,7 +113,7 @@ static NSString* const GameGuildCityKnowledgeSet = @"GameGuildCityKnowledgeSet";
 
 -(void)sellItem:(GameItemData *)gameItemData withMoney:(int)money toCityId:(NSString *)cityId
 {
-    [self gainMoney:money];
+    self.money += money;
     [gameItemData sellToCityNo:cityId];
 }
 

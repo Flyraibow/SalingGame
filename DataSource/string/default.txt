@@ -101,6 +101,7 @@
 "name_shop_owner"="同业公会的总管";
 "name_exchange_owner"="交易所老板";
 "name_shipyard_owner"="造船厂老板";
+"name_dock_sailor" = "码头工人";
 
 "lab_relative_job" = "相关职务";
 "lab_equip_value" = "效果值";

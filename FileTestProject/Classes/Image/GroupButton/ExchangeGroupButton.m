@@ -56,7 +56,7 @@
             __weak DialogPanel *weakDialogPanel = dialogPanel;
             CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
             [dialogPanel setDefaultDialog:@"dialog_new_item_discover" arguments:@[getItemName(itemId)] cityStyle:cityData.cityStyle];
-            [dialogPanel addSelections:@[getLocalString(@"lab_yes"), getLocalString(@"lab_no")] callback:^(int index) {
+            [dialogPanel addYesNoWithCallback:^(int index) {
                 weakSelf.visible = YES;
                 [weakSelf.scene removeChild:weakDialogPanel];
                 if (index == 0) {

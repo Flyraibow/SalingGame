@@ -131,7 +131,7 @@
 
     } else if (_sceneType == ShipSceneTypeSell) {
         [[GameDataManager sharedGameData].myGuild.myTeam.shipList removeObject:_gameShipData];
-        [[GameDataManager sharedGameData].myGuild gainMoney:_dealPrice];
+        [GameDataManager sharedGameData].myGuild.money += _dealPrice;
         [self.delegate ShipDealComplete];
     } else if (_sceneType == ShipSceneTypeModify) {
         // TODO: 进入改造页面

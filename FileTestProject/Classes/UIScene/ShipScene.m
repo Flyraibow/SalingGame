@@ -256,7 +256,7 @@ UpdateMoneyProtocol>
             __weak DialogPanel *weakDialogPanel = dialogPanel;
             CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
             [dialogPanel setDefaultDialog:@"dialog_modify_ship_confirm" arguments:@[@(_spendingMoneyPanel.money), @(_spendTimePanel.day)] cityStyle:cityData.cityStyle];
-            [dialogPanel addSelections:@[getLocalString(@"lab_yes"), getLocalString(@"lab_no")] callback:^(int index) {
+            [dialogPanel addYesNoWithCallback:^(int index) {
                 if (index == 0) {
                     if ([GameDataManager sharedGameData].myGuild.money < _spendingMoneyPanel.money) {
                         [weakDialogPanel setDefaultDialog:@"dialog_no_enough_money" arguments:nil];

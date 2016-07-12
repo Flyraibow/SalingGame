@@ -9,19 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "TeamData.h"
 
-typedef enum : NSUInteger {
-    CheckShipResultSuccess,
-    CheckShipResultNoShips,
-    CheckShipResultNoSailors,
-    CheckShipResultNoFoods,
-    CheckShipResultNeedRepair
-} CheckShipResult;
-
 @interface GameTeamData : NSObject <NSCoding>
 
 @property (nonatomic, readonly) NSString *teamId;
 @property (nonatomic, readonly) NSString *leaderId;
-@property (nonatomic, readonly) NSInteger teamMoney;
+@property (nonatomic) NSInteger teamMoney;
 @property (nonatomic, readonly) NSMutableArray *shipList;
 @property (nonatomic, readonly) NSString *belongToGuildId;
 @property (nonatomic) NSString *currentCityId;
@@ -30,7 +22,11 @@ typedef enum : NSUInteger {
 
 -(instancetype)initWithTeamData:(TeamData *)teamData guildId:(NSString *)guildId;
 
--(CheckShipResult)checkShips;
+-(int)sailorNumbers;
+
+-(CGFloat)needsFoodCapacity;
+
+-(void)fillFood:(CGFloat)food;
 
 -(void)addNpcId:(NSString *)npcId;
 

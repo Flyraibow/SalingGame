@@ -52,29 +52,13 @@ static NSString* const GameUsedStorySet = @"GameUsedStorySet";
     [aCoder encodeObject:_usedStorySet forKey:GameUsedStorySet];
 }
 
--(void)updateMoney
-{
-    for (id<UpdateMoneyProtocol> target in _moneyUpdateSet) {
-        [target updateMoney:self.money];
-    }
-}
-
--(void)gainMoney:(NSInteger)value
-{
-    [super gainMoney:value];
-    [self updateMoney];
-}
-
 -(void)setMoney:(NSInteger)money
 {
     [super setMoney:money];
-    [self updateMoney];
-}
-
--(void)spendMoney:(NSInteger)value
-{
-    [super spendMoney:value];
-    [self updateMoney];
+    _myTeam.teamMoney = self.money;
+    for (id<UpdateMoneyProtocol> target in _moneyUpdateSet) {
+        [target updateMoney:self.money];
+    }
 }
 
 -(void)spendMoney:(NSInteger)value target:(id<SpendMoneyProtocol>)target spendMoneyType:(SpendMoneyType)type
@@ -83,7 +67,6 @@ static NSString* const GameUsedStorySet = @"GameUsedStorySet";
         [target spendMoneyFail:type];
     } else {
         [self spendMoney:value];
-        [self updateMoney];
         [target spendMoneySucceed:type];
     }
 }

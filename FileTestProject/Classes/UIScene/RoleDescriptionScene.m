@@ -88,7 +88,7 @@
     GameGuildData *guildData = [[GameDataManager sharedGameData].guildDic objectForKey:_roleData.guildId];
     [[GameDataManager sharedGameData] initMyGuildWithGameGuildData:guildData];
     [[GameDataManager sharedGameData] setYear:_roleData.startYear month:_roleData.startMonth day:_roleData.startDay];
-    [[GameDataManager sharedGameData].myGuild gainMoney:_roleData.money];
+    [GameDataManager sharedGameData].myGuild.money = _roleData.money;
     
     CityScene *cityScene = [[CityScene alloc] init];
     [[CCDirector sharedDirector] presentScene:cityScene];

@@ -10,4 +10,6 @@
 
 @interface InnGroupButton : BaseButtonGroup
 
+-(instancetype)initWithCityNo:(NSString *)cityNo;
+
 @end

@@ -159,9 +159,9 @@ static NSString* const GameItemDataState = @"GameItemDataState";
         }
     } else if ([logicName isEqualToString:@"money"]) {
         if ([parameter2 intValue] == 1) {
-            [self.myGuild gainMoney:[parameter3 intValue]];
+            self.myGuild.money +=[parameter3 intValue];
         } else if ([parameter2 intValue] == 2) {
-            [self.myGuild gainMoney:-[parameter3 intValue]];
+            [self.myGuild spendMoney:-[parameter3 intValue]];
         } else if ([parameter2 intValue] == 3) {
             [self.myGuild setMoney:[parameter3 intValue]];
         }
@@ -175,11 +175,11 @@ static NSString* const GameItemDataState = @"GameItemDataState";
         if (type == ChangeValueTypeEqual) {
             [self.myGuild setMoney:[logicValue integerValue]];
         } else if (type == ChangeValueTypeAdd) {
-            [self.myGuild gainMoney:[logicValue integerValue]];
+            self.myGuild.money += [logicValue integerValue];
         } else if (type == ChangeValueTypeMinus) {
-            [self.myGuild gainMoney:-[logicValue integerValue]];
+            [self.myGuild spendMoney:[logicValue integerValue]];
         } else if (type == ChangeValueTypeMultiply) {
-            [self.myGuild gainMoney:self.myGuild.money * ([logicValue doubleValue] - 1)];
+            self.myGuild.money += self.myGuild.money * ([logicValue doubleValue] - 1);
         } else if (type == ChangeValueTypeDivide) {
             [self.myGuild setMoney:self.myGuild.money / [logicValue doubleValue]];
         }
@@ -353,14 +353,14 @@ static NSString* const GameItemDataState = @"GameItemDataState";
                     if ([guildId isEqualToString:myguildId]) {
                         contractMoney += money;
                     } else {
-                        [guildData gainMoney:money];
+                        guildData.money += money;
                     }
                 }
             }
         }
     }
     if (contractMoney > 0) {
-        [[GameDataManager sharedGameData].myGuild gainMoney:contractMoney];
+        [GameDataManager sharedGameData].myGuild.money += contractMoney;
         // notify
         GameDialogData *dialogData = [GameDialogData new];
         dialogData.portrait = @"0";

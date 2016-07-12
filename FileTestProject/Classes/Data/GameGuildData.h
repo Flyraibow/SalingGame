@@ -15,7 +15,7 @@
 @property (nonatomic, readonly) NSString *guildId;
 @property (nonatomic, readonly) NSString *guildName;
 @property (nonatomic, readonly) NSString *leaderId;
-@property (nonatomic, readonly) NSInteger money;
+@property (nonatomic) NSInteger money;
 @property (nonatomic, readonly) NSMutableDictionary *cityControlDic;
 @property (nonatomic, readonly) NSMutableSet *cityKnowledgeSet;
 @property (nonatomic, readonly) NSMutableArray *teamList;
@@ -23,9 +23,7 @@
 
 -(instancetype)initWithGameGuildData:(GameGuildData *)guildData;
 -(instancetype)initWithGuildData:(GuildData *)guildData;
--(void)gainMoney:(NSInteger)value;
 -(void)spendMoney:(NSInteger)value;
--(void)setMoney:(NSInteger)money;
 -(void)buyItem:(GameItemData *)gameItemData withMoney:(int)money;
 -(void)sellItem:(GameItemData *)gameItemData withMoney:(int)money toCityId:(NSString *)cityId;
 

@@ -29,6 +29,10 @@
 
 -(void)setDialogWithNpcId:(NSString *)npcId text:(NSString *)text;
 
+-(void)addYesNoWithCallback:(void(^)(int index))handler;
+
+-(void)addConfirmHandler:(void(^)())handler;
+
 -(void)addSelections:(NSArray *)selectArray callback:(void(^)(int index))handler;
 
 -(void)setDefaultDialog:(NSString *)defaultDialogId arguments:(NSArray *)arguments cityStyle:(int)cityStyle;

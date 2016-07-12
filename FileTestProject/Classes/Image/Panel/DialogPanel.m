@@ -186,6 +186,16 @@
     }
 }
 
+-(void)addYesNoWithCallback:(void(^)(int index))handler
+{
+    [self addSelections:@[getLocalString(@"lab_yes"), getLocalString(@"lab_no")] callback:handler];
+}
+
+-(void)addConfirmHandler:(void(^)())handler
+{
+    _confirmHandler = handler;
+}
+
 -(void)addSelections:(NSArray *)selectArray callback:(void(^)(int index))handler
 {
     _handler = handler;

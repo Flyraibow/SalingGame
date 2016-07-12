@@ -81,20 +81,45 @@ static NSString* const GameTeamNPCData = @"GameTeamNPCData";
     [aCoder encodeObject:_npcList forKey:GameTeamNPCData];
 }
 
-
--(CheckShipResult)checkShips
+-(CGFloat)needsFoodCapacity
 {
-    if (_shipList.count == 0) {
-        return CheckShipResultNoShips;
+    CGFloat foodCapacity = 0;
+    for (int i = 0; i < _shipList.count; ++i) {
+        GameShipData *shipData = _shipList[i];
+        foodCapacity += shipData.maxFoodCapacity - shipData.foodCapacity;
     }
+    return foodCapacity;
+}
+
+-(void)fillFood:(CGFloat)food
+{
+    for (int i = 0; i < _shipList.count; ++i) {
+        GameShipData *shipData = _shipList[i];
+        if (food > 0) {
+            food -= shipData.maxFoodCapacity - shipData.foodCapacity;
+            shipData.foodCapacity = shipData.maxFoodCapacity;
+            if (food < 0) {
+                shipData.foodCapacity += food;
+                return;
+            }
+        } else {
+            return;
+        }
+    }
+}
+
+-(int)sailorNumbers
+{
+    int sailorNumbers = 0;
     for (int i = 0; i < _shipList.count; ++i) {
         GameShipData *shipData = _shipList[i];
         if (shipData.curSailorNum == 0) {
-            return CheckShipResultNoSailors;
+            // 只要有一条船上没水手，就不能出航
+            return 0;
         }
+        sailorNumbers += shipData.curSailorNum;
     }
-    
-    return CheckShipResultSuccess;
+    return sailorNumbers;
 }
 
 

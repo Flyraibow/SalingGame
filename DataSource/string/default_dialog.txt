@@ -7,3 +7,5 @@
 "dialog_lose_friend" = "%@离开队伍！";
 "dialog_modify_ship_confirm" = "这次改造需要%@金币，以及%@天时间，你确定吗？";
 "dialog_no_enough_money" = "我的钱不够了";
+"dialog_fill_food" = "这次补给需要%@金币, 确定补给吗？";
+"dialog_no_sailors" = "水手不足，无法出航。";

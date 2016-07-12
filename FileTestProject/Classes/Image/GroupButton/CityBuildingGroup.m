@@ -131,13 +131,13 @@ static int const frameOffsetY = 20;
         _currentChildSprite = shopButton;
     } else if (buildingId == 7) {
         // 点击码头
-        DockGroupButton *dockButton = [DockGroupButton new];
+        DockGroupButton *dockButton = [[DockGroupButton alloc] initWithCityNo:_cityNo];
         dockButton.baseSprite = self;
         [self.scene addChild:dockButton];
         _currentChildSprite = dockButton;
     } else if (buildingId == 8) {
         // 点击旅店
-        InnGroupButton *innButton = [InnGroupButton new];
+        InnGroupButton *innButton = [[InnGroupButton alloc] initWithCityNo:_cityNo];
         innButton.baseSprite = self;
         [self.scene addChild:innButton];
         _currentChildSprite = innButton;

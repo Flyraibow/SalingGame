@@ -10,4 +10,6 @@
 
 @interface DockGroupButton : BaseButtonGroup
 
+-(instancetype)initWithCityNo:(NSString *)cityNo;
+
 @end

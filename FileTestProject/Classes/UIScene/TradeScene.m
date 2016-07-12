@@ -323,7 +323,7 @@
             }
             
             MyGuild *myguild = [GameDataManager sharedGameData].myGuild;
-            [myguild gainMoney:_totalIncome - _totalOutcome];
+            myguild.money += _totalIncome - _totalOutcome;
             [_cityData addTransactionRecord:myguild.guildId buyRecord:_buyRecordDic sellRecord:_sellRecordDic];
         }
         
