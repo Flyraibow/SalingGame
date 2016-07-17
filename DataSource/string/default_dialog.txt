@@ -8,4 +8,8 @@
 "dialog_modify_ship_confirm" = "这次改造需要%@金币，以及%@天时间，你确定吗？";
 "dialog_no_enough_money" = "我的钱不够了";
 "dialog_fill_food" = "这次补给需要%@金币, 确定补给吗？";
-"dialog_no_sailors" = "水手不足，无法出航。";
+"dialog_no_sailors" = "船上不能没有水手。";
+"dialog_no_enough_sailors" = "水手不足，你确定仍然要出航吗？";
+"dialog_checkout_food" = "你的物资大约能航行%@天。";
+"dialog_checkout_food_not_enough" = "你的物资大约能航行%@天。这是不是有点少？";
+"dialog_hire_sailor_confirm" = "本次招募需要花费%@金币，确定要招募吗？";

@@ -16,11 +16,8 @@
 #import "ShipExchangeScene.h"
 
 @implementation InfoButtonGroup
-{
-    NSString *_cityNo;
-}
 
--(instancetype)initWithCityNo:(NSString *)cityNo
+-(instancetype)init
 {
     DefaultButton *btnShipInfo = [DefaultButton buttonWithTitle:getLocalString(@"lab_ship_info")];
     DefaultButton *btnSailorInfo = [DefaultButton buttonWithTitle:getLocalString(@"lab_sailor_info")];
@@ -28,7 +25,6 @@
     self = [super initWithNSArray:[NSArray arrayWithObjects:btnShipInfo, btnSailorInfo, btnItemInfo, nil] CCNodeColor:[BGImage getShadowForBackground]];
     if (self)
     {
-        _cityNo = cityNo;
         [btnShipInfo setTarget:self selector:@selector(clickShipInfo)];
         [btnSailorInfo setTarget:self selector:@selector(clickSailorInfo)];
         [btnItemInfo setTarget:self selector:@selector(clickItemInfo)];

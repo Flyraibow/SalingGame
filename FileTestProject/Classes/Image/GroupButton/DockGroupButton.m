@@ -14,10 +14,12 @@
 #import "GameDataManager.h"
 #import "GameTeamData.h"
 #import "GamePanelManager.h"
+#import "DataManager.h"
 
 @implementation DockGroupButton
 {
     NSString *_cityNo;
+    int _cityStyle;
 }
 
 -(instancetype)initWithCityNo:(NSString *)cityNo
@@ -27,6 +29,7 @@
     self = [super initWithNSArray:[NSArray arrayWithObjects:btnSail, btnSupply, nil] CCNodeColor:[BGImage getShadowForBackground]];
     if (self) {
         _cityNo = cityNo;
+        _cityStyle = [[DataManager sharedDataManager].getCityDic getCityById:cityNo].cityStyle;
         [btnSail setTarget:self selector:@selector(clickSailBtn)];
         [btnSupply setTarget:self selector:@selector(clickSupplyBtn)];
     }
@@ -43,7 +46,7 @@
     
     __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:nil];
     if (money > 0) {
-        [dialogPanel setDefaultDialog:@"dialog_fill_food" arguments:@[@(money)] cityStyle:_cityNo];
+        [dialogPanel setDefaultDialog:@"dialog_fill_food" arguments:@[@(money)] cityStyle:_cityStyle];
         [dialogPanel addYesNoWithCallback:^(int index) {
             if (index == 0) {
                 if (myGuild.money < money) {
@@ -66,10 +69,10 @@
 -(void)checkSailor:(GameTeamData *)teamData
 {
     __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:nil];
-    //TODO: 检查水手是否充足
     int sailorNumbers = [teamData sailorNumbers];
     if (sailorNumbers == 0) {
-        [dialogPanel setDefaultDialog:@"dialog_no_sailors" arguments:nil cityStyle:_cityNo];
+        // 如果某条船没有水手
+        [dialogPanel setDefaultDialog:@"dialog_no_sailors" arguments:nil cityStyle:_cityStyle];
         [dialogPanel addConfirmHandler:^{
             self.visible = YES;
         }];
@@ -78,8 +81,41 @@
             [self.scene addChild:dialogPanel];
         }
     } else {
-        [self finalSail];
+        //TODO: 检查水手是否充足，如果不足只是提醒，仍然可以继续上路
+        if (sailorNumbers < 0) {
+            sailorNumbers = - sailorNumbers;
+            
+            [dialogPanel setDefaultDialog:@"dialog_no_enough_sailors" arguments:nil cityStyle:_cityStyle];
+            [dialogPanel addYesNoWithCallback:^(int index) {
+                self.visible = YES;
+                if (index == 0) {
+                    // 继续前行
+                    [self checkoutFood:teamData :sailorNumbers];
+                }
+            }];
+            self.visible = NO;
+            if (dialogPanel.parent != self.scene) {
+                [self.scene addChild:dialogPanel];
+            }
+        } else {
+            [self checkoutFood:teamData :sailorNumbers];
+        }
     }
+}
+
+-(void)checkoutFood:(GameTeamData *)teamData :(int)sailorNumber
+{
+    CGFloat food = [teamData totalFood];
+    int days = food * 200 / sailorNumber;
+    __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:nil];
+    if (days >= 15) {
+        [dialogPanel setDefaultDialog:@"dialog_checkout_food" arguments:@[@(days)] cityStyle:_cityStyle];
+    } else {
+        [dialogPanel setDefaultDialog:@"dialog_checkout_food_not_enough" arguments:@[@(days)] cityStyle:_cityStyle];
+    }
+    [dialogPanel addConfirmHandler:^{
+        [self finalSail];
+    }];
 }
 
 -(void)finalSail

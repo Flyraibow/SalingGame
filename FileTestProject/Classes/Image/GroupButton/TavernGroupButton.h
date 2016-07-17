@@ -10,4 +10,6 @@
 
 @interface TavernGroupButton : BaseButtonGroup
 
+-(instancetype)initWithCityNo:(NSString *)cityNo;
+
 @end

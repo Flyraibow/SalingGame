@@ -264,7 +264,7 @@
 "name_shop_owner"="同业公会的总管";
 "name_exchange_owner"="交易所老板";
 "name_shipyard_owner"="造船厂老板";
-"name_dock_owner" = "码头工人";
+"name_dock_sailor" = "码头工人";
 
 "lab_relative_job" = "相关职务";
 "lab_equip_value" = "效果值";
@@ -296,7 +296,10 @@
 "dialog_modify_ship_confirm" = "这次改造需要%@金币，以及%@天时间，你确定吗？";
 "dialog_no_enough_money" = "我的钱不够了";
 "dialog_fill_food" = "这次补给需要%@金币, 确定补给吗？";
-"dialog_no_sailors" = "水手不足，无法出航。";
+"dialog_no_sailors" = "船上不能没有水手。";
+"dialog_no_enough_sailors" = "水手不足，你确定仍然要出航吗？";
+"dialog_checkout_food" = "你的物资大约能航行%@天。";
+"dialog_checkout_food_not_enough" = "你的物资大约能航行%@天。这是不是有点少？";
 
 "dialog_1"="我已经有五条船了，无法再购买了";
 "dialog_2"="没有多余的船只";

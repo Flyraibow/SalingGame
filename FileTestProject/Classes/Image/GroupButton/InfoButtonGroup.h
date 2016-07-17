@@ -10,6 +10,4 @@
 
 @interface InfoButtonGroup : BaseButtonGroup
 
--(instancetype)initWithCityNo:(NSString *)cityNo;
-
 @end

@@ -110,18 +110,34 @@ static NSString* const GameTeamNPCData = @"GameTeamNPCData";
 
 -(int)sailorNumbers
 {
+    BOOL flag = NO;
     int sailorNumbers = 0;
     for (int i = 0; i < _shipList.count; ++i) {
         GameShipData *shipData = _shipList[i];
         if (shipData.curSailorNum == 0) {
             // 只要有一条船上没水手，就不能出航
             return 0;
+        } else if (shipData.curSailorNum < shipData.minSailorNum) {
+            flag = YES;
         }
         sailorNumbers += shipData.curSailorNum;
+    }
+    if (flag) {
+        // 表示至少有一条船的水手没有达到最低要求
+        sailorNumbers = - sailorNumbers;
     }
     return sailorNumbers;
 }
 
+-(double)totalFood
+{
+    CGFloat food = 0;
+    for (int i = 0; i < _shipList.count; ++i) {
+        GameShipData *shipData = _shipList[i];
+        food += shipData.foodCapacity;
+    }
+    return food;
+}
 
 -(void)addNpcId:(NSString *)npcId
 {
