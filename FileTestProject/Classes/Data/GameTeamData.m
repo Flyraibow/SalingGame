@@ -129,7 +129,29 @@ static NSString* const GameTeamNPCData = @"GameTeamNPCData";
     return sailorNumbers;
 }
 
--(double)totalFood
+// 需要的水手人数，如果水手够用，则返回正数，表示距离最大值的数值
+// 如果水手不足必要，则返回负数，其绝对值表示，距离必要水手的人数
+-(int)needSailorNumbersWithNewHiring:(int)newSailorsNum
+{
+    int sailorNumbers = newSailorsNum;
+    int minNumber = 0;
+    int maxNumber= 0;
+    for (int i = 0; i < _shipList.count; ++i) {
+        GameShipData *shipData = _shipList[i];
+        minNumber += shipData.minSailorNum;
+        maxNumber += shipData.maxSailorNum;
+        sailorNumbers += shipData.curSailorNum;
+    }
+    if (sailorNumbers >= maxNumber) {
+        return 0;
+    }
+    if (sailorNumbers >= minNumber) {
+        return maxNumber - sailorNumbers;
+    }
+    return sailorNumbers - minNumber;
+}
+
+-(CGFloat)totalFood
 {
     CGFloat food = 0;
     for (int i = 0; i < _shipList.count; ++i) {

@@ -25,6 +25,15 @@ static CGFloat const TIME_INTERVAL = 0.2f;
 {
     int _sleepDays;
     CGFloat _currentTime;
+    NSString *_cityNo;
+}
+
+-(instancetype)initWithCityNo:(NSString *)cityNo
+{
+    if (self = [self init]) {
+        _cityNo = cityNo;
+    }
+    return self;
 }
 
 -(instancetype)init

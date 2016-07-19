@@ -51,14 +51,12 @@
     for (NSString *itemId in gameCityData.unlockGoodsDict) {
         GameItemData * gameItemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
         if ([gameItemData.guildId isEqualToString:myGuild.guildId]) {
-            DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
+            __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
             __weak CCSprite *weakSelf = self;
-            __weak DialogPanel *weakDialogPanel = dialogPanel;
             CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
             [dialogPanel setDefaultDialog:@"dialog_new_item_discover" arguments:@[getItemName(itemId)] cityStyle:cityData.cityStyle];
             [dialogPanel addYesNoWithCallback:^(int index) {
                 weakSelf.visible = YES;
-                [weakSelf.scene removeChild:weakDialogPanel];
                 if (index == 0) {
                     [gameCityData unlockGoodsByItem:itemId];
                     [gameItemData unlockGoods];

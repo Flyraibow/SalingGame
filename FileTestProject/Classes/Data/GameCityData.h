@@ -45,7 +45,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSInteger commerceInvestRecord;
 @property (nonatomic, readonly) NSInteger milltaryInvestRecord;
 @property (nonatomic, readonly) NSDictionary *unlockGoodsDict;
-
+@property (nonatomic, readonly, weak) CityData *cityData;
 
 -(instancetype)initWithCityData:(CityData *)cityData;
 

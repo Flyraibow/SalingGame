@@ -103,7 +103,7 @@ static int const frameOffsetY = 20;
         _currentChildSprite = governmentButton;
     } else if (buildingId == 2) {
         // 点击酒馆
-        TavernGroupButton *tavernButton = [TavernGroupButton new];
+        TavernGroupButton *tavernButton = [[TavernGroupButton alloc] initWithCityNo:_cityNo];
         tavernButton.baseSprite = self;
         [self.scene addChild:tavernButton];
         _currentChildSprite = tavernButton;

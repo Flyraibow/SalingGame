@@ -259,16 +259,14 @@ UpdateMoneyProtocol>
             [dialogPanel addYesNoWithCallback:^(int index) {
                 if (index == 0) {
                     if ([GameDataManager sharedGameData].myGuild.money < _spendingMoneyPanel.money) {
+                        // todo: maybe we need do some modify here
                         [weakDialogPanel setDefaultDialog:@"dialog_no_enough_money" arguments:nil];
                     } else {
                         [[GameDataManager sharedGameData] addTimeUpdateClass:self];
                         [[GameDataManager sharedGameData].myGuild spendMoney:_spendingMoneyPanel.money];
                         _timing = YES;
                         [[OALSimpleAudio sharedInstance] playEffect:@"carpenter.wav"];
-                        [weakDialogPanel removeFromParent];
                     }
-                } else {
-                    [weakDialogPanel removeFromParent];
                 }
             }];
             [self addChild:dialogPanel];

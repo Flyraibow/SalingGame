@@ -63,7 +63,7 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
                 [(NSMutableDictionary *)_unlockGoodsDict setObject:unlockPair[0] forKey:unlockPair[1]];
             }
         }
-        
+        _cityData = cityData;
         _transactionRecordDict = [NSMutableDictionary new];
         _guildOccupation = [NSMutableDictionary new];
         _commerceInvestRecord = 0;
@@ -94,6 +94,7 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
         _categoryPriceDict = [aDecoder decodeObjectForKey:CityCategoryPriceDict];
         _goodsPriceDict = [aDecoder decodeObjectForKey:CityGoodsPriceDict];
         _unlockGoodsDict = [aDecoder decodeObjectForKey:CityUnlockGoodsDict];
+        _cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
     }
     return self;
 }

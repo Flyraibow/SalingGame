@@ -76,6 +76,7 @@
         _confirmHandler = nil;
         [_dialogPanel addChild:_labelContent];
         _selecting = NO;
+        _canRemove = YES;
     }
     return self;
 }
@@ -95,8 +96,11 @@
         if ([_delegate respondsToSelector:@selector(confirm)]) {
             [_delegate confirm];
         } else {
+            _canRemove = YES;
             if (_confirmHandler != nil) _confirmHandler();
-            [self removeFromParent];
+            if (_canRemove) {
+                [self removeFromParent];
+            }
         }
     }
 }
@@ -104,7 +108,11 @@
 -(void)clickButton:(DefaultButton *)button
 {
     int index = [button.name intValue];
+    _canRemove = YES;
     _handler(index);
+    if (_canRemove) {
+        [self removeFromParent];
+    }
 }
 
 -(NSString *)replaceTextWithDefaultRegex:(NSString *)text
@@ -157,6 +165,7 @@
 
 -(void)setDialogWithPhotoNo:(NSString *)photoNo npcName:(NSString *)npcName text:(NSString *)text handler:(void (^)())handler
 {
+    _canRemove = NO;
     _confirmHandler = handler;
     if (_buttonGroup != nil) {
         [self removeChild:_buttonGroup];

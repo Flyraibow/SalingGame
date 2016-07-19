@@ -19,6 +19,7 @@
 @interface DialogPanel : CCSprite
 
 @property (nonatomic) id<DialogInteractProtocol> delegate;
+@property (nonatomic) BOOL canRemove;
 
 -(instancetype)initWithContentSize:(CGSize)contentSize;
 

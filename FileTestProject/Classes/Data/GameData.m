@@ -24,6 +24,7 @@
     NSMutableSet *_timeUpdateSet;
     NSMutableSet *_occupationUpdateSet;
     NSMutableSet *_cityChangeSet;
+    void(^_handler)();
 }
 
 static NSString* const GameDataDate = @"GameDate";
@@ -327,6 +328,22 @@ static NSString* const GameItemDataState = @"GameItemDataState";
     for (id<DateUpdateProtocol> target in _timeUpdateSet) {
         [target updateDate];
     }
+}
+
+-(void)spendOneDayWithInterval:(CGFloat)interval callback:(void(^)())handler
+{
+    [self spendOneDay];
+    _handler = handler;
+    if (interval <= 0) {
+        _handler();
+    } else {
+        [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(_spendTimeComplete) userInfo:nil repeats:NO];
+    }
+}
+
+-(void)_spendTimeComplete
+{
+    _handler();
 }
 
 -(void)passMonth

@@ -23,6 +23,7 @@
 -(instancetype)initWithTeamData:(TeamData *)teamData guildId:(NSString *)guildId;
 
 -(int)sailorNumbers;
+-(int)needSailorNumbersWithNewHiring:(int)newSailorsNum;
 -(CGFloat)totalFood;
 
 -(CGFloat)needsFoodCapacity;
