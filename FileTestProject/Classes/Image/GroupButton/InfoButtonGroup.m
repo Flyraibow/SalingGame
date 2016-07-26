@@ -22,12 +22,14 @@
     DefaultButton *btnShipInfo = [DefaultButton buttonWithTitle:getLocalString(@"lab_ship_info")];
     DefaultButton *btnSailorInfo = [DefaultButton buttonWithTitle:getLocalString(@"lab_sailor_info")];
     DefaultButton *btnItemInfo = [DefaultButton buttonWithTitle:getLocalString(@"lab_item_info")];
-    self = [super initWithNSArray:[NSArray arrayWithObjects:btnShipInfo, btnSailorInfo, btnItemInfo, nil] CCNodeColor:[BGImage getShadowForBackground]];
+    DefaultButton *btnDiaryInfo = [DefaultButton buttonWithTitle:getLocalString(@"lab_diary_info")];
+    self = [super initWithNSArray:@[btnShipInfo, btnSailorInfo, btnItemInfo, btnDiaryInfo] CCNodeColor:[BGImage getShadowForBackground]];
     if (self)
     {
         [btnShipInfo setTarget:self selector:@selector(clickShipInfo)];
         [btnSailorInfo setTarget:self selector:@selector(clickSailorInfo)];
         [btnItemInfo setTarget:self selector:@selector(clickItemInfo)];
+        [btnDiaryInfo setTarget:self selector:@selector(clickDiaryInfo)];
     }
     return self;
 }
@@ -67,5 +69,9 @@
     [self.scene addChild:browsePanel];
 }
 
+-(void)clickDiaryInfo
+{
+    
+}
 
 @end

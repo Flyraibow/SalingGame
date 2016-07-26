@@ -8,11 +8,9 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "CCSprite.h"
 
 static const CGFloat kCannonUnitIconWidth = 120.0;
 static const CGFloat kCannonUnitIconHeight = 35.0;
-
 
 @protocol CannonUnitIconDelegate <NSObject>
 

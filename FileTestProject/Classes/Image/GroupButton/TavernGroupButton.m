@@ -87,6 +87,7 @@
                 self.visible = YES;
             }];
         } else {
+            // 如果是第一次，则只显示需要的钱，后面则显示还差的人口
             if (firstTime) {
                 [dialogPanel setDefaultDialog:@"dialog_hire_sailor_confirm" arguments:@[@(money)] cityStyle:_cityStyle];
             } else {
@@ -100,6 +101,7 @@
                 if (index == 0) {
                     // 扣钱，加水手，显示还缺多少人到必要和，还缺多少人到满，可以继续雇佣人
                     [[GameDataManager sharedGameData].myGuild spendMoney:money];
+                    _currentHiringNum += sailorNumber;
                     [[GameDataManager sharedGameData] spendOneDayWithInterval:1.0 callback:^{
                         [dialogPanel setDefaultDialog:@"dialog_hire_sailor_success" arguments:@[@(money), @(sailorNumber)] cityStyle:_cityStyle];
                         [dialogPanel addConfirmHandler:^{
@@ -117,6 +119,11 @@
         [self.scene addChild:dialogPanel];
         self.visible = NO;
     }
+}
+
+-(void)openArrangeSailorPanel
+{
+    
 }
 
 -(void)clickSpreadBtn
