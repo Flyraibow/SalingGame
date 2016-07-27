@@ -23,17 +23,17 @@
 -(instancetype)initWithShipList:(NSArray *)shipList freeSailorNumber:(int)freeSailorNumber
 {
     
-    NSUInteger count = shipList.count;
+    NSUInteger count = 5;
     CGFloat scale = 0.65;
     SailorNumberUnit *unit0 = [[SailorNumberUnit alloc] initWithShipData:shipList[0]];
     CGFloat width = unit0.contentSize.width * scale+ 10;
     CGFloat height = unit0.contentSize.height * scale * count + 30;
     if (self = [super initWithSize:CGSizeMake(width, height)]) {
         for (int i = 0; i < count; ++i) {
-            SailorNumberUnit *unit = i == 0 ? unit0 : [[SailorNumberUnit alloc] initWithShipData:shipList[i]];
+            SailorNumberUnit *unit = i == 0 ? unit0 : [[SailorNumberUnit alloc] initWithShipData:shipList[0]];
             unit.anchorPoint = ccp(0, 1);
             unit.positionType = CCPositionTypePoints;
-            unit.position = ccp(5, height - i * kSailorNumberUnitIconHeight - 5);
+            unit.position = ccp(5, height - i * unit0.contentSize.height  * scale - 5);
             unit.delegate = self;
             unit.scale = scale;
             [self.frame addChild:unit];

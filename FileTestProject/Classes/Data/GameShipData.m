@@ -48,7 +48,7 @@ static NSString* const GameShipEquipList = @"GameShipEquipList";
         _cannonId = shipData.cannonId;
         _duration = self.maxDuration;
         _belongToGuild = nil;
-        
+        _leaderName = @"";
         
     }
     return self;
@@ -174,6 +174,11 @@ static NSString* const GameShipEquipList = @"GameShipEquipList";
         // TODO: 如果改造过，可能钱会些许不同
         return _shipData.price * 0.6;
     }
+}
+
+-(NSString *)shipIconImageName
+{
+    return [NSString stringWithFormat:@"ship%@.jpg",self.shipIcon];
 }
 
 @end

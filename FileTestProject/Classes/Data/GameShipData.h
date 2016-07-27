@@ -70,6 +70,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSArray *equipList;
 @property (nonatomic, readonly, weak) ShipStyleData *shipStyleData;
 @property (nonatomic, readonly) int cannonRooms;
+@property (nonatomic, readonly) NSString *shipIconImageName;
+@property (nonatomic, copy) NSString *leaderName;
 
 
 -(instancetype)initWithShipData:(ShipData *)shipData;

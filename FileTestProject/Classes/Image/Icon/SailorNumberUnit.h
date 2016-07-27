@@ -11,9 +11,6 @@
 #import "GameShipData.h"
 #import "SailorNumberPanel.h"
 
-static const CGFloat kSailorNumberUnitIconWidth = 320;
-static const CGFloat kSailorNumberUnitIconHeight = 70;
-
 @interface SailorNumberUnit : CCSprite
 
 @property (nonatomic, weak) id<SailorNumberPanelDelegate> delegate;
