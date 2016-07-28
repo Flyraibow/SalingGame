@@ -10,6 +10,7 @@
 
 @protocol SailorNumberPanelDelegate <NSObject>
 
+// 设置该船的新人数，返回true表示成功，false表示设置失败
 -(void)setSailorNumberFrom:(int)prevSailorNumber toSailorNumber:(int)toSailorNumber;
 
 -(int)getFreeSailorNumbers;

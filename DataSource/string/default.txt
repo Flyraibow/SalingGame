@@ -99,6 +99,16 @@
 "lab_item_info"="宝物信息";
 "lab_diary_info"="航海日志";
 
+"lab_set_zero" ="设为0";
+"lab_set_minimum" ="设为最小值";
+"lab_set_maximum" ="设为最大值";
+"lab_minimum_sailor_number" ="必要水手数";
+"lab_free_sailor_number" ="剩余水手数:";
+"lab_captain" ="舰长：";
+"lab_sailor_arrange_first" ="旗舰重视";
+"lab_sailor_arrange_average" ="平均分配";
+"lab_sailor_arrange_minimum" ="必要人数";
+
 "name_shop_owner"="同业公会的总管";
 "name_exchange_owner"="交易所老板";
 "name_shipyard_owner"="造船厂老板";

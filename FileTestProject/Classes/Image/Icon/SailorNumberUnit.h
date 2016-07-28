@@ -15,6 +15,10 @@
 
 @property (nonatomic, weak) id<SailorNumberPanelDelegate> delegate;
 
+@property (nonatomic, weak) GameShipData *shipData;
+
+@property (nonatomic, readwrite) int sailorNumber;
+
 - (instancetype)initWithShipData:(GameShipData *)shipData;
 
 @end
