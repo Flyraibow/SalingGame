@@ -9,17 +9,12 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
-@protocol DialogInteractProtocol <NSObject>
-
-@optional
--(void)confirm;
-
-@end
-
 @interface DialogPanel : CCSprite
 
-@property (nonatomic) id<DialogInteractProtocol> delegate;
-@property (nonatomic) BOOL canRemove;
+@property (nonatomic, assign) BOOL canRemove;
+@property (nonatomic, assign) BOOL canShowCoverPanel;
+@property (nonatomic, weak) CCSprite *coverSprite;
+@property (nonatomic, assign) BOOL *hideSprite;
 
 -(instancetype)initWithContentSize:(CGSize)contentSize;
 
@@ -41,5 +36,7 @@
 -(void)setDefaultDialog:(NSString *)defaultDialogId arguments:(NSArray *)arguments;
 
 -(NSString *)replaceTextWithDefaultRegex:(NSString *)text;
+
+-(void)cutConversation;
 
 @end

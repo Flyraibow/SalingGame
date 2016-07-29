@@ -13,14 +13,20 @@ static DialogPanel *_sharedDialogPanel;
 
 @implementation GamePanelManager
 
-+(DialogPanel *)sharedDialogPanelWithDelegate:(id<DialogInteractProtocol>)delegate
++(DialogPanel *)sharedDialogPanelAboveSprite:(CCSprite *)sprite hidden:(BOOL)hidden
 {
     if (_sharedDialogPanel == nil) {
         CGSize size = [CCDirector sharedDirector].viewSize;
         _sharedDialogPanel = [[DialogPanel alloc] initWithContentSize:size];
     }
-    _sharedDialogPanel.delegate = delegate;
+    _sharedDialogPanel.coverSprite = sprite;
+    _sharedDialogPanel.hideSprite = hidden;
     return _sharedDialogPanel;
+}
+
++(DialogPanel *)sharedDialogPanelAboveSprite:(CCSprite *)sprite;
+{
+    return [self sharedDialogPanelAboveSprite:sprite hidden:NO];
 }
 
 @end

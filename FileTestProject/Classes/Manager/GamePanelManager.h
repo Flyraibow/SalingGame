@@ -11,6 +11,8 @@
 
 @interface GamePanelManager : NSObject
 
-+(DialogPanel *)sharedDialogPanelWithDelegate:(id<DialogInteractProtocol>)delegate;
++(DialogPanel *)sharedDialogPanelAboveSprite:(CCSprite *)sprite;
+
++(DialogPanel *)sharedDialogPanelAboveSprite:(CCSprite *)sprite hidden:(BOOL)hidden;
 
 @end

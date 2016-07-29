@@ -103,7 +103,7 @@
 "lab_set_minimum" ="设为最小值";
 "lab_set_maximum" ="设为最大值";
 "lab_minimum_sailor_number" ="必要水手数";
-"lab_free_sailor_number" ="剩余水手数:";
+"lab_free_sailor_number" ="剩余水手:";
 "lab_captain" ="舰长：";
 "lab_sailor_arrange_first" ="旗舰重视";
 "lab_sailor_arrange_average" ="平均分配";

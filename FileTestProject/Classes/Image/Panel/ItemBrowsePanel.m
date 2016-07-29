@@ -21,7 +21,7 @@
 const static int kShowItemNumberEachLine = 7;
 const static int kShowLinesNumber = 4;
 
-@interface ItemBrowsePanel() <ItemIconSelectionDelegate, ItemInfoPanelDelegate, DialogInteractProtocol>
+@interface ItemBrowsePanel() <ItemIconSelectionDelegate, ItemInfoPanelDelegate>
 
 @end
 
@@ -257,13 +257,11 @@ const static int kShowLinesNumber = 4;
 {
     if (_panelType == ItemBrowsePanelTypeBuy) {
         // 调用对话，询问是否购买
-        DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
-        __weak DialogPanel *weakDialogPanel = dialogPanel;
+        __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
         __weak ItemInfoPanel *weakItemInfoPanel = _itemInfoPanel;
         CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
         [dialogPanel setDefaultDialog:@"dialog_buy_item" arguments:@[getItemName(gameItemData.itemId), @(gameItemData.itemData.price)] cityStyle:cityData.cityStyle];
         [dialogPanel addSelections:@[getLocalString(@"lab_buy"), getLocalString(@"btn_cancel")] callback:^(int index) {
-            [self removeChild:weakDialogPanel];
             if (index == 0) {
                 [self removeChild:weakItemInfoPanel];
                 _panel.visible = YES;
@@ -277,16 +275,13 @@ const static int kShowLinesNumber = 4;
                 }
             }
          }];
-        [self addChild:dialogPanel];
     } else if (_panelType == ItemBrowsePanelTypeSell) {
-        DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
-        __weak DialogPanel *weakDialogPanel = dialogPanel;
+        __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
         __weak ItemInfoPanel *weakItemInfoPanel = _itemInfoPanel;
         CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
         int price = gameItemData.itemData.price * 0.5;
         [dialogPanel setDefaultDialog:@"dialog_sell_item" arguments:@[getItemName(gameItemData.itemId), @(price)] cityStyle:cityData.cityStyle];
         [dialogPanel addSelections:@[getLocalString(@"lab_sell"), getLocalString(@"btn_cancel")] callback:^(int index) {
-            [self removeChild:weakDialogPanel];
             if (index == 0) {
                 [self removeChild:weakItemInfoPanel];
                 _panel.visible = YES;
@@ -297,7 +292,6 @@ const static int kShowLinesNumber = 4;
                 [self setItems:items];
             }
         }];
-        [self addChild:dialogPanel];
     }
 }
 

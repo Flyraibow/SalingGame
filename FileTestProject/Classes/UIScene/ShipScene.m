@@ -29,7 +29,6 @@ ShipdeckIconSelectProtocol,
 TextInputPanelDelegate,
 CannonSelectionPanelDelegate,
 DateUpdateProtocol,
-DialogInteractProtocol,
 UpdateMoneyProtocol>
 
 @end
@@ -252,15 +251,14 @@ UpdateMoneyProtocol>
             [self clickBtnClose];
         } else {
             // 先加一个确认的对话框
-            DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
-            __weak DialogPanel *weakDialogPanel = dialogPanel;
+            __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:nil];
             CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
             [dialogPanel setDefaultDialog:@"dialog_modify_ship_confirm" arguments:@[@(_spendingMoneyPanel.money), @(_spendTimePanel.day)] cityStyle:cityData.cityStyle];
             [dialogPanel addYesNoWithCallback:^(int index) {
                 if (index == 0) {
                     if ([GameDataManager sharedGameData].myGuild.money < _spendingMoneyPanel.money) {
                         // todo: maybe we need do some modify here
-                        [weakDialogPanel setDefaultDialog:@"dialog_no_enough_money" arguments:nil];
+                        [dialogPanel setDefaultDialog:@"dialog_no_enough_money" arguments:nil];
                     } else {
                         [[GameDataManager sharedGameData] addTimeUpdateClass:self];
                         [[GameDataManager sharedGameData].myGuild spendMoney:_spendingMoneyPanel.money];
@@ -303,13 +301,15 @@ UpdateMoneyProtocol>
     if (dialogList.count > 0) {
         _timing = NO;
         GameDialogData *dialogData = [dialogList objectAtIndex:0];
-        DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
+        __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:nil];
         __weak ShipScene *weakSelf = self;
         [dialogPanel setDialogWithPhotoNo:dialogData.portrait npcName:dialogData.npcName text:dialogData.text handler:^{
             [weakSelf processDialog];
         }];
         [dialogList removeObjectAtIndex:0];
-        [self addChild:dialogPanel];
+        if (dialogPanel.parent != self) {
+            [self addChild:dialogPanel];
+        }
     } else {
         _timing = YES;
     }

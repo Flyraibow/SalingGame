@@ -54,7 +54,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, readonly) int maxSailorNum;
 @property (nonatomic, readonly) int minSailorNum;
-@property (nonatomic, readonly) int curSailorNum;
+@property (nonatomic, assign) int curSailorNum;
 @property (nonatomic, readonly) int capacity;
 @property (nonatomic) CGFloat foodCapacity;
 @property (nonatomic, readonly) int maxFoodCapacity;

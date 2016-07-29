@@ -130,7 +130,7 @@ typedef enum : NSUInteger {
 
 @end
 
-@interface CGStoryScene() <DialogInteractProtocol, DuelSceneDelegate>
+@interface CGStoryScene() <DuelSceneDelegate>
 
 @end
 
@@ -177,7 +177,6 @@ typedef enum : NSUInteger {
         [self addChild:_text z:101];
         _touchTime = 0;
         _dialogPanel = [[DialogPanel alloc] initWithContentSize:CGSizeMake(_contentSize.height / 3 * 4, _contentSize.height)];
-        _dialogPanel.delegate = self;
         
         [self setStoryId:storyId removeAllPhoto:NO];
     }
@@ -219,7 +218,8 @@ typedef enum : NSUInteger {
                 delta = 5;
                 _waitingClick = NO;
                 if (_inDialog) {
-                    [self confirm];
+                    [_dialogPanel cutConversation];
+                    _inDialog = NO;
                 }
             }
             if (_waitTime > 0 ) {
@@ -362,6 +362,9 @@ typedef enum : NSUInteger {
                             npcName = getNpcFirstName(storyData.parameter2);
                         }
                         [_dialogPanel setDialogWithPhotoNo:storyData.parameter1 npcName:npcName text:getStoryText(storyData.parameter3)];
+                        [_dialogPanel addConfirmHandler:^{
+                            _inDialog = NO;
+                        }];
                         _inDialog = YES;
                         flag = NO;
                         // if the dialog has selections ,load immediately
@@ -551,12 +554,6 @@ typedef enum : NSUInteger {
 -(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
     _touchTime = 0;
-}
-
--(void)confirm
-{
-    [self removeChild:_dialogPanel];
-    _inDialog = NO;
 }
 
 @end

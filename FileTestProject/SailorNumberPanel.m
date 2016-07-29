@@ -10,6 +10,7 @@
 #import "SailorNumberUnit.h"
 #import "DefaultButton.h"
 #import "LocalString.h"
+#import "GamePanelManager.h"
 
 @interface SailorNumberPanel() <SailorNumberPanelDelegate>
 
@@ -31,9 +32,9 @@
     SailorNumberUnit *unit0 = [[SailorNumberUnit alloc] initWithShipData:shipList[0]];
     CGFloat width = unit0.contentSize.width * scale+ 10;
     CGFloat height = unit0.contentSize.height * scale * count + 30;
-    NSMutableArray<SailorNumberUnit *> *shipNumberUnitList;
-    _totalSailorNumber = 0;
     if (self = [super initWithSize:CGSizeMake(width, height)]) {
+        NSMutableArray<SailorNumberUnit *> *shipNumberUnitList = [NSMutableArray new];
+        _totalSailorNumber = freeSailorNumber;
         for (int i = 0; i < count; ++i) {
             SailorNumberUnit *unit = i == 0 ? unit0 : [[SailorNumberUnit alloc] initWithShipData:shipList[i]];
             unit.anchorPoint = ccp(0, 1);
@@ -62,18 +63,10 @@
         
         static const CGFloat buttonScale = 0.4;
         
-        DefaultButton *btnClose = [DefaultButton buttonWithTitle:getLocalString(@"lab_cancel")];
-        btnClose.positionType = CCPositionTypeMake(CCPositionUnitPoints, CCPositionUnitPoints, CCPositionReferenceCornerBottomRight);
-        btnClose.anchorPoint = ccp(1, 0);
-        btnClose.position = ccp(5, 5);
-        btnClose.scale = buttonScale;
-        [self.frame addChild:btnClose];
-        [btnClose setTarget:self selector:@selector(clickCloseButton)];
-        
         DefaultButton *btnSure = [DefaultButton buttonWithTitle:getLocalString(@"lab_sure")];
         btnSure.positionType = CCPositionTypeMake(CCPositionUnitPoints, CCPositionUnitPoints, CCPositionReferenceCornerBottomRight);
         btnSure.anchorPoint = ccp(1, 0);
-        btnSure.position = ccp(btnClose.position.x + btnClose.contentSize.width * buttonScale + 1, 5);
+        btnSure.position = ccp(5, 5);
         btnSure.scale = buttonScale;
         [self.frame addChild:btnSure];
         [btnSure setTarget:self selector:@selector(clickSureButton)];
@@ -278,7 +271,27 @@
 
 -(void)clickSureButton
 {
-    
+    if (_freeSailorNumber > 0) {
+        __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
+        [dialogPanel setDefaultDialog:@"dialog_more_free_sailors" arguments:@[@(_freeSailorNumber)]];
+        [dialogPanel addYesNoWithCallback:^(int index) {
+            if (index == 0) {
+                // 确认
+                [self arrangeAllSailors];
+            }
+        }];
+    } else {
+        [self arrangeAllSailors];
+    }
+}
+
+-(void)arrangeAllSailors
+{
+    for (int i = 0; i < _shipNumberUnitList.count; ++i) {
+        SailorNumberUnit *unit = _shipNumberUnitList[i];
+        unit.shipData.curSailorNum = unit.sailorNumber;
+    }
+    [self clickCloseButton];
 }
 
 @end

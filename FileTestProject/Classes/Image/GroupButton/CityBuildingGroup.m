@@ -179,16 +179,6 @@ static int const frameOffsetY = 20;
     [self setHidden:YES];
 }
 
--(void)confirm
-{
-    [super confirm];
-    [self setHidden:NO];
-    if (_currentChildSprite != nil)
-    {
-        [_currentChildSprite confirm];
-    }
-}
-
 -(void)closeButtonGroup:(id)buttonGroup
 {
     [_delegate checkStory:@"0"];

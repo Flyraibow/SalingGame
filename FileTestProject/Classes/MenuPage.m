@@ -23,7 +23,7 @@
 #import "NSString+Ext.h"
 #import "CannonSelectionPanel.h"
 
-@interface MenuPage() <DialogInteractProtocol>
+@interface MenuPage()
 
 @end
 

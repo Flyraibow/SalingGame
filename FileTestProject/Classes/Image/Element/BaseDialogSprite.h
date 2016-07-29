@@ -9,7 +9,7 @@
 #import "CCSprite.h"
 #import "DialogPanel.h"
 
-@interface BaseDialogSprite : CCSprite <DialogInteractProtocol>
+@interface BaseDialogSprite : CCSprite
 
 @property (nonatomic, assign) BOOL showingDialog;
 

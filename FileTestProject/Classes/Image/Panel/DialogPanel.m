@@ -92,14 +92,19 @@
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
+    [self cutConversation];
+}
+
+-(void)cutConversation
+{
     if (!_selecting) {
-        if ([_delegate respondsToSelector:@selector(confirm)]) {
-            [_delegate confirm];
-        } else {
-            _canRemove = YES;
-            if (_confirmHandler != nil) _confirmHandler();
-            if (_canRemove) {
-                [self removeFromParent];
+        _canRemove = YES;
+        _canShowCoverPanel = YES;
+        if (_confirmHandler != nil) _confirmHandler();
+        if (_canRemove) {
+            [self removeFromParent];
+            if (_canShowCoverPanel) {
+                self.coverSprite.visible = YES;
             }
         }
     }
@@ -109,9 +114,13 @@
 {
     int index = [button.name intValue];
     _canRemove = YES;
+    _canShowCoverPanel = YES;
     _handler(index);
     if (_canRemove) {
         [self removeFromParent];
+        if (_canShowCoverPanel) {
+            self.coverSprite.visible = YES;
+        }
     }
 }
 
@@ -182,6 +191,12 @@
     }
     _labelName.string = npcName;
     _labelContent.string = [self replaceTextWithDefaultRegex:text];
+    if (self.coverSprite) {
+        if (self.parent != self.coverSprite.scene) {
+            [self.coverSprite.scene addChild:self];
+        }
+        self.coverSprite.visible = !self.hideSprite;
+    }
 }
 
 

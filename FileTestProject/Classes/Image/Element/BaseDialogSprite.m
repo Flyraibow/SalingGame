@@ -26,7 +26,6 @@
 {
     if (_dialogPanel == nil) {
         _dialogPanel = [[DialogPanel alloc] init];
-        _dialogPanel.delegate = self;
     }
     if (_dialogPanel.parent == nil) {
         [self.scene addChild:_dialogPanel];

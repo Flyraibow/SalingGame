@@ -44,8 +44,8 @@
     __block CGFloat needsFood = [teamData needsFoodCapacity];
     __block NSInteger money = needsFood * 100;
     
-    __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:nil];
     if (money > 0) {
+        __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
         [dialogPanel setDefaultDialog:@"dialog_fill_food" arguments:@[@(money)] cityStyle:_cityStyle];
         [dialogPanel addYesNoWithCallback:^(int index) {
             if (index == 0) {
@@ -56,11 +56,8 @@
                 [myGuild spendMoney:money];
                 [teamData fillFood:needsFood];
             }
-            self.visible = YES;
             [self checkSailor:teamData];
         }];
-        self.visible = NO;
-        [self.scene addChild:dialogPanel];
     } else {
         [self checkSailor:teamData];
     }
@@ -68,35 +65,22 @@
 
 -(void)checkSailor:(GameTeamData *)teamData
 {
-    __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:nil];
+    __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
     int sailorNumbers = [teamData sailorNumbers];
     if (sailorNumbers == 0) {
         // 如果某条船没有水手
         [dialogPanel setDefaultDialog:@"dialog_no_sailors" arguments:nil cityStyle:_cityStyle];
-        [dialogPanel addConfirmHandler:^{
-            self.visible = YES;
-        }];
-        self.visible = NO;
-        if (dialogPanel.parent != self.scene) {
-            [self.scene addChild:dialogPanel];
-        }
     } else {
         //TODO: 检查水手是否充足，如果不足只是提醒，仍然可以继续上路
         if (sailorNumbers < 0) {
             sailorNumbers = - sailorNumbers;
-            
             [dialogPanel setDefaultDialog:@"dialog_no_enough_sailors" arguments:nil cityStyle:_cityStyle];
             [dialogPanel addYesNoWithCallback:^(int index) {
-                self.visible = YES;
                 if (index == 0) {
                     // 继续前行
                     [self checkoutFood:teamData :sailorNumbers];
                 }
             }];
-            self.visible = NO;
-            if (dialogPanel.parent != self.scene) {
-                [self.scene addChild:dialogPanel];
-            }
         } else {
             [self checkoutFood:teamData :sailorNumbers];
         }
@@ -107,7 +91,7 @@
 {
     CGFloat food = [teamData totalFood];
     int days = food * 200 / sailorNumber;
-    __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:nil];
+    __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
     if (days >= 15) {
         [dialogPanel setDefaultDialog:@"dialog_checkout_food" arguments:@[@(days)] cityStyle:_cityStyle];
     } else {

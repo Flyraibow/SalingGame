@@ -13,6 +13,8 @@
 #import "GamePanelManager.h"
 #import "GameDataManager.h"
 #import "GameCityData.h"
+#import "GamePanelManager.h"
+#import "SailorNumberPanel.h"
 
 @implementation TavernGroupButton
 {
@@ -60,7 +62,12 @@
 -(void)clickHireBtn
 {
     _currentHiringNum = 0;
-    [self _hireSailor:YES];
+    // 如果没有船则无法招募水手
+    if ([GameDataManager sharedGameData].myGuild.myTeam.shipList.count > 0) {
+        [self _hireSailor:YES];
+    } else {
+        [[GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES] setDefaultDialog:@"dialog_no_ship_no_game" arguments:nil];
+    }
 }
 
 -(void)_hireSailor:(BOOL)firstTime
@@ -69,12 +76,14 @@
     GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
     __block int needSailorNumbers = [[GameDataManager sharedGameData].myGuild.myTeam needSailorNumbersWithNewHiring:_currentHiringNum];
     
-    __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:nil];
+    __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
     if (needSailorNumbers == 0) {
         // 不需要雇佣水手了
         [dialogPanel setDefaultDialog:@"dialog_hire_full" arguments:nil cityStyle:_cityStyle];
         [dialogPanel addConfirmHandler:^{
-            self.visible = YES;
+            if (_currentHiringNum > 0) {
+                [self openArrangeSailorPanel];
+            }
         }];
     } else {
         int averageWage = 10 + cityData.commerceValue / 200 + arc4random() % 10; // 平均工资
@@ -84,7 +93,9 @@
         if ([GameDataManager sharedGameData].myGuild.money < money) {
             [dialogPanel setDefaultDialog:@"dialog_hire_sailor_no_money" arguments:@[@(money)] cityStyle:_cityStyle];
             [dialogPanel addConfirmHandler:^{
-                self.visible = YES;
+                if (_currentHiringNum > 0) {
+                    [self openArrangeSailorPanel];
+                }
             }];
         } else {
             // 如果是第一次，则只显示需要的钱，后面则显示还差的人口
@@ -102,28 +113,29 @@
                     // 扣钱，加水手，显示还缺多少人到必要和，还缺多少人到满，可以继续雇佣人
                     [[GameDataManager sharedGameData].myGuild spendMoney:money];
                     _currentHiringNum += sailorNumber;
+                    dialogPanel.canShowCoverPanel = NO;
                     [[GameDataManager sharedGameData] spendOneDayWithInterval:1.0 callback:^{
                         [dialogPanel setDefaultDialog:@"dialog_hire_sailor_success" arguments:@[@(money), @(sailorNumber)] cityStyle:_cityStyle];
                         [dialogPanel addConfirmHandler:^{
                             [self _hireSailor:NO];
                         }];
-                        [self.scene addChild:dialogPanel];
                     }];
                 } else {
-                    self.visible = YES;
+                    if (_currentHiringNum > 0) {
+                        [self openArrangeSailorPanel];
+                    }
                 }
             }];
         }
-    }
-    if (dialogPanel.parent != self.scene) {
-        [self.scene addChild:dialogPanel];
-        self.visible = NO;
     }
 }
 
 -(void)openArrangeSailorPanel
 {
-    
+    SailorNumberPanel *sailorNumberPanel = [[SailorNumberPanel alloc]
+                                       initWithShipList:[GameDataManager sharedGameData].myGuild.myTeam.shipList
+                                       freeSailorNumber:_currentHiringNum];
+    [self.scene addChild:sailorNumberPanel];
 }
 
 -(void)clickSpreadBtn

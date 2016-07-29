@@ -19,7 +19,7 @@
 #import "SailScene.h"
 #import "GamePanelManager.h"
 
-@interface ExchangeGroupButton()<DialogInteractProtocol>
+@interface ExchangeGroupButton()
 
 @end
 
@@ -51,19 +51,15 @@
     for (NSString *itemId in gameCityData.unlockGoodsDict) {
         GameItemData * gameItemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
         if ([gameItemData.guildId isEqualToString:myGuild.guildId]) {
-            __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelWithDelegate:self];
-            __weak CCSprite *weakSelf = self;
             CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
+            __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
             [dialogPanel setDefaultDialog:@"dialog_new_item_discover" arguments:@[getItemName(itemId)] cityStyle:cityData.cityStyle];
             [dialogPanel addYesNoWithCallback:^(int index) {
-                weakSelf.visible = YES;
                 if (index == 0) {
                     [gameCityData unlockGoodsByItem:itemId];
                     [gameItemData unlockGoods];
                 }
             }];
-            self.visible = NO;
-            [self.scene addChild:dialogPanel];
             return;
         }
     }

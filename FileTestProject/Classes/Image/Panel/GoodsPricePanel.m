@@ -18,7 +18,7 @@
 #import "GoodsIcon.h"
 #import "DialogPanel.h"
 
-@interface GoodsPricePanel() <GoodsIconSelectionDelegate, DialogInteractProtocol>
+@interface GoodsPricePanel() <GoodsIconSelectionDelegate>
 
 @end
 
