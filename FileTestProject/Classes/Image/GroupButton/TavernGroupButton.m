@@ -82,6 +82,7 @@
         [dialogPanel setDefaultDialog:@"dialog_hire_full" arguments:nil cityStyle:_cityStyle];
         [dialogPanel addConfirmHandler:^{
             if (_currentHiringNum > 0) {
+                dialogPanel.canShowCoverPanel = NO;
                 [self openArrangeSailorPanel];
             }
         }];
@@ -94,6 +95,7 @@
             [dialogPanel setDefaultDialog:@"dialog_hire_sailor_no_money" arguments:@[@(money)] cityStyle:_cityStyle];
             [dialogPanel addConfirmHandler:^{
                 if (_currentHiringNum > 0) {
+                    dialogPanel.canShowCoverPanel = NO;
                     [self openArrangeSailorPanel];
                 }
             }];
@@ -122,6 +124,7 @@
                     }];
                 } else {
                     if (_currentHiringNum > 0) {
+                        dialogPanel.canShowCoverPanel = NO;
                         [self openArrangeSailorPanel];
                     }
                 }
@@ -135,6 +138,7 @@
     SailorNumberPanel *sailorNumberPanel = [[SailorNumberPanel alloc]
                                        initWithShipList:[GameDataManager sharedGameData].myGuild.myTeam.shipList
                                        freeSailorNumber:_currentHiringNum];
+    sailorNumberPanel.hiddenPanel = self;
     [self.scene addChild:sailorNumberPanel];
 }
 

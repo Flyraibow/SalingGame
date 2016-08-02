@@ -12,6 +12,8 @@
 
 @interface BaseFrame : CCSprite
 
+@property (nonatomic, weak) CCSprite *hiddenPanel;
+
 -(instancetype)initWithNodeColor:(CCNodeColor *)nodeColor;
 
 @end

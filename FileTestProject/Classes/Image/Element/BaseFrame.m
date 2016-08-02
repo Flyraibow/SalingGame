@@ -39,4 +39,25 @@
     // to swallow all the touches
 }
 
+- (void)setHiddenPanel:(CCSprite *)hiddenPanel
+{
+    if (_hiddenPanel != hiddenPanel) {
+        if (_hiddenPanel) {
+            _hiddenPanel.visible = YES;
+        }
+        if (hiddenPanel) {
+            hiddenPanel.visible = NO;
+        }
+        _hiddenPanel = hiddenPanel;
+    }
+}
+
+- (void)removeFromParent
+{
+    [super removeFromParent];
+    if (self.hiddenPanel) {
+        self.hiddenPanel.visible = YES;
+    }
+}
+
 @end
