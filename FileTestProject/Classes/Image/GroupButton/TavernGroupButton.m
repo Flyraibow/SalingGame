@@ -81,10 +81,7 @@
         // 不需要雇佣水手了
         [dialogPanel setDefaultDialog:@"dialog_hire_full" arguments:nil cityStyle:_cityStyle];
         [dialogPanel addConfirmHandler:^{
-            if (_currentHiringNum > 0) {
-                dialogPanel.canShowCoverPanel = NO;
-                [self openArrangeSailorPanel];
-            }
+            [self openArrangeSailorPanel:dialogPanel];
         }];
     } else {
         int averageWage = 10 + cityData.commerceValue / 200 + arc4random() % 10; // 平均工资
@@ -94,10 +91,7 @@
         if ([GameDataManager sharedGameData].myGuild.money < money) {
             [dialogPanel setDefaultDialog:@"dialog_hire_sailor_no_money" arguments:@[@(money)] cityStyle:_cityStyle];
             [dialogPanel addConfirmHandler:^{
-                if (_currentHiringNum > 0) {
-                    dialogPanel.canShowCoverPanel = NO;
-                    [self openArrangeSailorPanel];
-                }
+                [self openArrangeSailorPanel:dialogPanel];
             }];
         } else {
             // 如果是第一次，则只显示需要的钱，后面则显示还差的人口
@@ -123,23 +117,23 @@
                         }];
                     }];
                 } else {
-                    if (_currentHiringNum > 0) {
-                        dialogPanel.canShowCoverPanel = NO;
-                        [self openArrangeSailorPanel];
-                    }
+                    [self openArrangeSailorPanel:dialogPanel];
                 }
             }];
         }
     }
 }
 
--(void)openArrangeSailorPanel
+-(void)openArrangeSailorPanel:(DialogPanel *)dialogPanel
 {
-    SailorNumberPanel *sailorNumberPanel = [[SailorNumberPanel alloc]
-                                       initWithShipList:[GameDataManager sharedGameData].myGuild.myTeam.shipList
-                                       freeSailorNumber:_currentHiringNum];
-    sailorNumberPanel.hiddenPanel = self;
-    [self.scene addChild:sailorNumberPanel];
+    if (_currentHiringNum > 0) {
+        dialogPanel.canShowCoverPanel = NO;
+        SailorNumberPanel *sailorNumberPanel = [[SailorNumberPanel alloc]
+                                                initWithShipList:[GameDataManager sharedGameData].myGuild.myTeam.shipList
+                                                freeSailorNumber:_currentHiringNum];
+        sailorNumberPanel.hiddenPanel = self;
+        [self.scene addChild:sailorNumberPanel];
+    }
 }
 
 -(void)clickSpreadBtn
