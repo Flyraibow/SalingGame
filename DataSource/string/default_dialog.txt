@@ -18,5 +18,5 @@
 "dialog_hire_sailor_success" = "提督，我们用%@金币成功雇佣到了%@为水手";
 "dialog_hire_continue_full" = "距离满仓还差%@位水手，我们要继续雇佣吗？";
 "dialog_hire_continue_need" = "距离必要水手数还差%@位水手，我们要继续雇佣吗？";
-"dialog_more_free_sailors" = "还有%@为水手没有被配置，要遣散他们吗？"
+"dialog_more_free_sailors" = "还有%@为水手没有被配置，要遣散他们吗？";
 "dialog_no_ship_no_game" = "我们还没有船。";

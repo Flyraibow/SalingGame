@@ -15,6 +15,7 @@
 #import "DataManager.h"
 #import "ShipIcon.h"
 #import "ShipScene.h"
+#import "GamePanelManager.h"
 
 @interface ShipExchangeUnit() <SpendMoneyProtocol, ShipSceneModifiedDelegate>
 
@@ -127,6 +128,7 @@
 -(void)clickAction
 {
     if (_sceneType == ShipSceneTypeBuy) {
+        
         [[GameDataManager sharedGameData].myGuild spendMoney:_gameShipData.price target:self spendMoneyType:SpendMoneyTypeBuyShip];
 
     } else if (_sceneType == ShipSceneTypeSell) {
@@ -161,7 +163,8 @@
 
 -(void)spendMoneyFail:(SpendMoneyType)type
 {
-    
+    DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
+    [dialogPanel setDefaultDialog:@"dialog_no_enough_money" arguments:@[]];
 }
 
 -(void)spendMoneySucceed:(SpendMoneyType)type

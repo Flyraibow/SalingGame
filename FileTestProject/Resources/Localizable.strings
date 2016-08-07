@@ -266,7 +266,7 @@
 "lab_set_minimum" ="设为最小值";
 "lab_set_maximum" ="设为最大值";
 "lab_minimum_sailor_number" ="必要水手数";
-"lab_free_sailor_number" ="剩余水手数:";
+"lab_free_sailor_number" ="剩余水手:";
 "lab_captain" ="舰长：";
 "lab_sailor_arrange_first" ="旗舰重视";
 "lab_sailor_arrange_average" ="平均分配";
@@ -317,6 +317,8 @@
 "dialog_hire_sailor_success" = "提督，我们用%@金币成功雇佣到了%@为水手";
 "dialog_hire_continue_full" = "距离满仓还差%@位水手，我们要继续雇佣吗？";
 "dialog_hire_continue_need" = "距离必要水手数还差%@位水手，我们要继续雇佣吗？";
+"dialog_more_free_sailors" = "还有%@为水手没有被配置，要遣散他们吗？";
+"dialog_no_ship_no_game" = "我们还没有船。";
 
 "dialog_1"="我已经有五条船了，无法再购买了";
 "dialog_2"="没有多余的船只";
