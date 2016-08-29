@@ -8,7 +8,6 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "BaseDialogSprite.h"
 
 @interface BaseFrame : CCSprite
 

@@ -69,7 +69,6 @@
 "lab_equip" = "装备";
 "lab_use" = "使用";
 
-"need_to_sign_before_exchange" = "对不起，你必须要先签约才能在这里做交易";
 "get_contract_money" = "独占契约，获得%d金币";
 
 "btn_show_buy_price" = "进价表示";
@@ -77,8 +76,6 @@
 
 "ship_name_feihong" = "飞虹特别号";
 "dialog_signup_failure" = "对不起，我们城市无法再和其他势力签约。";
-"dialog_invest_failure" = "对不起你的钱不够。";
-"dialog_invest_success" = "投资成功";
 "dialog_signup" = "听说你要和我们签约？";
 
 "ship_duration" = "耐久:%d/%d";
@@ -113,6 +110,7 @@
 "name_exchange_owner"="交易所老板";
 "name_shipyard_owner"="造船厂老板";
 "name_dock_sailor" = "码头工人";
+"name_governor" = "总督";
 
 "lab_relative_job" = "相关职务";
 "lab_equip_value" = "效果值";

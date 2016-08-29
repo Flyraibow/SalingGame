@@ -48,10 +48,10 @@
     // 如果城市新产物需要的道具在手上，则触发剧情
     GameCityData *gameCityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
     MyGuild *myGuild = [GameDataManager sharedGameData].myGuild;
+    CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
     for (NSString *itemId in gameCityData.unlockGoodsDict) {
         GameItemData * gameItemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
         if ([gameItemData.guildId isEqualToString:myGuild.guildId]) {
-            CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
             __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
             [dialogPanel setDefaultDialog:@"dialog_new_item_discover" arguments:@[getItemName(itemId)] cityStyle:cityData.cityStyle];
             [dialogPanel addYesNoWithCallback:^(int index) {
@@ -68,8 +68,8 @@
         if (percentage > 0) {
             [[CCDirector sharedDirector] pushScene:[[TradeScene alloc] initWithCityNo:_cityNo]];
         } else {
-            
-            [self.baseSprite showDialog:[NSString stringWithFormat:@"Exchange%d",[[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo].cityStyle] npcName:getCityNpcName(1) text:getLocalString(@"need_to_sign_before_exchange")];
+            DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
+            [dialogPanel setDefaultDialog:@"dialog_need_to_sign_before_exchange" arguments:@[] cityStyle:cityData.cityStyle];
         }
     }
 }

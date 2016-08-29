@@ -9,6 +9,7 @@
 #import "ShipSailModel.h"
 #import "GameDataManager.h"
 #import "GameRouteData.h"
+#import "GamePanelManager.h"
 
 @implementation ShipSailModel
 {
@@ -48,9 +49,14 @@
         NSMutableArray *dialogArray = [GameDataManager sharedGameData].dialogList;
         if ([dialogArray count] > 0) {
             GameDialogData *dialogData = [dialogArray objectAtIndex:0];
-            [self showDialog:dialogData.portrait npcName:dialogData.npcName text:dialogData.text];
-            _dialog = YES;
             [dialogArray removeObjectAtIndex:0];
+            _dialog = YES;
+            DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:nil];
+            [dialogPanel setDialogWithPhotoNo:dialogData.portrait npcName:dialogData.npcName text:dialogData.text];
+            [dialogPanel addConfirmHandler:^{
+                _dialog = NO;
+            }];
+            [self.scene addChild:dialogPanel];
         } else {
             if (_up) {
                 _offsetY+=0.3;
@@ -82,12 +88,6 @@
             }
         }
     }
-}
-
--(void)confirm
-{
-    [self removeDialogPanel];
-    _dialog = NO;
 }
 
 -(void)setPosition:(CGPoint)position

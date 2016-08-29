@@ -22,8 +22,6 @@
 -(instancetype)initWithNSArray:(NSArray *)buttonGroup CCNodeColor:(CCNodeColor *)nodeColor;
 -(instancetype)initWithNSArray:(NSArray *)buttonGroup CCNodeColor:(CCNodeColor *)nodeColor withCloseButton:(BOOL)closeButton;
 
--(void)showDefaultText:(NSString *)text;
--(void)confirm;
 -(void)setCallback:(void(^)(int index))handler;
 -(void)clickCloseButton;
 

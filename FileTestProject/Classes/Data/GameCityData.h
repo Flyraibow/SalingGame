@@ -11,7 +11,7 @@
 
 typedef enum : NSUInteger {
     InvestTypeCommerce,
-    InvestTypeMilltary,
+    InvestTypeMilitary,
     InvestTypeSignup
 } InvestType;
 

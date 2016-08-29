@@ -29,4 +29,9 @@ static DialogPanel *_sharedDialogPanel;
     return [self sharedDialogPanelAboveSprite:sprite hidden:NO];
 }
 
++(BOOL)isInDialog
+{
+    return _sharedDialogPanel.parent != nil;
+}
+
 @end

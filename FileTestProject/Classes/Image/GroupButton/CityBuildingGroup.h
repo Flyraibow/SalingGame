@@ -8,7 +8,6 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "BaseDialogSprite.h"
 
 @protocol CityBuildingDelegate <NSObject>
 
@@ -16,7 +15,7 @@
 
 @end
 
-@interface CityBuildingGroup : BaseDialogSprite
+@interface CityBuildingGroup : CCSprite
 
 @property (nonatomic, weak) id<CityBuildingDelegate> delegate;
 

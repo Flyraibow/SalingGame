@@ -14,6 +14,7 @@
 #import "BGImage.h"
 #import "BaseFrame.h"
 #import "CityBuildingGroup.h"
+#import "GamePanelManager.h"
 
 static CGFloat const TIME_INTERVAL = 0.2f;
 
@@ -95,7 +96,7 @@ static CGFloat const TIME_INTERVAL = 0.2f;
 {
     if (_sleepDays > 0)
     {
-        if (_currentTime > 0 && !self.baseSprite.showingDialog) {
+        if (_currentTime > 0 && ![GamePanelManager isInDialog]) {
             _currentTime -= delta;
             if (_currentTime < 0) {
                 [self spendOneDay];

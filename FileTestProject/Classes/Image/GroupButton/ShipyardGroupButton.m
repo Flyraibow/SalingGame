@@ -13,6 +13,7 @@
 #import "ShipExchangeScene.h"
 #import "GameDataManager.h"
 #import "CityBuildingGroup.h"
+#import "GamePanelManager.h"
 
 @implementation ShipyardGroupButton
 {
@@ -40,8 +41,7 @@
 {
     // TODO: add restriction of ship numbers
     if ([GameDataManager sharedGameData].myGuild.myTeam.shipList.count >= 5) {
-        MyGuild *myGuild = [GameDataManager sharedGameData].myGuild ;
-        [self.baseSprite showDialog:myGuild.leaderId text:getDialogText(@"1")];
+        
     } else {
         [[CCDirector sharedDirector] pushScene:[[ShipExchangeScene alloc] initWithCityNo:_cityNo]];
     }
@@ -51,8 +51,8 @@
 {
     // TODO: add restriction of ship numbers
     if ([GameDataManager sharedGameData].myGuild.myTeam.shipList.count <= 1) {
-        MyGuild *myGuild = [GameDataManager sharedGameData].myGuild ;
-        [self.baseSprite showDialog:myGuild.leaderId text:getDialogText(@"2")];
+        DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
+        [dialogPanel setDefaultDialog:@"dialog_no_ship_to_sale" arguments:@[]];
     } else {
         [[CCDirector sharedDirector] pushScene:[[ShipExchangeScene alloc] initWithShipList:[GameDataManager sharedGameData].myGuild.myTeam.shipList sceneType:ShipSceneTypeSell]];
     }
@@ -63,7 +63,8 @@
     // TODO: add restriction of ship numbers
     if ([GameDataManager sharedGameData].myGuild.myTeam.shipList.count <= 0) {
         MyGuild *myGuild = [GameDataManager sharedGameData].myGuild ;
-        [self.baseSprite showDialog:myGuild.leaderId text:getDialogText(@"6")];
+        // todo: showdialog
+//        [self.baseSprite showDialog:myGuild.leaderId text:getDialogText(@"6")];
     } else {
         [[CCDirector sharedDirector] pushScene:[[ShipExchangeScene alloc] initWithShipList:[GameDataManager sharedGameData].myGuild.myTeam.shipList sceneType:ShipSceneTypeModify]];
     }

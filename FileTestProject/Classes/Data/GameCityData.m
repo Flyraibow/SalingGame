@@ -227,7 +227,7 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
     if (type == InvestTypeCommerce) {
         _commerceInvestRecord += money;
         if ([_guildOccupation objectForKey:guildId] == nil) units = 0;
-    } else if (type == InvestTypeMilltary) {
+    } else if (type == InvestTypeMilitary) {
         _milltaryInvestRecord += money;
         if ([_guildOccupation objectForKey:guildId] == nil) units = 0;
     } else if (type == InvestTypeSignup) {
@@ -241,7 +241,6 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
 
 -(int)getGoodsNumForGuild:(NSString *)guildId goodsId:(NSString *)goodsId
 {
-    // TODO:
     int maxValue = [_goodsDict[goodsId] intValue] * _commerceValue / 10000;
     int guildNumber = maxValue * [_guildOccupation[guildId] intValue] / 100 + 1;
     guildNumber -= [[[_transactionRecordDict objectForKey:guildId] objectForKey:goodsId] intValue];

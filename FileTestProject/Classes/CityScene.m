@@ -21,6 +21,7 @@
 #import "OccupationUpdateProtocol.h"
 #import "GameStoryTriggerManager.h"
 #import "CGStoryScene.h"
+#import "GamePanelManager.h"
 
 @interface CityScene() <
 DateUpdateProtocol,
@@ -175,8 +176,11 @@ CityBuildingDelegate>
         NSMutableArray *dialogList = [GameDataManager sharedGameData].dialogList;
         if (dialogList.count > 0) {
             GameDialogData *dialogData = [dialogList objectAtIndex:0];
-            [_cityBuildingGroup showDialog:dialogData.portrait npcName:dialogData.npcName text:dialogData.text];
             [dialogList removeObjectAtIndex:0];
+            DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:nil];
+            [dialogPanel setDialogWithPhotoNo:dialogData.portrait npcName:dialogData.npcName text:dialogData.text];
+            [self addChild:dialogPanel];
+            
         }
     }
 }

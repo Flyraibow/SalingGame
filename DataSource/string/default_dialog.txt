@@ -20,3 +20,9 @@
 "dialog_hire_continue_need" = "距离必要水手数还差%@位水手，我们要继续雇佣吗？";
 "dialog_more_free_sailors" = "还有%@为水手没有被配置，要遣散他们吗？";
 "dialog_no_ship_no_game" = "我们还没有船。";
+"dialog_no_ship_to_sale" = "我们没有可卖的船只。";
+"dialog_invest_success" = "非常感谢你对我们城市的投资。";
+"dialog_signup_failure_full" = "我们城市已经没有多余可以签约的份额了。";
+"dialog_signup_start" = "听说你想和我们签约？打算签订多少份额呢？";
+"dialog_military_invest_start" = "听说你想进行军事投资，打算投资多少份额呢？";
+"dialog_need_to_sign_before_exchange" = "对不起，你必须要先签约才能在这里做交易";

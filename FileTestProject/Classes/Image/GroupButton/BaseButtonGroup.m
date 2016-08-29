@@ -58,17 +58,6 @@
     return self;
 }
 
--(void)showDefaultText:(NSString *)text
-{
-    CityBuildingData *buildingData = [[[DataManager sharedDataManager] getCityBuildingDic] getCityBuildingById:self.buildingNo];
-    [self.baseSprite showDialog:[NSString stringWithFormat:@"%@%d",buildingData.portraitId, self.cityStle] npcName:getCityNpcName(buildingData.npcNameId) text:text];
-}
-
--(void)confirm
-{
-    
-}
-
 -(void)clickCloseButton
 {
     [self removeFromParent];

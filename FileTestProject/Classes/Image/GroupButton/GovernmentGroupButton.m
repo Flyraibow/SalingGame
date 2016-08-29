@@ -14,15 +14,7 @@
 #import "GameDataManager.h"
 #import "CityBuildingGroup.h"
 #import "DataManager.h"
-
-typedef enum : NSUInteger {
-    SelectionTypeNone,
-    SelectionTypeSignUp,
-    SelectionTypeSignUpFinish,
-    SelectionTypeInvest,
-    SelectionTypeInvestFinish,
-    SelectionTypeFinish,
-} SelectionType;
+#import "GamePanelManager.h"
 
 @interface GovernmentGroupButton() <InvestPanelDelegate>
 
@@ -31,7 +23,7 @@ typedef enum : NSUInteger {
 @implementation GovernmentGroupButton
 {
     NSString *_cityNo;
-    SelectionType _type;
+    int _cityStyle;
 }
 
 -(instancetype)initWithCityNo:(NSString *)cityNo
@@ -49,6 +41,7 @@ typedef enum : NSUInteger {
     [arrayButton addObject:btnRecommend];
     if (self = [self initWithNSArray:arrayButton CCNodeColor:[BGImage getShadowForBackground]]) {
         _cityNo = cityNo;
+        _cityStyle = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo].cityStyle;
         [btnInvest setTarget:self selector:@selector(clickInvest)];
         [btnRecommend setTarget:self selector:@selector(clickRecommend)];
     }
@@ -58,39 +51,42 @@ typedef enum : NSUInteger {
 -(void)clickSign
 {
     if ([[[GameDataManager sharedGameData].cityDic objectForKey:_cityNo] canSignUp:[GameDataManager sharedGameData].myGuild.guildId]) {
-        [self showDefaultText:getLocalString(@"dialog_signup")];
-        _type = SelectionTypeSignUp;
+        DialogPanel *dialog = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
+        [dialog setDefaultDialog:@"dialog_signup_start" arguments:@[] cityStyle:_cityStyle];
+        [dialog addConfirmHandler:^{
+            InvestPanel *panel = [[InvestPanel alloc] initWithCityId:_cityNo investType:InvestTypeSignup];
+            panel.delegate = self;
+            [self.scene addChild:panel];
+        }];
     } else {
-        // 已经满了无法签约
-        [self showDefaultText:getLocalString(@"dialog_signup_failure")];
-        _type = SelectionTypeNone;
-    }
-}
-
--(void)confirm
-{
-    if (_type == SelectionTypeSignUp) {
-        _type = SelectionTypeNone;
-        InvestPanel *panel = [[InvestPanel alloc] initWithCityId:_cityNo investType:InvestTypeSignup];
-        panel.delegate = self;
-        [self.scene addChild:panel];
+        // Todo: 已经满了无法签约, 可能还有其他原因
+        DialogPanel *dialog = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
+        [dialog setDefaultDialog:@"dialog_signup_failure_full" arguments:@[] cityStyle:_cityStyle];
     }
 }
 
 -(void)investFailure
 {
-    [self showDefaultText:getLocalString(@"dialog_invest_failure")];
+    // todo: we doesn't have the reason. Maybe one day, we will add the reason here.
+    DialogPanel *dialog = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
+    [dialog setDefaultDialog:@"dialog_no_enough_money" arguments:@[] cityStyle:_cityStyle];
 }
 
 -(void)investSucceed
 {
-    [self showDefaultText:getLocalString(@"dialog_invest_succeed")];
+    DialogPanel *dialog = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
+    [dialog setDefaultDialog:@"dialog_invest_success" arguments:@[] cityStyle:_cityStyle];
 }
 
 -(void)clickInvest
 {
-    InvestPanel *panel = [[InvestPanel alloc] initWithCityId:_cityNo investType:InvestTypeMilltary];
-    [self.scene addChild:panel];
+    DialogPanel *dialog = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
+    [dialog setDefaultDialog:@"dialog_military_invest_start" arguments:@[] cityStyle:_cityStyle];
+    [dialog addConfirmHandler:^{
+        InvestPanel *panel = [[InvestPanel alloc] initWithCityId:_cityNo investType:InvestTypeMilitary];
+        panel.delegate = self;
+        [self.scene addChild:panel];
+    }];
 }
 
 -(void)clickRecommend

@@ -15,4 +15,6 @@
 
 +(DialogPanel *)sharedDialogPanelAboveSprite:(CCSprite *)sprite hidden:(BOOL)hidden;
 
++(BOOL)isInDialog;
+
 @end

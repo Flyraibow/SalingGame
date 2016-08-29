@@ -167,18 +167,6 @@ static int const frameOffsetY = 20;
     }
 }
 
--(void)showDialog:(NSString *)portraitId npcName:(NSString *)npcName text:(NSString *)text
-{
-    [super showDialog:portraitId npcName:npcName text:text];
-    [self setHidden:YES];
-}
-
--(void)showDialog:(NSString *)npcId text:(NSString *)text
-{
-    [super showDialog:npcId text:text];
-    [self setHidden:YES];
-}
-
 -(void)closeButtonGroup:(id)buttonGroup
 {
     [_delegate checkStory:@"0"];

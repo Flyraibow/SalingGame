@@ -64,7 +64,7 @@
         GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityNo];
         if (type == InvestTypeCommerce) {
             _unitMoney = cityData.commerceValue;
-        } else if (type == InvestTypeMilltary) {
+        } else if (type == InvestTypeMilitary) {
             _unitMoney = cityData.milltaryValue;
         } else  if (type == InvestTypeSignup) {
             _unitMoney = cityData.commerceValue + cityData.milltaryValue;

@@ -828,7 +828,6 @@
 		27FBB7841CE46D5B002B106B /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7831CE46D5B002B106B /* NSString+Ext.m */; };
 		27FBB7871CEAE0AE002B106B /* dialogPortrait6_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7861CEAE0AE002B106B /* dialogPortrait6_1.png */; };
 		27FBB7891CEC487E002B106B /* dialogPortrait4_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7881CEC487E002B106B /* dialogPortrait4_1.png */; };
-		27FBB7901CED8F6E002B106B /* BaseDialogSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB78B1CED8F6E002B106B /* BaseDialogSprite.m */; };
 		27FBB7911CED8F6E002B106B /* BaseFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB78D1CED8F6E002B106B /* BaseFrame.m */; };
 		27FBB7921CED8F6E002B106B /* BGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB78F1CED8F6E002B106B /* BGImage.m */; };
 		27FBB79D1CED8F8F002B106B /* CityDataPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7941CED8F8F002B106B /* CityDataPanel.m */; };
@@ -2102,8 +2101,6 @@
 		27FBB7831CE46D5B002B106B /* NSString+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Ext.m"; path = "Classes/Ext/NSString+Ext.m"; sourceTree = "<group>"; };
 		27FBB7861CEAE0AE002B106B /* dialogPortrait6_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dialogPortrait6_1.png; path = Resources/Graph/Portrait/dialogPortrait6_1.png; sourceTree = "<group>"; };
 		27FBB7881CEC487E002B106B /* dialogPortrait4_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dialogPortrait4_1.png; path = Resources/Graph/Portrait/dialogPortrait4_1.png; sourceTree = "<group>"; };
-		27FBB78A1CED8F6E002B106B /* BaseDialogSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseDialogSprite.h; path = Classes/Image/Element/BaseDialogSprite.h; sourceTree = "<group>"; };
-		27FBB78B1CED8F6E002B106B /* BaseDialogSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseDialogSprite.m; path = Classes/Image/Element/BaseDialogSprite.m; sourceTree = "<group>"; };
 		27FBB78C1CED8F6E002B106B /* BaseFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseFrame.h; path = Classes/Image/Element/BaseFrame.h; sourceTree = "<group>"; };
 		27FBB78D1CED8F6E002B106B /* BaseFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseFrame.m; path = Classes/Image/Element/BaseFrame.m; sourceTree = "<group>"; };
 		27FBB78E1CED8F6E002B106B /* BGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BGImage.h; path = Classes/Image/Element/BGImage.h; sourceTree = "<group>"; };
@@ -4101,8 +4098,6 @@
 		27FBB7531CD852A8002B106B /* Element */ = {
 			isa = PBXGroup;
 			children = (
-				27FBB78A1CED8F6E002B106B /* BaseDialogSprite.h */,
-				27FBB78B1CED8F6E002B106B /* BaseDialogSprite.m */,
 				27FBB78C1CED8F6E002B106B /* BaseFrame.h */,
 				27FBB78D1CED8F6E002B106B /* BaseFrame.m */,
 				27FBB78E1CED8F6E002B106B /* BGImage.h */,
@@ -5164,7 +5159,6 @@
 				27ACAB031C94EFB6005C0881 /* SkillData.m in Sources */,
 				279BAACF1C59E3B60069EF5D /* CCLayout.m in Sources */,
 				27C26CBB1C5EF701009EDE53 /* CityScene.m in Sources */,
-				27FBB7901CED8F6E002B106B /* BaseDialogSprite.m in Sources */,
 				279BAC511C59E3B80069EF5D /* ALListener.m in Sources */,
 				279BABFB1C59E3B80069EF5D /* NSThread+performBlock.m in Sources */,
 				279BAAAD1C59E3B60069EF5D /* CCAnimationCache.m in Sources */,

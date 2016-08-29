@@ -232,7 +232,6 @@
 "lab_equip" = "装备";
 "lab_use" = "使用";
 
-"need_to_sign_before_exchange" = "对不起，你必须要先签约才能在这里做交易";
 "get_contract_money" = "独占契约，获得%d金币";
 
 "btn_show_buy_price" = "进价表示";
@@ -240,8 +239,6 @@
 
 "ship_name_feihong" = "飞虹特别号";
 "dialog_signup_failure" = "对不起，我们城市无法再和其他势力签约。";
-"dialog_invest_failure" = "对不起你的钱不够。";
-"dialog_invest_success" = "投资成功";
 "dialog_signup" = "听说你要和我们签约？";
 
 "ship_duration" = "耐久:%d/%d";
@@ -276,6 +273,7 @@
 "name_exchange_owner"="交易所老板";
 "name_shipyard_owner"="造船厂老板";
 "name_dock_sailor" = "码头工人";
+"name_governor" = "总督";
 
 "lab_relative_job" = "相关职务";
 "lab_equip_value" = "效果值";
@@ -319,13 +317,13 @@
 "dialog_hire_continue_need" = "距离必要水手数还差%@位水手，我们要继续雇佣吗？";
 "dialog_more_free_sailors" = "还有%@为水手没有被配置，要遣散他们吗？";
 "dialog_no_ship_no_game" = "我们还没有船。";
+"dialog_no_ship_to_sale" = "我们没有可卖的船只。";
+"dialog_invest_success" = "非常感谢你对我们城市的投资。";
+"dialog_signup_failure_full" = "我们城市已经没有多余可以签约的份额了。";
+"dialog_signup_start" = "听说你想和我们签约？打算签订多少份额呢？";
+"dialog_military_invest_start" = "听说你想进行军事投资，打算投资多少份额呢？";
+"dialog_need_to_sign_before_exchange" = "对不起，你必须要先签约才能在这里做交易";
 
-"dialog_1"="我已经有五条船了，无法再购买了";
-"dialog_2"="没有多余的船只";
-"dialog_3"="使用何种雇佣方式";
-"dialog_4"="没有船，无法出海";
-"dialog_5"="水手不足，需要先雇佣水手";
-"dialog_6"="没有可以改造的船只";
 "function_room_name_1"="卧室";
 "function_room_name_2"="木匠室";
 "function_room_name_3"="医疗室";

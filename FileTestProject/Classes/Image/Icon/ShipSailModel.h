@@ -9,10 +9,9 @@
 #import "CCSprite.h"
 #import "SailSceneShipProtocol.h"
 #import "GameShipData.h"
-#import "BaseDialogSprite.h"
 
 
-@interface ShipSailModel : BaseDialogSprite
+@interface ShipSailModel : CCSprite
 
 @property (nonatomic) id<SailSceneShipProtocol> delegate;
 
