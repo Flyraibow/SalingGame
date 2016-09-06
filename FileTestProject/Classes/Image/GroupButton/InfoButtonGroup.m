@@ -42,6 +42,7 @@
     for (int i = 0; i < myGuild.teamList.count; ++i) {
         GameTeamData *teamData = myGuild.teamList[i];
         [shipList addObjectsFromArray:teamData.shipList];
+        [shipList addObjectsFromArray:teamData.carryShipList];
     }
     
     ShipExchangeScene *shipInfoScene = [[ShipExchangeScene alloc] initWithShipList:shipList sceneType:ShipSceneTypeInfo];

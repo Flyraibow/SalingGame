@@ -295,6 +295,9 @@
 
 "lab_ship_kalutila" = "卡鲁提拉号";
 
+"lab_in_team" = "队中";
+"lab_in_dock" = "船坞中";
+
 "dialog_new_item_discover" = "啊，这是...%@, 你能把它送给我们么？";
 "dialog_buy_item" = "您确定要购买 %@吗？价格是 %@金币";
 "dialog_sell_item" = "你想卖掉 %@吗？ 价格是 %@金币";
@@ -323,6 +326,7 @@
 "dialog_signup_start" = "听说你想和我们签约？打算签订多少份额呢？";
 "dialog_military_invest_start" = "听说你想进行军事投资，打算投资多少份额呢？";
 "dialog_need_to_sign_before_exchange" = "对不起，你必须要先签约才能在这里做交易";
+"dialog_new_ship_into_dock" = "我已经有五条船了，新买的船将会进入船坞";
 
 "function_room_name_1"="卧室";
 "function_room_name_2"="木匠室";

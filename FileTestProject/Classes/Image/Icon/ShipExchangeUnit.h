@@ -29,6 +29,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, weak) id<ShipExchangeBuySuccessProtocol> delegate;
 @property (nonatomic, assign, readonly) ShipSceneType sceneType;
+@property (nonatomic, weak) NSString *cityId;
 
 -(instancetype)initWithGameShipData:(GameShipData *)gameShipData sceneType:(ShipSceneType)sceneType;
 

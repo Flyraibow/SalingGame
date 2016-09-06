@@ -131,3 +131,6 @@
 "btn_ship_modify_change_cannon" = "购买大炮";
 
 "lab_ship_kalutila" = "卡鲁提拉号";
+
+"lab_in_team" = "队中";
+"lab_in_dock" = "船坞中";

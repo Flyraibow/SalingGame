@@ -24,8 +24,6 @@
 
 -(void)removeMoneyUpdateClass:(id)target;
 
--(void)getShip:(GameShipData *)shipData;
-
 -(NpcData *)getLeaderData;
 
 //增加触发的剧情

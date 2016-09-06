@@ -81,11 +81,6 @@ static NSString* const GameUsedStorySet = @"GameUsedStorySet";
     [_moneyUpdateSet removeObject:target];
 }
 
--(void)getShip:(GameShipData *)shipData
-{
-    [_myTeam.shipList addObject:shipData];
-}
-
 -(NpcData *)getLeaderData
 {
     return [[[DataManager sharedDataManager] getNpcDic] getNpcById:self.leaderId];

@@ -35,6 +35,7 @@
     CCLabelTTF *_labShipSpeed;
     CCLabelTTF *_labShipAgile;
     CCLabelTTF *_labShipCannonNum;
+    CCLabelTTF *_labShipPosition;
 }
 
 -(void)commonInitFunction:(NSString *)iconId;
@@ -57,7 +58,6 @@
     _labPrice.position = ccp(_iconFrame.position.x + _iconFrame.contentSize.width + 10, _labName.position.y - 20);
     [self addChild:_labPrice];
     
-    // TODO: 添加其他的属性，如水手，炮数，威力，船速，物资仓库，货物仓库，耐久，灵活//completed
     _labShipDuration = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:13];
     _labShipDuration.positionType = CCPositionTypePoints;
     _labShipDuration.anchorPoint = ccp(0, 1);
@@ -94,6 +94,12 @@
     _btnAction.position = ccp(0.5,0.03);
     [_btnAction setTarget:self selector:@selector(clickAction)];
     [self addChild:_btnAction];
+    
+    _labShipPosition = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:10];
+    _labShipPosition.positionType = CCPositionTypeNormalized;
+    _labShipPosition.anchorPoint = ccp(1, 0);
+    _labShipPosition.position = ccp(0.97,0.03);
+    [self addChild:_labShipPosition];
 }
 
 -(instancetype)initWithGameShipData:(GameShipData *)gameShipData sceneType:(ShipSceneType)sceneType
@@ -119,10 +125,9 @@
 -(void)setOpacity:(CGFloat)opacity
 {
     super.opacity = opacity;
-    _iconFrame.opacity = opacity;
-    _labName.opacity = opacity;
-    _labPrice.opacity = opacity;
-    _btnAction.opacity = opacity;
+    for (CCNode *node in self.children) {
+        node.opacity = opacity;
+    }
 }
 
 -(void)clickAction
@@ -159,6 +164,16 @@
     _labShipMinSailorNum.string = [NSString stringWithFormat:getLocalString(@"ship_minSailorNum"),shipData.minSailorNum,shipData.curSailorNum,shipData.maxSailorNum];
     _labShipSpeed.string = [NSString stringWithFormat:getLocalString(@"ship_speed"),shipData.speed];
     _labShipCannonNum.string = [NSString stringWithFormat:getLocalString(@"ship_cannonNum"), getCannonName(shipData.cannonId), shipData.cannonNum];
+    
+    if (_sceneType != ShipSceneTypeBuy) {
+        if (_gameShipData.cityId == nil) {
+            _labShipPosition.string = getLocalString(@"lab_in_team");
+        } else if (_sceneType == ShipSceneTypeSell || _sceneType == ShipSceneTypeModify) {
+            _labShipPosition.string = getLocalString(@"lab_in_dock");
+        } else if (_sceneType == ShipSceneTypeInfo) {
+            _labShipPosition.string = getCityName(shipData.cityId);
+        }
+    }
 }
 
 -(void)spendMoneyFail:(SpendMoneyType)type
@@ -169,8 +184,7 @@
 
 -(void)spendMoneySucceed:(SpendMoneyType)type
 {
-    CCLOG(@"buy ship success");
-    [[GameDataManager sharedGameData].myGuild getShip:_gameShipData];
+    [[GameDataManager sharedGameData].myGuild.myTeam getShip:_gameShipData cityId:self.cityId];
     [self.delegate ShipDealComplete];
 }
 

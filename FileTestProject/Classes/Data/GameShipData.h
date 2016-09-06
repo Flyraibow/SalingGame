@@ -72,7 +72,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) int cannonRooms;
 @property (nonatomic, readonly) NSString *shipIconImageName;
 @property (nonatomic, copy) NSString *leaderName;
-
+@property (nonatomic, copy) NSString *cityId;   // nil means it doesn't belong any city
 
 -(instancetype)initWithShipData:(ShipData *)shipData;
 

@@ -22,6 +22,7 @@ static NSString* const GameShipCannonId = @"GameShipCannonId";
 static NSString* const GameShipDuration = @"GameShipDuration";
 static NSString* const GameShipGoodsList = @"GameShipGoodsList";
 static NSString* const GameShipEquipList = @"GameShipEquipList";
+static NSString* const GameShipCityId = @"GameShipCityId";
 
 @implementation GameShipData
 {
@@ -49,6 +50,7 @@ static NSString* const GameShipEquipList = @"GameShipEquipList";
         _duration = self.maxDuration;
         _belongToGuild = nil;
         _leaderName = @"";
+        _shipNo = nil;
         
     }
     return self;
@@ -68,6 +70,7 @@ static NSString* const GameShipEquipList = @"GameShipEquipList";
         _cannonId = [aDecoder decodeIntForKey:GameShipCannonId];
         _duration = [aDecoder decodeIntForKey:GameShipDuration];
         _goodsList = [aDecoder decodeObjectForKey:GameShipGoodsList];
+        _shipNo = [aDecoder decodeObjectForKey:GameShipCityId];
         _shipData = [[[DataManager sharedDataManager] getShipDic] getShipById:_shipNo];
         _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:[@(_shipData.style) stringValue]];
         self.equipList = [aDecoder decodeObjectForKey:GameShipEquipList];
@@ -88,6 +91,7 @@ static NSString* const GameShipEquipList = @"GameShipEquipList";
     [aCoder encodeInt:_duration forKey:GameShipDuration];
     [aCoder encodeObject:_goodsList forKey:GameShipGoodsList];
     [aCoder encodeObject:_equipList forKey:GameShipEquipList];
+    [aCoder encodeObject:_cityId forKey:GameShipCityId];
 }
 
 -(NSString *)shipIcon

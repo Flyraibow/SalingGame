@@ -41,7 +41,12 @@
 {
     // TODO: add restriction of ship numbers
     if ([GameDataManager sharedGameData].myGuild.myTeam.shipList.count >= 5) {
-        
+        // if there are more than 5 ships, give the hint that the new ship would be
+        DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
+        [dialogPanel setDefaultDialog:@"dialog_new_ship_into_dock" arguments:@[]];
+        [dialogPanel addConfirmHandler:^{
+            [[CCDirector sharedDirector] pushScene:[[ShipExchangeScene alloc] initWithCityNo:_cityNo]];
+        }];
     } else {
         [[CCDirector sharedDirector] pushScene:[[ShipExchangeScene alloc] initWithCityNo:_cityNo]];
     }
@@ -49,24 +54,28 @@
 
 -(void)clickSaleBtn
 {
-    // TODO: add restriction of ship numbers
     if ([GameDataManager sharedGameData].myGuild.myTeam.shipList.count <= 1) {
         DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
         [dialogPanel setDefaultDialog:@"dialog_no_ship_to_sale" arguments:@[]];
     } else {
-        [[CCDirector sharedDirector] pushScene:[[ShipExchangeScene alloc] initWithShipList:[GameDataManager sharedGameData].myGuild.myTeam.shipList sceneType:ShipSceneTypeSell]];
+        NSMutableArray<GameShipData *> *shipList = [[GameDataManager sharedGameData].myGuild.myTeam.shipList mutableCopy];
+        // 加上当前在船坞的船只
+        [shipList addObjectsFromArray:[[GameDataManager sharedGameData].myGuild.myTeam getCarryShipListInCity:_cityNo]];
+        [[CCDirector sharedDirector] pushScene:[[ShipExchangeScene alloc] initWithShipList:shipList sceneType:ShipSceneTypeSell]];
     }
 }
 
 -(void)clickModifyBtn
 {
-    // TODO: add restriction of ship numbers
     if ([GameDataManager sharedGameData].myGuild.myTeam.shipList.count <= 0) {
-        MyGuild *myGuild = [GameDataManager sharedGameData].myGuild ;
-        // todo: showdialog
-//        [self.baseSprite showDialog:myGuild.leaderId text:getDialogText(@"6")];
+        DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
+        [dialogPanel setDefaultDialog:@"dialog_no_ship_no_game" arguments:@[]];
     } else {
-        [[CCDirector sharedDirector] pushScene:[[ShipExchangeScene alloc] initWithShipList:[GameDataManager sharedGameData].myGuild.myTeam.shipList sceneType:ShipSceneTypeModify]];
+        
+        NSMutableArray<GameShipData *> *shipList = [[GameDataManager sharedGameData].myGuild.myTeam.shipList mutableCopy];
+        // 加上当前在船坞的船只
+        [shipList addObjectsFromArray:[[GameDataManager sharedGameData].myGuild.myTeam getCarryShipListInCity:_cityNo]];
+        [[CCDirector sharedDirector] pushScene:[[ShipExchangeScene alloc] initWithShipList:shipList sceneType:ShipSceneTypeModify]];
     }
 }
 

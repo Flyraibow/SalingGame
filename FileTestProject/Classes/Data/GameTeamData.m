@@ -19,6 +19,7 @@ static NSString* const GameTeamShipList = @"GameTeamShipList";
 static NSString* const GameTeamBelongGuildId = @"GameTeamBelongGuildId";
 static NSString* const GameTeamCurrentCity = @"GameTeamCurrentCity";
 static NSString* const GameTeamNPCData = @"GameTeamNPCData";
+static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
 
 @implementation GameTeamData
 
@@ -49,6 +50,7 @@ static NSString* const GameTeamNPCData = @"GameTeamNPCData";
                 [npcList addObject:[npcDic objectForKey:npcId]];
             }
         }
+        _carryShipList = [NSMutableArray new];
         _npcList = npcList;
         _currentCityId = teamData.startCity;
     }
@@ -66,6 +68,7 @@ static NSString* const GameTeamNPCData = @"GameTeamNPCData";
         _belongToGuildId = [aDecoder decodeObjectForKey:GameTeamBelongGuildId];
         _currentCityId = [aDecoder decodeObjectForKey:GameTeamCurrentCity];
         _npcList = [aDecoder decodeObjectForKey:GameTeamNPCData];
+        _carryShipList = [aDecoder decodeObjectForKey:GameTeamCarryShipList];
     }
     return self;
 }
@@ -79,6 +82,7 @@ static NSString* const GameTeamNPCData = @"GameTeamNPCData";
     [aCoder encodeObject:_belongToGuildId forKey:GameTeamBelongGuildId];
     [aCoder encodeObject:_currentCityId forKey:GameTeamCurrentCity];
     [aCoder encodeObject:_npcList forKey:GameTeamNPCData];
+    [aCoder encodeObject:_carryShipList forKey:GameTeamCarryShipList];
 }
 
 -(CGFloat)needsFoodCapacity
@@ -171,6 +175,28 @@ static NSString* const GameTeamNPCData = @"GameTeamNPCData";
 {
     GameNPCData *npcData = [[GameDataManager sharedGameData].npcDic objectForKey:npcId];
     [(NSMutableArray *)_npcList removeObject:npcData];
+}
+
+-(void)getShip:(GameShipData *)shipData cityId:(NSString *)cityId
+{
+    shipData.belongToGuild = self.belongToGuildId;
+    if (self.shipList.count < 5) {
+        [self.shipList addObject:shipData];
+    } else {
+        shipData.cityId = cityId;
+        [self.carryShipList addObject:shipData];
+    }
+}
+
+-(NSArray *)getCarryShipListInCity:(NSString *)cityId
+{
+    NSMutableArray<GameShipData *>* shipList = [NSMutableArray new];
+    for (GameShipData *shipData in _carryShipList) {
+        if (shipData.cityId == cityId) {
+            [shipList addObject:shipData];
+        }
+    }
+    return shipList;
 }
 
 @end

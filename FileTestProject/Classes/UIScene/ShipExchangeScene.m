@@ -31,6 +31,7 @@
     CCButton *_leftBtn;
     NSMutableArray *_array;
     BOOL _moving;
+    NSString *_cityNo;
 }
 
 
@@ -97,6 +98,7 @@
     if (self = [self init]) {
         
         _sceneType = ShipSceneTypeBuy;
+        _cityNo = cityNo;
         
         GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityNo];
         
@@ -127,6 +129,7 @@
         }
         
         ShipExchangeUnit *shipUnit = [[ShipExchangeUnit alloc] initWithGameShipData:shipData sceneType:_sceneType];
+        shipUnit.cityId = _cityNo;
         shipUnit.positionType = CCPositionTypeNormalized;
         shipUnit.position = ccp(0.3 + _number * 0.4,0.48);
         shipUnit.delegate = self;
