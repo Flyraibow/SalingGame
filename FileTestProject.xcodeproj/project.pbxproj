@@ -70,6 +70,7 @@
 		2723D4BB1D19034F000B1990 /* cannon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2723D4B51D19034F000B1990 /* cannon1.png */; };
 		2723D4BC1D19034F000B1990 /* cannon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2723D4B61D19034F000B1990 /* cannon2.png */; };
 		2723D4BD1D19034F000B1990 /* cannon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2723D4B71D19034F000B1990 /* cannon3.png */; };
+		273BAFAB1D826F440099B0A2 /* game.dat in Resources */ = {isa = PBXBuildFile; fileRef = 273BAFAA1D826F440099B0A2 /* game.dat */; };
 		274EE2721CCA00E20082B982 /* Shipdeck_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 274EE2711CCA00E20082B982 /* Shipdeck_select.png */; };
 		274EE2741CCA01960082B982 /* Shipdeck_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 274EE2731CCA01960082B982 /* Shipdeck_selected.png */; };
 		277A48001D47317500500E3E /* sailorNumberFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 277A47FF1D47317500500E3E /* sailorNumberFrame.png */; };
@@ -284,7 +285,6 @@
 		279BACF31C59E3B90069EF5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BACF21C59E3B90069EF5D /* AppDelegate.m */; };
 		279BACF61C59E3B90069EF5D /* HelloWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BACF51C59E3B90069EF5D /* HelloWorldScene.m */; };
 		279BACF81C59E3B90069EF5D /* white_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 279BACF71C59E3B90069EF5D /* white_square.png */; };
-		279BAD021C59E4360069EF5D /* new.txt in Resources */ = {isa = PBXBuildFile; fileRef = 279BAD011C59E4360069EF5D /* new.txt */; };
 		279BAD091C59EF300069EF5D /* ByteBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 279BAD081C59EF300069EF5D /* ByteBuffer.m */; };
 		27A4230B1D1CE2A600DEFD22 /* CannonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A4230A1D1CE2A600DEFD22 /* CannonData.m */; };
 		27A4230D1D1CF19E00DEFD22 /* dialogPortrait5_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27A4230C1D1CF19E00DEFD22 /* dialogPortrait5_1.png */; };
@@ -999,6 +999,7 @@
 		2723D4B51D19034F000B1990 /* cannon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cannon1.png; path = Resources/Graph/Icon/cannon1.png; sourceTree = "<group>"; };
 		2723D4B61D19034F000B1990 /* cannon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cannon2.png; path = Resources/Graph/Icon/cannon2.png; sourceTree = "<group>"; };
 		2723D4B71D19034F000B1990 /* cannon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cannon3.png; path = Resources/Graph/Icon/cannon3.png; sourceTree = "<group>"; };
+		273BAFAA1D826F440099B0A2 /* game.dat */ = {isa = PBXFileReference; lastKnownFileType = file; name = game.dat; path = Resources/game.dat; sourceTree = "<group>"; };
 		274EE2711CCA00E20082B982 /* Shipdeck_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck_select.png; path = Resources/Graph/Ship/Shipdeck_select.png; sourceTree = "<group>"; };
 		274EE2731CCA01960082B982 /* Shipdeck_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck_selected.png; path = Resources/Graph/Ship/Shipdeck_selected.png; sourceTree = "<group>"; };
 		277A47FF1D47317500500E3E /* sailorNumberFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sailorNumberFrame.png; path = Resources/Graph/Frame/sailorNumberFrame.png; sourceTree = "<group>"; };
@@ -1481,7 +1482,6 @@
 		279BACF41C59E3B90069EF5D /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
 		279BACF51C59E3B90069EF5D /* HelloWorldScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HelloWorldScene.m; path = Classes/HelloWorldScene.m; sourceTree = "<group>"; };
 		279BACF71C59E3B90069EF5D /* white_square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white_square.png; path = Resources/white_square.png; sourceTree = "<group>"; };
-		279BAD011C59E4360069EF5D /* new.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = new.txt; path = Resources/new.txt; sourceTree = "<group>"; };
 		279BAD071C59EF300069EF5D /* ByteBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByteBuffer.h; path = Classes/DataProcessing/ByteBuffer.h; sourceTree = "<group>"; };
 		279BAD081C59EF300069EF5D /* ByteBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByteBuffer.m; path = Classes/DataProcessing/ByteBuffer.m; sourceTree = "<group>"; };
 		27A423091D1CE2A600DEFD22 /* CannonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CannonData.h; path = Classes/DataProcessing/CannonData.h; sourceTree = "<group>"; };
@@ -2354,7 +2354,6 @@
 			children = (
 				27E040BF1C5C38FA0068171E /* Sound */,
 				27E040B01C5C2EA90068171E /* Graph */,
-				279BAD011C59E4360069EF5D /* new.txt */,
 				279BAA3D1C59E3B50069EF5D /* Default.png */,
 				279BAA3F1C59E3B50069EF5D /* Default@2x.png */,
 				279BAA411C59E3B50069EF5D /* Default-568h@2x.png */,
@@ -2363,6 +2362,7 @@
 				279BAA611C59E3B50069EF5D /* iTunesArtwork */,
 				279BAA631C59E3B50069EF5D /* iTunesArtwork@2x */,
 				279BACF71C59E3B90069EF5D /* white_square.png */,
+				273BAFAA1D826F440099B0A2 /* game.dat */,
 				279BAA451C59E3B50069EF5D /* Icons */,
 				27C26CC31C5F2D95009EDE53 /* Localizable.strings */,
 			);
@@ -4478,7 +4478,6 @@
 				27FBB6DB1CD843F6002B106B /* item106.png in Resources */,
 				27C26EEC1C82A7C1009EDE53 /* goods81.jpg in Resources */,
 				27C26EDF1C82A7C1009EDE53 /* goods94.jpg in Resources */,
-				279BAD021C59E4360069EF5D /* new.txt in Resources */,
 				27ACAB791C9674C4005C0881 /* c008_2-1.png in Resources */,
 				27FBB6D01CD843F6002B106B /* item95.png in Resources */,
 				27C26EF41C82A7C1009EDE53 /* goods73.jpg in Resources */,
@@ -4766,6 +4765,7 @@
 				270AB22A1CC75D3400533B47 /* 38-1.png in Resources */,
 				27FBB7201CD843F6002B106B /* item175.png in Resources */,
 				27FBB73E1CD843F6002B106B /* item205.png in Resources */,
+				273BAFAB1D826F440099B0A2 /* game.dat in Resources */,
 				27C26E451C80F73B009EDE53 /* seagull.m4v in Resources */,
 				27C26EFF1C82A7C1009EDE53 /* goods62.jpg in Resources */,
 				27FBB7381CD843F6002B106B /* item199.png in Resources */,
