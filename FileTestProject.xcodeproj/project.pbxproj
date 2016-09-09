@@ -911,6 +911,7 @@
 		27FBB8671D0FC0F5002B106B /* TextInputPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB8661D0FC0F5002B106B /* TextInputPanel.m */; };
 		27FBB8691D0FCCBE002B106B /* frame_input_panel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */; };
 		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
+		ECFD22FF1D826AC500FCC903 /* DockYardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFD22FE1D826AC500FCC903 /* DockYardScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -2199,6 +2200,8 @@
 		27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = frame_input_panel.jpg; path = Resources/Graph/Frame/frame_input_panel.jpg; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* InfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoButtonGroup.h; path = Classes/Image/GroupButton/InfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* InfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoButtonGroup.m; path = Classes/Image/GroupButton/InfoButtonGroup.m; sourceTree = "<group>"; };
+		ECFD22FD1D826AC500FCC903 /* DockYardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockYardScene.h; path = Classes/UIScene/DockYardScene.h; sourceTree = "<group>"; };
+		ECFD22FE1D826AC500FCC903 /* DockYardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DockYardScene.m; path = Classes/UIScene/DockYardScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3408,6 +3411,8 @@
 		27C26CEA1C603D25009EDE53 /* UIScene */ = {
 			isa = PBXGroup;
 			children = (
+				ECFD22FD1D826AC500FCC903 /* DockYardScene.h */,
+				ECFD22FE1D826AC500FCC903 /* DockYardScene.m */,
 				27C26D4F1C646F1B009EDE53 /* ShipExchangeScene.h */,
 				27C26D501C646F1B009EDE53 /* ShipExchangeScene.m */,
 				27C26CEB1C603D6A009EDE53 /* ProgressScene.h */,
@@ -5059,6 +5064,7 @@
 				27ACAAF01C8953F4005C0881 /* NSSet+Sort.m in Sources */,
 				279BAB081C59E3B60069EF5D /* CCRenderTexture.m in Sources */,
 				279BAC771C59E3B90069EF5D /* OALAudioFile.m in Sources */,
+				ECFD22FF1D826AC500FCC903 /* DockYardScene.m in Sources */,
 				27FBB7441CD844A1002B106B /* ItemData.m in Sources */,
 				278F4A4A1C83D31400D724EF /* StoryTriggerData.m in Sources */,
 				2723D4AB1D18FD4A000B1990 /* PopUpFrame.m in Sources */,

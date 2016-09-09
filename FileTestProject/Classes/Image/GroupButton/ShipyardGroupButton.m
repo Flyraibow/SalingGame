@@ -14,6 +14,7 @@
 #import "GameDataManager.h"
 #import "CityBuildingGroup.h"
 #import "GamePanelManager.h"
+#import "DockYardScene.h"
 
 @implementation ShipyardGroupButton
 {
@@ -26,13 +27,15 @@
     DefaultButton *btnSell = [DefaultButton buttonWithTitle:getLocalString(@"shipyard_sell")];
     DefaultButton *btnModify = [DefaultButton buttonWithTitle:getLocalString(@"shipyard_modify")];
     DefaultButton *btnFix = [DefaultButton buttonWithTitle:getLocalString(@"shipyard_fix")];
-    self = [super initWithNSArray:[NSArray arrayWithObjects:btnBuy,btnSell,btnModify,btnFix, nil] CCNodeColor:[BGImage getShadowForBackground]];
+    DefaultButton *btnDockYard = [DefaultButton buttonWithTitle:getLocalString(@"dock_yard")];
+    self = [super initWithNSArray:@[btnBuy,btnSell,btnModify,btnFix, btnDockYard] CCNodeColor:[BGImage getShadowForBackground]];
     if (self) {
         _cityNo = cityNo;
         [btnBuy setTarget:self selector:@selector(clickBuyBtn)];
         [btnSell setTarget:self selector:@selector(clickSaleBtn)];
         [btnModify setTarget:self selector:@selector(clickModifyBtn)];
         [btnFix setTarget:self selector:@selector(clickFixBtn)];
+        [btnDockYard setTarget:self selector:@selector(clickDockYard)];
     }
     return self;
 }
@@ -84,5 +87,12 @@
     
 }
 
+-(void)clickDockYard
+{
+    GameTeamData *teamData = [GameDataManager sharedGameData].myGuild.myTeam;
+    NSArray *shipList = [teamData getCarryShipListInCity:_cityNo];
+    DockYardScene *yardScene = [[DockYardScene alloc] initWithTeam:teamData extraShipList:shipList];
+    [[CCDirector sharedDirector] pushScene:yardScene];
+}
 
 @end
