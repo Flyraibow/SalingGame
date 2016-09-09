@@ -47,7 +47,7 @@
     
     [BGImage initWithGroundSize:contentSize];
     
-    NSString *thePath = [[NSBundle mainBundle] pathForResource: @"new" ofType: @"txt"];
+    NSString *thePath = [[NSBundle mainBundle] pathForResource: @"game" ofType: @"dat"];
     NSData *myData = [NSData dataWithContentsOfFile:thePath];
     DataManager *dataManager = [DataManager dataManagerWithData:myData];
     [GameRouteData initWithRouteDic:dataManager.getRouteDic];
