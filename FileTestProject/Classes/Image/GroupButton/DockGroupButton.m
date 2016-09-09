@@ -15,6 +15,7 @@
 #import "GameTeamData.h"
 #import "GamePanelManager.h"
 #import "DataManager.h"
+#import "DockYardScene.h"
 
 @implementation DockGroupButton
 {
@@ -26,12 +27,14 @@
 {
     DefaultButton *btnSail = [DefaultButton buttonWithTitle:getLocalString(@"dock_sail")];
     DefaultButton *btnSupply = [DefaultButton buttonWithTitle:getLocalString(@"dock_supply")];
-    self = [super initWithNSArray:[NSArray arrayWithObjects:btnSail, btnSupply, nil] CCNodeColor:[BGImage getShadowForBackground]];
+    DefaultButton *btnDockYard = [DefaultButton buttonWithTitle:getLocalString(@"dock_yard")];
+    self = [super initWithNSArray:@[btnSail, btnSupply, btnDockYard] CCNodeColor:[BGImage getShadowForBackground]];
     if (self) {
         _cityNo = cityNo;
         _cityStyle = [[DataManager sharedDataManager].getCityDic getCityById:cityNo].cityStyle;
         [btnSail setTarget:self selector:@selector(clickSailBtn)];
         [btnSupply setTarget:self selector:@selector(clickSupplyBtn)];
+        [btnDockYard setTarget:self selector:@selector(clickDockYard)];
     }
     return self;
 }
@@ -113,9 +116,12 @@
     
 }
 
--(void)showButton
+-(void)clickDockYard
 {
-    self.visible = YES;
+    GameTeamData *teamData = [GameDataManager sharedGameData].myGuild.myTeam;
+    NSArray *shipList = [teamData getCarryShipListInCity:_cityNo];
+    DockYardScene *yardScene = [[DockYardScene alloc] initWithTeam:teamData extraShipList:shipList];
+    [[CCDirector sharedDirector] pushScene:yardScene];
 }
 
 @end

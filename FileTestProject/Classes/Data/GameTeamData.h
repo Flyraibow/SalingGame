@@ -15,12 +15,12 @@
 @property (nonatomic, readonly) NSString *teamId;
 @property (nonatomic, readonly) NSString *leaderId;
 @property (nonatomic) NSInteger teamMoney;
-@property (nonatomic, readonly) NSMutableArray *shipList;
+@property (nonatomic, readonly) NSMutableArray<GameShipData *> *shipList;
 @property (nonatomic, readonly) NSString *belongToGuildId;
 @property (nonatomic) NSString *currentCityId;
 @property (nonatomic, assign) BOOL onTheSea;
 @property (nonatomic, readonly) NSArray *npcList;
-@property (nonatomic, readonly) NSMutableArray *carryShipList; // 拖船
+@property (nonatomic, readonly) NSMutableArray<GameShipData *> *carryShipList; // 拖船
 
 -(instancetype)initWithTeamData:(TeamData *)teamData guildId:(NSString *)guildId;
 
