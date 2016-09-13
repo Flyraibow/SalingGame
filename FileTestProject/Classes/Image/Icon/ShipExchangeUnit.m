@@ -184,8 +184,12 @@
 
 -(void)spendMoneySucceed:(SpendMoneyType)type
 {
-    [[GameDataManager sharedGameData].myGuild.myTeam getShip:_gameShipData cityId:self.cityId];
+    for (int i = 0; i < 8; ++i) {
+        GameShipData *shipData = [[GameShipData alloc] initWithShipData:_gameShipData.shipData];
+        [[GameDataManager sharedGameData].myGuild.myTeam getShip:shipData cityId:self.cityId];
+    }
     [self.delegate ShipDealComplete];
+    
 }
 
 @end

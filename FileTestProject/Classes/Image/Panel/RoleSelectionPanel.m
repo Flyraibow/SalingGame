@@ -30,7 +30,6 @@
         
         for (int j = 0; j < npcList.count; ++j) {
             GameNPCData *npcData = [npcList objectAtIndex:j];
-            NSLog(@"NPC : %@", npcData.npcId);
             RoleAnimation *roleAnimation = [[RoleAnimation alloc] initWithRoleId:npcData.npcId];
             roleAnimation.userInteractionEnabled = YES;
             roleAnimation.action = ActionTypeStanding;

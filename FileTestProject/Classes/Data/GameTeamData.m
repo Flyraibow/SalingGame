@@ -180,7 +180,7 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
 -(void)getShip:(GameShipData *)shipData cityId:(NSString *)cityId
 {
     shipData.belongToGuild = self.belongToGuildId;
-    if (self.shipList.count < 5) {
+    if (self.shipList.count < 4) {
         [self.shipList addObject:shipData];
     } else {
         shipData.cityId = cityId;

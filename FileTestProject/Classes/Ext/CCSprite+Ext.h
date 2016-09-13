@@ -13,4 +13,6 @@
 
 -(void)setRect:(CGRect)rect;
 
+-(CGPoint)currentPositionUnderAnchor:(CGPoint)anchorPoint;
+
 @end

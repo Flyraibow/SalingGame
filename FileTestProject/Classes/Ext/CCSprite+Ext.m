@@ -19,4 +19,9 @@
     self.position = rect.origin;
 }
 
+-(CGPoint)currentPositionUnderAnchor:(CGPoint)anchorPoint
+{
+    return CGPointZero;
+}
+
 @end

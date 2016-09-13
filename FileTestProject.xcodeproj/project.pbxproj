@@ -911,6 +911,8 @@
 		27FBB8671D0FC0F5002B106B /* TextInputPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB8661D0FC0F5002B106B /* TextInputPanel.m */; };
 		27FBB8691D0FCCBE002B106B /* frame_input_panel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */; };
 		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
+		EC0C3B7D1D846E57007E8D46 /* ShipSimpeInfoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */; };
+		EC0C3B801D847020007E8D46 /* ShipSimpleInfoIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */; };
 		ECFD22FF1D826AC500FCC903 /* DockYardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFD22FE1D826AC500FCC903 /* DockYardScene.m */; };
 /* End PBXBuildFile section */
 
@@ -2200,6 +2202,9 @@
 		27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = frame_input_panel.jpg; path = Resources/Graph/Frame/frame_input_panel.jpg; sourceTree = "<group>"; };
 		2B20FCF61CD804530028E718 /* InfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoButtonGroup.h; path = Classes/Image/GroupButton/InfoButtonGroup.h; sourceTree = "<group>"; };
 		2B20FCF71CD804530028E718 /* InfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoButtonGroup.m; path = Classes/Image/GroupButton/InfoButtonGroup.m; sourceTree = "<group>"; };
+		EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipSimpeInfoFrame.png; path = Resources/Graph/Frame/ShipSimpeInfoFrame.png; sourceTree = "<group>"; };
+		EC0C3B7E1D847020007E8D46 /* ShipSimpleInfoIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipSimpleInfoIcon.h; path = Classes/Image/Icon/ShipSimpleInfoIcon.h; sourceTree = "<group>"; };
+		EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSimpleInfoIcon.m; path = Classes/Image/Icon/ShipSimpleInfoIcon.m; sourceTree = "<group>"; };
 		ECFD22FD1D826AC500FCC903 /* DockYardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockYardScene.h; path = Classes/UIScene/DockYardScene.h; sourceTree = "<group>"; };
 		ECFD22FE1D826AC500FCC903 /* DockYardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DockYardScene.m; path = Classes/UIScene/DockYardScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3438,6 +3443,7 @@
 		27C26CEE1C604E4F009EDE53 /* Frame */ = {
 			isa = PBXGroup;
 			children = (
+				EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */,
 				277A47FF1D47317500500E3E /* sailorNumberFrame.png */,
 				2723D4A71D18FCE3000B1990 /* default_frame.png */,
 				27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */,
@@ -3714,6 +3720,8 @@
 				2723D4B01D190239000B1990 /* CannonUnitIcon.m */,
 				277A48011D47329900500E3E /* SailorNumberUnit.h */,
 				277A48021D47329900500E3E /* SailorNumberUnit.m */,
+				EC0C3B7E1D847020007E8D46 /* ShipSimpleInfoIcon.h */,
+				EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */,
 			);
 			name = Icon;
 			sourceTree = "<group>";
@@ -4728,6 +4736,7 @@
 				27FBB7491CD847A9002B106B /* itemDescFrame.jpg in Resources */,
 				27C26DC81C6DB238009EDE53 /* dialogPortrait1.png in Resources */,
 				27FBB80C1CF2700A002B106B /* c009_16-1.png in Resources */,
+				EC0C3B7D1D846E57007E8D46 /* ShipSimpeInfoFrame.png in Resources */,
 				27FBB8111CF2700A002B106B /* c009_21-1.png in Resources */,
 				27C26F4E1C82A7C1009EDE53 /* ship6.jpg in Resources */,
 				27FBB6B21CD843F6002B106B /* item65.png in Resources */,
@@ -5112,6 +5121,7 @@
 				279BAB221C59E3B70069EF5D /* CCSpriteFrame.m in Sources */,
 				279BAC421C59E3B80069EF5D /* ALBuffer.m in Sources */,
 				27C26CC01C5F1DB2009EDE53 /* CityData.m in Sources */,
+				EC0C3B801D847020007E8D46 /* ShipSimpleInfoIcon.m in Sources */,
 				279BAAB91C59E3B60069EF5D /* CCDirector.m in Sources */,
 				279BAA6B1C59E3B50069EF5D /* CCRendererGLSupport.m in Sources */,
 				279BAAD21C59E3B60069EF5D /* CCLayoutBox.m in Sources */,

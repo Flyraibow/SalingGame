@@ -59,7 +59,6 @@ static NSMutableDictionary *_sharedRouteData;
         NSString *city2 = routeData.cityId2;
         CityData *cityData1 = [[DataManager sharedDataManager].getCityDic getCityById:city1];
         CityData *cityData2 = [[DataManager sharedDataManager].getCityDic getCityById:city2];
-        NSLog(@"%@ _ %@",city1, city2);
         NSMutableDictionary *routesDict1 = [_sharedRouteData objectForKey:city1];
         NSMutableArray *routesList1 = [NSMutableArray new];
         if (routesDict1 == nil) {
