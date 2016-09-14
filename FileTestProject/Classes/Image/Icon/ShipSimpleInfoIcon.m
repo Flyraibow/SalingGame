@@ -16,6 +16,7 @@
 }
 
 @synthesize inTeam = _inTeam;
+@synthesize shipData = _shipData;
 
 -(instancetype)initWithShipData:(GameShipData *)shipData
 {
@@ -27,6 +28,7 @@
         shipIcon.position = ccp(16, 8);
         [self addChild:shipIcon];
         self.scale = 0.6;
+        _shipData = shipData;
         self.anchorPoint = ccp(0.5, 1);
         
         self.userInteractionEnabled = YES;
@@ -40,6 +42,8 @@
     for (CCNode *node in self.children) {
         [node setOpacity:opacity];
     }
+    
+    self.userInteractionEnabled = (opacity > 0);
 }
 
 -(void)setTarget:(id)target selector:(SEL)selector

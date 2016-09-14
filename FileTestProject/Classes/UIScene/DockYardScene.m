@@ -13,13 +13,13 @@
 #import "DefaultButton.h"
 #import "ShipSimpleInfoIcon.h"
 
-static const CGFloat kMovingTotalTime = 1.0;
+static const CGFloat kMovingTotalTime = 0.5;
 
 @implementation DockYardScene
 {
     __weak GameTeamData *_teamData;
-    NSMutableArray<GameShipData *> *_shipList;
-    NSMutableArray *_shipIconList;
+    NSMutableArray<ShipSimpleInfoIcon *> *_shipIconList;
+    NSMutableArray<ShipSimpleInfoIcon *> *_shipTeamIconList;
     CGSize _sceneSize;
     BOOL _selectable;
     int _cityShipStartIndex;
@@ -37,7 +37,6 @@ static const CGFloat kMovingTotalTime = 1.0;
         _sceneSize = [CCDirector sharedDirector].viewSize;
         
         _teamData = team;
-        _shipList = [shipList mutableCopy];
         
         CCSprite *bg = [BGImage getBgImageByName:@"bg_System.png"];
         [self addChild:bg];
@@ -51,10 +50,18 @@ static const CGFloat kMovingTotalTime = 1.0;
         DefaultButton *btnClose = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_close")];
         btnClose.positionType = CCPositionTypeNormalized;
         btnClose.anchorPoint = ccp(0.5,0);
-        btnClose.position = ccp(0.5,0.05);
+        btnClose.position = ccp(0.7,0.05);
         [btnClose setTarget:self selector:@selector(clickBtnClose)];
         [self addChild:btnClose];
         
+        DefaultButton *btnSure = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_sure")];
+        btnSure.positionType = CCPositionTypeNormalized;
+        btnSure.anchorPoint = ccp(0.5,0);
+        btnSure.position = ccp(0.3,0.05);
+        [btnSure setTarget:self selector:@selector(clickBtnSure)];
+        [self addChild:btnSure];
+        
+        _shipTeamIconList = [NSMutableArray new];
         _cityShipStartIndex = 0;
         _teamShipCount = team.shipList.count;
         _shipIconList = [NSMutableArray new];
@@ -66,6 +73,7 @@ static const CGFloat kMovingTotalTime = 1.0;
             [shipIcon setTarget:self selector:@selector(selectShipIcon:)];
             shipIcon.position = [self getIconPositionByIndex:i++ inTeam:shipIcon.inTeam];
             [_shipIconList addObject:shipIcon];
+            [_shipTeamIconList addObject:shipIcon];
             [self addChild:shipIcon];
         }
         i = 0;
@@ -97,7 +105,7 @@ static const CGFloat kMovingTotalTime = 1.0;
         [_btnDown setTarget:self selector:@selector(clickDownButton)];
         [self addChild:_btnDown];
         
-        if (i < 5) {
+        if (i <= 5) {
             _btnDown.visible = NO;
             _btnUp.visible = NO;
         }
@@ -127,7 +135,47 @@ static const CGFloat kMovingTotalTime = 1.0;
     if (_selectable) {
         _selectable = NO;
         if (shipIcon.inTeam) {
+            if (_teamShipCount <= 1) {
+                _selectable = YES;
+                return;
+            }
             // 将这条船放到船坞的首位
+            int selectedIndex = shipIcon.index;
+            _currentTime = 0;
+            _moving = YES;
+            _btnUp.enabled = NO;
+            for (ShipSimpleInfoIcon *ship in _shipIconList) {
+                if (!ship.inTeam) {
+                    // 直接移到最顶部
+                    _cityShipStartIndex = 0;
+                    ship.currentPoint = ship.position;
+                    ship.destinyPoint = [self getIconPositionByIndex:++ship.index inTeam:ship.inTeam];
+                    if (ship.index > 4) {
+                        ship.currentAlpha = ship.opacity;
+                        ship.destinyAlpha = 0;
+                    } else {
+                        ship.currentAlpha = ship.opacity;
+                        ship.destinyAlpha = 1;
+                    }
+                    
+                } else {
+                    if (ship != shipIcon) {
+                        if (selectedIndex < ship.index) {
+                            // move Up
+                            ship.currentPoint = ship.position;
+                            ship.destinyPoint = [self getIconPositionByIndex:--ship.index inTeam:ship.inTeam];
+                        }
+                    } else {
+                        [_shipTeamIconList removeObject:shipIcon];
+                        shipIcon.currentPoint = shipIcon.position;
+                        shipIcon.inTeam = NO;
+                        shipIcon.index = 0;
+                        shipIcon.destinyPoint = [self getIconPositionByIndex:shipIcon.index inTeam:shipIcon.inTeam];
+                    }
+                    
+                }
+            }
+            --_teamShipCount;
         } else {
             if (_teamShipCount >= 5) {
                 // 舰队最多五条船
@@ -149,15 +197,24 @@ static const CGFloat kMovingTotalTime = 1.0;
                                 }
                             }
                         } else {
+                            [_shipTeamIconList addObject:shipIcon];
                             shipIcon.currentPoint = shipIcon.position;
                             shipIcon.inTeam = YES;
                             shipIcon.index = (int)_teamShipCount++;
                             shipIcon.destinyPoint = [self getIconPositionByIndex:shipIcon.index inTeam:shipIcon.inTeam];
                         }
                     }
-                    
                 }
             }
+        }
+        if (_shipIconList.count - _teamShipCount <= 5) {
+            _btnDown.visible = NO;
+            _btnUp.visible = NO;
+        } else {
+            _btnDown.visible = YES;
+            _btnDown.enabled = YES;
+            _btnUp.visible = YES;
+            _btnUp.enabled = NO;
         }
     }
 }
@@ -237,9 +294,35 @@ static const CGFloat kMovingTotalTime = 1.0;
         _currentTime = 0;
         _moving = YES;
         _btnUp.enabled = YES;
-        if (_cityShipStartIndex + 5 == _shipList.count - _teamShipCount) {
+        if (_cityShipStartIndex + 5 >= _shipIconList.count - _teamShipCount) {
             _btnDown.enabled = NO;
         }
+    }
+}
+
+-(void)clickBtnSure
+{
+    if (_selectable) {
+        for (int i = 0; i < _shipTeamIconList.count; ++i) {
+            ShipSimpleInfoIcon *shipIcon = _shipTeamIconList[i];
+            GameShipData *shipData = shipIcon.shipData;
+            if ([_teamData.shipList containsObject:shipData]) {
+                [_teamData.shipList removeObject:shipData];
+                [_teamData.shipList insertObject:shipData atIndex:i];
+            } else {
+                [_teamData.shipList insertObject:shipData atIndex:i];
+                [_teamData.carryShipList removeObject:shipData];
+                shipIcon.shipData.cityId = nil;
+            }
+        }
+        for (NSInteger i = _teamData.shipList.count - 1; i >=  _shipTeamIconList.count; --i) {
+            GameShipData *shipData = _teamData.shipList[i];
+            [_teamData.shipList removeObjectAtIndex:i];
+            [_teamData.carryShipList addObject:shipData];
+            shipData.cityId = self.cityId;
+        }
+        // TODO: 把所有人的职业放到新船里
+        [self clickBtnClose];
     }
 }
 

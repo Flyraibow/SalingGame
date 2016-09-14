@@ -17,6 +17,7 @@
 @property (nonatomic, assign) CGPoint currentPoint;
 @property (nonatomic, assign) CGFloat currentAlpha;
 @property (nonatomic, assign) CGFloat destinyAlpha;
+@property (nonatomic, readonly, weak) GameShipData *shipData;
 
 -(instancetype)initWithShipData:(GameShipData *)shipData;
 

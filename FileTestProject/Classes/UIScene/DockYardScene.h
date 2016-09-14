@@ -12,6 +12,8 @@
 
 @interface DockYardScene : CCScene
 
+@property (nonatomic, copy) NSString *cityId;
+
 -(instancetype)initWithTeam:(GameTeamData *)team extraShipList:(NSArray<GameShipData *> *)shipList;
 
 @end

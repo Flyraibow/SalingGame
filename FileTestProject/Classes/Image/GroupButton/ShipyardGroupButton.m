@@ -92,6 +92,7 @@
     GameTeamData *teamData = [GameDataManager sharedGameData].myGuild.myTeam;
     NSArray *shipList = [teamData getCarryShipListInCity:_cityNo];
     DockYardScene *yardScene = [[DockYardScene alloc] initWithTeam:teamData extraShipList:shipList];
+    yardScene.cityId = _cityNo;
     [[CCDirector sharedDirector] pushScene:yardScene];
 }
 
