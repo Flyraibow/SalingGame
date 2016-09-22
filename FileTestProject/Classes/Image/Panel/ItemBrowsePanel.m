@@ -17,6 +17,8 @@
 #import "ItemIcon.h"
 #import "GamePanelManager.h"
 #import "GameItemData.h"
+#import "RolePanel.h"
+#import "GameNPCData.h"
 
 const static int kShowItemNumberEachLine = 7;
 const static int kShowLinesNumber = 4;
@@ -103,12 +105,18 @@ const static int kShowLinesNumber = 4;
 -(void)setItems:(NSArray *)items
 {
     NSString *defautCategoryNo = nil;
+    BOOL categorySet = NO;
     _itemDictionary = [NSMutableDictionary new];
     for (int i = 0; i < items.count; ++i) {
         GameItemData *item = items[i];
         NSString *categoryNo = [@(item.itemData.category) stringValue];
-        if (!defautCategoryNo) {
-            defautCategoryNo = categoryNo;
+        if (!categorySet) {
+            if ([categoryNo isEqualToString:_categoryId]) {
+                defautCategoryNo = categoryNo;
+                categorySet = YES;
+            } else if (!defautCategoryNo) {
+                defautCategoryNo = categoryNo;
+            }
         }
         NSMutableArray *array = [_itemDictionary objectForKey:categoryNo];
         if (array == nil) {
@@ -277,7 +285,7 @@ const static int kShowLinesNumber = 4;
          }];
     } else if (_panelType == ItemBrowsePanelTypeSell) {
         __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
-        __weak ItemInfoPanel *weakItemInfoPanel = _itemInfoPanel;
+        __weak ItemInfoPanel *weakItemInfoPanel = 0;
         CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
         int price = gameItemData.itemData.price * 0.5;
         [dialogPanel setDefaultDialog:@"dialog_sell_item" arguments:@[getItemName(gameItemData.itemId), @(price)] cityStyle:cityData.cityStyle];
@@ -292,6 +300,35 @@ const static int kShowLinesNumber = 4;
                 [self setItems:items];
             }
         }];
+    } else if (_panelType == ItemBrowsePanelTypeBrowse) {
+        if (gameItemData.itemData.category <= 3) {
+            // equip 弹出对话之后弹出选人界面
+            __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
+            
+            [dialogPanel setDefaultDialog:@"dialog_equip_an_equipment" arguments:nil];
+            [dialogPanel addConfirmHandler:^{
+                NSArray *npcList = [GameDataManager sharedGameData].myGuild.myTeam.npcList;
+                RolePanel *rolePanel = [[RolePanel alloc] initWithNpcList:npcList type:RolePanelTypeEquip];
+                __block RolePanel *blockRolePanel = rolePanel;
+                rolePanel.selectHandler = ^(NSString *roleId) {
+                    GameNPCData *npcData = [[GameDataManager sharedGameData].npcDic objectForKey:roleId];
+                    assert(npcData);
+                    if ([npcData canEquip:gameItemData]) {
+                        // 装备上
+                        [npcData equip:gameItemData];
+                        // 关闭role Panel
+                        [self.scene removeChild:blockRolePanel];
+                    } else {
+                        // 弹出文字无法装备
+                        // TODO： 修改文字成 某某无法装备某某
+                        [dialogPanel setDefaultDialog:@"dialog_equip_an_equipment" arguments:nil];
+                    }
+                };
+                [self.scene addChild:rolePanel];
+            }];
+        } else if (gameItemData.itemData.value > 0) {
+            // use
+        }
     }
 }
 

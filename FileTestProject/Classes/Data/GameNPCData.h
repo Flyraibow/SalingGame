@@ -72,4 +72,8 @@ typedef enum : NSUInteger {
 
 -(BOOL)isableTodo:(NPCJobType)job;
 
+-(BOOL)canEquip:(GameItemData *)itemData;
+
+-(void)equip:(GameItemData *)itemData;
+
 @end

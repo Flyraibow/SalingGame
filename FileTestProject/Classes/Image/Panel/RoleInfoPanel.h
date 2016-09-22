@@ -18,7 +18,6 @@
 @interface RoleInfoPanel : CCSprite
 
 @property (nonatomic) id<RoleInfoPanelDelegate> delegate;
-
--(void)setRoleId:(NSString *)roleId;
+@property (nonatomic, readwrite) NSString *roleId;
 
 @end

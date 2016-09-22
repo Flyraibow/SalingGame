@@ -61,7 +61,14 @@
 
 -(void)selectRole:(NSString *)roleId
 {
-    [_roleInfoPanel setRoleId:roleId];
+    if ([_roleInfoPanel.roleId isEqualToString:roleId]) {
+        if (roleId && self.selectHandler != nil) {
+            // 再次点击才相应事件
+            self.selectHandler(roleId);
+        }
+    } else {
+        [_roleInfoPanel setRoleId:roleId];
+    }
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event

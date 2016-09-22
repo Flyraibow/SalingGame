@@ -14,7 +14,6 @@
 
 @implementation RoleInfoPanel
 {
-    NSString *_roleId;
     CCLabelTTF *_labNpcName;
     CCSprite *_photo;
     CCLabelTTF *_labGender;

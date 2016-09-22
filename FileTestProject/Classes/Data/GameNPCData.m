@@ -8,6 +8,7 @@
 
 #import "GameNPCData.h"
 #import "LocalString.h"
+#import "GameItemData.h"
 
 @implementation GameSkillData
 
@@ -165,6 +166,17 @@ static NSString* const NPCCurrentHP = @"NPCCurrentHP";
         return _isCaptain;
     }
     return YES;
+}
+
+
+-(BOOL)canEquip:(GameItemData *)itemData
+{
+    return NO;
+}
+
+-(void)equip:(GameItemData *)itemData
+{
+    
 }
 
 @end
