@@ -7,6 +7,7 @@
 //
 
 #import "GameItemData.h"
+#import "LocalString.h"
 
 static NSString* const GameItemCityNo = @"GameItemCityNo";
 static NSString* const GameItemGuildNo= @"GameItemGuildNo";
@@ -77,6 +78,11 @@ static NSString* const GameItemItemId= @"GameItemItemId";
 {
     _cityNo = @"0";
     _guildId = @"0";
+}
+
+-(NSString *)itemName
+{
+    return getItemName(_itemId);
 }
 
 @end

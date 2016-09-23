@@ -44,6 +44,7 @@ typedef enum : NSUInteger {
 
 @class GameGuildData;
 @class GameTeamData;
+@class GameItemData;
 @interface GameNPCData : NSObject <NSCoding>
 
 @property (nonatomic, assign) int level;

@@ -18,6 +18,7 @@
 @property (nonatomic, readonly) NSString *guildId;            // 如果道具目前在某个公会，则有公会id
 @property (nonatomic, readonly) NSString *roleId;             // 装备了这个道具的角色id
 @property (nonatomic, readonly) NSString *shipId;             // 装备了这条船的shipId， TODO：目前好像ship暂时还没id，待定
+@property (nonatomic, readonly) NSString *itemName;
 @property (nonatomic, assign, readonly) BOOL exist;           // 是否存在
 
 -(instancetype)initWithItemData:(ItemData *)itemData;

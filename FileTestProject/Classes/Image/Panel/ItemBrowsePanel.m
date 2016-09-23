@@ -321,7 +321,7 @@ const static int kShowLinesNumber = 4;
                     } else {
                         // 弹出文字无法装备
                         // TODO： 修改文字成 某某无法装备某某
-                        [dialogPanel setDefaultDialog:@"dialog_equip_an_equipment" arguments:nil];
+                        [dialogPanel setDefaultDialog:@"dialog_cannot_equip" arguments:@[npcData.firstName, gameItemData.itemName]];
                     }
                 };
                 [self.scene addChild:rolePanel];
