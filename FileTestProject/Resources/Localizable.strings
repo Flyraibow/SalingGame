@@ -231,6 +231,7 @@
 "lab_buy" = "购买";
 "lab_sell" = "售出";
 "lab_equip" = "装备";
+"lab_unequip" = "卸载";
 "lab_use" = "使用";
 
 "get_contract_money" = "独占契约，获得%d金币";
@@ -330,6 +331,9 @@
 "dialog_new_ship_into_dock" = "我已经有五条船了，新买的船将会进入船坞";
 "dialog_equip_an_equipment" = "要给谁装备它呢";
 "dialog_cannot_equip" = "%@无法装备%@";
+"dialog_i_cannot_equip" = "我无法装备%@";
+"dialog_unequip_an_equipment" = "卸载下来了。";
+"dialog_equip_an_equipment_success" = "装备成功";
 
 "function_room_name_1"="卧室";
 "function_room_name_2"="木匠室";

@@ -31,6 +31,11 @@ typedef enum : NSUInteger {
     NPCJobTypeRelax,
 } NPCJobType;
 
+typedef enum : NSUInteger {
+    NPCEquipErrorNone,  // 可以装备
+    NPCEquipErrorFull,  // 已经装备满了
+} NPCEquipError;
+
 @interface GameSkillData : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *skillId;
@@ -68,13 +73,19 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL isCaptain;
 @property (nonatomic, assign) NPCJobType job;
 @property (nonatomic, assign) int roomId;
+@property (nonatomic, copy) NSString *weaponId;
+@property (nonatomic, copy) NSString *armorId;
+@property (nonatomic, copy) NSArray *otherEquipIdList;
 
 -(instancetype)initWithNpcId:(NSString *)npcId;
 
 -(BOOL)isableTodo:(NPCJobType)job;
 
--(BOOL)canEquip:(GameItemData *)itemData;
+// 0: 可以装备, 1：请先卸掉其他的装备
+-(NPCEquipError)canEquip:(GameItemData *)itemData;
 
 -(void)equip:(GameItemData *)itemData;
+
+-(void)unequip:(GameItemData *)itemData;
 
 @end

@@ -11,12 +11,14 @@
 @implementation ItemIcon
 {
     CCSprite *_itemSprite;
+    BOOL _useFrame;
 }
 
 -(instancetype)init
 {
     if (self = [super initWithImageNamed:@"shipIconFrame.png"]) {
         self.userInteractionEnabled = YES;
+        _useFrame = YES;
     }
     return self;
 }
@@ -27,7 +29,12 @@
     if (![itemData.iconId isEqualToString:_itemData.itemData.iconId]) {
         [_itemSprite removeFromParent];
         _itemSprite = [CCSprite spriteWithImageNamed:[NSString stringWithFormat:@"item%@.png", itemData.iconId]];
-        _itemSprite.contentSize = self.contentSize;
+        if (_useFrame) {
+            _itemSprite.contentSize = self.contentSize;
+        } else {
+            _itemSprite.scaleX = self.contentSize.width / _itemSprite.contentSize.width;
+            _itemSprite.scaleY = self.contentSize.height / _itemSprite.contentSize.height;
+        }
         _itemSprite.anchorPoint = ccp(0.5, 0.5);
         _itemSprite.positionType = CCPositionTypeNormalized;
         _itemSprite.position = ccp(0.5, 0.5);
@@ -38,8 +45,12 @@
 
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
-{
-    [_delegate selectItem:_itemData];
+{ 
+    if (_itemData) {
+        [_delegate selectItem:_itemData];
+    } else {
+        [_delegate selectItemByCategory:self.itemCategory];
+    }
 }
 
 @end

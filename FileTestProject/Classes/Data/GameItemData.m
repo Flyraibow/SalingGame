@@ -8,6 +8,8 @@
 
 #import "GameItemData.h"
 #import "LocalString.h"
+#import "GameDataManager.h"
+#import "GameNPCData.h"
 
 static NSString* const GameItemCityNo = @"GameItemCityNo";
 static NSString* const GameItemGuildNo= @"GameItemGuildNo";
@@ -83,6 +85,14 @@ static NSString* const GameItemItemId= @"GameItemItemId";
 -(NSString *)itemName
 {
     return getItemName(_itemId);
+}
+
+-(void)unequip
+{
+    if (self.roleId) {
+        GameNPCData *npcData = [[GameDataManager sharedGameData].npcDic objectForKey:self.roleId];
+        [npcData unequip:self];
+    }
 }
 
 @end

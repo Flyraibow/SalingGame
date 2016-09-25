@@ -11,11 +11,18 @@
 #import "LocalString.h"
 #import "GameNPCData.h"
 #import "CCSprite+Ext.h"
+#import "GameDataManager.h"
+#import "ItemIcon.h"
+
+@interface RoleInfoPanel() <ItemIconSelectionDelegate>
+
+@end
 
 @implementation RoleInfoPanel
 {
     CCLabelTTF *_labNpcName;
     CCSprite *_photo;
+    ItemIcon *_weaponIcon;
     CCLabelTTF *_labGender;
     CCLabelTTF *_labLuck;
     CCLabelTTF *_labStrength;
@@ -23,6 +30,7 @@
     CCLabelTTF *_labCharm;
     CCLabelTTF *_labIntelligence;
     CCLabelTTF *_labEloquence;
+    __weak GameNPCData *_npcData;
 }
 
 -(instancetype)init
@@ -81,6 +89,13 @@
         _labAgile.positionType = CCPositionTypePoints;
         _labAgile.position = ccp(493, 185);
         [self addChild:_labAgile];
+        
+        _weaponIcon = [[ItemIcon alloc] initWithContentSize:CGSizeMake(28, 28)];
+        _weaponIcon.delegate = self;
+        _weaponIcon.itemCategory = ItemCategoryWeapon;
+        _weaponIcon.positionType = CCPositionTypePoints;
+        _weaponIcon.position = ccp(258, 145);
+        [self addChild:_weaponIcon];
     }
     
     return self;
@@ -91,23 +106,37 @@
 {
     if(![_roleId isEqualToString:roleId])
     {
-        _roleId=roleId;
-        GameNPCData *npcData=[[GameNPCData alloc]initWithNpcId:_roleId];
+        _roleId = roleId;
+        _npcData = [[GameDataManager sharedGameData].npcDic objectForKey:roleId];
                 
-        _labNpcName.string=npcData.fullName;
-        if(_photo!=nil)
+        _labNpcName.string = _npcData.fullName;
+        if(_photo != nil)
             [self removeChild:_photo];
-        _photo = [CCSprite spriteWithImageNamed:npcData.portrait];
+        _photo = [CCSprite spriteWithImageNamed:_npcData.portrait];
         [_photo setRect:CGRectMake(25, 154, 78, 95)];
         [self addChild:_photo];
         
-        _labGender.string = getLocalStringByInt(@"gender_", npcData.npcData.gender + 1);
+        _labGender.string = getLocalStringByInt(@"gender_", _npcData.npcData.gender + 1);
     }
+    if (_npcData.weaponId) {
+        [_weaponIcon setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:_npcData.weaponId]];
+    } 
 }
 
 -(void)clickCloseButton
 {
     [self.delegate closePanel];
+}
+
+
+-(void)selectItem:(GameItemData *)itemData
+{
+    NSLog(@"===== 1");
+}
+
+-(void)selectItemByCategory:(ItemCategory)itemCategory
+{
+    NSLog(@"===== 2");
 }
 
 @end

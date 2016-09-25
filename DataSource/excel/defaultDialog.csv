@@ -31,3 +31,6 @@ dialog_more_free_sailors,4,0,0,0,0
 dialog_new_ship_into_dock,4,0,0,0,0
 dialog_equip_an_equipment,4,0,0,0,0
 dialog_cannot_equip,4,0,0,0,0
+dialog_i_cannot_equip,4,0,0,0,0
+dialog_unequip_an_equipment,4,0,0,0,0
+dialog_equip_an_equipment_success,4,0,0,0,0

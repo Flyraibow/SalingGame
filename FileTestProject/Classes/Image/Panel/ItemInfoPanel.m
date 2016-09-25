@@ -125,7 +125,6 @@
 -(void)setItemData:(GameItemData *)itemData
 {
     if (_itemData != itemData) {
-        
         _itemData = itemData;
         _labName.string = getItemName(itemData.itemId);
         _labDescription.string = getItemDescription(itemData.itemId);
@@ -148,23 +147,27 @@
         _itemIcon = [[CCSprite alloc] initWithImageNamed:[NSString stringWithFormat:@"item%@.png", itemData.itemData.iconId]];
         [_itemIcon setRect:CGRectMake(191, 152, 56, 56)];
         [_itemPanel addChild:_itemIcon];
-        
-        if (_type == ItemBrowsePanelTypeBuy) {
-            _selectButton.title = getLocalString(@"lab_buy");
-            _selectButton.visible = YES;
-        } else if (_type == ItemBrowsePanelTypeSell) {
-            _selectButton.title = getLocalString(@"lab_sell");
-            _selectButton.visible = YES;
-        } else if (_type == ItemBrowsePanelTypeBrowse) {
-            if (itemData.itemData.category <= 3) {
-                _selectButton.title = getLocalString(@"lab_equip");
-                _selectButton.visible = YES;
-            } else if (itemData.itemData.value > 0) {
-                _selectButton.title = getLocalString(@"lab_use");
-                _selectButton.visible = YES;
+    }
+    // 这部分还是会刷新，因为可能情况变了
+    if (_type == ItemBrowsePanelTypeBuy) {
+        _selectButton.title = getLocalString(@"lab_buy");
+        _selectButton.visible = YES;
+    } else if (_type == ItemBrowsePanelTypeSell) {
+        _selectButton.title = getLocalString(@"lab_sell");
+        _selectButton.visible = YES;
+    } else if (_type == ItemBrowsePanelTypeBrowse) {
+        if (itemData.itemData.category <= ItemCategoryOtherEquip) {
+            if (itemData.roleId) {
+                _selectButton.title = getLocalString(@"lab_unequip");
             } else {
-                _selectButton.visible = NO;
+                _selectButton.title = getLocalString(@"lab_equip");
             }
+            _selectButton.visible = YES;
+        } else if (itemData.itemData.value > 0) {
+            _selectButton.title = getLocalString(@"lab_use");
+            _selectButton.visible = YES;
+        } else {
+            _selectButton.visible = NO;
         }
     }
 }

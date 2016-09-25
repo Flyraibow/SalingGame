@@ -68,6 +68,7 @@
 "lab_buy" = "购买";
 "lab_sell" = "售出";
 "lab_equip" = "装备";
+"lab_unequip" = "卸载";
 "lab_use" = "使用";
 
 "get_contract_money" = "独占契约，获得%d金币";

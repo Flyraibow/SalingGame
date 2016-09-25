@@ -10,9 +10,8 @@
 
 @interface CCSprite(Ext)
 
+-(instancetype)initWithContentSize:(CGSize)size;
 
 -(void)setRect:(CGRect)rect;
-
--(CGPoint)currentPositionUnderAnchor:(CGPoint)anchorPoint;
 
 @end

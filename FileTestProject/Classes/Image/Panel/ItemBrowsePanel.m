@@ -285,7 +285,7 @@ const static int kShowLinesNumber = 4;
          }];
     } else if (_panelType == ItemBrowsePanelTypeSell) {
         __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
-        __weak ItemInfoPanel *weakItemInfoPanel = 0;
+        __weak ItemInfoPanel *weakItemInfoPanel = _itemInfoPanel;
         CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
         int price = gameItemData.itemData.price * 0.5;
         [dialogPanel setDefaultDialog:@"dialog_sell_item" arguments:@[getItemName(gameItemData.itemId), @(price)] cityStyle:cityData.cityStyle];
@@ -301,31 +301,52 @@ const static int kShowLinesNumber = 4;
             }
         }];
     } else if (_panelType == ItemBrowsePanelTypeBrowse) {
-        if (gameItemData.itemData.category <= 3) {
+        if (gameItemData.itemData.category <= ItemCategoryOtherEquip) {
             // equip 弹出对话之后弹出选人界面
             __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
+            __weak ItemInfoPanel *weakItemInfoPanel = _itemInfoPanel;
+            if (gameItemData.roleId) {
+                [gameItemData unequip];
+                [dialogPanel setDefaultDialog:@"dialog_unequip_an_equipment" arguments:nil];
+                [dialogPanel addConfirmHandler:^{
+                    [self removeChild:weakItemInfoPanel];
+                    _panel.visible = YES;
+                }];
+            } else {
+                [dialogPanel setDefaultDialog:@"dialog_equip_an_equipment" arguments:nil];
+                [dialogPanel addConfirmHandler:^{
+                    NSArray *npcList = [GameDataManager sharedGameData].myGuild.myTeam.npcList;
+                    RolePanel *rolePanel = [[RolePanel alloc] initWithNpcList:npcList type:RolePanelTypeEquip];
+                    __block RolePanel *blockRolePanel = rolePanel;
+                    rolePanel.selectHandler = ^(NSString *roleId) {
+                        GameNPCData *npcData = [[GameDataManager sharedGameData].npcDic objectForKey:roleId];
+                        assert(npcData);
+                        NPCEquipError err;
+                        if ((err = [npcData canEquip:gameItemData]) == NPCEquipErrorNone) {
+                            // 装备上
+                            [npcData equip:gameItemData];
+                            [dialogPanel setDefaultDialog:@"dialog_equip_an_equipment_success" arguments:nil];
+                            [dialogPanel addConfirmHandler:^{
+                                // 关闭role Panel
+                                [self.scene removeChild:blockRolePanel];
+                                [self removeChild:weakItemInfoPanel];
+                                _panel.visible = YES;
+                            }];
+                        } else {
+                            // 弹出文字无法装备
+                            // TODO： 增加原因
+                            if (npcData.isCaptain) {
+                                
+                                [dialogPanel setDefaultDialog:@"dialog_i_cannot_equip" arguments:@[gameItemData.itemName]];
+                            } else {
+                                [dialogPanel setDefaultDialog:@"dialog_cannot_equip" arguments:@[npcData.firstName, gameItemData.itemName]];
+                            }
+                        }
+                    };
+                    [self.scene addChild:rolePanel];
+                }];
+            }
             
-            [dialogPanel setDefaultDialog:@"dialog_equip_an_equipment" arguments:nil];
-            [dialogPanel addConfirmHandler:^{
-                NSArray *npcList = [GameDataManager sharedGameData].myGuild.myTeam.npcList;
-                RolePanel *rolePanel = [[RolePanel alloc] initWithNpcList:npcList type:RolePanelTypeEquip];
-                __block RolePanel *blockRolePanel = rolePanel;
-                rolePanel.selectHandler = ^(NSString *roleId) {
-                    GameNPCData *npcData = [[GameDataManager sharedGameData].npcDic objectForKey:roleId];
-                    assert(npcData);
-                    if ([npcData canEquip:gameItemData]) {
-                        // 装备上
-                        [npcData equip:gameItemData];
-                        // 关闭role Panel
-                        [self.scene removeChild:blockRolePanel];
-                    } else {
-                        // 弹出文字无法装备
-                        // TODO： 修改文字成 某某无法装备某某
-                        [dialogPanel setDefaultDialog:@"dialog_cannot_equip" arguments:@[npcData.firstName, gameItemData.itemName]];
-                    }
-                };
-                [self.scene addChild:rolePanel];
-            }];
         } else if (gameItemData.itemData.value > 0) {
             // use
         }

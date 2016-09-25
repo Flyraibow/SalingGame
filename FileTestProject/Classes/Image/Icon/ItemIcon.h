@@ -14,9 +14,15 @@
 
 -(void)selectItem:(GameItemData *)itemData;
 
+@optional
+-(void)selectItemByCategory:(ItemCategory)itemCategory;
+
 @end
 
 @interface ItemIcon : CCSprite
+
+// 用于应对空的Item的响应返回内容
+@property (nonatomic, assign) ItemCategory itemCategory;
 
 @property (nonatomic, weak) GameItemData* itemData;
 
