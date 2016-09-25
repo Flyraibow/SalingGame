@@ -207,8 +207,14 @@ static int const kMaxItemNumber = 3;
     }
     itemData.roleId = _npcId;
     if (itemData.itemData.category == ItemCategoryWeapon) {
+        if (_weaponId) {
+            [self unequip:[[GameDataManager sharedGameData].itemDic objectForKey:_weaponId]];
+        }
         _weaponId = itemData.itemId;
     } else if (itemData.itemData.category == ItemCategoryArmor) {
+        if (_armorId) {
+            [self unequip:[[GameDataManager sharedGameData].itemDic objectForKey:_armorId]];
+        }
         _armorId = itemData.itemId;
     } else if (itemData.itemData.category == ItemCategoryOtherEquip) {
         [_otherEquipIdList addObject:itemData.itemId];
