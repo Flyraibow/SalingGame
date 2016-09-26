@@ -15,16 +15,17 @@ typedef enum : NSUInteger {
     ItemBrowsePanelTypeBuy,
     ItemBrowsePanelTypeSell,
     ItemBrowsePanelTypeBrowse,
+    ItemBrowsePanelTypeEquip,
+    ItemBrowsePanelTypeSingle,
 } ItemBrowsePanelType;
 
-@protocol ItemInfoPanelDelegate
-
--(void)closeItemInfoPanel;
+@protocol ItemInfoPanelDelegate <NSObject>
 
 -(void)selectItemFromInfoPanel:(GameItemData *)gameItemData;
 
+@optional
+-(void)closeItemInfoPanel;
 -(void)selectPrevItem;
-
 -(void)selectNextItem;
 
 @end
@@ -33,6 +34,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, weak) id<ItemInfoPanelDelegate> delegate;
 @property (nonatomic) GameItemData *itemData;
+@property (nonatomic, weak) NSString *equipedRoleId;            // used for preselected situation
 
 -(instancetype)initWithPanelType:(ItemBrowsePanelType)type;
 

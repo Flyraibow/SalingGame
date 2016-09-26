@@ -71,22 +71,22 @@
         [closeButton setTarget:self selector:@selector(clickCloseButton)];
         [_itemPanel addChild:closeButton];
         
-        
-        _rightBtn = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:@"rightArrowButton.png"]];
-        _rightBtn.positionType = CCPositionTypeNormalized;
-        _rightBtn.anchorPoint = ccp(0.5, 0.5);
-        _rightBtn.position = ccp(0.43, 0.1);
-        [_rightBtn setTarget:self selector:@selector(clickRightButton)];
-        [_itemPanel addChild:_rightBtn];
-        
-        
-        _leftBtn = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:@"leftArrowButton.png"]];
-        _leftBtn.positionType = CCPositionTypeNormalized;
-        _leftBtn.anchorPoint = ccp(0.5, 0.5);
-        _leftBtn.position = ccp(0.27, 0.1);
-        [_leftBtn setTarget:self selector:@selector(clickLeftButton)];
-        [_itemPanel addChild:_leftBtn];
-        
+        if (type != ItemBrowsePanelTypeSingle) {
+            _rightBtn = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:@"rightArrowButton.png"]];
+            _rightBtn.positionType = CCPositionTypeNormalized;
+            _rightBtn.anchorPoint = ccp(0.5, 0.5);
+            _rightBtn.position = ccp(0.43, 0.1);
+            [_rightBtn setTarget:self selector:@selector(clickRightButton)];
+            [_itemPanel addChild:_rightBtn];
+            
+            _leftBtn = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:@"leftArrowButton.png"]];
+            _leftBtn.positionType = CCPositionTypeNormalized;
+            _leftBtn.anchorPoint = ccp(0.5, 0.5);
+            _leftBtn.position = ccp(0.27, 0.1);
+            [_leftBtn setTarget:self selector:@selector(clickLeftButton)];
+            [_itemPanel addChild:_leftBtn];
+        }
+
         _selectButton = [DefaultButton buttonWithTitle:@""];
         _selectButton.positionType = CCPositionTypeNormalized;
         _selectButton.anchorPoint = ccp(1, 0);
@@ -155,7 +155,7 @@
     } else if (_type == ItemBrowsePanelTypeSell) {
         _selectButton.title = getLocalString(@"lab_sell");
         _selectButton.visible = YES;
-    } else if (_type == ItemBrowsePanelTypeBrowse) {
+    } else if (_type == ItemBrowsePanelTypeBrowse || _type == ItemBrowsePanelTypeSingle) {
         if (itemData.itemData.category <= ItemCategoryOtherEquip) {
             if (itemData.roleId) {
                 _selectButton.title = getLocalString(@"lab_unequip");
@@ -169,12 +169,26 @@
         } else {
             _selectButton.visible = NO;
         }
+    } else if (_type == ItemBrowsePanelTypeEquip) {
+        assert(self.equipedRoleId);
+        if (itemData.roleId) {
+            if ([self.equipedRoleId isEqualToString:itemData.roleId]) {
+                _selectButton.title = getLocalString(@"lab_unequip");
+            } else {
+                _selectButton.title = getLocalString(@"lab_unequip_equip");
+            }
+        } else {
+            _selectButton.title = getLocalString(@"lab_equip");
+        }
+        _selectButton.visible = YES;
     }
 }
 
 -(void)clickCloseButton
 {
-    [_delegate closeItemInfoPanel];
+    if (_delegate && [_delegate respondsToSelector:@selector(closeItemInfoPanel)]) {
+        [_delegate closeItemInfoPanel];
+    }
     [self removeFromParent];
 }
 

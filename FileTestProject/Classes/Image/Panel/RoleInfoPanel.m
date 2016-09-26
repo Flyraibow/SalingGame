@@ -13,8 +13,11 @@
 #import "CCSprite+Ext.h"
 #import "GameDataManager.h"
 #import "ItemIcon.h"
+#import "ItemBrowsePanel.h"
+#import "ItemInfoPanel.h"
+#import "SpriteUpdateProtocol.h"
 
-@interface RoleInfoPanel() <ItemIconSelectionDelegate>
+@interface RoleInfoPanel() <ItemIconSelectionDelegate, ItemInfoPanelDelegate, SpriteUpdateProtocol>
 
 @end
 
@@ -23,6 +26,8 @@
     CCLabelTTF *_labNpcName;
     CCSprite *_photo;
     ItemIcon *_weaponIcon;
+    ItemIcon *_armorIcon;
+    NSArray<ItemIcon *> *_otherEquipIconList;
     CCLabelTTF *_labGender;
     CCLabelTTF *_labLuck;
     CCLabelTTF *_labStrength;
@@ -31,6 +36,7 @@
     CCLabelTTF *_labIntelligence;
     CCLabelTTF *_labEloquence;
     __weak GameNPCData *_npcData;
+    ItemInfoPanel *_itemPanel;
 }
 
 -(instancetype)init
@@ -90,12 +96,32 @@
         _labAgile.position = ccp(493, 185);
         [self addChild:_labAgile];
         
-        _weaponIcon = [[ItemIcon alloc] initWithContentSize:CGSizeMake(28, 28)];
+        _weaponIcon = [[ItemIcon alloc] initWithContentSize:CGSizeMake(30, 30)];
         _weaponIcon.delegate = self;
         _weaponIcon.itemCategory = ItemCategoryWeapon;
         _weaponIcon.positionType = CCPositionTypePoints;
-        _weaponIcon.position = ccp(258, 145);
+        _weaponIcon.position = ccp(257, 145);
         [self addChild:_weaponIcon];
+        
+        _armorIcon = [[ItemIcon alloc] initWithContentSize:CGSizeMake(30, 30)];
+        _armorIcon.delegate = self;
+        _armorIcon.itemCategory = ItemCategoryArmor;
+        _armorIcon.positionType = CCPositionTypePoints;
+        _armorIcon.position = ccp(297, 145);
+        [self addChild:_armorIcon];
+        
+        NSMutableArray *otherEquipIconList = [NSMutableArray new];
+        for (int i = 0; i < 3; ++i) {
+            ItemIcon *otherIcon = [[ItemIcon alloc] initWithContentSize:CGSizeMake(30, 30)];
+            otherIcon.delegate = self;
+            otherIcon.itemCategory = ItemCategoryArmor;
+            otherIcon.positionType = CCPositionTypePoints;
+            otherIcon.position = ccp(344 + i * 40.5, 145);
+            [otherEquipIconList addObject:otherIcon];
+            [self addChild:otherIcon];
+        }
+        _otherEquipIconList = otherEquipIconList;
+
     }
     
     return self;
@@ -120,7 +146,16 @@
     }
     if (_npcData.weaponId) {
         [_weaponIcon setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:_npcData.weaponId]];
-    } 
+    } else {
+        // TODO: SET NIL
+        [_weaponIcon setItemData:nil];
+    }
+    if (_npcData.armorId) {
+        [_armorIcon setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:_npcData.armorId]];
+    }
+    for (int i = 0; i < _npcData.otherEquipIdList.count; ++i) {
+        [_otherEquipIconList[i] setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:_npcData.otherEquipIdList[i]]];
+    }
 }
 
 -(void)clickCloseButton
@@ -131,12 +166,42 @@
 
 -(void)selectItem:(GameItemData *)itemData
 {
-    NSLog(@"===== 1");
+    // 弹出商品info，可以选择卸载
+    _itemPanel = [[ItemInfoPanel alloc] initWithPanelType:ItemBrowsePanelTypeSingle];
+    [_itemPanel setItemData:itemData];
+    _itemPanel.delegate = self;
+    [self.scene addChild:_itemPanel];
+}
+
+-(void)selectItemFromInfoPanel:(GameItemData *)gameItemData
+{
+    // 更新
+    [_npcData unequip:gameItemData];
+    [self setRoleId:_roleId];
+    if (_itemPanel) {
+        [_itemPanel removeFromParent];
+    }
 }
 
 -(void)selectItemByCategory:(ItemCategory)itemCategory
 {
-    NSLog(@"===== 2");
+    // 弹出选择商品列表，可以装备
+    NSMutableArray *items = [[[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId] mutableCopy];
+    // 删除不和条件的类型
+    for (GameItemData *itemData in items) {
+        if (itemData.itemData.category != itemCategory) {
+            [items removeObject:itemData];
+        }
+    }
+    ItemBrowsePanel *panel = [[ItemBrowsePanel alloc] initWithItems:items panelType:ItemBrowsePanelTypeEquip];
+    panel.delegate = self;
+    panel.equipedRoleId = _roleId;
+    [self.scene addChild:panel];
+}
+
+-(void)updatePanel
+{
+    [self setRoleId:_roleId];
 }
 
 @end

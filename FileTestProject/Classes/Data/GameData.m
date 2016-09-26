@@ -35,13 +35,11 @@ static NSString* const GameLogicData = @"GameLogicData";
 static NSString* const GameStoryLockData = @"GameStoryLockData";
 static NSString* const GameMuiscData = @"GameMusicData";
 static NSString* const GameItemDataState = @"GameItemDataState";
+static NSString* const GameNPCDic = @"GameNPCDic";
 
 -(instancetype)init
 {
     if (self = [super init]) {
-        _dialogList = [NSMutableArray new];
-        _cityDic = [NSMutableDictionary new];
-        _itemDic = [NSMutableDictionary new];
         [self commonInit];
         NSDictionary *cityDic = [[DataManager sharedDataManager].getCityDic getDictionary];
         for(NSString *key in cityDic)
@@ -66,6 +64,9 @@ static NSString* const GameItemDataState = @"GameItemDataState";
 
 -(void)commonInit
 {
+    _dialogList = [NSMutableArray new];
+    _cityDic = [NSMutableDictionary new];
+    _itemDic = [NSMutableDictionary new];
     _timeUpdateSet = [NSMutableSet new];
     _occupationUpdateSet = [NSMutableSet new];
     _cityChangeSet = [NSMutableSet new];
@@ -224,8 +225,9 @@ static NSString* const GameItemDataState = @"GameItemDataState";
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [self init];
+    self = [super init];
     if (self) {
+        [self commonInit];
         NSInteger date = [aDecoder decodeIntegerForKey: GameDataDate];
         _day = date % 100;
         date /= 100;
@@ -233,6 +235,7 @@ static NSString* const GameItemDataState = @"GameItemDataState";
         date /= 100;
         _year = date % 1000;
         [self commonInit];
+        _npcDic = [aDecoder decodeObjectForKey:GameNPCDic];
         _guildDic = [aDecoder decodeObjectForKey:GameGuildDic];
         _myGuild = [aDecoder decodeObjectForKey:GameMyGuild];
         _cityDic = [aDecoder decodeObjectForKey:GameCityDic];
@@ -261,6 +264,7 @@ static NSString* const GameItemDataState = @"GameItemDataState";
     [aCoder encodeObject:_currentMusic forKey:GameMuiscData];
     [aCoder encodeObject:_itemDic forKey:GameItemDataState];
     [aCoder encodeObject:_storyLockData forKey:GameStoryLockData];
+    [aCoder encodeObject:_npcDic forKey:GameNPCDic];
 }
 
 -(void)addTimeUpdateClass:(id<DateUpdateProtocol>)target

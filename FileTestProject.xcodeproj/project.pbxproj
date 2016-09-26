@@ -2205,6 +2205,7 @@
 		EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipSimpeInfoFrame.png; path = Resources/Graph/Frame/ShipSimpeInfoFrame.png; sourceTree = "<group>"; };
 		EC0C3B7E1D847020007E8D46 /* ShipSimpleInfoIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipSimpleInfoIcon.h; path = Classes/Image/Icon/ShipSimpleInfoIcon.h; sourceTree = "<group>"; };
 		EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSimpleInfoIcon.m; path = Classes/Image/Icon/ShipSimpleInfoIcon.m; sourceTree = "<group>"; };
+		EC4589BA1D98FCB800B833A9 /* SpriteUpdateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpriteUpdateProtocol.h; path = Classes/Protocol/SpriteUpdateProtocol.h; sourceTree = "<group>"; };
 		ECFD22FD1D826AC500FCC903 /* DockYardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockYardScene.h; path = Classes/UIScene/DockYardScene.h; sourceTree = "<group>"; };
 		ECFD22FE1D826AC500FCC903 /* DockYardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DockYardScene.m; path = Classes/UIScene/DockYardScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3693,6 +3694,7 @@
 				27C26DE11C71708C009EDE53 /* SailSceneGoProtocol.h */,
 				27C26DE21C717611009EDE53 /* SailSceneShipProtocol.h */,
 				27C26DE31C71A876009EDE53 /* CityChangeProtocol.h */,
+				EC4589BA1D98FCB800B833A9 /* SpriteUpdateProtocol.h */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";

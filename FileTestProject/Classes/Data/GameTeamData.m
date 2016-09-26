@@ -67,8 +67,13 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
         _shipList = [aDecoder decodeObjectForKey:GameTeamShipList];
         _belongToGuildId = [aDecoder decodeObjectForKey:GameTeamBelongGuildId];
         _currentCityId = [aDecoder decodeObjectForKey:GameTeamCurrentCity];
-        _npcList = [aDecoder decodeObjectForKey:GameTeamNPCData];
         _carryShipList = [aDecoder decodeObjectForKey:GameTeamCarryShipList];
+        NSMutableArray<NSString *> *npcList = [aDecoder decodeObjectForKey:GameTeamNPCData];
+        _npcList = [NSMutableArray new];
+        NSDictionary *npcDic = [GameDataManager sharedGameData].npcDic;
+        for (int i = 0; i < npcList.count; ++i) {
+            [(NSMutableArray *)_npcList addObject:npcDic[npcList[i]]];
+        }
     }
     return self;
 }
@@ -81,8 +86,13 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
     [aCoder encodeObject:_shipList forKey:GameTeamShipList];
     [aCoder encodeObject:_belongToGuildId forKey:GameTeamBelongGuildId];
     [aCoder encodeObject:_currentCityId forKey:GameTeamCurrentCity];
-    [aCoder encodeObject:_npcList forKey:GameTeamNPCData];
     [aCoder encodeObject:_carryShipList forKey:GameTeamCarryShipList];
+    NSMutableArray<NSString *> *npcList = [NSMutableArray new];
+    for (int i = 0; i < _npcList.count; ++i) {
+        GameNPCData *npcData = _npcList[i];
+        [npcList addObject:npcData.npcId];
+    }
+    [aCoder encodeObject:npcList forKey:GameTeamNPCData];
 }
 
 -(CGFloat)needsFoodCapacity

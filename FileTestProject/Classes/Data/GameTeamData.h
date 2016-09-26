@@ -10,6 +10,7 @@
 #import "TeamData.h"
 
 @class GameShipData;
+@class GameNPCData;
 @interface GameTeamData : NSObject <NSCoding>
 
 @property (nonatomic, readonly) NSString *teamId;
@@ -19,7 +20,7 @@
 @property (nonatomic, readonly) NSString *belongToGuildId;
 @property (nonatomic) NSString *currentCityId;
 @property (nonatomic, assign) BOOL onTheSea;
-@property (nonatomic, readonly) NSArray *npcList;
+@property (nonatomic, readonly) NSArray<GameNPCData *> *npcList;
 @property (nonatomic, readonly) NSMutableArray<GameShipData *> *carryShipList; // 拖船
 
 -(instancetype)initWithTeamData:(TeamData *)teamData guildId:(NSString *)guildId;

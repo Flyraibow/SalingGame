@@ -203,6 +203,7 @@ const static int kShowLinesNumber = 4;
     _selecteItemIndex = [_itemList indexOfObject:gameItemData];
     if (_itemInfoPanel == nil) {
         _itemInfoPanel = [[ItemInfoPanel alloc] initWithPanelType:_panelType];
+        _itemInfoPanel.equipedRoleId = self.equipedRoleId;
         _itemInfoPanel.delegate = self;
         [self addChild:_itemInfoPanel];
     } else if (_itemInfoPanel.parent == nil) {
@@ -350,6 +351,23 @@ const static int kShowLinesNumber = 4;
         } else if (gameItemData.itemData.value > 0) {
             // use
         }
+    } else if (_panelType == ItemBrowsePanelTypeEquip) {
+        assert(self.equipedRoleId);
+        GameNPCData *npcData = [[GameDataManager sharedGameData].npcDic objectForKey:self.equipedRoleId];
+        if (gameItemData.roleId) {
+            if ([self.equipedRoleId isEqualToString:gameItemData.roleId]) {
+                [npcData unequip:gameItemData];
+            } else {
+                [gameItemData unequip];
+                [npcData equip:gameItemData];
+            }
+        } else {
+            [npcData equip:gameItemData];
+        }
+        [_itemInfoPanel removeFromParent];
+        [self.delegate updatePanel];
+        [self removeFromParent];
+        // update
     }
 }
 
