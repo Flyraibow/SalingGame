@@ -177,6 +177,9 @@ typedef enum : NSUInteger {
         [self addChild:_text z:101];
         _touchTime = 0;
         _dialogPanel = [[DialogPanel alloc] initWithContentSize:CGSizeMake(_contentSize.height / 3 * 4, _contentSize.height)];
+        [_dialogPanel addConfirmHandler:^{
+            _inDialog = NO;
+        } forAll:YES];
         
         [self setStoryId:storyId removeAllPhoto:NO];
     }
@@ -362,9 +365,6 @@ typedef enum : NSUInteger {
                             npcName = getNpcFirstName(storyData.parameter2);
                         }
                         [_dialogPanel setDialogWithPhotoNo:storyData.parameter1 npcName:npcName text:getStoryText(storyData.parameter3)];
-                        [_dialogPanel addConfirmHandler:^{
-                            _inDialog = NO;
-                        }];
                         _inDialog = YES;
                         flag = NO;
                         // if the dialog has selections ,load immediately

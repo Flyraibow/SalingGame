@@ -16,6 +16,7 @@
 #import "ItemBrowsePanel.h"
 #import "ItemInfoPanel.h"
 #import "SpriteUpdateProtocol.h"
+#import "RoleAnimation.h"
 
 @interface RoleInfoPanel() <ItemIconSelectionDelegate, ItemInfoPanelDelegate, SpriteUpdateProtocol>
 
@@ -35,8 +36,15 @@
     CCLabelTTF *_labCharm;
     CCLabelTTF *_labIntelligence;
     CCLabelTTF *_labEloquence;
+    CCLabelTTF *_labJobTitle;
+    CCLabelTTF *_labHPMax;
+    CCLabelTTF *_labHPCurrent;
     __weak GameNPCData *_npcData;
     ItemInfoPanel *_itemPanel;
+    CCLabelTTF *_labLevel;
+    CCLabelTTF *_labBodyStatus;
+    CCLabelTTF *_labMoodStatus;
+    RoleAnimation *_roleAnimation;
 }
 
 -(instancetype)init
@@ -96,6 +104,54 @@
         _labAgile.position = ccp(493, 185);
         [self addChild:_labAgile];
         
+        _labJobTitle = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:14];
+        _labJobTitle.positionType = CCPositionTypeNormalized;
+        _labJobTitle.anchorPoint = ccp(0,1);
+        _labJobTitle.position = ccp(0.25, 0.86);
+        [self addChild:_labJobTitle];
+        
+        CCLabelTTF *labHp = [CCLabelTTF labelWithString:getLocalString(@"lab_hp") fontName:nil fontSize:14];
+        labHp.positionType = CCPositionTypeNormalized;
+        labHp.anchorPoint=ccp(0,1);
+        labHp.position = ccp(0.25, 0.765);
+        [self addChild:labHp];
+        
+        _labHPMax = [CCLabelTTF labelWithString:@"0" fontName:nil fontSize:14];
+        _labHPMax.positionType = CCPositionTypeNormalized;
+        _labHPMax.anchorPoint=ccp(0,1);
+        _labHPMax.position = ccp(0.405, 0.765);
+        [self addChild:_labHPMax];
+        
+        _labHPCurrent = [CCLabelTTF labelWithString:@"0" fontName:nil fontSize:14];
+        _labHPCurrent.positionType = CCPositionTypeNormalized;
+        _labHPCurrent.anchorPoint=ccp(1,1);
+        _labHPCurrent.position = ccp(0.375, 0.765);
+        [self addChild:_labHPCurrent];
+        
+        _labLevel = [CCLabelTTF labelWithString:getLocalString(@"") fontName:nil fontSize:14];
+        _labLevel.positionType = CCPositionTypeNormalized;
+        _labLevel.anchorPoint=ccp(0,1);
+        _labLevel.position = ccp(0.22, 0.625);
+        [self addChild:_labLevel];
+        
+        _labBodyStatus = [CCLabelTTF labelWithString:getLocalString(@"") fontName:nil fontSize:14];
+        _labBodyStatus.positionType = CCPositionTypeNormalized;
+        _labBodyStatus.anchorPoint=ccp(0.5,1);
+        _labBodyStatus.position = ccp(0.62, 0.86);
+        [self addChild:_labBodyStatus];
+        
+        _labMoodStatus = [CCLabelTTF labelWithString:getLocalString(@"") fontName:nil fontSize:14];
+        _labMoodStatus.positionType = CCPositionTypeNormalized;
+        _labMoodStatus.anchorPoint=ccp(0.5,1);
+        _labMoodStatus.position = ccp(0.62, 0.77);
+        [self addChild:_labMoodStatus];
+        
+        _roleAnimation = [[RoleAnimation alloc] init];
+        _roleAnimation.positionType = CCPositionTypeNormalized;
+        _roleAnimation.anchorPoint = ccp(0.5, 0.5);
+        _roleAnimation.position = ccp(0.2, 0.80);
+        [self addChild:_roleAnimation];
+        
         _weaponIcon = [[ItemIcon alloc] initWithContentSize:CGSizeMake(30, 30)];
         _weaponIcon.delegate = self;
         _weaponIcon.itemCategory = ItemCategoryWeapon;
@@ -114,14 +170,13 @@
         for (int i = 0; i < 3; ++i) {
             ItemIcon *otherIcon = [[ItemIcon alloc] initWithContentSize:CGSizeMake(30, 30)];
             otherIcon.delegate = self;
-            otherIcon.itemCategory = ItemCategoryArmor;
+            otherIcon.itemCategory = ItemCategoryOtherEquip;
             otherIcon.positionType = CCPositionTypePoints;
             otherIcon.position = ccp(344 + i * 40.5, 145);
             [otherEquipIconList addObject:otherIcon];
             [self addChild:otherIcon];
         }
         _otherEquipIconList = otherEquipIconList;
-
     }
     
     return self;
@@ -134,8 +189,10 @@
     {
         _roleId = roleId;
         _npcData = [[GameDataManager sharedGameData].npcDic objectForKey:roleId];
-                
+        _roleAnimation.roleId = roleId;
+        _roleAnimation.job = _npcData.job;
         _labNpcName.string = _npcData.fullName;
+        _labJobTitle.string = _npcData.jobTitle;
         if(_photo != nil)
             [self removeChild:_photo];
         _photo = [CCSprite spriteWithImageNamed:_npcData.portrait];
@@ -152,10 +209,20 @@
     }
     if (_npcData.armorId) {
         [_armorIcon setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:_npcData.armorId]];
+    } else {
+        [_armorIcon setItemData:nil];
     }
     for (int i = 0; i < _npcData.otherEquipIdList.count; ++i) {
         [_otherEquipIconList[i] setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:_npcData.otherEquipIdList[i]]];
     }
+    for (NSUInteger i = _npcData.otherEquipIdList.count; i < 3; ++i) {
+        [_otherEquipIconList[i] setItemData:nil];
+    }
+    _labHPCurrent.string = [@(_npcData.currHp) stringValue];
+    _labHPMax.string = [@(_npcData.maxHp) stringValue];
+    _labLevel.string = [NSString stringWithFormat:getLocalString(@"lab_npc_level"), _npcData.level];
+    _labMoodStatus.string = getLocalStringByInt(@"mood_status_", _npcData.moodStatus);
+    _labBodyStatus.string = getLocalStringByInt(@"body_status_", _npcData.bodyStatus);
 }
 
 -(void)clickCloseButton
@@ -186,14 +253,15 @@
 -(void)selectItemByCategory:(ItemCategory)itemCategory
 {
     // 弹出选择商品列表，可以装备
-    NSMutableArray *items = [[[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId] mutableCopy];
+    NSArray *items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
+    NSMutableArray *mutableItems = [items mutableCopy];
     // 删除不和条件的类型
     for (GameItemData *itemData in items) {
         if (itemData.itemData.category != itemCategory) {
-            [items removeObject:itemData];
+            [mutableItems removeObject:itemData];
         }
     }
-    ItemBrowsePanel *panel = [[ItemBrowsePanel alloc] initWithItems:items panelType:ItemBrowsePanelTypeEquip];
+    ItemBrowsePanel *panel = [[ItemBrowsePanel alloc] initWithItems:mutableItems panelType:ItemBrowsePanelTypeEquip];
     panel.delegate = self;
     panel.equipedRoleId = _roleId;
     [self.scene addChild:panel];

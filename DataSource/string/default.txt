@@ -25,6 +25,7 @@
 "tavern_hire_minimum" = "最小雇佣";
 
 "lab_goods_level" = "等级 %d";
+"lab_npc_level" = "等级    %d";
 
 "lab_sold" = "卖出品";
 "lab_sell" = "特产品";
@@ -126,6 +127,7 @@
 "lab_eloquence" = "口才";
 "lab_luck" = "运气";
 "lab_agile" = "敏捷";
+"lab_hp" = "生命值";
 
 "lab_ship_modify_my_money" = "所持金";
 "lab_ship_modify_spend_money" = "费用";

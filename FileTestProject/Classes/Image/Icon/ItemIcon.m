@@ -25,21 +25,29 @@
 
 -(void)setItemData:(GameItemData *)gameItemData
 {
-    ItemData *itemData = gameItemData.itemData;
-    if (![itemData.iconId isEqualToString:_itemData.itemData.iconId]) {
-        [_itemSprite removeFromParent];
-        _itemSprite = [CCSprite spriteWithImageNamed:[NSString stringWithFormat:@"item%@.png", itemData.iconId]];
-        if (_useFrame) {
-            _itemSprite.contentSize = self.contentSize;
-        } else {
-            _itemSprite.scaleX = self.contentSize.width / _itemSprite.contentSize.width;
-            _itemSprite.scaleY = self.contentSize.height / _itemSprite.contentSize.height;
+    if (gameItemData) {
+        ItemData *itemData = gameItemData.itemData;
+        if (![itemData.iconId isEqualToString:_itemData.itemData.iconId]) {
+            [_itemSprite removeFromParent];
+            _itemSprite = [CCSprite spriteWithImageNamed:[NSString stringWithFormat:@"item%@.png", itemData.iconId]];
+            if (_useFrame) {
+                _itemSprite.contentSize = self.contentSize;
+            } else {
+                _itemSprite.scaleX = self.contentSize.width / _itemSprite.contentSize.width;
+                _itemSprite.scaleY = self.contentSize.height / _itemSprite.contentSize.height;
+            }
+            _itemSprite.anchorPoint = ccp(0.5, 0.5);
+            _itemSprite.positionType = CCPositionTypeNormalized;
+            _itemSprite.position = ccp(0.5, 0.5);
+            [self addChild:_itemSprite];
         }
-        _itemSprite.anchorPoint = ccp(0.5, 0.5);
-        _itemSprite.positionType = CCPositionTypeNormalized;
-        _itemSprite.position = ccp(0.5, 0.5);
-        [self addChild:_itemSprite];
+    } else {
+        if (_itemSprite) {
+            [_itemSprite removeFromParent];
+            _itemSprite = nil;
+        }
     }
+    
     _itemData = gameItemData;
 }
 

@@ -10,6 +10,16 @@
 #import "DataManager.h"
 
 typedef enum : NSUInteger {
+    NPCBodyStatusNull,
+    NPCBodyStatusNormal,
+} NPCBodyStatus;
+
+typedef enum : NSUInteger {
+    NPCMoodStatusNull,
+    NPCMoodStatusNormal,
+} NPCMoodStatus;
+
+typedef enum : NSUInteger {
     NPCJobTypeNone,
     NPCJobTypeCaptain,
     NPCJobTypeOperatingSail,
@@ -69,6 +79,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly, assign) int maxHp;
 @property (nonatomic, assign) int currHp;
 @property (nonatomic, readonly) NSString *fullName;
+@property (nonatomic, readonly) NSString *jobTitle;
 @property (nonatomic, readonly) NSString *portrait;
 @property (nonatomic, assign) BOOL isCaptain;
 @property (nonatomic, assign) NPCJobType job;
@@ -76,6 +87,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy) NSString *weaponId;
 @property (nonatomic, copy) NSString *armorId;
 @property (nonatomic, copy) NSArray *otherEquipIdList;
+@property (nonatomic, readonly) NPCBodyStatus bodyStatus;
+@property (nonatomic, readonly) NPCMoodStatus moodStatus;
+
 
 -(instancetype)initWithNpcId:(NSString *)npcId;
 

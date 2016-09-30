@@ -1,3 +1,4 @@
+"body_status_1"="健康";
 "cannon_description_1"="威力1";
 "cannon_description_2"="威力2 长射程";
 "cannon_description_3"="威力3";
@@ -188,6 +189,7 @@
 "tavern_hire_minimum" = "最小雇佣";
 
 "lab_goods_level" = "等级 %d";
+"lab_npc_level" = "等级 %d";
 
 "lab_sold" = "卖出品";
 "lab_sell" = "特产品";
@@ -231,7 +233,8 @@
 "lab_buy" = "购买";
 "lab_sell" = "售出";
 "lab_equip" = "装备";
-"lab_unequip" = "卸载";
+"lab_unequip" = "卸下";
+"lab_unequip_equip" = "卸下/装备";
 "lab_use" = "使用";
 
 "get_contract_money" = "独占契约，获得%d金币";
@@ -288,6 +291,7 @@
 "lab_eloquence" = "口才";
 "lab_luck" = "运气";
 "lab_agile" = "敏捷";
+"lab_hp" = "生命值";
 
 "lab_ship_modify_my_money" = "所持金";
 "lab_ship_modify_spend_money" = "费用";
@@ -979,6 +983,7 @@
 "job_name_15"="传教士";
 "job_name_16"="参谋";
 "job_name_17"="会计";
+"mood_status_1"="正常";
 "npc_description_1"="北非海盗王。凭借恐怖的战斗力得到老首领的上市，成为继承人。横行南地中海，令人闻风丧胆。";
 "npc_description_2"="莫名的憧憬着要当一名水手的葡萄牙少年。受朋友的鼓动而出海。推荐初次玩此游戏的玩家选择他。";
 "npc_firstname_1"="海雷丁";

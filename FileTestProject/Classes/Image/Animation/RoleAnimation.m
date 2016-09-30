@@ -85,12 +85,19 @@ static CGFloat const FRAME_INTERVAL = 0.7f;
     return frameList;
 }
 
+-(instancetype)init
+{
+    if (self = [super init]) {
+        _loops = YES;
+        _stopped = NO;
+    }
+    return self;
+}
+
 -(instancetype)initWithRoleId:(NSString *)roleId
 {
     if (self = [super init]) {
         _roleId = roleId;
-        _loops = YES;
-        _stopped = NO;
     }
     return self;
 }

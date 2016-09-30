@@ -34,6 +34,7 @@
     BaseButtonGroup *_buttonGroup;
     void(^_handler)(int index);
     void(^_confirmHandler)();
+    BOOL _forAllConfirmationFlag;
 }
 
 -(instancetype)initWithContentSize:(CGSize)contentSize
@@ -46,6 +47,7 @@
         self.positionType = CCPositionTypeNormalized;
         self.position = ccp(0.5, 0.5);
         self.userInteractionEnabled = YES;
+        _forAllConfirmationFlag = NO;
         
         _basePosX = 0.5 - 0.5 / _windowSize.width * contentSize.width;
         _photoIcon = [[DialogPhotoIcon alloc] init];
@@ -169,7 +171,7 @@
 
 -(void)setDialogWithPhotoNo:(NSString *)photoNo npcName:(NSString *)npcName text:(NSString *)text
 {
-    [self setDialogWithPhotoNo:photoNo npcName:npcName text:text handler:nil];
+    [self setDialogWithPhotoNo:photoNo npcName:npcName text:text handler:(_forAllConfirmationFlag?_confirmHandler:nil)];
 }
 
 -(void)setDialogWithPhotoNo:(NSString *)photoNo npcName:(NSString *)npcName text:(NSString *)text handler:(void (^)())handler
@@ -217,7 +219,13 @@
 
 -(void)addConfirmHandler:(void(^)())handler
 {
+    [self addConfirmHandler:handler forAll:NO];
+}
+
+-(void)addConfirmHandler:(void(^)())handler forAll:(BOOL)flag
+{
     _confirmHandler = handler;
+    _forAllConfirmationFlag = flag;
 }
 
 -(void)addSelections:(NSArray *)selectArray callback:(void(^)(int index))handler

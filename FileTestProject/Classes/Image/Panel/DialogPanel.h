@@ -29,6 +29,8 @@
 
 -(void)addConfirmHandler:(void(^)())handler;
 
+-(void)addConfirmHandler:(void(^)())handler forAll:(BOOL)flag;
+
 -(void)addSelections:(NSArray *)selectArray callback:(void(^)(int index))handler;
 
 -(void)setDefaultDialog:(NSString *)defaultDialogId arguments:(NSArray *)arguments cityStyle:(int)cityStyle;

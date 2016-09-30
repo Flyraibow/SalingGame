@@ -68,6 +68,8 @@ static NSString* const NPCCurrentHP = @"NPCCurrentHP";
 static NSString* const NPCWeaponId = @"NPCWeaponId";
 static NSString* const NPCAmorId = @"NPCAmorId";
 static NSString* const NPCOtherEquipIdList = @"NPCOtherEquipIdList";
+static NSString* const NPCCurentMoodStatus = @"NPCCurentMoodStatus";
+static NSString* const NPCCurentBodyStatus = @"NPCCurentBodyStatus";
 
 static int const kMaxItemNumber = 3;
 
@@ -109,6 +111,8 @@ static int const kMaxItemNumber = 3;
         _otherEquipIdList = [NSMutableArray new];
         _weaponId = nil;
         _armorId = nil;
+        _moodStatus = NPCMoodStatusNormal;
+        _bodyStatus = NPCBodyStatusNormal;
     }
     return self;
 }
@@ -136,7 +140,8 @@ static int const kMaxItemNumber = 3;
         _weaponId = [aDecoder decodeObjectForKey:NPCWeaponId];
         _armorId = [aDecoder decodeObjectForKey:NPCAmorId];
         _otherEquipIdList = [aDecoder decodeObjectForKey:NPCOtherEquipIdList];
-        
+        _moodStatus = [aDecoder decodeIntegerForKey:NPCCurentMoodStatus];
+        _bodyStatus = [aDecoder decodeIntegerForKey:NPCCurentBodyStatus];
         _npcData = [[[DataManager sharedDataManager] getNpcDic] getNpcById:_npcId];
     }
     return self;
@@ -163,6 +168,8 @@ static int const kMaxItemNumber = 3;
     [aCoder encodeObject:_weaponId forKey:NPCWeaponId];
     [aCoder encodeObject:_armorId forKey:NPCAmorId];
     [aCoder encodeObject:_otherEquipIdList forKey:NPCOtherEquipIdList];
+    [aCoder encodeInteger:_bodyStatus forKey:NPCCurentBodyStatus];
+    [aCoder encodeInteger:_moodStatus forKey:NPCCurentMoodStatus];
 }
 
 -(NSString *)fullName
@@ -175,6 +182,10 @@ static int const kMaxItemNumber = 3;
     return [NSString stringWithFormat:@"dialogPortrait%@.png", self.npcData.dialogPotraitId];
 }
 
+-(NSString *)jobTitle
+{
+    return getLocalStringByInt(@"job_name_", _job + 1);
+}
 
 -(BOOL)isableTodo:(NPCJobType)job
 {
@@ -220,7 +231,6 @@ static int const kMaxItemNumber = 3;
         [_otherEquipIdList addObject:itemData.itemId];
     }
 }
-
 
 -(void)unequip:(GameItemData *)itemData
 {
