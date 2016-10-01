@@ -45,6 +45,7 @@
     CCLabelTTF *_labBodyStatus;
     CCLabelTTF *_labMoodStatus;
     RoleAnimation *_roleAnimation;
+    CCDrawNode *_attributeGraph;            // 六方图
 }
 
 -(instancetype)init
@@ -177,11 +178,14 @@
             [self addChild:otherIcon];
         }
         _otherEquipIconList = otherEquipIconList;
+
+        _attributeGraph = [[CCDrawNode alloc] init];
+        _attributeGraph.positionType = CCPositionTypePoints;
+        _attributeGraph.position = ccp(552, 184);
+        [self addChild:_attributeGraph];
     }
-    
     return self;
 }
-
 
 -(void)setRoleId:(NSString *)roleId
 {
@@ -200,6 +204,7 @@
         [self addChild:_photo];
         
         _labGender.string = getLocalStringByInt(@"gender_", _npcData.npcData.gender + 1);
+        [self drawAttributeGraph];
     }
     if (_npcData.weaponId) {
         [_weaponIcon setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:_npcData.weaponId]];
@@ -270,6 +275,28 @@
 -(void)updatePanel
 {
     [self setRoleId:_roleId];
+}
+
+-(void)drawAttributeGraph
+{
+    [_attributeGraph clear];
+    if (_npcData != nil) {
+        CGPoint points[6];
+        CGFloat scale = 0.38;
+        points[0].x = - MAX(_npcData.strength, 100) * 0.6 * scale;
+        points[0].y = MAX(_npcData.strength, 100) * scale;
+        points[1].x = MAX(_npcData.intelligence, 100) * 0.6 * scale;
+        points[1].y = MAX(_npcData.intelligence, 100) * scale;
+        points[2].x = MAX(_npcData.eloquence, 100) * scale;
+        points[2].y = 0;
+        points[3].x = MAX(_npcData.charm, 100) * 0.6 * scale;
+        points[3].y = - MAX(_npcData.charm, 100) * scale;
+        points[4].x = - MAX(_npcData.luck, 100) * 0.6 * scale;
+        points[4].y = - MAX(_npcData.luck, 100) * scale;
+        points[5].x = - MAX(_npcData.agile, 100) * scale;
+        points[5].y = 0;
+        [_attributeGraph drawPolyWithVerts:points count:6 fillColor:[CCColor cyanColor] borderWidth:1.0 borderColor:[CCColor greenColor]];
+    }
 }
 
 @end
