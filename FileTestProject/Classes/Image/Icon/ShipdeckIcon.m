@@ -196,6 +196,8 @@
                 case FunctionRoomEquipTypeDancing:
                     _job = NPCJobTypeRelax;
                     break;
+                default:
+                    break;
             }
             break;
         }

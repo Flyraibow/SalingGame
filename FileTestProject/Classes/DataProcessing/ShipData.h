@@ -4,15 +4,7 @@
 @interface ShipData : NSObject
 
 @property (nonatomic, readonly) NSString *shipId;
-@property (nonatomic, readonly) NSString *icon;
-@property (nonatomic, readonly) int style;
-@property (nonatomic, readonly) int duration;
-@property (nonatomic, readonly) int agile;
-@property (nonatomic, readonly) int price;
-@property (nonatomic, readonly) int minSailorNum;
-@property (nonatomic, readonly) int maxSailorNum;
-@property (nonatomic, readonly) int speed;
-@property (nonatomic, readonly) int cannonId;
+@property (nonatomic, readonly) NSString *style;
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 

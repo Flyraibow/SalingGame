@@ -12,6 +12,7 @@
 #import "LocalString.h"
 #import "DefaultButton.h"
 #import "ShipSimpleInfoIcon.h"
+#import "GameDataManager.h"
 
 static const CGFloat kMovingTotalTime = 0.5;
 
@@ -66,7 +67,7 @@ static const CGFloat kMovingTotalTime = 0.5;
         _teamShipCount = team.shipList.count;
         _shipIconList = [NSMutableArray new];
         int i = 0;
-        for (GameShipData *shipData in team.shipList) {
+        for (GameShipData *shipData in [team shipDataList]) {
             ShipSimpleInfoIcon *shipIcon = [[ShipSimpleInfoIcon alloc] initWithShipData:shipData];
             shipIcon.inTeam = YES;
             shipIcon.index = i;
@@ -306,19 +307,19 @@ static const CGFloat kMovingTotalTime = 0.5;
         for (int i = 0; i < _shipTeamIconList.count; ++i) {
             ShipSimpleInfoIcon *shipIcon = _shipTeamIconList[i];
             GameShipData *shipData = shipIcon.shipData;
-            if ([_teamData.shipList containsObject:shipData]) {
-                [_teamData.shipList removeObject:shipData];
-                [_teamData.shipList insertObject:shipData atIndex:i];
+            if ([_teamData.shipList containsObject:shipData.shipId]) {
+                [(NSMutableArray *)_teamData.shipList removeObject:shipData.shipId];
+                [(NSMutableArray *)_teamData.shipList insertObject:shipData.shipId atIndex:i];
             } else {
-                [_teamData.shipList insertObject:shipData atIndex:i];
-                [_teamData.carryShipList removeObject:shipData];
+                [(NSMutableArray *)_teamData.shipList insertObject:shipData.shipId atIndex:i];
+                [(NSMutableArray *)_teamData.carryShipList removeObject:shipData.shipId];
                 shipIcon.shipData.cityId = nil;
             }
         }
         for (NSInteger i = _teamData.shipList.count - 1; i >=  _shipTeamIconList.count; --i) {
-            GameShipData *shipData = _teamData.shipList[i];
-            [_teamData.shipList removeObjectAtIndex:i];
-            [_teamData.carryShipList addObject:shipData];
+            GameShipData *shipData = [[GameDataManager sharedGameData].shipDic objectForKey:_teamData.shipList[i]];
+            [(NSMutableArray *)_teamData.shipList removeObjectAtIndex:i];
+            [(NSMutableArray *)_teamData.carryShipList addObject:shipData.shipId];
             shipData.cityId = self.cityId;
         }
         // TODO: 把所有人的职业放到新船里

@@ -38,12 +38,12 @@
 {
     // TODO: 列出我所有的船，不仅仅是当前舰队的
     MyGuild *myGuild = [GameDataManager sharedGameData].myGuild;
-    NSMutableArray<GameShipData *> *shipList = [myGuild.myTeam.shipList mutableCopy];
-    [shipList addObjectsFromArray:myGuild.myTeam.carryShipList];
+    NSMutableArray<GameShipData *> *shipList = [myGuild.myTeam shipDataList];
+    [shipList addObjectsFromArray:[myGuild.myTeam carryShipDataList]];
     for (int i = 0; i < myGuild.teamList.count; ++i) {
         GameTeamData *teamData = myGuild.teamList[i];
-        [shipList addObjectsFromArray:teamData.shipList];
-        [shipList addObjectsFromArray:teamData.carryShipList];
+        [shipList addObjectsFromArray:[teamData shipDataList]];
+        [shipList addObjectsFromArray:[teamData carryShipDataList]];
     }
     
     ShipExchangeScene *shipInfoScene = [[ShipExchangeScene alloc] initWithShipList:shipList sceneType:ShipSceneTypeInfo];

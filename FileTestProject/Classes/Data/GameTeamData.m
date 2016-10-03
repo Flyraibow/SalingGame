@@ -21,11 +21,32 @@ static NSString* const GameTeamCurrentCity = @"GameTeamCurrentCity";
 static NSString* const GameTeamNPCData = @"GameTeamNPCData";
 static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
 
+@interface GameTeamData()
+
+@property (nonatomic, weak) NSMutableDictionary *shipDic;
+
+@end
+
 @implementation GameTeamData
+{
+    NSMutableArray<NSString *> *_shipList;
+    NSMutableArray<NSString *> *_carryShipList;
+}
+
+@synthesize shipList = _shipList;
+@synthesize carryShipList = _carryShipList;
+
+-(NSMutableDictionary *)shipDic
+{
+    if (!_shipDic) {
+        _shipDic = [GameDataManager sharedGameData].shipDic;
+    }
+    return _shipDic;
+}
 
 -(instancetype)initWithTeamData:(TeamData *)teamData guildId:(NSString *)guildId
 {
-    if (self = [super init]) {
+    if (self = [self init]) {
         _shipList = [NSMutableArray new];
         _teamId = teamData.teamId;
         _leaderId = teamData.leaderId;
@@ -35,7 +56,7 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
             NSString *shipTypeId = [shipArray objectAtIndex:i];
             if (shipTypeId.length > 0) {
                 GameShipData *shipData = [[GameShipData alloc] initWithShipData:[[DataManager sharedDataManager].getShipDic getShipById:shipTypeId]];
-                [_shipList addObject:shipData];
+                [self getShip:shipData cityId:nil];
             }
         }
         NSMutableArray *npcList = [NSMutableArray new];
@@ -99,7 +120,7 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
 {
     CGFloat foodCapacity = 0;
     for (int i = 0; i < _shipList.count; ++i) {
-        GameShipData *shipData = _shipList[i];
+        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];
         foodCapacity += shipData.maxFoodCapacity - shipData.foodCapacity;
     }
     return foodCapacity;
@@ -108,7 +129,7 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
 -(void)fillFood:(CGFloat)food
 {
     for (int i = 0; i < _shipList.count; ++i) {
-        GameShipData *shipData = _shipList[i];
+        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];
         if (food > 0) {
             food -= shipData.maxFoodCapacity - shipData.foodCapacity;
             shipData.foodCapacity = shipData.maxFoodCapacity;
@@ -127,7 +148,7 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
     BOOL flag = NO;
     int sailorNumbers = 0;
     for (int i = 0; i < _shipList.count; ++i) {
-        GameShipData *shipData = _shipList[i];
+        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];;
         if (shipData.curSailorNum == 0) {
             // 只要有一条船上没水手，就不能出航
             return 0;
@@ -151,7 +172,7 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
     int minNumber = 0;
     int maxNumber= 0;
     for (int i = 0; i < _shipList.count; ++i) {
-        GameShipData *shipData = _shipList[i];
+        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];;
         minNumber += shipData.minSailorNum;
         maxNumber += shipData.maxSailorNum;
         sailorNumbers += shipData.curSailorNum;
@@ -169,7 +190,7 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
 {
     CGFloat food = 0;
     for (int i = 0; i < _shipList.count; ++i) {
-        GameShipData *shipData = _shipList[i];
+        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];;
         food += shipData.foodCapacity;
     }
     return food;
@@ -189,22 +210,64 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
 
 -(void)getShip:(GameShipData *)shipData cityId:(NSString *)cityId
 {
+    if (!shipData.shipId) {
+        [[GameDataManager sharedGameData] registerGameShipData:shipData];
+    }
     shipData.belongToGuild = self.belongToGuildId;
     if (self.shipList.count < 5) {
-        [self.shipList addObject:shipData];
+        [_shipList addObject:shipData.shipId];
     } else {
         shipData.cityId = cityId;
-        [self.carryShipList addObject:shipData];
+        [_carryShipList addObject:shipData.shipId];
+    }
+}
+
+-(void)removeShip:(GameShipData *)shipData
+{
+    [self removeShip:shipData forEver:YES];
+}
+
+-(void)removeShip:(GameShipData *)shipData forEver:(BOOL)forever
+{
+    if (shipData.shipId) {
+        if ([_shipList containsObject:shipData.shipId]) {
+            [_shipList removeObject:shipData.shipId];
+        } else if ([_carryShipList containsObject:shipData.shipId]) {
+            [_shipList removeObject:shipData.shipId];
+        }
+        if (forever) {
+            [self.shipDic removeObjectForKey:shipData.shipId];
+        }
     }
 }
 
 -(NSArray *)getCarryShipListInCity:(NSString *)cityId
 {
     NSMutableArray<GameShipData *>* shipList = [NSMutableArray new];
-    for (GameShipData *shipData in _carryShipList) {
+    for (NSString *shipId in _carryShipList) {
+        GameShipData *shipData = [self.shipDic objectForKey:shipId];
         if (shipData.cityId == cityId) {
             [shipList addObject:shipData];
         }
+    }
+    return shipList;
+}
+
+
+-(NSMutableArray<GameShipData *> *)shipDataList
+{
+    NSMutableArray *shipList = [NSMutableArray new];
+    for (NSString *shipId in _shipList) {
+        [shipList addObject:[self.shipDic objectForKey:shipId]];
+    }
+    return shipList;
+}
+
+-(NSMutableArray<GameShipData *> *)carryShipDataList
+{
+    NSMutableArray *shipList = [NSMutableArray new];
+    for (NSString *shipId in _carryShipList) {
+        [shipList addObject:[self.shipDic objectForKey:shipId]];
     }
     return shipList;
 }

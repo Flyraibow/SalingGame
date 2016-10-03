@@ -12,7 +12,7 @@
 #import "LocalString.h"
 #import "GameDataManager.h"
 #import "DataManager.h"
-#import "ShipData.h"
+#import "ShipStyleData.h"
 #import "GameCityData.h"
 #import "GameShipData.h"
 #import "NSSet+Sort.h"
@@ -119,11 +119,11 @@
     }
     _number = 0;
     _index = 0;
-    ShipDic *shipDic = [[DataManager sharedDataManager] getShipDic];
+    ShipStyleDic *shipStyleDic = [[DataManager sharedDataManager] getShipStyleDic];
     for (NSUInteger i = 0; i < shipList.count; ++i) {
         GameShipData *shipData = nil;
         if (_sceneType == ShipSceneTypeBuy) {
-            shipData = [[GameShipData alloc] initWithShipData:[shipDic getShipById:[shipList objectAtIndex:i]]];
+            shipData = [[GameShipData alloc] initWithShipStlyeData:[shipStyleDic getShipStyleById:[shipList objectAtIndex:i]]];
         } else {
             shipData = [shipList objectAtIndex:i];
         }

@@ -139,7 +139,7 @@ SailSceneShipProtocol>
         _myTeam = [GameDataManager sharedGameData].myGuild.myTeam;
         GameShipData *shipData = nil;
         if (_myTeam.shipList.count > 0) {
-            shipData = [_myTeam.shipList objectAtIndex:0];
+            shipData = [[GameDataManager sharedGameData].shipDic objectForKey:[_myTeam.shipList objectAtIndex:0]];
         }
         _ship = [[ShipSailModel alloc] initWithShipData:shipData];
         _ship.delegate = self;

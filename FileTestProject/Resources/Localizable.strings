@@ -189,7 +189,7 @@
 "tavern_hire_minimum" = "最小雇佣";
 
 "lab_goods_level" = "等级 %d";
-"lab_npc_level" = "等级 %d";
+"lab_npc_level" = "等级    %d";
 
 "lab_sold" = "卖出品";
 "lab_sell" = "特产品";
@@ -996,10 +996,24 @@
 "npc_lastname_3"="马奈乌斯";
 "npc_lastname_4"="帕沙";
 "npc_lastname_5"="埃涅科";
-"ship_name_1"="走舸船";
-"ship_name_2"="中国小帆船";
-"ship_name_3"="中国中帆船";
-"ship_name_4"="中国大帆船";
+"ship_name_1"="卡鲁提拉号";
+"ship_style_1"="走舸船";
+"ship_style_2"="中国小帆船";
+"ship_style_3"="中国中帆船";
+"ship_style_4"="中国大帆船";
+"ship_style_5"="小型三角帆船";
+"ship_style_6"="小型方形帆船";
+"ship_style_7"="中型双桅三角帆船";
+"ship_style_8"="大型三桅方帆宽身船型";
+"ship_style_9"="中型西班牙方形帆船型";
+"ship_style_10"="大型西班牙方形帆船型";
+"ship_style_11"="英国双桅三角帆船型";
+"ship_style_12"="中型大桅横方形帆船型";
+"ship_style_13"="中型大桅方形帆船型";
+"ship_style_14"="小型桨帆并用船型";
+"ship_style_15"="中型桨帆并用船型";
+"ship_style_16"="大型桨帆并用船型";
+"ship_style_17"="巨星桨帆并用船型";
 "story_text_1"="库拉乌，\n你想给我看什么";
 "story_text_2"="行了，行了。去了就明白了。";
 "story_text_3"="拉斐尔，你对海上的英雄有什么看法？";

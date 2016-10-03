@@ -90,7 +90,7 @@ typedef enum : NSUInteger {
     else if(index == Button_Deck)
     {
         if ([GameDataManager sharedGameData].myGuild.myTeam.shipList.count > 0) {
-            GameShipData *shipData = [[GameDataManager sharedGameData].myGuild.myTeam.shipList objectAtIndex:0];
+            GameShipData *shipData = [[GameDataManager sharedGameData].shipDic objectForKey:[[GameDataManager sharedGameData].myGuild.myTeam.shipList objectAtIndex:0]];
             ShipScene *shipScene = [[ShipScene alloc] initWithShipData:shipData shipSceneType:DeckShipSceneDeck];
             [[CCDirector sharedDirector] pushScene:shipScene];
         }
@@ -103,7 +103,7 @@ typedef enum : NSUInteger {
     else if(index == Button_Sailor_Number)
     {
         
-        NSArray *shipList = [GameDataManager sharedGameData].myGuild.myTeam.shipList;
+        NSArray *shipList = [[GameDataManager sharedGameData].myGuild.myTeam shipDataList];
         if (shipList.count > 0) {
             
             SailorNumberPanel *sailorNumberPanel = [[SailorNumberPanel alloc] initWithShipList:shipList freeSailorNumber:0];

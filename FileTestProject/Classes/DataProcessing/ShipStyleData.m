@@ -37,10 +37,18 @@
 	self = [self init];
 	if (self) {
 		_shipStyleId = [buffer readString];
+		_icon = [buffer readString];
 		_deckShipIcon = [buffer readInt];
 		_scale = [buffer readInt];
 		_roomList = [buffer readString];
 		_equipList = [buffer readString];
+		_duration = [buffer readInt];
+		_agile = [buffer readInt];
+		_price = [buffer readInt];
+		_minSailorNum = [buffer readInt];
+		_maxSailorNum = [buffer readInt];
+		_speed = [buffer readInt];
+		_cannonId = [buffer readInt];
 	}
 	return self;
 }

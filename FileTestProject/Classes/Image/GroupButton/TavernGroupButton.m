@@ -129,7 +129,7 @@
     if (_currentHiringNum > 0) {
         dialogPanel.canShowCoverPanel = NO;
         SailorNumberPanel *sailorNumberPanel = [[SailorNumberPanel alloc]
-                                                initWithShipList:[GameDataManager sharedGameData].myGuild.myTeam.shipList
+                                                initWithShipList:[[GameDataManager sharedGameData].myGuild.myTeam shipDataList]
                                                 freeSailorNumber:_currentHiringNum];
         sailorNumberPanel.hiddenPanel = self;
         [self.scene addChild:sailorNumberPanel];

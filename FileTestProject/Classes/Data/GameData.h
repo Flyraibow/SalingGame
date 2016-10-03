@@ -29,6 +29,7 @@ typedef enum : NSUInteger {
 
 @end
 
+@class GameShipData;
 @interface GameData : NSObject <NSCoding>
 
 @property (nonatomic, readonly) NSDictionary *cityDic;
@@ -43,10 +44,13 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSMutableArray *dialogList;   // 临时对话
 @property (nonatomic, copy) NSString *currentMusic;
 @property (nonatomic, readonly) NSDictionary *itemDic;
+@property (nonatomic, readonly) NSMutableDictionary<NSString *, GameShipData *> *shipDic;
 
 -(void)initGuildData;
 
 -(void)initMyGuildWithGameGuildData:(GameGuildData *)guildData;
+
+-(void)initLink;   //初始化链接
 
 -(NSString *)getLogicData:(NSString *)logicId;
 
@@ -87,5 +91,7 @@ typedef enum : NSUInteger {
 -(NSArray *)itemListByCity:(NSString *)cityId;
 
 -(NSArray *)itemListByGuild:(NSString *)guildId;
+
+-(void)registerGameShipData:(GameShipData *)gameShipData;
 
 @end

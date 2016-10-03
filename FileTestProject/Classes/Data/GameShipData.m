@@ -11,7 +11,8 @@
 #import "LocalString.h"
 #import "GameShipGoodsData.h"
 
-static NSString* const GameShipNo = @"GameShipNo";
+static NSString* const GameShipId = @"GameShipId";
+static NSString* const GameShipStyleNo = @"GameShipStyleNo";
 static NSString* const GameShipName = @"GameShipName";
 static NSString* const GameShipBelongToGuild = @"GameShipBelongToGuild";
 static NSString* const GameShipCurSailorNum = @"GameShipCurSailorNum";
@@ -31,27 +32,36 @@ static NSString* const GameShipCityId = @"GameShipCityId";
     int _sailorRooms;
 }
 
--(instancetype)initWithShipData:(ShipData *)shipData
+-(instancetype)initWithShipStlyeData:(ShipStyleData *)shipStyleData
 {
     if (self = [super init]) {
-        _shipNo = shipData.shipId;
-        _shipName = getLocalStringByString(@"ship_name_", _shipNo);
-        
-        _shipData = shipData;
-        _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:[@(shipData.style) stringValue]];
+        _shipStyleNo = shipStyleData.shipStyleId;
+        _shipStyleName = getLocalStringByString(@"ship_style_", _shipStyleNo);
+        self.shipName = _shipStyleName;
+        _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:_shipStyleNo];
         _goodsList = [NSMutableArray new];
         self.equipList = [[_shipStyleData.equipList componentsSeparatedByString:@";"] mutableCopy];
         
         _curSailorNum = 0;
         _foodCapacity = 0;
-        _agile = shipData.agile;
-        _speed = shipData.speed;
-        _cannonId = shipData.cannonId;
+        _agile = _shipStyleData.agile;
+        _speed = _shipStyleData.speed;
+        _cannonId = _shipStyleData.cannonId;
         _duration = self.maxDuration;
         _belongToGuild = nil;
         _leaderName = @"";
-        _shipNo = nil;
+        _shipId = nil;
+        _cityId = nil;
         
+    }
+    return self;
+}
+
+-(instancetype)initWithShipData:(ShipData *)shipData
+{
+    ShipStyleData *shipStyleData = [[DataManager sharedDataManager].getShipStyleDic getShipStyleById:shipData.style];
+    if (self = [self initWithShipStlyeData:shipStyleData]) {
+        _shipName = getLocalStringByString(@"ship_name_", shipData.shipId);
     }
     return self;
 }
@@ -60,7 +70,7 @@ static NSString* const GameShipCityId = @"GameShipCityId";
 {
     self = [self init];
     if (self) {
-        _shipNo = [aDecoder decodeObjectForKey:GameShipNo];
+        _shipStyleNo = [aDecoder decodeObjectForKey:GameShipStyleNo];
         _shipName = [aDecoder decodeObjectForKey:GameShipName];
         _belongToGuild = [aDecoder decodeObjectForKey: GameShipBelongToGuild];
         _curSailorNum = [aDecoder decodeIntForKey:GameShipCurSailorNum];
@@ -70,17 +80,18 @@ static NSString* const GameShipCityId = @"GameShipCityId";
         _cannonId = [aDecoder decodeIntForKey:GameShipCannonId];
         _duration = [aDecoder decodeIntForKey:GameShipDuration];
         _goodsList = [aDecoder decodeObjectForKey:GameShipGoodsList];
-        _shipNo = [aDecoder decodeObjectForKey:GameShipCityId];
-        _shipData = [[[DataManager sharedDataManager] getShipDic] getShipById:_shipNo];
-        _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:[@(_shipData.style) stringValue]];
+        _cityId = [aDecoder decodeObjectForKey:GameShipCityId];
+        _shipId = [aDecoder decodeObjectForKey:GameShipId];
         self.equipList = [aDecoder decodeObjectForKey:GameShipEquipList];
+        _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:_shipStyleNo];
     }
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:_shipNo forKey:GameShipNo];
+    [aCoder encodeObject:_shipId forKey:GameShipId];
+    [aCoder encodeObject:_shipStyleNo forKey:GameShipStyleNo];
     [aCoder encodeObject:_shipName forKey:GameShipName];
     [aCoder encodeObject:_belongToGuild forKey: GameShipBelongToGuild];
     [aCoder encodeInt:_curSailorNum forKey:GameShipCurSailorNum];
@@ -96,7 +107,7 @@ static NSString* const GameShipCityId = @"GameShipCityId";
 
 -(NSString *)shipIcon
 {
-    return _shipData.icon;
+    return _shipStyleData.icon;
 }
 
 -(void)setEquipList:(NSArray *)equipList
@@ -142,12 +153,12 @@ static NSString* const GameShipCityId = @"GameShipCityId";
 
 -(int)maxSailorNum
 {
-    return _shipData.maxSailorNum + _sailorRooms * 80;
+    return _shipStyleData.maxSailorNum + _sailorRooms * 80;
 }
 
 -(int)minSailorNum
 {
-    return _shipData.minSailorNum + _cannonRooms * 30;
+    return _shipStyleData.minSailorNum + _cannonRooms * 30;
 }
 
 -(int)capacity
@@ -167,22 +178,22 @@ static NSString* const GameShipCityId = @"GameShipCityId";
 
 -(int)maxDuration
 {
-    return _shipData.duration;
+    return _shipStyleData.duration;
 }
 
 -(int)price
 {
     if (self.belongToGuild == nil) {
-        return _shipData.price;
+        return _shipStyleData.price;
     } else {
         // TODO: 如果改造过，可能钱会些许不同
-        return _shipData.price * 0.6;
+        return _shipStyleData.price * 0.6;
     }
 }
 
 -(NSString *)shipIconImageName
 {
-    return [NSString stringWithFormat:@"ship%@.jpg",self.shipIcon];
+    return [NSString stringWithFormat:@"ship%@.png",self.shipIcon];
 }
 
 @end

@@ -25,6 +25,7 @@
     NSMutableSet *_occupationUpdateSet;
     NSMutableSet *_cityChangeSet;
     void(^_handler)();
+    NSUInteger _shipIdIndex;
 }
 
 static NSString* const GameDataDate = @"GameDate";
@@ -36,10 +37,13 @@ static NSString* const GameStoryLockData = @"GameStoryLockData";
 static NSString* const GameMuiscData = @"GameMusicData";
 static NSString* const GameItemDataState = @"GameItemDataState";
 static NSString* const GameNPCDic = @"GameNPCDic";
+static NSString* const GameShipDic = @"GameShipDic";
+static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
 
 -(instancetype)init
 {
     if (self = [super init]) {
+        _shipIdIndex = 0;
         [self commonInit];
         NSDictionary *cityDic = [[DataManager sharedDataManager].getCityDic getDictionary];
         for(NSString *key in cityDic)
@@ -70,6 +74,7 @@ static NSString* const GameNPCDic = @"GameNPCDic";
     _timeUpdateSet = [NSMutableSet new];
     _occupationUpdateSet = [NSMutableSet new];
     _cityChangeSet = [NSMutableSet new];
+    _shipDic = [NSMutableDictionary new];
 }
 
 -(void)initGuildData
@@ -149,7 +154,7 @@ static NSString* const GameNPCDic = @"GameNPCDic";
                 }
             }
         }
-        [self.myGuild.myTeam.shipList addObject:ship];
+        [self.myGuild.myTeam getShip:ship cityId:nil];
     } else if ([logicName isEqualToString:@"npc"]) {
         if ([parameter2 isEqualToString:@"1"]) {
             // 角色加入
@@ -233,8 +238,9 @@ static NSString* const GameNPCDic = @"GameNPCDic";
         date /= 100;
         _month = date % 100;
         date /= 100;
-        _year = date % 1000;
-        [self commonInit];
+        _year = (int)date;
+        _shipIdIndex = [aDecoder decodeIntegerForKey:GameShipMaxIndex];
+        _shipDic = [aDecoder decodeObjectForKey:GameShipDic];
         _npcDic = [aDecoder decodeObjectForKey:GameNPCDic];
         _guildDic = [aDecoder decodeObjectForKey:GameGuildDic];
         _myGuild = [aDecoder decodeObjectForKey:GameMyGuild];
@@ -265,6 +271,8 @@ static NSString* const GameNPCDic = @"GameNPCDic";
     [aCoder encodeObject:_itemDic forKey:GameItemDataState];
     [aCoder encodeObject:_storyLockData forKey:GameStoryLockData];
     [aCoder encodeObject:_npcDic forKey:GameNPCDic];
+    [aCoder encodeObject:_shipDic forKey:GameShipDic];
+    [aCoder encodeInteger:_shipIdIndex forKey:GameShipMaxIndex];
 }
 
 -(void)addTimeUpdateClass:(id<DateUpdateProtocol>)target
@@ -441,6 +449,15 @@ static NSString* const GameNPCDic = @"GameNPCDic";
         }
     }
     return itemList;
+}
+
+-(void)registerGameShipData:(GameShipData *)gameShipData
+{
+    if (gameShipData.shipId && [_shipDic objectForKey:gameShipData.shipId]) {
+        return;
+    }
+    gameShipData.shipId = [@(_shipIdIndex++) stringValue];
+    [_shipDic setObject:gameShipData forKey:gameShipData.shipId];
 }
 
 @end

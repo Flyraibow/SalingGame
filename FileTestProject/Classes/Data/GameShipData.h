@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ShipData.h"
 #import "ShipStyleData.h"
+#import "ShipData.h"
 
 typedef enum : NSUInteger {
     ShipdeckTypeNone,
@@ -47,10 +47,12 @@ typedef enum : NSUInteger {
 
 @interface GameShipData : NSObject <NSCoding>
 
-@property (nonatomic, readonly) NSString *shipNo;
+@property (nonatomic, copy) NSString *shipId;
+@property (nonatomic, readonly) NSString *shipStyleNo;
 @property (nonatomic, readonly) NSString *shipIcon;
 @property (nonatomic, copy) NSString *belongToGuild;
-@property (nonatomic) NSString *shipName;
+@property (nonatomic, copy) NSString *shipName;
+@property (nonatomic, readonly) NSString *shipStyleName;
 
 @property (nonatomic, readonly) int maxSailorNum;
 @property (nonatomic, readonly) int minSailorNum;
@@ -65,7 +67,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) int cannonNum;
 @property (nonatomic, assign) int cannonId;
 @property (nonatomic, readonly) NSArray *goodsList;
-@property (nonatomic, readonly, weak) ShipData *shipData;
 @property (nonatomic, readonly) int price;
 @property (nonatomic, strong) NSArray *equipList;
 @property (nonatomic, readonly, weak) ShipStyleData *shipStyleData;
@@ -74,6 +75,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy) NSString *leaderName;
 @property (nonatomic, copy) NSString *cityId;   // nil means it doesn't belong any city
 
--(instancetype)initWithShipData:(ShipData *)shipData;
+-(instancetype)initWithShipStlyeData:(ShipStyleData *)shipStyleData;
 
+-(instancetype)initWithShipData:(ShipData *)shipData;
 @end

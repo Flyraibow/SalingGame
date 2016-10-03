@@ -106,7 +106,7 @@
 {
     if (self = [super initWithImageNamed:@"ShipFrame.png"]) {
         _sceneType = sceneType;
-        [self commonInitFunction:gameShipData.shipData.icon];
+        [self commonInitFunction:gameShipData.shipStyleData.icon];
         [self shipModified:gameShipData];
         
         if (sceneType == ShipSceneTypeBuy) {
@@ -137,7 +137,7 @@
         [[GameDataManager sharedGameData].myGuild spendMoney:_gameShipData.price target:self spendMoneyType:SpendMoneyTypeBuyShip];
 
     } else if (_sceneType == ShipSceneTypeSell) {
-        [[GameDataManager sharedGameData].myGuild.myTeam.shipList removeObject:_gameShipData];
+        [[GameDataManager sharedGameData].myGuild.myTeam removeShip:_gameShipData];
         [GameDataManager sharedGameData].myGuild.money += _dealPrice;
         [self.delegate ShipDealComplete];
     } else if (_sceneType == ShipSceneTypeModify) {
@@ -156,7 +156,7 @@
 {
     // TODO: change the price in the future
     _gameShipData = shipData;
-    _labName.string = _gameShipData.shipName;
+    
     _dealPrice = shipData.price;
     _labPrice.string = [NSString stringWithFormat:getLocalString(@"ship_price"), _dealPrice];
     _labShipDuration.string = [NSString stringWithFormat:getLocalString(@"ship_duration"),shipData.duration,shipData.maxDuration];
@@ -166,6 +166,7 @@
     _labShipCannonNum.string = [NSString stringWithFormat:getLocalString(@"ship_cannonNum"), getCannonName(shipData.cannonId), shipData.cannonNum];
     
     if (_sceneType != ShipSceneTypeBuy) {
+        _labName.string = _gameShipData.shipName;
         if (_gameShipData.cityId == nil) {
             _labShipPosition.string = getLocalString(@"lab_in_team");
         } else if (_sceneType == ShipSceneTypeSell || _sceneType == ShipSceneTypeModify) {
@@ -173,6 +174,8 @@
         } else if (_sceneType == ShipSceneTypeInfo) {
             _labShipPosition.string = getCityName(shipData.cityId);
         }
+    } else {
+        _labName.string = _gameShipData.shipStyleName;
     }
 }
 
@@ -184,8 +187,7 @@
 
 -(void)spendMoneySucceed:(SpendMoneyType)type
 {
-    
-    GameShipData *shipData = [[GameShipData alloc] initWithShipData:_gameShipData.shipData];
+    GameShipData *shipData = [[GameShipData alloc] initWithShipStlyeData:_gameShipData.shipStyleData];
     [[GameDataManager sharedGameData].myGuild.myTeam getShip:shipData cityId:self.cityId];
     [self.delegate ShipDealComplete];
     
