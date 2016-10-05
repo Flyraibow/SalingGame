@@ -19,6 +19,7 @@
 
 @end
 
+@class GameShipData;
 @interface ShipdeckIcon : CCSprite
 
 @property (nonatomic, assign) int roomId;
@@ -30,6 +31,7 @@
 @property (nonatomic, readonly, assign) DeckShipSceneType shipSceneType;
 @property (nonatomic, readonly, assign) ShipdeckType shipDeckType;
 @property (nonatomic, readonly, assign) int equipType;
+@property (nonatomic, weak) GameShipData *shipData;
 
 -(instancetype)initWithShipdeckType:(ShipdeckType)shipType equipType:(int)equipType sceneType:(DeckShipSceneType)shipSceneType;
 

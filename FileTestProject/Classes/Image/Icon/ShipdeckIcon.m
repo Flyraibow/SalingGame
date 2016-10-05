@@ -7,11 +7,22 @@
 //
 
 #import "ShipdeckIcon.h"
+#import "ItemBrowsePanel.h"
+#import "GameDataManager.h"
+#import "ItemIcon.h"
+#import "CCSprite+Ext.h"
+#import "ItemInfoPanel.h"
+
+@interface ShipdeckIcon() <SpriteUpdateProtocol, ItemInfoPanelDelegate>
+
+@end
 
 @implementation ShipdeckIcon
 {
     CCSprite *_selectableSprite;
     CCSprite *_selectedSprite;
+    ItemIcon *_headerIcon;
+    ItemInfoPanel *_itemPanel;
 }
 
 -(instancetype)initWithShipdeckType:(ShipdeckType)shipType
@@ -41,6 +52,18 @@
         } else if (shipSceneType == DeckShipSceneModify) {
             if (shipType == ShipdeckTypeFunctionRoom || shipType == ShipdeckTypeStorageRoom) {
                 self.canSelect = YES;
+            } else if (shipType == ShipdeckTypeDeck) {
+                //如果是甲板
+                if (equipType == 0) {
+                    _equipType = self.shipData.shipHeader;
+                    self.canSelect = YES;
+                    _headerIcon = [[ItemIcon alloc] initWithContentSize:CGSizeMake(48, 48)];
+                    _headerIcon.positionType = CCPositionTypeNormalized;
+                    _headerIcon.anchorPoint = ccp(0.5, 0.5);
+                    _headerIcon.position = ccp(0.5, 0.5);
+                    _headerIcon.userInteractionEnabled = NO;
+                    [self addChild:_headerIcon];
+                }
             }
         }
         
@@ -53,7 +76,7 @@
 -(NSString *)shipiconString
 {
     NSString *shipdeckStr;
-    if (_equipType == 0) {
+    if (_equipType <= 0) {
         // 如果该房间为原生态
         shipdeckStr = [NSString stringWithFormat:@"Shipdeck%zd.png", _shipDeckType];
     } else {
@@ -87,6 +110,27 @@
                 }
             } else {
                 // 船首像的逻辑另外算
+                if (self.shipData.shipHeader) {
+                    // 弹出商品info，可以选择卸载
+                    _itemPanel = [[ItemInfoPanel alloc] initWithPanelType:ItemBrowsePanelTypeSingle];
+                    [_itemPanel setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:self.shipData.shipHeader]];
+                    _itemPanel.delegate = self;
+                    [self.scene addChild:_itemPanel];
+                    
+                } else {
+                    NSArray *items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
+                    NSMutableArray *mutableItems = [items mutableCopy];
+                    // 删除不和条件的类型
+                    for (GameItemData *itemData in items) {
+                        if (itemData.itemData.type != ItemTypeShipHeader) {
+                            [mutableItems removeObject:itemData];
+                        }
+                    }
+                    ItemBrowsePanel *itemPanel = [[ItemBrowsePanel alloc] initWithItems:mutableItems panelType:ItemBrowsePanelTypeShipHeader];
+                    itemPanel.delegate = self;
+                    itemPanel.equipedShipId = self.shipData.shipId;
+                    [self.scene addChild:itemPanel];
+                }
             }
         }
         // 如果成功则更换房间样式，注：只是暂时的，最后确定的时候才会正式换。
@@ -201,6 +245,36 @@
             }
             break;
         }
+    }
+}
+
+-(void)setShipData:(GameShipData *)shipData
+{
+    _shipData = shipData;
+    // 显示船首像
+    [self updatePanel];;
+}
+
+-(void)updatePanel
+{
+    // 只有船首像才需要这种更新
+    if (_shipSceneType == DeckShipSceneModify && _shipDeckType == ShipdeckTypeDeck && _equipType == 0) {
+        if (self.shipData.shipHeader) {
+            [_headerIcon setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:self.shipData.shipHeader]];
+        } else {
+            [_headerIcon setItemData:nil];
+        }
+    }
+}
+
+
+-(void)selectItemFromInfoPanel:(GameItemData *)gameItemData
+{
+    // 更新
+    [self.shipData unequip:gameItemData];
+    [self updatePanel];
+    if (_itemPanel) {
+        [_itemPanel removeFromParent];
     }
 }
 

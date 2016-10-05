@@ -19,7 +19,6 @@
 @property (nonatomic, readonly) NSMutableDictionary *cityControlDic;
 @property (nonatomic, readonly) NSMutableSet *cityKnowledgeSet;
 @property (nonatomic, readonly) NSMutableArray *teamList;
-@property (nonatomic, readonly) NSDictionary *itemDict; // there is no two
 
 -(instancetype)initWithGameGuildData:(GameGuildData *)guildData;
 -(instancetype)initWithGuildData:(GuildData *)guildData;

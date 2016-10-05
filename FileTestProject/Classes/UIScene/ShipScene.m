@@ -87,6 +87,7 @@ UpdateMoneyProtocol>
                 ShipdeckIcon *shipdeckIcon = [[ShipdeckIcon alloc] initWithShipdeckType:type
                                                                               equipType:equipType
                                                                               sceneType:shipSceneType];
+                shipdeckIcon.shipData = shipData;
                 shipdeckIcon.positionType = CCPositionTypePoints;
                 shipdeckIcon.anchorPoint = ccp(0, 0);
                 shipdeckIcon.position = ccp(x, y);

@@ -45,6 +45,7 @@ typedef enum : NSUInteger {
     StorageRoomTypeCount,
 }StorageRoomType;
 
+@class GameItemData;
 @interface GameShipData : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *shipId;
@@ -74,8 +75,14 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSString *shipIconImageName;
 @property (nonatomic, copy) NSString *leaderName;
 @property (nonatomic, copy) NSString *cityId;   // nil means it doesn't belong any city
+@property (nonatomic, readonly) NSString *shipHeader;
 
 -(instancetype)initWithShipStlyeData:(ShipStyleData *)shipStyleData;
 
 -(instancetype)initWithShipData:(ShipData *)shipData;
+
+-(void)equip:(GameItemData *)itemData;
+
+-(void)unequip:(GameItemData *)itemData;
+
 @end

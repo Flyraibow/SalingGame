@@ -190,7 +190,6 @@
     GameShipData *shipData = [[GameShipData alloc] initWithShipStlyeData:_gameShipData.shipStyleData];
     [[GameDataManager sharedGameData].myGuild.myTeam getShip:shipData cityId:self.cityId];
     [self.delegate ShipDealComplete];
-    
 }
 
 @end

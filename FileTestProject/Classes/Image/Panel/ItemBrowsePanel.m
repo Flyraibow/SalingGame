@@ -204,6 +204,7 @@ const static int kShowLinesNumber = 4;
     if (_itemInfoPanel == nil) {
         _itemInfoPanel = [[ItemInfoPanel alloc] initWithPanelType:_panelType];
         _itemInfoPanel.equipedRoleId = self.equipedRoleId;
+        _itemInfoPanel.equipedShipId = self.equipedShipId;
         _itemInfoPanel.delegate = self;
         [self addChild:_itemInfoPanel];
     } else if (_itemInfoPanel.parent == nil) {
@@ -368,6 +369,22 @@ const static int kShowLinesNumber = 4;
         [self.delegate updatePanel];
         [self removeFromParent];
         // update
+    } else if (_panelType == ItemBrowsePanelTypeShipHeader) {
+        assert(self.equipedShipId);
+        GameShipData *shipData = [[GameDataManager sharedGameData].shipDic objectForKey:self.equipedShipId];
+        if (gameItemData.shipId) {
+            if ([self.equipedShipId isEqualToString:gameItemData.shipId]) {
+                [shipData unequip:gameItemData];
+            } else {
+                [gameItemData unequip];
+                [shipData equip:gameItemData];
+            }
+        } else {
+            [shipData equip:gameItemData];
+        }
+        [_itemInfoPanel removeFromParent];
+        [self.delegate updatePanel];
+        [self removeFromParent];
     }
 }
 

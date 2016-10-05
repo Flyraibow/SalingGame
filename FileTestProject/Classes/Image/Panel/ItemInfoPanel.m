@@ -156,8 +156,8 @@
         _selectButton.title = getLocalString(@"lab_sell");
         _selectButton.visible = YES;
     } else if (_type == ItemBrowsePanelTypeBrowse || _type == ItemBrowsePanelTypeSingle) {
-        if (itemData.itemData.category <= ItemCategoryOtherEquip) {
-            if (itemData.roleId) {
+        if (itemData.itemData.category <= ItemCategoryOtherEquip || itemData.itemData.type == ItemTypeShipHeader) {
+            if (itemData.roleId || itemData.shipId) {
                 _selectButton.title = getLocalString(@"lab_unequip");
             } else {
                 _selectButton.title = getLocalString(@"lab_equip");
@@ -173,6 +173,17 @@
         assert(self.equipedRoleId);
         if (itemData.roleId) {
             if ([self.equipedRoleId isEqualToString:itemData.roleId]) {
+                _selectButton.title = getLocalString(@"lab_unequip");
+            } else {
+                _selectButton.title = getLocalString(@"lab_unequip_equip");
+            }
+        } else {
+            _selectButton.title = getLocalString(@"lab_equip");
+        }
+        _selectButton.visible = YES;
+    } else if (_type == ItemBrowsePanelTypeShipHeader) {
+        if (itemData.shipId) {
+            if ([self.equipedShipId isEqualToString:itemData.shipId]) {
                 _selectButton.title = getLocalString(@"lab_unequip");
             } else {
                 _selectButton.title = getLocalString(@"lab_unequip_equip");

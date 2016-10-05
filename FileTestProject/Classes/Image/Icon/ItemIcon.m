@@ -57,7 +57,11 @@
     if (_itemData) {
         [_delegate selectItem:_itemData];
     } else {
-        [_delegate selectItemByCategory:self.itemCategory];
+        if (self.itemCategory) {
+            [_delegate selectItemByCategory:self.itemCategory];
+        } else if (self.itemType) {
+            [_delegate selectItemByType:self.itemType];
+        }
     }
 }
 

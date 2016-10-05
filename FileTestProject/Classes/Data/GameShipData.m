@@ -10,6 +10,8 @@
 #import "DataManager.h"
 #import "LocalString.h"
 #import "GameShipGoodsData.h"
+#import "GameItemData.h"
+#import "GameDataManager.h"
 
 static NSString* const GameShipId = @"GameShipId";
 static NSString* const GameShipStyleNo = @"GameShipStyleNo";
@@ -24,6 +26,7 @@ static NSString* const GameShipDuration = @"GameShipDuration";
 static NSString* const GameShipGoodsList = @"GameShipGoodsList";
 static NSString* const GameShipEquipList = @"GameShipEquipList";
 static NSString* const GameShipCityId = @"GameShipCityId";
+static NSString* const GameShipHeader = @"GameShipHeader";
 
 @implementation GameShipData
 {
@@ -83,6 +86,7 @@ static NSString* const GameShipCityId = @"GameShipCityId";
         _cityId = [aDecoder decodeObjectForKey:GameShipCityId];
         _shipId = [aDecoder decodeObjectForKey:GameShipId];
         self.equipList = [aDecoder decodeObjectForKey:GameShipEquipList];
+        _shipHeader = [aDecoder decodeObjectForKey:GameShipHeader];
         _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:_shipStyleNo];
     }
     return self;
@@ -103,6 +107,7 @@ static NSString* const GameShipCityId = @"GameShipCityId";
     [aCoder encodeObject:_goodsList forKey:GameShipGoodsList];
     [aCoder encodeObject:_equipList forKey:GameShipEquipList];
     [aCoder encodeObject:_cityId forKey:GameShipCityId];
+    [aCoder encodeObject:_shipHeader forKey:GameShipHeader];
 }
 
 -(NSString *)shipIcon
@@ -194,6 +199,32 @@ static NSString* const GameShipCityId = @"GameShipCityId";
 -(NSString *)shipIconImageName
 {
     return [NSString stringWithFormat:@"ship%@.png",self.shipIcon];
+}
+
+
+-(void)equip:(GameItemData *)itemData
+{
+    assert(itemData.itemData.type == ItemTypeShipHeader);
+    if ([itemData.itemId isEqualToString:_shipHeader]) {
+        return;
+    }
+    if (_shipHeader) {
+        // 卸载原来的
+        [self unequip:[[GameDataManager sharedGameData].itemDic objectForKey:_shipHeader]];
+    }
+    if (itemData.shipId) {
+        GameShipData *shipData = [[GameDataManager sharedGameData].shipDic objectForKey:itemData.shipId];
+        [shipData unequip:itemData];
+    }
+    itemData.shipId = self.shipId;
+    _shipHeader = itemData.itemId;
+}
+
+-(void)unequip:(GameItemData *)itemData
+{
+    assert([itemData.itemId isEqualToString:_shipHeader]);
+    itemData.shipId = nil;
+    _shipHeader = nil;
 }
 
 @end

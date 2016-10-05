@@ -16,6 +16,7 @@
 
 @property (nonatomic, weak) NSString *cityNo;           //用于连接城市
 @property (nonatomic, weak) NSString *equipedRoleId;    // used for preselected situation
+@property (nonatomic, weak) NSString *equipedShipId;    // used for preselected situation
 @property (nonatomic, weak) id<SpriteUpdateProtocol> delegate;
 
 // 设置items的id列表， 城市和玩家身上都要有这个属性

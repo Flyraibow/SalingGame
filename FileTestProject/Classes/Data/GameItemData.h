@@ -24,6 +24,7 @@ typedef enum : NSUInteger {
     ItemTypeWeapon,
     ItemTypeyArmor,
     ItemTypeOtherEquip,
+    ItemTypeSailItem,
     ItemTypeSpecialGoods,
     ItemTypeShipHeader,
     ItemTypeGift,

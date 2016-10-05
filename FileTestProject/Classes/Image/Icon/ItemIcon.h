@@ -16,6 +16,7 @@
 
 @optional
 -(void)selectItemByCategory:(ItemCategory)itemCategory;
+-(void)selectItemByType:(ItemType)itemType;
 
 @end
 
@@ -23,6 +24,7 @@
 
 // 用于应对空的Item的响应返回内容
 @property (nonatomic, assign) ItemCategory itemCategory;
+@property (nonatomic, assign) ItemType itemType;
 
 @property (nonatomic, weak) GameItemData* itemData;
 
