@@ -34,3 +34,7 @@ dialog_cannot_equip,4,0,0,0,0
 dialog_i_cannot_equip,4,0,0,0,0
 dialog_unequip_an_equipment,4,0,0,0,0
 dialog_equip_an_equipment_success,4,0,0,0,0
+dialog_unequip_a_shipheader,4,0,0,0,0
+dialog_equip_a_shipheader,4,0,0,0,0
+dialog_cannot_unequip_a_shipheader_demon,4,0,0,0,0
+dialog_cannot_unequip_a_shipheader_demon_first,4,0,0,0,0

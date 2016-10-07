@@ -10,26 +10,24 @@
 #import "cocos2d-ui.h"
 
 #import "GameShipData.h"
+#import "ShipScene.h"
 
 typedef enum : NSUInteger {
     ShipSceneTypeBuy,
     ShipSceneTypeSell,
     ShipSceneTypeModify,
     ShipSceneTypeInfo,
+    ShipSceneTypeEquip,
 } ShipSceneType;
-
-@protocol ShipExchangeBuySuccessProtocol <NSObject>
-
--(void)ShipDealComplete;
-
-@end
 
 @interface ShipExchangeUnit : CCSprite
 
-@property (nonatomic, weak) id<ShipExchangeBuySuccessProtocol> delegate;
 @property (nonatomic, assign, readonly) ShipSceneType sceneType;
 @property (nonatomic, weak) NSString *cityId;
+@property (nonatomic) void(^selectHandler)(GameShipData *shipData);
 
 -(instancetype)initWithGameShipData:(GameShipData *)gameShipData sceneType:(ShipSceneType)sceneType;
+
+-(void)shipModified:(GameShipData *)shipData;
 
 @end

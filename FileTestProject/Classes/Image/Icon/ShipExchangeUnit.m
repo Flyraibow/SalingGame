@@ -14,10 +14,9 @@
 #import "GameShipData.h"
 #import "DataManager.h"
 #import "ShipIcon.h"
-#import "ShipScene.h"
 #import "GamePanelManager.h"
 
-@interface ShipExchangeUnit() <SpendMoneyProtocol, ShipSceneModifiedDelegate>
+@interface ShipExchangeUnit()
 
 @end
 
@@ -117,6 +116,8 @@
             _btnAction.title = getLocalString(@"ship_modify");
         } else if (sceneType == ShipSceneTypeInfo) {
             _btnAction.title = getLocalString(@"ship_Info");
+        } else if (sceneType == ShipSceneTypeEquip) {
+            _btnAction.title = getLocalString(@"lab_Equip");
         }
     }
     return self;
@@ -132,24 +133,7 @@
 
 -(void)clickAction
 {
-    if (_sceneType == ShipSceneTypeBuy) {
-        
-        [[GameDataManager sharedGameData].myGuild spendMoney:_gameShipData.price target:self spendMoneyType:SpendMoneyTypeBuyShip];
-
-    } else if (_sceneType == ShipSceneTypeSell) {
-        [[GameDataManager sharedGameData].myGuild.myTeam removeShip:_gameShipData];
-        [GameDataManager sharedGameData].myGuild.money += _dealPrice;
-        [self.delegate ShipDealComplete];
-    } else if (_sceneType == ShipSceneTypeModify) {
-        // TODO: 进入改造页面
-        ShipScene *scene = [[ShipScene alloc] initWithShipData:_gameShipData shipSceneType:DeckShipSceneModify];
-        scene.delegate = self;
-        [[CCDirector sharedDirector] pushScene:scene];
-    } else if (_sceneType == ShipSceneTypeInfo) {
-        // 进入甲板画面
-        ShipScene *scene = [[ShipScene alloc] initWithShipData:_gameShipData shipSceneType:DeckShipSceneInfo];
-        [[CCDirector sharedDirector] pushScene:scene];
-    }
+    self.selectHandler(_gameShipData);
 }
 
 -(void)shipModified:(GameShipData *)shipData
@@ -177,19 +161,6 @@
     } else {
         _labName.string = _gameShipData.shipStyleName;
     }
-}
-
--(void)spendMoneyFail:(SpendMoneyType)type
-{
-    DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
-    [dialogPanel setDefaultDialog:@"dialog_no_enough_money" arguments:@[]];
-}
-
--(void)spendMoneySucceed:(SpendMoneyType)type
-{
-    GameShipData *shipData = [[GameShipData alloc] initWithShipStlyeData:_gameShipData.shipStyleData];
-    [[GameDataManager sharedGameData].myGuild.myTeam getShip:shipData cityId:self.cityId];
-    [self.delegate ShipDealComplete];
 }
 
 @end

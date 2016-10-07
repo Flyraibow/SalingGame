@@ -236,7 +236,13 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
             [_shipList removeObject:shipData.shipId];
         }
         if (forever) {
+            // 将此船的船首像拆除
+            if (shipData.shipHeader) {
+                // TODO: 恶魔船首像装备的船不让卖？
+                [shipData unequip:[[GameDataManager sharedGameData].itemDic objectForKey:shipData.shipId] withForce:YES];
+            }
             [self.shipDic removeObjectForKey:shipData.shipId];
+            shipData.shipId = nil;
         }
     }
 }

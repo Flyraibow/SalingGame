@@ -13,6 +13,7 @@
 @interface ShipExchangeScene : CCScene
 
 @property (nonatomic, assign, readonly) ShipSceneType sceneType;
+@property (nonatomic) void(^selectHandler)(GameShipData *shipData);
 
 -(instancetype)initWithCityNo:(NSString *)cityNo;
 

@@ -95,4 +95,18 @@ static NSString* const GameItemItemId= @"GameItemItemId";
     }
 }
 
+-(ShipUnequipError)unequipShipheaderWithForce:(BOOL)force
+{
+    if (self.shipId) {
+        GameShipData *shipData = [[GameDataManager sharedGameData].shipDic objectForKey:self.shipId];
+        return [shipData unequip:self withForce:force];
+    }
+    return ShipUnequipErrorNone;
+}
+
+-(ShipUnequipError)unequipShipheader
+{
+    return [self unequipShipheaderWithForce:NO];
+}
+
 @end

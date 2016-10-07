@@ -18,7 +18,7 @@
 @property (nonatomic, readonly) GameTeamData *myTeam;
 @property (nonatomic, readonly) NSSet *usedStorySet;
 
--(void)spendMoney:(NSInteger)value target:(id<SpendMoneyProtocol>)target spendMoneyType:(SpendMoneyType)type;
+-(void)spendMoney:(NSInteger)value succesHandler:(void(^)())successHandle failHandle:(void(^)())failHandle;
 
 -(void)addMoneyUpdateClass:(id<UpdateMoneyProtocol>)target;
 

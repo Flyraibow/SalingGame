@@ -61,13 +61,14 @@ static NSString* const GameUsedStorySet = @"GameUsedStorySet";
     }
 }
 
--(void)spendMoney:(NSInteger)value target:(id<SpendMoneyProtocol>)target spendMoneyType:(SpendMoneyType)type
+
+-(void)spendMoney:(NSInteger)value succesHandler:(void(^)())successHandle failHandle:(void(^)())failHandle
 {
     if (self.money < value) {
-        [target spendMoneyFail:type];
+        failHandle();
     } else {
         [self spendMoney:value];
-        [target spendMoneySucceed:type];
+        successHandle();
     }
 }
 

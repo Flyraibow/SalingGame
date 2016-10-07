@@ -248,7 +248,7 @@ UpdateMoneyProtocol>
                 equipList[[roomId intValue]] = @(icon.equipType);
             }
             _shipData.equipList = equipList;
-            [_delegate shipModified:_shipData];
+            self.modifyComplete(_shipData);
             [self clickBtnClose];
         } else {
             // 先加一个确认的对话框
@@ -565,11 +565,14 @@ UpdateMoneyProtocol>
         totolMoney += exchangePrice - previousPrice ;
     }
     
-    
     [_spendingMoneyPanel setMoney:totolMoney];
     [_spendTimePanel setDay:totalTime];
 }
 
+-(void)shipDestroyed
+{
+    self.modifyComplete(nil);
+}
 
 -(void)updateMoney:(NSInteger)money
 {

@@ -17,6 +17,9 @@
 -(int)nextShipdeckEquipType:(id)shipdeckIcon;
 -(void)computeTimeAndMoney;
 
+@optional
+-(void)shipDestroyed;
+
 @end
 
 @class GameShipData;

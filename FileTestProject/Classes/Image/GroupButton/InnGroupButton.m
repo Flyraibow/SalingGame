@@ -18,7 +18,7 @@
 
 static CGFloat const TIME_INTERVAL = 0.2f;
 
-@interface InnGroupButton () <SpendMoneyProtocol>
+@interface InnGroupButton ()
 
 @end
 
@@ -53,7 +53,6 @@ static CGFloat const TIME_INTERVAL = 0.2f;
 
 -(void)spendMoneyFail:(SpendMoneyType)type
 {
-    CCLOG(@"not enough money");
 }
 
 -(void)spendMoneySucceed:(SpendMoneyType)type
@@ -61,9 +60,6 @@ static CGFloat const TIME_INTERVAL = 0.2f;
     // disable everything and hide the scene
     switch (type) {
         case SpendMoneyTypeSleepOneDay:
-            _sleepDays = 1;
-            _currentTime = TIME_INTERVAL;
-            [self hideView];
             break;
         case SpendMoneyTypeSleepTenDay:
             _sleepDays = 10;
@@ -116,19 +112,32 @@ static CGFloat const TIME_INTERVAL = 0.2f;
     }
 }
 
+-(void)sleepMultipleDays:(int)day
+{
+    MyGuild *myguild = [GameDataManager sharedGameData].myGuild;
+    [myguild spendMoney:day succesHandler:^{
+        _sleepDays = day;
+        _currentTime = TIME_INTERVAL;
+        [self hideView];
+    } failHandle:^{
+        // TODO: add dialog here
+        CCLOG(@"not enough money");
+    }];
+}
+
 -(void)clickOneDayBtn
 {
-    [[GameDataManager sharedGameData].myGuild spendMoney:1 target:self spendMoneyType:SpendMoneyTypeSleepOneDay];
+    [self sleepMultipleDays:1];
 }
 
 -(void)clickTenDayBtn
 {
-    [[GameDataManager sharedGameData].myGuild spendMoney:10 target:self spendMoneyType:SpendMoneyTypeSleepTenDay];
+    [self sleepMultipleDays:10];
 }
 
 -(void)clickThirtyDayBtn
 {
-    [[GameDataManager sharedGameData].myGuild spendMoney:30 target:self spendMoneyType:SpendMoneyTypeSleepThirtyDay];
+    [self sleepMultipleDays:30];
 }
 
 

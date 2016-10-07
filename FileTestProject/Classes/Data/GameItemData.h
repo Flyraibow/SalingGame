@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ItemData.h"
+#import "GameShipData.h"
 
 typedef enum : NSUInteger {
     ItemCategoryNone,
@@ -54,5 +55,7 @@ typedef enum : NSUInteger {
 -(void)sellToCityNo:(NSString *)cityNo;
 -(void)unlockGoods;
 -(void)unequip;
+-(ShipUnequipError)unequipShipheader;
+-(ShipUnequipError)unequipShipheaderWithForce:(BOOL)force;
 
 @end

@@ -12,6 +12,7 @@
 #import "ItemIcon.h"
 #import "CCSprite+Ext.h"
 #import "ItemInfoPanel.h"
+#import "GamePanelManager.h"
 
 @interface ShipdeckIcon() <SpriteUpdateProtocol, ItemInfoPanelDelegate>
 
@@ -270,11 +271,37 @@
 
 -(void)selectItemFromInfoPanel:(GameItemData *)gameItemData
 {
-    // 更新
-    [self.shipData unequip:gameItemData];
-    [self updatePanel];
-    if (_itemPanel) {
-        [_itemPanel removeFromParent];
+    // 更新 ShipUnequipError err = ShipUnequipErrorNone;
+    __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
+    ShipUnequipError err = ShipUnequipErrorNone;
+    void(^uneuquipSuccess)(BOOL closePanel) = ^(BOOL closePanel){
+        [dialogPanel setDefaultDialog:@"dialog_unequip_a_shipheader" arguments:nil];
+        [dialogPanel addConfirmHandler:^{
+            [self updatePanel];
+            if (_itemPanel) {
+                [_itemPanel removeFromParent];
+            }
+            if (closePanel) {
+                [[CCDirector sharedDirector] popScene];
+                [self.delegate shipDestroyed];
+            }
+        }];
+    };
+    if ((err = [gameItemData unequipShipheader]) == ShipUnequipErrorNone) {
+        uneuquipSuccess(NO);
+    } else if (err == ShipUnequipErrorDemon) {
+        //弹出提示，拆除会损坏船只是否强行拆除
+        [dialogPanel setDefaultDialog:@"dialog_cannot_unequip_a_shipheader_demon" arguments:nil];
+        [dialogPanel addYesNoWithCallback:^(int index) {
+            if (index == 0) {
+                ShipUnequipError error;
+                if ((error = [gameItemData unequipShipheaderWithForce:YES]) == ShipUnequipErrorNone) {
+                    uneuquipSuccess(YES);
+                } else if (error == ShipUnequipErrorDemonFirst) {
+                    [dialogPanel setDefaultDialog:@"dialog_cannot_unequip_a_shipheader_demon_first" arguments:nil];
+                }
+            }
+        }];
     }
 }
 

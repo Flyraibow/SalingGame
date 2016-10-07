@@ -14,7 +14,7 @@
 #import "GameCityData.h"
 #import "SpendMoneyProtocol.h"
 
-@interface InvestPanel () <SpendMoneyProtocol>
+@interface InvestPanel ()
 
 @end
 
@@ -100,22 +100,25 @@
 
 -(void)spendMoneySucceed:(SpendMoneyType)type
 {
-    GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
-    int money = _unitMoney * (_selectNum + 1);
-    [cityData investByGuild:[GameDataManager sharedGameData].myGuild.guildId investUnits:_selectNum + 1 money:money type:_type];
-    [self.delegate investSucceed];
 }
 
 -(void)spendMoneyFail:(SpendMoneyType)type
 {
-    [self.delegate investFailure];
 }
 
 -(void)clickSureButton
 {
     int money = _unitMoney * (_selectNum + 1);
-    
-    [[GameDataManager sharedGameData].myGuild spendMoney:money target:self spendMoneyType:SpendMoneyTypeInvest];
+    MyGuild *myguild = [GameDataManager sharedGameData].myGuild;
+    [myguild spendMoney:money succesHandler:^{
+        
+        GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
+        int money = _unitMoney * (_selectNum + 1);
+        [cityData investByGuild:[GameDataManager sharedGameData].myGuild.guildId investUnits:_selectNum + 1 money:money type:_type];
+        [self.delegate investSucceed];
+    } failHandle:^{
+        [self.delegate investFailure];
+    }];
    
     [self removeFromParent];
 }

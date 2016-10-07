@@ -338,6 +338,10 @@
 "dialog_i_cannot_equip" = "我无法装备%@";
 "dialog_unequip_an_equipment" = "卸载下来了。";
 "dialog_equip_an_equipment_success" = "装备成功";
+"dialog_unequip_a_shipheader" = "卸载了船首像。";
+"dialog_equip_a_shipheader" = "要给哪条船装备船首像呢？";
+"dialog_cannot_unequip_a_shipheader_demon" = "这条船上装了恶魔像，强行拆除的话，船会坏掉。要强行拆吗？";
+"dialog_cannot_unequip_a_shipheader_demon_first" = "还是不要随意拆毁旗舰吧。";
 
 "function_room_name_1"="卧室";
 "function_room_name_2"="木匠室";

@@ -13,12 +13,3 @@ typedef enum : NSUInteger {
     SpendMoneyTypeBuyShip,
     SpendMoneyTypeInvest,
 } SpendMoneyType;
-
-@protocol SpendMoneyProtocol <NSObject>
-
--(void)spendMoneySucceed:(SpendMoneyType)type;
-
--(void)spendMoneyFail:(SpendMoneyType)type;
-
-@end
-

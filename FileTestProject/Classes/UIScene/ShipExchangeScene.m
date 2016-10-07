@@ -16,8 +16,10 @@
 #import "GameCityData.h"
 #import "GameShipData.h"
 #import "NSSet+Sort.h"
+#import "ShipScene.h"
+#import "GamePanelManager.h"
 
-@interface ShipExchangeScene() <ShipExchangeBuySuccessProtocol>
+@interface ShipExchangeScene()
 
 @end
 
@@ -132,13 +134,51 @@
         shipUnit.cityId = _cityNo;
         shipUnit.positionType = CCPositionTypeNormalized;
         shipUnit.position = ccp(0.3 + _number * 0.4,0.48);
-        shipUnit.delegate = self;
         _number++;
         if (_number > 2) {
             shipUnit.opacity = 0;
         }
         [_sprite addChild:shipUnit];
         [_array addObject:shipUnit];
+        shipUnit.selectHandler = ^(GameShipData *gameShipData) {
+            
+            if (_sceneType == ShipSceneTypeBuy) {
+                MyGuild * myguild = [GameDataManager sharedGameData].myGuild;
+                [myguild spendMoney:gameShipData.price
+                      succesHandler:^{
+                          GameShipData *shipData = [[GameShipData alloc] initWithShipStlyeData:gameShipData.shipStyleData];
+                          [[GameDataManager sharedGameData].myGuild.myTeam getShip:shipData cityId:_cityNo];
+                          [self clickBtnClose];
+                      } failHandle:^{
+                          __weak id weakSelf = self;
+                          DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:weakSelf];
+                          [dialogPanel setDefaultDialog:@"dialog_no_enough_money" arguments:nil];
+                      }];
+                
+            } else if (_sceneType == ShipSceneTypeSell) {
+                [[GameDataManager sharedGameData].myGuild.myTeam removeShip:gameShipData];
+                [GameDataManager sharedGameData].myGuild.money += shipData.price;
+                [self clickBtnClose];
+            } else if (_sceneType == ShipSceneTypeModify) {
+                // TODO: 进入改造页面
+                ShipScene *scene = [[ShipScene alloc] initWithShipData:gameShipData shipSceneType:DeckShipSceneModify];
+                __weak ShipExchangeUnit *weakShipUnit;
+                scene.modifyComplete = ^(GameShipData *gameShipData) {
+                    if (gameShipData && gameShipData.shipId) {
+                        [weakShipUnit shipModified:gameShipData];
+                    } else {
+                        [self clickBtnClose];
+                    }
+                };
+                [[CCDirector sharedDirector] pushScene:scene];
+            } else if (_sceneType == ShipSceneTypeInfo) {
+                // 进入甲板画面
+                ShipScene *scene = [[ShipScene alloc] initWithShipData:gameShipData shipSceneType:DeckShipSceneInfo];
+                [[CCDirector sharedDirector] pushScene:scene];
+            } else if (_sceneType == ShipSceneTypeEquip) {
+                self.selectHandler(gameShipData);
+            }
+        };
     }
     
     if (_number <= 2) {
@@ -213,11 +253,6 @@
 }
 
 -(void)clickBtnClose
-{
-    [[CCDirector sharedDirector] popScene];
-}
-
--(void)ShipDealComplete
 {
     [[CCDirector sharedDirector] popScene];
 }

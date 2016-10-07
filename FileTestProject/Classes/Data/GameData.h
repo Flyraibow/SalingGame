@@ -50,8 +50,6 @@ typedef enum : NSUInteger {
 
 -(void)initMyGuildWithGameGuildData:(GameGuildData *)guildData;
 
--(void)initLink;   //初始化链接
-
 -(NSString *)getLogicData:(NSString *)logicId;
 
 -(void)setSpecialLogical:(NSString *)logicName parameter2:(NSString *)parameter2 parameter3:(NSString *)parameter3 parameter4:(NSString *)parameter4;

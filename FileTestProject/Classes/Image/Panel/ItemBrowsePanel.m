@@ -19,6 +19,7 @@
 #import "GameItemData.h"
 #import "RolePanel.h"
 #import "GameNPCData.h"
+#import "ShipExchangeScene.h"
 
 const static int kShowItemNumberEachLine = 7;
 const static int kShowLinesNumber = 4;
@@ -319,7 +320,7 @@ const static int kShowLinesNumber = 4;
                 [dialogPanel addConfirmHandler:^{
                     NSArray *npcList = [GameDataManager sharedGameData].myGuild.myTeam.npcList;
                     RolePanel *rolePanel = [[RolePanel alloc] initWithNpcList:npcList type:RolePanelTypeEquip];
-                    __block RolePanel *blockRolePanel = rolePanel;
+                    RolePanel *blockRolePanel = rolePanel;
                     rolePanel.selectHandler = ^(NSString *roleId) {
                         GameNPCData *npcData = [[GameDataManager sharedGameData].npcDic objectForKey:roleId];
                         assert(npcData);
@@ -348,7 +349,53 @@ const static int kShowLinesNumber = 4;
                     [self.scene addChild:rolePanel];
                 }];
             }
-            
+        } else if (gameItemData.itemData.type == ItemTypeShipHeader) {
+            // equip 弹出对话之后弹出选船界面
+            __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
+            __weak ItemInfoPanel *weakItemInfoPanel = _itemInfoPanel;
+            if (gameItemData.shipId) {
+                ShipUnequipError err = ShipUnequipErrorNone;
+                void(^uneuquipSuccess)() = ^(){
+                    [dialogPanel setDefaultDialog:@"dialog_unequip_a_shipheader" arguments:nil];
+                    [dialogPanel addConfirmHandler:^{
+                        [self removeChild:weakItemInfoPanel];
+                        _panel.visible = YES;
+                    }];
+                };
+                if ((err = [gameItemData unequipShipheader]) == ShipUnequipErrorNone) {
+                    uneuquipSuccess();
+                } else if (err == ShipUnequipErrorDemon) {
+                    //弹出提示，拆除会损坏船只是否强行拆除
+                    [dialogPanel setDefaultDialog:@"dialog_cannot_unequip_a_shipheader_demon" arguments:nil];
+                    [dialogPanel addYesNoWithCallback:^(int index) {
+                        if (index == 0) {
+                            ShipUnequipError error;
+                            if ((error = [gameItemData unequipShipheaderWithForce:YES]) == ShipUnequipErrorNone) {
+                                uneuquipSuccess();
+                            } else if (error == ShipUnequipErrorDemonFirst) {
+                                [dialogPanel setDefaultDialog:@"dialog_cannot_unequip_a_shipheader_demon_first" arguments:nil];
+                            }
+                        }
+                    }];
+                }
+            } else {
+                [dialogPanel setDefaultDialog:@"dialog_equip_a_shipheader" arguments:nil];
+                [dialogPanel addConfirmHandler:^{
+                    GameTeamData * team = [GameDataManager sharedGameData].myGuild.myTeam;
+                    NSMutableArray *shipList = [team shipDataList];
+                    [shipList addObjectsFromArray:[team getCarryShipListInCity:team.currentCityId]];
+                    ShipExchangeScene *shipExchangeScene = [[ShipExchangeScene alloc] initWithShipList:shipList sceneType:ShipSceneTypeEquip];
+                    shipExchangeScene.selectHandler = ^ (GameShipData *gameShipData) {
+                        assert(gameShipData);
+                        [[CCDirector sharedDirector] popScene];
+                        // TODO: 如果是恶魔像 额外提示下
+                        [gameShipData equip:gameItemData];
+                        [self removeChild:weakItemInfoPanel];
+                        [dialogPanel setDefaultDialog:@"dialog_equip_an_equipment_success" arguments:nil];
+                    };
+                    [[CCDirector sharedDirector] pushScene:shipExchangeScene];
+                }];
+            }
         } else if (gameItemData.itemData.value > 0) {
             // use
         }
@@ -371,15 +418,23 @@ const static int kShowLinesNumber = 4;
         // update
     } else if (_panelType == ItemBrowsePanelTypeShipHeader) {
         assert(self.equipedShipId);
+        
         GameShipData *shipData = [[GameDataManager sharedGameData].shipDic objectForKey:self.equipedShipId];
         if (gameItemData.shipId) {
             if ([self.equipedShipId isEqualToString:gameItemData.shipId]) {
                 [shipData unequip:gameItemData];
             } else {
-                [gameItemData unequip];
-                [shipData equip:gameItemData];
+                ShipUnequipError err = [gameItemData unequipShipheader];
+                if (err == ShipUnequipErrorNone) {
+                    [shipData equip:gameItemData];
+                } else {
+                    __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
+                    [dialogPanel setDefaultDialog:@"dialog_cannot_unequip_a_shipheader" arguments:nil];
+                    return;
+                }
             }
         } else {
+            // TODO: 如果是恶魔像 额外提示下
             [shipData equip:gameItemData];
         }
         [_itemInfoPanel removeFromParent];

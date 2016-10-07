@@ -220,11 +220,31 @@ static NSString* const GameShipHeader = @"GameShipHeader";
     _shipHeader = itemData.itemId;
 }
 
--(void)unequip:(GameItemData *)itemData
+-(ShipUnequipError)unequip:(GameItemData *)itemData
+{
+    return [self unequip:itemData withForce:NO];
+}
+
+-(ShipUnequipError)unequip:(GameItemData *)itemData withForce:(BOOL)force;
 {
     assert([itemData.itemId isEqualToString:_shipHeader]);
+    if (itemData.itemData.value == -1) {
+        // 恶魔向，如果不是第一条船就可以拆除
+        if (force) {
+            if ([[GameDataManager sharedGameData].myGuild.myTeam.shipList[0] isEqualToString:self.shipId]) {
+                return ShipUnequipErrorDemonFirst;
+            }
+            itemData.shipId = nil;
+            _shipHeader = nil;
+            [[GameDataManager sharedGameData].myGuild.myTeam removeShip:self];
+            return ShipUnequipErrorNone;
+        } else {
+            return ShipUnequipErrorDemon;
+        }
+    }
     itemData.shipId = nil;
     _shipHeader = nil;
+    return ShipUnequipErrorNone;
 }
 
 @end
