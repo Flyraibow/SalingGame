@@ -148,7 +148,7 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
     BOOL flag = NO;
     int sailorNumbers = 0;
     for (int i = 0; i < _shipList.count; ++i) {
-        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];;
+        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];
         if (shipData.curSailorNum == 0) {
             // 只要有一条船上没水手，就不能出航
             return 0;
@@ -276,6 +276,25 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
         [shipList addObject:[self.shipDic objectForKey:shipId]];
     }
     return shipList;
+}
+
+-(CGFloat)getTeamSpeed
+{
+    int miniSpeed = 0;
+    BOOL equipBigFish = NO;
+    for (int i = 0; i < _shipList.count; ++i) {
+        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];
+        if (miniSpeed == 0 || miniSpeed < shipData.speed) {
+            miniSpeed = shipData.speed;
+        }
+        if (shipData.shipHeader) {
+            GameItemData *header = [[GameDataManager sharedGameData].itemDic objectForKey:shipData.shipHeader];
+            if (header.itemData.value == ShipHeaderValueBigbird) {
+                equipBigFish = YES;
+            }
+        }
+    }
+    return (equipBigFish ? 2 : 1) * miniSpeed;
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import "CCSprite.h"
 #import "SailSceneShipProtocol.h"
-#import "GameShipData.h"
+#import "GameTeamData.h"
 
 
 @interface ShipSailModel : CCSprite
@@ -21,7 +21,7 @@
 
 @property (nonatomic, readonly) BOOL isMoving;
 
--(instancetype)initWithShipData:(GameShipData *)shipData;
+-(instancetype)initWithTeam:(GameTeamData *)teamData;
 
 -(void)setDirectionList:(NSArray *)cityList;
 

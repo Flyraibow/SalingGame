@@ -392,6 +392,9 @@ const static int kShowLinesNumber = 4;
                         [gameShipData equip:gameItemData];
                         [self removeChild:weakItemInfoPanel];
                         [dialogPanel setDefaultDialog:@"dialog_equip_an_equipment_success" arguments:nil];
+                        [dialogPanel addConfirmHandler:^{
+                            _panel.visible = YES;
+                        }];
                     };
                     [[CCDirector sharedDirector] pushScene:shipExchangeScene];
                 }];

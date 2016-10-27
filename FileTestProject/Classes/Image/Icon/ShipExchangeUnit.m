@@ -115,9 +115,9 @@
         } else if (sceneType == ShipSceneTypeModify) {
             _btnAction.title = getLocalString(@"ship_modify");
         } else if (sceneType == ShipSceneTypeInfo) {
-            _btnAction.title = getLocalString(@"ship_Info");
+            _btnAction.title = getLocalString(@"ship_info");
         } else if (sceneType == ShipSceneTypeEquip) {
-            _btnAction.title = getLocalString(@"lab_Equip");
+            _btnAction.title = getLocalString(@"lab_equip");
         }
     }
     return self;

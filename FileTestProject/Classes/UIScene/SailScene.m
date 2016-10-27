@@ -137,11 +137,7 @@ SailSceneShipProtocol>
         [timeFrame addChild:_labTime];
         
         _myTeam = [GameDataManager sharedGameData].myGuild.myTeam;
-        GameShipData *shipData = nil;
-        if (_myTeam.shipList.count > 0) {
-            shipData = [[GameDataManager sharedGameData].shipDic objectForKey:[_myTeam.shipList objectAtIndex:0]];
-        }
-        _ship = [[ShipSailModel alloc] initWithShipData:shipData];
+        _ship = [[ShipSailModel alloc] initWithTeam:_myTeam];
         _ship.delegate = self;
         _ship.positionType = CCPositionTypePoints;
         _ship.position = ccp(_currentCityData.cityPosX+5,_currentCityData.cityPosY);

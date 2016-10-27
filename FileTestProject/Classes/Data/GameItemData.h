@@ -36,6 +36,20 @@ typedef enum : NSUInteger {
     ItemTypeTreasureMap,
 } ItemType;
 
+typedef enum : NSInteger {
+    ShipHeaderValueDemon = -1,
+    ShipHeaderValueNone = 0,
+    ShipHeaderValueBigbird,
+    ShipHeaderValuePig,
+    ShipHeaderValueTigerFish,
+    ShipHeaderValueWhiteFish,
+    ShipHeaderValueDragon,
+    ShipHeaderValueDolphin,
+    ShipHeaderValueVirgin,
+    ShipHeaderValueKing,
+    ShipHeaderValueMother,
+} ShipHeaderValue;
+
 
 @interface GameItemData : NSObject <NSCoding>
 

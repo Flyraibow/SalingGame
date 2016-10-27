@@ -48,7 +48,7 @@
 "dock_supply" = "补给";
 "dock_yard" = "船坞";
 "ship_modify" = "改造";
-"ship_Info" = "查看";
+"ship_info" = "查看";
 
 "inn_one_day" = "休息一天";
 "inn_ten_day" = "休息十天";

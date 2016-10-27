@@ -30,15 +30,17 @@
     NSInteger _currentCityIndex;
     NSInteger _currentPointIndex;
     BOOL _dialog;
+    __weak GameTeamData *_teamData;
 }
 
--(instancetype)initWithShipData:(GameShipData *)shipData
+-(instancetype)initWithTeam:(GameTeamData *)teamData
 {
     if (self = [self initWithImageNamed:@"ship.png"]) {
         _offsetY = 0;
         _up = YES;
-        _speed = shipData.speed * 3;
+        _speed = [teamData getTeamSpeed] * 3;
         _dialog = NO;
+        _teamData = teamData;
     }
     return self;
 }

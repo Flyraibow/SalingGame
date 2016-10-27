@@ -48,4 +48,6 @@
 
 -(NSMutableArray<GameShipData *> *)carryShipDataList;
 
+-(CGFloat)getTeamSpeed;
+
 @end
