@@ -23,7 +23,7 @@
 -(instancetype)initWithCityNo:(NSString *)cityNo
 {
     DefaultButton *btnBuy = [DefaultButton buttonWithTitle:getLocalString(@"shop_buy")];
-    DefaultButton *btnSell = [DefaultButton buttonWithTitle:getLocalString(@"shop_sale")];
+    DefaultButton *btnSell = [DefaultButton buttonWithTitle:getLocalString(@"shop_sell")];
     DefaultButton *btnTask = [DefaultButton buttonWithTitle:getLocalString(@"shop_task")];
     DefaultButton *btnMail = [DefaultButton buttonWithTitle:getLocalString(@"shop_mail")];
     self = [super initWithNSArray:[NSArray arrayWithObjects:btnBuy,btnSell,btnTask,btnMail, nil] CCNodeColor:[BGImage getShadowForBackground]];

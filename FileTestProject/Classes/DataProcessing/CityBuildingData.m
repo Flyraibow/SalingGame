@@ -39,7 +39,7 @@
 		_buildingId = [buffer readString];
 		_position = [buffer readInt];
 		_npcNameId = [buffer readInt];
-		_portraitId = [buffer readString];
+		_eventAction = [buffer readString];
 	}
 	return self;
 }

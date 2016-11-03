@@ -12,4 +12,10 @@
 
 @interface CityScene : CCScene <CityChangeProtocol>
 
+-(void)storyEnd;
+
+-(void)gotoBuildingNo:(NSString *)buildingNo;
+
+-(void)checkStory:(NSString *)buildingId;
+
 @end

@@ -3,7 +3,9 @@
 #import "CannonData.h"
 #import "CityData.h"
 #import "CityBuildingData.h"
+#import "ConditionData.h"
 #import "DefaultDialogData.h"
+#import "EventActionData.h"
 #import "GoodsData.h"
 #import "GoodsCategoriesData.h"
 #import "GuildData.h"
@@ -13,6 +15,7 @@
 #import "RoleInitialData.h"
 #import "RouteData.h"
 #import "SeaAreaData.h"
+#import "SelectListData.h"
 #import "ShipData.h"
 #import "ShipStyleData.h"
 #import "SkillData.h"
@@ -35,7 +38,11 @@
 
 -(CityBuildingDic*)getCityBuildingDic;
 
+-(ConditionDic*)getConditionDic;
+
 -(DefaultDialogDic*)getDefaultDialogDic;
+
+-(EventActionDic*)getEventActionDic;
 
 -(GoodsDic*)getGoodsDic;
 
@@ -54,6 +61,8 @@
 -(RouteDic*)getRouteDic;
 
 -(SeaAreaDic*)getSeaAreaDic;
+
+-(SelectListDic*)getSelectListDic;
 
 -(ShipDic*)getShipDic;
 

@@ -11,10 +11,39 @@
 #import "LocalString.h"
 #import "CityBuildingGroup.h"
 #import "DataManager.h"
+#import "BGImage.h"
+#import "DataManager.h"
+#import "GameConditionManager.h"
+#import "GameEventManager.h"
 
 @implementation BaseButtonGroup
 {
     NSMutableArray *_buttonList;
+}
+
+-(instancetype)initWithEventActionData:(EventActionData *)eventData
+{
+    NSAssert([eventData.eventType isEqualToString:@"selectlist"],
+             @"BaseButtonGroup Event type is wrong, type %@ != selectlist", eventData.eventType);
+    NSArray *rawList = [eventData.parameter componentsSeparatedByString:@";"];
+    NSMutableArray *buttonList = [NSMutableArray new];
+    for (NSString *buttonId in rawList) {
+        if (buttonId.length > 0) {
+            SelectListData *selectedData = [[DataManager sharedDataManager].getSelectListDic getSelectListById:buttonId];
+            if (selectedData) {
+                if ([[GameConditionManager sharedConditionManager] checkConditions:selectedData.conditionList]) {
+                    DefaultButton *button = [DefaultButton buttonWithTitle:getLocalString(selectedData.label)];
+                    button.name = buttonId;
+                    [button setTarget:self selector:@selector(clickButton:)];
+                    [buttonList addObject:button];
+                }
+            }
+        }
+    }
+    if (self = [self initWithNSArray:buttonList CCNodeColor:[BGImage getShadowForBackground]]) {
+        
+    }
+    return self;
 }
 
 -(instancetype)initWithNSArray:(NSArray *)buttonGroup
@@ -27,7 +56,7 @@
 -(instancetype)initWithNSArray:(NSArray *)buttonGroup CCNodeColor:(CCNodeColor *)nodeColor
 {
     
-    if (self = [self initWithNSArray:buttonGroup CCNodeColor:nodeColor withCloseButton:YES]) {
+    if (self = [self initWithNSArray:buttonGroup CCNodeColor:nodeColor withCloseButton:NO]) {
     }
     return self;
 }
@@ -61,9 +90,12 @@
 -(void)clickCloseButton
 {
     [self removeFromParent];
-    [_baseSprite closeButtonGroup:self];
 }
 
+-(void)clickButton:(DefaultButton *)button
+{
+    [[GameEventManager sharedEventManager] startEventId:button.name];
+}
 
 -(void)setCallback:(void(^)(int index))handler
 {
@@ -75,6 +107,5 @@
         }];
     }
 }
-
 
 @end

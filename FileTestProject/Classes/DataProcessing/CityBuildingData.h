@@ -6,7 +6,7 @@
 @property (nonatomic, readonly) NSString *buildingId;
 @property (nonatomic, readonly) int position;
 @property (nonatomic, readonly) int npcNameId;
-@property (nonatomic, readonly) NSString *portraitId;
+@property (nonatomic, readonly) NSString *eventAction;
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 

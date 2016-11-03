@@ -10,19 +10,18 @@
 #import "cocos2d-ui.h"
 #import "BaseFrame.h"
 
-@class CityBuildingGroup;
+@class EventActionData;
 @interface BaseButtonGroup : BaseFrame 
 
-@property (nonatomic, weak) CityBuildingGroup *baseSprite;
-@property (nonatomic, copy) NSString *buildingNo;
-@property (nonatomic, assign) int cityStle;
+@property (nonatomic, weak) CCScene *baseScene;
 @property (nonatomic, assign) BOOL hidden;
+
+-(instancetype)initWithEventActionData:(EventActionData *)eventData;
 
 -(instancetype)initWithNSArray:(NSArray *)buttonGroup;
 -(instancetype)initWithNSArray:(NSArray *)buttonGroup CCNodeColor:(CCNodeColor *)nodeColor;
 -(instancetype)initWithNSArray:(NSArray *)buttonGroup CCNodeColor:(CCNodeColor *)nodeColor withCloseButton:(BOOL)closeButton;
 
 -(void)setCallback:(void(^)(int index))handler;
--(void)clickCloseButton;
 
 @end

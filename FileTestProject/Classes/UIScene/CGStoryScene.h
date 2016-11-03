@@ -9,17 +9,10 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
-@protocol CGStorySceneDelegate <NSObject>
-
--(void)storyEnd;
-
--(void)gotoBuildingNo:(NSString *)buildingNo;
-
-@end
-
+@class CityScene;
 @interface CGStoryScene : CCScene
 
-@property (nonatomic) id<CGStorySceneDelegate> delegate;
+@property (nonatomic, weak) CityScene *cityScene;
 
 -(instancetype)initWithStoryId:(NSString *)storyId;
 

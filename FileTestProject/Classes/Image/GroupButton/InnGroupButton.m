@@ -79,13 +79,13 @@ static CGFloat const TIME_INTERVAL = 0.2f;
 -(void)hideView
 {
     self.hidden = YES;
-    [self.baseSprite setHidden:YES];
+//    [self.baseSprite setHidden:YES];
 }
 
 -(void)showView
 {
     self.hidden = NO;
-    [self.baseSprite setHidden:NO];
+//    [self.baseSprite setHidden:NO];
 }
 
 -(void)update:(CCTime)delta

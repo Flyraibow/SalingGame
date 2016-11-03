@@ -9,7 +9,9 @@ static DataManager *_sharedDataManager;
 	CannonDic *_cannonDic;
 	CityDic *_cityDic;
 	CityBuildingDic *_cityBuildingDic;
+	ConditionDic *_conditionDic;
 	DefaultDialogDic *_defaultDialogDic;
+	EventActionDic *_eventActionDic;
 	GoodsDic *_goodsDic;
 	GoodsCategoriesDic *_goodsCategoriesDic;
 	GuildDic *_guildDic;
@@ -19,6 +21,7 @@ static DataManager *_sharedDataManager;
 	RoleInitialDic *_roleInitialDic;
 	RouteDic *_routeDic;
 	SeaAreaDic *_seaAreaDic;
+	SelectListDic *_selectListDic;
 	ShipDic *_shipDic;
 	ShipStyleDic *_shipStyleDic;
 	SkillDic *_skillDic;
@@ -38,7 +41,9 @@ static DataManager *_sharedDataManager;
 		_cannonDic = [[CannonDic alloc] initWithByteBuffer:buffer];
 		_cityDic = [[CityDic alloc] initWithByteBuffer:buffer];
 		_cityBuildingDic = [[CityBuildingDic alloc] initWithByteBuffer:buffer];
+		_conditionDic = [[ConditionDic alloc] initWithByteBuffer:buffer];
 		_defaultDialogDic = [[DefaultDialogDic alloc] initWithByteBuffer:buffer];
+		_eventActionDic = [[EventActionDic alloc] initWithByteBuffer:buffer];
 		_goodsDic = [[GoodsDic alloc] initWithByteBuffer:buffer];
 		_goodsCategoriesDic = [[GoodsCategoriesDic alloc] initWithByteBuffer:buffer];
 		_guildDic = [[GuildDic alloc] initWithByteBuffer:buffer];
@@ -48,6 +53,7 @@ static DataManager *_sharedDataManager;
 		_roleInitialDic = [[RoleInitialDic alloc] initWithByteBuffer:buffer];
 		_routeDic = [[RouteDic alloc] initWithByteBuffer:buffer];
 		_seaAreaDic = [[SeaAreaDic alloc] initWithByteBuffer:buffer];
+		_selectListDic = [[SelectListDic alloc] initWithByteBuffer:buffer];
 		_shipDic = [[ShipDic alloc] initWithByteBuffer:buffer];
 		_shipStyleDic = [[ShipStyleDic alloc] initWithByteBuffer:buffer];
 		_skillDic = [[SkillDic alloc] initWithByteBuffer:buffer];
@@ -93,9 +99,19 @@ static DataManager *_sharedDataManager;
 	return _cityBuildingDic;
 }
 
+-(ConditionDic *)getConditionDic
+{
+	return _conditionDic;
+}
+
 -(DefaultDialogDic *)getDefaultDialogDic
 {
 	return _defaultDialogDic;
+}
+
+-(EventActionDic *)getEventActionDic
+{
+	return _eventActionDic;
 }
 
 -(GoodsDic *)getGoodsDic
@@ -141,6 +157,11 @@ static DataManager *_sharedDataManager;
 -(SeaAreaDic *)getSeaAreaDic
 {
 	return _seaAreaDic;
+}
+
+-(SelectListDic *)getSelectListDic
+{
+	return _selectListDic;
 }
 
 -(ShipDic *)getShipDic

@@ -922,6 +922,11 @@
 		EC458A021DA1EB8400B833A9 /* ship33.png in Resources */ = {isa = PBXBuildFile; fileRef = EC4589DB1DA1EB8400B833A9 /* ship33.png */; };
 		EC458A031DA1EB8400B833A9 /* ship34.png in Resources */ = {isa = PBXBuildFile; fileRef = EC4589DC1DA1EB8400B833A9 /* ship34.png */; };
 		EC458A0B1DA2137F00B833A9 /* ShipData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC458A0A1DA2137F00B833A9 /* ShipData.m */; };
+		EC85DBE11DC85CA300613F44 /* EventActionData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE01DC85CA300613F44 /* EventActionData.m */; };
+		EC85DBE41DC85CE200613F44 /* GameEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE31DC85CE200613F44 /* GameEventManager.m */; };
+		EC85DBE71DCAFBD400613F44 /* SelectListData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE61DCAFBD400613F44 /* SelectListData.m */; };
+		EC85DBEA1DCAFC7100613F44 /* GameConditionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE91DCAFC7100613F44 /* GameConditionManager.m */; };
+		EC85DBED1DCB021400613F44 /* ConditionData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBEC1DCB021400613F44 /* ConditionData.m */; };
 		ECFD22FF1D826AC500FCC903 /* DockYardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFD22FE1D826AC500FCC903 /* DockYardScene.m */; };
 /* End PBXBuildFile section */
 
@@ -2224,6 +2229,16 @@
 		EC4589DC1DA1EB8400B833A9 /* ship34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship34.png; path = Resources/Graph/Icon/ship34.png; sourceTree = "<group>"; };
 		EC458A091DA2137F00B833A9 /* ShipData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipData.h; path = Classes/DataProcessing/ShipData.h; sourceTree = "<group>"; };
 		EC458A0A1DA2137F00B833A9 /* ShipData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipData.m; path = Classes/DataProcessing/ShipData.m; sourceTree = "<group>"; };
+		EC85DBDF1DC85CA300613F44 /* EventActionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventActionData.h; path = Classes/DataProcessing/EventActionData.h; sourceTree = "<group>"; };
+		EC85DBE01DC85CA300613F44 /* EventActionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventActionData.m; path = Classes/DataProcessing/EventActionData.m; sourceTree = "<group>"; };
+		EC85DBE21DC85CE200613F44 /* GameEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameEventManager.h; path = Classes/Manager/GameEventManager.h; sourceTree = "<group>"; };
+		EC85DBE31DC85CE200613F44 /* GameEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameEventManager.m; path = Classes/Manager/GameEventManager.m; sourceTree = "<group>"; };
+		EC85DBE51DCAFBD400613F44 /* SelectListData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectListData.h; path = Classes/DataProcessing/SelectListData.h; sourceTree = "<group>"; };
+		EC85DBE61DCAFBD400613F44 /* SelectListData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectListData.m; path = Classes/DataProcessing/SelectListData.m; sourceTree = "<group>"; };
+		EC85DBE81DCAFC7100613F44 /* GameConditionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameConditionManager.h; path = Classes/Manager/GameConditionManager.h; sourceTree = "<group>"; };
+		EC85DBE91DCAFC7100613F44 /* GameConditionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameConditionManager.m; path = Classes/Manager/GameConditionManager.m; sourceTree = "<group>"; };
+		EC85DBEB1DCB021400613F44 /* ConditionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConditionData.h; path = Classes/DataProcessing/ConditionData.h; sourceTree = "<group>"; };
+		EC85DBEC1DCB021400613F44 /* ConditionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConditionData.m; path = Classes/DataProcessing/ConditionData.m; sourceTree = "<group>"; };
 		ECFD22FD1D826AC500FCC903 /* DockYardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockYardScene.h; path = Classes/UIScene/DockYardScene.h; sourceTree = "<group>"; };
 		ECFD22FE1D826AC500FCC903 /* DockYardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DockYardScene.m; path = Classes/UIScene/DockYardScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3211,7 +3226,6 @@
 			isa = PBXGroup;
 			children = (
 				27FBB7741CDF114C002B106B /* Manager */,
-				27C26E361C803A37009EDE53 /* Ext */,
 				27C26D411C63FA74009EDE53 /* Protocol */,
 				27C26D021C616198009EDE53 /* Data */,
 				27C26CEA1C603D25009EDE53 /* UIScene */,
@@ -3232,6 +3246,12 @@
 		279BAD061C59E9480069EF5D /* DataProcessing */ = {
 			isa = PBXGroup;
 			children = (
+				EC85DBEB1DCB021400613F44 /* ConditionData.h */,
+				EC85DBEC1DCB021400613F44 /* ConditionData.m */,
+				EC85DBE51DCAFBD400613F44 /* SelectListData.h */,
+				EC85DBE61DCAFBD400613F44 /* SelectListData.m */,
+				EC85DBDF1DC85CA300613F44 /* EventActionData.h */,
+				EC85DBE01DC85CA300613F44 /* EventActionData.m */,
 				EC458A091DA2137F00B833A9 /* ShipData.h */,
 				EC458A0A1DA2137F00B833A9 /* ShipData.m */,
 				27A423091D1CE2A600DEFD22 /* CannonData.h */,
@@ -3714,10 +3734,11 @@
 		27C26D411C63FA74009EDE53 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				27C26D431C63FC5D009EDE53 /* SpendMoneyProtocol.h */,
+				27C26E361C803A37009EDE53 /* Ext */,
 				27C26D441C6402FD009EDE53 /* DateUpdateProtocol.h */,
 				27C26D451C640F51009EDE53 /* UpdateMoneyProtocol.h */,
 				27C26D8E1C69657A009EDE53 /* OccupationUpdateProtocol.h */,
+				27C26D431C63FC5D009EDE53 /* SpendMoneyProtocol.h */,
 				27C26DE11C71708C009EDE53 /* SailSceneGoProtocol.h */,
 				27C26DE21C717611009EDE53 /* SailSceneShipProtocol.h */,
 				27C26DE31C71A876009EDE53 /* CityChangeProtocol.h */,
@@ -4159,6 +4180,10 @@
 			children = (
 				27FBB7751CDF116C002B106B /* GamePanelManager.h */,
 				27FBB7761CDF116C002B106B /* GamePanelManager.m */,
+				EC85DBE21DC85CE200613F44 /* GameEventManager.h */,
+				EC85DBE31DC85CE200613F44 /* GameEventManager.m */,
+				EC85DBE81DCAFC7100613F44 /* GameConditionManager.h */,
+				EC85DBE91DCAFC7100613F44 /* GameConditionManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -5003,6 +5028,7 @@
 				279BAC0D1C59E3B80069EF5D /* CCBAnimationManager.m in Sources */,
 				279BAAFC1C59E3B60069EF5D /* CCPhysicsNode.m in Sources */,
 				279BAC131C59E3B80069EF5D /* CCBReader.m in Sources */,
+				EC85DBE41DC85CE200613F44 /* GameEventManager.m in Sources */,
 				27C26D171C6181E5009EDE53 /* MyGuild.m in Sources */,
 				27C26E331C802F98009EDE53 /* RoleDescriptionScene.m in Sources */,
 				279BAC6D1C59E3B90069EF5D /* mach_timing.c in Sources */,
@@ -5059,6 +5085,7 @@
 				27C26E221C7DB179009EDE53 /* SailSceneDrawLayer.m in Sources */,
 				27C26D841C672FC1009EDE53 /* GameShipGoodsData.m in Sources */,
 				279BAB301C59E3B70069EF5D /* CCTexturePVR.m in Sources */,
+				EC85DBE71DCAFBD400613F44 /* SelectListData.m in Sources */,
 				279BAC3C1C59E3B80069EF5D /* OALSimpleAudio.m in Sources */,
 				27FBB79E1CED8F8F002B106B /* DialogPanel.m in Sources */,
 				27FBB85F1D0FB7F4002B106B /* TimePanel.m in Sources */,
@@ -5156,6 +5183,7 @@
 				279BAAE61C59E3B60069EF5D /* CCParticleBatchNode.m in Sources */,
 				27FBB77A1CE0144C002B106B /* GameItemData.m in Sources */,
 				27C26D051C6161BE009EDE53 /* GameDataManager.m in Sources */,
+				EC85DBEA1DCAFC7100613F44 /* GameConditionManager.m in Sources */,
 				279BAB221C59E3B70069EF5D /* CCSpriteFrame.m in Sources */,
 				279BAC421C59E3B80069EF5D /* ALBuffer.m in Sources */,
 				27C26CC01C5F1DB2009EDE53 /* CityData.m in Sources */,
@@ -5171,6 +5199,7 @@
 				279BAB931C59E3B70069EF5D /* CCEffectTexture.m in Sources */,
 				27C26D341C63462B009EDE53 /* TavernGroupButton.m in Sources */,
 				27C26E521C8125BD009EDE53 /* DialogPhotoIcon.m in Sources */,
+				EC85DBED1DCB021400613F44 /* ConditionData.m in Sources */,
 				279BABC61C59E3B80069EF5D /* CCDirectorIOS.m in Sources */,
 				279BAA881C59E3B60069EF5D /* CCShader.m in Sources */,
 				279BABF21C59E3B80069EF5D /* CCVertex.m in Sources */,
@@ -5205,6 +5234,7 @@
 				279BABD91C59E3B80069EF5D /* CCWindow.m in Sources */,
 				279BABC91C59E3B80069EF5D /* CCGLView.m in Sources */,
 				2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */,
+				EC85DBE11DC85CA300613F44 /* EventActionData.m in Sources */,
 				279BAB251C59E3B70069EF5D /* CCSpriteFrameCache.m in Sources */,
 				279BAB151C59E3B70069EF5D /* CCScheduler.m in Sources */,
 				27FBB8671D0FC0F5002B106B /* TextInputPanel.m in Sources */,

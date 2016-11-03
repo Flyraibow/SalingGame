@@ -1,0 +1,5 @@
+conditionId,description,type,compareType,parameter
+id,-,string,string,string
+noSignUp,____,currCityPercent,=,0
+haveRecommendLetter,____,haveItem,;,209
+canSpreadRumor,______,hasJob,;,;

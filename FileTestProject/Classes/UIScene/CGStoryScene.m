@@ -16,6 +16,7 @@
 #import "GameNPCData.h"
 #import "BaseButtonGroup.h"
 #import "DefaultButton.h"
+#import "CityScene.h"
 
 typedef enum : NSUInteger {
     StoryCommandTypeNone,
@@ -474,7 +475,7 @@ typedef enum : NSUInteger {
                     }
                     case StoryCommandTypeGotoBuilding:
                     {
-                        [_delegate gotoBuildingNo:storyData.parameter1];
+                        [self.cityScene gotoBuildingNo:storyData.parameter1];
                         break;
                     }
                     default:
@@ -483,7 +484,7 @@ typedef enum : NSUInteger {
             }
             if (flag && _currentIndex >= _storyList.count) {
                 [[CCDirector sharedDirector] popScene];
-                [self.delegate storyEnd];
+                [self.cityScene storyEnd];
             }
         }
     }

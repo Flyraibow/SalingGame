@@ -11,6 +11,7 @@
 
 @interface GameStoryTriggerManager : NSObject
 
++(void)searchAndStartStory:(NSString *)cityId buildingId:(NSString *)buildingId;
 
 +(NSString *)searchStory:(NSString *)cityId buildingId:(NSString *)buildingId;
 

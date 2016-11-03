@@ -1,0 +1,13 @@
+eventId,description,eventType,parameter
+id,-,string,string
+government,__,selectlist,signUp;militaryInvest;recommendLetter;close
+tarven,__,selectlist,drink;buyDrink;hireSailor;spreadRumor;close
+plaza,__,plazaEvent,;
+exchange,___,selectlist,trade;commerceInvest;commerceInfo;close
+shipyard,___,selectlist,buyShip;sellShip;modifyShip;fixShip;dockYard;close
+shop,__,selectlist,buyItem;sellItem;taskList;mailLetter;close
+dock,__,selectlist,sail;supply;dockYard;close
+inn,__,selectlist,sleep1day;sleep10day;sleep30day;close
+relic,__,relicEvent,;
+signUp,__,dialog,;
+close,____,close,;

@@ -25,9 +25,7 @@
 
 @interface CityScene() <
 DateUpdateProtocol,
-OccupationUpdateProtocol,
-CGStorySceneDelegate,
-CityBuildingDelegate>
+OccupationUpdateProtocol>
 
 @end
 
@@ -132,7 +130,6 @@ CityBuildingDelegate>
     }
     
     _cityBuildingGroup = [[CityBuildingGroup alloc] init];
-    _cityBuildingGroup.delegate = self;
     [self addChild:_cityBuildingGroup];
     
     CitySystemBar *bar = [[CitySystemBar alloc] init];
@@ -217,12 +214,7 @@ CityBuildingDelegate>
 -(void)checkStory:(NSString *)buildingId
 {
     // check trigger condition
-    NSString *storyId = [GameStoryTriggerManager searchStory:_cityNo buildingId:buildingId];
-    if (storyId != nil) {
-        CGStoryScene *cgScene = [[CGStoryScene alloc] initWithStoryId:storyId];
-        cgScene.delegate = self;
-        [[CCDirector sharedDirector] pushScene:cgScene];
-    }
+    [GameStoryTriggerManager searchAndStartStory:_cityNo buildingId:@"0"];
 }
 
 -(void)playMusic

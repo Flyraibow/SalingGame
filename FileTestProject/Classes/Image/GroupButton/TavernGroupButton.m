@@ -144,7 +144,7 @@
 
 -(void)clickCloseButton
 {
-    [super clickCloseButton];
+//    [super clickCloseButton];
     // 把当前的状态还原
 }
 

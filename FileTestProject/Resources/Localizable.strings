@@ -201,7 +201,7 @@
 "exchange_invest" = "商业投资";
 "exchange_information" = "商业情报";
 "shop_buy" = "购买";
-"shop_sale" = "贩卖";
+"shop_sell" = "贩卖";
 "shop_task" = "任务委托";
 "shop_mail" = "写信";
 "shipyard_buy" = "购入船只";
@@ -212,7 +212,7 @@
 "dock_supply" = "补给";
 "dock_yard" = "船坞";
 "ship_modify" = "改造";
-"ship_Info" = "查看";
+"ship_info" = "查看";
 
 "inn_one_day" = "休息一天";
 "inn_ten_day" = "休息十天";

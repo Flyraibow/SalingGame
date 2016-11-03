@@ -12,8 +12,19 @@
 #import "GameDataManager.h"
 #import "MyGuild.h"
 #import "GameNPCData.h"
+#import "CGStoryScene.h"
 
 @implementation GameStoryTriggerManager
+
++(void)searchAndStartStory:(NSString *)cityId buildingId:(NSString *)buildingId
+{
+    NSString *storyId = [GameStoryTriggerManager searchStory:cityId buildingId:buildingId];
+    if (storyId != nil) {
+        CGStoryScene *cgScene = [[CGStoryScene alloc] initWithStoryId:storyId];
+        cgScene.cityScene = (CityScene *)[CCDirector sharedDirector].runningScene;
+        [[CCDirector sharedDirector] pushScene:cgScene];
+    }
+}
 
 +(NSString *)searchStory:(NSString *)cityId buildingId:(NSString *)buildingId
 {
