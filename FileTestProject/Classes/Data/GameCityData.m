@@ -10,7 +10,6 @@
 #import "DataManager.h"
 #import "GameDataManager.h"
 
-@implementation GameCityData
 static int const CityMaxCommerce = 10000;
 static NSString* const GameCityNo = @"GameCityNo";
 static NSString* const CityState = @"CityState";
@@ -27,6 +26,13 @@ static NSString* const CityCommerceInvestRecord = @"CityCommerceInvestRecord";
 static NSString* const CityCategoryPriceDict = @"CityCategoryPriceDict";
 static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
 static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
+
+@implementation GameCityData
+{
+    NSMutableDictionary<NSString *, NSNumber *> *_guildOccupation;
+}
+
+@synthesize guildOccupation = _guildOccupation;
 
 -(instancetype)initWithCityData:(CityData *)cityData
 {

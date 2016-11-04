@@ -38,6 +38,7 @@
 	if (self) {
 		_conditionId = [buffer readString];
 		_type = [buffer readString];
+		_subtype = [buffer readString];
 		_compareType = [buffer readString];
 		_parameter = [buffer readString];
 	}

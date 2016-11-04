@@ -43,7 +43,7 @@ typedef enum : NSUInteger {
 @property (nonatomic) MyGuild *myGuild;
 @property (nonatomic, readonly) NSMutableArray *dialogList;   // 临时对话
 @property (nonatomic, copy) NSString *currentMusic;
-@property (nonatomic, readonly) NSDictionary *itemDic;
+@property (nonatomic, readonly) NSDictionary<NSString *, GameItemData *> *itemDic;
 @property (nonatomic, readonly) NSMutableDictionary<NSString *, GameShipData *> *shipDic;
 
 -(void)initGuildData;
@@ -89,6 +89,8 @@ typedef enum : NSUInteger {
 -(NSArray *)itemListByCity:(NSString *)cityId;
 
 -(NSArray *)itemListByGuild:(NSString *)guildId;
+
+-(BOOL)containsItem:(NSString *)itemId guildId:(NSString *)guildId;
 
 -(void)registerGameShipData:(GameShipData *)gameShipData;
 

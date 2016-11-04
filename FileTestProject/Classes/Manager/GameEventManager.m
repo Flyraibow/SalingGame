@@ -47,8 +47,10 @@ static GameEventManager *_sharedEventManager;
                 [node removeFromParent];
                 [_viewStack removeLastObject];
                 if (_viewStack.count == 0 && [[CCDirector sharedDirector].runningScene isKindOfClass:[CityScene class]]) {
-                    CityScene *cityScene = (CityScene *)[CCDirector sharedDirector].runningScene;
-                    [cityScene checkStory:@"0"];
+                    CCScene *scene = [CCDirector sharedDirector].runningScene;
+                    if ([scene isKindOfClass:[CityScene class]]) {
+                        [(CityScene *)scene checkStory:@"0"];
+                    }
                 }
             }
         } else if ([eventData.eventType isEqualToString:@"selectlist"]) {

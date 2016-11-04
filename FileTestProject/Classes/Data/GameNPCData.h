@@ -35,7 +35,7 @@ typedef enum : NSUInteger {
     NPCJobTypeChef,
     NPCJobTypeRaiser,
     NPCJobTypePriest,
-    NPCJobTypeThinker,
+    NPCJobTypeCounselor,
     NPCJobTypeAccounter,
     NPCJobTypeSecondCaptain,
     NPCJobTypeRelax,

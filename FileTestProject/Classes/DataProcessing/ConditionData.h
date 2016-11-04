@@ -5,6 +5,7 @@
 
 @property (nonatomic, readonly) NSString *conditionId;
 @property (nonatomic, readonly) NSString *type;
+@property (nonatomic, readonly) NSString *subtype;
 @property (nonatomic, readonly) NSString *compareType;
 @property (nonatomic, readonly) NSString *parameter;
 

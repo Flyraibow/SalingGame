@@ -451,6 +451,12 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
     return itemList;
 }
 
+-(BOOL)containsItem:(NSString *)itemId guildId:(NSString *)guildId
+{
+    GameItemData *gameItemData = [_itemDic objectForKey:itemId];
+    return [gameItemData.guildId isEqualToString:guildId];
+}
+
 -(void)registerGameShipData:(GameShipData *)gameShipData
 {
     if (gameShipData.shipId && [_shipDic objectForKey:gameShipData.shipId]) {

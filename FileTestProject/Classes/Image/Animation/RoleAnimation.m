@@ -157,7 +157,7 @@ static CGFloat const FRAME_INTERVAL = 0.7f;
                 actionType = ActionTypePraying;
                 break;
             case NPCJobTypeCaptain:
-            case NPCJobTypeThinker:
+            case NPCJobTypeCounselor:
             case NPCJobTypeAccounter:
             case NPCJobTypeViseCaptain:
             case NPCJobTypeSecondCaptain:

@@ -8,12 +8,19 @@
 
 #import "GameConditionManager.h"
 #import "DataManager.h"
+#import "GameDataManager.h"
+#import "GameCityData.h"
+#import "GameNPCData.h"
 
 static GameConditionManager *_sharedConditionManager;
 
 @implementation GameConditionManager
 {
     NSDictionary *_conditionDictionary;
+    NSDictionary *_cityDictionary;
+    MyGuild *_myguild;
+    NSString *_myguildId;
+    NSDictionary<NSString *, GameItemData *> *_itemDictionary;
 }
 
 + (GameConditionManager *)sharedConditionManager
@@ -29,6 +36,10 @@ static GameConditionManager *_sharedConditionManager;
     self = [super init];
     if (self) {
         _conditionDictionary = [[DataManager sharedDataManager].getConditionDic getDictionary];
+        _cityDictionary = [GameDataManager sharedGameData].cityDic;
+        _myguild = [GameDataManager sharedGameData].myGuild;
+        _myguildId = _myguild.guildId;
+        _itemDictionary = [GameDataManager sharedGameData].itemDic;
     }
     return self;
 }
@@ -46,7 +57,51 @@ static GameConditionManager *_sharedConditionManager;
 
 - (BOOL)checkCondition:(NSString *)conditionId
 {
-    return conditionId.length == 0;
+    if (conditionId.length == 0) {
+        return YES;
+    }
+    int value = 0;
+    ConditionData *condition = [_conditionDictionary objectForKey:conditionId];
+    if ([condition.type isEqualToString:@"city"]) {
+        GameCityData *cityData = [_cityDictionary objectForKey:_myguild.myTeam.currentCityId];
+        if ([condition.subtype isEqualToString:@"percentage"]) {
+            value = [[cityData.guildOccupation objectForKey:_myguildId] intValue];
+        } else if ([condition.subtype isEqualToString:@"totalPercentage"]) {
+            for (NSNumber *val in cityData.guildOccupation) {
+                value += [val intValue];
+            }
+        } else if ([condition.subtype isEqualToString:@"guildNumber"]) {
+            value = (int)[cityData.guildOccupation count];
+        }
+    } else if ([condition.type isEqualToString:@"guild"]) {
+        if ([condition.subtype isEqualToString:@"item"]) {
+            return [[_itemDictionary objectForKey:_myguildId].guildId isEqualToString:_myguildId];
+        } else if ([condition.subtype isEqualToString:@"job"]) {
+            int job = [condition.parameter intValue];
+            for (GameNPCData *npcData in _myguild.myTeam.npcList) {
+                if (npcData.job == job) {
+                    return YES;
+                }
+            }
+            return NO;
+        }
+    } else if ([condition.type isEqualToString:@"and"]) {
+        return [self checkConditions:condition.parameter];
+    }
+    if ([condition.compareType isEqualToString:@"="]) {
+        return [condition.parameter intValue] == value;
+    } else if ([condition.compareType isEqualToString:@"<"]) {
+        return [condition.parameter intValue] < value;
+    } else if ([condition.compareType isEqualToString:@">"]) {
+        return [condition.parameter intValue] > value;
+    } else if ([condition.compareType isEqualToString:@"<="]) {
+        return [condition.parameter intValue] <= value;
+    } else if ([condition.compareType isEqualToString:@">="]) {
+        return [condition.parameter intValue] >= value;
+    } else if ([condition.compareType isEqualToString:@"!="]) {
+        return [condition.parameter intValue] != value;
+    }
+    return NO;
 }
 
 @end

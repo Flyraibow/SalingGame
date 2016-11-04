@@ -229,7 +229,7 @@
                     _job = NPCJobTypePriest;
                     break;
                 case FunctionRoomEquipTypeStrategy:
-                    _job = NPCJobTypeThinker;
+                    _job = NPCJobTypeCounselor;
                     break;
                 case FunctionRoomEquipTypeAccouting:
                     _job = NPCJobTypeAccounter;
