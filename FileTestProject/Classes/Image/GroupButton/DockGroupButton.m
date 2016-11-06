@@ -20,7 +20,6 @@
 @implementation DockGroupButton
 {
     NSString *_cityNo;
-    int _cityStyle;
 }
 
 -(instancetype)initWithCityNo:(NSString *)cityNo
@@ -31,7 +30,6 @@
     self = [super initWithNSArray:@[btnSail, btnSupply, btnDockYard] CCNodeColor:[BGImage getShadowForBackground]];
     if (self) {
         _cityNo = cityNo;
-        _cityStyle = [[DataManager sharedDataManager].getCityDic getCityById:cityNo].cityStyle;
         [btnSail setTarget:self selector:@selector(clickSailBtn)];
         [btnSupply setTarget:self selector:@selector(clickSupplyBtn)];
         [btnDockYard setTarget:self selector:@selector(clickDockYard)];
@@ -49,7 +47,7 @@
     
     if (money > 0) {
         __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
-        [dialogPanel setDefaultDialog:@"dialog_fill_food" arguments:@[@(money)] cityStyle:_cityStyle];
+        [dialogPanel setDefaultDialog:@"dialog_fill_food" arguments:@[@(money)]];
         [dialogPanel addYesNoWithCallback:^(int index) {
             if (index == 0) {
                 if (myGuild.money < money) {
@@ -72,12 +70,12 @@
     int sailorNumbers = [teamData sailorNumbers];
     if (sailorNumbers == 0) {
         // 如果某条船没有水手
-        [dialogPanel setDefaultDialog:@"dialog_no_sailors" arguments:nil cityStyle:_cityStyle];
+        [dialogPanel setDefaultDialog:@"dialog_no_sailors" arguments:nil];
     } else {
         //TODO: 检查水手是否充足，如果不足只是提醒，仍然可以继续上路
         if (sailorNumbers < 0) {
             sailorNumbers = - sailorNumbers;
-            [dialogPanel setDefaultDialog:@"dialog_no_enough_sailors" arguments:nil cityStyle:_cityStyle];
+            [dialogPanel setDefaultDialog:@"dialog_no_enough_sailors" arguments:nil];
             [dialogPanel addYesNoWithCallback:^(int index) {
                 if (index == 0) {
                     // 继续前行
@@ -96,9 +94,9 @@
     int days = food * 200 / sailorNumber;
     __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
     if (days >= 15) {
-        [dialogPanel setDefaultDialog:@"dialog_checkout_food" arguments:@[@(days)] cityStyle:_cityStyle];
+        [dialogPanel setDefaultDialog:@"dialog_checkout_food" arguments:@[@(days)]];
     } else {
-        [dialogPanel setDefaultDialog:@"dialog_checkout_food_not_enough" arguments:@[@(days)] cityStyle:_cityStyle];
+        [dialogPanel setDefaultDialog:@"dialog_checkout_food_not_enough" arguments:@[@(days)]];
     }
     [dialogPanel addConfirmHandler:^{
         [self finalSail];

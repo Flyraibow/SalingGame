@@ -51,43 +51,6 @@ static CGFloat const TIME_INTERVAL = 0.2f;
     return self;
 }
 
--(void)spendMoneyFail:(SpendMoneyType)type
-{
-}
-
--(void)spendMoneySucceed:(SpendMoneyType)type
-{
-    // disable everything and hide the scene
-    switch (type) {
-        case SpendMoneyTypeSleepOneDay:
-            break;
-        case SpendMoneyTypeSleepTenDay:
-            _sleepDays = 10;
-            _currentTime = TIME_INTERVAL;
-            [self hideView];
-            break;
-        case SpendMoneyTypeSleepThirtyDay:
-            _sleepDays = 30;
-            _currentTime = TIME_INTERVAL;
-            [self hideView];
-            break;
-        default:
-            break;
-    }
-}
-
--(void)hideView
-{
-    self.hidden = YES;
-//    [self.baseSprite setHidden:YES];
-}
-
--(void)showView
-{
-    self.hidden = NO;
-//    [self.baseSprite setHidden:NO];
-}
-
 -(void)update:(CCTime)delta
 {
     if (_sleepDays > 0)
@@ -106,7 +69,7 @@ static CGFloat const TIME_INTERVAL = 0.2f;
     [[GameDataManager sharedGameData] spendOneDay];
     _sleepDays--;
     if (_sleepDays == 0) {
-        [self showView];
+        self.hidden = NO;
     } else {
         _currentTime = TIME_INTERVAL;
     }
@@ -118,7 +81,7 @@ static CGFloat const TIME_INTERVAL = 0.2f;
     [myguild spendMoney:day succesHandler:^{
         _sleepDays = day;
         _currentTime = TIME_INTERVAL;
-        [self hideView];
+        self.hidden = YES;
     } failHandle:^{
         // TODO: add dialog here
         CCLOG(@"not enough money");

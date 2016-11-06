@@ -52,16 +52,16 @@
 {
     if ([[[GameDataManager sharedGameData].cityDic objectForKey:_cityNo] canSignUp:[GameDataManager sharedGameData].myGuild.guildId]) {
         DialogPanel *dialog = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
-        [dialog setDefaultDialog:@"dialog_signup_start" arguments:@[] cityStyle:_cityStyle];
+        [dialog setDefaultDialog:@"dialog_signup_start" arguments:@[]];
         [dialog addConfirmHandler:^{
-            InvestPanel *panel = [[InvestPanel alloc] initWithCityId:_cityNo investType:InvestTypeSignup];
-            panel.delegate = self;
-            [self.scene addChild:panel];
+//            InvestPanel *panel = [[InvestPanel alloc] initWithCityId:_cityNo investType:InvestTypeSignup];
+//            panel.delegate = self;
+//            [self.scene addChild:panel];
         }];
     } else {
         // Todo: 已经满了无法签约, 可能还有其他原因
         DialogPanel *dialog = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
-        [dialog setDefaultDialog:@"dialog_signup_failure_full" arguments:@[] cityStyle:_cityStyle];
+        [dialog setDefaultDialog:@"dialog_signup_failure_full" arguments:@[]];
     }
 }
 
@@ -69,23 +69,23 @@
 {
     // todo: we doesn't have the reason. Maybe one day, we will add the reason here.
     DialogPanel *dialog = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
-    [dialog setDefaultDialog:@"dialog_no_enough_money" arguments:@[] cityStyle:_cityStyle];
+    [dialog setDefaultDialog:@"dialog_no_enough_money" arguments:@[]];
 }
 
 -(void)investSucceed
 {
     DialogPanel *dialog = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
-    [dialog setDefaultDialog:@"dialog_invest_success" arguments:@[] cityStyle:_cityStyle];
+    [dialog setDefaultDialog:@"dialog_invest_success" arguments:@[]];
 }
 
 -(void)clickInvest
 {
     DialogPanel *dialog = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
-    [dialog setDefaultDialog:@"dialog_military_invest_start" arguments:@[] cityStyle:_cityStyle];
+    [dialog setDefaultDialog:@"dialog_military_invest_start" arguments:@[]];
     [dialog addConfirmHandler:^{
-        InvestPanel *panel = [[InvestPanel alloc] initWithCityId:_cityNo investType:InvestTypeMilitary];
-        panel.delegate = self;
-        [self.scene addChild:panel];
+//        InvestPanel *panel = [[InvestPanel alloc] initWithCityId:_cityNo investType:InvestTypeMilitary];
+//        panel.delegate = self;
+//        [self.scene addChild:panel];
     }];
 }
 

@@ -60,7 +60,7 @@ static GameConditionManager *_sharedConditionManager;
     if (conditionId.length == 0) {
         return YES;
     }
-    int value = 0;
+    NSInteger value = 0;
     ConditionData *condition = [_conditionDictionary objectForKey:conditionId];
     if ([condition.type isEqualToString:@"city"]) {
         GameCityData *cityData = [_cityDictionary objectForKey:_myguild.myTeam.currentCityId];
@@ -72,6 +72,12 @@ static GameConditionManager *_sharedConditionManager;
             }
         } else if ([condition.subtype isEqualToString:@"guildNumber"]) {
             value = (int)[cityData.guildOccupation count];
+        } else if ([condition.subtype isEqualToString:@"signUpMoney"]) {
+            value = cityData.signUpUnitValue;
+        } else if ([condition.subtype isEqualToString:@"militaryInvestMoney"]) {
+            value = cityData.milltaryValue;
+        } else if ([condition.subtype isEqualToString:@"commerceInvestMoney"]) {
+            value = cityData.commerceValue;
         }
     } else if ([condition.type isEqualToString:@"guild"]) {
         if ([condition.subtype isEqualToString:@"item"]) {
@@ -88,18 +94,24 @@ static GameConditionManager *_sharedConditionManager;
     } else if ([condition.type isEqualToString:@"and"]) {
         return [self checkConditions:condition.parameter];
     }
+    NSInteger compareValue = 0;
+    if ([condition.parameter isEqualToString:@"money"]) {
+        compareValue = _myguild.money;
+    } else {
+        compareValue = [condition.parameter integerValue];
+    }
     if ([condition.compareType isEqualToString:@"="]) {
-        return [condition.parameter intValue] == value;
+        return compareValue == value;
     } else if ([condition.compareType isEqualToString:@"<"]) {
-        return [condition.parameter intValue] < value;
+        return compareValue > value;
     } else if ([condition.compareType isEqualToString:@">"]) {
-        return [condition.parameter intValue] > value;
+        return compareValue < value;
     } else if ([condition.compareType isEqualToString:@"<="]) {
-        return [condition.parameter intValue] <= value;
+        return compareValue >= value;
     } else if ([condition.compareType isEqualToString:@">="]) {
-        return [condition.parameter intValue] >= value;
+        return compareValue <= value;
     } else if ([condition.compareType isEqualToString:@"!="]) {
-        return [condition.parameter intValue] != value;
+        return compareValue != value;
     }
     return NO;
 }

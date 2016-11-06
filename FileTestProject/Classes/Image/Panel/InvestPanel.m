@@ -27,11 +27,18 @@
     InvestType _type;
     int _selectNum;
     int _maxNum;
+    NSString *_successEventId;
+    NSString *_failEventId;
 }
 
--(instancetype)initWithCityId:(NSString *)cityNo investType:(InvestType)type
+-(instancetype)initWithCityId:(NSString *)cityNo
+                   investType:(InvestType)type
+                 successEvent:(NSString *)successEventId
+                    failEvent:(NSString *)failEventId
 {
     if (self = [self init]) {
+        _successEventId = successEventId;
+        _failEventId = failEventId;
         _cityNo = cityNo;
         _type = type;
         CCNodeColor *node = [BGImage getShadowForBackground];
@@ -67,7 +74,7 @@
         } else if (type == InvestTypeMilitary) {
             _unitMoney = cityData.milltaryValue;
         } else  if (type == InvestTypeSignup) {
-            _unitMoney = cityData.commerceValue + cityData.milltaryValue;
+            _unitMoney = cityData.signUpUnitValue;
         }
         _labMoney = [CCLabelTTF labelWithString:[@(_unitMoney) stringValue] fontName:nil fontSize:14];
         _labMoney.anchorPoint = ccp(1.0, 0.5);
@@ -95,15 +102,9 @@
 -(void)clickCloseButton
 {
     [self removeFromParent];
-}
-
-
--(void)spendMoneySucceed:(SpendMoneyType)type
-{
-}
-
--(void)spendMoneyFail:(SpendMoneyType)type
-{
+    if (self.completionBlockWithEventId) {
+        self.completionBlockWithEventId(_failEventId);
+    }
 }
 
 -(void)clickSureButton
@@ -115,36 +116,43 @@
         GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
         int money = _unitMoney * (_selectNum + 1);
         [cityData investByGuild:[GameDataManager sharedGameData].myGuild.guildId investUnits:_selectNum + 1 money:money type:_type];
-        [self.delegate investSucceed];
+        [self removeFromParent];
+        if (self.completionBlockWithEventId) {
+            self.completionBlockWithEventId(_successEventId);
+        }
     } failHandle:^{
-        [self.delegate investFailure];
+        [self _setNumber:_maxNum - 1];
     }];
    
-    [self removeFromParent];
 }
 
 
--(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
+-(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
     CGSize viewSize = [[CCDirector sharedDirector] viewSize];
     CGPoint location = [touch locationInView:[touch view]];
     location.x -= viewSize.width / 2 - 122 ;
     location.y -= viewSize.height / 2 - 91;
     if (location.x > 0 && location.x <= 250 && location.y >= 0 && location.y <= 192) {
         int index = location.x / 50 + (int)(location.y / 48) * 5;
-        if (index >= _maxNum) {
-            index = _maxNum - 1;
-        }
-        _selectNum = index;
-        for (int i = 0; i <= index; ++i) {
-            CCSprite *icon = [_array objectAtIndex:i];
-            icon.visible = YES;
-        }
-        for (int i = index + 1; i < 20; ++i) {
-            CCSprite *icon = [_array objectAtIndex:i];
-            icon.visible = NO;
-        }
-        _labMoney.string = [@(_unitMoney * (index+1)) stringValue];
+        [self _setNumber:index];
     }
+}
+
+-(void)_setNumber:(int)number
+{
+    if (number >= _maxNum) {
+        number = _maxNum - 1;
+    }
+    _selectNum = number;
+    for (int i = 0; i <= number; ++i) {
+        CCSprite *icon = [_array objectAtIndex:i];
+        icon.visible = YES;
+    }
+    for (int i = number + 1; i < 20; ++i) {
+        CCSprite *icon = [_array objectAtIndex:i];
+        icon.visible = NO;
+    }
+    _labMoney.string = [@(_unitMoney * (number+1)) stringValue];
 }
 
 @end

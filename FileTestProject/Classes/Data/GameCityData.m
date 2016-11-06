@@ -241,7 +241,6 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
         _milltaryInvestRecord += money;
     }
     [self addOccupationForGuild:guildId percent:units type:CityOccupationChangeTypeInvest];
-    [[GameDataManager sharedGameData] spendOneDay];
 }
 
 
@@ -351,7 +350,6 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
         }
         [_categoryPriceDict setObject:[@(value) stringValue] forKey:categoryId];
     }
-    [[GameDataManager sharedGameData] spendOneDay];
 }
 
 -(void)newMonth:(int)month
@@ -445,6 +443,11 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
             [[GameDataManager sharedGameData] moveToCity:_cityNo];
         }
     }
+}
+
+-(int)signUpUnitValue
+{
+    return self.milltaryValue + self.commerceValue;
 }
 
 @end

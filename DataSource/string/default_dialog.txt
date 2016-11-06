@@ -22,6 +22,7 @@
 "dialog_no_ship_no_game" = "我们还没有船。";
 "dialog_no_ship_to_sale" = "我们没有可卖的船只。";
 "dialog_invest_success" = "非常感谢你对我们城市的投资。";
+"dialog_invest_fail" = "就这么放弃投资了？";
 "dialog_signup_failure_full" = "我们城市已经没有多余可以签约的份额了。";
 "dialog_signup_start" = "听说你想和我们签约？打算签订多少份额呢？";
 "dialog_military_invest_start" = "听说你想进行军事投资，打算投资多少份额呢？";
@@ -37,3 +38,4 @@
 "dialog_cannot_unequip_a_shipheader_demon" = "这条船上装了恶魔像，强行拆除的话，船会坏掉。要强行拆吗？";
 "dialog_cannot_unequip_a_shipheader_demon_first" = "还是不要随意拆毁旗舰吧。";
 "dialog_cannot_unequip_a_shipheader" = "无法正常卸载这个船首像。";
+"dialog_not_implement_yet" = "%@ 这个功能还没有实现";

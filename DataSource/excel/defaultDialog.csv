@@ -22,6 +22,7 @@ dialog_hire_continue_full,2,7,0,name_dock_sailor,0
 dialog_hire_continue_need,2,7,0,name_dock_sailor,0
 dialog_invest_success,2,1,0,name_governor,0
 dialog_signup_failure_full,2,1,0,name_governor,0
+dialog_invest_fail,2,1,0,name_governor,0
 dialog_signup_start,2,1,0,name_governor,0
 dialog_need_to_sign_before_exchange,2,6,0,name_shop_owner,0
 dialog_no_ship_to_sale,4,0,0,0,0
@@ -38,3 +39,5 @@ dialog_unequip_a_shipheader,4,0,0,0,0
 dialog_equip_a_shipheader,4,0,0,0,0
 dialog_cannot_unequip_a_shipheader_demon,4,0,0,0,0
 dialog_cannot_unequip_a_shipheader_demon_first,4,0,0,0,0
+dialog_cannot_unequip_a_shipheader,4,0,0,0,0
+dialog_not_implement_yet,4,0,0,0,0

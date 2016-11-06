@@ -30,9 +30,10 @@ typedef enum : NSUInteger {
 @end
 
 @class GameShipData;
+@class GameCityData;
 @interface GameData : NSObject <NSCoding>
 
-@property (nonatomic, readonly) NSDictionary *cityDic;
+@property (nonatomic, readonly) NSDictionary<NSString *, GameCityData *> *cityDic;
 @property (nonatomic, readonly) NSDictionary *npcDic;
 @property (nonatomic, readonly) NSDictionary *guildDic;
 @property (nonatomic, readonly) NSDictionary *logicData;

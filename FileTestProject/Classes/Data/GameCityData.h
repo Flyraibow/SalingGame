@@ -10,9 +10,9 @@
 #import "CityData.h"
 
 typedef enum : NSUInteger {
-    InvestTypeCommerce,
-    InvestTypeMilitary,
-    InvestTypeSignup
+    InvestTypeCommerce = 0,
+    InvestTypeMilitary = 1,
+    InvestTypeSignup = 2
 } InvestType;
 
 typedef enum : NSUInteger {
@@ -40,6 +40,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSMutableSet *shipsSet;
 @property (nonatomic, readonly, assign) int commerceValue;
 @property (nonatomic, readonly, assign) int milltaryValue;
+@property (nonatomic, readonly, assign) int signUpUnitValue;
 @property (nonatomic, readonly) NSMutableDictionary *transactionRecordDict;
 @property (nonatomic, readonly) NSDictionary *guildOccupation;
 @property (nonatomic, readonly) NSInteger commerceInvestRecord;

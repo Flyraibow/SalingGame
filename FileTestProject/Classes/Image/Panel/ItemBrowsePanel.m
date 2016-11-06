@@ -270,8 +270,7 @@ const static int kShowLinesNumber = 4;
         // 调用对话，询问是否购买
         __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
         __weak ItemInfoPanel *weakItemInfoPanel = _itemInfoPanel;
-        CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
-        [dialogPanel setDefaultDialog:@"dialog_buy_item" arguments:@[getItemName(gameItemData.itemId), @(gameItemData.itemData.price)] cityStyle:cityData.cityStyle];
+        [dialogPanel setDefaultDialog:@"dialog_buy_item" arguments:@[getItemName(gameItemData.itemId), @(gameItemData.itemData.price)]];
         [dialogPanel addSelections:@[getLocalString(@"lab_buy"), getLocalString(@"btn_cancel")] callback:^(int index) {
             if (index == 0) {
                 [self removeChild:weakItemInfoPanel];
@@ -289,9 +288,8 @@ const static int kShowLinesNumber = 4;
     } else if (_panelType == ItemBrowsePanelTypeSell) {
         __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
         __weak ItemInfoPanel *weakItemInfoPanel = _itemInfoPanel;
-        CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
         int price = gameItemData.itemData.price * 0.5;
-        [dialogPanel setDefaultDialog:@"dialog_sell_item" arguments:@[getItemName(gameItemData.itemId), @(price)] cityStyle:cityData.cityStyle];
+        [dialogPanel setDefaultDialog:@"dialog_sell_item" arguments:@[getItemName(gameItemData.itemId), @(price)]];
         [dialogPanel addSelections:@[getLocalString(@"lab_sell"), getLocalString(@"btn_cancel")] callback:^(int index) {
             if (index == 0) {
                 [self removeChild:weakItemInfoPanel];

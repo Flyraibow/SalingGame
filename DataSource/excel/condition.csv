@@ -1,8 +1,10 @@
 conditionId,description,type,subtype,compareType,parameter
 id,-,string,string,string,string
-noSignUp,____,city,percentage,<=,20
+noSignUp,____,city,percentage,=,0
 haveRecommendLetter,____,guild,item,;,209
 canSpreadRumor,______,guild,job,;,12
 canSignUp1,________1,city,totalPercentage,<,100
 canSignUp2,________2,city,guildNumber,<,3
 canSignUp,______,and,;,;,canSignUp1;canSignUp2
+canSignUpMoneyEnough,____,city,signUpMoney,<=,money
+canMilitaryInvestMoneyEnough,________,city,militaryInvestMoney,<=,money

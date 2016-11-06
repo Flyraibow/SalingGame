@@ -20,6 +20,9 @@
 
 @property (nonatomic, assign) id<InvestPanelDelegate> delegate;
 
--(instancetype)initWithCityId:(NSString *)cityNo investType:(InvestType)type;
+-(instancetype)initWithCityId:(NSString *)cityNo
+                   investType:(InvestType)type
+                 successEvent:(NSString *)successEventId
+                    failEvent:(NSString *)failEventId;
 
 @end

@@ -17,6 +17,7 @@
 #import "DefaultButton.h"
 #import "NSString+Ext.h"
 #import "GameNPCData.h"
+#import "GameCityData.h"
 
 @implementation DialogPanel
 {
@@ -244,11 +245,12 @@
     self.userInteractionEnabled = NO;
 }
 
--(void)setDefaultDialog:(NSString *)defaultDialogId arguments:(NSArray *)arguments cityStyle:(int)cityStyle
+-(void)setDefaultDialog:(NSString *)defaultDialogId arguments:(NSArray *)arguments
 {
     DefaultDialogData *defaultDialogData = [[[DataManager sharedDataManager] getDefaultDialogDic] getDefaultDialogById:defaultDialogId];
     NSString *dialogPhotoId = nil;
     if (defaultDialogData.npcType == 2) {
+        int cityStyle = [[DataManager sharedDataManager].getCityDic getCityById:[GameDataManager sharedGameData].myGuild.myTeam.currentCityId].cityStyle;
         if (cityStyle > 0) {
             dialogPhotoId = [NSString stringWithFormat:@"%d_%d", defaultDialogData.npcParameter, cityStyle];
         }
@@ -270,12 +272,10 @@
     }
     
     NSString *dialogText = [NSString stringWithFormat:getLocalString(defaultDialogData.dialogId) arguments:arguments];
+    if (!dialogText || dialogText.length == 0) {
+        dialogText = [NSString stringWithFormat:@"{%@} dialog not implement yet", defaultDialogId];
+    }
     [self setDialogWithPhotoNo:dialogPhotoId npcName:dialogNameName text:dialogText];
-}
-
--(void)setDefaultDialog:(NSString *)defaultDialogId arguments:(NSArray *)arguments;
-{
-    [self setDefaultDialog:defaultDialogId arguments:arguments cityStyle:0];
 }
 
 @end

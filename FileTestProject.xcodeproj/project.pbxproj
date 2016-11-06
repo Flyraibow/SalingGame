@@ -887,6 +887,7 @@
 		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
 		EC0C3B7D1D846E57007E8D46 /* ShipSimpeInfoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */; };
 		EC0C3B801D847020007E8D46 /* ShipSimpleInfoIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */; };
+		EC3B89851DCEB83E00482A42 /* BasePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3B89841DCEB83E00482A42 /* BasePanel.m */; };
 		EC4589E21DA1EB8400B833A9 /* ship1.png in Resources */ = {isa = PBXBuildFile; fileRef = EC4589BB1DA1EB8400B833A9 /* ship1.png */; };
 		EC4589E31DA1EB8400B833A9 /* ship2.png in Resources */ = {isa = PBXBuildFile; fileRef = EC4589BC1DA1EB8400B833A9 /* ship2.png */; };
 		EC4589E41DA1EB8400B833A9 /* ship3.png in Resources */ = {isa = PBXBuildFile; fileRef = EC4589BD1DA1EB8400B833A9 /* ship3.png */; };
@@ -2192,6 +2193,8 @@
 		EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipSimpeInfoFrame.png; path = Resources/Graph/Frame/ShipSimpeInfoFrame.png; sourceTree = "<group>"; };
 		EC0C3B7E1D847020007E8D46 /* ShipSimpleInfoIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipSimpleInfoIcon.h; path = Classes/Image/Icon/ShipSimpleInfoIcon.h; sourceTree = "<group>"; };
 		EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSimpleInfoIcon.m; path = Classes/Image/Icon/ShipSimpleInfoIcon.m; sourceTree = "<group>"; };
+		EC3B89831DCEB83E00482A42 /* BasePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasePanel.h; path = Classes/Image/Panel/BasePanel.h; sourceTree = "<group>"; };
+		EC3B89841DCEB83E00482A42 /* BasePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasePanel.m; path = Classes/Image/Panel/BasePanel.m; sourceTree = "<group>"; };
 		EC4589BA1D98FCB800B833A9 /* SpriteUpdateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpriteUpdateProtocol.h; path = Classes/Protocol/SpriteUpdateProtocol.h; sourceTree = "<group>"; };
 		EC4589BB1DA1EB8400B833A9 /* ship1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship1.png; path = Resources/Graph/Icon/ship1.png; sourceTree = "<group>"; };
 		EC4589BC1DA1EB8400B833A9 /* ship2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship2.png; path = Resources/Graph/Icon/ship2.png; sourceTree = "<group>"; };
@@ -3336,6 +3339,8 @@
 				2723D4AD1D190043000B1990 /* CannonSelectionPanel.m */,
 				277A48071D47385F00500E3E /* SailorNumberPanel.h */,
 				277A48081D47385F00500E3E /* SailorNumberPanel.m */,
+				EC3B89831DCEB83E00482A42 /* BasePanel.h */,
+				EC3B89841DCEB83E00482A42 /* BasePanel.m */,
 			);
 			name = Panel;
 			sourceTree = "<group>";
@@ -5021,6 +5026,7 @@
 				279BAAF61C59E3B60069EF5D /* CCPhysicsBody.m in Sources */,
 				279BAC2F1C59E3B80069EF5D /* OALUtilityActions.m in Sources */,
 				279BACEF1C59E3B90069EF5D /* main.m in Sources */,
+				EC3B89851DCEB83E00482A42 /* BasePanel.m in Sources */,
 				279BAC451C59E3B80069EF5D /* ALCaptureDevice.m in Sources */,
 				279BAAFF1C59E3B60069EF5D /* CCPhysicsShape.m in Sources */,
 				279BABE71C59E3B80069EF5D /* CCColor.m in Sources */,

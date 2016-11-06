@@ -8,8 +8,9 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
+#import "BasePanel.h"
 
-@interface BaseFrame : CCSprite
+@interface BaseFrame : BasePanel
 
 @property (nonatomic, weak) CCSprite *hiddenPanel;
 

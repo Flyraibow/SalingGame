@@ -79,7 +79,7 @@
     __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
     if (needSailorNumbers == 0) {
         // 不需要雇佣水手了
-        [dialogPanel setDefaultDialog:@"dialog_hire_full" arguments:nil cityStyle:_cityStyle];
+        [dialogPanel setDefaultDialog:@"dialog_hire_full" arguments:nil];
         [dialogPanel addConfirmHandler:^{
             [self openArrangeSailorPanel:dialogPanel];
         }];
@@ -89,19 +89,19 @@
         int money = averageWage * sailorNumber;
         
         if ([GameDataManager sharedGameData].myGuild.money < money) {
-            [dialogPanel setDefaultDialog:@"dialog_hire_sailor_no_money" arguments:@[@(money)] cityStyle:_cityStyle];
+            [dialogPanel setDefaultDialog:@"dialog_hire_sailor_no_money" arguments:@[@(money)]];
             [dialogPanel addConfirmHandler:^{
                 [self openArrangeSailorPanel:dialogPanel];
             }];
         } else {
             // 如果是第一次，则只显示需要的钱，后面则显示还差的人口
             if (firstTime) {
-                [dialogPanel setDefaultDialog:@"dialog_hire_sailor_confirm" arguments:@[@(money)] cityStyle:_cityStyle];
+                [dialogPanel setDefaultDialog:@"dialog_hire_sailor_confirm" arguments:@[@(money)]];
             } else {
                 if (needSailorNumbers > 0) {
-                    [dialogPanel setDefaultDialog:@"dialog_hire_continue_full" arguments:@[@(needSailorNumbers)] cityStyle:_cityStyle];
+                    [dialogPanel setDefaultDialog:@"dialog_hire_continue_full" arguments:@[@(needSailorNumbers)]];
                 } else if (needSailorNumbers < 0) {
-                    [dialogPanel setDefaultDialog:@"dialog_hire_continue_need" arguments:@[@(-needSailorNumbers)] cityStyle:_cityStyle];
+                    [dialogPanel setDefaultDialog:@"dialog_hire_continue_need" arguments:@[@(-needSailorNumbers)]];
                 }
             }
             [dialogPanel addYesNoWithCallback:^(int index) {
@@ -111,7 +111,7 @@
                     _currentHiringNum += sailorNumber;
                     dialogPanel.canShowCoverPanel = NO;
                     [[GameDataManager sharedGameData] spendOneDayWithInterval:1.0 callback:^{
-                        [dialogPanel setDefaultDialog:@"dialog_hire_sailor_success" arguments:@[@(money), @(sailorNumber)] cityStyle:_cityStyle];
+                        [dialogPanel setDefaultDialog:@"dialog_hire_sailor_success" arguments:@[@(money), @(sailorNumber)]];
                         [dialogPanel addConfirmHandler:^{
                             [self _hireSailor:NO];
                         }];
