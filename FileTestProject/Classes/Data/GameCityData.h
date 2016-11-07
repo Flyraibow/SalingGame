@@ -41,6 +41,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly, assign) int commerceValue;
 @property (nonatomic, readonly, assign) int milltaryValue;
 @property (nonatomic, readonly, assign) int signUpUnitValue;
+@property (nonatomic, readonly, assign) int wage;       //水手工资，和商业度有关
+@property (nonatomic, readonly, assign) int nextSailorNumber;
 @property (nonatomic, readonly) NSMutableDictionary *transactionRecordDict;
 @property (nonatomic, readonly) NSDictionary *guildOccupation;
 @property (nonatomic, readonly) NSInteger commerceInvestRecord;

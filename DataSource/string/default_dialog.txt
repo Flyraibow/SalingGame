@@ -12,12 +12,11 @@
 "dialog_no_enough_sailors" = "水手不足，你确定仍然要出航吗？";
 "dialog_checkout_food" = "你的物资大约能航行%@天。";
 "dialog_checkout_food_not_enough" = "你的物资大约能航行%@天。这是不是有点少？";
-"dialog_hire_sailor_confirm" = "本次招募需要花费%@金币，确定要招募吗？";
 "dialog_hire_sailor_no_money" = "本次招募需要花费%@金币，你的钱不够哎。";
 "dialog_hire_full" = "已经装不下水手了";
 "dialog_hire_sailor_success" = "提督，我们用%@金币成功雇佣到了%@为水手";
-"dialog_hire_continue_full" = "距离满仓还差%@位水手，我们要继续雇佣吗？";
-"dialog_hire_continue_need" = "距离必要水手数还差%@位水手，我们要继续雇佣吗？";
+"dialog_hire_continue_full" = "距离满仓还差%@位水手，本次招募需要花费%@金币，确定要招募吗？";
+"dialog_hire_continue_need" = "距离必要水手数还差%@位水手，本次招募需要花费%@金币，确定要招募吗？";
 "dialog_more_free_sailors" = "还有%@为水手没有被配置，要遣散他们吗？";
 "dialog_no_ship_no_game" = "我们还没有船。";
 "dialog_no_ship_to_sale" = "我们没有可卖的船只。";

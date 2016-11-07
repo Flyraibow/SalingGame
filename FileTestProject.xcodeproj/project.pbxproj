@@ -888,6 +888,7 @@
 		EC0C3B7D1D846E57007E8D46 /* ShipSimpeInfoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */; };
 		EC0C3B801D847020007E8D46 /* ShipSimpleInfoIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */; };
 		EC3B89851DCEB83E00482A42 /* BasePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3B89841DCEB83E00482A42 /* BasePanel.m */; };
+		EC3B89881DD0026E00482A42 /* GameValueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3B89871DD0026E00482A42 /* GameValueManager.m */; };
 		EC4589E21DA1EB8400B833A9 /* ship1.png in Resources */ = {isa = PBXBuildFile; fileRef = EC4589BB1DA1EB8400B833A9 /* ship1.png */; };
 		EC4589E31DA1EB8400B833A9 /* ship2.png in Resources */ = {isa = PBXBuildFile; fileRef = EC4589BC1DA1EB8400B833A9 /* ship2.png */; };
 		EC4589E41DA1EB8400B833A9 /* ship3.png in Resources */ = {isa = PBXBuildFile; fileRef = EC4589BD1DA1EB8400B833A9 /* ship3.png */; };
@@ -2195,6 +2196,8 @@
 		EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSimpleInfoIcon.m; path = Classes/Image/Icon/ShipSimpleInfoIcon.m; sourceTree = "<group>"; };
 		EC3B89831DCEB83E00482A42 /* BasePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasePanel.h; path = Classes/Image/Panel/BasePanel.h; sourceTree = "<group>"; };
 		EC3B89841DCEB83E00482A42 /* BasePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasePanel.m; path = Classes/Image/Panel/BasePanel.m; sourceTree = "<group>"; };
+		EC3B89861DD0026E00482A42 /* GameValueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameValueManager.h; path = Classes/Manager/GameValueManager.h; sourceTree = "<group>"; };
+		EC3B89871DD0026E00482A42 /* GameValueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameValueManager.m; path = Classes/Manager/GameValueManager.m; sourceTree = "<group>"; };
 		EC4589BA1D98FCB800B833A9 /* SpriteUpdateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpriteUpdateProtocol.h; path = Classes/Protocol/SpriteUpdateProtocol.h; sourceTree = "<group>"; };
 		EC4589BB1DA1EB8400B833A9 /* ship1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship1.png; path = Resources/Graph/Icon/ship1.png; sourceTree = "<group>"; };
 		EC4589BC1DA1EB8400B833A9 /* ship2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship2.png; path = Resources/Graph/Icon/ship2.png; sourceTree = "<group>"; };
@@ -4189,6 +4192,8 @@
 				EC85DBE31DC85CE200613F44 /* GameEventManager.m */,
 				EC85DBE81DCAFC7100613F44 /* GameConditionManager.h */,
 				EC85DBE91DCAFC7100613F44 /* GameConditionManager.m */,
+				EC3B89861DD0026E00482A42 /* GameValueManager.h */,
+				EC3B89871DD0026E00482A42 /* GameValueManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -5068,6 +5073,7 @@
 				279BAA711C59E3B50069EF5D /* CCRenderDispatch.m in Sources */,
 				27FBB7911CED8F6E002B106B /* BaseFrame.m in Sources */,
 				279BABB11C59E3B80069EF5D /* CCPlatformTextField.m in Sources */,
+				EC3B89881DD0026E00482A42 /* GameValueManager.m in Sources */,
 				279BAB871C59E3B70069EF5D /* CCEffectColorPulse.m in Sources */,
 				27FBB8461D092EB1002B106B /* RoleAnimation.m in Sources */,
 				279BAC361C59E3B80069EF5D /* OALAudioTrackNotifications.m in Sources */,

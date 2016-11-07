@@ -14,8 +14,6 @@
 -(instancetype)initWithNodeColor:(CCNodeColor *)nodeColor
 {
     if (self = [super init]) {
-        self.userInteractionEnabled = YES;
-        
         CGSize contentSize = [[CCDirector sharedDirector] viewSize];
         self.contentSize = contentSize;
         self.positionType = CCPositionTypeNormalized;
@@ -33,10 +31,6 @@
     if (self = [self initWithNodeColor:nil]) {
     }
     return self;
-}
-
--(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
-    // to swallow all the touches
 }
 
 - (void)setHiddenPanel:(CCSprite *)hiddenPanel

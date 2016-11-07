@@ -143,25 +143,35 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
     }
 }
 
+// TODO: CHANGE it to real sailor numbers, rather than condition sailor numbers
 -(int)sailorNumbers
 {
-    BOOL flag = NO;
     int sailorNumbers = 0;
     for (int i = 0; i < _shipList.count; ++i) {
         GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];
-        if (shipData.curSailorNum == 0) {
-            // 只要有一条船上没水手，就不能出航
-            return 0;
-        } else if (shipData.curSailorNum < shipData.minSailorNum) {
-            flag = YES;
-        }
         sailorNumbers += shipData.curSailorNum;
     }
-    if (flag) {
-        // 表示至少有一条船的水手没有达到最低要求
-        sailorNumbers = - sailorNumbers;
-    }
     return sailorNumbers;
+}
+
+- (int)maxSailorNumbers
+{
+    int maxSailorNumbers = 0;
+    for (int i = 0; i < _shipList.count; ++i) {
+        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];
+        maxSailorNumbers += shipData.maxSailorNum;
+    }
+    return maxSailorNumbers;
+}
+
+- (int)needSailorNumber
+{
+    int maxSailorNumbers = 0;
+    for (int i = 0; i < _shipList.count; ++i) {
+        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];
+        maxSailorNumbers += shipData.minSailorNum;
+    }
+    return maxSailorNumbers;
 }
 
 // 需要的水手人数，如果水手够用，则返回正数，表示距离最大值的数值

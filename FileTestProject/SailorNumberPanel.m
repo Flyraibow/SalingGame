@@ -24,7 +24,7 @@
     int _totalSailorNumber;
 }
 
--(instancetype)initWithShipList:(NSArray *)shipList freeSailorNumber:(int)freeSailorNumber
+-(instancetype)initWithShipList:(NSArray *)shipList freeSailorNumber:(NSInteger)freeSailorNumber
 {
     
     NSUInteger count = shipList.count;

@@ -40,7 +40,8 @@
 		_type = [buffer readString];
 		_subtype = [buffer readString];
 		_compareType = [buffer readString];
-		_parameter = [buffer readString];
+		_type2 = [buffer readString];
+		_subType2 = [buffer readString];
 	}
 	return self;
 }

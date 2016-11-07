@@ -95,4 +95,6 @@ typedef enum : NSUInteger {
 
 -(void)registerGameShipData:(GameShipData *)gameShipData;
 
+-(void)dataChangeWithTerm:(NSString *)term;
+
 @end

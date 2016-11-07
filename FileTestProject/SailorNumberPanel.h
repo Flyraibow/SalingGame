@@ -21,6 +21,6 @@
 
 -(instancetype)initWithShipList:(NSArray *)shipList;
 
--(instancetype)initWithShipList:(NSArray *)shipList freeSailorNumber:(int)freeSailorNumber;
+-(instancetype)initWithShipList:(NSArray *)shipList freeSailorNumber:(NSInteger)freeSailorNumber;
 
 @end

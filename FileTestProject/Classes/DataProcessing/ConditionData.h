@@ -7,7 +7,8 @@
 @property (nonatomic, readonly) NSString *type;
 @property (nonatomic, readonly) NSString *subtype;
 @property (nonatomic, readonly) NSString *compareType;
-@property (nonatomic, readonly) NSString *parameter;
+@property (nonatomic, readonly) NSString *type2;
+@property (nonatomic, readonly) NSString *subType2;
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 

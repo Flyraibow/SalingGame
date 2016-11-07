@@ -8,7 +8,9 @@
 
 #import "BasePanel.h"
 #import "InvestPanel.h"
+#import "SailorNumberPanel.h"
 #import "GameDataManager.h"
+#import "GameValueManager.h"
 
 @implementation BasePanel
 
@@ -20,6 +22,10 @@
                                        investType:[array[0] intValue]
                                      successEvent:array[1]
                                         failEvent:array[2]];
+    } else if ([self isKindOfClass:[SailorNumberPanel class]]) {
+        NSArray *shipList = [[GameDataManager sharedGameData].myGuild.myTeam shipDataList];
+        NSInteger freeSailor = [[GameValueManager sharedValueManager] getNumberByTerm:array[0]];
+        return [(SailorNumberPanel *)self initWithShipList:shipList freeSailorNumber:freeSailor];
     }
     return self;
 }

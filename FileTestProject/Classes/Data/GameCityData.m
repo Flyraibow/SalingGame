@@ -450,4 +450,14 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
     return self.milltaryValue + self.commerceValue;
 }
 
+-(int)wage
+{
+    return 10 + self.commerceValue / 200 + arc4random() % 10;
+}
+
+-(int)nextSailorNumber
+{
+    return 10 + self.milltaryValue / 200 + arc4random() % 10;
+}
+
 @end

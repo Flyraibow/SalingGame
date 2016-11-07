@@ -11,6 +11,7 @@
 #import "GameDataManager.h"
 #import "GameCityData.h"
 #import "GameNPCData.h"
+#import "GameValueManager.h"
 
 static GameConditionManager *_sharedConditionManager;
 
@@ -62,28 +63,9 @@ static GameConditionManager *_sharedConditionManager;
     }
     NSInteger value = 0;
     ConditionData *condition = [_conditionDictionary objectForKey:conditionId];
-    if ([condition.type isEqualToString:@"city"]) {
-        GameCityData *cityData = [_cityDictionary objectForKey:_myguild.myTeam.currentCityId];
-        if ([condition.subtype isEqualToString:@"percentage"]) {
-            value = [[cityData.guildOccupation objectForKey:_myguildId] intValue];
-        } else if ([condition.subtype isEqualToString:@"totalPercentage"]) {
-            for (NSNumber *val in cityData.guildOccupation) {
-                value += [val intValue];
-            }
-        } else if ([condition.subtype isEqualToString:@"guildNumber"]) {
-            value = (int)[cityData.guildOccupation count];
-        } else if ([condition.subtype isEqualToString:@"signUpMoney"]) {
-            value = cityData.signUpUnitValue;
-        } else if ([condition.subtype isEqualToString:@"militaryInvestMoney"]) {
-            value = cityData.milltaryValue;
-        } else if ([condition.subtype isEqualToString:@"commerceInvestMoney"]) {
-            value = cityData.commerceValue;
-        }
-    } else if ([condition.type isEqualToString:@"guild"]) {
-        if ([condition.subtype isEqualToString:@"item"]) {
-            return [[_itemDictionary objectForKey:_myguildId].guildId isEqualToString:_myguildId];
-        } else if ([condition.subtype isEqualToString:@"job"]) {
-            int job = [condition.parameter intValue];
+    if ([condition.type isEqualToString:@"guild"]) {
+        if ([condition.subtype isEqualToString:@"job"]) {
+            NSInteger job = [[GameValueManager sharedValueManager] valueByType:condition.type2 subType:condition.subType2];
             for (GameNPCData *npcData in _myguild.myTeam.npcList) {
                 if (npcData.job == job) {
                     return YES;
@@ -92,14 +74,12 @@ static GameConditionManager *_sharedConditionManager;
             return NO;
         }
     } else if ([condition.type isEqualToString:@"and"]) {
-        return [self checkConditions:condition.parameter];
+        return [self checkConditions:condition.type2];
     }
-    NSInteger compareValue = 0;
-    if ([condition.parameter isEqualToString:@"money"]) {
-        compareValue = _myguild.money;
-    } else {
-        compareValue = [condition.parameter integerValue];
-    }
+    // Normal cases, it maybe other situation, but now there is no other condition
+    value = [[GameValueManager sharedValueManager] valueByType:condition.type subType:condition.subtype];
+    
+    NSInteger compareValue = [[GameValueManager sharedValueManager] valueByType:condition.type2 subType:condition.subType2];
     if ([condition.compareType isEqualToString:@"="]) {
         return compareValue == value;
     } else if ([condition.compareType isEqualToString:@"<"]) {

@@ -15,6 +15,7 @@
 #import "GameNPCData.h"
 #import "GameItemData.h"
 #import "OALSimpleAudio.h"
+#import "GameValueManager.h"
 
 @implementation  GameDialogData
 @end
@@ -464,6 +465,18 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
     }
     gameShipData.shipId = [@(_shipIdIndex++) stringValue];
     [_shipDic setObject:gameShipData forKey:gameShipData.shipId];
+}
+
+-(void)dataChangeWithTerm:(NSString *)term
+{
+    NSArray *array = [term componentsSeparatedByString:@";"];
+    if ([array[0] isEqualToString:@"money"]) {
+        if ([array[1] isEqualToString:@"-"]) {
+            self.myGuild.money -= [[GameValueManager sharedValueManager] getNumberByTerm:array[2]];
+        } else if ([array[1] isEqualToString:@"+"]) {
+            self.myGuild.money += [[GameValueManager sharedValueManager] getNumberByTerm:array[2]];
+        }
+    }
 }
 
 @end

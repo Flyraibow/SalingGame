@@ -13,6 +13,8 @@
 #import "GamePanelManager.h"
 #import "GameConditionManager.h"
 #import "GameDataManager.h"
+#import "BGImage.h"
+#import "GameValueManager.h"
 
 static GameEventManager *_sharedEventManager;
 
@@ -27,6 +29,8 @@ static GameEventManager *_sharedEventManager;
     NSInteger _currentDays;
     NSInteger _totalDays;
     NSArray *_tempDialogContent;
+    CCNode *_transCover;
+    __weak DialogPanel *_dialog;
 }
 
 + (GameEventManager *)sharedEventManager
@@ -50,6 +54,7 @@ static GameEventManager *_sharedEventManager;
 - (void)startEventId:(NSString *)eventId withScene:(CCScene *)scene
 {
     EventActionData *eventData = [_eventDictionary objectForKey:eventId];
+    NSLog(@"====================== %@", eventId);
     if (eventData) {
         if ([eventData.eventType isEqualToString:@"close"]) {
             if (_viewStack.count > 0) {
@@ -62,8 +67,8 @@ static GameEventManager *_sharedEventManager;
                         [(CityScene *)scene checkStory:@"0"];
                     }
                 }
-                [self _startEventList];
             }
+            [self _startEventList];
         } else if ([eventData.eventType isEqualToString:@"selectlist"]) {
             BaseButtonGroup *buttonGroup = [[BaseButtonGroup alloc] initWithEventActionData:eventData];
             buttonGroup.baseScene = scene;
@@ -73,7 +78,6 @@ static GameEventManager *_sharedEventManager;
             _dialogList = [eventData.parameter componentsSeparatedByString:@";"];
             _currentDialogIndex = 0;
             [self _startEventList];
-            
         } else if ([eventData.eventType isEqualToString:@"eventList"]) {
             _eventList = [eventData.parameter componentsSeparatedByString:@";"];
             _currentEventIndex = 0;
@@ -100,7 +104,28 @@ static GameEventManager *_sharedEventManager;
         } else if ([eventData.eventType isEqualToString:@"wait"]) {
             _totalDays = [eventData.parameter integerValue];
             _currentDays = 0;
+            [self _addTransparentCover];
             [self _waitADay];
+        } else if ([eventData.eventType isEqualToString:@"setNumber"]) {
+            [[GameValueManager sharedValueManager] setNumberByTerm:eventData.parameter];
+            [self _startEventList];
+        } else if ([eventData.eventType isEqualToString:@"dialogTemp"]) {
+            NSMutableArray *tempList = [[eventData.parameter componentsSeparatedByString:@";"] mutableCopy];
+            for (NSInteger i = 0; i < tempList.count; ++i) {
+                NSInteger value = [[GameValueManager sharedValueManager] getNumberByTerm:tempList[i]];
+                tempList[i] = [@(value) stringValue];
+            }
+            _tempDialogContent = tempList;
+            [self _startEventList];
+        } else if ([eventData.eventType isEqualToString:@"dialogYesNo"]) {
+            NSArray *resultArr = [eventData.parameter componentsSeparatedByString:@";"];
+            [self _setDialogWithId:resultArr[0]];
+            [_dialog addYesNoWithCallback:^(int index) {
+                [self startEventId:resultArr[index + 1] withScene:scene];
+            }];
+        } else if ([eventData.eventType isEqualToString:@"dataChange"]) {
+            [[GameDataManager sharedGameData] dataChangeWithTerm:eventData.parameter];
+            [self _startEventList];
         }
     } else {
         _tempDialogContent = @[eventId];
@@ -114,6 +139,27 @@ static GameEventManager *_sharedEventManager;
     [self startEventId:eventId withScene:scene];
 }
 
+- (void)_addTransparentCover
+{
+    [CCDirector sharedDirector].runningScene.userInteractionEnabled = NO;
+    if (!_transCover) {
+        _transCover = [BGImage getTransparentBackground];
+    } else if (_transCover.parent) {
+        [self _removeTransparentCover];
+    }
+    [[CCDirector sharedDirector].runningScene addChild:_transCover];
+    [_viewStack addObject:_transCover];
+}
+
+- (void)_removeTransparentCover
+{
+    [CCDirector sharedDirector].runningScene.userInteractionEnabled = YES;
+    if (_transCover) {
+        [_transCover removeFromParent];
+        [_viewStack removeObject:_transCover];
+    }
+}
+
 - (void)_waitADay
 {
     if (_currentDays < _totalDays) {
@@ -124,6 +170,7 @@ static GameEventManager *_sharedEventManager;
         });
     } else {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self _removeTransparentCover];
             [self _startEventList];
         });
     }
@@ -132,10 +179,8 @@ static GameEventManager *_sharedEventManager;
 - (void)_startEventList
 {
     if (_currentDialogIndex < _dialogList.count) {
-        NSString *dialogId = _dialogList[_currentDialogIndex++];
-        DialogPanel *dialog = [GamePanelManager sharedDialogPanelAboveSprite:[_viewStack lastObject] hidden:YES];
-        [dialog setDefaultDialog:dialogId arguments:_tempDialogContent];
-        [dialog addConfirmHandler:^{
+        [self _setDialogWithId:_dialogList[_currentDialogIndex++]];
+        [_dialog addConfirmHandler:^{
             _tempDialogContent = nil;
             [self _startEventList];
         }];
@@ -144,6 +189,16 @@ static GameEventManager *_sharedEventManager;
     } else {
         _currentEventIndex = 0;
         _eventList = nil;
+    }
+}
+
+- (void)_setDialogWithId:(NSString *)dialogId
+{
+    _dialog = [GamePanelManager sharedDialogPanelAboveSprite:nil];
+    [_dialog setDefaultDialog:dialogId arguments:_tempDialogContent];
+    CCScene *scene = [CCDirector sharedDirector].runningScene;
+    if (_dialog.parent != scene) {
+        [scene addChild:_dialog];
     }
 }
 
