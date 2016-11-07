@@ -398,9 +398,7 @@
 		27C26D241C6330FC009EDE53 /* CityBuildingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D231C6330FC009EDE53 /* CityBuildingGroup.m */; };
 		27C26D271C63312E009EDE53 /* BaseButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D261C63312E009EDE53 /* BaseButtonGroup.m */; };
 		27C26D2A1C633671009EDE53 /* GoodsCategoriesData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D291C633671009EDE53 /* GoodsCategoriesData.m */; };
-		27C26D2E1C633F70009EDE53 /* GovernmentGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D2D1C633F70009EDE53 /* GovernmentGroupButton.m */; };
 		27C26D311C634410009EDE53 /* InnGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D301C634410009EDE53 /* InnGroupButton.m */; };
-		27C26D341C63462B009EDE53 /* TavernGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D331C63462B009EDE53 /* TavernGroupButton.m */; };
 		27C26D371C63480C009EDE53 /* ExchangeGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D361C63480C009EDE53 /* ExchangeGroupButton.m */; };
 		27C26D3A1C634BC2009EDE53 /* ShopGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D391C634BC2009EDE53 /* ShopGroupButton.m */; };
 		27C26D3D1C634CF2009EDE53 /* ShipyardGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D3C1C634CF2009EDE53 /* ShipyardGroupButton.m */; };
@@ -1639,12 +1637,8 @@
 		27C26D261C63312E009EDE53 /* BaseButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseButtonGroup.m; path = Classes/Image/GroupButton/BaseButtonGroup.m; sourceTree = "<group>"; };
 		27C26D281C633671009EDE53 /* GoodsCategoriesData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsCategoriesData.h; path = Classes/DataProcessing/GoodsCategoriesData.h; sourceTree = "<group>"; };
 		27C26D291C633671009EDE53 /* GoodsCategoriesData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsCategoriesData.m; path = Classes/DataProcessing/GoodsCategoriesData.m; sourceTree = "<group>"; };
-		27C26D2C1C633F70009EDE53 /* GovernmentGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GovernmentGroupButton.h; path = Classes/Image/GroupButton/GovernmentGroupButton.h; sourceTree = "<group>"; };
-		27C26D2D1C633F70009EDE53 /* GovernmentGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GovernmentGroupButton.m; path = Classes/Image/GroupButton/GovernmentGroupButton.m; sourceTree = "<group>"; };
 		27C26D2F1C634410009EDE53 /* InnGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InnGroupButton.h; path = Classes/Image/GroupButton/InnGroupButton.h; sourceTree = "<group>"; };
 		27C26D301C634410009EDE53 /* InnGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InnGroupButton.m; path = Classes/Image/GroupButton/InnGroupButton.m; sourceTree = "<group>"; };
-		27C26D321C63462B009EDE53 /* TavernGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TavernGroupButton.h; path = Classes/Image/GroupButton/TavernGroupButton.h; sourceTree = "<group>"; };
-		27C26D331C63462B009EDE53 /* TavernGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TavernGroupButton.m; path = Classes/Image/GroupButton/TavernGroupButton.m; sourceTree = "<group>"; };
 		27C26D351C63480C009EDE53 /* ExchangeGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExchangeGroupButton.h; path = Classes/Image/GroupButton/ExchangeGroupButton.h; sourceTree = "<group>"; };
 		27C26D361C63480C009EDE53 /* ExchangeGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExchangeGroupButton.m; path = Classes/Image/GroupButton/ExchangeGroupButton.m; sourceTree = "<group>"; };
 		27C26D381C634BC2009EDE53 /* ShopGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopGroupButton.h; path = Classes/Image/GroupButton/ShopGroupButton.h; sourceTree = "<group>"; };
@@ -3719,12 +3713,8 @@
 				27C26D1A1C6283A9009EDE53 /* SystemGroupButton.m */,
 				27C26D221C6330FC009EDE53 /* CityBuildingGroup.h */,
 				27C26D231C6330FC009EDE53 /* CityBuildingGroup.m */,
-				27C26D2C1C633F70009EDE53 /* GovernmentGroupButton.h */,
-				27C26D2D1C633F70009EDE53 /* GovernmentGroupButton.m */,
 				27C26D2F1C634410009EDE53 /* InnGroupButton.h */,
 				27C26D301C634410009EDE53 /* InnGroupButton.m */,
-				27C26D321C63462B009EDE53 /* TavernGroupButton.h */,
-				27C26D331C63462B009EDE53 /* TavernGroupButton.m */,
 				27C26D351C63480C009EDE53 /* ExchangeGroupButton.h */,
 				27C26D361C63480C009EDE53 /* ExchangeGroupButton.m */,
 				27C26D381C634BC2009EDE53 /* ShopGroupButton.h */,
@@ -5209,7 +5199,6 @@
 				279BAC1C1C59E3B80069EF5D /* CCBLocalizationManager.m in Sources */,
 				279BAC481C59E3B80069EF5D /* ALChannelSource.m in Sources */,
 				279BAB931C59E3B70069EF5D /* CCEffectTexture.m in Sources */,
-				27C26D341C63462B009EDE53 /* TavernGroupButton.m in Sources */,
 				27C26E521C8125BD009EDE53 /* DialogPhotoIcon.m in Sources */,
 				EC85DBED1DCB021400613F44 /* ConditionData.m in Sources */,
 				279BABC61C59E3B80069EF5D /* CCDirectorIOS.m in Sources */,
@@ -5220,7 +5209,6 @@
 				279BAB0E1C59E3B70069EF5D /* CCResponderManager.m in Sources */,
 				27ACAAF31C8954F3005C0881 /* NSArray+Sort.m in Sources */,
 				279BAA6E1C59E3B50069EF5D /* CCNoARC.m in Sources */,
-				27C26D2E1C633F70009EDE53 /* GovernmentGroupButton.m in Sources */,
 				27FBB8621D0FBA98002B106B /* LabelPanel.m in Sources */,
 				27ACAB1F1C962CB3005C0881 /* RoleSelectionPanel.m in Sources */,
 				279BABC11C59E3B80069EF5D /* CCTouchIOS.m in Sources */,

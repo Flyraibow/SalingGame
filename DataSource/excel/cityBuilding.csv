@@ -2,7 +2,7 @@ buildingId,comment,position,npcNameId,eventAction
 id,-,int,int,string
 0,___,1,1,government
 1,__,1,1,government
-2,__,2,2,tarven
+2,__,2,2,tavern
 3,__,3,3,plaza
 4,___,4,4,exchange
 5,___,5,5,shipyard

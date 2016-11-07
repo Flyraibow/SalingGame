@@ -25,7 +25,9 @@
     } else if ([self isKindOfClass:[SailorNumberPanel class]]) {
         NSArray *shipList = [[GameDataManager sharedGameData].myGuild.myTeam shipDataList];
         NSInteger freeSailor = [[GameValueManager sharedValueManager] getNumberByTerm:array[0]];
-        return [(SailorNumberPanel *)self initWithShipList:shipList freeSailorNumber:freeSailor];
+        return [(SailorNumberPanel *)self initWithShipList:shipList
+                                          freeSailorNumber:freeSailor
+                                           completeEventId:array[1]];
     }
     return self;
 }

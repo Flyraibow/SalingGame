@@ -22,11 +22,14 @@
     CCLabelTTF *_labFreeSailor;
     NSArray<SailorNumberUnit *> *_shipNumberUnitList;
     int _totalSailorNumber;
+    NSString *_completeEventId;
 }
 
--(instancetype)initWithShipList:(NSArray *)shipList freeSailorNumber:(NSInteger)freeSailorNumber
+-(instancetype)initWithShipList:(NSArray *)shipList
+               freeSailorNumber:(NSInteger)freeSailorNumber
+                completeEventId:(NSString *)eventId
 {
-    
+    _completeEventId = eventId;
     NSUInteger count = shipList.count;
     CGFloat scale = 0.65;
     SailorNumberUnit *unit0 = [[SailorNumberUnit alloc] initWithShipData:shipList[0]];
@@ -34,7 +37,7 @@
     CGFloat height = unit0.contentSize.height * scale * count + 30;
     if (self = [super initWithSize:CGSizeMake(width, height)]) {
         NSMutableArray<SailorNumberUnit *> *shipNumberUnitList = [NSMutableArray new];
-        _totalSailorNumber = freeSailorNumber;
+        _totalSailorNumber = (int)freeSailorNumber;
         for (int i = 0; i < count; ++i) {
             SailorNumberUnit *unit = i == 0 ? unit0 : [[SailorNumberUnit alloc] initWithShipData:shipList[i]];
             unit.anchorPoint = ccp(0, 1);
@@ -47,7 +50,7 @@
             [shipNumberUnitList addObject:unit];
         }
         _shipNumberUnitList = shipNumberUnitList;
-        _freeSailorNumber = freeSailorNumber;
+        _freeSailorNumber = (int)freeSailorNumber;
         
         CCLabelTTF *labFreeSailor = [[CCLabelTTF alloc] initWithString:getLocalString(@"lab_free_sailor_number") fontName:nil fontSize:12];
         labFreeSailor.positionType = CCPositionTypePoints;
@@ -99,17 +102,12 @@
     return self;
 }
 
--(instancetype)initWithShipList:(NSArray *)shipList
-{
-    if (self = [self initWithShipList:shipList freeSailorNumber:0]) {
-        
-    }
-    return self;
-}
-
 -(void)clickCloseButton
 {
     [self removeFromParent];
+    if (self.completionBlockWithEventId) {
+        self.completionBlockWithEventId(_completeEventId);
+    }
 }
 
 -(int)getFreeSailorNumbers
@@ -272,7 +270,7 @@
 -(void)clickSureButton
 {
     if (_freeSailorNumber > 0) {
-        __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
+        __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
         [dialogPanel setDefaultDialog:@"dialog_more_free_sailors" arguments:@[@(_freeSailorNumber)]];
         [dialogPanel addYesNoWithCallback:^(int index) {
             if (index == 0) {

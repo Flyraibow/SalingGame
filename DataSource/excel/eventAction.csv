@@ -3,7 +3,7 @@ id,-,string,string
 empty,___,empty,;
 NIY,_______,dialog,dialog_not_implement_yet
 government,__,selectlist,signUp;militaryInvest;recommendLetter;close
-tarven,__,selectlist,drink;buyDrink;hireSailor;spreadRumor;close
+tavern,__,selectlist,drink;buyDrink;hireSailor;spreadRumor;close
 plaza,__,plazaEvent,;
 exchange,___,selectlist,trade;commerceInvest;commerceInfo;close
 shipyard,___,selectlist,buyShip;sellShip;modifyShip;fixShip;dockYard;close
@@ -15,17 +15,19 @@ close,____,close,;
 waitADay,____,wait,1
 canSignUp,____,condition,canSignUpMoneyEnough;signUpFailed
 canSignUpMoneyEnough,____,condition,signUpStart;signUpMoneyNotEnough
-signUpMoneyNotEnough,_____,dialog,dialog_no_enough_money
+signUpMoneyNotEnough,_____,eventList,signUpMoneyNotEnoughDialog;government
+signUpMoneyNotEnoughDialog,_____,dialog,dialog_no_enough_money
 signUpStart,____,eventList,signUpDialog;signUpWindow;signUpClose
 signUpDialog,____,dialog,dialog_signup_start
 signUpWindow,____,window,InvestPanel;2;signUpSuccess;signUpFail
-signUpFailed,______,dialog,dialog_signup_failure_full
-signUp,__,eventList,canSignUp
+signUpFailed,____,eventList,signUpFailedDialog;government
+signUpFailedDialog,______,dialog,dialog_signup_failure_full
+signUp,__,eventList,close;canSignUp
 signUpSuccess,____,eventList,signUpSuccessDialog;close;waitADay;government
 signUpSuccessDialog,______,dialog,dialog_invest_success
 signUpFail,______,dialog,dialog_invest_fail
 wannaInvestMilitary,_____,dialog,dalog_wanna_invest
-militaryInvest,____,eventList,wannaInvestMilitary;canMilitaryInvestMoneyEnough
+militaryInvest,____,eventList,close;wannaInvestMilitary;canMilitaryInvestMoneyEnough
 canMilitaryInvestMoneyEnough,____,condition,militaryInvestStart;signUpMoneyNotEnough
 militaryInvestStart,______,eventList,militaryWindow;signUpClose
 militaryWindow,______,window,InvestPanel;1;signUpSuccess;signUpFail
@@ -40,7 +42,7 @@ hireSailorSetNeedNumber,____-___2,setNumber,needNumber=ship.needSailorNumber
 hireSailorFull,____-__,condition,hireSailorFullList;hireSailorContune
 hireSailorFullList,____-__,eventList,hireSailorFullDialog;hireSailorHired
 hireSailorFullDialog,____-____,dialog,dialog_hire_full
-hireSailorHired,____-____,condition,arrangeSailorWindow;tarven
+hireSailorHired,____-____,condition,arrangeSailorWindow;tavern
 hireSailorContune,____-____,eventList,hairSailorSetWage;hairSailorSetNumber;hairSailorSetMoney;hireSailorMoneyEnough
 hairSailorSetWage,,setNumber,wage=city.wage
 hairSailorSetNumber,,setNumber,addNumber=city.nextSailorNumber
@@ -62,4 +64,4 @@ hireSailorCurrNumberChange,,setNumber,currNumber=ship.sailorNumber+cache.hireNum
 hireSailorCostMoney,,dataChange,money;-;cache.money
 hireSailorMoneyNotEnough,____-____,eventList,hireSailorMoneyNotEnoughDialog;hireSailorHired
 hireSailorMoneyNotEnoughDialo,____-____,dialog,dialog_hire_sailor_no_money
-arrangeSailorWindow,______,window,SailorNumberPanel;cache.hireNumber
+arrangeSailorWindow,______,window,SailorNumberPanel;cache.hireNumber;tavern
