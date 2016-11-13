@@ -109,6 +109,9 @@ static GameEventManager *_sharedEventManager;
         } else if ([eventData.eventType isEqualToString:@"setNumber"]) {
             [[GameValueManager sharedValueManager] setNumberByTerm:eventData.parameter];
             [self _startEventList];
+        } else if ([eventData.eventType isEqualToString:@"setString"]) {
+            [[GameValueManager sharedValueManager] setStringByTerm:eventData.parameter];
+            [self _startEventList];
         } else if ([eventData.eventType isEqualToString:@"dialogTemp"]) {
             NSMutableArray *tempList = [[eventData.parameter componentsSeparatedByString:@";"] mutableCopy];
             for (NSInteger i = 0; i < tempList.count; ++i) {

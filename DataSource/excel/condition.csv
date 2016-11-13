@@ -13,3 +13,6 @@ hireSailorFull,____,cache,currNumber,>=,cache,maxNumber
 hireSailorHired,______,cache,hireNumber,>,number,0
 hireSailorPassNeed,________,cache,currNumber,>=,cache,needNumber
 hireSailorMoneyEnough,__,guild,money,>=,cache,money
+canCommerceInvestMoneyEnough,________,city,commerceInvestMoney,<=,guild,money
+tradeCondition,___,city,percentage,>,number,0
+canUnblockTradeItem,______,cacheString,tradeUnblockItem,!=,number,0

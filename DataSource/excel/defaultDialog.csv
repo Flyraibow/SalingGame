@@ -41,3 +41,7 @@ dialog_cannot_unequip_a_shipheader_demon,4,0,0,0,0
 dialog_cannot_unequip_a_shipheader_demon_first,4,0,0,0,0
 dialog_cannot_unequip_a_shipheader,4,0,0,0,0
 dialog_not_implement_yet,4,0,0,0,0
+dalog_wanna_invest_commerce,2,4,0,name_exchange_owner,0
+dialog_commerce_invest_success,2,4,0,name_exchange_owner,0
+dialog_commerce_invest_fail,2,4,0,name_exchange_owner,0
+dalog_wanna_invest_military,2,1,0,name_governor,0

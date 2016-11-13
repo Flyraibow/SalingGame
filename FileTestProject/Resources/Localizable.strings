@@ -344,6 +344,10 @@
 "dialog_cannot_unequip_a_shipheader_demon_first" = "还是不要随意拆毁旗舰吧。";
 "dialog_cannot_unequip_a_shipheader" = "无法正常卸载这个船首像。";
 "dialog_not_implement_yet" = "%@ 这个功能还没有实现";
+"dalog_wanna_invest_commerce" = "你想投资多少额度呢？";
+"dialog_commerce_invest_success" = "非常感谢您的投资";
+"dialog_commerce_invest_fail" = "光买不看吗？";
+"dalog_wanna_invest_military" = "您想投资多少军事额度呢？";
 
 "function_room_name_1"="卧室";
 "function_room_name_2"="木匠室";

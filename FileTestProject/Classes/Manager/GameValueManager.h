@@ -26,6 +26,10 @@
 
 - (NSInteger)getNumberByTerm:(NSString *)term;
 
+- (NSString *)getStringByTerm:(NSString *)term;
+
 - (NSInteger)valueByType:(NSString *)type subType:(NSString *)subType;
+
+- (NSString *)stringByType:(NSString *)type subType:(NSString *)subType;
 
 @end

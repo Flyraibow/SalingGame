@@ -53,12 +53,13 @@ static GameValueManager *_sharedValueManager;
 
 - (NSString *)stringByKey:(NSString *)key
 {
-    return [_stringDictionary objectForKey:key];
+    id ob = [_stringDictionary objectForKey:key];
+    return (ob != [NSNull null]) ? ob : nil;
 }
 
 - (void)setString:(NSString *)value byKey:(NSString *)key
 {
-    [_stringDictionary setObject:value forKey:key];
+    [_stringDictionary setObject:value?:[NSNull null] forKey:key];
 }
 
 - (void)setNum:(NSInteger)value byKey:(NSString *)key
@@ -103,10 +104,38 @@ static GameValueManager *_sharedValueManager;
 
 - (void)setStringByTerm:(NSString *)term
 {
-    NSArray *array = [term componentsSeparatedByString:@";"];
+    NSArray *array = [term componentsSeparatedByString:@"="];
     NSString *key = array[0];
     NSString *valueStr = array[1];
-    [self setString:valueStr byKey:key];
+    [self setString:[self getStringByTerm:valueStr] byKey:key];
+}
+
+- (NSString *)getStringByTerm:(NSString *)term
+{
+    if ([term containsString:@"."]) {
+        NSArray *valArr = [term componentsSeparatedByString:@"."];
+        NSString *type = valArr[0];
+        NSString *subType = valArr[1];
+        return [self stringByType:type subType:subType];
+    } else {
+        return term;
+    }
+}
+
+- (NSString *)stringByType:(NSString *)type subType:(NSString *)subType
+{
+    if ([type isEqualToString:@"cache"]) {
+        return [self stringByKey:subType];
+    } else if ([type isEqualToString:@"city"]) {
+        GameCityData *cityData = [_cityDictionary objectForKey:_myguild.myTeam.currentCityId];
+        if ([subType isEqualToString:@"unblockItemId"]) {
+            return cityData.unblockItemId;
+        }
+        return [self stringByKey:subType];
+    } else if ([type isEqualToString:@"string"]) {
+        return subType;
+    }
+    return type;
 }
 
 - (NSInteger)valueByType:(NSString *)type subType:(NSString *)subType

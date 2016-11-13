@@ -62,6 +62,8 @@ static GameConditionManager *_sharedConditionManager;
         return YES;
     }
     NSInteger value = 0;
+    NSString *string = nil;
+    BOOL strFlag = NO;
     ConditionData *condition = [_conditionDictionary objectForKey:conditionId];
     if ([condition.type isEqualToString:@"guild"]) {
         if ([condition.subtype isEqualToString:@"job"]) {
@@ -75,9 +77,16 @@ static GameConditionManager *_sharedConditionManager;
         }
     } else if ([condition.type isEqualToString:@"and"]) {
         return [self checkConditions:condition.type2];
+    } else if ([condition.type isEqualToString:@"cacheString"]) {
+        strFlag = YES;
+        string = [[GameValueManager sharedValueManager] stringByKey:condition.subtype];
     }
-    // Normal cases, it maybe other situation, but now there is no other condition
-    value = [[GameValueManager sharedValueManager] valueByType:condition.type subType:condition.subtype];
+    if (!strFlag) {
+        // Normal cases, it maybe other situation, but now there is no other condition
+        value = [[GameValueManager sharedValueManager] valueByType:condition.type subType:condition.subtype];
+    } else {
+        value = string;
+    }
     
     NSInteger compareValue = [[GameValueManager sharedValueManager] valueByType:condition.type2 subType:condition.subType2];
     if ([condition.compareType isEqualToString:@"="]) {

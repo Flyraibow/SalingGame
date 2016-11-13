@@ -445,6 +445,18 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
     }
 }
 
+-(NSString *)unblockItemId
+{
+    MyGuild *myGuild = [GameDataManager sharedGameData].myGuild;
+    for (NSString *itemId in self.unlockGoodsDict) {
+        GameItemData * gameItemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
+        if ([gameItemData.guildId isEqualToString:myGuild.guildId]) {
+            return itemId;
+        }
+    }
+    return nil;
+}
+
 -(int)signUpUnitValue
 {
     return self.milltaryValue + self.commerceValue;

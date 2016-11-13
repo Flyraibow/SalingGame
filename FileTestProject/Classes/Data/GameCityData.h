@@ -84,4 +84,6 @@ typedef enum : NSUInteger {
 
 -(void)unlockGoodsByItem:(NSString *)itemId;
 
+-(NSString *)unblockItemId;
+
 @end
