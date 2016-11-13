@@ -17,7 +17,7 @@
 
 -(instancetype)initWithSize:(CGSize)size
 {
-    if (self = [super initWithNodeColor:[BGImage getTransparentBackground]]) {
+    if (self = [super initWithNode:[BGImage getTransparentBackground]]) {
         _frame = [CCSprite9Slice spriteWithImageNamed:@"default_frame.png"];
         _frame.anchorPoint = ccp(0.5, 0.5);
         _frame.positionType = CCPositionTypeNormalized;

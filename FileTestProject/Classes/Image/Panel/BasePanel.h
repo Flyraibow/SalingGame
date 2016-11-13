@@ -10,8 +10,16 @@
 
 @interface BasePanel : CCSprite
 
-- (instancetype)initWithArray:(NSArray *)array;
++ (instancetype)panelWithParameters:(NSString *)parameters;
+
+- (instancetype)initWithDataList:(NSArray *)dataList;
 
 @property (copy) void (^completionBlockWithEventId)(NSString *);
+
+@property (nonatomic, readonly) NSString *successEvent;
+
+@property (nonatomic, readonly) NSString *cancelEvent;
+
+@property (nonatomic, readonly) NSString *cityId;
 
 @end

@@ -14,6 +14,6 @@
 
 @property (nonatomic, weak) CCSprite *hiddenPanel;
 
--(instancetype)initWithNodeColor:(CCNodeColor *)nodeColor;
+-(instancetype)initWithNode:(CCNode *)node;
 
 @end

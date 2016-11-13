@@ -1,12 +1,12 @@
 //
-//  TradeScene.m
+//  TradePanel.m
 //  FileTestProject
 //
 //  Created by LIU YUJIE on 2/5/16.
 //  Copyright © 2016 Yujie Liu. All rights reserved.
 //
 
-#import "TradeScene.h"
+#import "TradePanel.h"
 #import "BGImage.h"
 #import "DefaultButton.h"
 #import "LocalString.h"
@@ -19,11 +19,11 @@
 #import "GameShipGoodsData.h"
 #import "NSArray+Sort.h"
 
-@interface TradeScene() <ShipIconSelectionDelegate, GoodsIconSelectionDelegate>
+@interface TradePanel() <ShipIconSelectionDelegate, GoodsIconSelectionDelegate>
 
 @end
 
-@implementation TradeScene
+@implementation TradePanel
 {
     NSArray *_shipList;
     // icon list
@@ -50,20 +50,19 @@
     NSMutableDictionary *_sellRecordDic;
     DefaultButton *_showBuyPriceBtn;
     ShowType _type;
-    
 }
 
 -(instancetype)init
 {
     if (self = [super init]) {
+        _cityData = [[GameDataManager sharedGameData].cityDic objectForKey:self.cityId];
         _type = ShowLevel;
-        CGSize contentSize = [CCDirector sharedDirector].viewSize;
         CCSprite *bg = [BGImage getBgImageByName:@"bg_trade.png"];
         [self addChild:bg];
         
         _shipGoodsCopyList = [NSMutableArray new];
         _soldGoodsDataList = [NSMutableArray new];
-        _shipList = [GameDataManager sharedGameData].myGuild.myTeam.shipList;
+        _shipList = [GameDataManager sharedGameData].myGuild.myTeam.shipDataList;
         for (int i = 0; i < _shipList.count; ++i) {
             GameShipData *shipData = [_shipList objectAtIndex:i];
             NSMutableArray *goodsList = [NSMutableArray new];
@@ -81,7 +80,7 @@
         btnCancel.scale = 0.5;
         btnCancel.anchorPoint = ccp(1,0);
         btnCancel.positionType = CCPositionTypePoints;
-        btnCancel.position = ccp(contentSize.width - 10, 10);
+        btnCancel.position = ccp(self.contentSize.width - 10, 10);
         [btnCancel setTarget:self selector:@selector(clickCancelButton)];
         [self addChild:btnCancel];
         
@@ -89,7 +88,7 @@
         btnSure.scale = 0.5;
         btnSure.anchorPoint = ccp(1,0);
         btnSure.positionType = CCPositionTypePoints;
-        btnSure.position = ccp(contentSize.width - 10, 30);
+        btnSure.position = ccp(self.contentSize.width - 10, 30);
         [btnSure setTarget:self selector:@selector(clickSureButton)];
         [self addChild:btnSure];
         
@@ -97,7 +96,7 @@
         _showBuyPriceBtn.scale = 0.5;
         _showBuyPriceBtn.anchorPoint = ccp(1,0);
         _showBuyPriceBtn.positionType = CCPositionTypePoints;
-        _showBuyPriceBtn.position = ccp(contentSize.width - 10, 50);
+        _showBuyPriceBtn.position = ccp(self.contentSize.width - 10, 50);
         [_showBuyPriceBtn setTarget:self selector:@selector(clickShowBuyPriceButton)];
         [self addChild:_showBuyPriceBtn];
         
@@ -121,9 +120,9 @@
             icon.goodsIndex = i;
             icon.goodsType = GoodsIconTypeSoldGoods;
             icon.delegate = self;
-            double scale = (contentSize.width / 2 - 30) / 5 / icon.contentSize.width;
+            double scale = (self.contentSize.width / 2 - 30) / 5 / icon.contentSize.width;
             icon.scale = scale;
-            icon.position = ccp(contentSize.width / 2 + i * icon.contentSize.width * icon.scale, contentSize.height*0.53);
+            icon.position = ccp(self.contentSize.width / 2 + i * icon.contentSize.width * icon.scale, self.contentSize.height * 0.53);
             [_soldGoodsList addObject:icon];
             [self addChild:icon];
         }
@@ -133,9 +132,9 @@
             GoodsIcon *icon = [[GoodsIcon alloc] initWithShowType:_type];
             icon.positionType = CCPositionTypePoints;
             icon.anchorPoint = ccp(0, 0.5);
-            double scale = (contentSize.width / 2 - 30) / 5 / icon.contentSize.width;
+            double scale = (self.contentSize.width / 2 - 30) / 5 / icon.contentSize.width;
             icon.scale = scale;
-            icon.position = ccp(10 + i * icon.contentSize.width * icon.scale, contentSize.height*0.53);
+            icon.position = ccp(10 + i * icon.contentSize.width * icon.scale, self.contentSize.height*0.53);
             icon.visible = NO;
             icon.goodsIndex = i;
             icon.goodsType = GoodsIconTypeShipGoods;
@@ -206,14 +205,6 @@
         if (_shipList.count > 0) {
             [self showShipIndex:0];
         }
-    }
-    return self;
-}
-
--(instancetype)initWithCityNo:(NSString *)cityNo
-{
-    _cityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityNo];
-    if (self = [self init]) {
         _cityGoodsList = [NSMutableArray new];
         CGSize contentSize = [CCDirector sharedDirector].viewSize;
         int index = 0;
@@ -236,6 +227,17 @@
             [self addChild:icon];
             index++;
         }
+    }
+    return self;
+}
+
+-(instancetype)initWithCityNo:(NSString *)cityNo
+                 tradeSuccess:(NSString *)successEvent
+                  tradeCancel:(NSString *)cancelEvent;
+{
+    
+    if (self = [self init]) {
+        
     }
     return self;
 }
@@ -303,11 +305,15 @@
 
 -(void)clickCancelButton
 {
-    [[CCDirector sharedDirector] popScene];
+    [self removeFromParent];
+    self.completionBlockWithEventId(self.cancelEvent);
 }
 
 -(void)clickSureButton
 {
+    // TODO: 确定有进行交易，否则按照取消来结算
+    // 资金不够的时候有文字提示
+    // 购买成功时也加入文字提示，以后可能会更加的复杂
     if(_balance + _totalIncome - _totalOutcome >= 0) {
         if (_buyRecordDic.count > 0 || _sellRecordDic.count > 0) {
             // change the goods
@@ -327,7 +333,8 @@
             [_cityData addTransactionRecord:myguild.guildId buyRecord:_buyRecordDic sellRecord:_sellRecordDic];
         }
         
-        [[CCDirector sharedDirector] popScene];
+        [self removeFromParent];
+        self.completionBlockWithEventId(self.successEvent);
     }
 }
 

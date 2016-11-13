@@ -30,7 +30,7 @@
 
 -(instancetype)initWithPanelType:(ItemBrowsePanelType)type
 {
-    if (self = [super initWithNodeColor:[BGImage getShadowForBackground]]) {
+    if (self = [super initWithNode:[BGImage getShadowForBackground]]) {
         self.contentSize = [CCDirector sharedDirector].viewSize;
         self.positionType = CCPositionTypeNormalized;
         self.position = ccp(0.5, 0.5);

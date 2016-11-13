@@ -63,7 +63,7 @@
 
 -(instancetype)initWithNSArray:(NSArray *)buttonGroup CCNodeColor:(CCNodeColor *)nodeColor withCloseButton:(BOOL)closeButton
 {
-    if (self = [super initWithNodeColor:nodeColor]) {
+    if (self = [super initWithNode:nodeColor]) {
         CGSize contentSize = [[CCDirector sharedDirector] viewSize];
         NSArray *array;
         if (closeButton) {

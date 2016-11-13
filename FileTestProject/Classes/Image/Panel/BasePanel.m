@@ -9,25 +9,59 @@
 #import "BasePanel.h"
 #import "InvestPanel.h"
 #import "SailorNumberPanel.h"
+#import "TradePanel.h"
 #import "GameDataManager.h"
 #import "GameValueManager.h"
 
 @implementation BasePanel
-
-- (instancetype)initWithArray:(NSArray *)array
 {
-    NSString *cityId = [GameDataManager sharedGameData].myGuild.myTeam.currentCityId;
-    if ([self isKindOfClass:[InvestPanel class]]) {
-        return [(InvestPanel*)self initWithCityId:cityId
-                                       investType:[array[0] intValue]
-                                     successEvent:array[1]
-                                        failEvent:array[2]];
-    } else if ([self isKindOfClass:[SailorNumberPanel class]]) {
-        NSArray *shipList = [[GameDataManager sharedGameData].myGuild.myTeam shipDataList];
-        NSInteger freeSailor = [[GameValueManager sharedValueManager] getNumberByTerm:array[0]];
-        return [(SailorNumberPanel *)self initWithShipList:shipList
-                                          freeSailorNumber:freeSailor
-                                           completeEventId:array[1]];
+    NSString *_successEvent;
+    NSString *_cancelEvent;
+    NSString *_cityId;
+}
+
+@synthesize successEvent = _successEvent;
+@synthesize cancelEvent = _cancelEvent;
+@synthesize cityId = _cityId;
+
++ (instancetype)panelWithParameters:(NSString *)parameters;
+{
+    NSMutableArray *paraList = [[parameters componentsSeparatedByString:@";"] mutableCopy];
+    NSString *spriteClassName = paraList[0];
+    NSString *successEvent = paraList[1];
+    NSString *cancelEvent = paraList[2];
+    [paraList removeObjectsInRange:NSMakeRange(0, 3)];
+    Class cls = NSClassFromString(spriteClassName);
+    BasePanel *basePanel = [(BasePanel *)[cls alloc] initWithSuccessEvent:successEvent cancelEvent:cancelEvent dataList:paraList];
+    return basePanel;
+}
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        CGSize contentSize = [CCDirector sharedDirector].viewSize;
+        self.contentSize = contentSize;
+        self.positionType = CCPositionTypeNormalized;
+        self.position = ccp(0.5, 0.5);
+        _cityId = [GameDataManager sharedGameData].myGuild.myTeam.currentCityId;
+    }
+    return self;
+}
+
+- (instancetype)initWithSuccessEvent:(NSString *)successEvent cancelEvent:(NSString *)cancelEvent dataList:(NSArray *)dataList
+{
+    self = [self initWithDataList:dataList];
+    if (self) {
+        _successEvent = successEvent;
+        _cancelEvent = cancelEvent;
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithDataList:(NSArray *)dataList
+{
+    if (self = [self init]) {
     }
     return self;
 }

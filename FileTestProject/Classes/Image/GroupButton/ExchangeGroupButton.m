@@ -11,7 +11,7 @@
 #import "LocalString.h"
 #import "InvestPanel.h"
 #import "BGImage.h"
-#import "TradeScene.h"
+//#import "TradeScene.h"
 #import "GameDataManager.h"
 #import "GameCityData.h"
 #import "DataManager.h"
@@ -65,7 +65,7 @@
     if (gameCityData != nil) {
         int percentage = [[gameCityData.guildOccupation objectForKey:myGuild.guildId] intValue];
         if (percentage > 0) {
-            [[CCDirector sharedDirector] pushScene:[[TradeScene alloc] initWithCityNo:_cityNo]];
+//            [[CCDirector sharedDirector] pushScene:[[TradeScene alloc] initWithCityNo:_cityNo]];
         } else {
             DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES];
             [dialogPanel setDefaultDialog:@"dialog_need_to_sign_before_exchange" arguments:@[]];

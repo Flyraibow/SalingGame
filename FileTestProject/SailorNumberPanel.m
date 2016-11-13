@@ -11,6 +11,8 @@
 #import "DefaultButton.h"
 #import "LocalString.h"
 #import "GamePanelManager.h"
+#import "GameDataManager.h"
+#import "PopUpFrame.h"
 
 @interface SailorNumberPanel() <SailorNumberPanelDelegate>
 
@@ -22,22 +24,23 @@
     CCLabelTTF *_labFreeSailor;
     NSArray<SailorNumberUnit *> *_shipNumberUnitList;
     int _totalSailorNumber;
-    NSString *_completeEventId;
 }
 
--(instancetype)initWithShipList:(NSArray *)shipList
-               freeSailorNumber:(NSInteger)freeSailorNumber
-                completeEventId:(NSString *)eventId
+-(instancetype)initWithDataList:(NSArray *)dataList
 {
-    _completeEventId = eventId;
-    NSUInteger count = shipList.count;
-    CGFloat scale = 0.65;
-    SailorNumberUnit *unit0 = [[SailorNumberUnit alloc] initWithShipData:shipList[0]];
-    CGFloat width = unit0.contentSize.width * scale+ 10;
-    CGFloat height = unit0.contentSize.height * scale * count + 30;
-    if (self = [super initWithSize:CGSizeMake(width, height)]) {
+    if (self = [super init]) {
+        _freeSailorNumber = [dataList[0] intValue];
+        _totalSailorNumber = _freeSailorNumber;
+
+        NSArray *shipList = [[GameDataManager sharedGameData].myGuild.myTeam shipDataList];
+        NSUInteger count = shipList.count;
+        CGFloat scale = 0.65;
+        SailorNumberUnit *unit0 = [[SailorNumberUnit alloc] initWithShipData:shipList[0]];
+        CGFloat width = unit0.contentSize.width * scale+ 10;
+        CGFloat height = unit0.contentSize.height * scale * count + 30;
+        PopUpFrame *bg = [[PopUpFrame alloc] initWithSize:CGSizeMake(width, height)];
+        [self addChild:bg];
         NSMutableArray<SailorNumberUnit *> *shipNumberUnitList = [NSMutableArray new];
-        _totalSailorNumber = (int)freeSailorNumber;
         for (int i = 0; i < count; ++i) {
             SailorNumberUnit *unit = i == 0 ? unit0 : [[SailorNumberUnit alloc] initWithShipData:shipList[i]];
             unit.anchorPoint = ccp(0, 1);
@@ -46,23 +49,22 @@
             unit.delegate = self;
             unit.scale = scale;
             _totalSailorNumber += unit.shipData.curSailorNum;
-            [self.frame addChild:unit];
+            [bg.frame addChild:unit];
             [shipNumberUnitList addObject:unit];
         }
         _shipNumberUnitList = shipNumberUnitList;
-        _freeSailorNumber = (int)freeSailorNumber;
         
         CCLabelTTF *labFreeSailor = [[CCLabelTTF alloc] initWithString:getLocalString(@"lab_free_sailor_number") fontName:nil fontSize:12];
         labFreeSailor.positionType = CCPositionTypePoints;
         labFreeSailor.anchorPoint = ccp(0, 0);
         labFreeSailor.position = ccp(5, 5);
-        [self.frame addChild:labFreeSailor];
+        [bg.frame addChild:labFreeSailor];
         
         _labFreeSailor = [[CCLabelTTF alloc] initWithString:[@(_freeSailorNumber) stringValue] fontName:nil fontSize:12];
         _labFreeSailor.positionType = CCPositionTypePoints;
         _labFreeSailor.anchorPoint = ccp(0, 0);
         _labFreeSailor.position = ccp(labFreeSailor.position.x + labFreeSailor.contentSize.width + 5, 5);
-        [self.frame addChild:_labFreeSailor];
+        [bg.frame addChild:_labFreeSailor];
         
         static const CGFloat buttonScale = 0.4;
         
@@ -71,7 +73,7 @@
         btnSure.anchorPoint = ccp(1, 0);
         btnSure.position = ccp(5, 5);
         btnSure.scale = buttonScale;
-        [self.frame addChild:btnSure];
+        [bg.frame addChild:btnSure];
         [btnSure setTarget:self selector:@selector(clickSureButton)];
         
         DefaultButton *btnFirstArrange = [DefaultButton buttonWithTitle:getLocalString(@"lab_sailor_arrange_first")];
@@ -79,7 +81,7 @@
         btnFirstArrange.anchorPoint = ccp(1, 0);
         btnFirstArrange.position = ccp(btnSure.position.x + btnSure.contentSize.width * buttonScale + 1, 5);
         btnFirstArrange.scale = buttonScale;
-        [self.frame addChild:btnFirstArrange];
+        [bg.frame addChild:btnFirstArrange];
         [btnFirstArrange setTarget:self selector:@selector(clickFirstArrangeBtn)];
         
         DefaultButton *btnAverageArrange = [DefaultButton buttonWithTitle:getLocalString(@"lab_sailor_arrange_average")];
@@ -87,7 +89,7 @@
         btnAverageArrange.anchorPoint = ccp(1, 0);
         btnAverageArrange.position = ccp(btnFirstArrange.position.x + btnFirstArrange.contentSize.width * buttonScale + 1, 5);
         btnAverageArrange.scale = buttonScale;
-        [self.frame addChild:btnAverageArrange];
+        [bg.frame addChild:btnAverageArrange];
         [btnAverageArrange setTarget:self selector:@selector(clickAverageArrangeBtn)];
         
         DefaultButton *btnMinimumArrange = [DefaultButton buttonWithTitle:getLocalString(@"lab_sailor_arrange_minimum")];
@@ -95,10 +97,9 @@
         btnMinimumArrange.anchorPoint = ccp(1, 0);
         btnMinimumArrange.position = ccp(btnAverageArrange.position.x + btnAverageArrange.contentSize.width * buttonScale + 1, 5);
         btnMinimumArrange.scale = buttonScale;
-        [self.frame addChild:btnMinimumArrange];
+        [bg.frame addChild:btnMinimumArrange];
         [btnMinimumArrange setTarget:self selector:@selector(clickMinimumArrangeBtn)];
     }
-    
     return self;
 }
 
@@ -106,7 +107,7 @@
 {
     [self removeFromParent];
     if (self.completionBlockWithEventId) {
-        self.completionBlockWithEventId(_completeEventId);
+        self.completionBlockWithEventId(self.successEvent);
     }
 }
 

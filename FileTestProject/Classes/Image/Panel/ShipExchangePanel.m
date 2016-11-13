@@ -1,12 +1,12 @@
 //
-//  ShipExchange.m
+//  ShipExchangePanel.m
 //  FileTestProject
 //
 //  Created by LIU YUJIE on 2/4/16.
 //  Copyright © 2016 Yujie Liu. All rights reserved.
 //
 
-#import "ShipExchangeScene.h"
+#import "ShipExchangePanel.h"
 #import "BGImage.h"
 #import "DefaultButton.h"
 #import "LocalString.h"
@@ -19,11 +19,8 @@
 #import "ShipScene.h"
 #import "GamePanelManager.h"
 
-@interface ShipExchangeScene()
 
-@end
-
-@implementation ShipExchangeScene
+@implementation ShipExchangePanel
 {
     CCLabelTTF *_labTitle;
     int _index;
@@ -33,13 +30,12 @@
     CCButton *_leftBtn;
     NSMutableArray *_array;
     BOOL _moving;
-    NSString *_cityNo;
 }
 
-
--(instancetype)init
+-(instancetype)initWithDataList:(NSArray *)dataList
 {
     if (self = [super init]) {
+        _sceneType = [dataList[0] integerValue];
         CCSprite *bg = [BGImage getBgImageByName:@"bg_System.png"];
         [self addChild:bg];
         
@@ -82,29 +78,54 @@
         _moving = NO;
         
         _array = [NSMutableArray new];
-    }
-    return self;
-}
-
--(instancetype)initWithShipList:(NSArray *)shipList sceneType:(ShipSceneType)sceneType
-{
-    if (self = [self init]) {
-        _sceneType = sceneType;
-        [self showShipList:shipList];
-    }
-    return self;
-}
-
--(instancetype)initWithCityNo:(NSString *)cityNo
-{
-    if (self = [self init]) {
-        
-        _sceneType = ShipSceneTypeBuy;
-        _cityNo = cityNo;
-        
-        GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityNo];
-        
-        NSArray *shipList = [cityData.shipsSet sortByNumberAscending:YES];
+        NSArray *shipList = nil;
+        switch (_sceneType) {
+            case ShipSceneTypeBuy:
+            {
+                _labTitle.string = getLocalString(@"shipyard_buy");
+                GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:self.cityId];
+                shipList = [cityData.shipsSet sortByNumberAscending:YES];
+                break;
+            }
+            case ShipSceneTypeSell:
+            {
+                _labTitle.string = getLocalString(@"shipyard_sell");
+                // 当前船只加船坞，去掉首船
+                NSMutableArray *mutableShipList = [[GameDataManager sharedGameData].myGuild.myTeam shipDataList];
+                [mutableShipList removeObjectAtIndex:0];
+                [mutableShipList addObjectsFromArray:[[GameDataManager sharedGameData].myGuild.myTeam getCarryShipListInCity:self.cityId]];
+                shipList = mutableShipList;
+                break;
+            }
+            case ShipSceneTypeModify:
+            {
+                _labTitle.string = getLocalString(@"shipyard_modify");
+                NSMutableArray *mutableShipList = [[GameDataManager sharedGameData].myGuild.myTeam shipDataList];
+                [mutableShipList addObjectsFromArray:[[GameDataManager sharedGameData].myGuild.myTeam getCarryShipListInCity:self.cityId]];
+                shipList = mutableShipList;
+                break;
+            }
+            case ShipSceneTypeInfo:
+            {
+                _labTitle.string = getLocalString(@"shipyard_info");
+                MyGuild *myGuild = [GameDataManager sharedGameData].myGuild;
+                NSMutableArray<GameShipData *> *mutableShipList = [myGuild.myTeam shipDataList];
+                [mutableShipList addObjectsFromArray:[myGuild.myTeam carryShipDataList]];
+                for (int i = 0; i < myGuild.teamList.count; ++i) {
+                    GameTeamData *teamData = myGuild.teamList[i];
+                    [mutableShipList addObjectsFromArray:[teamData shipDataList]];
+                    [mutableShipList addObjectsFromArray:[teamData carryShipDataList]];
+                }
+                shipList = mutableShipList;
+                break;
+            }
+            case ShipSceneTypeEquip:
+            {
+                _labTitle.string = getLocalString(@"shipyard_equip");
+                shipList = [[GameDataManager sharedGameData].myGuild.myTeam shipDataList];
+                break;
+            }
+        }
         [self showShipList:shipList];
     }
     return self;
@@ -112,13 +133,6 @@
 
 -(void)showShipList:(NSArray *)shipList
 {
-    if (_sceneType == ShipSceneTypeBuy) {
-        _labTitle.string = getLocalString(@"shipyard_buy");
-    } else if (_sceneType == ShipSceneTypeSell) {
-        _labTitle.string = getLocalString(@"shipyard_sell");
-    } else if (_sceneType == ShipSceneTypeModify) {
-        _labTitle.string = getLocalString(@"shipyard_modify");
-    }
     _number = 0;
     _index = 0;
     ShipStyleDic *shipStyleDic = [[DataManager sharedDataManager] getShipStyleDic];
@@ -131,7 +145,7 @@
         }
         
         ShipExchangeUnit *shipUnit = [[ShipExchangeUnit alloc] initWithGameShipData:shipData sceneType:_sceneType];
-        shipUnit.cityId = _cityNo;
+        shipUnit.cityId = self.cityId;
         shipUnit.positionType = CCPositionTypeNormalized;
         shipUnit.position = ccp(0.3 + _number * 0.4,0.48);
         _number++;
@@ -147,8 +161,8 @@
                 [myguild spendMoney:gameShipData.price
                       succesHandler:^{
                           GameShipData *shipData = [[GameShipData alloc] initWithShipStlyeData:gameShipData.shipStyleData];
-                          [[GameDataManager sharedGameData].myGuild.myTeam getShip:shipData cityId:_cityNo];
-                          [self clickBtnClose];
+                          [[GameDataManager sharedGameData].myGuild.myTeam getShip:shipData cityId:self.cityId];
+                          [self tradeSuccess];
                       } failHandle:^{
                           __weak id weakSelf = self;
                           DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:weakSelf];
@@ -158,7 +172,7 @@
             } else if (_sceneType == ShipSceneTypeSell) {
                 [[GameDataManager sharedGameData].myGuild.myTeam removeShip:gameShipData];
                 [GameDataManager sharedGameData].myGuild.money += shipData.price;
-                [self clickBtnClose];
+                [self tradeSuccess];
             } else if (_sceneType == ShipSceneTypeModify) {
                 // TODO: 进入改造页面
                 ShipScene *scene = [[ShipScene alloc] initWithShipData:gameShipData shipSceneType:DeckShipSceneModify];
@@ -167,7 +181,7 @@
                     if (gameShipData && gameShipData.shipId) {
                         [weakShipUnit shipModified:gameShipData];
                     } else {
-                        [self clickBtnClose];
+                        [self tradeSuccess];
                     }
                 };
                 [[CCDirector sharedDirector] pushScene:scene];
@@ -252,9 +266,16 @@
     }
 }
 
--(void)clickBtnClose
+- (void)tradeSuccess
 {
-    [[CCDirector sharedDirector] popScene];
+    [self removeFromParent];
+    self.completionBlockWithEventId(self.successEvent);
+}
+
+- (void)clickBtnClose
+{
+    [self removeFromParent];
+    self.completionBlockWithEventId(self.cancelEvent);
 }
 
 @end

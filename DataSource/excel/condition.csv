@@ -8,11 +8,15 @@ canSignUp2,________2,city,guildNumber,<,number,3
 canSignUp,______,and,;,;,canSignUp1;canSignUp2,;
 canSignUpMoneyEnough,____,city,signUpMoney,<=,guild,money
 canMilitaryInvestMoneyEnough,________,city,militaryInvestMoney,<=,guild,money
-hireSailorHaveShip,____,ship,number,>,number,0
+haveShip,____,ship,number,>,number,0
 hireSailorFull,____,cache,currNumber,>=,cache,maxNumber
 hireSailorHired,______,cache,hireNumber,>,number,0
 hireSailorPassNeed,________,cache,currNumber,>=,cache,needNumber
-hireSailorMoneyEnough,__,guild,money,>=,cache,money
+moneyEnough,__,guild,money,>=,cache,money
 canCommerceInvestMoneyEnough,________,city,commerceInvestMoney,<=,guild,money
 tradeCondition,___,city,percentage,>,number,0
 canUnblockTradeItem,______,cacheString,tradeUnblockItem,!=,number,0
+shipNumberExceed,____,ship,number,>=,number,5
+haveShip2Sell,______,or,;,;,haveShipInDock;have2Ship,;
+have2Ship,______,ship,number,>,number,1
+haveShipInDock,____,city,shipNumber,>,number,0

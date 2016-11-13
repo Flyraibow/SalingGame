@@ -208,6 +208,8 @@
 "shipyard_sell" = "售出船只";
 "shipyard_modify" = "改造船只";
 "shipyard_fix" = "修理船只";
+"shipyard_info" = "浏览船只";
+"shipyard_equip" = "装备船只";
 "dock_sail" = "出海";
 "dock_supply" = "补给";
 "dock_yard" = "船坞";

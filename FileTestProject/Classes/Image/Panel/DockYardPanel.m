@@ -1,12 +1,12 @@
 //
-//  DockYardScene.m
+//  DockYardPanel.m
 //  FileTestProject
 //
 //  Created by Yujie Liu on 9/8/16.
 //  Copyright © 2016 Yujie Liu. All rights reserved.
 //
 
-#import "DockYardScene.h"
+#import "DockYardPanel.h"
 #import "GameShipData.h"
 #import "BGImage.h"
 #import "LocalString.h"
@@ -16,12 +16,11 @@
 
 static const CGFloat kMovingTotalTime = 0.5;
 
-@implementation DockYardScene
+@implementation DockYardPanel
 {
     __weak GameTeamData *_teamData;
     NSMutableArray<ShipSimpleInfoIcon *> *_shipIconList;
     NSMutableArray<ShipSimpleInfoIcon *> *_shipTeamIconList;
-    CGSize _sceneSize;
     BOOL _selectable;
     int _cityShipStartIndex;
     CCButton *_btnUp;
@@ -31,13 +30,11 @@ static const CGFloat kMovingTotalTime = 0.5;
     NSUInteger _teamShipCount;
 }
 
--(instancetype)initWithTeam:(GameTeamData *)team extraShipList:(NSArray<GameShipData *> *)shipList
+-(instancetype)initWithDataList:(NSArray *)dataList
 {
     if (self = [super init]) {
-        
-        _sceneSize = [CCDirector sharedDirector].viewSize;
-        
-        _teamData = team;
+        _teamData =  [GameDataManager sharedGameData].myGuild.myTeam;
+        NSArray *shipList = [_teamData getCarryShipListInCity:self.cityId];
         
         CCSprite *bg = [BGImage getBgImageByName:@"bg_System.png"];
         [self addChild:bg];
@@ -64,10 +61,10 @@ static const CGFloat kMovingTotalTime = 0.5;
         
         _shipTeamIconList = [NSMutableArray new];
         _cityShipStartIndex = 0;
-        _teamShipCount = team.shipList.count;
+        _teamShipCount = _teamData.shipList.count;
         _shipIconList = [NSMutableArray new];
         int i = 0;
-        for (GameShipData *shipData in [team shipDataList]) {
+        for (GameShipData *shipData in [_teamData shipDataList]) {
             ShipSimpleInfoIcon *shipIcon = [[ShipSimpleInfoIcon alloc] initWithShipData:shipData];
             shipIcon.inTeam = YES;
             shipIcon.index = i;
@@ -94,7 +91,7 @@ static const CGFloat kMovingTotalTime = 0.5;
         _btnUp = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:@"upArrowButton.png"]];
         _btnUp.positionType = CCPositionTypePoints;
         _btnUp.anchorPoint = ccp(0, 1);
-        _btnUp.position = ccp(_sceneSize.width / 2 + 200, _sceneSize.height - 70);
+        _btnUp.position = ccp(self.contentSize.width / 2 + 200, self.contentSize.height - 70);
         [_btnUp setTarget:self selector:@selector(clickUpButton)];
         _btnUp.enabled = NO;
         [self addChild:_btnUp];
@@ -102,7 +99,7 @@ static const CGFloat kMovingTotalTime = 0.5;
         _btnDown = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:@"downArrowButton.png"]];
         _btnDown.positionType = CCPositionTypePoints;
         _btnDown.anchorPoint = ccp(0, 0);
-        _btnDown.position = ccp(_sceneSize.width / 2 + 200, _sceneSize.height - 270);
+        _btnDown.position = ccp(self.contentSize.width / 2 + 200, self.contentSize.height - 270);
         [_btnDown setTarget:self selector:@selector(clickDownButton)];
         [self addChild:_btnDown];
         
@@ -120,15 +117,16 @@ static const CGFloat kMovingTotalTime = 0.5;
 -(CGPoint)getIconPositionByIndex:(int)index inTeam:(BOOL)inTeam
 {
     if (inTeam) {
-        return ccp(_sceneSize.width / 2 - 100 , _sceneSize.height - 70 - index * 40);
+        return ccp(self.contentSize.width / 2 - 100 , self.contentSize.height - 70 - index * 40);
     } else {
-        return ccp(_sceneSize.width / 2 + 100, _sceneSize.height - 70 - index * 40);
+        return ccp(self.contentSize.width / 2 + 100, self.contentSize.height - 70 - index * 40);
     }
 }
 
 -(void)clickBtnClose
 {
-    [[CCDirector sharedDirector] popScene];
+    [self removeFromParent];
+    self.completionBlockWithEventId(self.cancelEvent);
 }
 
 -(void)selectShipIcon:(ShipSimpleInfoIcon *)shipIcon
@@ -323,7 +321,8 @@ static const CGFloat kMovingTotalTime = 0.5;
             shipData.cityId = self.cityId;
         }
         // TODO: 把所有人的职业放到新船里
-        [self clickBtnClose];
+        [self removeFromParent];
+        self.completionBlockWithEventId(self.successEvent);
     }
 }
 

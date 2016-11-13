@@ -161,6 +161,8 @@ static GameValueManager *_sharedValueManager;
             value = cityData.wage;
         } else if ([subType isEqualToString:@"nextSailorNumber"]) {
             value = cityData.nextSailorNumber;
+        } else if ([subType isEqualToString:@"shipNumber"]) {
+            value = [_myguild.myTeam getCarryShipListInCity:cityData.cityNo].count;
         }
     } else if ([type isEqualToString:@"guild"]) {
         if ([subType isEqualToString:@"item"]) {

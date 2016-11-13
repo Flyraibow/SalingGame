@@ -23,24 +23,16 @@
     CCLabelTTF *_labMoney;
     NSMutableArray *_array;
     int _unitMoney;
-    NSString *_cityNo;
     InvestType _type;
     int _selectNum;
     int _maxNum;
-    NSString *_successEventId;
-    NSString *_failEventId;
 }
 
--(instancetype)initWithCityId:(NSString *)cityNo
-                   investType:(InvestType)type
-                 successEvent:(NSString *)successEventId
-                    failEvent:(NSString *)failEventId
+- (instancetype)initWithDataList:(NSArray *)dataList
 {
-    if (self = [self init]) {
-        _successEventId = successEventId;
-        _failEventId = failEventId;
-        _cityNo = cityNo;
-        _type = type;
+    if (self = [super init]) {
+        
+        _type = [dataList[0] integerValue];
         CCNodeColor *node = [BGImage getShadowForBackground];
         [self addChild:node];
         CCSprite *sprite = [CCSprite spriteWithImageNamed:@"invest.png"];
@@ -68,12 +60,12 @@
         label.position = ccp(0.28, 0.9);
         [sprite addChild:label];
         
-        GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityNo];
-        if (type == InvestTypeCommerce) {
+        GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:self.cityId];
+        if (_type == InvestTypeCommerce) {
             _unitMoney = cityData.commerceValue;
-        } else if (type == InvestTypeMilitary) {
+        } else if (_type == InvestTypeMilitary) {
             _unitMoney = cityData.milltaryValue;
-        } else  if (type == InvestTypeSignup) {
+        } else  if (_type == InvestTypeSignup) {
             _unitMoney = cityData.signUpUnitValue;
         }
         _labMoney = [CCLabelTTF labelWithString:[@(_unitMoney) stringValue] fontName:nil fontSize:14];
@@ -99,11 +91,16 @@
     return self;
 }
 
+- (void)initWithCityId:(NSString *)cityNo
+                   investType:(InvestType)type
+{
+}
+
 -(void)clickCloseButton
 {
     [self removeFromParent];
     if (self.completionBlockWithEventId) {
-        self.completionBlockWithEventId(_failEventId);
+        self.completionBlockWithEventId(self.cancelEvent);
     }
 }
 
@@ -113,12 +110,12 @@
     MyGuild *myguild = [GameDataManager sharedGameData].myGuild;
     [myguild spendMoney:money succesHandler:^{
         
-        GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:_cityNo];
+        GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:self.cityId];
         int money = _unitMoney * (_selectNum + 1);
         [cityData investByGuild:[GameDataManager sharedGameData].myGuild.guildId investUnits:_selectNum + 1 money:money type:_type];
         [self removeFromParent];
         if (self.completionBlockWithEventId) {
-            self.completionBlockWithEventId(_successEventId);
+            self.completionBlockWithEventId(self.successEvent);
         }
     } failHandle:^{
         [self _setNumber:_maxNum - 1];

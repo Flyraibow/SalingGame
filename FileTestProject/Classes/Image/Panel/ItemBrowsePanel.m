@@ -19,7 +19,6 @@
 #import "GameItemData.h"
 #import "RolePanel.h"
 #import "GameNPCData.h"
-#import "ShipExchangeScene.h"
 
 const static int kShowItemNumberEachLine = 7;
 const static int kShowLinesNumber = 4;
@@ -47,7 +46,7 @@ const static int kShowLinesNumber = 4;
 
 -(instancetype)initWithItems:(NSArray *)items panelType:(ItemBrowsePanelType)type
 {
-    if (self = [super initWithNodeColor:[BGImage getShadowForBackground]]) {
+    if (self = [super initWithNode:[BGImage getShadowForBackground]]) {
         self.contentSize = [CCDirector sharedDirector].viewSize;
         self.positionType = CCPositionTypeNormalized;
         self.position = ccp(0.5, 0.5);
@@ -379,22 +378,22 @@ const static int kShowLinesNumber = 4;
             } else {
                 [dialogPanel setDefaultDialog:@"dialog_equip_a_shipheader" arguments:nil];
                 [dialogPanel addConfirmHandler:^{
-                    GameTeamData * team = [GameDataManager sharedGameData].myGuild.myTeam;
-                    NSMutableArray *shipList = [team shipDataList];
-                    [shipList addObjectsFromArray:[team getCarryShipListInCity:team.currentCityId]];
-                    ShipExchangeScene *shipExchangeScene = [[ShipExchangeScene alloc] initWithShipList:shipList sceneType:ShipSceneTypeEquip];
-                    shipExchangeScene.selectHandler = ^ (GameShipData *gameShipData) {
-                        assert(gameShipData);
-                        [[CCDirector sharedDirector] popScene];
-                        // TODO: 如果是恶魔像 额外提示下
-                        [gameShipData equip:gameItemData];
-                        [self removeChild:weakItemInfoPanel];
-                        [dialogPanel setDefaultDialog:@"dialog_equip_an_equipment_success" arguments:nil];
-                        [dialogPanel addConfirmHandler:^{
-                            _panel.visible = YES;
-                        }];
-                    };
-                    [[CCDirector sharedDirector] pushScene:shipExchangeScene];
+//                    GameTeamData * team = [GameDataManager sharedGameData].myGuild.myTeam;
+//                    NSMutableArray *shipList = [team shipDataList];
+//                    [shipList addObjectsFromArray:[team getCarryShipListInCity:team.currentCityId]];
+//                    ShipExchangeScene *shipExchangeScene = [[ShipExchangeScene alloc] initWithShipList:shipList sceneType:ShipSceneTypeEquip];
+//                    shipExchangeScene.selectHandler = ^ (GameShipData *gameShipData) {
+//                        assert(gameShipData);
+//                        [[CCDirector sharedDirector] popScene];
+//                        // TODO: 如果是恶魔像 额外提示下
+//                        [gameShipData equip:gameItemData];
+//                        [self removeChild:weakItemInfoPanel];
+//                        [dialogPanel setDefaultDialog:@"dialog_equip_an_equipment_success" arguments:nil];
+//                        [dialogPanel addConfirmHandler:^{
+//                            _panel.visible = YES;
+//                        }];
+//                    };
+//                    [[CCDirector sharedDirector] pushScene:shipExchangeScene];
                 }];
             }
         } else if (gameItemData.itemData.value > 0) {

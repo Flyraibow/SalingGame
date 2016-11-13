@@ -16,6 +16,7 @@
 #import "BGImage.h"
 #import "GameRouteData.h"
 #import "GameStoryTriggerManager.h"
+#import "GameTimerManager.h"
 // -----------------------------------------------------------------------
 
 @implementation HelloWorldScene
@@ -53,7 +54,6 @@
     [GameRouteData initWithRouteDic:dataManager.getRouteDic];
     
     [self schedule:@selector(loadComplete) interval:0.2f];
-    
     // done
     return self;
 }

@@ -11,7 +11,7 @@
 @implementation BaseFrame
 
 
--(instancetype)initWithNodeColor:(CCNodeColor *)nodeColor
+-(instancetype)initWithNode:(CCNode *)node
 {
     if (self = [super init]) {
         CGSize contentSize = [[CCDirector sharedDirector] viewSize];
@@ -19,8 +19,8 @@
         self.positionType = CCPositionTypeNormalized;
         self.position = ccp(0.5, 0.5);
         
-        if (nodeColor != nil) {
-            [self addChild:nodeColor];
+        if (node != nil) {
+            [self addChild:node];
         }
     }
     return self;
@@ -28,7 +28,7 @@
 
 -(instancetype)init
 {
-    if (self = [self initWithNodeColor:nil]) {
+    if (self = [self initWithNode:nil]) {
     }
     return self;
 }

@@ -83,26 +83,22 @@ static GameEventManager *_sharedEventManager;
             _currentEventIndex = 0;
             [self _startEventList];
         } else if ([eventData.eventType isEqualToString:@"window"]) {
-            NSMutableArray *paraList = [[eventData.parameter componentsSeparatedByString:@";"] mutableCopy];
-            NSString *spriteClassName = paraList[0];
-            [paraList removeObjectAtIndex:0];
-            Class cls = NSClassFromString(spriteClassName);
-            BasePanel *sprite = [[cls alloc] initWithArray:paraList];
+            BasePanel *sprite = [BasePanel panelWithParameters:eventData.parameter];
             sprite.completionBlockWithEventId = ^(NSString *eventId) {
                 [self startEventId:eventId withScene:scene];
             };
             [scene addChild:sprite];
         } else if ([eventData.eventType isEqualToString:@"condition"]) {
             NSArray *array = [eventData.parameter componentsSeparatedByString:@";"];
-            if (array.count > 0) {
-                if ([[GameConditionManager sharedConditionManager] checkCondition:eventData.eventId]) {
-                    [self startEventId:array[0] withScene:scene];
-                } else if (array.count > 1) {
+            if (array.count > 1) {
+                if ([[GameConditionManager sharedConditionManager] checkCondition:array[0]]) {
                     [self startEventId:array[1] withScene:scene];
+                } else if (array.count > 2) {
+                    [self startEventId:array[2] withScene:scene];
                 }
             }
         } else if ([eventData.eventType isEqualToString:@"wait"]) {
-            _totalDays = [eventData.parameter integerValue];
+            _totalDays = [[GameValueManager sharedValueManager] getNumberByTerm:eventData.parameter];
             _currentDays = 0;
             [self _addTransparentCover];
             [self _waitADay];
@@ -129,7 +125,19 @@ static GameEventManager *_sharedEventManager;
         } else if ([eventData.eventType isEqualToString:@"dataChange"]) {
             [[GameDataManager sharedGameData] dataChangeWithTerm:eventData.parameter];
             [self _startEventList];
+        } else if ([eventData.eventType isEqualToString:@"scene"]) {
+            NSMutableArray *paraList = [[eventData.parameter componentsSeparatedByString:@";"] mutableCopy];
+            NSString *sceneClassName = paraList[0];
+            [paraList removeObjectAtIndex:0];
+            Class cls = NSClassFromString(sceneClassName);
+            BasePanel *sprite = [[cls alloc] initWithArray:paraList];
+            sprite.completionBlockWithEventId = ^(NSString *eventId) {
+                [self startEventId:eventId withScene:scene];
+            };
+            [scene addChild:sprite];
         }
+    } else if (eventId.length == 0) {
+        [self _startEventList];
     } else {
         _tempDialogContent = @[eventId];
         [self startEventId:@"NIY" withScene:scene];
@@ -166,16 +174,18 @@ static GameEventManager *_sharedEventManager;
 - (void)_waitADay
 {
     if (_currentDays < _totalDays) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             _currentDays++;
             [[GameDataManager sharedGameData] spendOneDay];
-            [self _waitADay];
+            if (![GamePanelManager isInDialog]) {
+                [self _waitADay];
+            } else {
+                
+            }
         });
     } else {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self _removeTransparentCover];
-            [self _startEventList];
-        });
+        [self _removeTransparentCover];
+        [self _startEventList];
     }
 }
 

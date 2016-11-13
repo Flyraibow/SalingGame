@@ -401,16 +401,13 @@
 		27C26D311C634410009EDE53 /* InnGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D301C634410009EDE53 /* InnGroupButton.m */; };
 		27C26D371C63480C009EDE53 /* ExchangeGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D361C63480C009EDE53 /* ExchangeGroupButton.m */; };
 		27C26D3A1C634BC2009EDE53 /* ShopGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D391C634BC2009EDE53 /* ShopGroupButton.m */; };
-		27C26D3D1C634CF2009EDE53 /* ShipyardGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D3C1C634CF2009EDE53 /* ShipyardGroupButton.m */; };
 		27C26D401C634F4D009EDE53 /* DockGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D3F1C634F4D009EDE53 /* DockGroupButton.m */; };
-		27C26D511C646F1B009EDE53 /* ShipExchangeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D501C646F1B009EDE53 /* ShipExchangeScene.m */; };
 		27C26D531C6470BC009EDE53 /* ShipFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D521C6470BC009EDE53 /* ShipFrame.png */; };
 		27C26D591C647A05009EDE53 /* rightArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D581C647A05009EDE53 /* rightArrowButton.png */; };
 		27C26D5B1C647B01009EDE53 /* leftArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D5A1C647B01009EDE53 /* leftArrowButton.png */; };
 		27C26D651C649ADB009EDE53 /* shipIconFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D641C649ADB009EDE53 /* shipIconFrame.png */; };
 		27C26D681C64A664009EDE53 /* GameTeamData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D671C64A664009EDE53 /* GameTeamData.m */; };
 		27C26D6B1C650EB5009EDE53 /* GameShipData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D6A1C650EB5009EDE53 /* GameShipData.m */; };
-		27C26D6E1C6584A9009EDE53 /* TradeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D6D1C6584A9009EDE53 /* TradeScene.m */; };
 		27C26D701C658503009EDE53 /* bg_trade.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D6F1C658503009EDE53 /* bg_trade.png */; };
 		27C26D741C65889A009EDE53 /* GoodsIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D731C65889A009EDE53 /* GoodsIcon.m */; };
 		27C26D761C658928009EDE53 /* goodsIconFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D751C658928009EDE53 /* goodsIconFrame.png */; };
@@ -927,7 +924,11 @@
 		EC85DBE71DCAFBD400613F44 /* SelectListData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE61DCAFBD400613F44 /* SelectListData.m */; };
 		EC85DBEA1DCAFC7100613F44 /* GameConditionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE91DCAFC7100613F44 /* GameConditionManager.m */; };
 		EC85DBED1DCB021400613F44 /* ConditionData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBEC1DCB021400613F44 /* ConditionData.m */; };
-		ECFD22FF1D826AC500FCC903 /* DockYardScene.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFD22FE1D826AC500FCC903 /* DockYardScene.m */; };
+		ECBADDCF1DD81EC200DC490D /* BaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDCE1DD81EC200DC490D /* BaseScene.m */; };
+		ECBADDD21DD821D600DC490D /* TradePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD11DD821D600DC490D /* TradePanel.m */; };
+		ECBADDD51DD8467800DC490D /* ShipExchangePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD41DD8467800DC490D /* ShipExchangePanel.m */; };
+		ECBADDD81DD84A7B00DC490D /* DockYardPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD61DD84A7B00DC490D /* DockYardPanel.m */; };
+		ECBADDDB1DD861ED00DC490D /* GameTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDDA1DD861ED00DC490D /* GameTimerManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1643,15 +1644,11 @@
 		27C26D361C63480C009EDE53 /* ExchangeGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExchangeGroupButton.m; path = Classes/Image/GroupButton/ExchangeGroupButton.m; sourceTree = "<group>"; };
 		27C26D381C634BC2009EDE53 /* ShopGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopGroupButton.h; path = Classes/Image/GroupButton/ShopGroupButton.h; sourceTree = "<group>"; };
 		27C26D391C634BC2009EDE53 /* ShopGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShopGroupButton.m; path = Classes/Image/GroupButton/ShopGroupButton.m; sourceTree = "<group>"; };
-		27C26D3B1C634CF2009EDE53 /* ShipyardGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipyardGroupButton.h; path = Classes/Image/GroupButton/ShipyardGroupButton.h; sourceTree = "<group>"; };
-		27C26D3C1C634CF2009EDE53 /* ShipyardGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipyardGroupButton.m; path = Classes/Image/GroupButton/ShipyardGroupButton.m; sourceTree = "<group>"; };
 		27C26D3E1C634F4D009EDE53 /* DockGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockGroupButton.h; path = Classes/Image/GroupButton/DockGroupButton.h; sourceTree = "<group>"; };
 		27C26D3F1C634F4D009EDE53 /* DockGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DockGroupButton.m; path = Classes/Image/GroupButton/DockGroupButton.m; sourceTree = "<group>"; };
 		27C26D431C63FC5D009EDE53 /* SpendMoneyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpendMoneyProtocol.h; path = Classes/Protocol/SpendMoneyProtocol.h; sourceTree = "<group>"; };
 		27C26D441C6402FD009EDE53 /* DateUpdateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DateUpdateProtocol.h; path = Classes/Protocol/DateUpdateProtocol.h; sourceTree = "<group>"; };
 		27C26D451C640F51009EDE53 /* UpdateMoneyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UpdateMoneyProtocol.h; path = Classes/Protocol/UpdateMoneyProtocol.h; sourceTree = "<group>"; };
-		27C26D4F1C646F1B009EDE53 /* ShipExchangeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipExchangeScene.h; path = Classes/UIScene/ShipExchangeScene.h; sourceTree = "<group>"; };
-		27C26D501C646F1B009EDE53 /* ShipExchangeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipExchangeScene.m; path = Classes/UIScene/ShipExchangeScene.m; sourceTree = "<group>"; };
 		27C26D521C6470BC009EDE53 /* ShipFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipFrame.png; path = Resources/Graph/Frame/ShipFrame.png; sourceTree = "<group>"; };
 		27C26D581C647A05009EDE53 /* rightArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightArrowButton.png; path = Resources/Graph/Button/rightArrowButton.png; sourceTree = "<group>"; };
 		27C26D5A1C647B01009EDE53 /* leftArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftArrowButton.png; path = Resources/Graph/Button/leftArrowButton.png; sourceTree = "<group>"; };
@@ -1660,8 +1657,6 @@
 		27C26D671C64A664009EDE53 /* GameTeamData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameTeamData.m; path = Classes/Data/GameTeamData.m; sourceTree = "<group>"; };
 		27C26D691C650EB5009EDE53 /* GameShipData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameShipData.h; path = Classes/Data/GameShipData.h; sourceTree = "<group>"; };
 		27C26D6A1C650EB5009EDE53 /* GameShipData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameShipData.m; path = Classes/Data/GameShipData.m; sourceTree = "<group>"; };
-		27C26D6C1C6584A8009EDE53 /* TradeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeScene.h; path = Classes/UIScene/TradeScene.h; sourceTree = "<group>"; };
-		27C26D6D1C6584A9009EDE53 /* TradeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeScene.m; path = Classes/UIScene/TradeScene.m; sourceTree = "<group>"; };
 		27C26D6F1C658503009EDE53 /* bg_trade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_trade.png; path = Resources/Graph/Background/bg_trade.png; sourceTree = "<group>"; };
 		27C26D721C65889A009EDE53 /* GoodsIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsIcon.h; path = Classes/Image/Icon/GoodsIcon.h; sourceTree = "<group>"; };
 		27C26D731C65889A009EDE53 /* GoodsIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsIcon.m; path = Classes/Image/Icon/GoodsIcon.m; sourceTree = "<group>"; };
@@ -2239,8 +2234,16 @@
 		EC85DBE91DCAFC7100613F44 /* GameConditionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameConditionManager.m; path = Classes/Manager/GameConditionManager.m; sourceTree = "<group>"; };
 		EC85DBEB1DCB021400613F44 /* ConditionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConditionData.h; path = Classes/DataProcessing/ConditionData.h; sourceTree = "<group>"; };
 		EC85DBEC1DCB021400613F44 /* ConditionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConditionData.m; path = Classes/DataProcessing/ConditionData.m; sourceTree = "<group>"; };
-		ECFD22FD1D826AC500FCC903 /* DockYardScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockYardScene.h; path = Classes/UIScene/DockYardScene.h; sourceTree = "<group>"; };
-		ECFD22FE1D826AC500FCC903 /* DockYardScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DockYardScene.m; path = Classes/UIScene/DockYardScene.m; sourceTree = "<group>"; };
+		ECBADDCD1DD81EC200DC490D /* BaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseScene.h; path = Classes/UIScene/BaseScene.h; sourceTree = "<group>"; };
+		ECBADDCE1DD81EC200DC490D /* BaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseScene.m; path = Classes/UIScene/BaseScene.m; sourceTree = "<group>"; };
+		ECBADDD01DD821D600DC490D /* TradePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradePanel.h; path = Classes/Image/Panel/TradePanel.h; sourceTree = "<group>"; };
+		ECBADDD11DD821D600DC490D /* TradePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradePanel.m; path = Classes/Image/Panel/TradePanel.m; sourceTree = "<group>"; };
+		ECBADDD31DD8467800DC490D /* ShipExchangePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipExchangePanel.h; path = Classes/Image/Panel/ShipExchangePanel.h; sourceTree = "<group>"; };
+		ECBADDD41DD8467800DC490D /* ShipExchangePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipExchangePanel.m; path = Classes/Image/Panel/ShipExchangePanel.m; sourceTree = "<group>"; };
+		ECBADDD61DD84A7B00DC490D /* DockYardPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DockYardPanel.m; path = Classes/Image/Panel/DockYardPanel.m; sourceTree = "<group>"; };
+		ECBADDD71DD84A7B00DC490D /* DockYardPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockYardPanel.h; path = Classes/Image/Panel/DockYardPanel.h; sourceTree = "<group>"; };
+		ECBADDD91DD861ED00DC490D /* GameTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameTimerManager.h; path = Classes/Manager/GameTimerManager.h; sourceTree = "<group>"; };
+		ECBADDDA1DD861ED00DC490D /* GameTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameTimerManager.m; path = Classes/Manager/GameTimerManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3306,6 +3309,12 @@
 		27ACAB1C1C962C7E005C0881 /* Panel */ = {
 			isa = PBXGroup;
 			children = (
+				ECBADDD71DD84A7B00DC490D /* DockYardPanel.h */,
+				ECBADDD61DD84A7B00DC490D /* DockYardPanel.m */,
+				ECBADDD31DD8467800DC490D /* ShipExchangePanel.h */,
+				ECBADDD41DD8467800DC490D /* ShipExchangePanel.m */,
+				ECBADDD01DD821D600DC490D /* TradePanel.h */,
+				ECBADDD11DD821D600DC490D /* TradePanel.m */,
 				27ACAB1D1C962CB3005C0881 /* RoleSelectionPanel.h */,
 				27ACAB1E1C962CB3005C0881 /* RoleSelectionPanel.m */,
 				270AB1BE1C97E8BB00533B47 /* RoleInfoPanel.h */,
@@ -3457,14 +3466,8 @@
 		27C26CEA1C603D25009EDE53 /* UIScene */ = {
 			isa = PBXGroup;
 			children = (
-				ECFD22FD1D826AC500FCC903 /* DockYardScene.h */,
-				ECFD22FE1D826AC500FCC903 /* DockYardScene.m */,
-				27C26D4F1C646F1B009EDE53 /* ShipExchangeScene.h */,
-				27C26D501C646F1B009EDE53 /* ShipExchangeScene.m */,
 				27C26CEB1C603D6A009EDE53 /* ProgressScene.h */,
 				27C26CEC1C603D6A009EDE53 /* ProgressScene.m */,
-				27C26D6C1C6584A8009EDE53 /* TradeScene.h */,
-				27C26D6D1C6584A9009EDE53 /* TradeScene.m */,
 				27C26DB01C6BEFFF009EDE53 /* CGStoryScene.h */,
 				27C26DB11C6BEFFF009EDE53 /* CGStoryScene.m */,
 				27C26DC91C6DCDC0009EDE53 /* SailScene.h */,
@@ -3477,6 +3480,8 @@
 				270AB1C71C9A61C700533B47 /* DuelScene.m */,
 				270AB1D61CB780B300533B47 /* ShipScene.h */,
 				270AB1D71CB780B300533B47 /* ShipScene.m */,
+				ECBADDCD1DD81EC200DC490D /* BaseScene.h */,
+				ECBADDCE1DD81EC200DC490D /* BaseScene.m */,
 			);
 			name = UIScene;
 			sourceTree = "<group>";
@@ -3719,8 +3724,6 @@
 				27C26D361C63480C009EDE53 /* ExchangeGroupButton.m */,
 				27C26D381C634BC2009EDE53 /* ShopGroupButton.h */,
 				27C26D391C634BC2009EDE53 /* ShopGroupButton.m */,
-				27C26D3B1C634CF2009EDE53 /* ShipyardGroupButton.h */,
-				27C26D3C1C634CF2009EDE53 /* ShipyardGroupButton.m */,
 				2B20FCF61CD804530028E718 /* InfoButtonGroup.h */,
 				2B20FCF71CD804530028E718 /* InfoButtonGroup.m */,
 				27C26D3E1C634F4D009EDE53 /* DockGroupButton.h */,
@@ -4184,6 +4187,8 @@
 				EC85DBE91DCAFC7100613F44 /* GameConditionManager.m */,
 				EC3B89861DD0026E00482A42 /* GameValueManager.h */,
 				EC3B89871DD0026E00482A42 /* GameValueManager.m */,
+				ECBADDD91DD861ED00DC490D /* GameTimerManager.h */,
+				ECBADDDA1DD861ED00DC490D /* GameTimerManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -5041,7 +5046,6 @@
 				279BAC5C1C59E3B80069EF5D /* ALWrapper.m in Sources */,
 				27FBB7691CDC7938002B106B /* ItemIcon.m in Sources */,
 				279BAB8D1C59E3B70069EF5D /* CCEffectNode.m in Sources */,
-				27C26D6E1C6584A9009EDE53 /* TradeScene.m in Sources */,
 				27FBB79D1CED8F8F002B106B /* CityDataPanel.m in Sources */,
 				277A48031D47329900500E3E /* SailorNumberUnit.m in Sources */,
 				27FBB7A41CED8FA4002B106B /* ShipExchangeUnit.m in Sources */,
@@ -5107,6 +5111,7 @@
 				27C26D8D1C695291009EDE53 /* TeamData.m in Sources */,
 				270AB1EA1CC0AA4F00533B47 /* ShipdeckIcon.m in Sources */,
 				279BAB991C59E3B70069EF5D /* CCButton.m in Sources */,
+				ECBADDD81DD84A7B00DC490D /* DockYardPanel.m in Sources */,
 				279BAC6B1C59E3B90069EF5D /* IOSVersion.m in Sources */,
 				279BAC631C59E3B80069EF5D /* OALAudioSession.m in Sources */,
 				EC458A0B1DA2137F00B833A9 /* ShipData.m in Sources */,
@@ -5127,7 +5132,6 @@
 				279BAB7E1C59E3B70069EF5D /* CCEffectBrightness.m in Sources */,
 				27C26D141C617E3C009EDE53 /* GameTaskData.m in Sources */,
 				27C26CED1C603D6A009EDE53 /* ProgressScene.m in Sources */,
-				27C26D511C646F1B009EDE53 /* ShipExchangeScene.m in Sources */,
 				279BAA9C1C59E3B60069EF5D /* CCActionInterval.m in Sources */,
 				279BAB1F1C59E3B70069EF5D /* CCSpriteBatchNode.m in Sources */,
 				27C26D401C634F4D009EDE53 /* DockGroupButton.m in Sources */,
@@ -5140,7 +5144,6 @@
 				27ACAAF01C8953F4005C0881 /* NSSet+Sort.m in Sources */,
 				279BAB081C59E3B60069EF5D /* CCRenderTexture.m in Sources */,
 				279BAC771C59E3B90069EF5D /* OALAudioFile.m in Sources */,
-				ECFD22FF1D826AC500FCC903 /* DockYardScene.m in Sources */,
 				27FBB7441CD844A1002B106B /* ItemData.m in Sources */,
 				278F4A4A1C83D31400D724EF /* StoryTriggerData.m in Sources */,
 				2723D4AB1D18FD4A000B1990 /* PopUpFrame.m in Sources */,
@@ -5151,10 +5154,12 @@
 				27C26DB21C6BEFFF009EDE53 /* CGStoryScene.m in Sources */,
 				279BAB841C59E3B70069EF5D /* CCEffectColor.m in Sources */,
 				279BAAE21C59E3B60069EF5D /* CCParallaxNode.m in Sources */,
+				ECBADDDB1DD861ED00DC490D /* GameTimerManager.m in Sources */,
 				279BAC051C59E3B80069EF5D /* ZipUtils.m in Sources */,
 				27C26D1B1C6283A9009EDE53 /* SystemGroupButton.m in Sources */,
 				279BAA7D1C59E3B60069EF5D /* CCTouch.m in Sources */,
 				27FBB7561CD852E0002B106B /* LabelButton.m in Sources */,
+				ECBADDD51DD8467800DC490D /* ShipExchangePanel.m in Sources */,
 				279BAA901C59E3B60069EF5D /* CCAction.m in Sources */,
 				279BAAC51C59E3B60069EF5D /* CCLabelBMFont.m in Sources */,
 				27C26D2A1C633671009EDE53 /* GoodsCategoriesData.m in Sources */,
@@ -5177,6 +5182,7 @@
 				270AB1D81CB780B300533B47 /* ShipScene.m in Sources */,
 				279BAAA31C59E3B60069EF5D /* CCActionProgressTimer.m in Sources */,
 				279BABF51C59E3B80069EF5D /* CGPointExtension.m in Sources */,
+				ECBADDCF1DD81EC200DC490D /* BaseScene.m in Sources */,
 				27ACAAF91C8EC5B0005C0881 /* CityBuildingData.m in Sources */,
 				279BAAC81C59E3B60069EF5D /* CCLabelTTF.m in Sources */,
 				27C26D271C63312E009EDE53 /* BaseButtonGroup.m in Sources */,
@@ -5222,6 +5228,7 @@
 				279BAB811C59E3B70069EF5D /* CCEffectContrast.m in Sources */,
 				279BABEB1C59E3B80069EF5D /* CCProfiling.m in Sources */,
 				279BAC4E1C59E3B80069EF5D /* ALDevice.m in Sources */,
+				ECBADDD21DD821D600DC490D /* TradePanel.m in Sources */,
 				279BAC391C59E3B80069EF5D /* OALAudioTracks.m in Sources */,
 				279BAC261C59E3B80069EF5D /* OALAction.m in Sources */,
 				279BAB3D1C59E3B70069EF5D /* CCTMXXMLParser.m in Sources */,
@@ -5239,7 +5246,6 @@
 				279BAB151C59E3B70069EF5D /* CCScheduler.m in Sources */,
 				27FBB8671D0FC0F5002B106B /* TextInputPanel.m in Sources */,
 				27C26D241C6330FC009EDE53 /* CityBuildingGroup.m in Sources */,
-				27C26D3D1C634CF2009EDE53 /* ShipyardGroupButton.m in Sources */,
 				27ACAB031C94EFB6005C0881 /* SkillData.m in Sources */,
 				279BAACF1C59E3B60069EF5D /* CCLayout.m in Sources */,
 				27C26CBB1C5EF701009EDE53 /* CityScene.m in Sources */,

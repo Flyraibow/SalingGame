@@ -6,7 +6,7 @@
 //  Copyright © 2016 Yujie Liu. All rights reserved.
 //
 
-#import "PopUpFrame.h"
+#import "BasePanel.h"
 
 @protocol SailorNumberPanelDelegate <NSObject>
 
@@ -17,10 +17,6 @@
 
 @end
 
-@interface SailorNumberPanel : PopUpFrame
-
--(instancetype)initWithShipList:(NSArray *)shipList
-               freeSailorNumber:(NSInteger)freeSailorNumber
-                completeEventId:(NSString *)eventId;
+@interface SailorNumberPanel : BasePanel
 
 @end

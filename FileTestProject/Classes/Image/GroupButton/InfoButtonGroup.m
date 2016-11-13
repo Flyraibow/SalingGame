@@ -13,7 +13,6 @@
 #import "RolePanel.h"
 #import "ItemBrowsePanel.h"
 #import "GameDataManager.h"
-#import "ShipExchangeScene.h"
 
 @implementation InfoButtonGroup
 
@@ -37,17 +36,17 @@
 -(void)clickShipInfo
 {
     // TODO: 列出我所有的船，不仅仅是当前舰队的
-    MyGuild *myGuild = [GameDataManager sharedGameData].myGuild;
-    NSMutableArray<GameShipData *> *shipList = [myGuild.myTeam shipDataList];
-    [shipList addObjectsFromArray:[myGuild.myTeam carryShipDataList]];
-    for (int i = 0; i < myGuild.teamList.count; ++i) {
-        GameTeamData *teamData = myGuild.teamList[i];
-        [shipList addObjectsFromArray:[teamData shipDataList]];
-        [shipList addObjectsFromArray:[teamData carryShipDataList]];
-    }
-    
-    ShipExchangeScene *shipInfoScene = [[ShipExchangeScene alloc] initWithShipList:shipList sceneType:ShipSceneTypeInfo];
-    [[CCDirector sharedDirector] pushScene:shipInfoScene];
+//    MyGuild *myGuild = [GameDataManager sharedGameData].myGuild;
+//    NSMutableArray<GameShipData *> *shipList = [myGuild.myTeam shipDataList];
+//    [shipList addObjectsFromArray:[myGuild.myTeam carryShipDataList]];
+//    for (int i = 0; i < myGuild.teamList.count; ++i) {
+//        GameTeamData *teamData = myGuild.teamList[i];
+//        [shipList addObjectsFromArray:[teamData shipDataList]];
+//        [shipList addObjectsFromArray:[teamData carryShipDataList]];
+//    }
+//    
+//    ShipExchangeScene *shipInfoScene = [[ShipExchangeScene alloc] initWithShipList:shipList sceneType:ShipSceneTypeInfo];
+//    [[CCDirector sharedDirector] pushScene:shipInfoScene];
 }
 
 -(void)clickSailorInfo

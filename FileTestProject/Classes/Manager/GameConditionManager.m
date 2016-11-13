@@ -56,6 +56,18 @@ static GameConditionManager *_sharedConditionManager;
     return YES;
 }
 
+
+- (BOOL)checkOrConditions:(NSString *)conditions
+{
+    NSArray *conditionList = [conditions componentsSeparatedByString:@";"];
+    for (NSString *str in conditionList) {
+        if ([self checkCondition:str]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (BOOL)checkCondition:(NSString *)conditionId
 {
     if (conditionId.length == 0) {
@@ -65,6 +77,7 @@ static GameConditionManager *_sharedConditionManager;
     NSString *string = nil;
     BOOL strFlag = NO;
     ConditionData *condition = [_conditionDictionary objectForKey:conditionId];
+    NSAssert(condition, @"Condition doesn't exist : %@", conditionId);
     if ([condition.type isEqualToString:@"guild"]) {
         if ([condition.subtype isEqualToString:@"job"]) {
             NSInteger job = [[GameValueManager sharedValueManager] valueByType:condition.type2 subType:condition.subType2];
@@ -77,6 +90,8 @@ static GameConditionManager *_sharedConditionManager;
         }
     } else if ([condition.type isEqualToString:@"and"]) {
         return [self checkConditions:condition.type2];
+    }  else if ([condition.type isEqualToString:@"or"]) {
+        return [self checkOrConditions:condition.type2];
     } else if ([condition.type isEqualToString:@"cacheString"]) {
         strFlag = YES;
         string = [[GameValueManager sharedValueManager] stringByKey:condition.subtype];
