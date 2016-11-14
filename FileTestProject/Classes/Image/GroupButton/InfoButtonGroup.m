@@ -65,9 +65,9 @@
 
 -(void)clickItemInfo
 {
-    NSArray *items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
-    ItemBrowsePanel *browsePanel = [[ItemBrowsePanel alloc] initWithItems:items panelType:ItemBrowsePanelTypeBrowse];
-    [self.scene addChild:browsePanel];
+//    NSArray *items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
+//    ItemBrowsePanel *browsePanel = [[ItemBrowsePanel alloc] initWithItems:items panelType:ItemBrowsePanelTypeBrowse];
+//    [self.scene addChild:browsePanel];
 }
 
 -(void)clickDiaryInfo

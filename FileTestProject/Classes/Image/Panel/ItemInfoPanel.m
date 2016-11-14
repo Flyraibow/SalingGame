@@ -11,6 +11,8 @@
 #import "DefaultButton.h"
 #import "LocalString.h"
 #import "CCSprite+Ext.h"
+#import "GameValueManager.h"
+#import "GameDataManager.h"
 
 @implementation ItemInfoPanel
 {
@@ -28,7 +30,7 @@
     CCLabelTTF *_labEquipType;
 }
 
--(instancetype)initWithPanelType:(ItemBrowsePanelType)type
+- (instancetype)initWithDataList:(NSArray *)dataList
 {
     if (self = [super initWithNode:[BGImage getShadowForBackground]]) {
         self.contentSize = [CCDirector sharedDirector].viewSize;
@@ -36,7 +38,8 @@
         self.position = ccp(0.5, 0.5);
         self.anchorPoint = ccp(0.5, 0.5);
         
-        _type = type;
+        _type = [dataList[0] integerValue];
+        NSString *itemId = [[GameValueManager sharedValueManager] getStringByTerm:dataList[1]];
         
         _itemPanel = [CCSprite spriteWithImageNamed:@"itemDescFrame.jpg"];
         _itemPanel.positionType = CCPositionTypeNormalized;
@@ -71,7 +74,7 @@
         [closeButton setTarget:self selector:@selector(clickCloseButton)];
         [_itemPanel addChild:closeButton];
         
-        if (type != ItemBrowsePanelTypeSingle) {
+        if (_type != ItemBrowsePanelTypeSingle) {
             _rightBtn = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:@"rightArrowButton.png"]];
             _rightBtn.positionType = CCPositionTypeNormalized;
             _rightBtn.anchorPoint = ccp(0.5, 0.5);
@@ -86,7 +89,7 @@
             [_leftBtn setTarget:self selector:@selector(clickLeftButton)];
             [_itemPanel addChild:_leftBtn];
         }
-
+        
         _selectButton = [DefaultButton buttonWithTitle:@""];
         _selectButton.positionType = CCPositionTypeNormalized;
         _selectButton.anchorPoint = ccp(1, 0);
@@ -118,6 +121,9 @@
         _labEquipType.anchorPoint = ccp(0.5, 0.5);
         _labEquipType.position = ccp(0.82, 0.41);
         [_itemPanel addChild:_labEquipType];
+        
+        GameItemData *itemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
+        [self setItemData:itemData];
     }
     return self;
 }

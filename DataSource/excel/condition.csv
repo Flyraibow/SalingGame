@@ -20,3 +20,4 @@ shipNumberExceed,____,ship,number,>=,number,5
 haveShip2Sell,______,or,;,;,haveShipInDock;have2Ship,;
 have2Ship,______,ship,number,>,number,1
 haveShipInDock,____,city,shipNumber,>,number,0
+cityHaveItem,______,city,sellItemNumber,>,number,0

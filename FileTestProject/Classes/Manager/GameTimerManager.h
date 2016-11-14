@@ -9,8 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "CCScheduler.h"
 
-@interface GameTimerManager : CCScheduler
+@interface GameTimerManager : NSObject
 
 + (GameTimerManager *)sharedTimerManager;
+
+/** Whether the timer is paused. */
+@property(nonatomic, assign) BOOL paused;
+
+- (void)addBlock:(void(^)())complete withInterval:(CCTime)interval;
 
 @end

@@ -14,9 +14,13 @@
 
 - (NSString *)stringByKey:(NSString *)key;
 
+- (NSString *)reservedStringByKey:(NSString *)key;
+
 - (NSInteger)intByKey:(NSString *)key;
 
 - (void)setString:(NSString *)value byKey:(NSString *)key;
+
+- (void)setReserveString:(NSString *)value byKey:(NSString *)key;
 
 - (void)setNum:(NSInteger)value byKey:(NSString *)key;
 
@@ -31,5 +35,6 @@
 - (NSInteger)valueByType:(NSString *)type subType:(NSString *)subType;
 
 - (NSString *)stringByType:(NSString *)type subType:(NSString *)subType;
+
 
 @end

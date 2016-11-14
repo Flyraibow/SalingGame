@@ -239,10 +239,10 @@
 -(void)selectItem:(GameItemData *)itemData
 {
     // 弹出商品info，可以选择卸载
-    _itemPanel = [[ItemInfoPanel alloc] initWithPanelType:ItemBrowsePanelTypeSingle];
-    [_itemPanel setItemData:itemData];
-    _itemPanel.delegate = self;
-    [self.scene addChild:_itemPanel];
+//    _itemPanel = [[ItemInfoPanel alloc] initWithPanelType:ItemBrowsePanelTypeSingle];
+//    [_itemPanel setItemData:itemData];
+//    _itemPanel.delegate = self;
+//    [self.scene addChild:_itemPanel];
 }
 
 -(void)selectItemFromInfoPanel:(GameItemData *)gameItemData
@@ -266,10 +266,10 @@
             [mutableItems removeObject:itemData];
         }
     }
-    ItemBrowsePanel *panel = [[ItemBrowsePanel alloc] initWithItems:mutableItems panelType:ItemBrowsePanelTypeEquip];
-    panel.delegate = self;
-    panel.equipedRoleId = _roleId;
-    [self.scene addChild:panel];
+//    ItemBrowsePanel *panel = [[ItemBrowsePanel alloc] initWithItems:mutableItems panelType:ItemBrowsePanelTypeEquip];
+//    panel.delegate = self;
+//    panel.equipedRoleId = _roleId;
+//    [self.scene addChild:panel];
 }
 
 -(void)updatePanel

@@ -38,6 +38,4 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) NSString *equipedRoleId;            // used for preselected situation
 @property (nonatomic, weak) NSString *equipedShipId;            // used for preselected situation
 
--(instancetype)initWithPanelType:(ItemBrowsePanelType)type;
-
 @end

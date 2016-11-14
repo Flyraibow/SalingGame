@@ -135,3 +135,15 @@ sleepMoneySuccessCostMoney,,dataChange,money;-;cache.money
 sleepMoneySuccessCostDay,,wait,cache.day
 sleepMoneyFail,,eventList,close;sleepMoneyFailDialog;inn
 sleepMoneyFailDialog,,dataChange,dialog_no_enough_money
+buyItem,____,eventList,close;cityHaveItem
+cityHaveItem,,condition,cityHaveItem;buyItemStart;buyItemNoItem
+buyItemStart,,eventList,buyItemDialog;buyItemWindow
+buyItemDialog,,dialog,dialog_what_do_you_wanna_buy
+buyItemNoItem,,eventList,buyItemNoItemDialog;shop
+buyItemNoItemDialog,,dialog,dialog_no_item_to_sell
+buyItemWindow,,window,ItemBrowsePanel;buyItemSelected;buyItemCanceled;0
+buyItemSelected,,eventList,buyItemSmallWindow
+buyItemCanceled,,eventList,shop
+buyItemSmallWindow,,window,ItemInfoPanel;buyItemConfirmed;buyItemCancelSmallWindow;0;reserved.itemId
+buyItemConfirmed,,eventList,;
+buyItemCancelSmallWindow,,eventList,;

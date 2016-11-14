@@ -34,6 +34,7 @@
         
         _type = [dataList[0] integerValue];
         CCNodeColor *node = [BGImage getShadowForBackground];
+        node.userInteractionEnabled = NO;
         [self addChild:node];
         CCSprite *sprite = [CCSprite spriteWithImageNamed:@"invest.png"];
         sprite.anchorPoint = ccp(0.5, 0.5);
@@ -87,6 +88,7 @@
         }
         _selectNum = 0;
         _maxNum = (int)[GameDataManager sharedGameData].myGuild.money / _unitMoney;
+        self.userInteractionEnabled = YES;
     }
     return self;
 }
@@ -122,7 +124,6 @@
     }];
    
 }
-
 
 -(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
     CGSize viewSize = [[CCDirector sharedDirector] viewSize];

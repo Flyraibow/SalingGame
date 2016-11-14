@@ -113,10 +113,10 @@
                 // 船首像的逻辑另外算
                 if (self.shipData.shipHeader) {
                     // 弹出商品info，可以选择卸载
-                    _itemPanel = [[ItemInfoPanel alloc] initWithPanelType:ItemBrowsePanelTypeSingle];
-                    [_itemPanel setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:self.shipData.shipHeader]];
-                    _itemPanel.delegate = self;
-                    [self.scene addChild:_itemPanel];
+//                    _itemPanel = [[ItemInfoPanel alloc] initWithPanelType:ItemBrowsePanelTypeSingle];
+//                    [_itemPanel setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:self.shipData.shipHeader]];
+//                    _itemPanel.delegate = self;
+//                    [self.scene addChild:_itemPanel];
                     
                 } else {
                     NSArray *items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
@@ -127,10 +127,10 @@
                             [mutableItems removeObject:itemData];
                         }
                     }
-                    ItemBrowsePanel *itemPanel = [[ItemBrowsePanel alloc] initWithItems:mutableItems panelType:ItemBrowsePanelTypeShipHeader];
-                    itemPanel.delegate = self;
-                    itemPanel.equipedShipId = self.shipData.shipId;
-                    [self.scene addChild:itemPanel];
+//                    ItemBrowsePanel *itemPanel = [[ItemBrowsePanel alloc] initWithItems:mutableItems panelType:ItemBrowsePanelTypeShipHeader];
+//                    itemPanel.delegate = self;
+//                    itemPanel.equipedShipId = self.shipData.shipId;
+//                    [self.scene addChild:itemPanel];
                 }
             }
         }

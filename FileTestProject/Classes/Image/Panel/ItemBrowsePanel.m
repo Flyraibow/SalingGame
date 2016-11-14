@@ -19,6 +19,7 @@
 #import "GameItemData.h"
 #import "RolePanel.h"
 #import "GameNPCData.h"
+#import "GameValueManager.h"
 
 const static int kShowItemNumberEachLine = 7;
 const static int kShowLinesNumber = 4;
@@ -44,15 +45,12 @@ const static int kShowLinesNumber = 4;
     int _startLine;
 }
 
--(instancetype)initWithItems:(NSArray *)items panelType:(ItemBrowsePanelType)type
+- (instancetype)initWithDataList:(NSArray *)dataList
 {
-    if (self = [super initWithNode:[BGImage getShadowForBackground]]) {
-        self.contentSize = [CCDirector sharedDirector].viewSize;
-        self.positionType = CCPositionTypeNormalized;
-        self.position = ccp(0.5, 0.5);
-        self.anchorPoint = ccp(0.5, 0.5);
+    if (self = [super init]) {
+        _panelType = [dataList[0] integerValue];
+        NSArray *items = [self getItemsByPanelType];
         
-        _panelType = type;
         _panel = [CCSprite spriteWithImageNamed:@"ItemBrowsePanel.jpg"];
         _panel.positionType = CCPositionTypeNormalized;
         _panel.position = ccp(0.5, 0.1);
@@ -100,6 +98,23 @@ const static int kShowLinesNumber = 4;
         [self setItems:items];
     }
     return self;
+}
+
+- (NSArray *)getItemsByPanelType
+{
+    switch (_panelType) {
+        case ItemBrowsePanelTypeBuy:
+            return [[GameDataManager sharedGameData] itemListByCity:self.cityId];
+        case ItemBrowsePanelTypeSell:
+            return [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
+        case ItemBrowsePanelTypeBrowse:
+            return  [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
+        case ItemBrowsePanelTypeEquip:
+        case ItemBrowsePanelTypeSingle:
+        case ItemBrowsePanelTypeShipHeader:
+        default:
+            return nil;
+    }
 }
 
 -(void)setItems:(NSArray *)items
@@ -196,22 +211,26 @@ const static int kShowLinesNumber = 4;
 -(void)clickCloseButton
 {
     [self removeFromParent];
+    self.completionBlockWithEventId(self.cancelEvent);
 }
 
 -(void)selectItem:(GameItemData *)gameItemData
 {
-    _selecteItemIndex = [_itemList indexOfObject:gameItemData];
-    if (_itemInfoPanel == nil) {
-        _itemInfoPanel = [[ItemInfoPanel alloc] initWithPanelType:_panelType];
-        _itemInfoPanel.equipedRoleId = self.equipedRoleId;
-        _itemInfoPanel.equipedShipId = self.equipedShipId;
-        _itemInfoPanel.delegate = self;
-        [self addChild:_itemInfoPanel];
-    } else if (_itemInfoPanel.parent == nil) {
-        [self addChild:_itemInfoPanel];
-    }
-    _itemInfoPanel.itemData = gameItemData;
-    _panel.visible = NO;
+    [[GameValueManager sharedValueManager] setReserveString:gameItemData.itemId byKey:@"itemId"];
+    self.completionBlockWithEventId(self.successEvent);
+//    
+//    _selecteItemIndex = [_itemList indexOfObject:gameItemData];
+//    if (_itemInfoPanel == nil) {
+//        _itemInfoPanel = [[ItemInfoPanel alloc] initWithPanelType:_panelType];
+//        _itemInfoPanel.equipedRoleId = self.equipedRoleId;
+//        _itemInfoPanel.equipedShipId = self.equipedShipId;
+//        _itemInfoPanel.delegate = self;
+//        [self addChild:_itemInfoPanel];
+//    } else if (_itemInfoPanel.parent == nil) {
+//        [self addChild:_itemInfoPanel];
+//    }
+//    _itemInfoPanel.itemData = gameItemData;
+//    _panel.visible = NO;
 }
 
 -(void)closeItemInfoPanel
@@ -294,7 +313,7 @@ const static int kShowLinesNumber = 4;
                 [self removeChild:weakItemInfoPanel];
                 _panel.visible = YES;
                 MyGuild *myguild = [GameDataManager sharedGameData].myGuild;
-                [myguild sellItem:gameItemData withMoney:price toCityId:_cityNo];
+                [myguild sellItem:gameItemData withMoney:price toCityId:self.cityId];
                 NSMutableArray *items = [_itemList mutableCopy];
                 [items removeObject:gameItemData];
                 [self setItems:items];

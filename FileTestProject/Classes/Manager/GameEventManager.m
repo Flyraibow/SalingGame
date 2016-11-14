@@ -15,6 +15,7 @@
 #import "GameDataManager.h"
 #import "BGImage.h"
 #import "GameValueManager.h"
+#import "GameTimerManager.h"
 
 static GameEventManager *_sharedEventManager;
 
@@ -174,15 +175,11 @@ static GameEventManager *_sharedEventManager;
 - (void)_waitADay
 {
     if (_currentDays < _totalDays) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[GameTimerManager sharedTimerManager] addBlock:^{
             _currentDays++;
             [[GameDataManager sharedGameData] spendOneDay];
-            if (![GamePanelManager isInDialog]) {
-                [self _waitADay];
-            } else {
-                
-            }
-        });
+            [self _waitADay];
+        } withInterval:0.2];
     } else {
         [self _removeTransparentCover];
         [self _startEventList];

@@ -18,6 +18,7 @@
 #import "NSString+Ext.h"
 #import "GameNPCData.h"
 #import "GameCityData.h"
+#import "GameTimerManager.h"
 
 @implementation DialogPanel
 {
@@ -276,6 +277,13 @@
         dialogText = [NSString stringWithFormat:@"{%@} dialog not implement yet", defaultDialogId];
     }
     [self setDialogWithPhotoNo:dialogPhotoId npcName:dialogNameName text:dialogText];
+}
+
+
+- (void)setParent:(CCNode *)parent
+{
+    super.parent = parent;
+    [GameTimerManager sharedTimerManager].paused = parent;
 }
 
 @end

@@ -16,6 +16,7 @@ static GameValueManager *_sharedValueManager;
 {
     NSMutableDictionary *_numDictionary;
     NSMutableDictionary *_stringDictionary;
+    NSMutableDictionary *_reserveDictionary;
     NSDictionary *_cityDictionary;
     MyGuild *_myguild;
     NSString *_myguildId;
@@ -35,6 +36,7 @@ static GameValueManager *_sharedValueManager;
     if (self = [super init]) {
         _numDictionary = [NSMutableDictionary new];
         _stringDictionary = [NSMutableDictionary new];
+        _reserveDictionary = [NSMutableDictionary new];
         _cityDictionary = [GameDataManager sharedGameData].cityDic;
         _itemDictionary = [GameDataManager sharedGameData].itemDic;
         _myguild = [GameDataManager sharedGameData].myGuild;
@@ -57,9 +59,20 @@ static GameValueManager *_sharedValueManager;
     return (ob != [NSNull null]) ? ob : nil;
 }
 
+- (NSString *)reservedStringByKey:(NSString *)key
+{
+    id ob = [_reserveDictionary objectForKey:key];
+    return (ob != [NSNull null]) ? ob : nil;
+}
+
 - (void)setString:(NSString *)value byKey:(NSString *)key
 {
     [_stringDictionary setObject:value?:[NSNull null] forKey:key];
+}
+
+- (void)setReserveString:(NSString *)value byKey:(NSString *)key
+{
+    [_reserveDictionary setObject:value?:[NSNull null] forKey:key];
 }
 
 - (void)setNum:(NSInteger)value byKey:(NSString *)key
@@ -134,6 +147,8 @@ static GameValueManager *_sharedValueManager;
         return [self stringByKey:subType];
     } else if ([type isEqualToString:@"string"]) {
         return subType;
+    } else if ([type isEqualToString:@"reserved"]) {
+        return [self reservedStringByKey:subType];
     }
     return type;
 }
@@ -163,6 +178,8 @@ static GameValueManager *_sharedValueManager;
             value = cityData.nextSailorNumber;
         } else if ([subType isEqualToString:@"shipNumber"]) {
             value = [_myguild.myTeam getCarryShipListInCity:cityData.cityNo].count;
+        } else if ([subType isEqualToString:@"sellItemNumber"]) {
+            value = [[GameDataManager sharedGameData] itemListByCity:cityData.cityNo].count;
         }
     } else if ([type isEqualToString:@"guild"]) {
         if ([subType isEqualToString:@"item"]) {

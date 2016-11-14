@@ -39,18 +39,18 @@
 
 -(void)clickBuyBtn
 {
-    NSArray *itemList = [[GameDataManager sharedGameData] itemListByCity:_cityNo];
-    ItemBrowsePanel *item = [[ItemBrowsePanel alloc] initWithItems:itemList panelType:ItemBrowsePanelTypeBuy];
-    item.cityNo = _cityNo;
-    [self addChild:item];
+//    NSArray *itemList = [[GameDataManager sharedGameData] itemListByCity:_cityNo];
+//    ItemBrowsePanel *item = [[ItemBrowsePanel alloc] initWithItems:itemList panelType:ItemBrowsePanelTypeBuy];
+//    item.cityNo = _cityNo;
+//    [self addChild:item];
 }
 
 -(void)clickSaleBtn
 {
-    NSArray *itemList = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
-    ItemBrowsePanel *item = [[ItemBrowsePanel alloc] initWithItems:itemList panelType:ItemBrowsePanelTypeSell];
-    item.cityNo = _cityNo;
-    [self addChild:item];
+//    NSArray *itemList = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
+//    ItemBrowsePanel *item = [[ItemBrowsePanel alloc] initWithItems:itemList panelType:ItemBrowsePanelTypeSell];
+//    item.cityNo = _cityNo;
+//    [self addChild:item];
 }
 
 -(void)clickTaskBtn
