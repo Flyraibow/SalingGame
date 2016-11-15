@@ -56,7 +56,7 @@
             [dialogPanel addYesNoWithCallback:^(int index) {
                 if (index == 0) {
                     [gameCityData unlockGoodsByItem:itemId];
-                    [gameItemData unlockGoods];
+//                    [gameItemData unlockGoods];
                 }
             }];
             return;

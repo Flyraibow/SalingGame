@@ -112,8 +112,11 @@ static GameEventManager *_sharedEventManager;
         } else if ([eventData.eventType isEqualToString:@"dialogTemp"]) {
             NSMutableArray *tempList = [[eventData.parameter componentsSeparatedByString:@";"] mutableCopy];
             for (NSInteger i = 0; i < tempList.count; ++i) {
-                NSInteger value = [[GameValueManager sharedValueManager] getNumberByTerm:tempList[i]];
-                tempList[i] = [@(value) stringValue];
+                NSString *str = [[GameValueManager sharedValueManager] getStringByTerm:tempList[i]];
+                if (!str || str.length == 0) {
+                    str = [@([[GameValueManager sharedValueManager] getNumberByTerm:tempList[i]]) stringValue] ;
+                }
+                tempList[i] = str;
             }
             _tempDialogContent = tempList;
             [self _startEventList];

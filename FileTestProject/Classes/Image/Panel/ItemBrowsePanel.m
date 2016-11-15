@@ -295,7 +295,7 @@ const static int kShowLinesNumber = 4;
                 _panel.visible = YES;
                 MyGuild *myguild = [GameDataManager sharedGameData].myGuild;
                 if (gameItemData.itemData.price <= myguild.money) {
-                    [myguild buyItem:gameItemData withMoney:gameItemData.itemData.price];
+//                    [myguild buyItem:gameItemData withMoney:gameItemData.itemData.price];
                     //刷新界面
                     NSMutableArray *items = [_itemList mutableCopy];
                     [items removeObject:gameItemData];
@@ -313,7 +313,7 @@ const static int kShowLinesNumber = 4;
                 [self removeChild:weakItemInfoPanel];
                 _panel.visible = YES;
                 MyGuild *myguild = [GameDataManager sharedGameData].myGuild;
-                [myguild sellItem:gameItemData withMoney:price toCityId:self.cityId];
+//                [myguild sellItem:gameItemData withMoney:price toCityId:self.cityId];
                 NSMutableArray *items = [_itemList mutableCopy];
                 [items removeObject:gameItemData];
                 [self setItems:items];

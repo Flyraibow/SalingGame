@@ -76,7 +76,7 @@ static NSString* const GameItemItemId= @"GameItemItemId";
     _guildId = @"0";
 }
 
--(void)unlockGoods
+-(void)isUsed
 {
     _cityNo = @"0";
     _guildId = @"0";

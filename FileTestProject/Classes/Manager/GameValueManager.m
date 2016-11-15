@@ -9,6 +9,7 @@
 #import "GameValueManager.h"
 #import "GameCityData.h"
 #import "GameDataManager.h"
+#import "LocalString.h"
 
 static GameValueManager *_sharedValueManager;
 
@@ -149,6 +150,11 @@ static GameValueManager *_sharedValueManager;
         return subType;
     } else if ([type isEqualToString:@"reserved"]) {
         return [self reservedStringByKey:subType];
+    } else if ([type isEqualToString:@"item"]) {
+        NSString *itemId = [self reservedStringByKey:@"itemId"];
+        if ([subType isEqualToString:@"itemName"]) {
+            return getItemName(itemId);
+        }
     }
     return type;
 }
@@ -201,6 +207,12 @@ static GameValueManager *_sharedValueManager;
         value = [self intByKey:subType];
     } else if ([type isEqualToString:@"number"]) {
         value = [subType integerValue];
+    } else if ([type isEqualToString:@"item"]) {
+        NSString *itemId = [self reservedStringByKey:@"itemId"];
+        if ([subType isEqualToString:@"money"]) {
+            GameItemData *itemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
+            value = itemData.itemData.price;
+        }
     }
     return value;
 }

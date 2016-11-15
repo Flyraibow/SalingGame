@@ -203,15 +203,14 @@
 
 -(void)clickCloseButton
 {
-    if (_delegate && [_delegate respondsToSelector:@selector(closeItemInfoPanel)]) {
-        [_delegate closeItemInfoPanel];
-    }
     [self removeFromParent];
+    self.completionBlockWithEventId(self.cancelEvent);
 }
 
 -(void)selectItem
 {
-    [_delegate selectItemFromInfoPanel:_itemData];
+    [self removeFromParent];
+    self.completionBlockWithEventId(self.successEvent);
 }
 
 -(void)clickRightButton

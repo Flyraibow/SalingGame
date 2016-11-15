@@ -23,7 +23,5 @@
 -(instancetype)initWithGameGuildData:(GameGuildData *)guildData;
 -(instancetype)initWithGuildData:(GuildData *)guildData;
 -(void)spendMoney:(NSInteger)value;
--(void)buyItem:(GameItemData *)gameItemData withMoney:(int)money;
--(void)sellItem:(GameItemData *)gameItemData withMoney:(int)money toCityId:(NSString *)cityId;
 
 @end

@@ -476,6 +476,21 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
         } else if ([array[1] isEqualToString:@"+"]) {
             self.myGuild.money += [[GameValueManager sharedValueManager] getNumberByTerm:array[2]];
         }
+    } else if ([array[0] isEqualToString:@"item"]) {
+        NSString *itemId = [[GameValueManager sharedValueManager] getStringByTerm:array[2]];
+        GameItemData *itemData = [self.itemDic objectForKey:itemId];
+        if ([array[1] isEqualToString:@"sell"]) {
+            [itemData sellToCityNo:self.myGuild.myTeam.currentCityId];
+        } else if ([array[1] isEqualToString:@"get"]) {
+            [itemData boughtByGuildNo:self.myGuild.guildId];
+        } else if ([array[1] isEqualToString:@"use"]) {
+            [itemData isUsed];
+        }
+    } else if ([array[0] isEqualToString:@"city"]) {
+        GameCityData *cityData = [self.cityDic objectForKey:_myGuild.myTeam.currentCityId];
+        if ([array[1] isEqualToString:@"unblockItem"]) {
+            [cityData unlockGoodsByItem:[[GameValueManager sharedValueManager] getStringByTerm:array[2]]];
+        }
     }
 }
 
