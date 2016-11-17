@@ -60,7 +60,7 @@ static GameValueManager *_sharedValueManager;
     return (ob != [NSNull null]) ? ob : nil;
 }
 
-- (NSString *)reservedStringByKey:(NSString *)key
+- (NSString *)reservedStringByKey:(const NSString *)key
 {
     id ob = [_reserveDictionary objectForKey:key];
     return (ob != [NSNull null]) ? ob : nil;
@@ -71,7 +71,7 @@ static GameValueManager *_sharedValueManager;
     [_stringDictionary setObject:value?:[NSNull null] forKey:key];
 }
 
-- (void)setReserveString:(NSString *)value byKey:(NSString *)key
+- (void)setReserveString:(NSString *)value byKey:(const NSString *)key
 {
     [_reserveDictionary setObject:value?:[NSNull null] forKey:key];
 }
@@ -192,6 +192,8 @@ static GameValueManager *_sharedValueManager;
             return [[_itemDictionary objectForKey:_myguildId].guildId isEqualToString:_myguildId];
         } else if ([subType isEqualToString:@"money"]) {
             value = _myguild.money;
+        } else if ([subType isEqualToString:@"sellItemNumber"]) {
+            value = [[GameDataManager sharedGameData] itemListByGuild:_myguild.guildId].count;
         }
     } else if ([type isEqualToString:@"ship"]) {
         if ([subType isEqualToString:@"number"]) {

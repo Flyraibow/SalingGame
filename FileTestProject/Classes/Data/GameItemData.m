@@ -74,6 +74,8 @@ static NSString* const GameItemItemId= @"GameItemItemId";
 {
     _cityNo = cityNo;
     _guildId = @"0";
+    _roleId = nil;
+    _shipId = nil;
 }
 
 -(void)isUsed

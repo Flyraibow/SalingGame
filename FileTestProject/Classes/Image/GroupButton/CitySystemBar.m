@@ -20,6 +20,7 @@
 #import "ShipScene.h"
 #import "SailorNumberPanel.h"
 #import "GamePanelManager.h"
+#import "GameEventManager.h"
 
 typedef enum : NSUInteger {
     Button_Sail_MAP = 1,
@@ -102,15 +103,7 @@ typedef enum : NSUInteger {
     }
     else if(index == Button_Sailor_Number)
     {
-        
-        NSArray *shipList = [[GameDataManager sharedGameData].myGuild.myTeam shipDataList];
-        if (shipList.count > 0) {
-            
-//            SailorNumberPanel *sailorNumberPanel = [[SailorNumberPanel alloc] initWithShipList:shipList freeSailorNumber:0 completeEventId:nil];
-//            [self.scene addChild:sailorNumberPanel];
-        } else {
-            [[GamePanelManager sharedDialogPanelAboveSprite:self hidden:YES] setDefaultDialog:@"dialog_no_ship_no_game" arguments:nil];
-        }
+        [[GameEventManager sharedEventManager] startEventId:@"arrangeSailor"];
     }
     else if(index == Button_Sail_MAP)
     {

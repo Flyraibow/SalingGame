@@ -197,6 +197,7 @@ OccupationUpdateProtocol>
     _cityState.string = getLocalStringByInt(@"city_state_", cityData.cityState);
     
     NSUInteger i = 0;
+    // TODO: cityData.goodsDict sort
     for (NSString *goodsId in cityData.goodsDict) {
         CCLabelTTF *labGoods = [_labCityGoodsArray objectAtIndex:i++];
         labGoods.string = getLocalStringByString(@"goods_name_", goodsId);

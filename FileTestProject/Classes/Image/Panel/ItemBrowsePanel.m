@@ -24,7 +24,7 @@
 const static int kShowItemNumberEachLine = 7;
 const static int kShowLinesNumber = 4;
 
-@interface ItemBrowsePanel() <ItemIconSelectionDelegate, ItemInfoPanelDelegate>
+@interface ItemBrowsePanel() <ItemIconSelectionDelegate>
 
 @end
 
@@ -49,7 +49,15 @@ const static int kShowLinesNumber = 4;
 {
     if (self = [super init]) {
         _panelType = [dataList[0] integerValue];
-        NSArray *items = [self getItemsByPanelType];
+        NSArray *items = getItemsByPanelType(_panelType, self.cityId);
+        NSString *defaultCategory = nil;
+        NSString *itemId = [[GameValueManager sharedValueManager] reservedStringByKey:ReservedItem];
+        if (itemId) {
+            GameItemData *itemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
+            if (itemData) {
+                defaultCategory = [@(itemData.itemData.category) stringValue];
+            }
+        }
         
         _panel = [CCSprite spriteWithImageNamed:@"ItemBrowsePanel.jpg"];
         _panel.positionType = CCPositionTypeNormalized;
@@ -95,31 +103,14 @@ const static int kShowLinesNumber = 4;
         
         
         _showItemSpriteList = [NSMutableArray new];
-        [self setItems:items];
+        [self setItems:items defaultCategory:defaultCategory];
     }
     return self;
 }
 
-- (NSArray *)getItemsByPanelType
-{
-    switch (_panelType) {
-        case ItemBrowsePanelTypeBuy:
-            return [[GameDataManager sharedGameData] itemListByCity:self.cityId];
-        case ItemBrowsePanelTypeSell:
-            return [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
-        case ItemBrowsePanelTypeBrowse:
-            return  [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
-        case ItemBrowsePanelTypeEquip:
-        case ItemBrowsePanelTypeSingle:
-        case ItemBrowsePanelTypeShipHeader:
-        default:
-            return nil;
-    }
-}
 
--(void)setItems:(NSArray *)items
+-(void)setItems:(NSArray *)items defaultCategory:(NSString *)defautCategoryNo
 {
-    NSString *defautCategoryNo = nil;
     BOOL categorySet = NO;
     _itemDictionary = [NSMutableDictionary new];
     for (int i = 0; i < items.count; ++i) {
@@ -218,6 +209,7 @@ const static int kShowLinesNumber = 4;
 {
     [[GameValueManager sharedValueManager] setReserveString:gameItemData.itemId byKey:@"itemId"];
     self.completionBlockWithEventId(self.successEvent);
+    [self removeFromParent];
 //    
 //    _selecteItemIndex = [_itemList indexOfObject:gameItemData];
 //    if (_itemInfoPanel == nil) {
@@ -233,6 +225,7 @@ const static int kShowLinesNumber = 4;
 //    _panel.visible = NO;
 }
 
+/*
 -(void)closeItemInfoPanel
 {
     _panel.visible = YES;
@@ -461,5 +454,5 @@ const static int kShowLinesNumber = 4;
         [self removeFromParent];
     }
 }
-
+*/
 @end

@@ -21,3 +21,4 @@ haveShip2Sell,______,or,;,;,haveShipInDock;have2Ship,;
 have2Ship,______,ship,number,>,number,1
 haveShipInDock,____,city,shipNumber,>,number,0
 cityHaveItem,______,city,sellItemNumber,>,number,0
+haveItem,______,guild,sellItemNumber,>,number,0

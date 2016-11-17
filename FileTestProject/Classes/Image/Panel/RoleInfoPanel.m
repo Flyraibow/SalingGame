@@ -18,7 +18,7 @@
 #import "SpriteUpdateProtocol.h"
 #import "RoleAnimation.h"
 
-@interface RoleInfoPanel() <ItemIconSelectionDelegate, ItemInfoPanelDelegate, SpriteUpdateProtocol>
+@interface RoleInfoPanel() <ItemIconSelectionDelegate, SpriteUpdateProtocol>
 
 @end
 

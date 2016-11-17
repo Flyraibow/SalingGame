@@ -14,7 +14,7 @@
 #import "ItemInfoPanel.h"
 #import "GamePanelManager.h"
 
-@interface ShipdeckIcon() <SpriteUpdateProtocol, ItemInfoPanelDelegate>
+@interface ShipdeckIcon() <SpriteUpdateProtocol>
 
 @end
 

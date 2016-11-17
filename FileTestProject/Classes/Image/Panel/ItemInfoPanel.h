@@ -20,20 +20,10 @@ typedef enum : NSUInteger {
     ItemBrowsePanelTypeShipHeader,
 } ItemBrowsePanelType;
 
-@protocol ItemInfoPanelDelegate <NSObject>
-
--(void)selectItemFromInfoPanel:(GameItemData *)gameItemData;
-
-@optional
--(void)closeItemInfoPanel;
--(void)selectPrevItem;
--(void)selectNextItem;
-
-@end
+NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId);
 
 @interface ItemInfoPanel : BaseFrame
 
-@property (nonatomic, weak) id<ItemInfoPanelDelegate> delegate;
 @property (nonatomic) GameItemData *itemData;
 @property (nonatomic, weak) NSString *equipedRoleId;            // used for preselected situation
 @property (nonatomic, weak) NSString *equipedShipId;            // used for preselected situation

@@ -33,6 +33,7 @@
     [paraList removeObjectsInRange:NSMakeRange(0, 3)];
     Class cls = NSClassFromString(spriteClassName);
     BasePanel *basePanel = [(BasePanel *)[cls alloc] initWithSuccessEvent:successEvent cancelEvent:cancelEvent dataList:paraList];
+    NSAssert(basePanel, @"Windows Panel is nil : %@", spriteClassName);
     return basePanel;
 }
 

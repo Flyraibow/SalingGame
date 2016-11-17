@@ -14,6 +14,35 @@
 #import "GameValueManager.h"
 #import "GameDataManager.h"
 
+NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId)
+{
+    NSArray *items = nil;
+    switch (type) {
+        case ItemBrowsePanelTypeBuy:
+            items = [[GameDataManager sharedGameData] itemListByCity:cityId];
+            break;
+        case ItemBrowsePanelTypeSell:
+            items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
+            break;
+        case ItemBrowsePanelTypeBrowse:
+            items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
+            break;
+        case ItemBrowsePanelTypeEquip:
+        case ItemBrowsePanelTypeSingle:
+        case ItemBrowsePanelTypeShipHeader:
+            break;
+    }
+    if (items) {
+        items = [items sortedArrayUsingComparator:^NSComparisonResult(GameItemData *item1, GameItemData *item2) {
+            if (item1.itemData.category != item2.itemData.category) {
+                return item1.itemData.category - item2.itemData.category;
+            }
+            return [(item1.itemData.itemId) integerValue] - [(item2.itemData.itemId) integerValue];
+        }];
+    }
+    return items;
+}
+
 @implementation ItemInfoPanel
 {
     CCSprite *_itemPanel;
@@ -28,6 +57,8 @@
     CCSprite *_itemIcon;
     CCLabelTTF *_labValue;
     CCLabelTTF *_labEquipType;
+    NSArray *_itemList;
+    NSInteger _index;
 }
 
 - (instancetype)initWithDataList:(NSArray *)dataList
@@ -39,6 +70,7 @@
         self.anchorPoint = ccp(0.5, 0.5);
         
         _type = [dataList[0] integerValue];
+        _itemList = getItemsByPanelType(_type, self.cityId);
         NSString *itemId = [[GameValueManager sharedValueManager] getStringByTerm:dataList[1]];
         
         _itemPanel = [CCSprite spriteWithImageNamed:@"itemDescFrame.jpg"];
@@ -123,6 +155,19 @@
         [_itemPanel addChild:_labEquipType];
         
         GameItemData *itemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
+        if (_itemList) {
+            _index = [_itemList indexOfObject:itemData];
+            if (_itemList.count > 1) {
+                _leftBtn.enabled = YES;
+                _rightBtn.enabled = YES;
+            } else {
+                _leftBtn.enabled = NO;
+                _rightBtn.enabled = NO;
+            }
+        } else {
+            _leftBtn.enabled = NO;
+            _rightBtn.enabled = NO;
+        }
         [self setItemData:itemData];
     }
     return self;
@@ -154,6 +199,7 @@
         [_itemIcon setRect:CGRectMake(191, 152, 56, 56)];
         [_itemPanel addChild:_itemIcon];
     }
+    _index = [_itemList indexOfObject:itemData];
     // 这部分还是会刷新，因为可能情况变了
     if (_type == ItemBrowsePanelTypeBuy) {
         _selectButton.title = getLocalString(@"lab_buy");
@@ -215,12 +261,16 @@
 
 -(void)clickRightButton
 {
-    [_delegate selectNextItem];
+    GameItemData *itemData = [_itemList objectAtIndex: (_index + 1) % _itemList.count];
+    [[GameValueManager sharedValueManager] setReserveString:itemData.itemId byKey:ReservedItem];
+    [self setItemData:itemData];
 }
 
 -(void)clickLeftButton
 {
-    [_delegate selectPrevItem];
+    GameItemData *itemData = [_itemList objectAtIndex: (_index - 1 + _itemList.count) % _itemList.count];
+    [[GameValueManager sharedValueManager] setReserveString:itemData.itemId byKey:ReservedItem];
+    [self setItemData:itemData];
 }
 
 @end

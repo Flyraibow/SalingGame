@@ -8,19 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+static const NSString *ReservedItem = @"itemId";
+
 @interface GameValueManager : NSObject
 
 + (GameValueManager *)sharedValueManager;
 
 - (NSString *)stringByKey:(NSString *)key;
 
-- (NSString *)reservedStringByKey:(NSString *)key;
+- (NSString *)reservedStringByKey:(const NSString *)key;
 
 - (NSInteger)intByKey:(NSString *)key;
 
 - (void)setString:(NSString *)value byKey:(NSString *)key;
 
-- (void)setReserveString:(NSString *)value byKey:(NSString *)key;
+- (void)setReserveString:(NSString *)value byKey:(const NSString *)key;
 
 - (void)setNum:(NSInteger)value byKey:(NSString *)key;
 
