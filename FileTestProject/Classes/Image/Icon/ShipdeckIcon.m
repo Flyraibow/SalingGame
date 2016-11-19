@@ -282,7 +282,6 @@
                 [_itemPanel removeFromParent];
             }
             if (closePanel) {
-                [[CCDirector sharedDirector] popScene];
                 [self.delegate shipDestroyed];
             }
         }];

@@ -10,17 +10,15 @@
 #import "BGImage.h"
 #import "DefaultButton.h"
 #import "LocalString.h"
-#import "SystemGroupButton.h"
-#import "ProgressScene.h"
 #import "GameDataManager.h"
 #import "UpdateMoneyProtocol.h"
 #import "SailScene.h"
 #import "RolePanel.h"
 #import "InfoButtonGroup.h"
-#import "ShipScene.h"
 #import "SailorNumberPanel.h"
 #import "GamePanelManager.h"
 #import "GameEventManager.h"
+#import "GameValueManager.h"
 
 typedef enum : NSUInteger {
     Button_Sail_MAP = 1,
@@ -82,24 +80,20 @@ typedef enum : NSUInteger {
 
 -(void)clickSystemButton:(DefaultButton *)button
 {
+    // TODO: USE the excel to control it
     int index = [button.name intValue];
     if (index == Button_System)
     {
-        SystemGroupButton *systemButtonGroup = [SystemGroupButton new];
-        [self.scene addChild:systemButtonGroup];
+        [[GameEventManager sharedEventManager] startEventId:@"systemList"];
     }
     else if(index == Button_Deck)
     {
-        if ([GameDataManager sharedGameData].myGuild.myTeam.shipList.count > 0) {
-            GameShipData *shipData = [[GameDataManager sharedGameData].shipDic objectForKey:[[GameDataManager sharedGameData].myGuild.myTeam.shipList objectAtIndex:0]];
-            ShipScene *shipScene = [[ShipScene alloc] initWithShipData:shipData shipSceneType:DeckShipSceneDeck];
-            [[CCDirector sharedDirector] pushScene:shipScene];
-        }
+        [GameValueManager sharedValueManager].reservedShipData = [[GameDataManager sharedGameData].shipDic objectForKey:[[GameDataManager sharedGameData].myGuild.myTeam.shipList objectAtIndex:0]];
+        [[GameEventManager sharedEventManager] startEventId:@"deckArrange"];
     }
     else if(index == Button_Ship_Info)//资讯包含船只信息和船员信息
     {
-        InfoButtonGroup *infoButtonGroup = [InfoButtonGroup new];
-        [self.scene addChild:infoButtonGroup];
+        [[GameEventManager sharedEventManager] startEventId:@"infoList"];
     }
     else if(index == Button_Sailor_Number)
     {
@@ -107,8 +101,7 @@ typedef enum : NSUInteger {
     }
     else if(index == Button_Sail_MAP)
     {
-        SailScene *sailScene = [[SailScene alloc] initWithType:SailSceneTypeRead];
-        [[CCDirector sharedDirector] pushScene:sailScene];
+        [[GameEventManager sharedEventManager] startEventId:@"sailMap"];
     }
 }
 

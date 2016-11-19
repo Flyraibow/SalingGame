@@ -265,6 +265,7 @@
 "lab_sailor_info"="船员信息";
 "lab_item_info"="宝物信息";
 "lab_diary_info"="航海日志";
+"lab_task_info" = "任务资讯";
 
 "lab_set_zero" ="设为0";
 "lab_set_minimum" ="设为最小值";

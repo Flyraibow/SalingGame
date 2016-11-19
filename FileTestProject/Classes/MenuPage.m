@@ -10,7 +10,6 @@
 #import "BGImage.h"
 #import "CityScene.h"
 #import "DefaultButton.h"
-#import "ProgressScene.h"
 #import "GameDataManager.h"
 #import "CGStoryScene.h"
 #import "SelectPeopleScene.h"
@@ -92,7 +91,7 @@
 -(void)clickContinue
 {
     [[OALSimpleAudio sharedInstance] playEffect:@"button.wav"];
-    [[CCDirector sharedDirector] pushScene:[[ProgressScene alloc] initWithFunction:ProgressLoad]];
+//    [[CCDirector sharedDirector] pushScene:[[ProgressScene alloc] initWithFunction:ProgressLoad]];
     
 }
 

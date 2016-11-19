@@ -10,7 +10,12 @@
 
 static const NSString *ReservedItem = @"itemId";
 
+@class GameItemData;
+@class GameShipData;
 @interface GameValueManager : NSObject
+
+@property (nonatomic, weak) GameItemData *reservedItemData;
+@property (nonatomic, weak) GameShipData *reservedShipData;
 
 + (GameValueManager *)sharedValueManager;
 
@@ -22,6 +27,7 @@ static const NSString *ReservedItem = @"itemId";
 
 - (void)setString:(NSString *)value byKey:(NSString *)key;
 
+// TODO: I need to reconsider it
 - (void)setReserveString:(NSString *)value byKey:(const NSString *)key;
 
 - (void)setNum:(NSInteger)value byKey:(NSString *)key;
@@ -37,6 +43,5 @@ static const NSString *ReservedItem = @"itemId";
 - (NSInteger)valueByType:(NSString *)type subType:(NSString *)subType;
 
 - (NSString *)stringByType:(NSString *)type subType:(NSString *)subType;
-
 
 @end

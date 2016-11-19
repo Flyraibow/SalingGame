@@ -10,7 +10,6 @@
 #import "cocos2d-ui.h"
 
 #import "GameShipData.h"
-#import "ShipScene.h"
 
 typedef enum : NSUInteger {
     ShipSceneTypeBuy,

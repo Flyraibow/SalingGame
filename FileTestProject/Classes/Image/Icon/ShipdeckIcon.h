@@ -8,8 +8,8 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "ShipScene.h"
 #import "RoleJobAnimation.h"
+#import "ShipPanel.h"
 
 @protocol ShipdeckIconSelectProtocol <NSObject>
 

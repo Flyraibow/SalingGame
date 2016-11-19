@@ -16,6 +16,7 @@
 
 +(CCNodeColor *)getShadowForBackground;
 +(CCNode *)getTransparentBackground;
++(CCNodeColor *)getBlackForBackground;
 
 +(void)initWithGroundSize:(CGSize)contentSize;
 

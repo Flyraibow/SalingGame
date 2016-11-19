@@ -6,7 +6,7 @@
 //  Copyright © 2016 Yujie Liu. All rights reserved.
 //
 
-#import "ProgressScene.h"
+#import "ProgressPanel.h"
 #import "BGImage.h"
 #import "DefaultButton.h"
 #import "LocalString.h"
@@ -14,24 +14,23 @@
 #import "GameDataManager.h"
 #import "CityScene.h"
 
-@implementation ProgressScene
+@implementation ProgressPanel
 {
     ProgressType _type;
 }
 
-
--(instancetype)initWithFunction:(ProgressType)type
+-(instancetype)initWithDataList:(NSArray *)dataList
 {
-    if (self = [self init]) {
-        _type = type;
+    if (self = [super init]) {
+        _type = [dataList[0] integerValue];
         
         CCSprite *bgImage = [BGImage getBgImageByName:@"bg_System.png"];
         [self addChild:bgImage];
         
         CCLabelTTF *label;
-        if (type == ProgressSave) {
+        if (_type == ProgressSave) {
             label = [CCLabelTTF labelWithString:getLocalString(@"lab_save") fontName:nil fontSize:20];
-        } else if (type == ProgressLoad) {
+        } else if (_type == ProgressLoad) {
             label = [CCLabelTTF labelWithString:getLocalString(@"lab_load") fontName:nil fontSize:20];
         }
         
@@ -68,9 +67,17 @@
     return self;
 }
 
+-(instancetype)initWithFunction:(ProgressType)type
+{
+    if (self = [self init]) {
+        
+    }
+    return self;
+}
+
 -(void)clickBtnClose
 {
-    [[CCDirector sharedDirector] popScene];
+    [self removeFromParent];
 }
 
 -(void)clickButton:(CCButton *)button

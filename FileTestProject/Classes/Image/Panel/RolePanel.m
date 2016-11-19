@@ -11,6 +11,8 @@
 #import "RoleInfoPanel.h"
 #import "BGImage.h"
 #import "GameNPCData.h"
+#import "GameValueManager.h"
+#import "GameDataManager.h"
 
 @interface RolePanel() <RoleInfoPanelDelegate, RoleSelectionPanelDelegate>
 
@@ -20,16 +22,31 @@
 {
     RoleSelectionPanel *_roleSelectionPanel;
     RoleInfoPanel *_roleInfoPanel;
-    
-    CGSize _contentSize;
 }
 
--(instancetype)initWithNpcList:(NSArray *)npcList type:(RolePanelType)type
+NSArray* getNPCListByType(RolePanelType type)
+{
+    if (type == RolePanelTypeEquip) {
+        return [GameDataManager sharedGameData].myGuild.myTeam.npcList;
+    } else if (type == RolePanelTypeNormal) {
+        NSArray *teamList = [GameDataManager sharedGameData].myGuild.teamList;
+        teamList = [teamList arrayByAddingObject:[GameDataManager sharedGameData].myGuild.myTeam];
+        NSMutableArray *npcList = [NSMutableArray new];
+        for (int i = 0; i < teamList.count; ++i) {
+            GameTeamData *teamData = teamList[i];
+            [npcList addObjectsFromArray:teamData.npcList];
+        }
+        return npcList;
+    }
+    return nil;
+}
+
+- (instancetype)initWithDataList:(NSArray *)dataList
 {
     if (self = [super init]) {
-        _type = type;
-        
-        _contentSize = [CCDirector sharedDirector].viewSize;
+        _type = [dataList[0] integerValue];
+        NSArray *npcList = getNPCListByType(_type);
+
         self.contentSize = _contentSize;
         self.positionType = CCPositionTypeNormalized;
         self.position = ccp(0.5, 0.5);

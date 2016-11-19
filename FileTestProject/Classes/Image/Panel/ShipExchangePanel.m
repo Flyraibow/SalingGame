@@ -16,8 +16,8 @@
 #import "GameCityData.h"
 #import "GameShipData.h"
 #import "NSSet+Sort.h"
-#import "ShipScene.h"
 #import "GamePanelManager.h"
+#import "GameValueManager.h"
 
 
 @implementation ShipExchangePanel
@@ -173,22 +173,11 @@
                 [[GameDataManager sharedGameData].myGuild.myTeam removeShip:gameShipData];
                 [GameDataManager sharedGameData].myGuild.money += shipData.price;
                 [self tradeSuccess];
-            } else if (_sceneType == ShipSceneTypeModify) {
+            } else if (_sceneType == ShipSceneTypeModify || _sceneType == ShipSceneTypeInfo) {
                 // TODO: 进入改造页面
-                ShipScene *scene = [[ShipScene alloc] initWithShipData:gameShipData shipSceneType:DeckShipSceneModify];
-                __weak ShipExchangeUnit *weakShipUnit;
-                scene.modifyComplete = ^(GameShipData *gameShipData) {
-                    if (gameShipData && gameShipData.shipId) {
-                        [weakShipUnit shipModified:gameShipData];
-                    } else {
-                        [self tradeSuccess];
-                    }
-                };
-                [[CCDirector sharedDirector] pushScene:scene];
-            } else if (_sceneType == ShipSceneTypeInfo) {
-                // 进入甲板画面
-                ShipScene *scene = [[ShipScene alloc] initWithShipData:gameShipData shipSceneType:DeckShipSceneInfo];
-                [[CCDirector sharedDirector] pushScene:scene];
+                [GameValueManager sharedValueManager].reservedShipData = gameShipData;
+                self.completionBlockWithEventId(self.successEvent);
+                [self removeFromParent];
             } else if (_sceneType == ShipSceneTypeEquip) {
                 self.selectHandler(gameShipData);
             }

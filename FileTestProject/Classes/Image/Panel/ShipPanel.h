@@ -9,6 +9,7 @@
 #import "cocos2d-ui.h"
 
 #import "GameShipData.h"
+#import "BasePanel.h"
 
 typedef enum : NSUInteger {
     DeckShipSceneDeck,
@@ -16,11 +17,8 @@ typedef enum : NSUInteger {
     DeckShipSceneInfo,
 } DeckShipSceneType;
 
-@interface ShipScene : CCScene
+@interface ShipPanel : BasePanel
 
 @property (nonatomic, readonly, assign) DeckShipSceneType shipSceneType;
-@property (nonatomic) void(^modifyComplete)(GameShipData *shipData);
-
--(instancetype)initWithShipData:(GameShipData *)shipData shipSceneType:(DeckShipSceneType)shipSceneType;
 
 @end

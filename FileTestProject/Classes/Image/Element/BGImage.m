@@ -36,9 +36,9 @@ static DialogPanel *_dialogPanel;
     return sprite;
 }
 
-+(CCNodeColor *)getShadowForBackground
++(CCNodeColor *)getBackgroundByColor:(CCColor *)color
 {
-    CCNodeColor *node = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0 green:0 blue:0 alpha:0.5] width:_contentSize.width height:_contentSize.height];
+    CCNodeColor *node = [CCNodeColor nodeWithColor:color width:_contentSize.width height:_contentSize.height];
     node.contentSize = _contentSize;
     node.positionType = CCPositionTypeNormalized;
     node.anchorPoint = ccp(0.5,0.5);
@@ -47,15 +47,19 @@ static DialogPanel *_dialogPanel;
     return node;
 }
 
++(CCNodeColor *)getBlackForBackground
+{
+    return [self getBackgroundByColor:[CCColor blackColor]];
+}
+
++(CCNodeColor *)getShadowForBackground
+{
+    return [self getBackgroundByColor:[CCColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
+}
+
 +(CCNode *)getTransparentBackground
 {
-    CCNodeColor *node = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0 green:0 blue:0 alpha:0] width:_contentSize.width height:_contentSize.height];
-    node.contentSize = _contentSize;
-    node.positionType = CCPositionTypeNormalized;
-    node.anchorPoint = ccp(0.5,0.5);
-    node.position = ccp(0.5, 0.5);
-    node.userInteractionEnabled = YES;
-    return node;
+    return [self getBackgroundByColor:[CCColor colorWithRed:0 green:0 blue:0 alpha:0]];
 }
 
 +(void)initWithGroundSize:(CGSize)contentSize
