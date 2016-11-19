@@ -211,9 +211,11 @@ static GameValueManager *_sharedValueManager;
         value = [subType integerValue];
     } else if ([type isEqualToString:@"item"]) {
         NSString *itemId = [self reservedStringByKey:@"itemId"];
+        GameItemData *itemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
         if ([subType isEqualToString:@"money"]) {
-            GameItemData *itemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
             value = itemData.itemData.price;
+        } else if ([subType isEqualToString:@"category"]) {
+            value = itemData.itemData.category;
         }
     }
     return value;

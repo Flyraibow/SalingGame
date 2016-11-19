@@ -8,9 +8,8 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "CityChangeProtocol.h"
 
-@interface CityScene : CCScene <CityChangeProtocol>
+@interface CityScene : CCScene
 
 -(void)storyEnd;
 
@@ -18,4 +17,5 @@
 
 -(void)checkStory:(NSString *)buildingId;
 
+-(void)changeCity:(NSString *)cityNo;
 @end

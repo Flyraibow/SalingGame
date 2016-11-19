@@ -22,3 +22,6 @@ have2Ship,______,ship,number,>,number,1
 haveShipInDock,____,city,shipNumber,>,number,0
 cityHaveItem,______,city,sellItemNumber,>,number,0
 haveItem,______,guild,sellItemNumber,>,number,0
+itemCanEquip,______,item,category,<=,number,3
+itemCanEquipToRole,_______,reserved,role,canEquip,reserved,item
+itemAlreadyEquiped,______,reserved,item,isEquiped,;,;

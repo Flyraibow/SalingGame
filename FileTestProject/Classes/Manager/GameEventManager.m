@@ -52,6 +52,14 @@ static GameEventManager *_sharedEventManager;
     return self;
 }
 
+- (CCNode *)topPanel;
+{
+    if (_viewStack.count > 0) {
+        return [_viewStack lastObject];
+    }
+    return nil;
+}
+
 - (void)startEventId:(NSString *)eventId withScene:(CCScene *)scene
 {
     EventActionData *eventData = [_eventDictionary objectForKey:eventId];
@@ -60,14 +68,14 @@ static GameEventManager *_sharedEventManager;
         if ([eventData.eventType isEqualToString:@"close"]) {
             if (_viewStack.count > 0) {
                 CCNode *node = [_viewStack lastObject];
-                [node removeFromParent];
                 [_viewStack removeLastObject];
-                if (_viewStack.count == 0 && [[CCDirector sharedDirector].runningScene isKindOfClass:[CityScene class]]) {
-                    CCScene *scene = [CCDirector sharedDirector].runningScene;
-                    if ([scene isKindOfClass:[CityScene class]]) {
-                        [(CityScene *)scene checkStory:@"0"];
-                    }
-                }
+                [node removeFromParent];
+            }
+            [self _startEventList];
+        } else if ([eventData.eventType isEqualToString:@"checkStory"]) {
+            if (_viewStack.count == 0 && [[CCDirector sharedDirector].runningScene isKindOfClass:[CityScene class]]) {
+                CCScene *scene = [CCDirector sharedDirector].runningScene;
+                [(CityScene *)scene checkStory:@"0"];
             }
             [self _startEventList];
         } else if ([eventData.eventType isEqualToString:@"selectlist"]) {
@@ -88,6 +96,7 @@ static GameEventManager *_sharedEventManager;
             sprite.completionBlockWithEventId = ^(NSString *eventId) {
                 [self startEventId:eventId withScene:scene];
             };
+            [_viewStack addObject:sprite];
             [scene addChild:sprite];
         } else if ([eventData.eventType isEqualToString:@"condition"]) {
             NSArray *array = [eventData.parameter componentsSeparatedByString:@";"];

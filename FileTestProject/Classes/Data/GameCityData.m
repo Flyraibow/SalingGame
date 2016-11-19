@@ -9,6 +9,7 @@
 #import "GameCityData.h"
 #import "DataManager.h"
 #import "GameDataManager.h"
+#import "GameDataObserver.h"
 
 static int const CityMaxCommerce = 10000;
 static NSString* const GameCityNo = @"GameCityNo";
@@ -270,7 +271,7 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
             }
         }
     }
-    [[GameDataManager sharedGameData] sendOccupationUpdateInfo:_cityNo data:_guildOccupation];
+    [[GameDataObserver sharedObserver] sendListenerForKey:LISTENNING_KEY_CITY_OCCUPATION data:_cityNo];
 }
 
 -(void)setOccupationForGuild:(NSString *)guildId percent:(int)percent
@@ -298,7 +299,7 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
             }
         }
     }
-    [[GameDataManager sharedGameData] sendOccupationUpdateInfo:_cityNo data:_guildOccupation];
+    [[GameDataObserver sharedObserver] sendListenerForKey:LISTENNING_KEY_CITY_OCCUPATION data:_cityNo];
 }
 
 -(void)addTransactionRecord:(NSString *)guildId buyRecord:(NSDictionary *)buyRecords sellRecord:(NSDictionary *)sellRecords

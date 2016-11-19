@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class CCScene;
+@class CCNode;
 @interface GameEventManager : NSObject
 
 + (GameEventManager *)sharedEventManager;
@@ -16,5 +17,7 @@
 - (void)startEventId:(NSString *)eventId;
 
 - (void)startEventId:(NSString *)eventId withScene:(CCScene *)scene;
+
+- (CCNode *)topPanel;
 
 @end

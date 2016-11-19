@@ -16,6 +16,5 @@ typedef enum : NSUInteger {
 @interface RolePanel : BasePanel
 
 @property (nonatomic, readonly) RolePanelType type;
-@property (nonatomic) void(^selectHandler)(NSString *npcId);
 
 @end

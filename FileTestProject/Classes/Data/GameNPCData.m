@@ -230,6 +230,8 @@ static int const kMaxItemNumber = 3;
     } else if (itemData.itemData.category == ItemCategoryOtherEquip) {
         [_otherEquipIdList addObject:itemData.itemId];
     }
+    // TODO: infor panel to do the change
+    
 }
 
 -(void)unequip:(GameItemData *)itemData

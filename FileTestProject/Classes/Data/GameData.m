@@ -16,15 +16,13 @@
 #import "GameItemData.h"
 #import "OALSimpleAudio.h"
 #import "GameValueManager.h"
+#import "GameDataObserver.h"
 
 @implementation  GameDialogData
 @end
 
 @implementation GameData
 {
-    NSMutableSet *_timeUpdateSet;
-    NSMutableSet *_occupationUpdateSet;
-    NSMutableSet *_cityChangeSet;
     void(^_handler)();
     NSUInteger _shipIdIndex;
 }
@@ -72,9 +70,6 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
     _dialogList = [NSMutableArray new];
     _cityDic = [NSMutableDictionary new];
     _itemDic = [NSMutableDictionary new];
-    _timeUpdateSet = [NSMutableSet new];
-    _occupationUpdateSet = [NSMutableSet new];
-    _cityChangeSet = [NSMutableSet new];
     _shipDic = [NSMutableDictionary new];
 }
 
@@ -276,43 +271,6 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
     [aCoder encodeInteger:_shipIdIndex forKey:GameShipMaxIndex];
 }
 
--(void)addTimeUpdateClass:(id<DateUpdateProtocol>)target
-{
-    [_timeUpdateSet addObject:target];
-}
-
--(void)removeTimeUpdateClass:(id)target
-{
-    [_timeUpdateSet removeObject:target];
-}
-
--(void)addOccupationUpdateClass:(id<OccupationUpdateProtocol>)target
-{
-    [_occupationUpdateSet addObject:target];
-}
-
--(void)removeOccupationUpdateClass:(id)target
-{
-    [_occupationUpdateSet removeObject:target];
-}
-
--(void)sendOccupationUpdateInfo:(NSString *)cityNo data:(NSMutableDictionary *)dict
-{
-    for (id<OccupationUpdateProtocol> target in _occupationUpdateSet) {
-        [target occupationUpdateCityNo:cityNo data:dict];
-    }
-}
-
--(void)addCityChangeClass:(id<CityChangeProtocol>)target
-{
-    [_cityChangeSet addObject:target];
-}
-
--(void)removeCityChangeClass:(id)target
-{
-    [_cityChangeSet removeObject:target];
-}
-
 -(void)setYear:(int)year month:(int)month day:(int)day
 {
     _day = day;
@@ -338,9 +296,7 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
     } else if(_day == 32) {
         [self passMonth];
     }
-    for (id<DateUpdateProtocol> target in _timeUpdateSet) {
-        [target updateDate];
-    }
+    [[GameDataObserver sharedObserver] sendListenerForKey:LISTENNING_KEY_DATE data:nil];
 }
 
 -(void)spendOneDayWithInterval:(CGFloat)interval callback:(void(^)())handler
@@ -413,9 +369,7 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
 -(void)moveToCity:(NSString *)cityNo
 {
     _myGuild.myTeam.currentCityId = cityNo;
-    for (id<CityChangeProtocol> target in _cityChangeSet) {
-        [target changeCity:cityNo];
-    }
+    [[GameDataObserver sharedObserver] sendListenerForKey:LISTENNING_KEY_CITY data:cityNo];
 }
 
 -(void)setCurrentMusic:(NSString *)currentMusic
@@ -490,6 +444,13 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
         GameCityData *cityData = [self.cityDic objectForKey:_myGuild.myTeam.currentCityId];
         if ([array[1] isEqualToString:@"unblockItem"]) {
             [cityData unlockGoodsByItem:[[GameValueManager sharedValueManager] getStringByTerm:array[2]]];
+        }
+    } else if ([array[0] isEqualToString:@"role"]) {
+        GameNPCData *npcData = [GameValueManager sharedValueManager].reservedNPCData;
+        if ([array[1] isEqualToString:@"equip"]) {
+            NSString *itemId = [[GameValueManager sharedValueManager] getStringByTerm:array[2]];
+            GameItemData *itemData = [self.itemDic objectForKey:itemId];
+            [npcData equip:itemData];
         }
     }
 }

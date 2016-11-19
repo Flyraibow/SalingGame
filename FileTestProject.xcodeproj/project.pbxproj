@@ -382,7 +382,6 @@
 		27C26CFD1C615F1B009EDE53 /* DataFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26CFB1C615F1B009EDE53 /* DataFrame.png */; };
 		27C26CFE1C615F1B009EDE53 /* trade.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26CFC1C615F1B009EDE53 /* trade.png */; };
 		27C26D011C615F99009EDE53 /* DataButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D001C615F99009EDE53 /* DataButton.m */; };
-		27C26D051C6161BE009EDE53 /* GameDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D041C6161BE009EDE53 /* GameDataManager.m */; };
 		27C26D081C6161D1009EDE53 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D071C6161D1009EDE53 /* GameData.m */; };
 		27C26D0B1C617D98009EDE53 /* GameGuildData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D0A1C617D98009EDE53 /* GameGuildData.m */; };
 		27C26D0E1C617DB4009EDE53 /* GameCityData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D0D1C617DB4009EDE53 /* GameCityData.m */; };
@@ -394,9 +393,6 @@
 		27C26D241C6330FC009EDE53 /* CityBuildingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D231C6330FC009EDE53 /* CityBuildingGroup.m */; };
 		27C26D271C63312E009EDE53 /* BaseButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D261C63312E009EDE53 /* BaseButtonGroup.m */; };
 		27C26D2A1C633671009EDE53 /* GoodsCategoriesData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D291C633671009EDE53 /* GoodsCategoriesData.m */; };
-		27C26D311C634410009EDE53 /* InnGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D301C634410009EDE53 /* InnGroupButton.m */; };
-		27C26D371C63480C009EDE53 /* ExchangeGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D361C63480C009EDE53 /* ExchangeGroupButton.m */; };
-		27C26D3A1C634BC2009EDE53 /* ShopGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D391C634BC2009EDE53 /* ShopGroupButton.m */; };
 		27C26D401C634F4D009EDE53 /* DockGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D3F1C634F4D009EDE53 /* DockGroupButton.m */; };
 		27C26D531C6470BC009EDE53 /* ShipFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D521C6470BC009EDE53 /* ShipFrame.png */; };
 		27C26D591C647A05009EDE53 /* rightArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D581C647A05009EDE53 /* rightArrowButton.png */; };
@@ -875,7 +871,6 @@
 		27FBB8641D0FBD38002B106B /* frame_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8631D0FBD38002B106B /* frame_time.png */; };
 		27FBB8671D0FC0F5002B106B /* TextInputPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB8661D0FC0F5002B106B /* TextInputPanel.m */; };
 		27FBB8691D0FCCBE002B106B /* frame_input_panel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */; };
-		2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20FCF71CD804530028E718 /* InfoButtonGroup.m */; };
 		EC0C3B7D1D846E57007E8D46 /* ShipSimpeInfoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */; };
 		EC0C3B801D847020007E8D46 /* ShipSimpleInfoIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */; };
 		EC3B89851DCEB83E00482A42 /* BasePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3B89841DCEB83E00482A42 /* BasePanel.m */; };
@@ -923,6 +918,8 @@
 		EC9444411DDEE71D004FBEC2 /* ProgressPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC94443F1DDEE71D004FBEC2 /* ProgressPanel.m */; };
 		EC9444441DDEE8DE004FBEC2 /* CitySystemBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9444431DDEE8DE004FBEC2 /* CitySystemBar.m */; };
 		EC9444471DDEEC97004FBEC2 /* ShipPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9444451DDEEC97004FBEC2 /* ShipPanel.m */; };
+		EC94444A1DE0D730004FBEC2 /* GameDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9444491DE0D730004FBEC2 /* GameDataManager.m */; };
+		EC94444D1DE0D8C0004FBEC2 /* GameDataObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = EC94444C1DE0D8C0004FBEC2 /* GameDataObserver.m */; };
 		ECBADDCF1DD81EC200DC490D /* BaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDCE1DD81EC200DC490D /* BaseScene.m */; };
 		ECBADDD21DD821D600DC490D /* TradePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD11DD821D600DC490D /* TradePanel.m */; };
 		ECBADDD51DD8467800DC490D /* ShipExchangePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD41DD8467800DC490D /* ShipExchangePanel.m */; };
@@ -1605,8 +1602,6 @@
 		27C26CFC1C615F1B009EDE53 /* trade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trade.png; path = Resources/Graph/Frame/trade.png; sourceTree = "<group>"; };
 		27C26CFF1C615F99009EDE53 /* DataButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataButton.h; path = Classes/Image/DataButton.h; sourceTree = "<group>"; };
 		27C26D001C615F99009EDE53 /* DataButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataButton.m; path = Classes/Image/DataButton.m; sourceTree = "<group>"; };
-		27C26D031C6161BE009EDE53 /* GameDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameDataManager.h; path = Classes/Data/GameDataManager.h; sourceTree = "<group>"; };
-		27C26D041C6161BE009EDE53 /* GameDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameDataManager.m; path = Classes/Data/GameDataManager.m; sourceTree = "<group>"; };
 		27C26D061C6161D1009EDE53 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameData.h; path = Classes/Data/GameData.h; sourceTree = "<group>"; };
 		27C26D071C6161D1009EDE53 /* GameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameData.m; path = Classes/Data/GameData.m; sourceTree = "<group>"; };
 		27C26D091C617D98009EDE53 /* GameGuildData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameGuildData.h; path = Classes/Data/GameGuildData.h; sourceTree = "<group>"; };
@@ -1629,16 +1624,9 @@
 		27C26D261C63312E009EDE53 /* BaseButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseButtonGroup.m; path = Classes/Image/GroupButton/BaseButtonGroup.m; sourceTree = "<group>"; };
 		27C26D281C633671009EDE53 /* GoodsCategoriesData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsCategoriesData.h; path = Classes/DataProcessing/GoodsCategoriesData.h; sourceTree = "<group>"; };
 		27C26D291C633671009EDE53 /* GoodsCategoriesData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsCategoriesData.m; path = Classes/DataProcessing/GoodsCategoriesData.m; sourceTree = "<group>"; };
-		27C26D2F1C634410009EDE53 /* InnGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InnGroupButton.h; path = Classes/Image/GroupButton/InnGroupButton.h; sourceTree = "<group>"; };
-		27C26D301C634410009EDE53 /* InnGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InnGroupButton.m; path = Classes/Image/GroupButton/InnGroupButton.m; sourceTree = "<group>"; };
-		27C26D351C63480C009EDE53 /* ExchangeGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExchangeGroupButton.h; path = Classes/Image/GroupButton/ExchangeGroupButton.h; sourceTree = "<group>"; };
-		27C26D361C63480C009EDE53 /* ExchangeGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExchangeGroupButton.m; path = Classes/Image/GroupButton/ExchangeGroupButton.m; sourceTree = "<group>"; };
-		27C26D381C634BC2009EDE53 /* ShopGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopGroupButton.h; path = Classes/Image/GroupButton/ShopGroupButton.h; sourceTree = "<group>"; };
-		27C26D391C634BC2009EDE53 /* ShopGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShopGroupButton.m; path = Classes/Image/GroupButton/ShopGroupButton.m; sourceTree = "<group>"; };
 		27C26D3E1C634F4D009EDE53 /* DockGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockGroupButton.h; path = Classes/Image/GroupButton/DockGroupButton.h; sourceTree = "<group>"; };
 		27C26D3F1C634F4D009EDE53 /* DockGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DockGroupButton.m; path = Classes/Image/GroupButton/DockGroupButton.m; sourceTree = "<group>"; };
 		27C26D431C63FC5D009EDE53 /* SpendMoneyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpendMoneyProtocol.h; path = Classes/Protocol/SpendMoneyProtocol.h; sourceTree = "<group>"; };
-		27C26D441C6402FD009EDE53 /* DateUpdateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DateUpdateProtocol.h; path = Classes/Protocol/DateUpdateProtocol.h; sourceTree = "<group>"; };
 		27C26D451C640F51009EDE53 /* UpdateMoneyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UpdateMoneyProtocol.h; path = Classes/Protocol/UpdateMoneyProtocol.h; sourceTree = "<group>"; };
 		27C26D521C6470BC009EDE53 /* ShipFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipFrame.png; path = Resources/Graph/Frame/ShipFrame.png; sourceTree = "<group>"; };
 		27C26D581C647A05009EDE53 /* rightArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightArrowButton.png; path = Resources/Graph/Button/rightArrowButton.png; sourceTree = "<group>"; };
@@ -1666,7 +1654,6 @@
 		27C26D881C695291009EDE53 /* NpcData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NpcData.m; path = Classes/DataProcessing/NpcData.m; sourceTree = "<group>"; };
 		27C26D891C695291009EDE53 /* TeamData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeamData.h; path = Classes/DataProcessing/TeamData.h; sourceTree = "<group>"; };
 		27C26D8A1C695291009EDE53 /* TeamData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeamData.m; path = Classes/DataProcessing/TeamData.m; sourceTree = "<group>"; };
-		27C26D8E1C69657A009EDE53 /* OccupationUpdateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OccupationUpdateProtocol.h; path = Classes/Protocol/OccupationUpdateProtocol.h; sourceTree = "<group>"; };
 		27C26D931C6977DC009EDE53 /* testC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = testC; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C26DAE1C6BEF1B009EDE53 /* CG_Bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CG_Bg.png; path = Resources/Graph/Background/CG_Bg.png; sourceTree = "<group>"; };
 		27C26DB01C6BEFFF009EDE53 /* CGStoryScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGStoryScene.h; path = Classes/UIScene/CGStoryScene.h; sourceTree = "<group>"; };
@@ -1688,7 +1675,6 @@
 		27C26DDF1C714A92009EDE53 /* cityInfoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cityInfoFrame.png; path = Resources/Graph/Frame/cityInfoFrame.png; sourceTree = "<group>"; };
 		27C26DE11C71708C009EDE53 /* SailSceneGoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SailSceneGoProtocol.h; path = Classes/Protocol/SailSceneGoProtocol.h; sourceTree = "<group>"; };
 		27C26DE21C717611009EDE53 /* SailSceneShipProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SailSceneShipProtocol.h; path = Classes/Protocol/SailSceneShipProtocol.h; sourceTree = "<group>"; };
-		27C26DE31C71A876009EDE53 /* CityChangeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CityChangeProtocol.h; path = Classes/Protocol/CityChangeProtocol.h; sourceTree = "<group>"; };
 		27C26DE41C729419009EDE53 /* SeaAreaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeaAreaData.h; path = Classes/DataProcessing/SeaAreaData.h; sourceTree = "<group>"; };
 		27C26DE51C729419009EDE53 /* SeaAreaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeaAreaData.m; path = Classes/DataProcessing/SeaAreaData.m; sourceTree = "<group>"; };
 		27C26DF31C741A4E009EDE53 /* Map7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Map7.jpg; path = Resources/Graph/Map/Map7.jpg; sourceTree = "<group>"; };
@@ -2169,8 +2155,6 @@
 		27FBB8651D0FC0F5002B106B /* TextInputPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextInputPanel.h; path = Classes/Image/Panel/TextInputPanel.h; sourceTree = "<group>"; };
 		27FBB8661D0FC0F5002B106B /* TextInputPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextInputPanel.m; path = Classes/Image/Panel/TextInputPanel.m; sourceTree = "<group>"; };
 		27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = frame_input_panel.jpg; path = Resources/Graph/Frame/frame_input_panel.jpg; sourceTree = "<group>"; };
-		2B20FCF61CD804530028E718 /* InfoButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoButtonGroup.h; path = Classes/Image/GroupButton/InfoButtonGroup.h; sourceTree = "<group>"; };
-		2B20FCF71CD804530028E718 /* InfoButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoButtonGroup.m; path = Classes/Image/GroupButton/InfoButtonGroup.m; sourceTree = "<group>"; };
 		EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipSimpeInfoFrame.png; path = Resources/Graph/Frame/ShipSimpeInfoFrame.png; sourceTree = "<group>"; };
 		EC0C3B7E1D847020007E8D46 /* ShipSimpleInfoIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipSimpleInfoIcon.h; path = Classes/Image/Icon/ShipSimpleInfoIcon.h; sourceTree = "<group>"; };
 		EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSimpleInfoIcon.m; path = Classes/Image/Icon/ShipSimpleInfoIcon.m; sourceTree = "<group>"; };
@@ -2231,6 +2215,10 @@
 		EC9444431DDEE8DE004FBEC2 /* CitySystemBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CitySystemBar.m; path = Classes/Image/GroupButton/CitySystemBar.m; sourceTree = "<group>"; };
 		EC9444451DDEEC97004FBEC2 /* ShipPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipPanel.m; path = Classes/Image/Panel/ShipPanel.m; sourceTree = "<group>"; };
 		EC9444461DDEEC97004FBEC2 /* ShipPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipPanel.h; path = Classes/Image/Panel/ShipPanel.h; sourceTree = "<group>"; };
+		EC9444481DE0D730004FBEC2 /* GameDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameDataManager.h; path = Classes/Manager/GameDataManager.h; sourceTree = "<group>"; };
+		EC9444491DE0D730004FBEC2 /* GameDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameDataManager.m; path = Classes/Manager/GameDataManager.m; sourceTree = "<group>"; };
+		EC94444B1DE0D8C0004FBEC2 /* GameDataObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameDataObserver.h; path = Classes/Manager/GameDataObserver.h; sourceTree = "<group>"; };
+		EC94444C1DE0D8C0004FBEC2 /* GameDataObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameDataObserver.m; path = Classes/Manager/GameDataObserver.m; sourceTree = "<group>"; };
 		ECBADDCD1DD81EC200DC490D /* BaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseScene.h; path = Classes/UIScene/BaseScene.h; sourceTree = "<group>"; };
 		ECBADDCE1DD81EC200DC490D /* BaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseScene.m; path = Classes/UIScene/BaseScene.m; sourceTree = "<group>"; };
 		ECBADDD01DD821D600DC490D /* TradePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradePanel.h; path = Classes/Image/Panel/TradePanel.h; sourceTree = "<group>"; };
@@ -3225,6 +3213,7 @@
 		279BACF01C59E3B90069EF5D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				27C26E361C803A37009EDE53 /* Ext */,
 				27FBB7741CDF114C002B106B /* Manager */,
 				27C26D411C63FA74009EDE53 /* Protocol */,
 				27C26D021C616198009EDE53 /* Data */,
@@ -3674,8 +3663,6 @@
 		27C26D021C616198009EDE53 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				27C26D031C6161BE009EDE53 /* GameDataManager.h */,
-				27C26D041C6161BE009EDE53 /* GameDataManager.m */,
 				27C26D061C6161D1009EDE53 /* GameData.h */,
 				27C26D071C6161D1009EDE53 /* GameData.m */,
 				27C26D091C617D98009EDE53 /* GameGuildData.h */,
@@ -3713,14 +3700,6 @@
 				27C26D261C63312E009EDE53 /* BaseButtonGroup.m */,
 				27C26D221C6330FC009EDE53 /* CityBuildingGroup.h */,
 				27C26D231C6330FC009EDE53 /* CityBuildingGroup.m */,
-				27C26D2F1C634410009EDE53 /* InnGroupButton.h */,
-				27C26D301C634410009EDE53 /* InnGroupButton.m */,
-				27C26D351C63480C009EDE53 /* ExchangeGroupButton.h */,
-				27C26D361C63480C009EDE53 /* ExchangeGroupButton.m */,
-				27C26D381C634BC2009EDE53 /* ShopGroupButton.h */,
-				27C26D391C634BC2009EDE53 /* ShopGroupButton.m */,
-				2B20FCF61CD804530028E718 /* InfoButtonGroup.h */,
-				2B20FCF71CD804530028E718 /* InfoButtonGroup.m */,
 				27C26D3E1C634F4D009EDE53 /* DockGroupButton.h */,
 				27C26D3F1C634F4D009EDE53 /* DockGroupButton.m */,
 			);
@@ -3730,14 +3709,10 @@
 		27C26D411C63FA74009EDE53 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				27C26E361C803A37009EDE53 /* Ext */,
-				27C26D441C6402FD009EDE53 /* DateUpdateProtocol.h */,
 				27C26D451C640F51009EDE53 /* UpdateMoneyProtocol.h */,
-				27C26D8E1C69657A009EDE53 /* OccupationUpdateProtocol.h */,
 				27C26D431C63FC5D009EDE53 /* SpendMoneyProtocol.h */,
 				27C26DE11C71708C009EDE53 /* SailSceneGoProtocol.h */,
 				27C26DE21C717611009EDE53 /* SailSceneShipProtocol.h */,
-				27C26DE31C71A876009EDE53 /* CityChangeProtocol.h */,
 				EC4589BA1D98FCB800B833A9 /* SpriteUpdateProtocol.h */,
 			);
 			name = Protocol;
@@ -4174,6 +4149,8 @@
 		27FBB7741CDF114C002B106B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				EC9444481DE0D730004FBEC2 /* GameDataManager.h */,
+				EC9444491DE0D730004FBEC2 /* GameDataManager.m */,
 				27FBB7751CDF116C002B106B /* GamePanelManager.h */,
 				27FBB7761CDF116C002B106B /* GamePanelManager.m */,
 				EC85DBE21DC85CE200613F44 /* GameEventManager.h */,
@@ -4184,6 +4161,8 @@
 				EC3B89871DD0026E00482A42 /* GameValueManager.m */,
 				ECBADDD91DD861ED00DC490D /* GameTimerManager.h */,
 				ECBADDDA1DD861ED00DC490D /* GameTimerManager.m */,
+				EC94444B1DE0D8C0004FBEC2 /* GameDataObserver.h */,
+				EC94444C1DE0D8C0004FBEC2 /* GameDataObserver.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -5017,7 +4996,6 @@
 				279BABE11C59E3B80069EF5D /* base64.c in Sources */,
 				277A48091D47385F00500E3E /* SailorNumberPanel.m in Sources */,
 				279BAC2C1C59E3B80069EF5D /* OALAudioActions.m in Sources */,
-				27C26D371C63480C009EDE53 /* ExchangeGroupButton.m in Sources */,
 				279BAAF61C59E3B60069EF5D /* CCPhysicsBody.m in Sources */,
 				279BAC2F1C59E3B80069EF5D /* OALUtilityActions.m in Sources */,
 				279BACEF1C59E3B90069EF5D /* main.m in Sources */,
@@ -5054,6 +5032,7 @@
 				279BAB441C59E3B70069EF5D /* cocos2d.m in Sources */,
 				279BAC4B1C59E3B80069EF5D /* ALContext.m in Sources */,
 				EC9444411DDEE71D004FBEC2 /* ProgressPanel.m in Sources */,
+				EC94444A1DE0D730004FBEC2 /* GameDataManager.m in Sources */,
 				279BAB371C59E3B70069EF5D /* CCTiledMapLayer.m in Sources */,
 				27FBB7591CD85310002B106B /* DefaultButton.m in Sources */,
 				27C26D681C64A664009EDE53 /* GameTeamData.m in Sources */,
@@ -5077,7 +5056,6 @@
 				279BAA751C59E3B50069EF5D /* CCRendererBasicTypes.m in Sources */,
 				27FBB8561D0FAE5A002B106B /* MoneyPanel.m in Sources */,
 				279BAAF91C59E3B60069EF5D /* CCPhysicsJoint.m in Sources */,
-				27C26D311C634410009EDE53 /* InnGroupButton.m in Sources */,
 				27C26D8B1C695291009EDE53 /* GuildData.m in Sources */,
 				279BAB0B1C59E3B60069EF5D /* CCResponder.m in Sources */,
 				279BAADE1C59E3B60069EF5D /* CCNode+Debug.m in Sources */,
@@ -5148,6 +5126,7 @@
 				270AB1E21CB790F400533B47 /* ShipStyleData.m in Sources */,
 				27C26DB21C6BEFFF009EDE53 /* CGStoryScene.m in Sources */,
 				279BAB841C59E3B70069EF5D /* CCEffectColor.m in Sources */,
+				EC94444D1DE0D8C0004FBEC2 /* GameDataObserver.m in Sources */,
 				279BAAE21C59E3B60069EF5D /* CCParallaxNode.m in Sources */,
 				ECBADDDB1DD861ED00DC490D /* GameTimerManager.m in Sources */,
 				279BAC051C59E3B80069EF5D /* ZipUtils.m in Sources */,
@@ -5167,7 +5146,6 @@
 				27FBB7771CDF116C002B106B /* GamePanelManager.m in Sources */,
 				279BABA61C59E3B70069EF5D /* CCSlider.m in Sources */,
 				27FBB7471CD84693002B106B /* ItemInfoPanel.m in Sources */,
-				27C26D3A1C634BC2009EDE53 /* ShopGroupButton.m in Sources */,
 				27FBB8491D092ECF002B106B /* RoleJobAnimation.m in Sources */,
 				279BAC331C59E3B80069EF5D /* OALAudioTrack.m in Sources */,
 				279BAB3A1C59E3B70069EF5D /* CCTiledMapObjectGroup.m in Sources */,
@@ -5184,7 +5162,6 @@
 				279BABAC1C59E3B70069EF5D /* CCTextField.m in Sources */,
 				279BAAE61C59E3B60069EF5D /* CCParticleBatchNode.m in Sources */,
 				27FBB77A1CE0144C002B106B /* GameItemData.m in Sources */,
-				27C26D051C6161BE009EDE53 /* GameDataManager.m in Sources */,
 				EC85DBEA1DCAFC7100613F44 /* GameConditionManager.m in Sources */,
 				279BAB221C59E3B70069EF5D /* CCSpriteFrame.m in Sources */,
 				279BAC421C59E3B80069EF5D /* ALBuffer.m in Sources */,
@@ -5234,7 +5211,6 @@
 				279BAA961C59E3B60069EF5D /* CCActionEase.m in Sources */,
 				279BABD91C59E3B80069EF5D /* CCWindow.m in Sources */,
 				279BABC91C59E3B80069EF5D /* CCGLView.m in Sources */,
-				2B20FCF81CD804530028E718 /* InfoButtonGroup.m in Sources */,
 				EC85DBE11DC85CA300613F44 /* EventActionData.m in Sources */,
 				279BAB251C59E3B70069EF5D /* CCSpriteFrameCache.m in Sources */,
 				279BAB151C59E3B70069EF5D /* CCScheduler.m in Sources */,

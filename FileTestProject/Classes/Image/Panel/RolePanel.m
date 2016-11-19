@@ -79,11 +79,13 @@ NSArray* getNPCListByType(RolePanelType type)
 -(void)selectRole:(NSString *)roleId
 {
     if ([_roleInfoPanel.roleId isEqualToString:roleId]) {
-        if (roleId && self.selectHandler != nil) {
-            // 再次点击才相应事件
-            self.selectHandler(roleId);
+        if (roleId) {
+            if (_type == RolePanelTypeEquip) {
+                self.completionBlockWithEventId(self.successEvent);
+            }
         }
     } else {
+        [GameValueManager sharedValueManager].reservedNPCData = [[GameDataManager sharedGameData].npcDic objectForKey:roleId];
         [_roleInfoPanel setRoleId:roleId];
     }
 }

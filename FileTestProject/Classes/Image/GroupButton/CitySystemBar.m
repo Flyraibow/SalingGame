@@ -14,7 +14,6 @@
 #import "UpdateMoneyProtocol.h"
 #import "SailScene.h"
 #import "RolePanel.h"
-#import "InfoButtonGroup.h"
 #import "SailorNumberPanel.h"
 #import "GamePanelManager.h"
 #import "GameEventManager.h"

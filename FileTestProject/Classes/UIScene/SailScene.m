@@ -13,16 +13,15 @@
 #import "DataManager.h"
 #import "ShipSailModel.h"
 #import "DefaultButton.h"
-#import "DateUpdateProtocol.h"
 #import "UpdateMoneyProtocol.h"
 #import "SailSceneShipProtocol.h"
 #import "SailSceneDrawLayer.h"
 #import "GameRouteData.h"
 #import "GoodsPricePanel.h"
+#import "GameDataObserver.h"
 
 @interface SailScene()<
 SailSceneGoProtocol,
-DateUpdateProtocol,
 UpdateMoneyProtocol,
 SailSceneShipProtocol>
 
@@ -158,7 +157,7 @@ SailSceneShipProtocol>
         _shipMoving = NO;
         self.userInteractionEnabled = YES;
         
-        [[GameDataManager sharedGameData] addTimeUpdateClass:self];
+        [[GameDataObserver sharedObserver] addListenerForKey:LISTENNING_KEY_DATE target:self selector:@selector(updateDate)];
         [[GameDataManager sharedGameData].myGuild addMoneyUpdateClass:self];
     }
     return self;

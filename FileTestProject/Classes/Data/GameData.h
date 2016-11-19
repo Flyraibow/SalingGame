@@ -8,9 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MyGuild.h"
-#import "DateUpdateProtocol.h"
-#import "OccupationUpdateProtocol.h"
-#import "CityChangeProtocol.h"
 
 typedef enum : NSUInteger {
     ChangeValueTypeEqual,
@@ -72,20 +69,6 @@ typedef enum : NSUInteger {
 -(void)moveToCity:(NSString *)cityNo;
 
 -(void)removeTimeUpdateClass:(id)target;
-
--(void)addTimeUpdateClass:(id<DateUpdateProtocol>)target;
-
--(void)removeTimeUpdateClass:(id)target;
-
--(void)addOccupationUpdateClass:(id<OccupationUpdateProtocol>)target;
-
--(void)removeOccupationUpdateClass:(id)target;
-
--(void)sendOccupationUpdateInfo:(NSString *)cityNo data:(NSMutableDictionary *)dict;
-
--(void)addCityChangeClass:(id<CityChangeProtocol>)target;
-
--(void)removeCityChangeClass:(id)target;
 
 -(NSArray *)itemListByCity:(NSString *)cityId;
 

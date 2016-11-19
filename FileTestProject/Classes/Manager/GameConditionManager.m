@@ -88,6 +88,18 @@ static GameConditionManager *_sharedConditionManager;
             }
             return NO;
         }
+    } else if ([condition.type isEqualToString:@"reserved"]) {
+        // TODO: 实现动态function
+        id data;
+        if ([condition.subtype isEqualToString:@"role"]) {
+            data = [GameValueManager sharedValueManager].reservedNPCData;
+        } else if ([condition.subtype isEqualToString:@"item"]) {
+            data = [GameValueManager sharedValueManager].reservedItemData;
+        }
+//        SEL function = NSSelectorFromString(condition.compareType);
+//        if ([data respondsToSelector:function]) {
+//            data performSelector:function withObject:<#(id)#>
+//        }
     } else if ([condition.type isEqualToString:@"and"]) {
         return [self checkConditions:condition.type2];
     }  else if ([condition.type isEqualToString:@"or"]) {

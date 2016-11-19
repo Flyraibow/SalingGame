@@ -16,16 +16,13 @@
 #import "InvestPanel.h"
 #import "GameDataManager.h"
 #import "CityBuildingGroup.h"
-#import "DateUpdateProtocol.h"
 #import "GameCityData.h"
-#import "OccupationUpdateProtocol.h"
 #import "GameStoryTriggerManager.h"
 #import "CGStoryScene.h"
 #import "GamePanelManager.h"
+#import "GameDataObserver.h"
 
-@interface CityScene() <
-DateUpdateProtocol,
-OccupationUpdateProtocol>
+@interface CityScene () <NSCopying>
 
 @end
 
@@ -39,7 +36,7 @@ OccupationUpdateProtocol>
     NSMutableArray *_labCityGoodsArray;
     CCLabelTTF *_labMerchantValue;
     CCLabelTTF *_labWeaponValue;
-    CityData *_cityData;
+    GameCityData *_cityData;
     CCLabelTTF *_labDate;
     CCLabelTTF *_labMyMoney;
     NSMutableArray *_labGuildNameArray;
@@ -159,10 +156,21 @@ OccupationUpdateProtocol>
         [_labGuildNameArray addObject:labelGuildName];
     }
     
-    [[GameDataManager sharedGameData] addTimeUpdateClass:self];
-    [[GameDataManager sharedGameData] addOccupationUpdateClass:self];
-    [[GameDataManager sharedGameData] addCityChangeClass:self];
+    [[GameDataObserver sharedObserver] addListenerForKey:LISTENNING_KEY_DATE target:self selector:@selector(updateDate)];
+    [[GameDataObserver sharedObserver] addListenerForKey:LISTENNING_KEY_CITY_OCCUPATION target:self selector:@selector(occupationUpdateCityNo:)];
+    [[GameDataObserver sharedObserver] addListenerForKey:LISTENNING_KEY_CITY target:self selector:@selector(changeCity:)];
     return self;
+}
+
+- (id)copyWithZone:(nullable NSZone *)zone
+{
+    return self;
+}
+
+-(void)removeAllChildrenWithCleanup:(BOOL)cleanup
+{
+    [super removeAllChildrenWithCleanup:cleanup];
+    [[GameDataObserver sharedObserver] removeAllListenersForTarget:self];
 }
 
 -(void)updateDate
@@ -185,20 +193,19 @@ OccupationUpdateProtocol>
 -(void)changeCity:(NSString *)cityNo
 {
     _cityNo = cityNo;
-    _cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:cityNo];
-    GameCityData *cityData = [[ GameDataManager sharedGameData].cityDic objectForKey:cityNo];
+    _cityData = [[ GameDataManager sharedGameData].cityDic objectForKey:cityNo];
     [self playMusic];
     _cityName.string = getLocalStringByString(@"city_name_", cityNo);
-    [_cityBg setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"Town_%d.png", _cityData.cityBackground]]];
-    _cityType.string = getLocalStringByInt(@"city_type_",_cityData.cityType);
-    _cityBelong.string = getLocalStringByInt(@"city_country_", _cityData.country);
-    _labWeaponValue.string = [NSString stringWithFormat:@"%d", cityData.milltaryValue];
-    _labMerchantValue.string = [@(cityData.commerceValue) stringValue];
-    _cityState.string = getLocalStringByInt(@"city_state_", cityData.cityState);
+    [_cityBg setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"Town_%d.png", _cityData.cityData.cityBackground]]];
+    _cityType.string = getLocalStringByInt(@"city_type_",_cityData.cityData.cityType);
+    _cityBelong.string = getLocalStringByInt(@"city_country_", _cityData.cityData.country);
+    _labWeaponValue.string = [NSString stringWithFormat:@"%d", _cityData.milltaryValue];
+    _labMerchantValue.string = [@(_cityData.commerceValue) stringValue];
+    _cityState.string = getLocalStringByInt(@"city_state_", _cityData.cityState);
     
     NSUInteger i = 0;
     // TODO: cityData.goodsDict sort
-    for (NSString *goodsId in cityData.goodsDict) {
+    for (NSString *goodsId in _cityData.goodsDict) {
         CCLabelTTF *labGoods = [_labCityGoodsArray objectAtIndex:i++];
         labGoods.string = getLocalStringByString(@"goods_name_", goodsId);
     }
@@ -207,7 +214,7 @@ OccupationUpdateProtocol>
         labGoods.string = @"";
     }
     [_cityBuildingGroup setCityNo:_cityNo];
-    [self occupationUpdateCityNo:_cityNo data:cityData.guildOccupation];
+    [self occupationUpdateCityNo:_cityNo];
     [self updateDate];
     [self checkStory:@"0"];
 }
@@ -220,7 +227,7 @@ OccupationUpdateProtocol>
 
 -(void)playMusic
 {
-    [GameDataManager sharedGameData].currentMusic = [NSString stringWithFormat:@"city_%d.mp3", _cityData.musicId];
+    [GameDataManager sharedGameData].currentMusic = [NSString stringWithFormat:@"city_%d.mp3", _cityData.cityData.musicId];
 }
 
 -(void)gotoBuildingNo:(NSString *)buildingNo
@@ -233,11 +240,12 @@ OccupationUpdateProtocol>
     [self playMusic];
 }
 
--(void)occupationUpdateCityNo:(NSString *)cityNo data:(NSDictionary *)data
+-(void)occupationUpdateCityNo:(NSString *)cityNo
 {
     if ([_cityNo isEqualToString:cityNo]) {
+        NSDictionary *occupation = _cityData.guildOccupation;
         NSArray *myArray;
-        myArray = [data keysSortedByValueUsingComparator: ^(id obj1, id obj2) {
+        myArray = [occupation keysSortedByValueUsingComparator: ^(id obj1, id obj2) {
             if ([obj1 integerValue] > [obj2 integerValue]) {
                 return (NSComparisonResult)NSOrderedAscending;
             }
@@ -252,7 +260,7 @@ OccupationUpdateProtocol>
             CCLabelTTF *labelGuild = _labGuildNameArray[i];
             labelGuild.string = getLocalStringByString(@"guild_name_", guildNo);
             CCLabelTTF *labelOccupation = _labOccupationArray[i];
-            labelOccupation.string =[NSString stringWithFormat:@"%@%%",[data objectForKey:guildNo]];
+            labelOccupation.string =[NSString stringWithFormat:@"%@%%",[occupation objectForKey:guildNo]];
         }
         for (NSUInteger i = myArray.count; i < 3; ++i) {
             CCLabelTTF *labelGuild = _labGuildNameArray[i];

@@ -24,13 +24,13 @@
 #import "CannonData.h"
 #import "GameValueManager.h"
 #import "BGImage.h"
+#import "GameDataObserver.h"
 
 @interface ShipPanel()
 < RoleSelectionPanelDelegate,
 ShipdeckIconSelectProtocol,
 TextInputPanelDelegate,
 CannonSelectionPanelDelegate,
-DateUpdateProtocol,
 UpdateMoneyProtocol>
 
 @end
@@ -271,7 +271,7 @@ UpdateMoneyProtocol>
                         // todo: maybe we need do some modify here
                         [dialogPanel setDefaultDialog:@"dialog_no_enough_money" arguments:nil];
                     } else {
-                        [[GameDataManager sharedGameData] addTimeUpdateClass:self];
+                        [[GameDataObserver sharedObserver] addListenerForKey:LISTENNING_KEY_DATE target:self selector:@selector(updateDate)];
                         [[GameDataManager sharedGameData].myGuild spendMoney:_spendingMoneyPanel.money];
                         _timing = YES;
                         [[OALSimpleAudio sharedInstance] playEffect:@"carpenter.wav"];

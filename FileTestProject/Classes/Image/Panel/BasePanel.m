@@ -12,6 +12,7 @@
 #import "TradePanel.h"
 #import "GameDataManager.h"
 #import "GameValueManager.h"
+#import "GameEventManager.h"
 
 @implementation BasePanel
 {
@@ -65,6 +66,15 @@
     if (self = [self init]) {
     }
     return self;
+}
+
+- (void)removeFromParent
+{
+    if ([GameEventManager sharedEventManager].topPanel == self) {
+        [[GameEventManager sharedEventManager] startEventId:@"close"];
+    } else {
+        [super removeFromParent];
+    }
 }
 
 @end
