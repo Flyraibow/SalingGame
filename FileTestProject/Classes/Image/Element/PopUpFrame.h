@@ -8,9 +8,9 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "BaseFrame.h"
+#import "BasePanel.h"
 
-@interface PopUpFrame : BaseFrame
+@interface PopUpFrame : BasePanel
 
 @property (nonatomic, readonly) CCSprite9Slice *frame;
 

@@ -12,11 +12,6 @@
 #import "LocalString.h"
 #import "GameDataManager.h"
 #import "GameCityData.h"
-#import "SpendMoneyProtocol.h"
-
-@interface InvestPanel ()
-
-@end
 
 @implementation InvestPanel
 {

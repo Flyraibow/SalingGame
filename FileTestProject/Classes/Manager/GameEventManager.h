@@ -20,4 +20,6 @@
 
 - (CCNode *)topPanel;
 
+- (void)clear;
+
 @end

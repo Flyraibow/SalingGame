@@ -26,12 +26,12 @@
 #import "BGImage.h"
 #import "GameDataObserver.h"
 
-@interface ShipPanel()
-< RoleSelectionPanelDelegate,
+@interface ShipPanel()<
+NSCopying,
+RoleSelectionPanelDelegate,
 ShipdeckIconSelectProtocol,
 TextInputPanelDelegate,
-CannonSelectionPanelDelegate,
-UpdateMoneyProtocol>
+CannonSelectionPanelDelegate>
 
 @end
 
@@ -170,7 +170,7 @@ UpdateMoneyProtocol>
             [_deckShipSprite addChild:btnChangeCannon];
             
             _cityNo = [GameDataManager sharedGameData].myGuild.myTeam.currentCityId;
-            [[GameDataManager sharedGameData].myGuild addMoneyUpdateClass:self];
+            [[GameDataObserver sharedObserver] addListenerForKey:LISTENNING_KEY_MONEY target:self selector:@selector(updateMoney:)];
             
         } else if (_shipSceneType == DeckShipSceneDeck) {
             // TODO： 如果是甲板模式，分为两个小模式，都显示小人，其中一个可以随意调动小人的位置，另一个，用于查看小人状态。
@@ -222,6 +222,17 @@ UpdateMoneyProtocol>
     return self;
 }
 
+-(id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+-(void)removeAllChildrenWithCleanup:(BOOL)cleanup
+{
+    [super removeAllChildrenWithCleanup:cleanup];
+    [[GameDataObserver sharedObserver] removeAllListenersForTarget:self];
+}
+
 -(void)clickBtnClose
 {
     [self closePanelSuccess:NO];
@@ -229,8 +240,6 @@ UpdateMoneyProtocol>
 
 - (void)closePanelSuccess:(BOOL)success
 {
-    [[GameDataManager sharedGameData].myGuild removeMoneyUpdateClass:self];
-    [[GameDataManager sharedGameData] removeTimeUpdateClass:self];
     [self removeFromParent];
     if (success) {
         self.completionBlockWithEventId(self.successEvent);
@@ -584,9 +593,9 @@ UpdateMoneyProtocol>
     [self closePanelSuccess:YES];
 }
 
--(void)updateMoney:(NSInteger)money
+-(void)updateMoney:(NSNumber *)money
 {
-    _myMoneylPanel.money = money;
+    _myMoneylPanel.money = [money integerValue];
 }
 
 

@@ -17,7 +17,6 @@ static GameValueManager *_sharedValueManager;
 {
     NSMutableDictionary *_numDictionary;
     NSMutableDictionary *_stringDictionary;
-    NSMutableDictionary *_reserveDictionary;
     NSDictionary *_cityDictionary;
     MyGuild *_myguild;
     NSString *_myguildId;
@@ -37,7 +36,6 @@ static GameValueManager *_sharedValueManager;
     if (self = [super init]) {
         _numDictionary = [NSMutableDictionary new];
         _stringDictionary = [NSMutableDictionary new];
-        _reserveDictionary = [NSMutableDictionary new];
         _cityDictionary = [GameDataManager sharedGameData].cityDic;
         _itemDictionary = [GameDataManager sharedGameData].itemDic;
         _myguild = [GameDataManager sharedGameData].myGuild;
@@ -60,20 +58,9 @@ static GameValueManager *_sharedValueManager;
     return (ob != [NSNull null]) ? ob : nil;
 }
 
-- (NSString *)reservedStringByKey:(const NSString *)key
-{
-    id ob = [_reserveDictionary objectForKey:key];
-    return (ob != [NSNull null]) ? ob : nil;
-}
-
 - (void)setString:(NSString *)value byKey:(NSString *)key
 {
     [_stringDictionary setObject:value?:[NSNull null] forKey:key];
-}
-
-- (void)setReserveString:(NSString *)value byKey:(const NSString *)key
-{
-    [_reserveDictionary setObject:value?:[NSNull null] forKey:key];
 }
 
 - (void)setNum:(NSInteger)value byKey:(NSString *)key
@@ -148,12 +135,11 @@ static GameValueManager *_sharedValueManager;
         return [self stringByKey:subType];
     } else if ([type isEqualToString:@"string"]) {
         return subType;
-    } else if ([type isEqualToString:@"reserved"]) {
-        return [self reservedStringByKey:subType];
     } else if ([type isEqualToString:@"item"]) {
-        NSString *itemId = [self reservedStringByKey:@"itemId"];
         if ([subType isEqualToString:@"itemName"]) {
-            return getItemName(itemId);
+            return getItemName(self.reservedItemData.itemId);
+        } else if ([subType isEqualToString:@"itemId"]) {
+            return self.reservedItemData.itemId;
         }
     }
     return type;
@@ -210,12 +196,10 @@ static GameValueManager *_sharedValueManager;
     } else if ([type isEqualToString:@"number"]) {
         value = [subType integerValue];
     } else if ([type isEqualToString:@"item"]) {
-        NSString *itemId = [self reservedStringByKey:@"itemId"];
-        GameItemData *itemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
         if ([subType isEqualToString:@"money"]) {
-            value = itemData.itemData.price;
+            value = self.reservedItemData.itemData.price;
         } else if ([subType isEqualToString:@"category"]) {
-            value = itemData.itemData.category;
+            value = self.reservedItemData.itemData.category;
         }
     }
     return value;

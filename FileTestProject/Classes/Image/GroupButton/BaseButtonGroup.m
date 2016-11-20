@@ -63,8 +63,8 @@
 
 -(instancetype)initWithNSArray:(NSArray *)buttonGroup CCNodeColor:(CCNodeColor *)nodeColor withCloseButton:(BOOL)closeButton
 {
-    if (self = [super initWithNode:nodeColor]) {
-        CGSize contentSize = [[CCDirector sharedDirector] viewSize];
+    if (self = [super init]) {
+        [self addChild:[BGImage getShadowForBackground]];
         NSArray *array;
         if (closeButton) {
             DefaultButton *closeButton = [DefaultButton buttonWithTitle:getLocalString(@"lab_close")];
@@ -79,7 +79,7 @@
             CCButton *button = [array objectAtIndex:i];
             button.positionType = CCPositionTypePoints;
             button.anchorPoint = ccp(0.5, 0.5);
-            button.position = ccp(contentSize.width / 2, contentSize.height / 2 + (buttonNumber / 2.0 - i) * 30);
+            button.position = ccp(self.contentSize.width / 2, self.contentSize.height / 2 + (buttonNumber / 2.0 - i) * 30);
             [self addChild:button];
             [_buttonList addObject:button];
         }

@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "BaseFrame.h"
+#import "BasePanel.h"
 
 @protocol TextInputPanelDelegate <NSObject>
 
@@ -16,7 +16,7 @@
 
 @end
 
-@interface TextInputPanel : BaseFrame
+@interface TextInputPanel : BasePanel
 
 @property (nonatomic, weak) id<TextInputPanelDelegate> delegate;
 @property (nonatomic, readonly) CCTextField *textField;

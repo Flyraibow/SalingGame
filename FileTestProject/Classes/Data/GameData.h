@@ -64,11 +64,7 @@ typedef enum : NSUInteger {
 
 -(void)spendOneDay;
 
--(void)spendOneDayWithInterval:(CGFloat)interval callback:(void(^)())handler;
-
 -(void)moveToCity:(NSString *)cityNo;
-
--(void)removeTimeUpdateClass:(id)target;
 
 -(NSArray *)itemListByCity:(NSString *)cityId;
 

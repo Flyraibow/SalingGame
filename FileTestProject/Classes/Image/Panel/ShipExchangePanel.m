@@ -155,7 +155,6 @@
         [_sprite addChild:shipUnit];
         [_array addObject:shipUnit];
         shipUnit.selectHandler = ^(GameShipData *gameShipData) {
-            
             if (_sceneType == ShipSceneTypeBuy) {
                 MyGuild * myguild = [GameDataManager sharedGameData].myGuild;
                 [myguild spendMoney:gameShipData.price
@@ -173,13 +172,10 @@
                 [[GameDataManager sharedGameData].myGuild.myTeam removeShip:gameShipData];
                 [GameDataManager sharedGameData].myGuild.money += shipData.price;
                 [self tradeSuccess];
-            } else if (_sceneType == ShipSceneTypeModify || _sceneType == ShipSceneTypeInfo) {
-                // TODO: 进入改造页面
+            } else if (_sceneType == ShipSceneTypeModify || _sceneType == ShipSceneTypeInfo || _sceneType == ShipSceneTypeEquip) {
                 [GameValueManager sharedValueManager].reservedShipData = gameShipData;
                 self.completionBlockWithEventId(self.successEvent);
                 [self removeFromParent];
-            } else if (_sceneType == ShipSceneTypeEquip) {
-                self.selectHandler(gameShipData);
             }
         };
     }

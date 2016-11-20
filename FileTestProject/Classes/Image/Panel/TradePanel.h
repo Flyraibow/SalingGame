@@ -13,8 +13,4 @@
 
 @interface TradePanel : BasePanel
 
--(instancetype)initWithCityNo:(NSString *)cityNo
-                 tradeSuccess:(NSString *)successEvent
-                  tradeCancel:(NSString *)cancelEvent;
-
 @end

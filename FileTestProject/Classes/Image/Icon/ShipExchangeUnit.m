@@ -10,7 +10,6 @@
 #import "LocalString.h"
 #import "DefaultButton.h"
 #import "GameDataManager.h"
-#import "SpendMoneyProtocol.h"
 #import "GameShipData.h"
 #import "DataManager.h"
 #import "ShipIcon.h"

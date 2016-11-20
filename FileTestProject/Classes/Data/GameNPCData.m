@@ -10,6 +10,7 @@
 #import "LocalString.h"
 #import "GameItemData.h"
 #import "GameDataManager.h"
+#import "GameDataObserver.h"
 
 @implementation GameSkillData
 
@@ -198,17 +199,17 @@ static int const kMaxItemNumber = 3;
 }
 
 
--(NPCEquipError)canEquip:(GameItemData *)itemData
+-(BOOL)canEquip:(GameItemData *)itemData
 {
     if (itemData.itemData.category == ItemCategoryOtherEquip && _otherEquipIdList.count >= kMaxItemNumber) {
-        return NPCEquipErrorFull;
+        return NO;
     }
-    return NPCEquipErrorNone;
+    return YES;
 }
 
 -(void)equip:(GameItemData *)itemData
 {
-    if ([self canEquip:itemData] != NPCEquipErrorNone) {
+    if (![self canEquip:itemData]) {
         return;
     }
     if (itemData.roleId) {
@@ -230,8 +231,7 @@ static int const kMaxItemNumber = 3;
     } else if (itemData.itemData.category == ItemCategoryOtherEquip) {
         [_otherEquipIdList addObject:itemData.itemId];
     }
-    // TODO: infor panel to do the change
-    
+    [[GameDataObserver sharedObserver] sendListenerForKey:LISTENNING_KEY_EQUIP data:self.npcId];
 }
 
 -(void)unequip:(GameItemData *)itemData
@@ -246,6 +246,7 @@ static int const kMaxItemNumber = 3;
         [_otherEquipIdList removeObject:itemData.itemId];
         itemData.roleId = nil;
     }
+    [[GameDataObserver sharedObserver] sendListenerForKey:LISTENNING_KEY_EQUIP data:self.npcId];
 }
 
 @end

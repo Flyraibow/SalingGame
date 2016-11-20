@@ -84,6 +84,11 @@ static NSString* const GameItemItemId= @"GameItemItemId";
     _guildId = @"0";
 }
 
+-(BOOL)isEquiped
+{
+    return !!_roleId;
+}
+
 -(NSString *)itemName
 {
     return getItemName(_itemId);

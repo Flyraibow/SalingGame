@@ -67,6 +67,7 @@ typedef enum : NSInteger {
 
 -(void)boughtByGuildNo:(NSString *)guildNo;
 -(void)sellToCityNo:(NSString *)cityNo;
+-(BOOL)isEquiped;
 -(void)isUsed;
 -(void)unequip;
 -(ShipUnequipError)unequipShipheader;

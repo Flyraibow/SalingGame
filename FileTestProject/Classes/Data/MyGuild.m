@@ -8,20 +8,19 @@
 
 #import "MyGuild.h"
 #import "DataManager.h"
+#import "GameDataObserver.h"
 
 static NSString* const GameGuildMyTeam = @"GameGuildMyTeam";
 static NSString* const GameUsedStorySet = @"GameUsedStorySet";
 
 @implementation MyGuild
 {
-    NSMutableSet *_moneyUpdateSet;
 }
 
 
 -(instancetype)initWithGameGuildData:(GameGuildData *)guildData
 {
     if (self = [super initWithGameGuildData:guildData]) {
-        _moneyUpdateSet = [NSMutableSet new];
         if (self.teamList.count > 0) {
             _myTeam = [self.teamList objectAtIndex:0];
             [self.teamList removeObjectAtIndex:0];
@@ -38,7 +37,6 @@ static NSString* const GameUsedStorySet = @"GameUsedStorySet";
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _moneyUpdateSet = [NSMutableSet new];
         _myTeam = [aDecoder decodeObjectForKey:GameGuildMyTeam];
         _usedStorySet = [aDecoder decodeObjectForKey:GameUsedStorySet];
     }
@@ -56,9 +54,7 @@ static NSString* const GameUsedStorySet = @"GameUsedStorySet";
 {
     [super setMoney:money];
     _myTeam.teamMoney = self.money;
-    for (id<UpdateMoneyProtocol> target in _moneyUpdateSet) {
-        [target updateMoney:self.money];
-    }
+    [[GameDataObserver sharedObserver] sendListenerForKey:LISTENNING_KEY_MONEY data:@(money)];
 }
 
 
@@ -71,17 +67,6 @@ static NSString* const GameUsedStorySet = @"GameUsedStorySet";
         successHandle();
     }
 }
-
--(void)addMoneyUpdateClass:(id<UpdateMoneyProtocol>)target
-{
-    [_moneyUpdateSet addObject:target];
-}
-
--(void)removeMoneyUpdateClass:(id)target
-{
-    [_moneyUpdateSet removeObject:target];
-}
-
 -(NpcData *)getLeaderData
 {
     return [[[DataManager sharedDataManager] getNpcDic] getNpcById:self.leaderId];

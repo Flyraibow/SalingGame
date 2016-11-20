@@ -13,7 +13,6 @@
 #import "DataManager.h"
 #import "ShipSailModel.h"
 #import "DefaultButton.h"
-#import "UpdateMoneyProtocol.h"
 #import "SailSceneShipProtocol.h"
 #import "SailSceneDrawLayer.h"
 #import "GameRouteData.h"
@@ -21,9 +20,8 @@
 #import "GameDataObserver.h"
 
 @interface SailScene()<
-SailSceneGoProtocol,
-UpdateMoneyProtocol,
-SailSceneShipProtocol>
+NSCopying,
+SailSceneGoProtocol>
 
 @end
 
@@ -158,7 +156,8 @@ SailSceneShipProtocol>
         self.userInteractionEnabled = YES;
         
         [[GameDataObserver sharedObserver] addListenerForKey:LISTENNING_KEY_DATE target:self selector:@selector(updateDate)];
-        [[GameDataManager sharedGameData].myGuild addMoneyUpdateClass:self];
+        
+        [[GameDataObserver sharedObserver] addListenerForKey:LISTENNING_KEY_MONEY target:self selector:@selector(updateMoney:)];
     }
     return self;
 }
@@ -204,7 +203,6 @@ SailSceneShipProtocol>
         _ship.visible = NO;
     }
     [_routesLayer drawCityRoutes:currentCitySet];
-    
 }
 
 -(void)clickCity:(CCButton *)cityBtn
@@ -229,6 +227,17 @@ SailSceneShipProtocol>
             [self addChild:_goodsPricePanel];
         }
     }
+}
+
+-(id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+-(void)removeAllChildrenWithCleanup:(BOOL)cleanup
+{
+    [super removeAllChildrenWithCleanup:cleanup];
+    [[GameDataObserver sharedObserver] removeAllListenersForTarget:self];
 }
 
 -(void)clickLeftButton
@@ -257,8 +266,6 @@ SailSceneShipProtocol>
 
 -(void)clickCloseButton
 {
-    [[GameDataManager sharedGameData] removeTimeUpdateClass:self];
-    [[GameDataManager sharedGameData].myGuild removeMoneyUpdateClass:self];
     [[CCDirector sharedDirector] popScene];
 }
 
@@ -302,9 +309,9 @@ SailSceneShipProtocol>
     [_ship setDirectionList:routes];
 }
 
--(void)updateMoney:(NSInteger)money
+-(void)updateMoney:(NSNumber *)money
 {
-    _labMoney.string = [@(money) stringValue];
+    _labMoney.string = [money stringValue];
 }
 
 -(void)updateDate

@@ -789,7 +789,6 @@
 		27FBB7841CE46D5B002B106B /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7831CE46D5B002B106B /* NSString+Ext.m */; };
 		27FBB7871CEAE0AE002B106B /* dialogPortrait6_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7861CEAE0AE002B106B /* dialogPortrait6_1.png */; };
 		27FBB7891CEC487E002B106B /* dialogPortrait4_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7881CEC487E002B106B /* dialogPortrait4_1.png */; };
-		27FBB7911CED8F6E002B106B /* BaseFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB78D1CED8F6E002B106B /* BaseFrame.m */; };
 		27FBB7921CED8F6E002B106B /* BGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB78F1CED8F6E002B106B /* BGImage.m */; };
 		27FBB79D1CED8F8F002B106B /* CityDataPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7941CED8F8F002B106B /* CityDataPanel.m */; };
 		27FBB79E1CED8F8F002B106B /* DialogPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7961CED8F8F002B106B /* DialogPanel.m */; };
@@ -1626,8 +1625,6 @@
 		27C26D291C633671009EDE53 /* GoodsCategoriesData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsCategoriesData.m; path = Classes/DataProcessing/GoodsCategoriesData.m; sourceTree = "<group>"; };
 		27C26D3E1C634F4D009EDE53 /* DockGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockGroupButton.h; path = Classes/Image/GroupButton/DockGroupButton.h; sourceTree = "<group>"; };
 		27C26D3F1C634F4D009EDE53 /* DockGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DockGroupButton.m; path = Classes/Image/GroupButton/DockGroupButton.m; sourceTree = "<group>"; };
-		27C26D431C63FC5D009EDE53 /* SpendMoneyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpendMoneyProtocol.h; path = Classes/Protocol/SpendMoneyProtocol.h; sourceTree = "<group>"; };
-		27C26D451C640F51009EDE53 /* UpdateMoneyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UpdateMoneyProtocol.h; path = Classes/Protocol/UpdateMoneyProtocol.h; sourceTree = "<group>"; };
 		27C26D521C6470BC009EDE53 /* ShipFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipFrame.png; path = Resources/Graph/Frame/ShipFrame.png; sourceTree = "<group>"; };
 		27C26D581C647A05009EDE53 /* rightArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightArrowButton.png; path = Resources/Graph/Button/rightArrowButton.png; sourceTree = "<group>"; };
 		27C26D5A1C647B01009EDE53 /* leftArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftArrowButton.png; path = Resources/Graph/Button/leftArrowButton.png; sourceTree = "<group>"; };
@@ -1673,7 +1670,6 @@
 		27C26DD91C701BD1009EDE53 /* ShipSailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipSailModel.h; path = Classes/Image/Icon/ShipSailModel.h; sourceTree = "<group>"; };
 		27C26DDA1C701BD1009EDE53 /* ShipSailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSailModel.m; path = Classes/Image/Icon/ShipSailModel.m; sourceTree = "<group>"; };
 		27C26DDF1C714A92009EDE53 /* cityInfoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cityInfoFrame.png; path = Resources/Graph/Frame/cityInfoFrame.png; sourceTree = "<group>"; };
-		27C26DE11C71708C009EDE53 /* SailSceneGoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SailSceneGoProtocol.h; path = Classes/Protocol/SailSceneGoProtocol.h; sourceTree = "<group>"; };
 		27C26DE21C717611009EDE53 /* SailSceneShipProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SailSceneShipProtocol.h; path = Classes/Protocol/SailSceneShipProtocol.h; sourceTree = "<group>"; };
 		27C26DE41C729419009EDE53 /* SeaAreaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeaAreaData.h; path = Classes/DataProcessing/SeaAreaData.h; sourceTree = "<group>"; };
 		27C26DE51C729419009EDE53 /* SeaAreaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeaAreaData.m; path = Classes/DataProcessing/SeaAreaData.m; sourceTree = "<group>"; };
@@ -2059,8 +2055,6 @@
 		27FBB7831CE46D5B002B106B /* NSString+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Ext.m"; path = "Classes/Ext/NSString+Ext.m"; sourceTree = "<group>"; };
 		27FBB7861CEAE0AE002B106B /* dialogPortrait6_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dialogPortrait6_1.png; path = Resources/Graph/Portrait/dialogPortrait6_1.png; sourceTree = "<group>"; };
 		27FBB7881CEC487E002B106B /* dialogPortrait4_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dialogPortrait4_1.png; path = Resources/Graph/Portrait/dialogPortrait4_1.png; sourceTree = "<group>"; };
-		27FBB78C1CED8F6E002B106B /* BaseFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseFrame.h; path = Classes/Image/Element/BaseFrame.h; sourceTree = "<group>"; };
-		27FBB78D1CED8F6E002B106B /* BaseFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseFrame.m; path = Classes/Image/Element/BaseFrame.m; sourceTree = "<group>"; };
 		27FBB78E1CED8F6E002B106B /* BGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BGImage.h; path = Classes/Image/Element/BGImage.h; sourceTree = "<group>"; };
 		27FBB78F1CED8F6E002B106B /* BGImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BGImage.m; path = Classes/Image/Element/BGImage.m; sourceTree = "<group>"; };
 		27FBB7931CED8F8F002B106B /* CityDataPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDataPanel.h; path = Classes/Image/Panel/CityDataPanel.h; sourceTree = "<group>"; };
@@ -2162,7 +2156,6 @@
 		EC3B89841DCEB83E00482A42 /* BasePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasePanel.m; path = Classes/Image/Panel/BasePanel.m; sourceTree = "<group>"; };
 		EC3B89861DD0026E00482A42 /* GameValueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameValueManager.h; path = Classes/Manager/GameValueManager.h; sourceTree = "<group>"; };
 		EC3B89871DD0026E00482A42 /* GameValueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameValueManager.m; path = Classes/Manager/GameValueManager.m; sourceTree = "<group>"; };
-		EC4589BA1D98FCB800B833A9 /* SpriteUpdateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpriteUpdateProtocol.h; path = Classes/Protocol/SpriteUpdateProtocol.h; sourceTree = "<group>"; };
 		EC4589BB1DA1EB8400B833A9 /* ship1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship1.png; path = Resources/Graph/Icon/ship1.png; sourceTree = "<group>"; };
 		EC4589BC1DA1EB8400B833A9 /* ship2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship2.png; path = Resources/Graph/Icon/ship2.png; sourceTree = "<group>"; };
 		EC4589BD1DA1EB8400B833A9 /* ship3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship3.png; path = Resources/Graph/Icon/ship3.png; sourceTree = "<group>"; };
@@ -2219,6 +2212,7 @@
 		EC9444491DE0D730004FBEC2 /* GameDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameDataManager.m; path = Classes/Manager/GameDataManager.m; sourceTree = "<group>"; };
 		EC94444B1DE0D8C0004FBEC2 /* GameDataObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameDataObserver.h; path = Classes/Manager/GameDataObserver.h; sourceTree = "<group>"; };
 		EC94444C1DE0D8C0004FBEC2 /* GameDataObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameDataObserver.m; path = Classes/Manager/GameDataObserver.m; sourceTree = "<group>"; };
+		EC94444E1DE16EAF004FBEC2 /* SailSceneGoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SailSceneGoProtocol.h; path = Classes/Protocol/SailSceneGoProtocol.h; sourceTree = "<group>"; };
 		ECBADDCD1DD81EC200DC490D /* BaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseScene.h; path = Classes/UIScene/BaseScene.h; sourceTree = "<group>"; };
 		ECBADDCE1DD81EC200DC490D /* BaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseScene.m; path = Classes/UIScene/BaseScene.m; sourceTree = "<group>"; };
 		ECBADDD01DD821D600DC490D /* TradePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradePanel.h; path = Classes/Image/Panel/TradePanel.h; sourceTree = "<group>"; };
@@ -3295,10 +3289,10 @@
 		27ACAB1C1C962C7E005C0881 /* Panel */ = {
 			isa = PBXGroup;
 			children = (
-				EC9444451DDEEC97004FBEC2 /* ShipPanel.m */,
 				EC9444461DDEEC97004FBEC2 /* ShipPanel.h */,
-				EC94443F1DDEE71D004FBEC2 /* ProgressPanel.m */,
+				EC9444451DDEEC97004FBEC2 /* ShipPanel.m */,
 				EC9444401DDEE71D004FBEC2 /* ProgressPanel.h */,
+				EC94443F1DDEE71D004FBEC2 /* ProgressPanel.m */,
 				ECBADDD71DD84A7B00DC490D /* DockYardPanel.h */,
 				ECBADDD61DD84A7B00DC490D /* DockYardPanel.m */,
 				ECBADDD31DD8467800DC490D /* ShipExchangePanel.h */,
@@ -3709,11 +3703,8 @@
 		27C26D411C63FA74009EDE53 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				27C26D451C640F51009EDE53 /* UpdateMoneyProtocol.h */,
-				27C26D431C63FC5D009EDE53 /* SpendMoneyProtocol.h */,
-				27C26DE11C71708C009EDE53 /* SailSceneGoProtocol.h */,
+				EC94444E1DE16EAF004FBEC2 /* SailSceneGoProtocol.h */,
 				27C26DE21C717611009EDE53 /* SailSceneShipProtocol.h */,
-				EC4589BA1D98FCB800B833A9 /* SpriteUpdateProtocol.h */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -4132,8 +4123,6 @@
 		27FBB7531CD852A8002B106B /* Element */ = {
 			isa = PBXGroup;
 			children = (
-				27FBB78C1CED8F6E002B106B /* BaseFrame.h */,
-				27FBB78D1CED8F6E002B106B /* BaseFrame.m */,
 				27FBB78E1CED8F6E002B106B /* BGImage.h */,
 				27FBB78F1CED8F6E002B106B /* BGImage.m */,
 				27FBB7571CD85310002B106B /* DefaultButton.h */,
@@ -5039,7 +5028,6 @@
 				27FBB7A11CED8F8F002B106B /* RolePanel.m in Sources */,
 				27C26D011C615F99009EDE53 /* DataButton.m in Sources */,
 				279BAA711C59E3B50069EF5D /* CCRenderDispatch.m in Sources */,
-				27FBB7911CED8F6E002B106B /* BaseFrame.m in Sources */,
 				279BABB11C59E3B80069EF5D /* CCPlatformTextField.m in Sources */,
 				EC3B89881DD0026E00482A42 /* GameValueManager.m in Sources */,
 				279BAB871C59E3B70069EF5D /* CCEffectColorPulse.m in Sources */,

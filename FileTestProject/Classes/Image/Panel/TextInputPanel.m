@@ -16,7 +16,8 @@
 
 -(instancetype)initWithText:(NSString *)text
 {
-    if (self = [super initWithNode:[BGImage getTransparentBackground]]) {
+    if (self = [super init]) {
+        [self addChild:[BGImage getTransparentBackground]];
         CCSprite *spriteBackground = [CCSprite spriteWithImageNamed:@"frame_input_panel.jpg"];
         spriteBackground.positionType = CCPositionTypeNormalized;
         spriteBackground.anchorPoint = ccp(0.5, 1);

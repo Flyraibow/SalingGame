@@ -6,18 +6,9 @@
 //  Copyright © 2016 Yujie Liu. All rights reserved.
 //
 
-#import "BaseFrame.h"
+#import "BasePanel.h"
 #import "GameCityData.h"
 
-@protocol InvestPanelDelegate <NSObject>
-
--(void)investFailure;
--(void)investSucceed;
-
-@end
-
-@interface InvestPanel : BaseFrame
-
-@property (nonatomic, assign) id<InvestPanelDelegate> delegate;
+@interface InvestPanel : BasePanel
 
 @end

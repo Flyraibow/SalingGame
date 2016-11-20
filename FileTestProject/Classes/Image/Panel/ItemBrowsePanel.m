@@ -51,14 +51,13 @@ const static int kShowLinesNumber = 4;
         _panelType = [dataList[0] integerValue];
         NSArray *items = getItemsByPanelType(_panelType, self.cityId);
         NSString *defaultCategory = nil;
-        NSString *itemId = [[GameValueManager sharedValueManager] reservedStringByKey:ReservedItem];
-        if (itemId) {
-            GameItemData *itemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
-            if (itemData) {
-                defaultCategory = [@(itemData.itemData.category) stringValue];
-            }
+        GameItemData *itemData = [GameValueManager sharedValueManager].reservedItemData;
+        if (_panelType == ItemBrowsePanelTypeEquip) {
+            NSInteger category = [GameValueManager sharedValueManager].reservedItemCategory;
+            defaultCategory = [@(category) stringValue];
+        } else if (itemData) {
+            defaultCategory = [@(itemData.itemData.category) stringValue];
         }
-        
         _panel = [CCSprite spriteWithImageNamed:@"ItemBrowsePanel.jpg"];
         _panel.positionType = CCPositionTypeNormalized;
         _panel.position = ccp(0.5, 0.1);
@@ -207,22 +206,9 @@ const static int kShowLinesNumber = 4;
 
 -(void)selectItem:(GameItemData *)gameItemData
 {
-    [[GameValueManager sharedValueManager] setReserveString:gameItemData.itemId byKey:@"itemId"];
-    self.completionBlockWithEventId(self.successEvent);
     [self removeFromParent];
-//    
-//    _selecteItemIndex = [_itemList indexOfObject:gameItemData];
-//    if (_itemInfoPanel == nil) {
-//        _itemInfoPanel = [[ItemInfoPanel alloc] initWithPanelType:_panelType];
-//        _itemInfoPanel.equipedRoleId = self.equipedRoleId;
-//        _itemInfoPanel.equipedShipId = self.equipedShipId;
-//        _itemInfoPanel.delegate = self;
-//        [self addChild:_itemInfoPanel];
-//    } else if (_itemInfoPanel.parent == nil) {
-//        [self addChild:_itemInfoPanel];
-//    }
-//    _itemInfoPanel.itemData = gameItemData;
-//    _panel.visible = NO;
+    [GameValueManager sharedValueManager].reservedItemData = gameItemData;
+    self.completionBlockWithEventId(self.successEvent);
 }
 
 /*

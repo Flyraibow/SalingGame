@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "BaseFrame.h"
+#import "BasePanel.h"
 #import "GameItemData.h"
 
 typedef enum : NSUInteger {
@@ -22,7 +22,7 @@ typedef enum : NSUInteger {
 
 NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId);
 
-@interface ItemInfoPanel : BaseFrame
+@interface ItemInfoPanel : BasePanel
 
 @property (nonatomic) GameItemData *itemData;
 @property (nonatomic, weak) NSString *equipedRoleId;            // used for preselected situation

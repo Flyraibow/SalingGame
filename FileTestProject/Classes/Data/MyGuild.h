@@ -7,8 +7,6 @@
 //
 
 #import "GameGuildData.h"
-#import "SpendMoneyProtocol.h"
-#import "UpdateMoneyProtocol.h"
 #import "GameTeamData.h"
 #import "GameShipData.h"
 #import "NpcData.h"
@@ -19,10 +17,6 @@
 @property (nonatomic, readonly) NSSet *usedStorySet;
 
 -(void)spendMoney:(NSInteger)value succesHandler:(void(^)())successHandle failHandle:(void(^)())failHandle;
-
--(void)addMoneyUpdateClass:(id<UpdateMoneyProtocol>)target;
-
--(void)removeMoneyUpdateClass:(id)target;
 
 -(NpcData *)getLeaderData;
 

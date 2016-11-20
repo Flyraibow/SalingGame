@@ -18,19 +18,15 @@ static const NSString *ReservedItem = @"itemId";
 @property (nonatomic, weak) GameItemData *reservedItemData;
 @property (nonatomic, weak) GameShipData *reservedShipData;
 @property (nonatomic, weak) GameNPCData *reservedNPCData;
+@property (nonatomic, assign) NSInteger *reservedItemCategory;
 
 + (GameValueManager *)sharedValueManager;
 
 - (NSString *)stringByKey:(NSString *)key;
 
-- (NSString *)reservedStringByKey:(const NSString *)key;
-
 - (NSInteger)intByKey:(NSString *)key;
 
 - (void)setString:(NSString *)value byKey:(NSString *)key;
-
-// TODO: I need to reconsider it
-- (void)setReserveString:(NSString *)value byKey:(const NSString *)key;
 
 - (void)setNum:(NSInteger)value byKey:(NSString *)key;
 

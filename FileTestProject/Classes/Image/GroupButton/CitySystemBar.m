@@ -11,13 +11,13 @@
 #import "DefaultButton.h"
 #import "LocalString.h"
 #import "GameDataManager.h"
-#import "UpdateMoneyProtocol.h"
 #import "SailScene.h"
 #import "RolePanel.h"
 #import "SailorNumberPanel.h"
 #import "GamePanelManager.h"
 #import "GameEventManager.h"
 #import "GameValueManager.h"
+#import "GameDataObserver.h"
 
 typedef enum : NSUInteger {
     Button_Sail_MAP = 1,
@@ -27,7 +27,7 @@ typedef enum : NSUInteger {
     Button_System
 } Button_Type;
 
-@interface CitySystemBar() <UpdateMoneyProtocol>
+@interface GameDataObserver() <NSCopying>
 
 @end
 
@@ -67,14 +67,25 @@ typedef enum : NSUInteger {
         _labMyMoney.position = ccp(0.98, 0.84);
         [self addChild:_labMyMoney];
         
-        [[GameDataManager sharedGameData].myGuild addMoneyUpdateClass:self];
+        [[GameDataObserver sharedObserver] addListenerForKey:LISTENNING_KEY_MONEY target:self selector:@selector(updateMoney:)];
     }
     return self;
 }
 
--(void)updateMoney:(NSInteger)money
+-(id)copyWithZone:(NSZone *)zone
 {
-    _labMyMoney.string = [@([GameDataManager sharedGameData].myGuild.money) stringValue];
+    return self;
+}
+
+-(void)removeAllChildrenWithCleanup:(BOOL)cleanup
+{
+    [super removeAllChildrenWithCleanup:cleanup];
+    [[GameDataObserver sharedObserver] removeAllListenersForTarget:self];
+}
+
+-(void)updateMoney:(NSNumber *)money
+{
+    _labMyMoney.string = [money stringValue];
 }
 
 -(void)clickSystemButton:(DefaultButton *)button

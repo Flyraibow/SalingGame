@@ -15,10 +15,10 @@
 #import "ItemIcon.h"
 #import "ItemBrowsePanel.h"
 #import "ItemInfoPanel.h"
-#import "SpriteUpdateProtocol.h"
 #import "RoleAnimation.h"
+#import "GameDataObserver.h"
 
-@interface RoleInfoPanel() <ItemIconSelectionDelegate, SpriteUpdateProtocol>
+@interface RoleInfoPanel() <ItemIconSelectionDelegate, NSCopying>
 
 @end
 
@@ -183,8 +183,21 @@
         _attributeGraph.positionType = CCPositionTypePoints;
         _attributeGraph.position = ccp(552, 184);
         [self addChild:_attributeGraph];
+        
+        [[GameDataObserver sharedObserver] addListenerForKey:LISTENNING_KEY_EQUIP target:self selector:@selector(setRoleId:)];
     }
     return self;
+}
+
+-(id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+-(void)removeAllChildrenWithCleanup:(BOOL)cleanup
+{
+    [[GameDataObserver sharedObserver] removeAllListenersForTarget:self];
+    [super removeAllChildrenWithCleanup:cleanup];
 }
 
 -(void)setRoleId:(NSString *)roleId
@@ -209,7 +222,6 @@
     if (_npcData.weaponId) {
         [_weaponIcon setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:_npcData.weaponId]];
     } else {
-        // TODO: SET NIL
         [_weaponIcon setItemData:nil];
     }
     if (_npcData.armorId) {
@@ -239,43 +251,28 @@
 -(void)selectItem:(GameItemData *)itemData
 {
     // 弹出商品info，可以选择卸载
-//    _itemPanel = [[ItemInfoPanel alloc] initWithPanelType:ItemBrowsePanelTypeSingle];
-//    [_itemPanel setItemData:itemData];
-//    _itemPanel.delegate = self;
-//    [self.scene addChild:_itemPanel];
+    [self.delegate selectItem:itemData];
 }
 
--(void)selectItemFromInfoPanel:(GameItemData *)gameItemData
-{
-    // 更新
-    [_npcData unequip:gameItemData];
-    [self setRoleId:_roleId];
-    if (_itemPanel) {
-        [_itemPanel removeFromParent];
-    }
-}
 
 -(void)selectItemByCategory:(ItemCategory)itemCategory
 {
+    [self.delegate selectItemCategory:itemCategory];
     // 弹出选择商品列表，可以装备
-    NSArray *items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
-    NSMutableArray *mutableItems = [items mutableCopy];
-    // 删除不和条件的类型
-    for (GameItemData *itemData in items) {
-        if (itemData.itemData.category != itemCategory) {
-            [mutableItems removeObject:itemData];
-        }
-    }
+//    NSArray *items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
+//    NSMutableArray *mutableItems = [items mutableCopy];
+//    // 删除不和条件的类型
+//    for (GameItemData *itemData in items) {
+//        if (itemData.itemData.category != itemCategory) {
+//            [mutableItems removeObject:itemData];
+//        }
+//    }
 //    ItemBrowsePanel *panel = [[ItemBrowsePanel alloc] initWithItems:mutableItems panelType:ItemBrowsePanelTypeEquip];
 //    panel.delegate = self;
 //    panel.equipedRoleId = _roleId;
 //    [self.scene addChild:panel];
 }
 
--(void)updatePanel
-{
-    [self setRoleId:_roleId];
-}
 
 -(void)drawAttributeGraph
 {

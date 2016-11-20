@@ -14,10 +14,6 @@
 #import "ItemInfoPanel.h"
 #import "GamePanelManager.h"
 
-@interface ShipdeckIcon() <SpriteUpdateProtocol>
-
-@end
-
 @implementation ShipdeckIcon
 {
     CCSprite *_selectableSprite;

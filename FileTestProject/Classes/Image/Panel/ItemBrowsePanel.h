@@ -8,14 +8,12 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "BaseFrame.h"
+#import "BasePanel.h"
 #import "ItemInfoPanel.h"
-#import "SpriteUpdateProtocol.h"
 
-@interface ItemBrowsePanel : BaseFrame
+@interface ItemBrowsePanel : BasePanel
 
 @property (nonatomic, weak) NSString *equipedRoleId;    // used for preselected situation
 @property (nonatomic, weak) NSString *equipedShipId;    // used for preselected situation
-@property (nonatomic, weak) id<SpriteUpdateProtocol> delegate;
 
 @end

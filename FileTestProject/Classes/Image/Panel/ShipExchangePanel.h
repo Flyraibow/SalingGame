@@ -12,6 +12,5 @@
 @interface ShipExchangePanel : BasePanel
 
 @property (nonatomic, assign, readonly) ShipSceneType sceneType;
-@property (nonatomic) void(^selectHandler)(GameShipData *shipData);
 
 @end

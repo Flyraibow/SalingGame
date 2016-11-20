@@ -67,7 +67,7 @@ static GameDataObserver *_sharedObserver;
             SEL selector = NSSelectorFromString(dict[target]);
             NSAssert([target respondsToSelector:selector], @"target %@ doesn't respond to %@", target, dict[target]);
             if ([target respondsToSelector:selector]) {
-                ((void (*)(id, SEL))[target methodForSelector:selector])(target, selector);
+                ((void (*)(id, SEL, id))[target methodForSelector:selector])(target, selector, data);
             }
         }
     }

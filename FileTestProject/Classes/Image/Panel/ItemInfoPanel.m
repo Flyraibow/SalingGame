@@ -22,14 +22,27 @@ NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId)
             items = [[GameDataManager sharedGameData] itemListByCity:cityId];
             break;
         case ItemBrowsePanelTypeSell:
-            items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
-            break;
         case ItemBrowsePanelTypeBrowse:
             items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
             break;
         case ItemBrowsePanelTypeEquip:
-        case ItemBrowsePanelTypeSingle:
+        {
+            NSInteger itemCategory = [GameValueManager sharedValueManager].reservedItemCategory;
+            items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
+            NSMutableArray *mutableItems = [items mutableCopy];
+            // 删除不和条件的类型
+            for (GameItemData *itemData in items) {
+                if (itemData.itemData.category != itemCategory) {
+                    [mutableItems removeObject:itemData];
+                }
+            }
+            items = mutableItems;
+            break;
+        }
         case ItemBrowsePanelTypeShipHeader:
+            break;
+        case ItemBrowsePanelTypeSingle:
+            items = @[[GameValueManager sharedValueManager].reservedItemData];
             break;
     }
     if (items) {
@@ -63,15 +76,12 @@ NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId)
 
 - (instancetype)initWithDataList:(NSArray *)dataList
 {
-    if (self = [super initWithNode:[BGImage getShadowForBackground]]) {
-        self.contentSize = [CCDirector sharedDirector].viewSize;
-        self.positionType = CCPositionTypeNormalized;
-        self.position = ccp(0.5, 0.5);
-        self.anchorPoint = ccp(0.5, 0.5);
-        
+    if (self = [super init]) {
+        [self addChild:[BGImage getTransparentBackground]];
+
         _type = [dataList[0] integerValue];
         _itemList = getItemsByPanelType(_type, self.cityId);
-        NSString *itemId = [[GameValueManager sharedValueManager] getStringByTerm:dataList[1]];
+        GameItemData *itemData = [GameValueManager sharedValueManager].reservedItemData;
         
         _itemPanel = [CCSprite spriteWithImageNamed:@"itemDescFrame.jpg"];
         _itemPanel.positionType = CCPositionTypeNormalized;
@@ -154,7 +164,6 @@ NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId)
         _labEquipType.position = ccp(0.82, 0.41);
         [_itemPanel addChild:_labEquipType];
         
-        GameItemData *itemData = [[GameDataManager sharedGameData].itemDic objectForKey:itemId];
         if (_itemList) {
             _index = [_itemList indexOfObject:itemData];
             if (_itemList.count > 1) {
@@ -222,7 +231,6 @@ NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId)
             _selectButton.visible = NO;
         }
     } else if (_type == ItemBrowsePanelTypeEquip) {
-        assert(self.equipedRoleId);
         if (itemData.roleId) {
             if ([self.equipedRoleId isEqualToString:itemData.roleId]) {
                 _selectButton.title = getLocalString(@"lab_unequip");
@@ -262,14 +270,14 @@ NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId)
 -(void)clickRightButton
 {
     GameItemData *itemData = [_itemList objectAtIndex: (_index + 1) % _itemList.count];
-    [[GameValueManager sharedValueManager] setReserveString:itemData.itemId byKey:ReservedItem];
+    [GameValueManager sharedValueManager].reservedItemData = itemData;
     [self setItemData:itemData];
 }
 
 -(void)clickLeftButton
 {
     GameItemData *itemData = [_itemList objectAtIndex: (_index - 1 + _itemList.count) % _itemList.count];
-    [[GameValueManager sharedValueManager] setReserveString:itemData.itemId byKey:ReservedItem];
+    [GameValueManager sharedValueManager].reservedItemData = itemData;
     [self setItemData:itemData];
 }
 

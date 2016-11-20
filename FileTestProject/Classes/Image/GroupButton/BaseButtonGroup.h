@@ -8,10 +8,10 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "BaseFrame.h"
+#import "BasePanel.h"
 
 @class EventActionData;
-@interface BaseButtonGroup : BaseFrame 
+@interface BaseButtonGroup : BasePanel
 
 @property (nonatomic, weak) CCScene *baseScene;
 @property (nonatomic, assign) BOOL hidden;

@@ -71,7 +71,7 @@
 - (void)removeFromParent
 {
     if ([GameEventManager sharedEventManager].topPanel == self) {
-        [[GameEventManager sharedEventManager] startEventId:@"close"];
+        [[GameEventManager sharedEventManager] startEventId:@"closeWindow"];
     } else {
         [super removeFromParent];
     }

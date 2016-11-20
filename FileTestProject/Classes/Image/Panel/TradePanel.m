@@ -52,7 +52,7 @@
     ShowType _type;
 }
 
--(instancetype)init
+-(instancetype)initWithDataList:(NSArray *)dataList
 {
     if (self = [super init]) {
         _cityData = [[GameDataManager sharedGameData].cityDic objectForKey:self.cityId];
@@ -227,17 +227,6 @@
             [self addChild:icon];
             index++;
         }
-    }
-    return self;
-}
-
--(instancetype)initWithCityNo:(NSString *)cityNo
-                 tradeSuccess:(NSString *)successEvent
-                  tradeCancel:(NSString *)cancelEvent;
-{
-    
-    if (self = [self init]) {
-        
     }
     return self;
 }

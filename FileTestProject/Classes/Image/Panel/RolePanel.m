@@ -16,6 +16,9 @@
 
 @interface RolePanel() <RoleInfoPanelDelegate, RoleSelectionPanelDelegate>
 
+@property (nonatomic, copy) NSString *selectItemEventId;
+@property (nonatomic, copy) NSString *selectCategoryEventId;
+
 @end
 
 @implementation RolePanel
@@ -45,6 +48,10 @@ NSArray* getNPCListByType(RolePanelType type)
 {
     if (self = [super init]) {
         _type = [dataList[0] integerValue];
+        if (dataList.count > 1) {
+            self.selectItemEventId = dataList[1];
+            self.selectCategoryEventId = dataList[2];
+        }
         NSArray *npcList = getNPCListByType(_type);
 
         self.contentSize = _contentSize;
@@ -74,6 +81,7 @@ NSArray* getNPCListByType(RolePanelType type)
 -(void)closePanel
 {
     [self removeFromParent];
+    self.completionBlockWithEventId(self.cancelEvent);
 }
 
 -(void)selectRole:(NSString *)roleId
@@ -88,6 +96,18 @@ NSArray* getNPCListByType(RolePanelType type)
         [GameValueManager sharedValueManager].reservedNPCData = [[GameDataManager sharedGameData].npcDic objectForKey:roleId];
         [_roleInfoPanel setRoleId:roleId];
     }
+}
+
+-(void)selectItemCategory:(NSInteger)category
+{
+    [GameValueManager sharedValueManager].reservedItemCategory = category;
+    self.completionBlockWithEventId(self.selectCategoryEventId);
+}
+
+-(void)selectItem:(GameItemData *)itemData
+{
+    [GameValueManager sharedValueManager].reservedItemData = itemData;
+    self.completionBlockWithEventId(self.selectItemEventId);
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event

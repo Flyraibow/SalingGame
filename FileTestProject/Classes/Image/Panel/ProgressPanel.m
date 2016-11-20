@@ -13,6 +13,7 @@
 #import "DataButton.h"
 #import "GameDataManager.h"
 #import "CityScene.h"
+#import "GameEventManager.h"
 
 @implementation ProgressPanel
 {
@@ -92,6 +93,7 @@
         CityScene *cityScene = [[CityScene alloc] init];
         
         [[CCDirector sharedDirector] presentScene:cityScene];
+        [[GameEventManager sharedEventManager] clear];
         [cityScene changeCity:[GameDataManager sharedGameData].myGuild.myTeam.currentCityId];
     } else if (_type == ProgressSave) {
         [GameDataManager saveWithIndex:index];

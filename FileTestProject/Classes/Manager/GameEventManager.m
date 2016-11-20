@@ -52,6 +52,16 @@ static GameEventManager *_sharedEventManager;
     return self;
 }
 
+- (void)clear
+{
+    [_viewStack removeAllObjects];
+    _eventList = nil;
+    _currentEventIndex = 0;
+    _dialogList = nil;
+    _currentDialogIndex = 0;
+    _tempDialogContent = nil;
+}
+
 - (CCNode *)topPanel;
 {
     if (_viewStack.count > 0) {

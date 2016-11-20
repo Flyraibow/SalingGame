@@ -23,7 +23,6 @@
 
 @implementation GameData
 {
-    void(^_handler)();
     NSUInteger _shipIdIndex;
 }
 
@@ -299,22 +298,6 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
     [[GameDataObserver sharedObserver] sendListenerForKey:LISTENNING_KEY_DATE data:nil];
 }
 
--(void)spendOneDayWithInterval:(CGFloat)interval callback:(void(^)())handler
-{
-    [self spendOneDay];
-    _handler = handler;
-    if (interval <= 0) {
-        _handler();
-    } else {
-        [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(_spendTimeComplete) userInfo:nil repeats:NO];
-    }
-}
-
--(void)_spendTimeComplete
-{
-    _handler();
-}
-
 -(void)passMonth
 {
     _day = 1;
@@ -451,6 +434,10 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
             NSString *itemId = [[GameValueManager sharedValueManager] getStringByTerm:array[2]];
             GameItemData *itemData = [self.itemDic objectForKey:itemId];
             [npcData equip:itemData];
+        } else if ([array[1] isEqualToString:@"unequip"]) {
+            NSString *itemId = [[GameValueManager sharedValueManager] getStringByTerm:array[2]];
+            GameItemData *itemData = [self.itemDic objectForKey:itemId];
+            [npcData unequip:itemData];
         }
     }
 }

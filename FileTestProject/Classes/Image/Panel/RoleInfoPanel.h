@@ -9,9 +9,12 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
+@class GameItemData;
 @protocol RoleInfoPanelDelegate <NSObject>
 
 -(void)closePanel;
+-(void)selectItemCategory:(NSInteger)category;
+-(void)selectItem:(GameItemData *)itemData;
 
 @end
 
