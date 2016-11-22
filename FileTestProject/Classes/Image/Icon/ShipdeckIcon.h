@@ -11,10 +11,12 @@
 #import "RoleJobAnimation.h"
 #import "ShipPanel.h"
 
+@class ShipdeckIcon;
 @protocol ShipdeckIconSelectProtocol <NSObject>
 
--(void)selectShipdeckIcon:(id)shipdeckIcon;
--(int)nextShipdeckEquipType:(id)shipdeckIcon;
+-(void)selectShipHeader:(ShipdeckIcon *)shipdeckIcon;
+-(void)selectShipdeckIcon:(ShipdeckIcon *)shipdeckIcon;
+-(int)nextShipdeckEquipType:(ShipdeckIcon *)shipdeckIcon;
 -(void)computeTimeAndMoney;
 
 @optional

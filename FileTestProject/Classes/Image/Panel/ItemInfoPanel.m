@@ -13,6 +13,7 @@
 #import "CCSprite+Ext.h"
 #import "GameValueManager.h"
 #import "GameDataManager.h"
+#import "GameNPCData.h"
 
 NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId)
 {
@@ -40,7 +41,18 @@ NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId)
             break;
         }
         case ItemBrowsePanelTypeShipHeader:
+        {
+            items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
+            NSMutableArray *mutableItems = [items mutableCopy];
+            // 删除不和条件的类型
+            for (GameItemData *itemData in items) {
+                if (itemData.itemData.type != ItemTypeShipHeader) {
+                    [mutableItems removeObject:itemData];
+                }
+            }
+            items = mutableItems;
             break;
+        }
         case ItemBrowsePanelTypeSingle:
             items = @[[GameValueManager sharedValueManager].reservedItemData];
             break;
@@ -232,7 +244,7 @@ NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId)
         }
     } else if (_type == ItemBrowsePanelTypeEquip) {
         if (itemData.roleId) {
-            if ([self.equipedRoleId isEqualToString:itemData.roleId]) {
+            if ([[GameValueManager sharedValueManager].reservedNPCData.npcId isEqualToString:itemData.roleId]) {
                 _selectButton.title = getLocalString(@"lab_unequip");
             } else {
                 _selectButton.title = getLocalString(@"lab_unequip_equip");
@@ -243,7 +255,7 @@ NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId)
         _selectButton.visible = YES;
     } else if (_type == ItemBrowsePanelTypeShipHeader) {
         if (itemData.shipId) {
-            if ([self.equipedShipId isEqualToString:itemData.shipId]) {
+            if ([[GameValueManager sharedValueManager].reservedShipData.shipId isEqualToString:itemData.shipId]) {
                 _selectButton.title = getLocalString(@"lab_unequip");
             } else {
                 _selectButton.title = getLocalString(@"lab_unequip_equip");

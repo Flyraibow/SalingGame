@@ -57,6 +57,9 @@ const static int kShowLinesNumber = 4;
             defaultCategory = [@(category) stringValue];
         } else if (itemData) {
             defaultCategory = [@(itemData.itemData.category) stringValue];
+        } else if (items.count > 0) {
+            itemData = items[0];
+            defaultCategory = [@(itemData.itemData.category) stringValue];
         }
         _panel = [CCSprite spriteWithImageNamed:@"ItemBrowsePanel.jpg"];
         _panel.positionType = CCPositionTypeNormalized;

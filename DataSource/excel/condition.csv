@@ -25,3 +25,5 @@ haveItem,______,guild,sellItemNumber,>,number,0
 itemCanEquip,______,item,category,<=,number,3
 itemCanEquipToRole,_______,data,role,canEquip:,data,item
 itemAlreadyEquiped,______,data,item,isEquiped,;,;
+itemNotNil,_____,data,item,!=,nil,
+shipHasHeader,______,data,ship,shipHeader,;,;

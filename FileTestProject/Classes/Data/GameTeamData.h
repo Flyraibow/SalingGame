@@ -42,7 +42,6 @@
 // 获取船只，如果船只多于5条，将会把船寄放到这个城市的船坞
 -(void)getShip:(GameShipData *)shipData cityId:(NSString *)cityId;
 -(void)removeShip:(GameShipData *)shipData;
--(void)removeShip:(GameShipData *)shipData forEver:(BOOL)forever;
 
 -(NSArray *)getCarryShipListInCity:(NSString *)cityId;
 

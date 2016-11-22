@@ -205,5 +205,16 @@ static GameValueManager *_sharedValueManager;
     return value;
 }
 
+- (id)reservedDataByTerm:(NSString *)term
+{
+    if ([term isEqualToString:@"role"]) {
+        return [GameValueManager sharedValueManager].reservedNPCData;
+    } else if ([term isEqualToString:@"item"]) {
+        return [GameValueManager sharedValueManager].reservedItemData;
+    } else if ([term isEqualToString:@"ship"]) {
+        return [GameValueManager sharedValueManager].reservedShipData;
+    }
+    return nil;
+}
 
 @end

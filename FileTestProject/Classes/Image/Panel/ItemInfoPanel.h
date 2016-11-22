@@ -12,12 +12,12 @@
 #import "GameItemData.h"
 
 typedef enum : NSUInteger {
-    ItemBrowsePanelTypeBuy,
-    ItemBrowsePanelTypeSell,
-    ItemBrowsePanelTypeBrowse,
-    ItemBrowsePanelTypeEquip,
-    ItemBrowsePanelTypeSingle,
-    ItemBrowsePanelTypeShipHeader,
+    ItemBrowsePanelTypeBuy = 0,
+    ItemBrowsePanelTypeSell = 1,
+    ItemBrowsePanelTypeBrowse = 2,
+    ItemBrowsePanelTypeEquip = 3,
+    ItemBrowsePanelTypeSingle = 4,
+    ItemBrowsePanelTypeShipHeader = 5,
 } ItemBrowsePanelType;
 
 NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId);
@@ -25,7 +25,5 @@ NSArray *getItemsByPanelType(ItemBrowsePanelType type, NSString *cityId);
 @interface ItemInfoPanel : BasePanel
 
 @property (nonatomic) GameItemData *itemData;
-@property (nonatomic, weak) NSString *equipedRoleId;            // used for preselected situation
-@property (nonatomic, weak) NSString *equipedShipId;            // used for preselected situation
 
 @end

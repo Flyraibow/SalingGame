@@ -45,12 +45,6 @@ typedef enum : NSUInteger {
     StorageRoomTypeCount,
 }StorageRoomType;
 
-typedef enum : NSUInteger {
-    ShipUnequipErrorNone,
-    ShipUnequipErrorDemon,
-    ShipUnequipErrorDemonFirst,
-}ShipUnequipError;
-
 @class GameItemData;
 @interface GameShipData : NSObject <NSCoding>
 
@@ -89,8 +83,6 @@ typedef enum : NSUInteger {
 
 -(void)equip:(GameItemData *)itemData;
 
--(ShipUnequipError)unequip:(GameItemData *)itemData;
-
--(ShipUnequipError)unequip:(GameItemData *)itemData withForce:(BOOL)force;
+-(void)unequip:(GameItemData *)itemData;
 
 @end

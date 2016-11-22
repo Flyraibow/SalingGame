@@ -13,6 +13,11 @@
 #import "CCSprite+Ext.h"
 #import "ItemInfoPanel.h"
 #import "GamePanelManager.h"
+#import "GameDataObserver.h"
+
+@interface ShipdeckIcon() <NSCopying>
+
+@end
 
 @implementation ShipdeckIcon
 {
@@ -60,6 +65,7 @@
                     _headerIcon.position = ccp(0.5, 0.5);
                     _headerIcon.userInteractionEnabled = NO;
                     [self addChild:_headerIcon];
+                    [[GameDataObserver sharedObserver] addListenerForKey:LISTENNING_KEY_SHIPHEADER target:self selector:@selector(updatePanel)];
                 }
             }
         }
@@ -68,6 +74,17 @@
         self.userInteractionEnabled = YES;
     }
     return self;
+}
+
+-(id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+-(void)removeAllChildrenWithCleanup:(BOOL)cleanup
+{
+    [[GameDataObserver sharedObserver] removeAllListenersForTarget:self];
+    [super removeAllChildrenWithCleanup:cleanup];
 }
 
 -(NSString *)shipiconString
@@ -107,27 +124,7 @@
                 }
             } else {
                 // 船首像的逻辑另外算
-                if (self.shipData.shipHeader) {
-                    // 弹出商品info，可以选择卸载
-//                    _itemPanel = [[ItemInfoPanel alloc] initWithPanelType:ItemBrowsePanelTypeSingle];
-//                    [_itemPanel setItemData:[[GameDataManager sharedGameData].itemDic objectForKey:self.shipData.shipHeader]];
-//                    _itemPanel.delegate = self;
-//                    [self.scene addChild:_itemPanel];
-                    
-                } else {
-                    NSArray *items = [[GameDataManager sharedGameData] itemListByGuild:[GameDataManager sharedGameData].myGuild.guildId];
-                    NSMutableArray *mutableItems = [items mutableCopy];
-                    // 删除不和条件的类型
-                    for (GameItemData *itemData in items) {
-                        if (itemData.itemData.type != ItemTypeShipHeader) {
-                            [mutableItems removeObject:itemData];
-                        }
-                    }
-//                    ItemBrowsePanel *itemPanel = [[ItemBrowsePanel alloc] initWithItems:mutableItems panelType:ItemBrowsePanelTypeShipHeader];
-//                    itemPanel.delegate = self;
-//                    itemPanel.equipedShipId = self.shipData.shipId;
-//                    [self.scene addChild:itemPanel];
-                }
+                [_delegate selectShipHeader:self];
             }
         }
         // 如果成功则更换房间样式，注：只是暂时的，最后确定的时候才会正式换。
@@ -265,39 +262,39 @@
 }
 
 
--(void)selectItemFromInfoPanel:(GameItemData *)gameItemData
-{
-    // 更新 ShipUnequipError err = ShipUnequipErrorNone;
-    __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
-    ShipUnequipError err = ShipUnequipErrorNone;
-    void(^uneuquipSuccess)(BOOL closePanel) = ^(BOOL closePanel){
-        [dialogPanel setDefaultDialog:@"dialog_unequip_a_shipheader" arguments:nil];
-        [dialogPanel addConfirmHandler:^{
-            [self updatePanel];
-            if (_itemPanel) {
-                [_itemPanel removeFromParent];
-            }
-            if (closePanel) {
-                [self.delegate shipDestroyed];
-            }
-        }];
-    };
-    if ((err = [gameItemData unequipShipheader]) == ShipUnequipErrorNone) {
-        uneuquipSuccess(NO);
-    } else if (err == ShipUnequipErrorDemon) {
-        //弹出提示，拆除会损坏船只是否强行拆除
-        [dialogPanel setDefaultDialog:@"dialog_cannot_unequip_a_shipheader_demon" arguments:nil];
-        [dialogPanel addYesNoWithCallback:^(int index) {
-            if (index == 0) {
-                ShipUnequipError error;
-                if ((error = [gameItemData unequipShipheaderWithForce:YES]) == ShipUnequipErrorNone) {
-                    uneuquipSuccess(YES);
-                } else if (error == ShipUnequipErrorDemonFirst) {
-                    [dialogPanel setDefaultDialog:@"dialog_cannot_unequip_a_shipheader_demon_first" arguments:nil];
-                }
-            }
-        }];
-    }
-}
+//-(void)selectItemFromInfoPanel:(GameItemData *)gameItemData
+//{
+//    // 更新 ShipUnequipError err = ShipUnequipErrorNone;
+//    __weak DialogPanel *dialogPanel = [GamePanelManager sharedDialogPanelAboveSprite:self];
+//    ShipUnequipError err = ShipUnequipErrorNone;
+//    void(^uneuquipSuccess)(BOOL closePanel) = ^(BOOL closePanel){
+//        [dialogPanel setDefaultDialog:@"dialog_unequip_a_shipheader" arguments:nil];
+//        [dialogPanel addConfirmHandler:^{
+//            [self updatePanel];
+//            if (_itemPanel) {
+//                [_itemPanel removeFromParent];
+//            }
+//            if (closePanel) {
+//                [self.delegate shipDestroyed];
+//            }
+//        }];
+//    };
+//    if ((err = [gameItemData unequipShipheader]) == ShipUnequipErrorNone) {
+//        uneuquipSuccess(NO);
+//    } else if (err == ShipUnequipErrorDemon) {
+//        //弹出提示，拆除会损坏船只是否强行拆除
+//        [dialogPanel setDefaultDialog:@"dialog_cannot_unequip_a_shipheader_demon" arguments:nil];
+//        [dialogPanel addYesNoWithCallback:^(int index) {
+//            if (index == 0) {
+//                ShipUnequipError error;
+//                if ((error = [gameItemData unequipShipheaderWithForce:YES]) == ShipUnequipErrorNone) {
+//                    uneuquipSuccess(YES);
+//                } else if (error == ShipUnequipErrorDemonFirst) {
+//                    [dialogPanel setDefaultDialog:@"dialog_cannot_unequip_a_shipheader_demon_first" arguments:nil];
+//                }
+//            }
+//        }];
+//    }
+//}
 
 @end

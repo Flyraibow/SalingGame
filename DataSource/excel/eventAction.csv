@@ -119,7 +119,13 @@ modifyShipNoShipDialog,,dialog,dialog_no_ship_to_modify
 modifyShipDialog,,dialog,dialog_start_modify_ship
 modifyShipStart,,eventList,modifyShipDialog;modifyShipWindow
 modifyShipWindow,,window,ShipExchangePanel;modifyShipSuccess;modifyShipCancel;2
-modifyShipSuccess,,window,ShipPanel;shipyard;modifyShipWindow;1
+modifyShipSuccess,,window,ShipPanel;shipyard;modifyShipWindow;1;modifyShipHeader
+modifyShipHeader,,condition,shipHasHeader;modifyShipHeaderWindow;modifyShipHeaderBrowseWindow
+modifyShipHeaderBrowseWindow,,window,ItemBrowsePanel;modifyShipHeaderWindow;;5
+modifyShipHeaderWindow,,window,ItemInfoPanel;modifyShipHeaderSuccess;;5
+modifyShipHeaderSuccess,,condition,shipHasHeader;modifyShipHeaderUnequip;modifyShipHeaderEquip
+modifyShipHeaderUnequip,,dataChange,ship;unequip;item.itemId
+modifyShipHeaderEquip,,dataChange,ship;equip;item.itemId
 modifyShipCancel,,eventList,empty
 dockYard,__,window,DockYardPanel;;
 sleep1day,____,eventList,sleep1dayMoney;sleep1dayDay;sleepMoneyEnough
@@ -146,7 +152,7 @@ buyItemNoItemDialog,,dialog,dialog_no_item_to_sell
 buyItemWindow,,window,ItemBrowsePanel;buyItemSelected;buyItemCanceled;0
 buyItemSelected,,eventList,buyItemSmallWindow
 buyItemCanceled,,eventList,shop
-buyItemSmallWindow,,window,ItemInfoPanel;buyItemConfirmed;buyItemCancelSmallWindow;0;item.itemId
+buyItemSmallWindow,,window,ItemInfoPanel;buyItemConfirmed;buyItemCancelSmallWindow;0
 buyItemConfirmed,,eventList,setItemMoney;buyItemConfirmedDialogData;buyItemConfirmedDialog
 buyItemCancelSmallWindow,,eventList,buyItemWindow
 setItemMoney,,setNumber,money=item.money
@@ -165,7 +171,7 @@ sellItemNoItem,,eventList,sellItemNoItemDialog;shop
 sellItemNoItemDialog,,dialog,dialog_i_dont_have_item
 sellItemWindow,,window,ItemBrowsePanel;sellItemSelected;buyItemCanceled;1
 sellItemSelected,,eventList,sellItemSmallWindow
-sellItemSmallWindow,,window,ItemInfoPanel;sellItemConfirmed;sellItemCancelSmallWindow;1;item.itemId
+sellItemSmallWindow,,window,ItemInfoPanel;sellItemConfirmed;sellItemCancelSmallWindow;1
 sellItemConfirmed,,eventList,setItemMoney;buyItemConfirmedDialogData;selltemConfirmedDialog
 sellItemCancelSmallWindow,,eventList,sellItemWindow
 selltemConfirmedDialog,,dialogYesNo,dialog_sell_item;selltemDealStart;sellItemDealCanceled
@@ -189,7 +195,7 @@ shipInfo,____,window,ShipExchangePanel;ShipInfoWindow;;3
 ShipInfoWindow,,window,ShipPanel;;;3
 itemInfo,____,eventList,closeWindow;itemInfoWindow
 itemInfoWindow,,window,ItemBrowsePanel;browseItemSelected;infoList;2
-browseItemSelected,,window,ItemInfoPanel;itemUseSelected;itemInfoWindow;2;item.itemId
+browseItemSelected,,window,ItemInfoPanel;itemUseSelected;itemInfoWindow;2
 itemUseSelected,__/____,eventList,itemCanEquip
 itemCanEquip,,condition,itemCanEquip;itemAlreadyEquipped;itemCanNotEquip
 itemAlreadyEquipped,,condition,itemAlreadyEquiped;itemUnequip;itemEquipRolePanel

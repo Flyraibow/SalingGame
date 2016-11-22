@@ -12,6 +12,7 @@
 #import "GameShipGoodsData.h"
 #import "GameItemData.h"
 #import "GameDataManager.h"
+#import "GameDataObserver.h"
 
 static NSString* const GameShipId = @"GameShipId";
 static NSString* const GameShipStyleNo = @"GameShipStyleNo";
@@ -218,33 +219,22 @@ static NSString* const GameShipHeader = @"GameShipHeader";
     }
     itemData.shipId = self.shipId;
     _shipHeader = itemData.itemId;
+    [[GameDataObserver sharedObserver] sendListenerForKey:LISTENNING_KEY_SHIPHEADER data:self];
 }
 
--(ShipUnequipError)unequip:(GameItemData *)itemData
+-(void)unequip:(GameItemData *)itemData
 {
-    return [self unequip:itemData withForce:NO];
-}
-
--(ShipUnequipError)unequip:(GameItemData *)itemData withForce:(BOOL)force;
-{
-    assert([itemData.itemId isEqualToString:_shipHeader]);
+    assert(itemData.shipId == self.shipId);
     if (itemData.itemData.value == -1) {
-        // 恶魔向，如果不是第一条船就可以拆除
-        if (force) {
-            if ([[GameDataManager sharedGameData].myGuild.myTeam.shipList[0] isEqualToString:self.shipId]) {
-                return ShipUnequipErrorDemonFirst;
-            }
-            itemData.shipId = nil;
-            _shipHeader = nil;
-            [[GameDataManager sharedGameData].myGuild.myTeam removeShip:self];
-            return ShipUnequipErrorNone;
-        } else {
-            return ShipUnequipErrorDemon;
+    // 恶魔像，如果不是第一条船就可以拆除
+        if ([[GameDataManager sharedGameData].myGuild.myTeam.shipList[0] isEqualToString:self.shipId]) {
+            return ;
         }
+        [[GameDataManager sharedGameData].myGuild.myTeam removeShip:self];
     }
     itemData.shipId = nil;
     _shipHeader = nil;
-    return ShipUnequipErrorNone;
+    [[GameDataObserver sharedObserver] sendListenerForKey:LISTENNING_KEY_SHIPHEADER data:self];
 }
 
 @end

@@ -90,23 +90,20 @@ static GameConditionManager *_sharedConditionManager;
         }
     } else if ([condition.type isEqualToString:@"data"]) {
         // TODO: 实现动态function
-        id data;
-        if ([condition.subtype isEqualToString:@"role"]) {
-            data = [GameValueManager sharedValueManager].reservedNPCData;
-        } else if ([condition.subtype isEqualToString:@"item"]) {
-            data = [GameValueManager sharedValueManager].reservedItemData;
+        id data = [[GameValueManager sharedValueManager] reservedDataByTerm:condition.subtype];
+        id data2 = nil;
+        if ([condition.type2 isEqualToString:@"data"]) {
+            data2 = [[GameValueManager sharedValueManager] reservedDataByTerm:condition.subType2];
         }
-        SEL selector = NSSelectorFromString(condition.compareType);
-        if ([data respondsToSelector:selector]) {
-            id data2 = nil;
-            if ([condition.type2 isEqualToString:@"data"]) {
-                if ([condition.subType2 isEqualToString:@"role"]) {
-                    data2 = [GameValueManager sharedValueManager].reservedNPCData;
-                } else if ([condition.subType2 isEqualToString:@"item"]) {
-                    data2 = [GameValueManager sharedValueManager].reservedItemData;
-                }
+        if ([condition.compareType isEqualToString:@"="]) {
+            return data == data2;
+        } else if ([condition.compareType isEqualToString:@"!="]) {
+            return data != data2;
+        } else {
+            SEL selector = NSSelectorFromString(condition.compareType);
+            if ([data respondsToSelector:selector]) {
+                return ((BOOL (*)(id, SEL, id))[data methodForSelector:selector])(data, selector, data2);
             }
-            return ((BOOL (*)(id, SEL, id))[data methodForSelector:selector])(data, selector, data2);
         }
     } else if ([condition.type isEqualToString:@"and"]) {
         return [self checkConditions:condition.type2];

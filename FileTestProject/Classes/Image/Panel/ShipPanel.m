@@ -33,6 +33,8 @@ ShipdeckIconSelectProtocol,
 TextInputPanelDelegate,
 CannonSelectionPanelDelegate>
 
+@property (nonatomic, copy) NSString *selectShipHeaderEvent;
+
 @end
 
 @implementation ShipPanel
@@ -65,6 +67,9 @@ CannonSelectionPanelDelegate>
     if (self = [super init]) {
         _shipData = [GameValueManager sharedValueManager].reservedShipData;
         _shipSceneType = [dataList[0] integerValue];
+        if (dataList.count > 1) {
+            _selectShipHeaderEvent = dataList[1];
+        }
         
         [self addChild:[BGImage getBlackForBackground]];
         _deckShipSprite = [CCSprite spriteWithImageNamed:[NSString stringWithFormat:@"Deckship%d.png", _shipData.shipStyleData.deckShipIcon]];
@@ -430,6 +435,11 @@ CannonSelectionPanelDelegate>
         }
     }
     return equipType;
+}
+
+-(void)selectShipHeader:(ShipdeckIcon *)shipdeckIcon
+{
+    self.completionBlockWithEventId(self.selectShipHeaderEvent);
 }
 
 -(void)selectShipdeckIcon:(id)shipdeckIcon

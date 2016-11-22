@@ -64,7 +64,9 @@
 -(instancetype)initWithNSArray:(NSArray *)buttonGroup CCNodeColor:(CCNodeColor *)nodeColor withCloseButton:(BOOL)closeButton
 {
     if (self = [super init]) {
-        [self addChild:[BGImage getShadowForBackground]];
+        if (nodeColor) {
+            [self addChild:nodeColor];
+        }
         NSArray *array;
         if (closeButton) {
             DefaultButton *closeButton = [DefaultButton buttonWithTitle:getLocalString(@"lab_close")];

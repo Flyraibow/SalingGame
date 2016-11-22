@@ -42,4 +42,6 @@ static const NSString *ReservedItem = @"itemId";
 
 - (NSString *)stringByType:(NSString *)type subType:(NSString *)subType;
 
+- (id)reservedDataByTerm:(NSString *)term;
+
 @end

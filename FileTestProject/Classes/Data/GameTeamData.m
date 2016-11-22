@@ -234,28 +234,21 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
 
 -(void)removeShip:(GameShipData *)shipData
 {
-    [self removeShip:shipData forEver:YES];
-}
-
--(void)removeShip:(GameShipData *)shipData forEver:(BOOL)forever
-{
     if (shipData.shipId) {
         if ([_shipList containsObject:shipData.shipId]) {
             [_shipList removeObject:shipData.shipId];
         } else if ([_carryShipList containsObject:shipData.shipId]) {
             [_shipList removeObject:shipData.shipId];
         }
-        if (forever) {
-            // 将此船的船首像拆除
-            if (shipData.shipHeader) {
-                // TODO: 恶魔船首像装备的船不让卖？
-                [shipData unequip:[[GameDataManager sharedGameData].itemDic objectForKey:shipData.shipId] withForce:YES];
-            }
-            [self.shipDic removeObjectForKey:shipData.shipId];
-            shipData.shipId = nil;
+        if (shipData.shipHeader) {
+            // TODO: 恶魔船首像装备的船不让卖？
+            [shipData unequip:[[GameDataManager sharedGameData].itemDic objectForKey:shipData.shipId]];
         }
+        [self.shipDic removeObjectForKey:shipData.shipId];
+        shipData.shipId = nil;
     }
 }
+
 
 -(NSArray *)getCarryShipListInCity:(NSString *)cityId
 {

@@ -70,7 +70,6 @@ typedef enum : NSInteger {
 -(BOOL)isEquiped;
 -(void)isUsed;
 -(void)unequip;
--(ShipUnequipError)unequipShipheader;
--(ShipUnequipError)unequipShipheaderWithForce:(BOOL)force;
+-(void)unequipShipheader;
 
 @end
