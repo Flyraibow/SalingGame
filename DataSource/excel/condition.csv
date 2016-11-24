@@ -27,3 +27,4 @@ itemCanEquipToRole,_______,data,role,canEquip:,data,item
 itemAlreadyEquiped,______,data,item,isEquiped,;,;
 itemNotNil,_____,data,item,!=,nil,
 shipHasHeader,______,data,ship,shipHeader,;,;
+itemIsShipHeader,______,item,type,=,number,6

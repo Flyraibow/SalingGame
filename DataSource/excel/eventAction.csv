@@ -205,7 +205,13 @@ itemEquipRolePanel,,window,RolePanel;itemEquipSuccess;browseItemSelected;1
 itemEquipSuccess,,eventList,itemEquipData;itemEquipSuccessDialog;closeWindow;itemInfoWindow
 itemEquipData,,dataChange,role;equip;item.itemId
 itemEquipSuccessDialog,,dialog,dialog_equip_an_equipment_success
-itemCanNotEquip,_____________,eventList,;
+itemCanNotEquip,________________,condition,itemIsShipHeader;itemIsShipHeader;itemIsNotShipHeader
+itemIsShipHeader,__________,condition,itemAlreadyEquiped;itemUnequipShipHeader;itemPanelSelectShip
+itemPanelSelectShip,,window,ShipExchangePanel;shipEquipItem;;4
+shipEquipItem,,eventList,itemEquipSuccessDialog;modifyShipHeaderEquip;itemInfoWindow
+itemUnequipShipHeader,,eventList,shipUnequipShipHeader;itemUnequipDialog;itemInfoWindow
+shipUnequipShipHeader,,dataChange,ship;unequip;item.itemId
+itemIsNotShipHeader,__,eventList,;
 taskInfo,____,eventList,;
 diaryInfo,____,eventList,;
 deckArrange,__,eventList,deckArrangeHaveShip

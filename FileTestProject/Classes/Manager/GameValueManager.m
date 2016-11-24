@@ -200,6 +200,8 @@ static GameValueManager *_sharedValueManager;
             value = self.reservedItemData.itemData.price;
         } else if ([subType isEqualToString:@"category"]) {
             value = self.reservedItemData.itemData.category;
+        } else if ([subType isEqualToString:@"type"]) {
+            value = self.reservedItemData.itemData.type;
         }
     }
     return value;

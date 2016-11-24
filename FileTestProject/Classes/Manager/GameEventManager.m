@@ -70,17 +70,22 @@ static GameEventManager *_sharedEventManager;
     return nil;
 }
 
+- (void)popPanel
+{
+    if (_viewStack.count > 0) {
+        CCNode *node = [_viewStack lastObject];
+        [_viewStack removeLastObject];
+        [node removeFromParent];
+    }
+}
+
 - (void)startEventId:(NSString *)eventId withScene:(CCScene *)scene
 {
     EventActionData *eventData = [_eventDictionary objectForKey:eventId];
     NSLog(@"====================== %@", eventId);
     if (eventData) {
         if ([eventData.eventType isEqualToString:@"close"]) {
-            if (_viewStack.count > 0) {
-                CCNode *node = [_viewStack lastObject];
-                [_viewStack removeLastObject];
-                [node removeFromParent];
-            }
+            [self popPanel];
             [self _startEventList];
         } else if ([eventData.eventType isEqualToString:@"checkStory"]) {
             if (_viewStack.count == 0 && [[CCDirector sharedDirector].runningScene isKindOfClass:[CityScene class]]) {

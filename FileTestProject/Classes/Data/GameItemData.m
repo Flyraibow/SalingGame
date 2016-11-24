@@ -86,7 +86,7 @@ static NSString* const GameItemItemId= @"GameItemItemId";
 
 -(BOOL)isEquiped
 {
-    return !!_roleId;
+    return !!_roleId || !!_shipId;
 }
 
 -(NSString *)itemName

@@ -22,4 +22,6 @@
 
 - (void)clear;
 
+- (void)popPanel;
+
 @end
