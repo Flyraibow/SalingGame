@@ -104,8 +104,8 @@
 
 -(void)finalSail
 {
-    SailScene *sailScene = [[SailScene alloc] initWithType:SailSceneTypeGo];
-    [[CCDirector sharedDirector] pushScene:sailScene];
+//    SailScene *sailScene = [[SailScene alloc] initWithType:SailSceneTypeGo];
+//    [[CCDirector sharedDirector] pushScene:sailScene];
 }
 
 -(void)clickSupplyBtn

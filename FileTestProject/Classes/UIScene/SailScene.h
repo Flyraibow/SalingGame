@@ -8,10 +8,8 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "CityDataPanel.h"
+#import "BaseScene.h"
 
-@interface SailScene : CCScene
-
--(instancetype)initWithType:(SailSceneType)type;
+@interface SailScene : BaseScene
 
 @end

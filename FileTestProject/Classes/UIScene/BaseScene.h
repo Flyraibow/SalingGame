@@ -10,7 +10,9 @@
 
 @interface BaseScene : CCScene
 
-- (instancetype)initWithArray:(NSArray *)array;
++ (instancetype)sceneWithParameters:(NSString *)parameters;
+
+- (instancetype)initWithDataList:(NSArray *)dataList;
 
 @property (copy) void (^completionBlockWithEventId)(NSString *);
 

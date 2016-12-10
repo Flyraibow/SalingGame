@@ -12,11 +12,28 @@
 @implementation BaseScene
 
 
-- (instancetype)initWithArray:(NSArray *)array
++ (instancetype)sceneWithParameters:(NSString *)parameters
 {
-//    NSString *cityId = [GameDataManager sharedGameData].myGuild.myTeam.currentCityId;
-    
-    self = [super init];
+    NSMutableArray *paraList = [[parameters componentsSeparatedByString:@";"] mutableCopy];
+    NSString *sceneClassName = paraList[0];
+    [paraList removeObjectsInRange:NSMakeRange(0, 1)];
+    Class cls = NSClassFromString(sceneClassName);
+    BaseScene *basePanel = [(BaseScene *)[cls alloc] initWithDataList:paraList];
+    NSAssert(basePanel, @"Windows Scene is nil : %@", sceneClassName);
+    return basePanel;
+}
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+    }
+    return self;
+}
+
+- (instancetype)initWithDataList:(NSArray *)dataList
+{
+    if (self = [self init]) {
+    }
     return self;
 }
 

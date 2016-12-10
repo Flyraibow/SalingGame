@@ -18,9 +18,11 @@
 #import "GameRouteData.h"
 #import "GoodsPricePanel.h"
 #import "GameDataObserver.h"
+#import "CityDataPanel.h"
 
 @interface SailScene()<
 NSCopying,
+SailSceneShipProtocol,
 SailSceneGoProtocol>
 
 @end
@@ -51,6 +53,15 @@ SailSceneGoProtocol>
     DefaultButton *_btnClose;
     GameTeamData *_myTeam;
     GoodsPricePanel *_goodsPricePanel;
+}
+
+- (instancetype)initWithDataList:(NSArray *)dataList
+{
+    NSInteger type = [dataList[0] integerValue];
+    if (self = [self initWithType:type]) {
+        
+    }
+    return self;
 }
 
 -(instancetype)initWithType:(SailSceneType)type

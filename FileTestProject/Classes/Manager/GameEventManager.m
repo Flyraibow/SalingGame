@@ -16,6 +16,7 @@
 #import "BGImage.h"
 #import "GameValueManager.h"
 #import "GameTimerManager.h"
+#import "BaseScene.h"
 
 static GameEventManager *_sharedEventManager;
 
@@ -154,15 +155,8 @@ static GameEventManager *_sharedEventManager;
             [[GameDataManager sharedGameData] dataChangeWithTerm:eventData.parameter];
             [self _startEventList];
         } else if ([eventData.eventType isEqualToString:@"scene"]) {
-            NSMutableArray *paraList = [[eventData.parameter componentsSeparatedByString:@";"] mutableCopy];
-            NSString *sceneClassName = paraList[0];
-            [paraList removeObjectAtIndex:0];
-            Class cls = NSClassFromString(sceneClassName);
-            BasePanel *sprite = [[cls alloc] initWithArray:paraList];
-            sprite.completionBlockWithEventId = ^(NSString *eventId) {
-                [self startEventId:eventId withScene:scene];
-            };
-            [scene addChild:sprite];
+            BaseScene *baseScene = [BaseScene sceneWithParameters:eventData.parameter];
+            [[CCDirector sharedDirector] pushScene:baseScene];
         }
     } else if (eventId.length == 0) {
         [self _startEventList];
