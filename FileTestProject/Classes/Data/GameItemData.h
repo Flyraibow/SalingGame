@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ItemData.h"
-#import "GameShipData.h"
+#import "BaseData.h"
 
 typedef enum : NSUInteger {
     ItemCategoryNone,
@@ -50,8 +49,8 @@ typedef enum : NSInteger {
     ShipHeaderValueMother,
 } ShipHeaderValue;
 
-
-@interface GameItemData : NSObject <NSCoding>
+@class ItemData;
+@interface GameItemData : BaseData <NSCoding>
 
 @property (nonatomic, weak) ItemData *itemData;
 
@@ -62,6 +61,10 @@ typedef enum : NSInteger {
 @property (nonatomic, copy) NSString *shipId;             // 装备了这条船的shipId， TODO：目前好像ship暂时还没id，待定
 @property (nonatomic, readonly) NSString *itemName;
 @property (nonatomic, assign, readonly) BOOL exist;           // 是否存在
+
+@property (nonatomic, readonly) NSInteger money;
+@property (nonatomic, readonly) NSInteger category;
+@property (nonatomic, readonly) NSInteger type;
 
 -(instancetype)initWithItemData:(ItemData *)itemData;
 

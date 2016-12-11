@@ -105,4 +105,9 @@ static NSString* const GameGuildCityKnowledgeSet = @"GameGuildCityKnowledgeSet";
     self.money = money;
 }
 
+-(NSInteger)sellItemNumber
+{
+    return  [[GameDataManager sharedGameData] itemListByGuild:_guildId].count;
+}
+
 @end

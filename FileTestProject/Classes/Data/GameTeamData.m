@@ -11,6 +11,7 @@
 #import "GameDataManager.h"
 #import "DataManager.h"
 #import "GameNPCData.h"
+#import "GameItemData.h"
 
 static NSString* const GameTeamMoney = @"GameTeamMoney";
 static NSString* const GameTeamId = @"GameTeamId";
@@ -20,6 +21,8 @@ static NSString* const GameTeamBelongGuildId = @"GameTeamBelongGuildId";
 static NSString* const GameTeamCurrentCity = @"GameTeamCurrentCity";
 static NSString* const GameTeamNPCData = @"GameTeamNPCData";
 static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
+
+static NSInteger const FoodCapacityPerUnit = 100;
 
 @interface GameTeamData()
 
@@ -116,25 +119,26 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
     [aCoder encodeObject:npcList forKey:GameTeamNPCData];
 }
 
--(CGFloat)needsFoodCapacity
+-(NSInteger)needsFoodCapacity
 {
     CGFloat foodCapacity = 0;
     for (int i = 0; i < _shipList.count; ++i) {
         GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];
-        foodCapacity += shipData.maxFoodCapacity - shipData.foodCapacity;
+        foodCapacity += (shipData.maxFoodCapacity - shipData.foodCapacity) * FoodCapacityPerUnit;
     }
     return foodCapacity;
 }
 
--(void)fillFood:(CGFloat)food
+-(void)fillFood:(NSInteger)food
 {
+    CGFloat foodUnit = 1.0 * food / FoodCapacityPerUnit;
     for (int i = 0; i < _shipList.count; ++i) {
         GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];
-        if (food > 0) {
-            food -= shipData.maxFoodCapacity - shipData.foodCapacity;
+        if (foodUnit > 0) {
+            foodUnit -= shipData.maxFoodCapacity - shipData.foodCapacity;
             shipData.foodCapacity = shipData.maxFoodCapacity;
-            if (food < 0) {
-                shipData.foodCapacity += food;
+            if (foodUnit< 0) {
+                shipData.foodCapacity += foodUnit;
                 return;
             }
         } else {
@@ -143,8 +147,7 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
     }
 }
 
-// TODO: CHANGE it to real sailor numbers, rather than condition sailor numbers
--(int)sailorNumbers
+-(int)sailorNumber
 {
     int sailorNumbers = 0;
     for (int i = 0; i < _shipList.count; ++i) {
@@ -154,7 +157,7 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
     return sailorNumbers;
 }
 
-- (int)maxSailorNumbers
+- (int)maxSailorNumber
 {
     int maxSailorNumbers = 0;
     for (int i = 0; i < _shipList.count; ++i) {
@@ -194,16 +197,6 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
         return maxNumber - sailorNumbers;
     }
     return sailorNumbers - minNumber;
-}
-
--(CGFloat)totalFood
-{
-    CGFloat food = 0;
-    for (int i = 0; i < _shipList.count; ++i) {
-        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];;
-        food += shipData.foodCapacity;
-    }
-    return food;
 }
 
 -(void)addNpcId:(NSString *)npcId
@@ -298,6 +291,45 @@ static NSString* const GameTeamCarryShipList = @"GameTeamCarryShipList";
         }
     }
     return (equipBigFish ? 2 : 1) * miniSpeed;
+}
+
+-(NSInteger)shipNumber
+{
+    return _shipList.count;
+}
+
+-(NSInteger)haveSailors
+{
+    for (int i = 0; i < _shipList.count; ++i) {
+        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];
+        if (shipData.curSailorNum == 0) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+-(NSInteger)haveEnoughSailors
+{
+    for (int i = 0; i < _shipList.count; ++i) {
+        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];
+        if (shipData.curSailorNum < shipData.minSailorNum) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+-(NSInteger)canSailDays
+{
+    CGFloat food;
+    NSInteger sailors;
+    for (int i = 0; i < _shipList.count; ++i) {
+        GameShipData *shipData = [self.shipDic objectForKey:_shipList[i]];
+        food += shipData.foodCapacity;
+        sailors += shipData.curSailorNum;
+    }
+    return food * 200 / sailors;
 }
 
 @end

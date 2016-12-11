@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CityData.h"
+#import "BaseData.h"
 
 typedef enum : NSUInteger {
     InvestTypeCommerce = 0,
@@ -28,7 +29,7 @@ typedef enum : NSUInteger {
     CityStateTypePoor,
 } CityStateType;
 
-@interface GameCityData : NSObject <NSCoding>
+@interface GameCityData : BaseData <NSCoding>
 
 @property (nonatomic, readonly) NSString *cityNo;
 @property (nonatomic, readonly) CityStateType cityState;
@@ -49,6 +50,12 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSInteger milltaryInvestRecord;
 @property (nonatomic, readonly) NSDictionary *unlockGoodsDict;
 @property (nonatomic, readonly, weak) CityData *cityData;
+//////////以下是在表格中可能会用到的property//////////////
+@property (nonatomic, readonly) NSInteger percentage;
+@property (nonatomic, readonly) NSInteger totalPercentage;
+@property (nonatomic, readonly) NSInteger guildNumber;
+@property (nonatomic, readonly) NSInteger shipNumber;
+@property (nonatomic, readonly) NSInteger sellItemNumber;
 
 -(instancetype)initWithCityData:(CityData *)cityData;
 

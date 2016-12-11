@@ -393,7 +393,6 @@
 		27C26D241C6330FC009EDE53 /* CityBuildingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D231C6330FC009EDE53 /* CityBuildingGroup.m */; };
 		27C26D271C63312E009EDE53 /* BaseButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D261C63312E009EDE53 /* BaseButtonGroup.m */; };
 		27C26D2A1C633671009EDE53 /* GoodsCategoriesData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D291C633671009EDE53 /* GoodsCategoriesData.m */; };
-		27C26D401C634F4D009EDE53 /* DockGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26D3F1C634F4D009EDE53 /* DockGroupButton.m */; };
 		27C26D531C6470BC009EDE53 /* ShipFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D521C6470BC009EDE53 /* ShipFrame.png */; };
 		27C26D591C647A05009EDE53 /* rightArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D581C647A05009EDE53 /* rightArrowButton.png */; };
 		27C26D5B1C647B01009EDE53 /* leftArrowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26D5A1C647B01009EDE53 /* leftArrowButton.png */; };
@@ -872,6 +871,7 @@
 		27FBB8691D0FCCBE002B106B /* frame_input_panel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */; };
 		EC0C3B7D1D846E57007E8D46 /* ShipSimpeInfoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */; };
 		EC0C3B801D847020007E8D46 /* ShipSimpleInfoIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */; };
+		EC102D781DFC826E005AF05E /* BaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC102D771DFC826E005AF05E /* BaseData.m */; };
 		EC3B89851DCEB83E00482A42 /* BasePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3B89841DCEB83E00482A42 /* BasePanel.m */; };
 		EC3B89881DD0026E00482A42 /* GameValueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3B89871DD0026E00482A42 /* GameValueManager.m */; };
 		EC4589E21DA1EB8400B833A9 /* ship1.png in Resources */ = {isa = PBXBuildFile; fileRef = EC4589BB1DA1EB8400B833A9 /* ship1.png */; };
@@ -1623,8 +1623,6 @@
 		27C26D261C63312E009EDE53 /* BaseButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseButtonGroup.m; path = Classes/Image/GroupButton/BaseButtonGroup.m; sourceTree = "<group>"; };
 		27C26D281C633671009EDE53 /* GoodsCategoriesData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsCategoriesData.h; path = Classes/DataProcessing/GoodsCategoriesData.h; sourceTree = "<group>"; };
 		27C26D291C633671009EDE53 /* GoodsCategoriesData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsCategoriesData.m; path = Classes/DataProcessing/GoodsCategoriesData.m; sourceTree = "<group>"; };
-		27C26D3E1C634F4D009EDE53 /* DockGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockGroupButton.h; path = Classes/Image/GroupButton/DockGroupButton.h; sourceTree = "<group>"; };
-		27C26D3F1C634F4D009EDE53 /* DockGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DockGroupButton.m; path = Classes/Image/GroupButton/DockGroupButton.m; sourceTree = "<group>"; };
 		27C26D521C6470BC009EDE53 /* ShipFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipFrame.png; path = Resources/Graph/Frame/ShipFrame.png; sourceTree = "<group>"; };
 		27C26D581C647A05009EDE53 /* rightArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightArrowButton.png; path = Resources/Graph/Button/rightArrowButton.png; sourceTree = "<group>"; };
 		27C26D5A1C647B01009EDE53 /* leftArrowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftArrowButton.png; path = Resources/Graph/Button/leftArrowButton.png; sourceTree = "<group>"; };
@@ -2152,6 +2150,8 @@
 		EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipSimpeInfoFrame.png; path = Resources/Graph/Frame/ShipSimpeInfoFrame.png; sourceTree = "<group>"; };
 		EC0C3B7E1D847020007E8D46 /* ShipSimpleInfoIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipSimpleInfoIcon.h; path = Classes/Image/Icon/ShipSimpleInfoIcon.h; sourceTree = "<group>"; };
 		EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSimpleInfoIcon.m; path = Classes/Image/Icon/ShipSimpleInfoIcon.m; sourceTree = "<group>"; };
+		EC102D761DFC826E005AF05E /* BaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseData.h; path = Classes/Data/BaseData.h; sourceTree = "<group>"; };
+		EC102D771DFC826E005AF05E /* BaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseData.m; path = Classes/Data/BaseData.m; sourceTree = "<group>"; };
 		EC3B89831DCEB83E00482A42 /* BasePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasePanel.h; path = Classes/Image/Panel/BasePanel.h; sourceTree = "<group>"; };
 		EC3B89841DCEB83E00482A42 /* BasePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasePanel.m; path = Classes/Image/Panel/BasePanel.m; sourceTree = "<group>"; };
 		EC3B89861DD0026E00482A42 /* GameValueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameValueManager.h; path = Classes/Manager/GameValueManager.h; sourceTree = "<group>"; };
@@ -3657,6 +3657,8 @@
 		27C26D021C616198009EDE53 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EC102D761DFC826E005AF05E /* BaseData.h */,
+				EC102D771DFC826E005AF05E /* BaseData.m */,
 				27C26D061C6161D1009EDE53 /* GameData.h */,
 				27C26D071C6161D1009EDE53 /* GameData.m */,
 				27C26D091C617D98009EDE53 /* GameGuildData.h */,
@@ -3694,8 +3696,6 @@
 				27C26D261C63312E009EDE53 /* BaseButtonGroup.m */,
 				27C26D221C6330FC009EDE53 /* CityBuildingGroup.h */,
 				27C26D231C6330FC009EDE53 /* CityBuildingGroup.m */,
-				27C26D3E1C634F4D009EDE53 /* DockGroupButton.h */,
-				27C26D3F1C634F4D009EDE53 /* DockGroupButton.m */,
 			);
 			name = GroupButton;
 			sourceTree = "<group>";
@@ -5050,6 +5050,7 @@
 				279BAAD61C59E3B60069EF5D /* CCMotionStreak.m in Sources */,
 				27C26D791C658962009EDE53 /* ShipIcon.m in Sources */,
 				27C26E221C7DB179009EDE53 /* SailSceneDrawLayer.m in Sources */,
+				EC102D781DFC826E005AF05E /* BaseData.m in Sources */,
 				27C26D841C672FC1009EDE53 /* GameShipGoodsData.m in Sources */,
 				279BAB301C59E3B70069EF5D /* CCTexturePVR.m in Sources */,
 				EC85DBE71DCAFBD400613F44 /* SelectListData.m in Sources */,
@@ -5095,7 +5096,6 @@
 				27C26D141C617E3C009EDE53 /* GameTaskData.m in Sources */,
 				279BAA9C1C59E3B60069EF5D /* CCActionInterval.m in Sources */,
 				279BAB1F1C59E3B70069EF5D /* CCSpriteBatchNode.m in Sources */,
-				27C26D401C634F4D009EDE53 /* DockGroupButton.m in Sources */,
 				279BAA791C59E3B60069EF5D /* NSValue+CCRenderer.m in Sources */,
 				278F4A501C8405F900D724EF /* LogicDataData.m in Sources */,
 				279BAC551C59E3B80069EF5D /* ALSoundSourcePool.m in Sources */,

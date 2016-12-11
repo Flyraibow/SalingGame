@@ -10,6 +10,8 @@
 #import "GameCityData.h"
 #import "GameDataManager.h"
 #import "LocalString.h"
+#import "BaseData.h"
+#import "GameItemData.h"
 
 static GameValueManager *_sharedValueManager;
 
@@ -148,61 +150,22 @@ static GameValueManager *_sharedValueManager;
 - (NSInteger)valueByType:(NSString *)type subType:(NSString *)subType
 {
     NSInteger value = 0;
+    BaseData *data = nil;
     if ([type isEqualToString:@"city"]) {
-        GameCityData *cityData = [_cityDictionary objectForKey:_myguild.myTeam.currentCityId];
-        if ([subType isEqualToString:@"percentage"]) {
-            value = [[cityData.guildOccupation objectForKey:_myguildId] intValue];
-        } else if ([subType isEqualToString:@"totalPercentage"]) {
-            for (NSNumber *val in cityData.guildOccupation) {
-                value += [val intValue];
-            }
-        } else if ([subType isEqualToString:@"guildNumber"]) {
-            value = (int)[cityData.guildOccupation count];
-        } else if ([subType isEqualToString:@"signUpMoney"]) {
-            value = cityData.signUpUnitValue;
-        } else if ([subType isEqualToString:@"militaryInvestMoney"]) {
-            value = cityData.milltaryValue;
-        } else if ([subType isEqualToString:@"commerceInvestMoney"]) {
-            value = cityData.commerceValue;
-        } else if ([subType isEqualToString:@"wage"]) {
-            value = cityData.wage;
-        } else if ([subType isEqualToString:@"nextSailorNumber"]) {
-            value = cityData.nextSailorNumber;
-        } else if ([subType isEqualToString:@"shipNumber"]) {
-            value = [_myguild.myTeam getCarryShipListInCity:cityData.cityNo].count;
-        } else if ([subType isEqualToString:@"sellItemNumber"]) {
-            value = [[GameDataManager sharedGameData] itemListByCity:cityData.cityNo].count;
-        }
+        data = [_cityDictionary objectForKey:_myguild.myTeam.currentCityId];
     } else if ([type isEqualToString:@"guild"]) {
-        if ([subType isEqualToString:@"item"]) {
-            return [[_itemDictionary objectForKey:_myguildId].guildId isEqualToString:_myguildId];
-        } else if ([subType isEqualToString:@"money"]) {
-            value = _myguild.money;
-        } else if ([subType isEqualToString:@"sellItemNumber"]) {
-            value = [[GameDataManager sharedGameData] itemListByGuild:_myguild.guildId].count;
-        }
-    } else if ([type isEqualToString:@"ship"]) {
-        if ([subType isEqualToString:@"number"]) {
-            value = _myguild.myTeam.shipList.count;
-        } else if ([subType isEqualToString:@"sailorNumber"]) {
-            value = _myguild.myTeam.sailorNumbers;
-        } else if ([subType isEqualToString:@"maxSailorNumber"]) {
-            value = _myguild.myTeam.maxSailorNumbers;
-        } else if ([subType isEqualToString:@"needSailorNumber"]) {
-            value = _myguild.myTeam.needSailorNumber;
-        }
+        data = _myguild;
+    } else if ([type isEqualToString:@"team"]) {
+        data = _myguild.myTeam;
     } else if ([type isEqualToString:@"cache"]) {
         value = [self intByKey:subType];
     } else if ([type isEqualToString:@"number"]) {
         value = [subType integerValue];
     } else if ([type isEqualToString:@"item"]) {
-        if ([subType isEqualToString:@"money"]) {
-            value = self.reservedItemData.itemData.price;
-        } else if ([subType isEqualToString:@"category"]) {
-            value = self.reservedItemData.itemData.category;
-        } else if ([subType isEqualToString:@"type"]) {
-            value = self.reservedItemData.itemData.type;
-        }
+        data = self.reservedItemData;
+    }
+    if (data) {
+        value = [data getValueByType:subType];
     }
     return value;
 }

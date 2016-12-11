@@ -13,6 +13,7 @@
 #import "GamePanelManager.h"
 #import "GameDataManager.h"
 #import "PopUpFrame.h"
+#import "GameValueManager.h"
 
 @interface SailorNumberPanel() <SailorNumberPanelDelegate>
 
@@ -23,13 +24,13 @@
     int _freeSailorNumber;
     CCLabelTTF *_labFreeSailor;
     NSArray<SailorNumberUnit *> *_shipNumberUnitList;
-    int _totalSailorNumber;
+    NSInteger _totalSailorNumber;
 }
 
 -(instancetype)initWithDataList:(NSArray *)dataList
 {
     if (self = [super init]) {
-        _freeSailorNumber = [dataList[0] intValue];
+        _freeSailorNumber = (int)[[GameValueManager sharedValueManager] getNumberByTerm:dataList[0]];
         _totalSailorNumber = _freeSailorNumber;
 
         NSArray *shipList = [[GameDataManager sharedGameData].myGuild.myTeam shipDataList];
@@ -119,7 +120,7 @@
 -(void)setSailorNumberFrom:(int)prevSailorNumber toSailorNumber:(int)toSailorNumber
 {
     int difference = toSailorNumber - prevSailorNumber;
-    assert(difference < _freeSailorNumber);
+    assert(difference <= _freeSailorNumber);
     _freeSailorNumber -= difference;
     _labFreeSailor.string = [@(_freeSailorNumber) stringValue];
 }

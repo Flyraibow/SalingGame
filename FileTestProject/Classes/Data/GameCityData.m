@@ -10,6 +10,7 @@
 #import "DataManager.h"
 #import "GameDataManager.h"
 #import "GameDataObserver.h"
+#import "GameItemData.h"
 
 static int const CityMaxCommerce = 10000;
 static NSString* const GameCityNo = @"GameCityNo";
@@ -470,7 +471,36 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
 
 -(int)nextSailorNumber
 {
-    return 10 + self.milltaryValue / 200 + arc4random() % 10;
+    return 5 + self.milltaryValue / 300 + arc4random() % 10;
+}
+
+-(NSInteger)percentage
+{
+    return [[self.guildOccupation objectForKey:[GameDataManager sharedGameData].myGuild.guildId] integerValue];
+}
+
+-(NSInteger)totalPercentage
+{
+    NSInteger value = 0;
+    for (NSNumber *val in self.guildOccupation) {
+        value += [val intValue];
+    }
+    return value;
+}
+
+-(NSInteger)guildNumber
+{
+    return [self.guildOccupation count];
+}
+
+-(NSInteger)shipNumber
+{
+    return [[GameDataManager sharedGameData].myGuild.myTeam getCarryShipListInCity:_cityNo].count;
+}
+
+-(NSInteger)sellItemNumber
+{
+    return [[GameDataManager sharedGameData] itemListByCity:_cityNo].count;
 }
 
 @end

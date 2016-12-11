@@ -118,9 +118,13 @@ static GameEventManager *_sharedEventManager;
             NSArray *array = [eventData.parameter componentsSeparatedByString:@";"];
             if (array.count > 1) {
                 if ([[GameConditionManager sharedConditionManager] checkCondition:array[0]]) {
-                    [self startEventId:array[1] withScene:scene];
+                    _eventList = [array[1] componentsSeparatedByString:@"_"];
+                    _currentEventIndex = 0;
+                    [self _startEventList];
                 } else if (array.count > 2) {
-                    [self startEventId:array[2] withScene:scene];
+                    _eventList = [array[2] componentsSeparatedByString:@"_"];
+                    _currentEventIndex = 0;
+                    [self _startEventList];
                 }
             }
         } else if ([eventData.eventType isEqualToString:@"wait"]) {

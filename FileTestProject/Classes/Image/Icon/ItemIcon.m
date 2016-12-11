@@ -7,6 +7,7 @@
 //
 
 #import "ItemIcon.h"
+#import "ItemData.h"
 
 @implementation ItemIcon
 {

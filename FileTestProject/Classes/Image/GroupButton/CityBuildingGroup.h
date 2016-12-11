@@ -13,8 +13,6 @@
 
 -(void)setCityNo:(NSString *)cityNo;
 
--(void)setHidden:(BOOL)hidden;
-
 -(void)gotoBuildingNo:(NSString *)buildingNo;
 
 @end

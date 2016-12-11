@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "TeamData.h"
+#import "BaseData.h"
 
 @class GameShipData;
 @class GameNPCData;
-@interface GameTeamData : NSObject <NSCoding>
+@interface GameTeamData : BaseData <NSCoding>
 
 @property (nonatomic, readonly) NSString *teamId;
 @property (nonatomic, readonly) NSString *leaderId;
@@ -23,17 +24,21 @@
 @property (nonatomic, readonly) NSArray<GameNPCData *> *npcList;
 @property (nonatomic, readonly) NSArray<NSString *> *carryShipList; // 拖船
 
+@property (nonatomic, readonly) NSInteger shipNumber;
+@property (nonatomic, readonly) NSInteger haveSailors;
+@property (nonatomic, readonly) NSInteger haveEnoughSailors;
+@property (nonatomic, readonly) NSInteger canSailDays;
+
 -(instancetype)initWithTeamData:(TeamData *)teamData guildId:(NSString *)guildId;
 
--(int)sailorNumbers;
--(int)maxSailorNumbers;
+-(int)sailorNumber;
+-(int)maxSailorNumber;
 -(int)needSailorNumber;
 -(int)needSailorNumbersWithNewHiring:(int)newSailorsNum;
--(CGFloat)totalFood;
 
--(CGFloat)needsFoodCapacity;
+-(NSInteger)needsFoodCapacity;
 
--(void)fillFood:(CGFloat)food;
+-(void)fillFood:(NSInteger)food;
 
 -(void)addNpcId:(NSString *)npcId;
 

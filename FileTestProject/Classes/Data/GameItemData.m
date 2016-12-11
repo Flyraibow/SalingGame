@@ -108,4 +108,19 @@ static NSString* const GameItemItemId= @"GameItemItemId";
     return [shipData unequip:self];
 }
 
+-(NSInteger)money
+{
+    return _itemData.price;
+}
+
+-(NSInteger)category
+{
+    return _itemData.category;
+}
+
+-(NSInteger)type
+{
+    return _itemData.type;
+}
+
 @end

@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GuildData.h"
-#import "GameItemData.h"
+#import "BaseData.h"
 
-@interface GameGuildData : NSObject <NSCoding>
+@class GuildData;
+@interface GameGuildData : BaseData <NSCoding>
 
 @property (nonatomic, readonly) NSString *guildId;
 @property (nonatomic, readonly) NSString *guildName;
@@ -19,6 +19,8 @@
 @property (nonatomic, readonly) NSMutableDictionary *cityControlDic;
 @property (nonatomic, readonly) NSMutableSet *cityKnowledgeSet;
 @property (nonatomic, readonly) NSMutableArray *teamList;
+
+@property (nonatomic, readonly) NSInteger sellItemNumber;
 
 -(instancetype)initWithGameGuildData:(GameGuildData *)guildData;
 -(instancetype)initWithGuildData:(GuildData *)guildData;

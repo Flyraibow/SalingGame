@@ -439,7 +439,7 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
             GameItemData *itemData = [self.itemDic objectForKey:itemId];
             [npcData unequip:itemData];
         }
-    }  else if ([array[0] isEqualToString:@"ship"]) {
+    } else if ([array[0] isEqualToString:@"ship"]) {
         GameShipData *shipData = [GameValueManager sharedValueManager].reservedShipData;
         if ([array[1] isEqualToString:@"equip"]) {
             NSString *itemId = [[GameValueManager sharedValueManager] getStringByTerm:array[2]];
@@ -449,6 +449,11 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
             NSString *itemId = [[GameValueManager sharedValueManager] getStringByTerm:array[2]];
             GameItemData *itemData = [self.itemDic objectForKey:itemId];
             [shipData unequip:itemData];
+        }
+    } else if ([array[0] isEqualToString:@"team"]) {
+        GameTeamData *teamData = self.myGuild.myTeam;
+        if ([array[1] isEqualToString:@"fillUp"]) {
+            [teamData fillFood:[[GameValueManager sharedValueManager] getNumberByTerm:array[2]]];
         }
     }
 }
