@@ -8,7 +8,9 @@
 
 #import "SelectPeopleScene.h"
 #import "BGImage.h"
+#import "DefaultButton.h"
 #import "SelectPeopleIcon.h"
+#import "LocalString.h"
 #import "RoleInitialData.h"
 #import "RoleDescriptionScene.h"
 
@@ -42,6 +44,13 @@
             [self addChild:icon];
         }
         
+        DefaultButton *btnCancel = [DefaultButton buttonWithTitle:getLocalString(@"btn_cancel")];
+        btnCancel.positionType = CCPositionTypeNormalized;
+        btnCancel.position = ccp(0.85, 0.1);
+        btnCancel.scale = 0.5;
+        [btnCancel setTarget:self selector:@selector(clickCancelButton)];
+        [self addChild:btnCancel];
+        
     }
     return self;
 }
@@ -49,6 +58,12 @@
 -(void)selectPeople:(NSString *)roleId
 {
     [[CCDirector sharedDirector] pushScene:[[RoleDescriptionScene alloc] initWithInitialRole:[_dataDict objectForKey:roleId]]];
+}
+
+
+-(void)clickCancelButton
+{
+    [[CCDirector sharedDirector] popScene];
 }
 
 @end

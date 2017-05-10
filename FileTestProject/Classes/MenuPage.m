@@ -72,7 +72,7 @@
     [[OALSimpleAudio sharedInstance] playEffect:@"button.wav"];
     
     NSDictionary *dictionary = [[[DataManager sharedDataManager] getRoleInitialDic] getDictionary];
-    [[CCDirector sharedDirector] presentScene:[[SelectPeopleScene alloc] initWithInitialList:dictionary]];
+    [[CCDirector sharedDirector] pushScene:[[SelectPeopleScene alloc] initWithInitialList:dictionary]];
     
     
 //    GameGuildData *guildData = [[GameDataManager sharedGameData].guildDic objectForKey:@"1"];
