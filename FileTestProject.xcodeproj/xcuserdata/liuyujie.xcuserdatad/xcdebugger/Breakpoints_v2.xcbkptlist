@@ -166,16 +166,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FileTestProject/Classes/Data/GameShipData.m"
-            timestampString = "514359435.020896"
+            filePath = "FileTestProject/Classes/Manager/GameEventManager.m"
+            timestampString = "516132934.034265"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-initWithShipStlyeData:"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-startEventId:withScene:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

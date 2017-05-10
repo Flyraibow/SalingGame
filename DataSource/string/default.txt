@@ -67,6 +67,7 @@
 "lab_save" = "储存";
 "lab_load" = "读取";
 "lab_setting" = "环境设定";
+"lab_systemMenu" = "主界面";
 
 "lab_buy" = "购买";
 "lab_sell" = "售出";

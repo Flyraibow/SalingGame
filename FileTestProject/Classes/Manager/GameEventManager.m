@@ -17,6 +17,7 @@
 #import "GameValueManager.h"
 #import "GameTimerManager.h"
 #import "BaseScene.h"
+#import "MenuPage.h"
 
 static GameEventManager *_sharedEventManager;
 
@@ -161,6 +162,9 @@ static GameEventManager *_sharedEventManager;
         } else if ([eventData.eventType isEqualToString:@"scene"]) {
             BaseScene *baseScene = [BaseScene sceneWithParameters:eventData.parameter];
             [[CCDirector sharedDirector] pushScene:baseScene];
+        } else if ([eventData.eventType isEqualToString:@"mainScene"]) {
+            // 返回主界面
+            [[CCDirector sharedDirector] presentScene:[[MenuPage alloc] init]];
         }
     } else if (eventId.length == 0) {
         [self _startEventList];

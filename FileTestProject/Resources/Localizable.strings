@@ -165,38 +165,31 @@
 "ship_price" = "%d金币";
 "ship_buy" = "购买";
 "ship_sell" = "售出";
-
 "MerchantValue" = "发展度";
 "WeaponValue" = "武装度";
 "cityGoods" = "特产品";
 "lab_invest_money" = "投资额";
-
 "citySystemBar_1" = "航线图";
 "citySystemBar_2" = "分配水手";
 "citySystemBar_3" = "甲板";
 "citySystemBar_4" = "资讯";
 "citySystemBar_5" = "系统";
-
 "government_sign_up" = "签约";
 "government_invest" = "投资";
 "government_recommend" = "递交推荐信";
-
 "tavern_drink" = "喝酒";
 "tavern_buy_drink" = "请客";
 "tavern_hire" = "雇佣";
 "tavern_spread" = "散布谣言";
 "tavern_hire_full" = "满编雇佣";
 "tavern_hire_minimum" = "最小雇佣";
-
 "lab_goods_level" = "等级 %d";
 "lab_npc_level" = "等级    %d";
-
 "lab_sold" = "卖出品";
 "lab_sell" = "特产品";
 "lab_income" = "总收入";
 "lab_outcome" = "总支出";
 "lab_balance" = "剩余金额";
-
 "exchange_trade" = "交易";
 "exchange_invest" = "商业投资";
 "exchange_information" = "商业情报";
@@ -215,15 +208,12 @@
 "dock_yard" = "船坞";
 "ship_modify" = "改造";
 "ship_info" = "查看";
-
 "inn_one_day" = "休息一天";
 "inn_ten_day" = "休息十天";
 "inn_thirty_day" = "休息三十天";
-
 "lab_date" = "%d月 %d日";
 "lab_date_wy" = "%d年 %d月 %d日";
 "lab_hold_money" = "金币:";
-
 "btn_sure" = "确定";
 "btn_cancel" = "取消";
 "lab_close" = "关闭";
@@ -231,42 +221,34 @@
 "lab_save" = "储存";
 "lab_load" = "读取";
 "lab_setting" = "环境设定";
-
+"lab_systemMenu" = "主界面";
 "lab_buy" = "购买";
 "lab_sell" = "售出";
 "lab_equip" = "装备";
 "lab_unequip" = "卸下";
 "lab_unequip_equip" = "卸下/装备";
 "lab_use" = "使用";
-
 "get_contract_money" = "独占契约，获得%d金币";
-
 "btn_show_buy_price" = "进价表示";
 "btn_show_level" = "等级表示";
-
 "ship_name_feihong" = "飞虹特别号";
 "dialog_signup_failure" = "对不起，我们城市无法再和其他势力签约。";
 "dialog_signup" = "听说你要和我们签约？";
-
 "ship_duration" = "耐久:%d/%d";
 "ship_speed" = "船速:%d";
 "ship_agile" = "灵敏:%d";
 "ship_cannonNum" = "大炮:%@ * %d";
 "ship_minSailorNum" = "水手:%d/%d/%d";
 "city_information"="%@物价资讯";
-
 "lab_tradeinfo_category" = "种类";
 "lab_tradeinfo_price" = "行情";
-
 "lab_buy_price"="买价";
 "lab_sell_price"="卖价";
-
 "lab_ship_info"="船只信息";
 "lab_sailor_info"="船员信息";
 "lab_item_info"="宝物信息";
 "lab_diary_info"="航海日志";
 "lab_task_info" = "任务资讯";
-
 "lab_set_zero" ="设为0";
 "lab_set_minimum" ="设为最小值";
 "lab_set_maximum" ="设为最大值";
@@ -276,18 +258,15 @@
 "lab_sailor_arrange_first" ="旗舰重视";
 "lab_sailor_arrange_average" ="平均分配";
 "lab_sailor_arrange_minimum" ="必要人数";
-
 "name_shop_owner"="同业公会的总管";
 "name_exchange_owner"="交易所老板";
 "name_shipyard_owner"="造船厂老板";
 "name_dock_sailor" = "码头工人";
 "name_governor" = "总督";
-
 "lab_relative_job" = "相关职务";
 "lab_equip_value" = "效果值";
 "lab_yes"="好";
 "lab_no"="不好";
-
 "lab_strength" = "力量";
 "lab_charm" = "魅力";
 "lab_intelligence" = "智力";
@@ -295,18 +274,14 @@
 "lab_luck" = "运气";
 "lab_agile" = "敏捷";
 "lab_hp" = "生命值";
-
 "lab_ship_modify_my_money" = "所持金";
 "lab_ship_modify_spend_money" = "费用";
 "lab_ship_modify_spend_day" = "%d日";
 "btn_ship_modify_change_name" = "变更船名";
 "btn_ship_modify_change_cannon" = "购买大炮";
-
 "lab_ship_kalutila" = "卡鲁提拉号";
-
 "lab_in_team" = "队中";
 "lab_in_dock" = "船坞中";
-
 "dialog_new_item_discover" = "啊，这是...%@, 你能把它送给我们么？";
 "dialog_buy_item" = "您确定要购买 %@吗？价格是 %@金币";
 "dialog_sell_item" = "你想卖掉 %@吗？ 价格是 %@金币";
@@ -355,7 +330,7 @@
 "dialog_sail_without_fillup" = "物资没有满仓，是否仍然要继续出港？";
 "dialog_days_enough_to_sail" = "我们准备的物资可以航行%@天。";
 "dialog_days_not_enough_to_sail" = "我们准备的物资只能航行%@天，为了安全起见还是取消这次航行。";
-
+"dialog_back_to_menu" = "真的要回到主画面吗？没保存的可能会丢失。";
 "function_room_name_1"="卧室";
 "function_room_name_2"="木匠室";
 "function_room_name_3"="医疗室";

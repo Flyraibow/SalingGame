@@ -30,6 +30,7 @@
     for (NSString *buttonId in rawList) {
         if (buttonId.length > 0) {
             SelectListData *selectedData = [[DataManager sharedDataManager].getSelectListDic getSelectListById:buttonId];
+            NSAssert(selectedData, @"selectedData is not set for %@", buttonId);
             if (selectedData) {
                 if ([[GameConditionManager sharedConditionManager] checkConditions:selectedData.conditionList]) {
                     DefaultButton *button = [DefaultButton buttonWithTitle:getLocalString(selectedData.label)];
