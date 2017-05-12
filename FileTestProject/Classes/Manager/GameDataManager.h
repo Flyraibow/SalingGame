@@ -9,9 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "GameData.h"
 
+@interface GameProgressData : NSObject
+
+- (NSString *)descriptionForIndex:(int)index;
+
+@end
+
 @interface GameDataManager : NSObject
 
 +(GameData *)sharedGameData;
+
++(GameProgressData *)sharedProgressData;
 
 +(void)saveWithIndex:(int)index;
 

@@ -11,6 +11,7 @@
 #import "CityScene.h"
 #import "DefaultButton.h"
 #import "GameDataManager.h"
+#import "ProgressPanel.h"
 #import "CGStoryScene.h"
 #import "SelectPeopleScene.h"
 #import "DataManager.h"
@@ -91,7 +92,8 @@
 -(void)clickContinue
 {
     [[OALSimpleAudio sharedInstance] playEffect:@"button.wav"];
-//    [[CCDirector sharedDirector] pushScene:[[ProgressScene alloc] initWithFunction:ProgressLoad]];
+    ProgressPanel *panel = [[ProgressPanel alloc] initWithDataList:@[@(ProgressLoad)]];
+    [self addChild:panel];
     
 }
 

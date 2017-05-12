@@ -458,4 +458,9 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
     }
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ Level : %d", getNpcFullName(_myGuild.leaderId), [_myGuild leaderData].level];
+}
+
 @end

@@ -110,4 +110,9 @@ static NSString* const GameGuildCityKnowledgeSet = @"GameGuildCityKnowledgeSet";
     return  [[GameDataManager sharedGameData] itemListByGuild:_guildId].count;
 }
 
+- (GameNPCData *)leaderData
+{
+    return [[GameDataManager sharedGameData].npcDic objectForKey:_leaderId];
+}
+
 @end

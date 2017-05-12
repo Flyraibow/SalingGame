@@ -10,6 +10,7 @@
 #import "BaseData.h"
 
 @class GuildData;
+@class GameNPCData;
 @interface GameGuildData : BaseData <NSCoding>
 
 @property (nonatomic, readonly) NSString *guildId;
@@ -21,6 +22,7 @@
 @property (nonatomic, readonly) NSMutableArray *teamList;
 
 @property (nonatomic, readonly) NSInteger sellItemNumber;
+@property (nonatomic, readonly) GameNPCData *leaderData;
 
 -(instancetype)initWithGameGuildData:(GameGuildData *)guildData;
 -(instancetype)initWithGuildData:(GuildData *)guildData;

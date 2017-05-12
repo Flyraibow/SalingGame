@@ -40,30 +40,22 @@
         label.position = ccp(0.5,0.85);
         [self addChild:label];
         
+        for (int i = 0; i < 5; ++i) {
+            DefaultButton *button = [[DefaultButton alloc] initWithTitle:[self buttonTitleForIndex:i]];
+            button.positionType = CCPositionTypeNormalized;
+            button.position = ccp(0.5,0.7 - i * 0.11);
+            [button setTarget:self selector:@selector(clickButton:)];
+            button.name = [@(i) stringValue];
+            [button setHorizontalPadding:120];
+            [self addChild:button];
+        }
+        
         DefaultButton *btnClose = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_close")];
         btnClose.positionType = CCPositionTypeNormalized;
         btnClose.anchorPoint = ccp(0.5,0);
         btnClose.position = ccp(0.5,0.05);
         [btnClose setTarget:self selector:@selector(clickBtnClose)];
         [self addChild:btnClose];
-        
-        DataButton *button1 = [[DataButton alloc] init];
-        button1.positionType = CCPositionTypeNormalized;
-        button1.position = ccp(0.5,0.6);
-        button1.scaleX = bgImage.scaleX;
-        button1.scaleY = bgImage.scaleY;
-        [button1 setTarget:self selector:@selector(clickButton:)];
-        button1.name = @"0";
-        [self addChild:button1];
-        
-        DataButton *button2 = [[DataButton alloc] init];
-        button2.positionType = CCPositionTypeNormalized;
-        button2.position = ccp(0.5,0.3);
-        button2.scaleX = bgImage.scaleX;
-        button2.scaleY = bgImage.scaleY;
-        [button2 setTarget:self selector:@selector(clickButton:)];
-        button2.name = @"1";
-        [self addChild:button2];
     }
     return self;
 }
@@ -83,11 +75,7 @@
 
 -(void)clickButton:(CCButton *)button
 {
-    [self dealWithIndex:[button.name intValue]];
-}
-
--(void)dealWithIndex:(int)index
-{
+    int index = [button.name intValue];
     if (_type == ProgressLoad) {
         [GameDataManager loadWithIndex:index];
         CityScene *cityScene = [[CityScene alloc] init];
@@ -97,6 +85,16 @@
         [cityScene changeCity:[GameDataManager sharedGameData].myGuild.myTeam.currentCityId];
     } else if (_type == ProgressSave) {
         [GameDataManager saveWithIndex:index];
+        button.title = [self buttonTitleForIndex:index];
     }
+}
+
+- (NSString *)buttonTitleForIndex:(int)index
+{
+    NSString *str = [[GameDataManager sharedProgressData] descriptionForIndex:index];
+    if (!str) {
+        str = @"No Data";
+    }
+    return [NSString stringWithFormat:@"%d  %@",index + 1, str];
 }
 @end

@@ -112,7 +112,7 @@
             startingLineNumber = "566"
             endingLineNumber = "566"
             landmarkName = "-setContentSize:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -176,6 +176,22 @@
             startingLineNumber = "90"
             endingLineNumber = "90"
             landmarkName = "-startEventId:withScene:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FileTestProject/Classes/Manager/GameDataManager.m"
+            timestampString = "516253566.762372"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "+sharedProgressData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
