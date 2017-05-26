@@ -18,7 +18,7 @@
 
 @property (nonatomic, readonly) NSString *successEvent;
 
-@property (nonatomic, readonly) NSString *cancelEvent;
+@property (nonatomic, readwrite) NSString *cancelEvent;
 
 @property (nonatomic, readonly) NSString *cityId;
 

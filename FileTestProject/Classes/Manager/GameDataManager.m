@@ -68,6 +68,11 @@ static NSString* filePathWithIndex(int index)
 
 @implementation GameDataManager
 
++(void)clearCurrentGame
+{
+    _sharedGameData = nil;
+}
+
 +(GameData *)sharedGameData
 {
     if (_sharedGameData == nil) {

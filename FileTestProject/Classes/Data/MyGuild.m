@@ -9,9 +9,11 @@
 #import "MyGuild.h"
 #import "DataManager.h"
 #import "GameDataObserver.h"
+#import "GameTaskData.h"
 
 static NSString* const GameGuildMyTeam = @"GameGuildMyTeam";
 static NSString* const GameUsedStorySet = @"GameUsedStorySet";
+static NSString* const GamePlayerTaskData = @"GamePlayerTaskData";
 
 @implementation MyGuild
 {
@@ -39,6 +41,7 @@ static NSString* const GameUsedStorySet = @"GameUsedStorySet";
     if (self) {
         _myTeam = [aDecoder decodeObjectForKey:GameGuildMyTeam];
         _usedStorySet = [aDecoder decodeObjectForKey:GameUsedStorySet];
+        _taskData = [aDecoder decodeObjectForKey:GamePlayerTaskData];
     }
     return self;
 }
@@ -48,6 +51,7 @@ static NSString* const GameUsedStorySet = @"GameUsedStorySet";
     [super encodeWithCoder:aCoder];
     [aCoder encodeObject:_myTeam forKey:GameGuildMyTeam];
     [aCoder encodeObject:_usedStorySet forKey:GameUsedStorySet];
+    [aCoder encodeObject:_taskData forKey:GamePlayerTaskData];
 }
 
 -(void)setMoney:(NSInteger)money
@@ -75,6 +79,30 @@ static NSString* const GameUsedStorySet = @"GameUsedStorySet";
 -(void)addStoryId:(NSString *)storyId
 {
     [(NSMutableSet *)_usedStorySet addObject:storyId];
+}
+
+-(void)takeTask:(GameTaskData *)task
+{
+    NSAssert(!_taskData, @"Need forsake task befre grab a new one");
+    _taskData = task;
+}
+
+-(ForsakeTaskResult)forsakeTask
+{
+    NSAssert(!!_taskData, @"No task to forsake");
+    NSInteger money = MAX(_taskData.deposit, 1000) * 5;
+    if (self.money < money) {
+        return ForsakeTaskNotEnoughMoney;
+    } else {
+        [self spendMoney:money];
+    }
+    _taskData = nil;
+    return ForsakeTaskSucess;
+}
+
+-(void)competeTask
+{
+    
 }
 
 @end

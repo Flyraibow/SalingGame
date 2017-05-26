@@ -228,11 +228,12 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
     self = [super init];
     if (self) {
         [self commonInit];
-        NSInteger date = [aDecoder decodeIntegerForKey: GameDataDate];
+        _date = [aDecoder decodeIntegerForKey: GameDataDate];
+        NSInteger date = _date;
         _day = date % 100;
-        date /= 100;
+        _date /= 100;
         _month = date % 100;
-        date /= 100;
+        _date /= 100;
         _year = (int)date;
         _shipIdIndex = [aDecoder decodeIntegerForKey:GameShipMaxIndex];
         _shipDic = [aDecoder decodeObjectForKey:GameShipDic];
@@ -257,6 +258,7 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     NSInteger date = _day + _month * 100 + _year * 10000;
+    NSAssert(date == _date, @"check time got wrong");
     [aCoder encodeInteger:date forKey:GameDataDate];
     [aCoder encodeObject:_guildDic forKey:GameGuildDic];
     [aCoder encodeObject:_myGuild forKey:GameMyGuild];
@@ -275,30 +277,32 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
     _day = day;
     _month = month;
     _year = year;
+    _date = _day + _month * 100 + _year * 10000;
 }
 
 -(void)spendOneDay
 {
+    _date++;
     _day++;
     if (_day == 29) {
         if (_month == 2 && _year % 4 != 0) {
-            [self passMonth];
+            [self _passMonth];
         }
     } else if(_day == 30) {
         if(_month == 2 && _year % 4 == 0) {
-            [self passMonth];
+            [self _passMonth];
         }
     } else if(_day == 31) {
         if (_month == 4 || _month == 6 || _month == 9 || _month == 11) {
-            [self passMonth];
+            [self _passMonth];
         }
     } else if(_day == 32) {
-        [self passMonth];
+        [self _passMonth];
     }
     [[GameDataObserver sharedObserver] sendListenerForKey:LISTENNING_KEY_DATE data:nil];
 }
 
--(void)passMonth
+-(void)_passMonth
 {
     _day = 1;
     _month++;

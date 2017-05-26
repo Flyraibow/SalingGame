@@ -19,6 +19,8 @@
 
 +(GameData *)sharedGameData;
 
++(void)clearCurrentGame;
+
 +(GameProgressData *)sharedProgressData;
 
 +(void)saveWithIndex:(int)index;

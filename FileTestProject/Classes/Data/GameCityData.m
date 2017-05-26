@@ -11,6 +11,8 @@
 #import "GameDataManager.h"
 #import "GameDataObserver.h"
 #import "GameItemData.h"
+#import "GameTaskData.h"
+#import "TaskFactory.h"
 
 static int const CityMaxCommerce = 10000;
 static NSString* const GameCityNo = @"GameCityNo";
@@ -28,10 +30,14 @@ static NSString* const CityCommerceInvestRecord = @"CityCommerceInvestRecord";
 static NSString* const CityCategoryPriceDict = @"CityCategoryPriceDict";
 static NSString* const CityGoodsPriceDict = @"CityGoodsPriceDict";
 static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
+static NSString* const CityTaskGenerateDate = @"CityTaskGenerateDate";
+static NSString* const CityTaskList = @"CityTaskList";
 
 @implementation GameCityData
 {
     NSMutableDictionary<NSString *, NSNumber *> *_guildOccupation;
+    NSMutableArray<GameTaskData *> *_cityTasks;
+    NSInteger _taskGeneratedDate;
 }
 
 @synthesize guildOccupation = _guildOccupation;
@@ -79,6 +85,7 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
         _cityState = CityStateTypeNormal;
         _categoryPriceDict = [NSMutableDictionary new];
         _goodsPriceDict = [NSMutableDictionary new];
+        _taskGeneratedDate = 0;
     }
     return self;
 }
@@ -102,6 +109,8 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
         _categoryPriceDict = [aDecoder decodeObjectForKey:CityCategoryPriceDict];
         _goodsPriceDict = [aDecoder decodeObjectForKey:CityGoodsPriceDict];
         _unlockGoodsDict = [aDecoder decodeObjectForKey:CityUnlockGoodsDict];
+        _taskGeneratedDate = [aDecoder decodeIntegerForKey:CityTaskGenerateDate];
+        _cityTasks = [aDecoder decodeObjectForKey:CityTaskList];
         _cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
     }
     return self;
@@ -123,7 +132,9 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
     [aCoder encodeInteger:_milltaryInvestRecord forKey:CityMilltaryInvestRecord];
     [aCoder encodeObject:_categoryPriceDict forKey:CityCategoryPriceDict];
     [aCoder encodeObject:_goodsPriceDict forKey:CityGoodsPriceDict];
+    [aCoder encodeInteger:_taskGeneratedDate forKey:CityTaskGenerateDate];
     [aCoder encodeObject:_unlockGoodsDict forKey:CityUnlockGoodsDict];
+    [aCoder encodeInteger:_cityTasks forKey:CityTaskList];
 }
 
 -(void)addBuilding:(NSString *)buildingNo
@@ -501,6 +512,31 @@ static NSString* const CityUnlockGoodsDict = @"CityUnlockGoodsDict";
 -(NSInteger)sellItemNumber
 {
     return [[GameDataManager sharedGameData] itemListByCity:_cityNo].count;
+}
+
+-(NSInteger)taskNumber
+{
+    return self.cityTasks.count;
+}
+
+-(NSArray *)cityTasks
+{
+    NSInteger date = [GameDataManager sharedGameData].date;
+    if (_cityTasks == nil || date - _taskGeneratedDate > 30) {
+        // generate new tasks, 30 天后强制刷新
+        _taskGeneratedDate = date;
+        _cityTasks = [[TaskFactory generateTask:3 forCity:self] mutableCopy];
+    }
+    return _cityTasks;
+}
+
+-(void)startTaskWithIndex:(int)index
+{
+    NSAssert(index >= 0 && index < _cityTasks.count, @"Task index is invalid");
+    MyGuild *myguild = [GameDataManager sharedGameData].myGuild;
+    NSAssert(!myguild.taskData, @"Already had tasks");
+    [myguild takeTask:_cityTasks[index]];
+    [_cityTasks removeObjectAtIndex:index];
 }
 
 @end

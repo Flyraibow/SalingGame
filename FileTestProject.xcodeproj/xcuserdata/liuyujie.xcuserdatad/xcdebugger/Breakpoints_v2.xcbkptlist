@@ -32,7 +32,7 @@
             startingLineNumber = "348"
             endingLineNumber = "348"
             landmarkName = "-addTransactionRecord:buyRecord:sellRecord:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,7 +48,7 @@
             startingLineNumber = "427"
             endingLineNumber = "427"
             landmarkName = "-newMonth:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FileTestProject/Classes/Manager/GameEventManager.m"
-            timestampString = "516132934.034265"
+            timestampString = "517379434.070858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "-startEventId:withScene:"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FileTestProject/Classes/Manager/GameDataManager.m"
-            timestampString = "516253566.762372"
+            timestampString = "517465269.869918"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "+sharedProgressData"
             landmarkType = "7">
          </BreakpointContent>

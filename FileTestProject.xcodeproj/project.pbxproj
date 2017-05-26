@@ -72,6 +72,7 @@
 		273BAFAB1D826F440099B0A2 /* game.dat in Resources */ = {isa = PBXBuildFile; fileRef = 273BAFAA1D826F440099B0A2 /* game.dat */; };
 		274EE2721CCA00E20082B982 /* Shipdeck_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 274EE2711CCA00E20082B982 /* Shipdeck_select.png */; };
 		274EE2741CCA01960082B982 /* Shipdeck_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 274EE2731CCA01960082B982 /* Shipdeck_selected.png */; };
+		276EB5771ED4D67C00C5CC60 /* CityTaskButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 276EB5761ED4D67C00C5CC60 /* CityTaskButtonGroup.m */; };
 		277A48001D47317500500E3E /* sailorNumberFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 277A47FF1D47317500500E3E /* sailorNumberFrame.png */; };
 		277A48031D47329900500E3E /* SailorNumberUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 277A48021D47329900500E3E /* SailorNumberUnit.m */; };
 		277A48091D47385F00500E3E /* SailorNumberPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 277A48081D47385F00500E3E /* SailorNumberPanel.m */; };
@@ -358,6 +359,7 @@
 		27ACAB9F1C9674C4005C0881 /* c045_19-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27ACAB601C9674C4005C0881 /* c045_19-1.png */; };
 		27ACABA01C9674C4005C0881 /* c045_20-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27ACAB611C9674C4005C0881 /* c045_20-1.png */; };
 		27ACABA11C9674C4005C0881 /* c045_21-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27ACAB621C9674C4005C0881 /* c045_21-1.png */; };
+		27BF3E2D1ECCC17100284A42 /* TaskData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BF3E2C1ECCC17100284A42 /* TaskData.m */; };
 		27C26CBB1C5EF701009EDE53 /* CityScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26CBA1C5EF701009EDE53 /* CityScene.m */; };
 		27C26CBD1C5EFC0B009EDE53 /* City_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26CBC1C5EFC0B009EDE53 /* City_Background.png */; };
 		27C26CC01C5F1DB2009EDE53 /* CityData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26CBF1C5F1DB2009EDE53 /* CityData.m */; };
@@ -919,6 +921,7 @@
 		EC9444471DDEEC97004FBEC2 /* ShipPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9444451DDEEC97004FBEC2 /* ShipPanel.m */; };
 		EC94444A1DE0D730004FBEC2 /* GameDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9444491DE0D730004FBEC2 /* GameDataManager.m */; };
 		EC94444D1DE0D8C0004FBEC2 /* GameDataObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = EC94444C1DE0D8C0004FBEC2 /* GameDataObserver.m */; };
+		ECA1FEDE1ECE40B400328542 /* TaskFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1FEDD1ECE40B400328542 /* TaskFactory.m */; };
 		ECBADDCF1DD81EC200DC490D /* BaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDCE1DD81EC200DC490D /* BaseScene.m */; };
 		ECBADDD21DD821D600DC490D /* TradePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD11DD821D600DC490D /* TradePanel.m */; };
 		ECBADDD51DD8467800DC490D /* ShipExchangePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD41DD8467800DC490D /* ShipExchangePanel.m */; };
@@ -1012,6 +1015,8 @@
 		273BAFAA1D826F440099B0A2 /* game.dat */ = {isa = PBXFileReference; lastKnownFileType = file; name = game.dat; path = Resources/game.dat; sourceTree = "<group>"; };
 		274EE2711CCA00E20082B982 /* Shipdeck_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck_select.png; path = Resources/Graph/Ship/Shipdeck_select.png; sourceTree = "<group>"; };
 		274EE2731CCA01960082B982 /* Shipdeck_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shipdeck_selected.png; path = Resources/Graph/Ship/Shipdeck_selected.png; sourceTree = "<group>"; };
+		276EB5751ED4D67C00C5CC60 /* CityTaskButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityTaskButtonGroup.h; path = Classes/Image/GroupButton/CityTaskButtonGroup.h; sourceTree = "<group>"; };
+		276EB5761ED4D67C00C5CC60 /* CityTaskButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityTaskButtonGroup.m; path = Classes/Image/GroupButton/CityTaskButtonGroup.m; sourceTree = "<group>"; };
 		277A47FF1D47317500500E3E /* sailorNumberFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sailorNumberFrame.png; path = Resources/Graph/Frame/sailorNumberFrame.png; sourceTree = "<group>"; };
 		277A48011D47329900500E3E /* SailorNumberUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SailorNumberUnit.h; path = Classes/Image/Icon/SailorNumberUnit.h; sourceTree = "<group>"; };
 		277A48021D47329900500E3E /* SailorNumberUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SailorNumberUnit.m; path = Classes/Image/Icon/SailorNumberUnit.m; sourceTree = "<group>"; };
@@ -1572,6 +1577,8 @@
 		27ACAB601C9674C4005C0881 /* c045_19-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "c045_19-1.png"; path = "Resources/Graph/Character/c045_19-1.png"; sourceTree = "<group>"; };
 		27ACAB611C9674C4005C0881 /* c045_20-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "c045_20-1.png"; path = "Resources/Graph/Character/c045_20-1.png"; sourceTree = "<group>"; };
 		27ACAB621C9674C4005C0881 /* c045_21-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "c045_21-1.png"; path = "Resources/Graph/Character/c045_21-1.png"; sourceTree = "<group>"; };
+		27BF3E2B1ECCC17100284A42 /* TaskData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskData.h; path = Classes/DataProcessing/TaskData.h; sourceTree = "<group>"; };
+		27BF3E2C1ECCC17100284A42 /* TaskData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskData.m; path = Classes/DataProcessing/TaskData.m; sourceTree = "<group>"; };
 		27C26CB91C5EF701009EDE53 /* CityScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityScene.h; path = Classes/CityScene.h; sourceTree = "<group>"; };
 		27C26CBA1C5EF701009EDE53 /* CityScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityScene.m; path = Classes/CityScene.m; sourceTree = "<group>"; };
 		27C26CBC1C5EFC0B009EDE53 /* City_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = City_Background.png; path = Resources/Graph/Background/City_Background.png; sourceTree = "<group>"; };
@@ -2213,6 +2220,8 @@
 		EC94444B1DE0D8C0004FBEC2 /* GameDataObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameDataObserver.h; path = Classes/Manager/GameDataObserver.h; sourceTree = "<group>"; };
 		EC94444C1DE0D8C0004FBEC2 /* GameDataObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameDataObserver.m; path = Classes/Manager/GameDataObserver.m; sourceTree = "<group>"; };
 		EC94444E1DE16EAF004FBEC2 /* SailSceneGoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SailSceneGoProtocol.h; path = Classes/Protocol/SailSceneGoProtocol.h; sourceTree = "<group>"; };
+		ECA1FEDC1ECE40B400328542 /* TaskFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskFactory.h; path = Classes/Factory/TaskFactory.h; sourceTree = "<group>"; };
+		ECA1FEDD1ECE40B400328542 /* TaskFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskFactory.m; path = Classes/Factory/TaskFactory.m; sourceTree = "<group>"; };
 		ECBADDCD1DD81EC200DC490D /* BaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseScene.h; path = Classes/UIScene/BaseScene.h; sourceTree = "<group>"; };
 		ECBADDCE1DD81EC200DC490D /* BaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseScene.m; path = Classes/UIScene/BaseScene.m; sourceTree = "<group>"; };
 		ECBADDD01DD821D600DC490D /* TradePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradePanel.h; path = Classes/Image/Panel/TradePanel.h; sourceTree = "<group>"; };
@@ -3207,6 +3216,7 @@
 		279BACF01C59E3B90069EF5D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				ECA1FEDB1ECE408B00328542 /* Factory */,
 				27C26E361C803A37009EDE53 /* Ext */,
 				27FBB7741CDF114C002B106B /* Manager */,
 				27C26D411C63FA74009EDE53 /* Protocol */,
@@ -3229,6 +3239,8 @@
 		279BAD061C59E9480069EF5D /* DataProcessing */ = {
 			isa = PBXGroup;
 			children = (
+				27BF3E2B1ECCC17100284A42 /* TaskData.h */,
+				27BF3E2C1ECCC17100284A42 /* TaskData.m */,
 				EC85DBEB1DCB021400613F44 /* ConditionData.h */,
 				EC85DBEC1DCB021400613F44 /* ConditionData.m */,
 				EC85DBE51DCAFBD400613F44 /* SelectListData.h */,
@@ -3696,6 +3708,8 @@
 				27C26D261C63312E009EDE53 /* BaseButtonGroup.m */,
 				27C26D221C6330FC009EDE53 /* CityBuildingGroup.h */,
 				27C26D231C6330FC009EDE53 /* CityBuildingGroup.m */,
+				276EB5751ED4D67C00C5CC60 /* CityTaskButtonGroup.h */,
+				276EB5761ED4D67C00C5CC60 /* CityTaskButtonGroup.m */,
 			);
 			name = GroupButton;
 			sourceTree = "<group>";
@@ -4187,6 +4201,15 @@
 				27FBB8481D092ECF002B106B /* RoleJobAnimation.m */,
 			);
 			name = Animation;
+			sourceTree = "<group>";
+		};
+		ECA1FEDB1ECE408B00328542 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				ECA1FEDC1ECE40B400328542 /* TaskFactory.h */,
+				ECA1FEDD1ECE40B400328542 /* TaskFactory.m */,
+			);
+			name = Factory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -5000,6 +5023,7 @@
 				27C26D171C6181E5009EDE53 /* MyGuild.m in Sources */,
 				27C26E331C802F98009EDE53 /* RoleDescriptionScene.m in Sources */,
 				279BAC6D1C59E3B90069EF5D /* mach_timing.c in Sources */,
+				27BF3E2D1ECCC17100284A42 /* TaskData.m in Sources */,
 				279BAC291C59E3B80069EF5D /* OALActionManager.m in Sources */,
 				279BAB531C59E3B70069EF5D /* CCLightNode.m in Sources */,
 				27E0409C1C5AA5B80068171E /* DataManager.m in Sources */,
@@ -5065,6 +5089,7 @@
 				270AB1C01C97E8BB00533B47 /* RoleInfoPanel.m in Sources */,
 				2723D4AE1D190043000B1990 /* CannonSelectionPanel.m in Sources */,
 				279BAACB1C59E3B60069EF5D /* CCNodeColor.m in Sources */,
+				ECA1FEDE1ECE40B400328542 /* TaskFactory.m in Sources */,
 				279BAAED1C59E3B60069EF5D /* CCParticleSystem.m in Sources */,
 				27C26E251C800F4A009EDE53 /* SelectPeopleScene.m in Sources */,
 				279BAA931C59E3B60069EF5D /* CCActionCatmullRom.m in Sources */,
@@ -5109,6 +5134,7 @@
 				278F4A4A1C83D31400D724EF /* StoryTriggerData.m in Sources */,
 				2723D4AB1D18FD4A000B1990 /* PopUpFrame.m in Sources */,
 				279BAC161C59E3B80069EF5D /* CCBsequence.m in Sources */,
+				276EB5771ED4D67C00C5CC60 /* CityTaskButtonGroup.m in Sources */,
 				279BAADB1C59E3B60069EF5D /* CCNode.m in Sources */,
 				279BAA841C59E3B60069EF5D /* CCRenderer.m in Sources */,
 				270AB1E21CB790F400533B47 /* ShipStyleData.m in Sources */,

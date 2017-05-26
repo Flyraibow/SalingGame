@@ -93,6 +93,9 @@
 -(void)clickCloseButton
 {
     [self removeFromParent];
+    if (self.cancelEvent) {
+        self.completionBlockWithEventId(self.cancelEvent);
+    }
 }
 
 -(void)clickButton:(DefaultButton *)button

@@ -18,6 +18,8 @@
 #import "GameTimerManager.h"
 #import "BaseScene.h"
 #import "MenuPage.h"
+#import "GameCityData.h"
+#import "CityTaskButtonGroup.h"
 
 static GameEventManager *_sharedEventManager;
 
@@ -165,6 +167,22 @@ static GameEventManager *_sharedEventManager;
         } else if ([eventData.eventType isEqualToString:@"mainScene"]) {
             // 返回主界面
             [[CCDirector sharedDirector] presentScene:[[MenuPage alloc] init]];
+            // 清除当前所有数据
+            [GameDataManager clearCurrentGame];
+        } else if ([eventData.eventType isEqualToString:@"cityTasks"]) {
+            // 当前城市任务
+            GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:[GameDataManager sharedGameData].myGuild.myTeam.currentCityId];
+            NSArray *taskList = [cityData cityTasks];
+            CityTaskButtonGroup *buttonGroup = [[CityTaskButtonGroup alloc] initWithTasks:taskList];
+            buttonGroup.baseScene = scene;
+            if (eventData.parameter.length > 0 && ![eventData.parameter isEqualToString:@";"]) {
+                buttonGroup.cancelEvent = eventData.parameter;
+            }
+            buttonGroup.completionBlockWithEventId = ^(NSString *eventId) {
+                [self startEventId:eventId withScene:scene];
+            };
+            [_viewStack addObject:buttonGroup];
+            [scene addChild:buttonGroup];
         }
     } else if (eventId.length == 0) {
         [self _startEventList];

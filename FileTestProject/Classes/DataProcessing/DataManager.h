@@ -21,6 +21,7 @@
 #import "SkillData.h"
 #import "StoryData.h"
 #import "StoryTriggerData.h"
+#import "TaskData.h"
 #import "TeamData.h"
 #import "ValueSetData.h"
 
@@ -73,6 +74,8 @@
 -(StoryDic*)getStoryDic;
 
 -(StoryTriggerDic*)getStoryTriggerDic;
+
+-(TaskDic*)getTaskDic;
 
 -(TeamDic*)getTeamDic;
 

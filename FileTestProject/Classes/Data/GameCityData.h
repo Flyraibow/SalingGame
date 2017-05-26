@@ -50,12 +50,15 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSInteger milltaryInvestRecord;
 @property (nonatomic, readonly) NSDictionary *unlockGoodsDict;
 @property (nonatomic, readonly, weak) CityData *cityData;
+
+@property (nonatomic, readonly) NSArray *cityTasks;
 //////////以下是在表格中可能会用到的property//////////////
 @property (nonatomic, readonly) NSInteger percentage;
 @property (nonatomic, readonly) NSInteger totalPercentage;
 @property (nonatomic, readonly) NSInteger guildNumber;
 @property (nonatomic, readonly) NSInteger shipNumber;
 @property (nonatomic, readonly) NSInteger sellItemNumber;
+@property (nonatomic, readonly) NSInteger taskNumber;
 
 -(instancetype)initWithCityData:(CityData *)cityData;
 
@@ -92,5 +95,7 @@ typedef enum : NSUInteger {
 -(void)unlockGoodsByItem:(NSString *)itemId;
 
 -(NSString *)unblockItemId;
+
+-(void)startTaskWithIndex:(int)index;
 
 @end

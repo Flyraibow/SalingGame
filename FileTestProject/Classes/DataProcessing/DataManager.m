@@ -27,6 +27,7 @@ static DataManager *_sharedDataManager;
 	SkillDic *_skillDic;
 	StoryDic *_storyDic;
 	StoryTriggerDic *_storyTriggerDic;
+	TaskDic *_taskDic;
 	TeamDic *_teamDic;
 	ValueSetDic *_valueSetDic;
 	NSMutableDictionary *_priceDic;
@@ -59,6 +60,7 @@ static DataManager *_sharedDataManager;
 		_skillDic = [[SkillDic alloc] initWithByteBuffer:buffer];
 		_storyDic = [[StoryDic alloc] initWithByteBuffer:buffer];
 		_storyTriggerDic = [[StoryTriggerDic alloc] initWithByteBuffer:buffer];
+		_taskDic = [[TaskDic alloc] initWithByteBuffer:buffer];
 		_teamDic = [[TeamDic alloc] initWithByteBuffer:buffer];
 		_valueSetDic = [[ValueSetDic alloc] initWithByteBuffer:buffer];
 		_priceDic = [buffer readMatrix];
@@ -187,6 +189,11 @@ static DataManager *_sharedDataManager;
 -(StoryTriggerDic *)getStoryTriggerDic
 {
 	return _storyTriggerDic;
+}
+
+-(TaskDic *)getTaskDic
+{
+	return _taskDic;
 }
 
 -(TeamDic *)getTeamDic

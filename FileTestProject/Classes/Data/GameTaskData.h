@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TaskData.h"
 
 @interface GameTaskData : NSObject <NSCoding>
+
+@property (nonatomic, readonly) NSInteger deposit;
+@property (nonatomic, readonly) NSInteger profit;
+@property (nonatomic, readonly) NSString *title;
+@property (nonatomic, readonly) NSString *cityId;
+
+- (instancetype)initWithTaskData:(TaskData *)taskData belongCity:(NSString *)cityId;
 
 @end
