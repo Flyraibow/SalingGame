@@ -916,6 +916,7 @@
 		EC85DBE71DCAFBD400613F44 /* SelectListData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE61DCAFBD400613F44 /* SelectListData.m */; };
 		EC85DBEA1DCAFC7100613F44 /* GameConditionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE91DCAFC7100613F44 /* GameConditionManager.m */; };
 		EC85DBED1DCB021400613F44 /* ConditionData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBEC1DCB021400613F44 /* ConditionData.m */; };
+		EC93C8AE1EDE5B8C0069391B /* TaskPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC93C8AD1EDE5B8C0069391B /* TaskPanel.m */; };
 		EC9444411DDEE71D004FBEC2 /* ProgressPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC94443F1DDEE71D004FBEC2 /* ProgressPanel.m */; };
 		EC9444441DDEE8DE004FBEC2 /* CitySystemBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9444431DDEE8DE004FBEC2 /* CitySystemBar.m */; };
 		EC9444471DDEEC97004FBEC2 /* ShipPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9444451DDEEC97004FBEC2 /* ShipPanel.m */; };
@@ -2209,6 +2210,8 @@
 		EC85DBE91DCAFC7100613F44 /* GameConditionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameConditionManager.m; path = Classes/Manager/GameConditionManager.m; sourceTree = "<group>"; };
 		EC85DBEB1DCB021400613F44 /* ConditionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConditionData.h; path = Classes/DataProcessing/ConditionData.h; sourceTree = "<group>"; };
 		EC85DBEC1DCB021400613F44 /* ConditionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConditionData.m; path = Classes/DataProcessing/ConditionData.m; sourceTree = "<group>"; };
+		EC93C8AC1EDE5B8C0069391B /* TaskPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskPanel.h; path = Classes/Image/Panel/TaskPanel.h; sourceTree = "<group>"; };
+		EC93C8AD1EDE5B8C0069391B /* TaskPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskPanel.m; path = Classes/Image/Panel/TaskPanel.m; sourceTree = "<group>"; };
 		EC94443F1DDEE71D004FBEC2 /* ProgressPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressPanel.m; path = Classes/Image/Panel/ProgressPanel.m; sourceTree = "<group>"; };
 		EC9444401DDEE71D004FBEC2 /* ProgressPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressPanel.h; path = Classes/Image/Panel/ProgressPanel.h; sourceTree = "<group>"; };
 		EC9444421DDEE8DE004FBEC2 /* CitySystemBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CitySystemBar.h; path = Classes/Image/GroupButton/CitySystemBar.h; sourceTree = "<group>"; };
@@ -3343,6 +3346,8 @@
 				277A48081D47385F00500E3E /* SailorNumberPanel.m */,
 				EC3B89831DCEB83E00482A42 /* BasePanel.h */,
 				EC3B89841DCEB83E00482A42 /* BasePanel.m */,
+				EC93C8AC1EDE5B8C0069391B /* TaskPanel.h */,
+				EC93C8AD1EDE5B8C0069391B /* TaskPanel.m */,
 			);
 			name = Panel;
 			sourceTree = "<group>";
@@ -5080,6 +5085,7 @@
 				EC85DBE71DCAFBD400613F44 /* SelectListData.m in Sources */,
 				279BAC3C1C59E3B80069EF5D /* OALSimpleAudio.m in Sources */,
 				27FBB79E1CED8F8F002B106B /* DialogPanel.m in Sources */,
+				EC93C8AE1EDE5B8C0069391B /* TaskPanel.m in Sources */,
 				27FBB85F1D0FB7F4002B106B /* TimePanel.m in Sources */,
 				279BAB9C1C59E3B70069EF5D /* CCControl.m in Sources */,
 				279BAB031C59E3B60069EF5D /* CCProgressNode.m in Sources */,

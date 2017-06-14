@@ -13,12 +13,14 @@ static const NSString *ReservedItem = @"itemId";
 @class GameItemData;
 @class GameShipData;
 @class GameNPCData;
+@class GameTaskData;
 @interface GameValueManager : NSObject
 
 @property (nonatomic, weak) GameItemData *reservedItemData;
 @property (nonatomic, weak) GameShipData *reservedShipData;
 @property (nonatomic, weak) GameNPCData *reservedNPCData;
 @property (nonatomic, assign) NSInteger *reservedItemCategory;
+@property (nonatomic, weak) GameTaskData *reservedTaskData;
 
 + (GameValueManager *)sharedValueManager;
 

@@ -10,6 +10,8 @@
 #import "DefaultButton.h"
 #import "GameTaskData.h"
 #import "BGImage.h"
+#import "TaskPanel.h"
+#import "GameValueManager.h"
 
 @implementation CityTaskButtonGroup
 {
@@ -37,9 +39,9 @@
 - (void)clickButton:(DefaultButton *)button
 {
     int index = [button.name intValue];
-    GameTaskData *task = _task[index];
-    NSAssert(task, @"selected task cannot be nil");
-    NSLog(@"click task ========= %@", button.name);
+    NSAssert(_task[index], @"selected task cannot be nil");
+    [GameValueManager sharedValueManager].reservedTaskData = _task[index];
+    self.completionBlockWithEventId(@"taskBoard");
 }
 
 @end

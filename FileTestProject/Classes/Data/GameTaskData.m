@@ -59,4 +59,9 @@ static NSString* const GameTaskProfit = @"GameTaskProfit";
     return getLocalStringByInt(@"task_title_", _taskData.taskTitleId);
 }
 
+-(NSString *)buttonTitle
+{
+  return [NSString stringWithFormat:@"%@  %zd", self.title, self.profit];
+}
+
 @end

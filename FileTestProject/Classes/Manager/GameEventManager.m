@@ -169,7 +169,7 @@ static GameEventManager *_sharedEventManager;
             [[CCDirector sharedDirector] presentScene:[[MenuPage alloc] init]];
             // 清除当前所有数据
             [GameDataManager clearCurrentGame];
-        } else if ([eventData.eventType isEqualToString:@"cityTasks"]) {
+        } else if ([eventData.eventType isEqualToString:@"cityTask"]) {
             // 当前城市任务
             GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:[GameDataManager sharedGameData].myGuild.myTeam.currentCityId];
             NSArray *taskList = [cityData cityTasks];

@@ -196,6 +196,7 @@
 "shop_buy" = "购买";
 "shop_sell" = "贩卖";
 "shop_task" = "任务委托";
+"shop_task_cancel" = "取消委托";
 "shop_mail" = "写信";
 "shipyard_buy" = "购入船只";
 "shipyard_sell" = "售出船只";
@@ -214,6 +215,7 @@
 "lab_date" = "%d月 %d日";
 "lab_date_wy" = "%d年 %d月 %d日";
 "lab_hold_money" = "金币:";
+"btn_accept" = "接受";
 "btn_sure" = "确定";
 "btn_cancel" = "取消";
 "lab_close" = "关闭";

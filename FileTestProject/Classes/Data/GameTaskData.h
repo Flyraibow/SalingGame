@@ -14,6 +14,7 @@
 @property (nonatomic, readonly) NSInteger deposit;
 @property (nonatomic, readonly) NSInteger profit;
 @property (nonatomic, readonly) NSString *title;
+@property (nonatomic, readonly) NSString *buttonTitle;
 @property (nonatomic, readonly) NSString *cityId;
 
 - (instancetype)initWithTaskData:(TaskData *)taskData belongCity:(NSString *)cityId;

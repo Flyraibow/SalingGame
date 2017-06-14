@@ -4,3 +4,4 @@
 build/
 */**/UserInterfaceState.xcuserstate
 */**/*.xcuserdatad/
+*.xcbkptlist

@@ -196,6 +196,7 @@ CannonSelectionPanelDelegate>
                 roleAnimation.npcData = gameNPCData;
                 roleAnimation.positionType = CCPositionTypeNormalized;
                 roleAnimation.position = ccp(0.5, 0.4);
+                roleAnimation.loops = YES;
                 [_roleAnimationList addObject:roleAnimation];
                 if (gameNPCData.job != NPCJobTypeNone || gameNPCData.roomId) {
                     ShipdeckIcon *shipIcon;
