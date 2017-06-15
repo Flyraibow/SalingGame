@@ -35,3 +35,4 @@ sailDaysEnough,________,cache,days,>,number,5
 cityHasTasks,_______,city,taskNumber,>,number,0
 hasTask,_______,guild,taskData,!=,nil,;
 hasNoTask,______,guild,taskData,=,nil,;
+isSailFlagYes,____,cache,sailFlag,!=,number,0

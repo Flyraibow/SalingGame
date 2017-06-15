@@ -22,9 +22,13 @@
 
 -(instancetype)initWithDataList:(NSArray *)dataList
 {
+    return [self initWithFunction:[dataList[0] integerValue]];
+}
+
+-(instancetype)initWithFunction:(ProgressType)type
+{
     if (self = [super init]) {
-        _type = [dataList[0] integerValue];
-        
+        _type = type;
         CCSprite *bgImage = [BGImage getBgImageByName:@"bg_System.png"];
         [self addChild:bgImage];
         
@@ -56,14 +60,6 @@
         btnClose.position = ccp(0.5,0.05);
         [btnClose setTarget:self selector:@selector(clickBtnClose)];
         [self addChild:btnClose];
-    }
-    return self;
-}
-
--(instancetype)initWithFunction:(ProgressType)type
-{
-    if (self = [self init]) {
-        
     }
     return self;
 }

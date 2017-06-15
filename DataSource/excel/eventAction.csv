@@ -227,7 +227,7 @@ systemBackToMenu,systemBackToMenu,mainScene,;
 systemSetting,,eventList,;
 sailMap,___,scene,SailScene;0
 commerceInfo,____,scene,SailScene;2
-sail,__ todo:____________,eventList,closeWindow;haveShip
+sail,__ todo:____________,eventList,closeWindow;setSailFlagYes;haveShip
 haveShip,__,condition,haveShip;haveSailors;dialogNoShip2Sail_dock
 haveSailors,___,condition,haveSailors;haveEnoughSailors;dialogNoSailor2Sail_dock
 haveEnoughSailors,_______,condition,haveEnoughSailors;needFillFood;forceSailWithoutEnoughSailors
@@ -237,17 +237,26 @@ dialogNoEnoughSailor2Sail,,dialog,dialog_no_enough_sailors
 dialogNoSailor2Sail,,dialog,dialog_no_sailors
 dialogNoShip2Sail,,dialog,dialog_no_ship_no_game
 forceSailWithoutEnoughSailors,___________,dialogYesNo,dialog_sail_without_enough_sailors;needFillFood;dock
-forceSailWithoutFillUp,_________,dialogYesNo,dialog_sail_without_fillup;beforeSailPreparation;dock
+forceSailWithoutFillUp,_________,dialogYesNo,dialog_sail_without_fillup;sailFlagIsYes;dock
+supply,____,eventList,closeWindow;needSupply
+needSupply,______,condition,needFillUp;startedSupply;noNeedSupply
+startedSupply,,eventList,setSailFlagNo;shipFillFood
+noNeedSupply,_____,eventList,dialogNoNeedSupply;dock
+dialogNoNeedSupply,_______,dialog,dialog_no_need_supply
+setSailFlagNo,,setNumber,sailFlag=0
+setSailFlagYes,,setNumber,sailFlag=1
 shipFillFood,,eventList,setFillUpMoney;setFillUpTemp;setFillUpDialog
 setFillUpMoney,,setNumber,money=team.needsFoodCapacity
 setFillUpTemp,,dialogTemp,cache.money
 setFillUpDialog,,dialogYesNo,dialog_fill_food;haveEnoughMoney2Fill;forceSailWithoutFillUp
 haveEnoughMoney2Fill,,condition,moneyEnough;fillUpStart;fillUpPartial
-fillUpStart,todo,eventList,fillUpStartDataChange;beforeSailPreparation
+fillUpStart,todo,eventList,fillUpStartDataChange;fillUpMoneyChange;sailFlagIsYes
 fillUpStartDataChange,,dataChange,team;fillUp;cache.money
-fillUpPartial,,eventList,fillUpPartialDialog;fillUpStart
+fillUpMoneyChange,,dataChange,money;-;cache.money
+fillUpPartial,,eventList,fillUpPartialDialog;fillUpStartSetMoney;fillUpStart
 fillUpPartialSetMoney,,setNumber,money=team.money
 fillUpPartialDialog,,dialog,dialog_no_enough_money
+sailFlagIsYes,____________,condition,isSailFlagYes;beforeSailPreparation;dock
 beforeSailPreparation,__________________,eventList,setSailDays;setDialogTempDays;sailDaysEnough
 setSailDays,_________,setNumber,days=team.canSailDays
 setDialogTempDays,,dialogTemp,cache.days

@@ -27,4 +27,6 @@
 
 +(void)loadWithIndex:(int)index;
 
++(BOOL)isInitialed;
+
 @end

@@ -82,6 +82,11 @@ static NSString* filePathWithIndex(int index)
     return _sharedGameData;
 }
 
++(BOOL)isInitialed
+{
+    return _sharedGameData != nil;
+}
+
 +(GameProgressData *)sharedProgressData
 {
     if (_sharedGameProgressData == nil) {

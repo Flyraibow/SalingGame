@@ -34,4 +34,4 @@ diaryInfo,____,lab_diary_info,;
 save,__,lab_save,;
 load,__,lab_load,;
 systemSetting,____,lab_setting,;
-systemMenu,___,lab_systemMenu,;
+menuScene,___,lab_systemMenu,;

@@ -15,4 +15,6 @@ typedef NS_ENUM(NSInteger, ProgressType)  {
 
 @interface ProgressPanel : BasePanel
 
+-(instancetype)initWithFunction:(ProgressType)type;
+
 @end

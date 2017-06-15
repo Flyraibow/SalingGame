@@ -92,7 +92,7 @@
 -(void)clickContinue
 {
     [[OALSimpleAudio sharedInstance] playEffect:@"button.wav"];
-    ProgressPanel *panel = [[ProgressPanel alloc] initWithDataList:@[@(ProgressLoad)]];
+    ProgressPanel *panel = [[ProgressPanel alloc] initWithFunction:ProgressLoad];
     [self addChild:panel];
     
 }

@@ -86,9 +86,9 @@ static NSString* const GameShipHeader = @"GameShipHeader";
         _goodsList = [aDecoder decodeObjectForKey:GameShipGoodsList];
         _cityId = [aDecoder decodeObjectForKey:GameShipCityId];
         _shipId = [aDecoder decodeObjectForKey:GameShipId];
-        self.equipList = [aDecoder decodeObjectForKey:GameShipEquipList];
         _shipHeader = [aDecoder decodeObjectForKey:GameShipHeader];
         _shipStyleData = [[[DataManager sharedDataManager] getShipStyleDic] getShipStyleById:_shipStyleNo];
+        self.equipList = [aDecoder decodeObjectForKey:GameShipEquipList];
     }
     return self;
 }

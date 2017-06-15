@@ -34,4 +34,9 @@ static DialogPanel *_sharedDialogPanel;
     return _sharedDialogPanel.parent != nil;
 }
 
++(void)addConfirmHandler:(void(^)())handler
+{
+    [_sharedDialogPanel addConfirmHandler:handler];
+}
+
 @end

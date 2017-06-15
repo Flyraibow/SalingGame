@@ -45,7 +45,9 @@
         self.contentSize = contentSize;
         self.positionType = CCPositionTypeNormalized;
         self.position = ccp(0.5, 0.5);
-        _cityId = [GameDataManager sharedGameData].myGuild.myTeam.currentCityId;
+        if ([GameDataManager isInitialed]) {
+            _cityId = [GameDataManager sharedGameData].myGuild.myTeam.currentCityId;
+        }
     }
     return self;
 }

@@ -99,9 +99,6 @@ CannonSelectionPanelDelegate>
                 shipdeckIcon.anchorPoint = ccp(0, 0);
                 shipdeckIcon.position = ccp(x, y);
                 shipdeckIcon.delegate = self;
-                if (type == ShipdeckTypeStorageRoom && equipType == StorageRoomTypeCannon) {
-                    _previousCannonRooms++;
-                }
                 [_deckShipSprite addChild:shipdeckIcon];
                 [_roomIconDict setObject:shipdeckIcon forKey:@(i)];
                 shipdeckIcon.roomId = i;
@@ -313,11 +310,16 @@ CannonSelectionPanelDelegate>
 -(void)updateDate
 {
     _spendTimePanel.day -= 1;
+    [self processDialog];
     if (_spendTimePanel.day == 0) {
         _timing = NO;
-        [self clickBtnSure];
-    } else {
-        [self processDialog];
+        if ([GamePanelManager isInDialog]) {
+            [GamePanelManager addConfirmHandler:^{
+                [self clickBtnSure];
+            }];
+        } else {
+            [self clickBtnSure];
+        }
     }
 }
 
@@ -587,7 +589,7 @@ CannonSelectionPanelDelegate>
             previousPrice /= 2;
             exchangePrice = currCannonData.price * cannonNumber;
         } else {
-            exchangePrice = (cannonNumber - _shipData.cannonNum) * currCannonData.price;
+            exchangePrice = cannonNumber * currCannonData.price;
             if (cannonNumber < _shipData.cannonNum) {
                 exchangePrice /= 2;
             }

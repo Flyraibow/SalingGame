@@ -17,4 +17,6 @@
 
 +(BOOL)isInDialog;
 
++(void)addConfirmHandler:(void(^)())handler;
+
 @end
