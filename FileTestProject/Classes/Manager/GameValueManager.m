@@ -12,6 +12,7 @@
 #import "LocalString.h"
 #import "BaseData.h"
 #import "GameItemData.h"
+#import "GameTaskData.h"
 
 static GameValueManager *_sharedValueManager;
 
@@ -163,6 +164,8 @@ static GameValueManager *_sharedValueManager;
         value = [subType integerValue];
     } else if ([type isEqualToString:@"item"]) {
         data = self.reservedItemData;
+    } else if ([type isEqualToString:@"task"]) {
+        data = _myguild.taskData;
     }
     if (data) {
         value = [data getValueByType:subType];
@@ -181,5 +184,58 @@ static GameValueManager *_sharedValueManager;
     }
     return nil;
 }
+
+-(NSString *)replaceTextWithDefaultRegex:(NSString *)text
+{
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"@\\{([^:}]+):([^\\}]+)\\}" options:NSRegularExpressionCaseInsensitive error:&error];
+    
+    NSTextCheckingResult *match = nil;
+    NSUInteger index = 0;
+    NSString *finalText = text;
+    do{
+        match = [regex firstMatchInString:text
+                                  options:0
+                                    range:NSMakeRange(index, [text length] - index)];
+        if (match) {
+            NSRange matchRange = [match range];
+            index = matchRange.location + matchRange.length;
+            NSRange firstHalfRange = [match rangeAtIndex:1];
+            NSRange secondHalfRange = [match rangeAtIndex:2];
+            NSString *fullString = [text substringWithRange:matchRange];
+            NSString *stringType = [text substringWithRange:firstHalfRange];
+            NSString *stringId = [text substringWithRange:secondHalfRange];
+            if ([stringType isEqualToString:@"task"]) {
+                NSAssert(_reservedTaskData, @"Task cannot be null");
+                NSAssert(stringId && stringId.length, @"stringId cannot be empty in task");
+                finalText = [finalText stringByReplacingOccurrencesOfString:fullString
+                                                                 withString:[_reservedTaskData getStringByType:stringId]];
+                
+            } else {
+                if ([stringId intValue] == 0) {
+                    stringId = [[GameDataManager sharedGameData] getLogicData:stringId];
+                }
+                if ([stringType isEqualToString:@"npc"]) {
+                    finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getNpcFirstName(stringId)];
+                } else if([stringType isEqualToString:@"goods"]) {
+                    finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getGoodsName(stringId)];
+                } else if([stringType isEqualToString:@"ship"]) {
+                    finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getShipsName(stringId)];
+                } else if([stringType isEqualToString:@"city"]) {
+                    finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getCityName(stringId)];
+                } else if([stringType isEqualToString:@"country"]) {
+                    finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getCountryName(stringId)];
+                } else if([stringType isEqualToString:@"guild"]) {
+                    finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getGuildName(stringId)];
+                } else if([stringType isEqualToString:@"id"]) {
+                    finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:stringId];
+                }
+            }
+            
+        }
+    }while (match != nil);
+    return finalText;
+}
+
 
 @end

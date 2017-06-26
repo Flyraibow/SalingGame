@@ -12,4 +12,6 @@
 
 -(NSInteger)getValueByType:(NSString *)type;
 
+-(NSString *)getStringByType:(NSString *)type;
+
 @end

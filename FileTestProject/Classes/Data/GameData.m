@@ -459,8 +459,55 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
         if ([array[1] isEqualToString:@"fillUp"]) {
             [teamData fillFood:[[GameValueManager sharedValueManager] getNumberByTerm:array[2]]];
         }
+    } else if ([array[0] isEqualToString:@"guild"]) {
+        if ([array[1] isEqualToString:@"forsakeTask"]) {
+            [self.myGuild forsakeTask];
+        }
     }
 }
+
+
+-(GameCityData *)randomCityFromCity:(GameCityData *)cityData
+                          condition:(CitySearchCondition)condition
+{
+    NSMutableArray<GameCityData *> *array = [NSMutableArray new];
+    for (NSString *cityId in _cityDic) {
+        if ([cityId isEqualToString:cityData.cityNo]) {
+            continue;
+        }
+        GameCityData *city = [_cityDic objectForKey:cityId];
+        if ((condition & CityNear) && city.cityData.seaArea != cityData.cityData.seaArea) {
+            continue;
+        }
+        if ((condition & CityFaraway) && city.cityData.seaArea == cityData.cityData.seaArea) {
+            continue;
+        }
+        if ((condition & CityCapital) && city.cityData.cityScale != CityScaleTypeBigCity) {
+            continue;
+        }
+        if (condition & CityDifferentGoods) {
+            BOOL differentFood = NO;
+            for (NSString *goodsId in city.goodsDict) {
+                if ([cityData.goodsDict objectForKey:goodsId] == nil) {
+                    differentFood = YES;
+                    break;
+                }
+            }
+            if (!differentFood) {
+                continue;
+            }
+        }
+        if ((condition & CitySameOwner)) {
+            // TODO:
+        }
+        [array addObject:city];
+    }
+    if (array.count > 0) {
+        return array[arc4random() % array.count];
+    }
+    return nil;
+}
+
 
 - (NSString *)description
 {

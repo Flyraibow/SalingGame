@@ -17,6 +17,7 @@
 #import "BaseButtonGroup.h"
 #import "DefaultButton.h"
 #import "CityScene.h"
+#import "GameValueManager.h"
 
 typedef enum : NSUInteger {
     StoryCommandTypeNone,
@@ -495,7 +496,7 @@ typedef enum : NSUInteger {
     NSMutableArray *buttonList = [NSMutableArray new];
     NSArray *selections = [getStoryText(storyData.parameter1) componentsSeparatedByString:@";"];
     for (int i = 0; i < selections.count; ++i) {
-        NSString *buttonText = [_dialogPanel replaceTextWithDefaultRegex:selections[i]];
+        NSString *buttonText = [[GameValueManager sharedValueManager] replaceTextWithDefaultRegex:selections[i]];
         DefaultButton *defaultButton = [[DefaultButton alloc] initWithTitle:buttonText];
         defaultButton.name = [@(i) stringValue];
         [buttonList addObject:defaultButton];

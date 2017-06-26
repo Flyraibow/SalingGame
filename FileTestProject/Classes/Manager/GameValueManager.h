@@ -46,4 +46,6 @@ static const NSString *ReservedItem = @"itemId";
 
 - (id)reservedDataByTerm:(NSString *)term;
 
+- (NSString *)replaceTextWithDefaultRegex:(NSString *)text;
+
 @end

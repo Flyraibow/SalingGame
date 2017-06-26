@@ -19,6 +19,7 @@
 #import "GameNPCData.h"
 #import "GameCityData.h"
 #import "GameTimerManager.h"
+#import "GameValueManager.h"
 
 @implementation DialogPanel
 {
@@ -128,49 +129,6 @@
     }
 }
 
--(NSString *)replaceTextWithDefaultRegex:(NSString *)text
-{
-    NSError *error = nil;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"@\\{([^:}]+):([^\\}]+)\\}" options:NSRegularExpressionCaseInsensitive error:&error];
-    
-    NSTextCheckingResult *match = nil;
-    NSUInteger index = 0;
-    NSString *finalText = text;
-    do{
-        match = [regex firstMatchInString:text
-                                  options:0
-                                    range:NSMakeRange(index, [text length] - index)];
-        if (match) {
-            NSRange matchRange = [match range];
-            index = matchRange.location + matchRange.length;
-            NSRange firstHalfRange = [match rangeAtIndex:1];
-            NSRange secondHalfRange = [match rangeAtIndex:2];
-            NSString *fullString = [text substringWithRange:matchRange];
-            NSString *stringType = [text substringWithRange:firstHalfRange];
-            NSString *stringId = [text substringWithRange:secondHalfRange];
-            if ([stringId intValue] == 0) {
-                stringId = [[GameDataManager sharedGameData] getLogicData:stringId];
-            }
-            if ([stringType isEqualToString:@"npc"]) {
-                finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getNpcFirstName(stringId)];
-            } else if([stringType isEqualToString:@"goods"]) {
-                finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getGoodsName(stringId)];
-            } else if([stringType isEqualToString:@"ship"]) {
-                finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getShipsName(stringId)];
-            } else if([stringType isEqualToString:@"city"]) {
-                finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getCityName(stringId)];
-            } else if([stringType isEqualToString:@"country"]) {
-                finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getCountryName(stringId)];
-            } else if([stringType isEqualToString:@"guild"]) {
-                finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getGuildName(stringId)];
-            } else if([stringType isEqualToString:@"id"]) {
-                finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:stringId];
-            }
-        }
-    }while (match != nil);
-    return finalText;
-}
-
 -(void)setDialogWithPhotoNo:(NSString *)photoNo npcName:(NSString *)npcName text:(NSString *)text
 {
     [self setDialogWithPhotoNo:photoNo npcName:npcName text:text handler:(_forAllConfirmationFlag?_confirmHandler:nil)];
@@ -194,7 +152,7 @@
         _dialogPanel.position = ccp(0.5, 0);
     }
     _labelName.string = npcName;
-    _labelContent.string = [self replaceTextWithDefaultRegex:text];
+    _labelContent.string = [[GameValueManager sharedValueManager] replaceTextWithDefaultRegex:text];
     if (self.coverSprite) {
         if (self.parent != self.coverSprite.scene) {
             [self.coverSprite.scene addChild:self];
@@ -235,7 +193,7 @@
     _handler = handler;
     NSMutableArray *buttonList = [NSMutableArray new];
     for (int i = 0; i < selectArray.count; ++i) {
-        NSString *buttonText = [self replaceTextWithDefaultRegex:selectArray[i]];
+        NSString *buttonText = [[GameValueManager sharedValueManager] replaceTextWithDefaultRegex:selectArray[i]];
         DefaultButton *defaultButton = [[DefaultButton alloc] initWithTitle:buttonText];
         defaultButton.name = [@(i) stringValue];
         [defaultButton setTarget:self selector:@selector(clickButton:)];

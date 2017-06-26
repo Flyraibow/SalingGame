@@ -274,6 +274,11 @@ cityHasNoTasksEvent,,eventList,cityHasNoTasksDialog;
 cityHasNoTasksDialog,,dialog,dialog_city_has_no_tasks;shop
 taskBoard,,eventList,closeWindow;taskPanelReceive
 taskPanelReceive,,window,TaskPanel;shop;cityTasksShowUp;1
-cancelTask,____,eventList,
-cancelTaskDialog,,dialogYesNo,dialog_cancel_task_confirm;cancelTaskYes;
-cancelTaskYes,,dataChange,guild;cancelTask
+cancelTask,____,eventList,closeWindow;cancelTaskCacheMoney;cancelTaskSetTempDialog;cancelTaskDialog
+cancelTaskCacheMoney,,setNumber,money=task.breakUpFee
+cancelTaskSetTempDialog,,dialogTemp,cache.money
+cancelTaskDialog,,dialogYesNo,dialog_cancel_task_confirm;cancelTaskMoneyEnough;shop
+cancelTaskMoneyEnough,,condition,moneyEnough;cancelTaskProcess;moneyNotEnoughDialog
+cancelTaskProcess,,eventList,cancelTaskMoneySpending;cancelTaskYes;shop
+cancelTaskMoneySpending,,dataChange,money;-;cache.money
+cancelTaskYes,,dataChange,guild;forsakeTask

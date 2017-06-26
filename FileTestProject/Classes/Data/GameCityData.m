@@ -530,13 +530,13 @@ static NSString* const CityTaskList = @"CityTaskList";
     return _cityTasks;
 }
 
--(void)startTaskWithIndex:(int)index
+-(void)startTask:(GameTaskData *)taskData
 {
-    NSAssert(index >= 0 && index < _cityTasks.count, @"Task index is invalid");
+    NSAssert([_cityTasks containsObject:taskData], @"Task data is invalid, %@", taskData);
     MyGuild *myguild = [GameDataManager sharedGameData].myGuild;
     NSAssert(!myguild.taskData, @"Already had tasks");
-    [myguild takeTask:_cityTasks[index]];
-    [_cityTasks removeObjectAtIndex:index];
+    [myguild takeTask:taskData];
+    [_cityTasks removeObject:taskData];
 }
 
 @end

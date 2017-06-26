@@ -29,6 +29,13 @@ typedef enum : NSUInteger {
     CityStateTypePoor,
 } CityStateType;
 
+typedef enum : NSUInteger {
+    CityScaleTypeBigCity,
+    CityScaleTypeSmallCity,
+    CityScaleTypeUndevelopingCity,
+} CityScaleType;
+
+@class GameTaskData;
 @interface GameCityData : BaseData <NSCoding>
 
 @property (nonatomic, readonly) NSString *cityNo;
@@ -96,6 +103,6 @@ typedef enum : NSUInteger {
 
 -(NSString *)unblockItemId;
 
--(void)startTaskWithIndex:(int)index;
+-(void)startTask:(GameTaskData *)taskData;
 
 @end

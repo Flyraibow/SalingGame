@@ -1,1 +1,1 @@
-购买@{num}仓库的@{goods}，并运送到@{destCity}。
+购买@{task:num}仓库的@{task:goods}，并运送到@{task:destCity}。

@@ -13,6 +13,7 @@
 #import "GameValueManager.h"
 #import "GameTaskData.h"
 #import "GameDataManager.h"
+#import "GameCityData.h"
 
 @implementation TaskPanel
 {
@@ -69,7 +70,8 @@
 - (void)clickSureButton
 {
     [self removeFromParent];
-    [[GameDataManager sharedGameData].myGuild takeTask:_taskData];
+    GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:self.cityId];
+    [cityData startTask:_taskData];
     if (self.completionBlockWithEventId) {
         self.completionBlockWithEventId(self.successEvent);
     }

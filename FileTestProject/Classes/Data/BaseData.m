@@ -19,4 +19,13 @@
     return 0;
 }
 
+-(NSString *)getStringByType:(NSString *)type
+{
+    SEL selector = NSSelectorFromString(type);
+    if ([self respondsToSelector:selector]) {
+        return ((NSString *(*)(id, SEL))[self methodForSelector:selector])(self, selector);
+    }
+    return 0;
+}
+
 @end

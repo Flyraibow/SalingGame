@@ -1187,7 +1187,7 @@
 "story_text_177"="我的剧团名字是：@{guild:myGuildId}， 我叫：@{npc:myLeaderId}.今天的日期为：@{id:date}.";
 "story_text_178"="测试文字14";
 "story_text_179"="我要加入你们的队伍";
-"task_description_1"="购买@{num}仓库的@{goods}，并运送到@{destCity}。";
+"task_description_1"="购买@{task:num}仓库的@{task:goods}，并运送到@{task:destCity}。";
 "task_title_1"="购买交易品";
 "task_title_2"="运送交易品";
 "task_title_3"="传送文件";

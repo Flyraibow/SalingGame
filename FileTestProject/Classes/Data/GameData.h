@@ -18,6 +18,14 @@ typedef enum : NSUInteger {
     ChangeValueTypeExpression,
 } ChangeValueType;
 
+typedef enum : NSUInteger {
+    CityNear                = 1,
+    CityFaraway             = 1 << 1,
+    CityCapital             = 1 << 2,
+    CityDifferentGoods      = 1 << 3,
+    CitySameOwner           = 1 << 4,
+} CitySearchCondition;
+
 @interface GameDialogData : NSObject
 
 @property (nonatomic) NSString *portrait;
@@ -76,5 +84,8 @@ typedef enum : NSUInteger {
 -(void)registerGameShipData:(GameShipData *)gameShipData;
 
 -(void)dataChangeWithTerm:(NSString *)term;
+
+-(GameCityData *)randomCityFromCity:(GameCityData *)cityData
+                          condition:(CitySearchCondition)condition;
 
 @end
