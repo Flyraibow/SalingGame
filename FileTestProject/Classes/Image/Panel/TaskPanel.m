@@ -37,7 +37,7 @@
         _bgSprite = [CCSprite spriteWithImageNamed:@"InfoBox.jpg"];
         _bgSprite.anchorPoint = ccp(0.5, 0.5);
         _bgSprite.positionType = CCPositionTypeNormalized;
-        _bgSprite.position = ccp(0.35, 0.5);
+        _bgSprite.position = ccp(0.5, 0.5);
         [self addChild:_bgSprite];
         
         DefaultButton *btnAccept = [[DefaultButton alloc] initWithTitle:getLocalString(@"btn_accept")];

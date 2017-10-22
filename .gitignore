@@ -5,3 +5,4 @@ build/
 */**/UserInterfaceState.xcuserstate
 */**/*.xcuserdatad/
 *.xcbkptlist
+DerivedData/

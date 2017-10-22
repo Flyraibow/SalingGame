@@ -74,7 +74,17 @@ typedef enum : NSUInteger {
             {
                 destCity = [[GameDataManager sharedGameData] randomCityFromCity:cityData
                                                                       condition:(CityDifferentGoods | CityFaraway)];
+                NSAssert(destCity, @"Must contain valid dest City (Game Task)");
+                
                 _num = arc4random() % 10 + 5;
+                NSMutableArray *goodsList = [NSMutableArray new];
+                for (NSString *goodsId in destCity.goodsDict) {
+                    if ([cityData.goodsDict objectForKey:goodsId] == nil) {
+                        [goodsList addObject:goodsId];
+                    }
+                }
+                NSAssert(goodsList.count > 0, @"Must contain goods doesn't sell here");
+                _goodsId = goodsList[arc4random() % goodsList.count];
                 break;
             }
             default:
