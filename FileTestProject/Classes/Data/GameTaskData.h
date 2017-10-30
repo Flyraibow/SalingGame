@@ -18,6 +18,9 @@
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSString *buttonTitle;
 @property (nonatomic, readonly) NSString *cityId;
+@property (nonatomic, weak, readonly) TaskData *taskData;
+
++ (instancetype)taskWithTaskData:(TaskData *)taskData belongCity:(NSString *)cityId;
 
 - (instancetype)initWithTaskData:(TaskData *)taskData belongCity:(NSString *)cityId;
 

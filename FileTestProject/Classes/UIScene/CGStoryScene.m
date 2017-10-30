@@ -213,6 +213,9 @@ typedef enum : NSUInteger {
 
 -(void)update:(CCTime)delta
 {
+#if TARGET_OS_SIMULATOR
+  delta *= 20;
+#endif
     if (_running) {
         if (_touchTime > 0) {
             _touchTime += delta;
@@ -547,6 +550,7 @@ typedef enum : NSUInteger {
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
+  NSLog(@"touch began ===================== ");
     _touchTime = 1;
     if (_waitingClick) {
         _waitingClick = NO;

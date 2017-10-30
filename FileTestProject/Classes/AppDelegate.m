@@ -45,8 +45,8 @@
 
     // Show FPS
     // We really want this when developing an app
-    //[startUpOptions setObject:@(YES) forKey:CCSetupShowDebugStats];
-    
+    [startUpOptions setObject:@(YES) forKey:CCSetupShowDebugStats];
+  
     // A acouple of other examples
     
     // Use a 16 bit color buffer

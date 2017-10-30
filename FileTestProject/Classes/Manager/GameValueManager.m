@@ -206,11 +206,14 @@ static GameValueManager *_sharedValueManager;
             NSString *stringType = [text substringWithRange:firstHalfRange];
             NSString *stringId = [text substringWithRange:secondHalfRange];
             if ([stringType isEqualToString:@"task"]) {
+                NSString *substituteString = [_reservedTaskData getStringByType:stringId];
                 NSAssert(_reservedTaskData, @"Task cannot be null");
                 NSAssert(stringId && stringId.length, @"stringId cannot be empty in task");
-                finalText = [finalText stringByReplacingOccurrencesOfString:fullString
-                                                                 withString:[_reservedTaskData getStringByType:stringId]];
-                
+//                NSAssert(substituteString != nil, @"Task fullString (%@), cannot be solved", fullString);
+                if (substituteString != nil) {
+                    finalText = [finalText stringByReplacingOccurrencesOfString:fullString
+                                                                     withString:substituteString];
+                }
             } else {
                 if ([stringId intValue] == 0) {
                     stringId = [[GameDataManager sharedGameData] getLogicData:stringId];

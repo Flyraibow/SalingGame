@@ -28,7 +28,7 @@
         if (taskData.priority > 0) {
             if ([[GameConditionManager sharedConditionManager] checkConditions:taskData.condition]) {
                 if (taskData.priority >= 100) {
-                    GameTaskData *gameTaskData = [[GameTaskData alloc] initWithTaskData:taskData belongCity:cityData.cityNo];
+                    GameTaskData *gameTaskData = [GameTaskData taskWithTaskData:taskData belongCity:cityData.cityNo];
                     [array addObject:gameTaskData];
                     taskNumber--;
                 } else {

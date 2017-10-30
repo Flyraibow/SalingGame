@@ -13,6 +13,8 @@
 #import "GameCityData.h"
 #import "GameDataManager.h"
 
+#import "GameTaskBuyGoodsData.h"
+
 static NSString* const GameTaskStyleNo = @"GameTaskStyleNo";
 static NSString* const GameTaskDeposit = @"GameTaskDeposit";
 static NSString* const GameTaskProfit = @"GameTaskProfit";
@@ -36,61 +38,33 @@ typedef enum : NSUInteger {
 } TaskType;
 
 @implementation GameTaskData
+
++ (instancetype)taskWithTaskData:(TaskData *)taskData belongCity:(NSString *)cityId
 {
-    __weak TaskData *_taskData;
-    int _num;
-    NSString *_goodsId;
-    NSString *_destCityId;
-    NSString *_startCityId;
+    TaskType taskStyle = [taskData.taskStyleId intValue];
+    GameTaskData *gameTaskData = nil;
+    switch (taskStyle) {
+        case TaskTypeBuyGoodsNear:
+        {
+            gameTaskData = [[GameTaskBuyGoodsData alloc] initWithTaskData:taskData belongCity:cityId isFar:NO];
+            break;
+        }
+        case TaskTypeBuyGoodsFar:
+        {
+            gameTaskData = [[GameTaskBuyGoodsData alloc] initWithTaskData:taskData belongCity:cityId isFar:YES];
+            break;
+        }
+        default:
+            gameTaskData = [[GameTaskData alloc] initWithTaskData:taskData belongCity:cityId];
+            break;
+    }
+    return gameTaskData;
 }
 
 - (instancetype)initWithTaskData:(TaskData *)taskData belongCity:(NSString *)cityId
 {
     if (self = [super init]) {
         _taskData = taskData;
-        _cityId = cityId;
-        GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityId];
-        // TODO: generate the randon item, including item, goods, profit and profit, etc.
-        TaskType taskStyle = [taskData.taskStyleId intValue];
-        GameCityData *destCity;
-        switch (taskStyle) {
-            case TaskTypeBuyGoodsNear:
-            {
-                destCity = [[GameDataManager sharedGameData] randomCityFromCity:cityData
-                                                                      condition:(CityDifferentGoods | CityNear)];
-                NSAssert(destCity, @"Must contain valid dest City (Game Task)");
-                _num = arc4random() % 5 + 2;
-                NSMutableArray *goodsList = [NSMutableArray new];
-                for (NSString *goodsId in destCity.goodsDict) {
-                    if ([cityData.goodsDict objectForKey:goodsId] == nil) {
-                        [goodsList addObject:goodsId];
-                    }
-                }
-                NSAssert(goodsList.count > 0, @"Must contain goods doesn't sell here");
-                _goodsId = goodsList[arc4random() % goodsList.count];
-                break;
-            }
-            case TaskTypeBuyGoodsFar:
-            {
-                destCity = [[GameDataManager sharedGameData] randomCityFromCity:cityData
-                                                                      condition:(CityDifferentGoods | CityFaraway)];
-                NSAssert(destCity, @"Must contain valid dest City (Game Task)");
-                
-                _num = arc4random() % 10 + 5;
-                NSMutableArray *goodsList = [NSMutableArray new];
-                for (NSString *goodsId in destCity.goodsDict) {
-                    if ([cityData.goodsDict objectForKey:goodsId] == nil) {
-                        [goodsList addObject:goodsId];
-                    }
-                }
-                NSAssert(goodsList.count > 0, @"Must contain goods doesn't sell here");
-                _goodsId = goodsList[arc4random() % goodsList.count];
-                break;
-            }
-            default:
-                break;
-        }
-        _destCityId = destCity.cityNo;
     }
     return self;
 }
@@ -114,12 +88,6 @@ typedef enum : NSUInteger {
     [aCoder encodeInteger:_profit forKey:GameTaskProfit];
 }
 
--(NSInteger)breakUpFee
-{
-    // 违约费
-    return _deposit * 2 + _profit / 2;
-}
-
 -(NSString *)description
 {
     return [[GameValueManager sharedValueManager] replaceTextWithDefaultRegex:getLocalStringByInt(@"task_description_", _taskData.taskDescriptionId)];
@@ -135,19 +103,10 @@ typedef enum : NSUInteger {
     return [NSString stringWithFormat:@"%@  %zd", self.title, self.profit];
 }
 
--(NSString *)num
+-(NSInteger)breakUpFee
 {
-    return [@(_num) stringValue];
-}
-
--(NSString *)goods
-{
-    return getGoodsName(_goodsId);
-}
-
--(NSString *)destCity
-{
-    return getCityName(_destCityId);
+    // 违约费
+    return _deposit * 2 + _profit / 2;
 }
 
 @end
