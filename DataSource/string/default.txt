@@ -143,5 +143,11 @@
 
 "lab_ship_kalutila" = "卡鲁提拉号";
 
+"lab_taskpanel_title_0" = "委托";
+"lab_taskpanel_title_1" = "委托中";
+"lab_taskpanel_content_str" = "内容";
+"lab_taskpanel_city_str" = "委托城市";
+"lab_taskpanel_reward_str" = "报酬";
+
 "lab_in_team" = "队中";
 "lab_in_dock" = "船坞中";

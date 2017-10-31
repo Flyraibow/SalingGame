@@ -270,10 +270,10 @@ taskListCondition,,condition,cityHasTasks;cityHasTasksEvent;cityHasNoTasksEvent
 cityHasTasksEvent,,eventList,cityHasTasksDialog;cityTasksShowUp
 cityTasksShowUp,______;____,cityTask,shop
 cityHasTasksDialog,,dialog,dialog_city_has_tasks
-cityHasNoTasksEvent,,eventList,cityHasNoTasksDialog;
-cityHasNoTasksDialog,,dialog,dialog_city_has_no_tasks;shop
+cityHasNoTasksEvent,,eventList,cityHasNoTasksDialog;shop
+cityHasNoTasksDialog,,dialog,dialog_city_has_no_tasks
 taskBoard,,eventList,closeWindow;taskPanelReceive
-taskPanelReceive,,window,TaskPanel;shop;cityTasksShowUp;1
+taskPanelReceive,,window,TaskPanel;shop;cityTasksShowUp;0
 cancelTask,____,eventList,closeWindow;cancelTaskCacheMoney;cancelTaskSetTempDialog;cancelTaskDialog
 cancelTaskCacheMoney,,setNumber,money=task.breakUpFee
 cancelTaskSetTempDialog,,dialogTemp,cache.money

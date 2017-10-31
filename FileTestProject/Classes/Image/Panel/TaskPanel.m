@@ -53,15 +53,53 @@
     [btnCancel setTarget:self selector:@selector(clickCancelButton)];
     [_bgSprite addChild:btnCancel];
     
-    CCLabelTTF *label = [CCLabelTTF labelWithString:taskData.title fontName:nil fontSize:12];
+    NSString *title = getLocalStringByInt(@"lab_taskpanel_title_", panelType);
+    CCLabelTTF *label = [CCLabelTTF labelWithString:title fontName:nil fontSize:15];
     label.positionType = CCPositionTypeNormalized;
     label.position = ccp(0.5, 0.9);
     [_bgSprite addChild:label];
+
+    CCLabelTTF *labContent = [CCLabelTTF labelWithString:getLocalString(@"lab_taskpanel_content_str") fontName:nil fontSize:12];
+    labContent.positionType = CCPositionTypeNormalized;
+    labContent.anchorPoint = ccp(0, 0.5);
+    labContent.position = ccp(0.2, 0.8);
+    [_bgSprite addChild:labContent];
+    
+    CCLabelTTF *labContentStr = [CCLabelTTF labelWithString:taskData.title fontName:nil fontSize:12];
+    labContentStr.positionType = CCPositionTypeNormalized;
+    labContentStr.anchorPoint = ccp(0, 0.5);
+    labContentStr.position = ccp(0.5, 0.8);
+    [_bgSprite addChild:labContentStr];
+  
+    CCLabelTTF *labCity = [CCLabelTTF labelWithString:getLocalString(@"lab_taskpanel_city_str") fontName:nil fontSize:12];
+    labCity.positionType = CCPositionTypeNormalized;
+    labCity.anchorPoint = ccp(0, 0.5);
+    labCity.position = ccp(0.2, 0.7);
+    [_bgSprite addChild:labCity];
+    
+    CCLabelTTF *labCityStr = [CCLabelTTF labelWithString:getCityName(taskData.cityId) fontName:nil fontSize:12];
+    labCityStr.positionType = CCPositionTypeNormalized;
+    labCityStr.anchorPoint = ccp(0, 0.5);
+    labCityStr.position = ccp(0.5, 0.7);
+    [_bgSprite addChild:labCityStr];
+  
+    CCLabelTTF *labReward = [CCLabelTTF labelWithString:getLocalString(@"lab_taskpanel_reward_str") fontName:nil fontSize:12];
+    labReward.positionType = CCPositionTypeNormalized;
+    labReward.anchorPoint = ccp(0, 0.5);
+    labReward.position = ccp(0.2, 0.6);
+    [_bgSprite addChild:labReward];
+    
+    CCLabelTTF *labRewardStr = [CCLabelTTF labelWithString:getNumber(taskData.profit) fontName:nil fontSize:12];
+    labRewardStr.positionType = CCPositionTypeNormalized;
+    labRewardStr.anchorPoint = ccp(0, 0.5);
+    labRewardStr.position = ccp(0.5, 0.6);
+    [_bgSprite addChild:labRewardStr];
+    
     
     CCLabelTTF *description = [CCLabelTTF labelWithString:taskData.description fontName:nil fontSize:12];
     description.positionType = CCPositionTypeNormalized;
     description.anchorPoint = ccp(0.5, 1);
-    description.position = ccp(0.5, 0.8);
+    description.position = ccp(0.5, 0.5);
     [_bgSprite addChild:description];
   }
   return self;

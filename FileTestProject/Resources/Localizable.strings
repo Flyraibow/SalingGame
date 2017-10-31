@@ -282,6 +282,11 @@
 "btn_ship_modify_change_name" = "变更船名";
 "btn_ship_modify_change_cannon" = "购买大炮";
 "lab_ship_kalutila" = "卡鲁提拉号";
+"lab_taskpanel_title_0" = "委托";
+"lab_taskpanel_title_1" = "委托中";
+"lab_taskpanel_content_str" = "内容";
+"lab_taskpanel_city_str" = "委托城市";
+"lab_taskpanel_reward_str" = "报酬";
 "lab_in_team" = "队中";
 "lab_in_dock" = "船坞中";
 "dialog_new_item_discover" = "啊，这是...%@, 你能把它送给我们么？";

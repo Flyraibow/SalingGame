@@ -117,4 +117,9 @@ static NSString* getCannonDescription(int cannonPower)
     return getLocalStringByInt(@"cannon_description_", cannonPower);
 }
 
+static NSString* getNumber(NSInteger number)
+{
+  return [@(number) stringValue];
+}
+
 #endif /* LocalString_h */

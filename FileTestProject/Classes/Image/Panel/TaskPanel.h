@@ -9,8 +9,8 @@
 #import "BasePanel.h"
 
 typedef enum : NSUInteger {
-  TaskPanelTypeReview,
-  TaskPanelTypeAccept,
+  TaskPanelTypeReview         = 0,
+  TaskPanelTypeAccepted       = 1,
 } TaskPanelType;
 
 
