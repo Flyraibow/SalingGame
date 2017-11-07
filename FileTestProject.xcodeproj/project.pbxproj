@@ -2161,6 +2161,7 @@
 		EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSimpleInfoIcon.m; path = Classes/Image/Icon/ShipSimpleInfoIcon.m; sourceTree = "<group>"; };
 		EC102D761DFC826E005AF05E /* BaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseData.h; path = Classes/Data/BaseData.h; sourceTree = "<group>"; };
 		EC102D771DFC826E005AF05E /* BaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseData.m; path = Classes/Data/BaseData.m; sourceTree = "<group>"; };
+		EC2C05C11FB19222008760BF /* GameBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameBaseManager.h; path = Classes/Manager/GameBaseManager.h; sourceTree = "<group>"; };
 		EC3B89831DCEB83E00482A42 /* BasePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasePanel.h; path = Classes/Image/Panel/BasePanel.h; sourceTree = "<group>"; };
 		EC3B89841DCEB83E00482A42 /* BasePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasePanel.m; path = Classes/Image/Panel/BasePanel.m; sourceTree = "<group>"; };
 		EC3B89861DD0026E00482A42 /* GameValueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameValueManager.h; path = Classes/Manager/GameValueManager.h; sourceTree = "<group>"; };
@@ -4175,6 +4176,7 @@
 				ECBADDDA1DD861ED00DC490D /* GameTimerManager.m */,
 				EC94444B1DE0D8C0004FBEC2 /* GameDataObserver.h */,
 				EC94444C1DE0D8C0004FBEC2 /* GameDataObserver.m */,
+				EC2C05C11FB19222008760BF /* GameBaseManager.h */,
 			);
 			name = Manager;
 			sourceTree = "<group>";

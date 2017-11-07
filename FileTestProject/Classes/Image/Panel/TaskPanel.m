@@ -24,8 +24,12 @@
 
 - (instancetype)initWithDataList:(NSArray *)dataList
 {
-  int panelType = [dataList[0] intValue];
-  return [self initWithTask:[GameValueManager sharedValueManager].reservedTaskData panelType:panelType];
+  TaskPanelType panelType = [dataList[0] intValue];
+  if (panelType == TaskPanelTypeReview) {
+    return [self initWithTask:[GameValueManager sharedValueManager].reservedTaskData panelType:panelType];
+  } else {
+    return [self initWithTask:[GameDataManager sharedGameData].myGuild.taskData panelType:panelType];
+  }
 }
 
 - (instancetype)initWithTask:(GameTaskData *)taskData panelType:(TaskPanelType)panelType
@@ -40,18 +44,27 @@
     _bgSprite.position = ccp(0.5, 0.5);
     [self addChild:_bgSprite];
     
-    DefaultButton *btnAccept = [[DefaultButton alloc] initWithTitle:getLocalString(@"btn_accept")];
-    btnAccept.positionType = CCPositionTypeNormalized;
-    btnAccept.position = ccp(0.4, 0.1);
-    btnAccept.scale = 0.5;
-    [btnAccept setTarget:self selector:@selector(clickSureButton)];
-    [_bgSprite addChild:btnAccept];
-    DefaultButton *btnCancel = [[DefaultButton alloc] initWithTitle:getLocalString(@"btn_cancel")];
-    btnCancel.positionType = CCPositionTypeNormalized;
-    btnCancel.position = ccp(0.65, 0.1);
-    btnCancel.scale = 0.5;
-    [btnCancel setTarget:self selector:@selector(clickCancelButton)];
-    [_bgSprite addChild:btnCancel];
+    if (panelType == TaskPanelTypeReview) {
+      DefaultButton *btnAccept = [[DefaultButton alloc] initWithTitle:getLocalString(@"btn_accept")];
+      btnAccept.positionType = CCPositionTypeNormalized;
+      btnAccept.position = ccp(0.4, 0.1);
+      btnAccept.scale = 0.5;
+      [btnAccept setTarget:self selector:@selector(clickSureButton)];
+      [_bgSprite addChild:btnAccept];
+      DefaultButton *btnCancel = [[DefaultButton alloc] initWithTitle:getLocalString(@"btn_cancel")];
+      btnCancel.positionType = CCPositionTypeNormalized;
+      btnCancel.position = ccp(0.65, 0.1);
+      btnCancel.scale = 0.5;
+      [btnCancel setTarget:self selector:@selector(clickCancelButton)];
+      [_bgSprite addChild:btnCancel];
+    } else if (panelType == TaskPanelTypeAccepted) {
+      DefaultButton *btnClose = [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_close")];
+      btnClose.positionType = CCPositionTypeNormalized;
+      btnClose.position = ccp(0.5, 0.1);
+      btnClose.scale = 0.5;
+      [btnClose setTarget:self selector:@selector(clickCancelButton)];
+      [_bgSprite addChild:btnClose];
+    }
     
     NSString *title = getLocalStringByInt(@"lab_taskpanel_title_", panelType);
     CCLabelTTF *label = [CCLabelTTF labelWithString:title fontName:nil fontSize:15];

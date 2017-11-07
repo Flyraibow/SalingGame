@@ -488,7 +488,7 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
         if (condition & CityDifferentGoods) {
             BOOL differentFood = NO;
             for (NSString *goodsId in city.goodsDict) {
-                if ([cityData.goodsDict objectForKey:goodsId] == nil) {
+                if (goodsId != nil && [cityData.goodsDict objectForKey:goodsId] == nil) {
                     differentFood = YES;
                     break;
                 }

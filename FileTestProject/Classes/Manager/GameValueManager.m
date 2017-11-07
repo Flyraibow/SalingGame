@@ -26,6 +26,11 @@ static GameValueManager *_sharedValueManager;
     NSDictionary<NSString *, GameItemData *> *_itemDictionary;
 }
 
++ (void)clearCurrentGame
+{
+  _sharedValueManager = nil;
+}
+
 + (GameValueManager *)sharedValueManager
 {
     if (!_sharedValueManager) {

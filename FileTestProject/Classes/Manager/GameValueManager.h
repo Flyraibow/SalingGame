@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GameBaseManager.h"
 
 static const NSString *ReservedItem = @"itemId";
 
@@ -14,7 +15,8 @@ static const NSString *ReservedItem = @"itemId";
 @class GameShipData;
 @class GameNPCData;
 @class GameTaskData;
-@interface GameValueManager : NSObject
+
+@interface GameValueManager : NSObject <GameManagerProtocol>
 
 @property (nonatomic, weak) GameItemData *reservedItemData;
 @property (nonatomic, weak) GameShipData *reservedShipData;

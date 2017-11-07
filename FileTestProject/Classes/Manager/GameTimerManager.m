@@ -25,6 +25,11 @@ static GameTimerManager *_sharedTimerManager;
 
 @synthesize paused = _paused;
 
++ (void)clearCurrentGame
+{
+  _sharedTimerManager = nil;
+}
+
 + (GameTimerManager *)sharedTimerManager
 {
     if (!_sharedTimerManager) {

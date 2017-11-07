@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "CCScheduler.h"
+#import "GameBaseManager.h"
 
-@interface GameTimerManager : NSObject
+@interface GameTimerManager : NSObject <GameManagerProtocol>
 
 + (GameTimerManager *)sharedTimerManager;
 

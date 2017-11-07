@@ -15,6 +15,11 @@ static GameDataObserver *_sharedObserver;
     NSMutableDictionary<const NSString *, NSMutableDictionary *> *_targetDictionary;
 }
 
++ (void)clearCurrentGame
+{
+  _sharedObserver = nil;
+}
+
 + (GameDataObserver *)sharedObserver
 {
     if (!_sharedObserver) {

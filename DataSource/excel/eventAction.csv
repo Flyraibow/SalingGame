@@ -212,7 +212,11 @@ shipEquipItem,,eventList,itemEquipSuccessDialog;modifyShipHeaderEquip;itemInfoWi
 itemUnequipShipHeader,,eventList,shipUnequipShipHeader;itemUnequipDialog;itemInfoWindow
 shipUnequipShipHeader,,dataChange,ship;unequip;item.itemId
 itemIsNotShipHeader,__,eventList,;
-taskInfo,____,eventList,;
+taskInfo,____,eventList,closeWindow;taskInfoHasTask
+taskInfoHasTask,_____,condition,hasTask;taskInfoShowCurrentTask;taskInfoNoTask
+taskInfoShowCurrentTask,,window,TaskPanel;infoList;infoList;1
+taskInfoNoTask,,eventList,taskInfoDialogNoTask;infoList
+taskInfoDialogNoTask,,dialog,dialog_no_task_received
 diaryInfo,____,eventList,;
 deckArrange,__,eventList,deckArrangeHaveShip
 deckArrangeHaveShip,,condition,haveShip;deckArrangeWindow;deckArrangeFailedDialog

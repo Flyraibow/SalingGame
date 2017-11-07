@@ -70,7 +70,7 @@ static NSString* filePathWithIndex(int index)
 
 +(void)clearCurrentGame
 {
-    _sharedGameData = nil;
+  _sharedGameData = nil;
 }
 
 +(GameData *)sharedGameData

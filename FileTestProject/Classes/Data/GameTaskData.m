@@ -18,6 +18,7 @@
 static NSString* const GameTaskStyleNo = @"GameTaskStyleNo";
 static NSString* const GameTaskDeposit = @"GameTaskDeposit";
 static NSString* const GameTaskProfit = @"GameTaskProfit";
+static NSString* const GameTaskCityId = @"GameTaskCityId";
 
 typedef enum : NSUInteger {
   TaskTypeNone,
@@ -81,6 +82,7 @@ typedef enum : NSUInteger {
     _profit = [aDecoder decodeIntegerForKey:GameTaskProfit];
     NSString *styleId = [aDecoder decodeObjectForKey:GameTaskStyleNo];
     _taskData = [[DataManager sharedDataManager].getTaskDic getTaskById:styleId];
+    _cityId = [aDecoder decodeObjectForKey:GameTaskCityId];
   }
   return self;
 }
@@ -90,6 +92,7 @@ typedef enum : NSUInteger {
   [aCoder encodeObject:_taskData.taskStyleId forKey:GameTaskStyleNo];
   [aCoder encodeInteger:_deposit forKey:GameTaskDeposit];
   [aCoder encodeInteger:_profit forKey:GameTaskProfit];
+  [aCoder encodeObject:_cityId forKey:GameTaskCityId];
 }
 
 -(NSString *)description

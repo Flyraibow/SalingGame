@@ -24,6 +24,11 @@ static GameConditionManager *_sharedConditionManager;
     NSDictionary<NSString *, GameItemData *> *_itemDictionary;
 }
 
++ (void)clearCurrentGame
+{
+  _sharedConditionManager = nil;
+}
+
 + (GameConditionManager *)sharedConditionManager
 {
     if (!_sharedConditionManager) {

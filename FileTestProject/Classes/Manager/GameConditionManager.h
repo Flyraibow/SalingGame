@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GameBaseManager.h"
 
-@interface GameConditionManager : NSObject
+@interface GameConditionManager : NSObject <GameManagerProtocol>
 
 + (GameConditionManager *)sharedConditionManager;
 

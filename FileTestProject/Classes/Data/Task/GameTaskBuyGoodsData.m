@@ -12,12 +12,16 @@
 #import "GameValueManager.h"
 #import "LocalString.h"
 
+static NSString* const GameTaskBuyGoodsDataProfit = @"GameTaskBuyGoodsDataProfit";
+static NSString* const GameTaskBuyGoodsDataGoodsId = @"GameTaskBuyGoodsDataGoodsId";
+static NSString* const GameTaskBuyGoodsDataDestCityId = @"GameTaskBuyGoodsDataDestCityId";
+static NSString* const GameTaskBuyGoodsDataNum = @"GameTaskBuyGoodsDataNum";
+
 @implementation GameTaskBuyGoodsData
 {
-  int _num;
+  NSInteger _num;
   NSString *_goodsId;
   NSString *_destCityId;
-  NSString *_startCityId;
 }
 
 @synthesize profit = _profit;
@@ -33,13 +37,14 @@
     _num = arc4random() % 5 + 2;
     NSMutableArray *goodsList = [NSMutableArray new];
     for (NSString *goodsId in destCity.goodsDict) {
-      if ([cityData.goodsDict objectForKey:goodsId] == nil) {
+      if (goodsId != nil && [cityData.goodsDict objectForKey:goodsId] == nil) {
         [goodsList addObject:goodsId];
       }
     }
     NSAssert(goodsList.count > 0, @"Must contain goods doesn't sell here");
     _goodsId = goodsList[arc4random() % goodsList.count];
-    _destCityId = destCity.cityNo;
+    NSAssert(_goodsId.length > 0, @"GoodsId cannot be empty, city Name: %@", getCityName(destCity.cityNo));
+    _destCityId = cityId;
     
     // calculate the profit
     _profit = [destCity getSalePriceForGoodsId:_goodsId level:1] * _num * taskData.profitValue / 100;
@@ -50,6 +55,27 @@
 - (instancetype)initWithTaskData:(TaskData *)taskData belongCity:(NSString *)cityId
 {
   return [self initWithTaskData:taskData belongCity:cityId isFar:NO];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+  self = [super initWithCoder:aDecoder];
+  if (self) {
+    _profit = [aDecoder decodeIntegerForKey:GameTaskBuyGoodsDataProfit];
+    _num = [aDecoder decodeIntegerForKey:GameTaskBuyGoodsDataNum];
+    _goodsId = [aDecoder decodeObjectForKey:GameTaskBuyGoodsDataGoodsId];
+    _destCityId = [aDecoder decodeObjectForKey:GameTaskBuyGoodsDataDestCityId];
+  }
+  return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+  [super encodeWithCoder:aCoder];
+  [aCoder encodeInteger:_profit forKey:GameTaskBuyGoodsDataProfit];
+  [aCoder encodeInteger:_num forKey:GameTaskBuyGoodsDataNum];
+  [aCoder encodeObject:_goodsId forKey:GameTaskBuyGoodsDataGoodsId];
+  [aCoder encodeObject:_destCityId forKey:GameTaskBuyGoodsDataDestCityId];
 }
 
 -(NSString *)num

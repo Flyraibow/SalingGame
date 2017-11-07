@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GameData.h"
+#import "GameBaseManager.h"
 
 @interface GameProgressData : NSObject
 
@@ -15,11 +16,9 @@
 
 @end
 
-@interface GameDataManager : NSObject
+@interface GameDataManager : NSObject <GameManagerProtocol>
 
 +(GameData *)sharedGameData;
-
-+(void)clearCurrentGame;
 
 +(GameProgressData *)sharedProgressData;
 

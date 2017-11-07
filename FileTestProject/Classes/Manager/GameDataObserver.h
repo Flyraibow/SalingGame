@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GameBaseManager.h"
 
 static const NSString *LISTENNING_KEY_CITY = @"LISTENNING_KEY_CITY";
 static const NSString *LISTENNING_KEY_CITY_OCCUPATION = @"LISTENNING_KEY_CITY_OCCUPATION";
@@ -15,7 +16,7 @@ static const NSString *LISTENNING_KEY_DATE = @"LISTENNING_KEY_DATE";
 static const NSString *LISTENNING_KEY_EQUIP = @"LISTENNING_KEY_EQUIP";
 static const NSString *LISTENNING_KEY_SHIPHEADER = @"LISTENNING_KEY_SHIPHEADER";
 
-@interface GameDataObserver : NSObject
+@interface GameDataObserver : NSObject <GameManagerProtocol>
 
 + (GameDataObserver *)sharedObserver;
 

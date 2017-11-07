@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GameBaseManager.h"
 
 @class CCScene;
 @class CCNode;
-@interface GameEventManager : NSObject
+@interface GameEventManager : NSObject <GameManagerProtocol>
 
 + (GameEventManager *)sharedEventManager;
 
