@@ -14,5 +14,6 @@
 @interface GameTaskBuyGoodsData : GameTaskData
 
 - (instancetype)initWithTaskData:(TaskData *)taskData belongCity:(NSString *)cityId isFar:(BOOL)isFar;
+- (instancetype)initWithTaskData:(TaskData *)taskData belongCity:(NSString *)cityId isFar:(BOOL)isFar differentCity:(BOOL)differentCity;
 
 @end

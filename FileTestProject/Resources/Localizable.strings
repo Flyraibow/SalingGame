@@ -1195,6 +1195,7 @@
 "story_text_178"="测试文字14";
 "story_text_179"="我要加入你们的队伍";
 "task_description_1"="购买@{task:num}仓库的@{task:goods}，并运送到@{task:destCity}。";
+"task_description_2"="请把这封信送给@{task:destCity}的同业公会。";
 "task_title_1"="购买交易品";
 "task_title_2"="运送交易品";
 "task_title_3"="传送文件";

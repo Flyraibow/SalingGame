@@ -35,6 +35,21 @@ typedef enum : NSUInteger {
     CityScaleTypeUndevelopingCity,
 } CityScaleType;
 
+typedef enum : NSUInteger {
+  CityBuildingPesident  = 0,
+  CityBuildingEmpire    = 1,
+  CityBuildingTarven    = 2,
+  CityBuildingPlaza     = 3,
+  CityBuildingExchange  = 4,
+  CityBuildingShipyard  = 5,
+  CityBuildingShop      = 6,
+  CityBuildingDock      = 7,
+  CityBuildingInn       = 8,
+  CityBuildingRelic     = 9,
+  CityBuildingWild      = 10,
+  CityBuildingChurch    = 11,
+} CityBuildingNo;
+
 @class GameTaskData;
 @interface GameCityData : BaseData <NSCoding>
 

@@ -45,10 +45,6 @@
 		_destCity = [buffer readInt];
 		_destBuilding = [buffer readInt];
 		_priority = [buffer readInt];
-		_depositType = [buffer readInt];
-		_depositValue = [buffer readInt];
-		_profitType = [buffer readInt];
-		_profitValue = [buffer readInt];
 	}
 	return self;
 }

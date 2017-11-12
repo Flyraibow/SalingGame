@@ -10,20 +10,21 @@
 #import "MyGuild.h"
 
 typedef enum : NSUInteger {
-    ChangeValueTypeEqual,
-    ChangeValueTypeAdd,
-    ChangeValueTypeMinus,
-    ChangeValueTypeMultiply,
-    ChangeValueTypeDivide,
-    ChangeValueTypeExpression,
+  ChangeValueTypeEqual,
+  ChangeValueTypeAdd,
+  ChangeValueTypeMinus,
+  ChangeValueTypeMultiply,
+  ChangeValueTypeDivide,
+  ChangeValueTypeExpression,
 } ChangeValueType;
 
 typedef enum : NSUInteger {
-    CityNear                = 1,
-    CityFaraway             = 1 << 1,
-    CityCapital             = 1 << 2,
-    CityDifferentGoods      = 1 << 3,
-    CitySameOwner           = 1 << 4,
+  CityNear                = 1,
+  CityFaraway             = 1 << 1,
+  CityCapital             = 1 << 2,
+  CityDifferentGoods      = 1 << 3,
+  CitySameOwner           = 1 << 4,
+  CityWithShop            = 1 << 5,
 } CitySearchCondition;
 
 @interface GameDialogData : NSObject
@@ -89,3 +90,4 @@ typedef enum : NSUInteger {
                           condition:(CitySearchCondition)condition;
 
 @end
+

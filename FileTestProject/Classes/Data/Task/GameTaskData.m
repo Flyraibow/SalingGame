@@ -14,6 +14,7 @@
 #import "GameDataManager.h"
 
 #import "GameTaskBuyGoodsData.h"
+#import "GameTaskShipLetterData.h"
 
 static NSString* const GameTaskStyleNo = @"GameTaskStyleNo";
 static NSString* const GameTaskDeposit = @"GameTaskDeposit";
@@ -46,13 +47,20 @@ typedef enum : NSUInteger {
   GameTaskData *gameTaskData = nil;
   switch (taskStyle) {
     case TaskTypeBuyGoodsNear:
+    case TaskTypeBuyGoodsFar:
+    case TaskTypeShipGoodsNear:
+    case TaskTypeShipGoodsFar:
     {
-      gameTaskData = [[GameTaskBuyGoodsData alloc] initWithTaskData:taskData belongCity:cityId isFar:NO];
+      BOOL isFar = taskStyle == TaskTypeBuyGoodsFar || taskStyle == TaskTypeShipGoodsFar;
+      BOOL differentCity = taskStyle == TaskTypeShipGoodsNear || taskStyle == TaskTypeShipGoodsFar;
+      gameTaskData = [[GameTaskBuyGoodsData alloc] initWithTaskData:taskData belongCity:cityId isFar:isFar differentCity:differentCity];
       break;
     }
-    case TaskTypeBuyGoodsFar:
+    case TaskTypeShipLetterNear:
+    case TaskTypeShipLetterFar:
     {
-      gameTaskData = [[GameTaskBuyGoodsData alloc] initWithTaskData:taskData belongCity:cityId isFar:YES];
+      BOOL isFar = taskStyle == TaskTypeShipLetterFar;
+      gameTaskData = [[GameTaskShipLetterData alloc] initWithTaskData:taskData belongCity:cityId isFar:isFar];
       break;
     }
     default:
@@ -67,9 +75,6 @@ typedef enum : NSUInteger {
   if (self = [super init]) {
     _taskData = taskData;
     _cityId = cityId;
-    if (taskData.profitType == 0) {
-      _profit = taskData.profitValue;
-    }
   }
   return self;
 }

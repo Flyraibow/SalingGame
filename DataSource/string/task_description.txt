@@ -1,1 +1,2 @@
 购买@{task:num}仓库的@{task:goods}，并运送到@{task:destCity}。
+请把这封信送给@{task:destCity}的同业公会。

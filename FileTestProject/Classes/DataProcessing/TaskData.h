@@ -12,10 +12,6 @@
 @property (nonatomic, readonly) int destCity;
 @property (nonatomic, readonly) int destBuilding;
 @property (nonatomic, readonly) int priority;
-@property (nonatomic, readonly) int depositType;
-@property (nonatomic, readonly) int depositValue;
-@property (nonatomic, readonly) int profitType;
-@property (nonatomic, readonly) int profitValue;
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 

@@ -28,26 +28,39 @@ static NSString* const GameTaskBuyGoodsDataNum = @"GameTaskBuyGoodsDataNum";
 
 - (instancetype)initWithTaskData:(TaskData *)taskData belongCity:(NSString *)cityId isFar:(BOOL)isFar
 {
+  return self = [self initWithTaskData:taskData belongCity:cityId isFar:isFar differentCity:NO];
+}
+
+
+- (instancetype)initWithTaskData:(TaskData *)taskData belongCity:(NSString *)cityId isFar:(BOOL)isFar differentCity:(BOOL)differentCity
+{
   if (self = [super initWithTaskData:taskData belongCity:cityId]) {
     GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityId];
-    CitySearchCondition cityCondition = isFar ? CityFaraway : CityNear;
-    GameCityData *destCity = [[GameDataManager sharedGameData] randomCityFromCity:cityData
-                                                                        condition:(CityDifferentGoods | cityCondition)];
+    CitySearchCondition distanceCondition = isFar ? CityFaraway : CityNear;
+    GameCityData *destCity;
+    if (differentCity) {
+      destCity = [[GameDataManager sharedGameData] randomCityFromCity:cityData
+                                                            condition:distanceCondition];
+    } else {
+      destCity = cityData;
+    }
+    GameCityData *providerCity = [[GameDataManager sharedGameData] randomCityFromCity:destCity
+                                                                            condition:(CityDifferentGoods | distanceCondition)];
     NSAssert(destCity, @"Must contain valid dest City (Game Task)");
     _num = arc4random() % 5 + 2;
     NSMutableArray *goodsList = [NSMutableArray new];
-    for (NSString *goodsId in destCity.goodsDict) {
-      if (goodsId != nil && [cityData.goodsDict objectForKey:goodsId] == nil) {
+    for (NSString *goodsId in providerCity.goodsDict) {
+      if (goodsId != nil && [destCity.goodsDict objectForKey:goodsId] == nil) {
         [goodsList addObject:goodsId];
       }
     }
     NSAssert(goodsList.count > 0, @"Must contain goods doesn't sell here");
     _goodsId = goodsList[arc4random() % goodsList.count];
     NSAssert(_goodsId.length > 0, @"GoodsId cannot be empty, city Name: %@", getCityName(destCity.cityNo));
-    _destCityId = cityId;
+    _destCityId = destCity.cityNo;
     
     // calculate the profit
-    _profit = [destCity getSalePriceForGoodsId:_goodsId level:1] * _num * taskData.profitValue / 100;
+    _profit = [destCity getSalePriceForGoodsId:_goodsId level:1] * _num * 2;
   }
   return self;
 }
