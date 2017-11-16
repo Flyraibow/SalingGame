@@ -17,6 +17,7 @@ static DataManager *_sharedDataManager;
 	GuildDic *_guildDic;
 	ItemDic *_ItemDic;
 	NpcDic *_npcDic;
+	NpcInfoDic *_npcInfoDic;
 	RoleInitialDic *_roleInitialDic;
 	RouteDic *_routeDic;
 	SeaAreaDic *_seaAreaDic;
@@ -47,6 +48,7 @@ static DataManager *_sharedDataManager;
 		_guildDic = [[GuildDic alloc] initWithByteBuffer:buffer];
 		_ItemDic = [[ItemDic alloc] initWithByteBuffer:buffer];
 		_npcDic = [[NpcDic alloc] initWithByteBuffer:buffer];
+		_npcInfoDic = [[NpcInfoDic alloc] initWithByteBuffer:buffer];
 		_roleInitialDic = [[RoleInitialDic alloc] initWithByteBuffer:buffer];
 		_routeDic = [[RouteDic alloc] initWithByteBuffer:buffer];
 		_seaAreaDic = [[SeaAreaDic alloc] initWithByteBuffer:buffer];
@@ -120,6 +122,10 @@ static DataManager *_sharedDataManager;
 -(NpcDic *)getNpcDic
 {
 	return _npcDic;
+}
+-(NpcInfoDic *)getNpcInfoDic
+{
+	return _npcInfoDic;
 }
 -(RoleInitialDic *)getRoleInitialDic
 {

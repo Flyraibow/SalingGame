@@ -24,6 +24,7 @@
 		_eloquence = [buffer readInt];
 		_luck = [buffer readInt];
 		_skillList = [buffer readString];
+		_jobLimited = [buffer readString];
 	}
 	return self;
 }

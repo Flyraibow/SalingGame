@@ -43,6 +43,8 @@
 
 @property (nonatomic,readonly) NSString *skillList;
 
+@property (nonatomic,readonly) NSString *jobLimited;
+
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end

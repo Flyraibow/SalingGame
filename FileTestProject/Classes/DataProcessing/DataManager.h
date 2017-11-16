@@ -13,6 +13,7 @@
 #import "GuildData.h"
 #import "ItemData.h"
 #import "NpcData.h"
+#import "NpcInfoData.h"
 #import "RoleInitialData.h"
 #import "RouteData.h"
 #import "SeaAreaData.h"
@@ -57,6 +58,8 @@
 -(ItemDic *)getItemDic;
 
 -(NpcDic *)getNpcDic;
+
+-(NpcInfoDic *)getNpcInfoDic;
 
 -(RoleInitialDic *)getRoleInitialDic;
 
