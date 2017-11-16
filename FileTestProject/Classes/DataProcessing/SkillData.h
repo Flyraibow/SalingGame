@@ -1,12 +1,15 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
 @interface SkillData : NSObject
 
-@property (nonatomic, readonly) NSString *skillId;
-@property (nonatomic, readonly) NSString *exp;
+@property (nonatomic,readonly) NSString *skillId;
 
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
+@property (nonatomic,readonly) NSString *exp;
+
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end
 
@@ -14,8 +17,9 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(SkillData *)getSkillById:(NSString *)skillId;
-
 -(NSDictionary *)getDictionary;
 
+-(SkillData *)getSkillById:(NSString *)skillId;
+
 @end
+

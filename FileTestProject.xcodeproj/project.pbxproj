@@ -869,6 +869,7 @@
 		27FBB8641D0FBD38002B106B /* frame_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8631D0FBD38002B106B /* frame_time.png */; };
 		27FBB8671D0FC0F5002B106B /* TextInputPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB8661D0FC0F5002B106B /* TextInputPanel.m */; };
 		27FBB8691D0FCCBE002B106B /* frame_input_panel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */; };
+		EC0345F71FBD16A9000C371F /* PriceData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0345F61FBD16A9000C371F /* PriceData.m */; };
 		EC0C3B7D1D846E57007E8D46 /* ShipSimpeInfoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */; };
 		EC0C3B801D847020007E8D46 /* ShipSimpleInfoIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */; };
 		EC102D781DFC826E005AF05E /* BaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC102D771DFC826E005AF05E /* BaseData.m */; };
@@ -2153,6 +2154,8 @@
 		27FBB8651D0FC0F5002B106B /* TextInputPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextInputPanel.h; path = Classes/Image/Panel/TextInputPanel.h; sourceTree = "<group>"; };
 		27FBB8661D0FC0F5002B106B /* TextInputPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextInputPanel.m; path = Classes/Image/Panel/TextInputPanel.m; sourceTree = "<group>"; };
 		27FBB8681D0FCCBE002B106B /* frame_input_panel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = frame_input_panel.jpg; path = Resources/Graph/Frame/frame_input_panel.jpg; sourceTree = "<group>"; };
+		EC0345F51FBD16A9000C371F /* PriceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PriceData.h; path = Classes/DataProcessing/PriceData.h; sourceTree = "<group>"; };
+		EC0345F61FBD16A9000C371F /* PriceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PriceData.m; path = Classes/DataProcessing/PriceData.m; sourceTree = "<group>"; };
 		EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipSimpeInfoFrame.png; path = Resources/Graph/Frame/ShipSimpeInfoFrame.png; sourceTree = "<group>"; };
 		EC0C3B7E1D847020007E8D46 /* ShipSimpleInfoIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipSimpleInfoIcon.h; path = Classes/Image/Icon/ShipSimpleInfoIcon.h; sourceTree = "<group>"; };
 		EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSimpleInfoIcon.m; path = Classes/Image/Icon/ShipSimpleInfoIcon.m; sourceTree = "<group>"; };
@@ -3249,6 +3252,8 @@
 		279BAD061C59E9480069EF5D /* DataProcessing */ = {
 			isa = PBXGroup;
 			children = (
+				EC0345F51FBD16A9000C371F /* PriceData.h */,
+				EC0345F61FBD16A9000C371F /* PriceData.m */,
 				27BF3E2B1ECCC17100284A42 /* TaskData.h */,
 				27BF3E2C1ECCC17100284A42 /* TaskData.m */,
 				EC85DBEB1DCB021400613F44 /* ConditionData.h */,
@@ -5237,6 +5242,7 @@
 				279BABD31C59E3B80069EF5D /* CCDirectorMac.m in Sources */,
 				279BAC581C59E3B80069EF5D /* ALSource.m in Sources */,
 				279BACF31C59E3B90069EF5D /* AppDelegate.m in Sources */,
+				EC0345F71FBD16A9000C371F /* PriceData.m in Sources */,
 				279BAC741C59E3B90069EF5D /* NSMutableDictionary+WeakReferences.m in Sources */,
 				279BAB811C59E3B70069EF5D /* CCEffectContrast.m in Sources */,
 				279BABEB1C59E3B80069EF5D /* CCProfiling.m in Sources */,

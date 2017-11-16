@@ -1,38 +1,7 @@
+/* This file is generated, do not modify it !*/
 #import "SeaAreaData.h"
-@implementation SeaAreaDic
-{
-	NSMutableDictionary *_data;
-}
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
-{
-	self = [self init];
-	if (self) {
-		int amount = [buffer readInt];
-		_data = [NSMutableDictionary new];
-		for (int i = 0; i < amount; ++i) {
-			SeaAreaData *data = [[SeaAreaData alloc] initWithByteBuffer:buffer];
-			[_data setObject:data forKey:data.areaId];
-		}
-	}
-	return self;
-}
-
--(SeaAreaData *)getSeaAreaById:(NSString *)areaId
-{
-	return [_data objectForKey:areaId];
-}
-
--(NSDictionary *)getDictionary
-{
-	return _data;
-}
-
-@end
-
 @implementation SeaAreaData
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer
 {
 	self = [self init];
 	if (self) {
@@ -47,3 +16,32 @@
 }
 
 @end
+
+@implementation SeaAreaDic
+{
+	NSMutableDictionary *_data;
+}
+-(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
+{
+	self = [self init];
+	if (self) {
+		int amount = [buffer readInt];
+		_data = [NSMutableDictionary new];
+		for (int i = 0; i < amount; ++i) {
+			SeaAreaData *data = [[SeaAreaData alloc] initWithByteBuffer:buffer];
+			[_data setObject:data forKey:data.areaId];
+		}
+	}
+	return self;
+}
+-(NSDictionary *)getDictionary
+{
+	return _data;
+}
+-(SeaAreaData *)getSeaAreaById:(NSString *)areaId
+{
+	return [_data objectForKey:areaId];
+}
+
+@end
+

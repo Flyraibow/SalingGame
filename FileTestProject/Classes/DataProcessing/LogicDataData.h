@@ -1,3 +1,4 @@
+/* this file is generated */
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 

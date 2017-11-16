@@ -80,12 +80,6 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
     GameGuildData *guildData = [[GameGuildData alloc] initWithGuildData:[guildDic objectForKey:key]];
     [(NSMutableDictionary *)_guildDic setObject:guildData forKey:key];
   }
-  // initialize the logic Data
-  _logicData = [NSMutableDictionary new];
-  NSDictionary *logicDataType = [[[DataManager sharedDataManager] getLogicDataDic] getDictionary];
-  for (NSString *logicId in logicDataType) {
-    [(NSMutableDictionary *)_logicData setObject:@"0" forKey:logicId];
-  }
   _storyLockData = [NSMutableDictionary new];
   NSDictionary *storyTriggerDic = [[[DataManager sharedDataManager] getStoryTriggerDic] getDictionary];
   for (NSString *storyId in storyTriggerDic) {
@@ -122,7 +116,7 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
   } else if([logicId isEqualToString:@"year"]) {
     return [@(_year) stringValue];
   } else {
-    return [_logicData objectForKey:logicId];
+    NSAssert(false, @"undefined logic");
   }
 }
 
@@ -194,28 +188,8 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
       //don't support that
     }
   } else {
-    NSString *originalValue = [_logicData objectForKey:logicId];
-    NSString *newValue = originalValue;
-    if (type == ChangeValueTypeEqual) {
-      newValue = logicValue;
-    } else if (type == ChangeValueTypeAdd) {
-      newValue = [@([logicValue integerValue] + [originalValue integerValue]) stringValue];
-    } else if (type == ChangeValueTypeMinus) {
-      newValue = [@(-[logicValue integerValue] + [originalValue integerValue]) stringValue];
-    } else if (type == ChangeValueTypeMultiply) {
-      newValue = [@([logicValue integerValue] * [originalValue integerValue]) stringValue];
-    } else if (type == ChangeValueTypeDivide) {
-      newValue = [@([originalValue integerValue] / [logicValue integerValue]) stringValue];
-    } else {
-      // Expression : TODO
-    }
-    [(NSMutableDictionary *)_logicData setObject:newValue forKey:logicId];
+    NSAssert(false, @"undefined logic");
   }
-}
-
--(void)removeLogicDataWithLogicId:(NSString *)logicId
-{
-  [(NSMutableDictionary *)_logicData removeObjectForKey:logicId];
 }
 
 -(void)setStoryLockWithStoryId:(NSString *)storyId locked:(BOOL)locked
@@ -241,7 +215,6 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
     _guildDic = [aDecoder decodeObjectForKey:GameGuildDic];
     _myGuild = [aDecoder decodeObjectForKey:GameMyGuild];
     _cityDic = [aDecoder decodeObjectForKey:GameCityDic];
-    _logicData = [aDecoder decodeObjectForKey:GameLogicData];
     _itemDic = [aDecoder decodeObjectForKey:GameItemDataState];
     _storyLockData = [aDecoder decodeObjectForKey:GameStoryLockData];
     NSDictionary *itemDic = [[DataManager sharedDataManager].getItemDic getDictionary];
@@ -263,7 +236,6 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
   [aCoder encodeObject:_guildDic forKey:GameGuildDic];
   [aCoder encodeObject:_myGuild forKey:GameMyGuild];
   [aCoder encodeObject:_cityDic forKey:GameCityDic];
-  [aCoder encodeObject:_logicData forKey:GameLogicData];
   [aCoder encodeObject:_currentMusic forKey:GameMuiscData];
   [aCoder encodeObject:_itemDic forKey:GameItemDataState];
   [aCoder encodeObject:_storyLockData forKey:GameStoryLockData];

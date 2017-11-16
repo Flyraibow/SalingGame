@@ -1,16 +1,23 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
 @interface SeaAreaData : NSObject
 
-@property (nonatomic, readonly) NSString *areaId;
-@property (nonatomic, readonly) NSString *left;
-@property (nonatomic, readonly) NSString *right;
-@property (nonatomic, readonly) NSString *up;
-@property (nonatomic, readonly) NSString *down;
-@property (nonatomic, readonly) double scale;
+@property (nonatomic,readonly) NSString *areaId;
 
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
+@property (nonatomic,readonly) NSString *left;
+
+@property (nonatomic,readonly) NSString *right;
+
+@property (nonatomic,readonly) NSString *up;
+
+@property (nonatomic,readonly) NSString *down;
+
+@property (nonatomic,readonly) double scale;
+
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end
 
@@ -18,8 +25,9 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(SeaAreaData *)getSeaAreaById:(NSString *)areaId;
-
 -(NSDictionary *)getDictionary;
 
+-(SeaAreaData *)getSeaAreaById:(NSString *)areaId;
+
 @end
+

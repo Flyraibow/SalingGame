@@ -1,9 +1,24 @@
+/* This file is generated, do not modify it !*/
 #import "RouteData.h"
+@implementation RouteData
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer
+{
+	self = [self init];
+	if (self) {
+		_routeId = [buffer readString];
+		_cityId1 = [buffer readString];
+		_cityId2 = [buffer readString];
+		_routes = [buffer readString];
+	}
+	return self;
+}
+
+@end
+
 @implementation RouteDic
 {
 	NSMutableDictionary *_data;
 }
-
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
 {
 	self = [self init];
@@ -17,31 +32,14 @@
 	}
 	return self;
 }
-
+-(NSDictionary *)getDictionary
+{
+	return _data;
+}
 -(RouteData *)getRouteById:(NSString *)routeId
 {
 	return [_data objectForKey:routeId];
 }
 
--(NSDictionary *)getDictionary
-{
-	return _data;
-}
-
 @end
 
-@implementation RouteData
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
-{
-	self = [self init];
-	if (self) {
-		_routeId = [buffer readString];
-		_cityId1 = [buffer readString];
-		_cityId2 = [buffer readString];
-		_routes = [buffer readString];
-	}
-	return self;
-}
-
-@end

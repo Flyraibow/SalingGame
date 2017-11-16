@@ -1,13 +1,17 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
 @interface EventActionData : NSObject
 
-@property (nonatomic, readonly) NSString *eventId;
-@property (nonatomic, readonly) NSString *eventType;
-@property (nonatomic, readonly) NSString *parameter;
+@property (nonatomic,readonly) NSString *eventId;
 
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
+@property (nonatomic,readonly) NSString *eventType;
+
+@property (nonatomic,readonly) NSString *parameter;
+
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end
 
@@ -15,8 +19,9 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(EventActionData *)getEventActionById:(NSString *)eventId;
-
 -(NSDictionary *)getDictionary;
 
+-(EventActionData *)getEventActionById:(NSString *)eventId;
+
 @end
+

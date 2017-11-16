@@ -1,1 +1,1 @@
-cannonId,power,range,price,milltaryValueid,-,int,int,int1,1,4,200,02,2,5,500,10003,3,4,1000,20004,4,4,2000,35005,5,4,5000,50006,5,5,10000,9000
+﻿cannonId	cannon_name	cannon_description	range	price	milltaryValueid	name	name	int	int	int1	散弹	威力1	4	200	02	曲射	威力2 长射程	5	500	10003	加农曲射	威力3	4	1000	20004	加农	威力4	4	2000	35005	重加农	威力5	4	5000	50006	连射	威力5 长射程	5	10000	9000

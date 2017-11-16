@@ -1,14 +1,19 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
 @interface RouteData : NSObject
 
-@property (nonatomic, readonly) NSString *routeId;
-@property (nonatomic, readonly) NSString *cityId1;
-@property (nonatomic, readonly) NSString *cityId2;
-@property (nonatomic, readonly) NSString *routes;
+@property (nonatomic,readonly) NSString *routeId;
 
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
+@property (nonatomic,readonly) NSString *cityId1;
+
+@property (nonatomic,readonly) NSString *cityId2;
+
+@property (nonatomic,readonly) NSString *routes;
+
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end
 
@@ -16,8 +21,9 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(RouteData *)getRouteById:(NSString *)routeId;
-
 -(NSDictionary *)getDictionary;
 
+-(RouteData *)getRouteById:(NSString *)routeId;
+
 @end
+

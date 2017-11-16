@@ -1,14 +1,19 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
 @interface CannonData : NSObject
 
-@property (nonatomic, readonly) NSString *cannonId;
-@property (nonatomic, readonly) int range;
-@property (nonatomic, readonly) int price;
-@property (nonatomic, readonly) int milltaryValue;
+@property (nonatomic,readonly) NSString *cannonId;
 
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
+@property (nonatomic,readonly) int range;
+
+@property (nonatomic,readonly) int price;
+
+@property (nonatomic,readonly) int milltaryValue;
+
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end
 
@@ -16,8 +21,9 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(CannonData *)getCannonById:(NSString *)cannonId;
-
 -(NSDictionary *)getDictionary;
 
+-(CannonData *)getCannonById:(NSString *)cannonId;
+
 @end
+

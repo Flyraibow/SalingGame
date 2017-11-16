@@ -1,38 +1,7 @@
+/* This file is generated, do not modify it !*/
 #import "ShipStyleData.h"
-@implementation ShipStyleDic
-{
-	NSMutableDictionary *_data;
-}
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
-{
-	self = [self init];
-	if (self) {
-		int amount = [buffer readInt];
-		_data = [NSMutableDictionary new];
-		for (int i = 0; i < amount; ++i) {
-			ShipStyleData *data = [[ShipStyleData alloc] initWithByteBuffer:buffer];
-			[_data setObject:data forKey:data.shipStyleId];
-		}
-	}
-	return self;
-}
-
--(ShipStyleData *)getShipStyleById:(NSString *)shipStyleId
-{
-	return [_data objectForKey:shipStyleId];
-}
-
--(NSDictionary *)getDictionary
-{
-	return _data;
-}
-
-@end
-
 @implementation ShipStyleData
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer
 {
 	self = [self init];
 	if (self) {
@@ -54,3 +23,32 @@
 }
 
 @end
+
+@implementation ShipStyleDic
+{
+	NSMutableDictionary *_data;
+}
+-(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
+{
+	self = [self init];
+	if (self) {
+		int amount = [buffer readInt];
+		_data = [NSMutableDictionary new];
+		for (int i = 0; i < amount; ++i) {
+			ShipStyleData *data = [[ShipStyleData alloc] initWithByteBuffer:buffer];
+			[_data setObject:data forKey:data.shipStyleId];
+		}
+	}
+	return self;
+}
+-(NSDictionary *)getDictionary
+{
+	return _data;
+}
+-(ShipStyleData *)getShipStyleById:(NSString *)shipStyleId
+{
+	return [_data objectForKey:shipStyleId];
+}
+
+@end
+

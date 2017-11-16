@@ -1,38 +1,7 @@
+/* This file is generated, do not modify it !*/
 #import "StoryTriggerData.h"
-@implementation StoryTriggerDic
-{
-	NSMutableDictionary *_data;
-}
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
-{
-	self = [self init];
-	if (self) {
-		int amount = [buffer readInt];
-		_data = [NSMutableDictionary new];
-		for (int i = 0; i < amount; ++i) {
-			StoryTriggerData *data = [[StoryTriggerData alloc] initWithByteBuffer:buffer];
-			[_data setObject:data forKey:data.storyId];
-		}
-	}
-	return self;
-}
-
--(StoryTriggerData *)getStoryTriggerById:(NSString *)storyId
-{
-	return [_data objectForKey:storyId];
-}
-
--(NSDictionary *)getDictionary
-{
-	return _data;
-}
-
-@end
-
 @implementation StoryTriggerData
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer
 {
 	self = [self init];
 	if (self) {
@@ -59,3 +28,32 @@
 }
 
 @end
+
+@implementation StoryTriggerDic
+{
+	NSMutableDictionary *_data;
+}
+-(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
+{
+	self = [self init];
+	if (self) {
+		int amount = [buffer readInt];
+		_data = [NSMutableDictionary new];
+		for (int i = 0; i < amount; ++i) {
+			StoryTriggerData *data = [[StoryTriggerData alloc] initWithByteBuffer:buffer];
+			[_data setObject:data forKey:data.storyId];
+		}
+	}
+	return self;
+}
+-(NSDictionary *)getDictionary
+{
+	return _data;
+}
+-(StoryTriggerData *)getStoryTriggerById:(NSString *)storyId
+{
+	return [_data objectForKey:storyId];
+}
+
+@end
+

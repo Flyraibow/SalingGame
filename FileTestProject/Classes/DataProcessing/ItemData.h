@@ -1,19 +1,29 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
 @interface ItemData : NSObject
 
-@property (nonatomic, readonly) NSString *itemId;
-@property (nonatomic, readonly) NSString *iconId;
-@property (nonatomic, readonly) int category;
-@property (nonatomic, readonly) int type;
-@property (nonatomic, readonly) int value;
-@property (nonatomic, readonly) int job;
-@property (nonatomic, readonly) int price;
-@property (nonatomic, readonly) NSString *ownerCityId;
-@property (nonatomic, readonly) NSString *ownerGuildId;
+@property (nonatomic,readonly) NSString *itemId;
 
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
+@property (nonatomic,readonly) NSString *iconId;
+
+@property (nonatomic,readonly) int category;
+
+@property (nonatomic,readonly) int type;
+
+@property (nonatomic,readonly) int value;
+
+@property (nonatomic,readonly) int job;
+
+@property (nonatomic,readonly) int price;
+
+@property (nonatomic,readonly) NSString *ownerCityId;
+
+@property (nonatomic,readonly) NSString *ownerGuildId;
+
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end
 
@@ -21,8 +31,9 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(ItemData *)getItemById:(NSString *)itemId;
-
 -(NSDictionary *)getDictionary;
 
+-(ItemData *)getItemById:(NSString *)itemId;
+
 @end
+

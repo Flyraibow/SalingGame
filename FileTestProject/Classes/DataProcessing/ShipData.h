@@ -1,12 +1,15 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
 @interface ShipData : NSObject
 
-@property (nonatomic, readonly) NSString *shipId;
-@property (nonatomic, readonly) NSString *style;
+@property (nonatomic,readonly) NSString *shipId;
 
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
+@property (nonatomic,readonly) NSString *style;
+
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end
 
@@ -14,8 +17,9 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(ShipData *)getShipById:(NSString *)shipId;
-
 -(NSDictionary *)getDictionary;
 
+-(ShipData *)getShipById:(NSString *)shipId;
+
 @end
+

@@ -1,13 +1,17 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
 @interface ActionData : NSObject
 
-@property (nonatomic, readonly) NSString *actionId;
-@property (nonatomic, readonly) int typeId;
-@property (nonatomic, readonly) NSString *indexList;
+@property (nonatomic,readonly) NSString *actionId;
 
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
+@property (nonatomic,readonly) int typeId;
+
+@property (nonatomic,readonly) NSString *indexList;
+
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end
 
@@ -15,8 +19,9 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(ActionData *)getActionById:(NSString *)actionId;
-
 -(NSDictionary *)getDictionary;
 
+-(ActionData *)getActionById:(NSString *)actionId;
+
 @end
+

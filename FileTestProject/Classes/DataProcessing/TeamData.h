@@ -1,16 +1,23 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
 @interface TeamData : NSObject
 
-@property (nonatomic, readonly) NSString *teamId;
-@property (nonatomic, readonly) NSString *leaderId;
-@property (nonatomic, readonly) NSString *shiplist;
-@property (nonatomic, readonly) NSString *startCity;
-@property (nonatomic, readonly) NSInteger money;
-@property (nonatomic, readonly) NSString *npcList;
+@property (nonatomic,readonly) NSString *teamId;
 
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
+@property (nonatomic,readonly) NSString *leaderId;
+
+@property (nonatomic,readonly) NSString *shiplist;
+
+@property (nonatomic,readonly) NSString *startCity;
+
+@property (nonatomic,readonly) long money;
+
+@property (nonatomic,readonly) NSString *npcList;
+
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end
 
@@ -18,8 +25,9 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(TeamData *)getTeamById:(NSString *)teamId;
-
 -(NSDictionary *)getDictionary;
 
+-(TeamData *)getTeamById:(NSString *)teamId;
+
 @end
+

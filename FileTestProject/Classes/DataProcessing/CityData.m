@@ -1,38 +1,7 @@
+/* This file is generated, do not modify it !*/
 #import "CityData.h"
-@implementation CityDic
-{
-	NSMutableDictionary *_data;
-}
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
-{
-	self = [self init];
-	if (self) {
-		int amount = [buffer readInt];
-		_data = [NSMutableDictionary new];
-		for (int i = 0; i < amount; ++i) {
-			CityData *data = [[CityData alloc] initWithByteBuffer:buffer];
-			[_data setObject:data forKey:data.cityId];
-		}
-	}
-	return self;
-}
-
--(CityData *)getCityById:(NSString *)cityId
-{
-	return [_data objectForKey:cityId];
-}
-
--(NSDictionary *)getDictionary
-{
-	return _data;
-}
-
-@end
-
 @implementation CityData
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer
 {
 	self = [self init];
 	if (self) {
@@ -60,3 +29,32 @@
 }
 
 @end
+
+@implementation CityDic
+{
+	NSMutableDictionary *_data;
+}
+-(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
+{
+	self = [self init];
+	if (self) {
+		int amount = [buffer readInt];
+		_data = [NSMutableDictionary new];
+		for (int i = 0; i < amount; ++i) {
+			CityData *data = [[CityData alloc] initWithByteBuffer:buffer];
+			[_data setObject:data forKey:data.cityId];
+		}
+	}
+	return self;
+}
+-(NSDictionary *)getDictionary
+{
+	return _data;
+}
+-(CityData *)getCityById:(NSString *)cityId
+{
+	return [_data objectForKey:cityId];
+}
+
+@end
+

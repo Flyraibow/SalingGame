@@ -42,7 +42,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSDictionary<NSString *, GameCityData *> *cityDic;
 @property (nonatomic, readonly) NSDictionary *npcDic;
 @property (nonatomic, readonly) NSDictionary *guildDic;
-@property (nonatomic, readonly) NSDictionary *logicData;
 @property (nonatomic, readonly) NSDictionary *storyLockData;
 @property (nonatomic, readonly) int year;
 @property (nonatomic, readonly) int month;

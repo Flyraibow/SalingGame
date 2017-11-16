@@ -1,15 +1,21 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
 @interface GoodsData : NSObject
 
-@property (nonatomic, readonly) NSString *goodsId;
-@property (nonatomic, readonly) int type;
-@property (nonatomic, readonly) NSString *iconId;
-@property (nonatomic, readonly) int maxNum;
-@property (nonatomic, readonly) int needCommerce;
+@property (nonatomic,readonly) NSString *goodsId;
 
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
+@property (nonatomic,readonly) int type;
+
+@property (nonatomic,readonly) NSString *iconId;
+
+@property (nonatomic,readonly) int maxNum;
+
+@property (nonatomic,readonly) int needCommerce;
+
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end
 
@@ -17,8 +23,9 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(GoodsData *)getGoodsById:(NSString *)goodsId;
-
 -(NSDictionary *)getDictionary;
 
+-(GoodsData *)getGoodsById:(NSString *)goodsId;
+
 @end
+

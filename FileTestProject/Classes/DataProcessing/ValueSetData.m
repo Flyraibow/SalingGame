@@ -1,3 +1,4 @@
+/* this file is generated */
 #import "ValueSetData.h"
 @implementation ValueSetDic
 {

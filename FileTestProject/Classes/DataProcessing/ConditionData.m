@@ -1,38 +1,7 @@
+/* This file is generated, do not modify it !*/
 #import "ConditionData.h"
-@implementation ConditionDic
-{
-	NSMutableDictionary *_data;
-}
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
-{
-	self = [self init];
-	if (self) {
-		int amount = [buffer readInt];
-		_data = [NSMutableDictionary new];
-		for (int i = 0; i < amount; ++i) {
-			ConditionData *data = [[ConditionData alloc] initWithByteBuffer:buffer];
-			[_data setObject:data forKey:data.conditionId];
-		}
-	}
-	return self;
-}
-
--(ConditionData *)getConditionById:(NSString *)conditionId
-{
-	return [_data objectForKey:conditionId];
-}
-
--(NSDictionary *)getDictionary
-{
-	return _data;
-}
-
-@end
-
 @implementation ConditionData
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer
 {
 	self = [self init];
 	if (self) {
@@ -47,3 +16,32 @@
 }
 
 @end
+
+@implementation ConditionDic
+{
+	NSMutableDictionary *_data;
+}
+-(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
+{
+	self = [self init];
+	if (self) {
+		int amount = [buffer readInt];
+		_data = [NSMutableDictionary new];
+		for (int i = 0; i < amount; ++i) {
+			ConditionData *data = [[ConditionData alloc] initWithByteBuffer:buffer];
+			[_data setObject:data forKey:data.conditionId];
+		}
+	}
+	return self;
+}
+-(NSDictionary *)getDictionary
+{
+	return _data;
+}
+-(ConditionData *)getConditionById:(NSString *)conditionId
+{
+	return [_data objectForKey:conditionId];
+}
+
+@end
+

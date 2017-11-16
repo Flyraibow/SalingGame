@@ -1,5 +1,5 @@
+/* This file is generated, do not modify it !*/
 #import "DataManager.h"
-#import "ByteBuffer.h"
 
 static DataManager *_sharedDataManager;
 
@@ -16,7 +16,6 @@ static DataManager *_sharedDataManager;
 	GoodsCategoriesDic *_goodsCategoriesDic;
 	GuildDic *_guildDic;
 	ItemDic *_ItemDic;
-	LogicDataDic *_logicDataDic;
 	NpcDic *_npcDic;
 	RoleInitialDic *_roleInitialDic;
 	RouteDic *_routeDic;
@@ -29,10 +28,8 @@ static DataManager *_sharedDataManager;
 	StoryTriggerDic *_storyTriggerDic;
 	TaskDic *_taskDic;
 	TeamDic *_teamDic;
-	ValueSetDic *_valueSetDic;
-	NSMutableDictionary *_priceDic;
+	PriceData *_priceData;
 }
-
 -(instancetype)initWithData:(NSData *)data
 {
 	self = [self init];
@@ -49,7 +46,6 @@ static DataManager *_sharedDataManager;
 		_goodsCategoriesDic = [[GoodsCategoriesDic alloc] initWithByteBuffer:buffer];
 		_guildDic = [[GuildDic alloc] initWithByteBuffer:buffer];
 		_ItemDic = [[ItemDic alloc] initWithByteBuffer:buffer];
-		_logicDataDic = [[LogicDataDic alloc] initWithByteBuffer:buffer];
 		_npcDic = [[NpcDic alloc] initWithByteBuffer:buffer];
 		_roleInitialDic = [[RoleInitialDic alloc] initWithByteBuffer:buffer];
 		_routeDic = [[RouteDic alloc] initWithByteBuffer:buffer];
@@ -62,12 +58,10 @@ static DataManager *_sharedDataManager;
 		_storyTriggerDic = [[StoryTriggerDic alloc] initWithByteBuffer:buffer];
 		_taskDic = [[TaskDic alloc] initWithByteBuffer:buffer];
 		_teamDic = [[TeamDic alloc] initWithByteBuffer:buffer];
-		_valueSetDic = [[ValueSetDic alloc] initWithByteBuffer:buffer];
-		_priceDic = [buffer readMatrix];
+		_priceData = [[PriceData alloc] initWithByteBuffer:buffer];
 	}
 	return self;
 }
-
 +(instancetype)dataManagerWithData:(NSData *)data
 {
 	if (_sharedDataManager == nil) {
@@ -75,140 +69,106 @@ static DataManager *_sharedDataManager;
 	}
 	return _sharedDataManager;
 }
-
 +(DataManager *)sharedDataManager
 {
 	return _sharedDataManager;
 }
-
 -(ActionDic *)getActionDic
 {
 	return _actionDic;
 }
-
 -(CannonDic *)getCannonDic
 {
 	return _cannonDic;
 }
-
 -(CityDic *)getCityDic
 {
 	return _cityDic;
 }
-
 -(CityBuildingDic *)getCityBuildingDic
 {
 	return _cityBuildingDic;
 }
-
 -(ConditionDic *)getConditionDic
 {
 	return _conditionDic;
 }
-
 -(DefaultDialogDic *)getDefaultDialogDic
 {
 	return _defaultDialogDic;
 }
-
 -(EventActionDic *)getEventActionDic
 {
 	return _eventActionDic;
 }
-
 -(GoodsDic *)getGoodsDic
 {
 	return _goodsDic;
 }
-
 -(GoodsCategoriesDic *)getGoodsCategoriesDic
 {
 	return _goodsCategoriesDic;
 }
-
 -(GuildDic *)getGuildDic
 {
 	return _guildDic;
 }
-
 -(ItemDic *)getItemDic
 {
 	return _ItemDic;
 }
-
--(LogicDataDic *)getLogicDataDic
-{
-	return _logicDataDic;
-}
-
 -(NpcDic *)getNpcDic
 {
 	return _npcDic;
 }
-
 -(RoleInitialDic *)getRoleInitialDic
 {
 	return _roleInitialDic;
 }
-
 -(RouteDic *)getRouteDic
 {
 	return _routeDic;
 }
-
 -(SeaAreaDic *)getSeaAreaDic
 {
 	return _seaAreaDic;
 }
-
 -(SelectListDic *)getSelectListDic
 {
 	return _selectListDic;
 }
-
 -(ShipDic *)getShipDic
 {
 	return _shipDic;
 }
-
 -(ShipStyleDic *)getShipStyleDic
 {
 	return _shipStyleDic;
 }
-
 -(SkillDic *)getSkillDic
 {
 	return _skillDic;
 }
-
 -(StoryDic *)getStoryDic
 {
 	return _storyDic;
 }
-
 -(StoryTriggerDic *)getStoryTriggerDic
 {
 	return _storyTriggerDic;
 }
-
 -(TaskDic *)getTaskDic
 {
 	return _taskDic;
 }
-
 -(TeamDic *)getTeamDic
 {
 	return _teamDic;
 }
-
--(ValueSetDic *)getValueSetDic
+-(PriceData *)getPriceData
 {
-	return _valueSetDic;
-}
-
--(NSDictionary *)getPriceDic;
-{
-	return _priceDic;
+	return _priceData;
 }
 
 @end
+

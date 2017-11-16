@@ -1,9 +1,24 @@
+/* This file is generated, do not modify it !*/
 #import "CityBuildingData.h"
+@implementation CityBuildingData
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer
+{
+	self = [self init];
+	if (self) {
+		_buildingId = [buffer readString];
+		_position = [buffer readInt];
+		_npcNameId = [buffer readInt];
+		_eventAction = [buffer readString];
+	}
+	return self;
+}
+
+@end
+
 @implementation CityBuildingDic
 {
 	NSMutableDictionary *_data;
 }
-
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
 {
 	self = [self init];
@@ -17,31 +32,14 @@
 	}
 	return self;
 }
-
+-(NSDictionary *)getDictionary
+{
+	return _data;
+}
 -(CityBuildingData *)getCityBuildingById:(NSString *)buildingId
 {
 	return [_data objectForKey:buildingId];
 }
 
--(NSDictionary *)getDictionary
-{
-	return _data;
-}
-
 @end
 
-@implementation CityBuildingData
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
-{
-	self = [self init];
-	if (self) {
-		_buildingId = [buffer readString];
-		_position = [buffer readInt];
-		_npcNameId = [buffer readInt];
-		_eventAction = [buffer readString];
-	}
-	return self;
-}
-
-@end

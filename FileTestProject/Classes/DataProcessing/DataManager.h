@@ -1,3 +1,5 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ActionData.h"
 #import "CannonData.h"
@@ -10,7 +12,6 @@
 #import "GoodsCategoriesData.h"
 #import "GuildData.h"
 #import "ItemData.h"
-#import "LogicDataData.h"
 #import "NpcData.h"
 #import "RoleInitialData.h"
 #import "RouteData.h"
@@ -23,64 +24,63 @@
 #import "StoryTriggerData.h"
 #import "TaskData.h"
 #import "TeamData.h"
-#import "ValueSetData.h"
+#import "PriceData.h"
 
 @interface DataManager : NSObject
+
+-(instancetype)initWithData:(NSData *)data;
 
 +(instancetype)dataManagerWithData:(NSData *)data;
 
 +(DataManager *)sharedDataManager;
 
--(ActionDic*)getActionDic;
+-(ActionDic *)getActionDic;
 
--(CannonDic*)getCannonDic;
+-(CannonDic *)getCannonDic;
 
--(CityDic*)getCityDic;
+-(CityDic *)getCityDic;
 
--(CityBuildingDic*)getCityBuildingDic;
+-(CityBuildingDic *)getCityBuildingDic;
 
--(ConditionDic*)getConditionDic;
+-(ConditionDic *)getConditionDic;
 
--(DefaultDialogDic*)getDefaultDialogDic;
+-(DefaultDialogDic *)getDefaultDialogDic;
 
--(EventActionDic*)getEventActionDic;
+-(EventActionDic *)getEventActionDic;
 
--(GoodsDic*)getGoodsDic;
+-(GoodsDic *)getGoodsDic;
 
--(GoodsCategoriesDic*)getGoodsCategoriesDic;
+-(GoodsCategoriesDic *)getGoodsCategoriesDic;
 
--(GuildDic*)getGuildDic;
+-(GuildDic *)getGuildDic;
 
--(ItemDic*)getItemDic;
+-(ItemDic *)getItemDic;
 
--(LogicDataDic*)getLogicDataDic;
+-(NpcDic *)getNpcDic;
 
--(NpcDic*)getNpcDic;
+-(RoleInitialDic *)getRoleInitialDic;
 
--(RoleInitialDic*)getRoleInitialDic;
+-(RouteDic *)getRouteDic;
 
--(RouteDic*)getRouteDic;
+-(SeaAreaDic *)getSeaAreaDic;
 
--(SeaAreaDic*)getSeaAreaDic;
+-(SelectListDic *)getSelectListDic;
 
--(SelectListDic*)getSelectListDic;
+-(ShipDic *)getShipDic;
 
--(ShipDic*)getShipDic;
+-(ShipStyleDic *)getShipStyleDic;
 
--(ShipStyleDic*)getShipStyleDic;
+-(SkillDic *)getSkillDic;
 
--(SkillDic*)getSkillDic;
+-(StoryDic *)getStoryDic;
 
--(StoryDic*)getStoryDic;
+-(StoryTriggerDic *)getStoryTriggerDic;
 
--(StoryTriggerDic*)getStoryTriggerDic;
+-(TaskDic *)getTaskDic;
 
--(TaskDic*)getTaskDic;
+-(TeamDic *)getTeamDic;
 
--(TeamDic*)getTeamDic;
-
--(ValueSetDic*)getValueSetDic;
-
--(NSDictionary *)getPriceDic;
+-(PriceData *)getPriceData;
 
 @end
+

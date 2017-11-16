@@ -1,9 +1,24 @@
+/* This file is generated, do not modify it !*/
 #import "CannonData.h"
+@implementation CannonData
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer
+{
+	self = [self init];
+	if (self) {
+		_cannonId = [buffer readString];
+		_range = [buffer readInt];
+		_price = [buffer readInt];
+		_milltaryValue = [buffer readInt];
+	}
+	return self;
+}
+
+@end
+
 @implementation CannonDic
 {
 	NSMutableDictionary *_data;
 }
-
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
 {
 	self = [self init];
@@ -17,31 +32,14 @@
 	}
 	return self;
 }
-
+-(NSDictionary *)getDictionary
+{
+	return _data;
+}
 -(CannonData *)getCannonById:(NSString *)cannonId
 {
 	return [_data objectForKey:cannonId];
 }
 
--(NSDictionary *)getDictionary
-{
-	return _data;
-}
-
 @end
 
-@implementation CannonData
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
-{
-	self = [self init];
-	if (self) {
-		_cannonId = [buffer readString];
-		_range = [buffer readInt];
-		_price = [buffer readInt];
-		_milltaryValue = [buffer readInt];
-	}
-	return self;
-}
-
-@end

@@ -143,12 +143,12 @@
             [_shipGoodsList addObject:icon];
         }
         
-        CCLabelTTF *label1 = [CCLabelTTF labelWithString:getLocalString(@"lab_sold") fontName:nil fontSize:12];
+        CCLabelTTF *label1 = [CCLabelTTF labelWithString:getLocalString(@"lab_sold_goods") fontName:nil fontSize:12];
         label1.positionType = CCPositionTypeNormalized;
         label1.position = ccp(0.555, 0.725);
         [self addChild:label1];
         
-        CCLabelTTF *label2 = [CCLabelTTF labelWithString:getLocalString(@"lab_sell") fontName:nil fontSize:12];
+        CCLabelTTF *label2 = [CCLabelTTF labelWithString:getLocalString(@"lab_sell_goods") fontName:nil fontSize:12];
         label2.positionType = CCPositionTypeNormalized;
         label2.position = ccp(0.07, 0.35);
         [self addChild:label2];

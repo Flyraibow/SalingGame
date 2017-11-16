@@ -27,8 +27,8 @@
 "lab_goods_level" = "等级 %d";
 "lab_npc_level" = "等级    %d";
 
-"lab_sold" = "卖出品";
-"lab_sell" = "特产品";
+"lab_sold_goods" = "卖出品";
+"lab_sell_goods" = "特产品";
 "lab_income" = "总收入";
 "lab_outcome" = "总支出";
 "lab_balance" = "剩余金额";

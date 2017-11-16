@@ -1,14 +1,19 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
 @interface CityBuildingData : NSObject
 
-@property (nonatomic, readonly) NSString *buildingId;
-@property (nonatomic, readonly) int position;
-@property (nonatomic, readonly) int npcNameId;
-@property (nonatomic, readonly) NSString *eventAction;
+@property (nonatomic,readonly) NSString *buildingId;
 
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
+@property (nonatomic,readonly) int position;
+
+@property (nonatomic,readonly) int npcNameId;
+
+@property (nonatomic,readonly) NSString *eventAction;
+
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end
 
@@ -16,8 +21,9 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(CityBuildingData *)getCityBuildingById:(NSString *)buildingId;
-
 -(NSDictionary *)getDictionary;
 
+-(CityBuildingData *)getCityBuildingById:(NSString *)buildingId;
+
 @end
+

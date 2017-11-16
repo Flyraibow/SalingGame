@@ -1,38 +1,7 @@
+/* This file is generated, do not modify it !*/
 #import "NpcData.h"
-@implementation NpcDic
-{
-	NSMutableDictionary *_data;
-}
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
-{
-	self = [self init];
-	if (self) {
-		int amount = [buffer readInt];
-		_data = [NSMutableDictionary new];
-		for (int i = 0; i < amount; ++i) {
-			NpcData *data = [[NpcData alloc] initWithByteBuffer:buffer];
-			[_data setObject:data forKey:data.npcId];
-		}
-	}
-	return self;
-}
-
--(NpcData *)getNpcById:(NSString *)npcId
-{
-	return [_data objectForKey:npcId];
-}
-
--(NSDictionary *)getDictionary
-{
-	return _data;
-}
-
-@end
-
 @implementation NpcData
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer
 {
 	self = [self init];
 	if (self) {
@@ -60,3 +29,32 @@
 }
 
 @end
+
+@implementation NpcDic
+{
+	NSMutableDictionary *_data;
+}
+-(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
+{
+	self = [self init];
+	if (self) {
+		int amount = [buffer readInt];
+		_data = [NSMutableDictionary new];
+		for (int i = 0; i < amount; ++i) {
+			NpcData *data = [[NpcData alloc] initWithByteBuffer:buffer];
+			[_data setObject:data forKey:data.npcId];
+		}
+	}
+	return self;
+}
+-(NSDictionary *)getDictionary
+{
+	return _data;
+}
+-(NpcData *)getNpcById:(NSString *)npcId
+{
+	return [_data objectForKey:npcId];
+}
+
+@end
+

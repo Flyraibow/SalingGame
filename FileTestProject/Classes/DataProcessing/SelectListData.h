@@ -1,13 +1,17 @@
+/* This file is generated, do not modify it !*/
+
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
 @interface SelectListData : NSObject
 
-@property (nonatomic, readonly) NSString *selectId;
-@property (nonatomic, readonly) NSString *label;
-@property (nonatomic, readonly) NSString *conditionList;
+@property (nonatomic,readonly) NSString *selectId;
 
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
+@property (nonatomic,readonly) NSString *label;
+
+@property (nonatomic,readonly) NSString *conditionList;
+
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end
 
@@ -15,8 +19,9 @@
 
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer;
 
--(SelectListData *)getSelectListById:(NSString *)selectId;
-
 -(NSDictionary *)getDictionary;
 
+-(SelectListData *)getSelectListById:(NSString *)selectId;
+
 @end
+

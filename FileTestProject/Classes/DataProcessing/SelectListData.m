@@ -1,9 +1,23 @@
+/* This file is generated, do not modify it !*/
 #import "SelectListData.h"
+@implementation SelectListData
+-(instancetype )initWithByteBuffer:(ByteBuffer *)buffer
+{
+	self = [self init];
+	if (self) {
+		_selectId = [buffer readString];
+		_label = [buffer readString];
+		_conditionList = [buffer readString];
+	}
+	return self;
+}
+
+@end
+
 @implementation SelectListDic
 {
 	NSMutableDictionary *_data;
 }
-
 -(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
 {
 	self = [self init];
@@ -17,30 +31,14 @@
 	}
 	return self;
 }
-
+-(NSDictionary *)getDictionary
+{
+	return _data;
+}
 -(SelectListData *)getSelectListById:(NSString *)selectId
 {
 	return [_data objectForKey:selectId];
 }
 
--(NSDictionary *)getDictionary
-{
-	return _data;
-}
-
 @end
 
-@implementation SelectListData
-
--(instancetype)initWithByteBuffer:(ByteBuffer *)buffer
-{
-	self = [self init];
-	if (self) {
-		_selectId = [buffer readString];
-		_label = [buffer readString];
-		_conditionList = [buffer readString];
-	}
-	return self;
-}
-
-@end
