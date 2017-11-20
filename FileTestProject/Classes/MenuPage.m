@@ -41,25 +41,24 @@
     
     NSLog(@"Move to the the test page");
     
-    CCSprite *bgImage = [BGImage getBgImageByName:@"bg1.jpg"];
+    CCSprite *bgImage = [BGImage getBgImageByName:@"bg_System.png"];
     [self addChild:bgImage];
     
-    CGSize contentSize = [CCDirector sharedDirector].viewSize;
-    DefaultButton *btnStart = [DefaultButton buttonWithTitle:@"Start"];
-    btnStart.positionType = CCPositionTypePoints;
-    btnStart.position = ccp(contentSize.width / 2 ,100);
+    DefaultButton *btnStart = [DefaultButton buttonWithTitle:getLocalString(@"btn_start")];
+    btnStart.positionType = CCPositionTypeNormalized;
+    btnStart.position = ccp(0.5 ,0.6);
     [self addChild:btnStart];
     [btnStart setTarget:self selector:@selector(clickStart)];
     
-    DefaultButton *btnContinue = [DefaultButton buttonWithTitle:@"Continue"];
-    btnContinue.positionType = CCPositionTypePoints;
-    btnContinue.position = ccp(contentSize.width / 2 ,60);
+    DefaultButton *btnContinue = [DefaultButton buttonWithTitle:getLocalString(@"btn_continue")];
+    btnContinue.positionType = CCPositionTypeNormalized;
+    btnContinue.position = ccp(0.5 ,0.5);
     [btnContinue setTarget:self selector:@selector(clickContinue)];
     [self addChild:btnContinue];
     
-    DefaultButton *btnTest = [DefaultButton buttonWithTitle:@"Test"];
-    btnTest.positionType = CCPositionTypePoints;
-    btnTest.position = ccp(contentSize.width / 2 ,20);
+    DefaultButton *btnTest = [DefaultButton buttonWithTitle:getLocalString(@"btn_test")];
+    btnTest.positionType = CCPositionTypeNormalized;
+    btnTest.position = ccp(0.5, 0.4);
     [btnTest setTarget:self selector:@selector(clickTest)];
     [self addChild:btnTest];
 

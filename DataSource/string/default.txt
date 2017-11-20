@@ -151,3 +151,10 @@
 
 "lab_in_team" = "队中";
 "lab_in_dock" = "船坞中";
+
+"btn_start" = "新游戏";
+"btn_continue" = "继续";
+"btn_test" = "测试";
+
+"npc_full_name_with_middle_name" = "%@ · %@ · %@";
+"npc_full_name_without_middle_name" = "%@ · %@";

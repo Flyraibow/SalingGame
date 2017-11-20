@@ -912,6 +912,7 @@
 		EC458A021DA1EB8400B833A9 /* ship33.png in Resources */ = {isa = PBXBuildFile; fileRef = EC4589DB1DA1EB8400B833A9 /* ship33.png */; };
 		EC458A031DA1EB8400B833A9 /* ship34.png in Resources */ = {isa = PBXBuildFile; fileRef = EC4589DC1DA1EB8400B833A9 /* ship34.png */; };
 		EC458A0B1DA2137F00B833A9 /* ShipData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC458A0A1DA2137F00B833A9 /* ShipData.m */; };
+		EC4CC8011FC2A1970008E7F5 /* NpcInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4CC8001FC2A1970008E7F5 /* NpcInfoData.m */; };
 		EC7C52B01FB82D1E0098CF87 /* GameTaskData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7C52AF1FB82D1E0098CF87 /* GameTaskData.m */; };
 		EC7C97561F9F031E007B0316 /* GameTaskBuyGoodsData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7C97551F9F031E007B0316 /* GameTaskBuyGoodsData.m */; };
 		EC85DBE11DC85CA300613F44 /* EventActionData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE01DC85CA300613F44 /* EventActionData.m */; };
@@ -2206,6 +2207,8 @@
 		EC4589DC1DA1EB8400B833A9 /* ship34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship34.png; path = Resources/Graph/Icon/ship34.png; sourceTree = "<group>"; };
 		EC458A091DA2137F00B833A9 /* ShipData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipData.h; path = Classes/DataProcessing/ShipData.h; sourceTree = "<group>"; };
 		EC458A0A1DA2137F00B833A9 /* ShipData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipData.m; path = Classes/DataProcessing/ShipData.m; sourceTree = "<group>"; };
+		EC4CC7FF1FC2A1960008E7F5 /* NpcInfoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NpcInfoData.h; path = Classes/DataProcessing/NpcInfoData.h; sourceTree = "<group>"; };
+		EC4CC8001FC2A1970008E7F5 /* NpcInfoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NpcInfoData.m; path = Classes/DataProcessing/NpcInfoData.m; sourceTree = "<group>"; };
 		EC7C52AE1FB82D1E0098CF87 /* GameTaskData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameTaskData.h; path = Classes/Data/Task/GameTaskData.h; sourceTree = "<group>"; };
 		EC7C52AF1FB82D1E0098CF87 /* GameTaskData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameTaskData.m; path = Classes/Data/Task/GameTaskData.m; sourceTree = "<group>"; };
 		EC7C97541F9F031E007B0316 /* GameTaskBuyGoodsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameTaskBuyGoodsData.h; path = Classes/Data/Task/GameTaskBuyGoodsData.h; sourceTree = "<group>"; };
@@ -3252,6 +3255,8 @@
 		279BAD061C59E9480069EF5D /* DataProcessing */ = {
 			isa = PBXGroup;
 			children = (
+				EC4CC7FF1FC2A1960008E7F5 /* NpcInfoData.h */,
+				EC4CC8001FC2A1970008E7F5 /* NpcInfoData.m */,
 				EC0345F51FBD16A9000C371F /* PriceData.h */,
 				EC0345F61FBD16A9000C371F /* PriceData.m */,
 				27BF3E2B1ECCC17100284A42 /* TaskData.h */,
@@ -5248,6 +5253,7 @@
 				279BABEB1C59E3B80069EF5D /* CCProfiling.m in Sources */,
 				279BAC4E1C59E3B80069EF5D /* ALDevice.m in Sources */,
 				ECBADDD21DD821D600DC490D /* TradePanel.m in Sources */,
+				EC4CC8011FC2A1970008E7F5 /* NpcInfoData.m in Sources */,
 				279BAC391C59E3B80069EF5D /* OALAudioTracks.m in Sources */,
 				279BAC261C59E3B80069EF5D /* OALAction.m in Sources */,
 				279BAB3D1C59E3B70069EF5D /* CCTMXXMLParser.m in Sources */,

@@ -29,17 +29,28 @@ static NSString* getLocalStringByString(NSString *str,NSString *value)
 
 static NSString* getNpcFirstName(NSString *npcId)
 {
-    return getLocalStringByString(@"npc_firstname_", npcId);
+    return getLocalStringByString(@"first_name_", npcId);
+}
+
+static NSString* getNpcMiddleName(NSString *npcId)
+{
+    return getLocalStringByString(@"middle_name_", npcId);
 }
 
 static NSString* getNpcLastName(NSString *npcId)
 {
-    return getLocalStringByString(@"npc_lastname_", npcId);
+    return getLocalStringByString(@"last_name_", npcId);
 }
 
 static NSString* getNpcFullName(NSString *npcId)
 {
-    return [NSString stringWithFormat:@"%@ %@", getNpcFirstName(npcId), getNpcLastName(npcId)] ;
+    NSString *middleName = getNpcMiddleName(npcId);
+    if (middleName == nil || middleName.length == 0) {
+        return [NSString stringWithFormat:getLocalString(@"npc_full_name_without_middle_name"),
+                getNpcFirstName(npcId), getNpcLastName(npcId)];
+    }
+    return [NSString stringWithFormat:getLocalString(@"npc_full_name_with_middle_name"),
+            getNpcFirstName(npcId), middleName, getNpcLastName(npcId)];
 }
 
 static NSString* getCityNpcName(int *npcId)

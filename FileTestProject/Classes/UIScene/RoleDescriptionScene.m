@@ -57,7 +57,7 @@
     
     GuildData *guildData = [[[DataManager sharedDataManager] getGuildDic] getGuildById:roleData.guildId];
     
-    CCLabelTTF *labRoleName = [CCLabelTTF labelWithString:getNpcFirstName(guildData.leaderId) fontName:nil fontSize:12];
+    CCLabelTTF *labRoleName = [CCLabelTTF labelWithString:getNpcFullName(guildData.leaderId) fontName:nil fontSize:12];
     labRoleName.positionType = CCPositionTypeNormalized;
     labRoleName.anchorPoint = ccp(0, 1);
     labRoleName.position = ccp(0.5,0.8);
