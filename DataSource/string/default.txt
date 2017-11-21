@@ -13,14 +13,6 @@
 "citySystemBar_4" = "资讯";
 "citySystemBar_5" = "系统";
 
-"government_sign_up" = "签约";
-"government_invest" = "投资";
-"government_recommend" = "递交推荐信";
-
-"tavern_drink" = "喝酒";
-"tavern_buy_drink" = "请客";
-"tavern_hire" = "雇佣";
-"tavern_spread" = "散布谣言";
 "tavern_hire_full" = "满编雇佣";
 "tavern_hire_minimum" = "最小雇佣";
 
@@ -33,30 +25,6 @@
 "lab_outcome" = "总支出";
 "lab_balance" = "剩余金额";
 
-"exchange_trade" = "交易";
-"exchange_invest" = "商业投资";
-"exchange_information" = "商业情报";
-"shop_buy" = "购买";
-"shop_sell" = "贩卖";
-"shop_task" = "任务委托";
-"shop_task_cancel" = "取消委托";
-"shop_mail" = "写信";
-"shipyard_buy" = "购入船只";
-"shipyard_sell" = "售出船只";
-"shipyard_modify" = "改造船只";
-"shipyard_fix" = "修理船只";
-"shipyard_info" = "浏览船只";
-"shipyard_equip" = "装备船只";
-"dock_sail" = "出海";
-"dock_supply" = "补给";
-"dock_yard" = "船坞";
-"ship_modify" = "改造";
-"ship_info" = "查看";
-
-"inn_one_day" = "休息一天";
-"inn_ten_day" = "休息十天";
-"inn_thirty_day" = "休息三十天";
-
 "lab_date" = "%d月 %d日";
 "lab_date_wy" = "%d年 %d月 %d日";
 "lab_hold_money" = "金币:";
@@ -66,10 +34,6 @@
 "btn_cancel" = "取消";
 "lab_close" = "关闭";
 "lab_sure" = "确定";
-"lab_save" = "储存";
-"lab_load" = "读取";
-"lab_setting" = "环境设定";
-"lab_systemMenu" = "主界面";
 
 "lab_buy" = "购买";
 "lab_sell" = "售出";
@@ -100,12 +64,6 @@
 "lab_buy_price"="买价";
 "lab_sell_price"="卖价";
 
-"lab_ship_info"="船只信息";
-"lab_sailor_info"="船员信息";
-"lab_item_info"="宝物信息";
-"lab_diary_info"="航海日志";
-"lab_task_info" = "任务资讯";
-
 "lab_set_zero" ="设为0";
 "lab_set_minimum" ="设为最小值";
 "lab_set_maximum" ="设为最大值";
@@ -115,12 +73,6 @@
 "lab_sailor_arrange_first" ="旗舰重视";
 "lab_sailor_arrange_average" ="平均分配";
 "lab_sailor_arrange_minimum" ="必要人数";
-
-"name_shop_owner"="同业公会的总管";
-"name_exchange_owner"="交易所老板";
-"name_shipyard_owner"="造船厂老板";
-"name_dock_sailor" = "码头工人";
-"name_governor" = "总督";
 
 "lab_relative_job" = "相关职务";
 "lab_equip_value" = "效果值";

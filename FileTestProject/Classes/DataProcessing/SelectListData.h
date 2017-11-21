@@ -7,8 +7,6 @@
 
 @property (nonatomic,readonly) NSString *selectId;
 
-@property (nonatomic,readonly) NSString *label;
-
 @property (nonatomic,readonly) NSString *conditionList;
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;

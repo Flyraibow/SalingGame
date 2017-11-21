@@ -6,11 +6,8 @@
 	self = [self init];
 	if (self) {
 		_dialogId = [buffer readString];
-		_npcType = [buffer readInt];
-		_npcParameter = [buffer readInt];
-		_photoId = [buffer readString];
-		_dialogName = [buffer readString];
-		_backgroundId = [buffer readString];
+		_npcType = [buffer readString];
+		_npcParameter = [buffer readString];
 	}
 	return self;
 }

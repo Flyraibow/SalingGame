@@ -43,7 +43,7 @@
         self.visible = NO;
     } else {
         self.visible = YES;
-        [_icon setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"dialogPortrait%@.png", photoId]]];
+        [_icon setSpriteFrame:[CCSpriteFrame frameWithImageNamed:photoId]];
         [_icon setRect:CGRectMake(10, 9, 182, 234)];
     }
 }

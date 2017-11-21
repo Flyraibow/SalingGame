@@ -6,7 +6,6 @@
 	self = [self init];
 	if (self) {
 		_selectId = [buffer readString];
-		_label = [buffer readString];
 		_conditionList = [buffer readString];
 	}
 	return self;

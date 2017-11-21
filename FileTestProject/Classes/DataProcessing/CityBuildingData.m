@@ -7,7 +7,6 @@
 	if (self) {
 		_buildingId = [buffer readString];
 		_position = [buffer readInt];
-		_npcNameId = [buffer readInt];
 		_eventAction = [buffer readString];
 	}
 	return self;

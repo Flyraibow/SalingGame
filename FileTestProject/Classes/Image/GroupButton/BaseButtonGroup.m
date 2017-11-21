@@ -33,7 +33,7 @@
             NSAssert(selectedData, @"selectedData is not set for %@", buttonId);
             if (selectedData) {
                 if ([[GameConditionManager sharedConditionManager] checkConditions:selectedData.conditionList]) {
-                    DefaultButton *button = [DefaultButton buttonWithTitle:getLocalString(selectedData.label)];
+                    DefaultButton *button = [DefaultButton buttonWithTitle:getSelectLab(selectedData.selectId)];
                     button.name = buttonId;
                     [button setTarget:self selector:@selector(clickButton:)];
                     [buttonList addObject:button];

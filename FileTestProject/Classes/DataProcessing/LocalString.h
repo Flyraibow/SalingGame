@@ -10,6 +10,8 @@
 #define LocalString_h
 
 #import <Foundation/Foundation.h>
+
+
 static NSString* getLocalString(NSString *str)
 {
     return NSLocalizedString(str, nil);
@@ -51,6 +53,11 @@ static NSString* getNpcFullName(NSString *npcId)
     }
     return [NSString stringWithFormat:getLocalString(@"npc_full_name_with_middle_name"),
             getNpcFirstName(npcId), middleName, getNpcLastName(npcId)];
+}
+
+static NSString* getBuildingNpcName(NSString *buildingId)
+{
+  return getLocalStringByString(@"building_owner_", buildingId);
 }
 
 static NSString* getCityNpcName(int *npcId)
@@ -131,6 +138,11 @@ static NSString* getCannonDescription(int cannonPower)
 static NSString* getNumber(NSInteger number)
 {
   return [@(number) stringValue];
+}
+
+static NSString *getSelectLab(NSString *selectId)
+{
+  return getLocalStringByString(@"select_lab_", selectId);
 }
 
 #endif /* LocalString_h */

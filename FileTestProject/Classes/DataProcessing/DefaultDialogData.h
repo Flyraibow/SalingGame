@@ -7,15 +7,9 @@
 
 @property (nonatomic,readonly) NSString *dialogId;
 
-@property (nonatomic,readonly) int npcType;
+@property (nonatomic,readonly) NSString *npcType;
 
-@property (nonatomic,readonly) int npcParameter;
-
-@property (nonatomic,readonly) NSString *photoId;
-
-@property (nonatomic,readonly) NSString *dialogName;
-
-@property (nonatomic,readonly) NSString *backgroundId;
+@property (nonatomic,readonly) NSString *npcParameter;
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 

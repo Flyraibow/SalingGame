@@ -20,6 +20,7 @@
 @property (nonatomic, readonly) NSArray<NSString *> *shipList;
 @property (nonatomic, readonly) NSString *belongToGuildId;
 @property (nonatomic) NSString *currentCityId;
+@property (nonatomic) NSString *currentBuildingNo;
 @property (nonatomic, assign) BOOL onTheSea;
 @property (nonatomic, readonly) NSArray<GameNPCData *> *npcList;
 @property (nonatomic, readonly) NSArray<NSString *> *carryShipList; // 拖船
