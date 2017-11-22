@@ -9,6 +9,7 @@ static DataManager *_sharedDataManager;
 	CannonDic *_cannonDic;
 	CityDic *_cityDic;
 	CityBuildingDic *_cityBuildingDic;
+	CitySystemBarDic *_citySystemBarDic;
 	ConditionDic *_conditionDic;
 	DefaultDialogDic *_defaultDialogDic;
 	EventActionDic *_eventActionDic;
@@ -40,6 +41,7 @@ static DataManager *_sharedDataManager;
 		_cannonDic = [[CannonDic alloc] initWithByteBuffer:buffer];
 		_cityDic = [[CityDic alloc] initWithByteBuffer:buffer];
 		_cityBuildingDic = [[CityBuildingDic alloc] initWithByteBuffer:buffer];
+		_citySystemBarDic = [[CitySystemBarDic alloc] initWithByteBuffer:buffer];
 		_conditionDic = [[ConditionDic alloc] initWithByteBuffer:buffer];
 		_defaultDialogDic = [[DefaultDialogDic alloc] initWithByteBuffer:buffer];
 		_eventActionDic = [[EventActionDic alloc] initWithByteBuffer:buffer];
@@ -90,6 +92,10 @@ static DataManager *_sharedDataManager;
 -(CityBuildingDic *)getCityBuildingDic
 {
 	return _cityBuildingDic;
+}
+-(CitySystemBarDic *)getCitySystemBarDic
+{
+	return _citySystemBarDic;
 }
 -(ConditionDic *)getConditionDic
 {

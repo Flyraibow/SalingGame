@@ -926,6 +926,7 @@
 		EC8D310E1FC3E5B900F11A8F /* npc_portrait_5.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8D31091FC3E5B800F11A8F /* npc_portrait_5.png */; };
 		EC8D310F1FC3E5B900F11A8F /* npc_portrait_4.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8D310A1FC3E5B900F11A8F /* npc_portrait_4.png */; };
 		EC8D31101FC3E5B900F11A8F /* npc_portrait_1.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8D310B1FC3E5B900F11A8F /* npc_portrait_1.png */; };
+		EC8D31131FC5545A00F11A8F /* CitySystemBarData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8D31111FC5545A00F11A8F /* CitySystemBarData.m */; };
 		EC93C8AE1EDE5B8C0069391B /* TaskPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC93C8AD1EDE5B8C0069391B /* TaskPanel.m */; };
 		EC9444411DDEE71D004FBEC2 /* ProgressPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC94443F1DDEE71D004FBEC2 /* ProgressPanel.m */; };
 		EC9444441DDEE8DE004FBEC2 /* CitySystemBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9444431DDEE8DE004FBEC2 /* CitySystemBar.m */; };
@@ -2235,6 +2236,8 @@
 		EC8D31091FC3E5B800F11A8F /* npc_portrait_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = npc_portrait_5.png; path = Resources/Graph/Portrait/npc_portrait_5.png; sourceTree = "<group>"; };
 		EC8D310A1FC3E5B900F11A8F /* npc_portrait_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = npc_portrait_4.png; path = Resources/Graph/Portrait/npc_portrait_4.png; sourceTree = "<group>"; };
 		EC8D310B1FC3E5B900F11A8F /* npc_portrait_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = npc_portrait_1.png; path = Resources/Graph/Portrait/npc_portrait_1.png; sourceTree = "<group>"; };
+		EC8D31111FC5545A00F11A8F /* CitySystemBarData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CitySystemBarData.m; path = Classes/DataProcessing/CitySystemBarData.m; sourceTree = "<group>"; };
+		EC8D31121FC5545A00F11A8F /* CitySystemBarData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CitySystemBarData.h; path = Classes/DataProcessing/CitySystemBarData.h; sourceTree = "<group>"; };
 		EC93C8AC1EDE5B8C0069391B /* TaskPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskPanel.h; path = Classes/Image/Panel/TaskPanel.h; sourceTree = "<group>"; };
 		EC93C8AD1EDE5B8C0069391B /* TaskPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskPanel.m; path = Classes/Image/Panel/TaskPanel.m; sourceTree = "<group>"; };
 		EC94443F1DDEE71D004FBEC2 /* ProgressPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressPanel.m; path = Classes/Image/Panel/ProgressPanel.m; sourceTree = "<group>"; };
@@ -3267,6 +3270,8 @@
 		279BAD061C59E9480069EF5D /* DataProcessing */ = {
 			isa = PBXGroup;
 			children = (
+				EC8D31121FC5545A00F11A8F /* CitySystemBarData.h */,
+				EC8D31111FC5545A00F11A8F /* CitySystemBarData.m */,
 				EC4CC7FF1FC2A1960008E7F5 /* NpcInfoData.h */,
 				EC4CC8001FC2A1970008E7F5 /* NpcInfoData.m */,
 				EC0345F51FBD16A9000C371F /* PriceData.h */,
@@ -5149,6 +5154,7 @@
 				279BAB7B1C59E3B70069EF5D /* CCEffect.m in Sources */,
 				270AB1C01C97E8BB00533B47 /* RoleInfoPanel.m in Sources */,
 				2723D4AE1D190043000B1990 /* CannonSelectionPanel.m in Sources */,
+				EC8D31131FC5545A00F11A8F /* CitySystemBarData.m in Sources */,
 				279BAACB1C59E3B60069EF5D /* CCNodeColor.m in Sources */,
 				ECA1FEDE1ECE40B400328542 /* TaskFactory.m in Sources */,
 				279BAAED1C59E3B60069EF5D /* CCParticleSystem.m in Sources */,

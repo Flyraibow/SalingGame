@@ -5,6 +5,7 @@
 #import "CannonData.h"
 #import "CityData.h"
 #import "CityBuildingData.h"
+#import "CitySystemBarData.h"
 #import "ConditionData.h"
 #import "DefaultDialogData.h"
 #import "EventActionData.h"
@@ -42,6 +43,8 @@
 -(CityDic *)getCityDic;
 
 -(CityBuildingDic *)getCityBuildingDic;
+
+-(CitySystemBarDic *)getCitySystemBarDic;
 
 -(ConditionDic *)getConditionDic;
 
