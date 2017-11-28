@@ -215,13 +215,15 @@ static NSString * const kDialogTypeCityNPC = @"city";
   NSString *dialogNameName = @"";
   if ([defaultDialogData.npcType isEqualToString:kDialogTypeCityNPC]) {
     dialogNameName = getBuildingNpcName(defaultDialogData.npcParameter);
-    int cityStyle = [[DataManager sharedDataManager].getCityDic getCityById:[GameDataManager sharedGameData].myGuild.myTeam.currentCityId].cityStyle;
+    int portraitId = [[GameDataManager sharedGameData].cityDic objectForKey:[GameDataManager sharedGameData].myGuild.myTeam.currentCityId].cultureData.portrait;
     NSString *buildingId = [GameDataManager sharedGameData].myGuild.myTeam.currentBuildingNo;
-    if (cityStyle > 0) {
-      dialogPhotoId = [NSString stringWithFormat:@"city_portrait_%@_%d.png", buildingId, cityStyle];
+    if (portraitId > 0) {
+      dialogPhotoId = [NSString stringWithFormat:@"city_portrait_%@_%d.png", buildingId, portraitId];
       if ([UIImage imageNamed:dialogPhotoId] == nil) {
         dialogPhotoId = [NSString stringWithFormat:@"city_portrait_%@.png", buildingId];
       }
+    } else {
+      dialogPhotoId = [NSString stringWithFormat:@"city_portrait_%@.png", buildingId];
     }
   } else if ([defaultDialogData.npcType isEqualToString:kDialogTypeME] ) {
     // 船长自己
@@ -236,7 +238,6 @@ static NSString * const kDialogTypeCityNPC = @"city";
   }
   [self setDialogWithPhotoNo:dialogPhotoId npcName:dialogNameName text:dialogText];
 }
-
 
 - (void)setParent:(CCNode *)parent
 {

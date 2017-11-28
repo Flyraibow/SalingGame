@@ -7,7 +7,7 @@
 
 @property (nonatomic,readonly) NSString *categoryId;
 
-@property (nonatomic,readonly) int updateType;
+@property (nonatomic,readonly) NSString *categoryUpdateId;
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 

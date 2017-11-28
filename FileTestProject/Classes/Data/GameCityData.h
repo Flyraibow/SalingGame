@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CityData.h"
+#import "CultureData.h"
 #import "BaseData.h"
 
 typedef enum : NSUInteger {
@@ -57,7 +58,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) CityStateType cityState;
 @property (nonatomic, readonly) NSSet *buildingSet;
 @property (nonatomic, readonly) NSMutableDictionary *goodsDict;
-@property (nonatomic, readonly) NSMutableDictionary *boostDict;
 @property (nonatomic, readonly) NSMutableDictionary *categoryPriceDict;
 @property (nonatomic, readonly) NSMutableDictionary *goodsPriceDict;
 @property (nonatomic, readonly) NSMutableSet *shipsSet;
@@ -72,6 +72,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSInteger milltaryInvestRecord;
 @property (nonatomic, readonly) NSDictionary *unlockGoodsDict;
 @property (nonatomic, readonly, weak) CityData *cityData;
+@property (nonatomic, readonly, weak) CultureData *cultureData;
 
 @property (nonatomic, readonly) NSArray *cityTasks;
 //////////以下是在表格中可能会用到的property//////////////
@@ -115,6 +116,8 @@ typedef enum : NSUInteger {
 -(int)getBuyPriceForGoodsId:(NSString *)goodsId level:(int)level;
 
 -(void)unlockGoodsByItem:(NSString *)itemId;
+
+-(int)getMyGuildOccupation;
 
 -(NSString *)unblockItemId;
 

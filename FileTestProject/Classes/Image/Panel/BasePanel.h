@@ -12,6 +12,8 @@
 
 + (instancetype)panelWithParameters:(NSString *)parameters;
 
+- (instancetype)initWithoutBackground;
+
 - (instancetype)initWithDataList:(NSArray *)dataList;
 
 @property (copy) void (^completionBlockWithEventId)(NSString *);

@@ -75,11 +75,11 @@ static NSMutableDictionary *_sharedRouteData;
         }
         [routesDict2 setObject:routesList2 forKey:city1];
         
-        RoutePoint *cityPoint1 = [[RoutePoint alloc] initWithPoint:CGPointMake(cityData1.cityPosX, cityData1.cityPosY) type:RouteTypePoints];
-        RoutePoint *cityPoint2 = [[RoutePoint alloc] initWithPoint:CGPointMake(cityData2.cityPosX, cityData2.cityPosY) type:RouteTypePoints];
-        [routesList1 addObject:cityPoint1];
-        [routesList2 addObject:cityPoint2];
-        
+//        RoutePoint *cityPoint1 = [[RoutePoint alloc] initWithPoint:CGPointMake(cityData1.cityPosX, cityData1.cityPosY) type:RouteTypePoints];
+//        RoutePoint *cityPoint2 = [[RoutePoint alloc] initWithPoint:CGPointMake(cityData2.cityPosX, cityData2.cityPosY) type:RouteTypePoints];
+//        [routesList1 addObject:cityPoint1];
+//        [routesList2 addObject:cityPoint2];
+      
         NSString *routes = routeData.routes;
         NSArray *routeList = [routes componentsSeparatedByString:@";"];
         for (int i = 0; i < routeList.count; ++i) {
@@ -95,8 +95,8 @@ static NSMutableDictionary *_sharedRouteData;
                 }
             }
         }
-        [routesList1 addObject:cityPoint2];
-        [routesList2 addObject:cityPoint1];
+//        [routesList1 addObject:cityPoint2];
+//        [routesList2 addObject:cityPoint1];
     }
 }
 

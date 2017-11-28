@@ -6,22 +6,17 @@
 	self = [self init];
 	if (self) {
 		_cityId = [buffer readString];
-		_cityBackground = [buffer readInt];
-		_musicId = [buffer readInt];
+		_cultureId = [buffer readString];
 		_cityType = [buffer readInt];
-		_country = [buffer readInt];
-		_cityStyle = [buffer readInt];
+		_longitude = [buffer readDouble];
+		_latitude = [buffer readDouble];
 		_commerce = [buffer readInt];
 		_milltary = [buffer readInt];
 		_goods = [buffer readString];
-		_unlockGoodsByCommerce = [buffer readString];
-		_goodsBoost = [buffer readString];
 		_buildings = [buffer readString];
 		_ships = [buffer readString];
-		_seaArea = [buffer readInt];
+		_seaAreaId = [buffer readString];
 		_cityScale = [buffer readInt];
-		_cityPosX = [buffer readInt];
-		_cityPosY = [buffer readInt];
 		_unlockGoodsByItem = [buffer readString];
 		_unlockShipsByCommerce = [buffer readString];
 	}

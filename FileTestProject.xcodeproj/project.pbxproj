@@ -78,7 +78,6 @@
 		278F4A4A1C83D31400D724EF /* StoryTriggerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F4A491C83D31400D724EF /* StoryTriggerData.m */; };
 		278F4A4D1C83D65800D724EF /* GameStoryTriggerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F4A4C1C83D65800D724EF /* GameStoryTriggerManager.m */; };
 		278F4A501C8405F900D724EF /* LogicDataData.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F4A4F1C8405F900D724EF /* LogicDataData.m */; };
-		278F4A531C84280E00D724EF /* city_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 278F4A521C84280E00D724EF /* city_1.mp3 */; };
 		278F4A5C1C86BA6E00D724EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F4A5B1C86BA6E00D724EF /* main.m */; };
 		278F4A5F1C86BA6E00D724EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F4A5E1C86BA6E00D724EF /* AppDelegate.m */; };
 		278F4A621C86BA6E00D724EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278F4A611C86BA6E00D724EF /* ViewController.m */; };
@@ -416,9 +415,7 @@
 		27C26DCB1C6DCDC0009EDE53 /* SailScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DCA1C6DCDC0009EDE53 /* SailScene.m */; };
 		27C26DCD1C6DD552009EDE53 /* sailScene.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DCC1C6DD552009EDE53 /* sailScene.png */; };
 		27C26DD01C6FF879009EDE53 /* Map1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DCF1C6FF879009EDE53 /* Map1.jpg */; };
-		27C26DD41C700860009EDE53 /* city1.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DD31C700860009EDE53 /* city1.png */; };
 		27C26DD61C70141E009EDE53 /* BlackFrame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DD51C70141E009EDE53 /* BlackFrame.jpg */; };
-		27C26DD81C70198D009EDE53 /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DD71C70198D009EDE53 /* ship.png */; };
 		27C26DDB1C701BD1009EDE53 /* ShipSailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DDA1C701BD1009EDE53 /* ShipSailModel.m */; };
 		27C26DE01C714A92009EDE53 /* cityInfoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DDF1C714A92009EDE53 /* cityInfoFrame.png */; };
 		27C26DE61C729419009EDE53 /* SeaAreaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DE51C729419009EDE53 /* SeaAreaData.m */; };
@@ -785,7 +782,6 @@
 		27FBB7A01CED8F8F002B106B /* InvestPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB79A1CED8F8F002B106B /* InvestPanel.m */; };
 		27FBB7A11CED8F8F002B106B /* RolePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB79C1CED8F8F002B106B /* RolePanel.m */; };
 		27FBB7A41CED8FA4002B106B /* ShipExchangeUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FBB7A31CED8FA4002B106B /* ShipExchangeUnit.m */; };
-		27FBB7A61CF1660C002B106B /* city_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7A51CF1660C002B106B /* city_2.mp3 */; };
 		27FBB7A91CF171BD002B106B /* CG_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7A71CF171BD002B106B /* CG_4.png */; };
 		27FBB7AA1CF171BD002B106B /* CG_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7A81CF171BD002B106B /* CG_5.png */; };
 		27FBB7AC1CF171D4002B106B /* Portrait_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FBB7AB1CF171D4002B106B /* Portrait_5.png */; };
@@ -933,12 +929,39 @@
 		EC9444471DDEEC97004FBEC2 /* ShipPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9444451DDEEC97004FBEC2 /* ShipPanel.m */; };
 		EC94444A1DE0D730004FBEC2 /* GameDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9444491DE0D730004FBEC2 /* GameDataManager.m */; };
 		EC94444D1DE0D8C0004FBEC2 /* GameDataObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = EC94444C1DE0D8C0004FBEC2 /* GameDataObserver.m */; };
+		EC97D94E1FCD16F100AB7C27 /* SailMapPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC97D94D1FCD16F100AB7C27 /* SailMapPanel.m */; };
+		EC97D9601FCD326400AB7C27 /* ShipMkr_mine.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D9521FCD326300AB7C27 /* ShipMkr_mine.png */; };
+		EC97D9611FCD326400AB7C27 /* CityMkr2_close.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D9531FCD326300AB7C27 /* CityMkr2_close.png */; };
+		EC97D9621FCD326400AB7C27 /* ShipMkr_alliance.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D9541FCD326300AB7C27 /* ShipMkr_alliance.png */; };
+		EC97D9631FCD326400AB7C27 /* ShipMkr_peace.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D9551FCD326300AB7C27 /* ShipMkr_peace.png */; };
+		EC97D9641FCD326400AB7C27 /* ShipMkr_secondary.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D9561FCD326300AB7C27 /* ShipMkr_secondary.png */; };
+		EC97D9651FCD326400AB7C27 /* ShipMkr_friend.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D9571FCD326300AB7C27 /* ShipMkr_friend.png */; };
+		EC97D9661FCD326400AB7C27 /* ShipMkr_pirate.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D9581FCD326300AB7C27 /* ShipMkr_pirate.png */; };
+		EC97D9671FCD326400AB7C27 /* VillageMkr.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D9591FCD326400AB7C27 /* VillageMkr.png */; };
+		EC97D9681FCD326400AB7C27 /* CityMkr2_open.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D95A1FCD326400AB7C27 /* CityMkr2_open.png */; };
+		EC97D9691FCD326400AB7C27 /* CityMkr_popular.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D95B1FCD326400AB7C27 /* CityMkr_popular.png */; };
+		EC97D96A1FCD326400AB7C27 /* CityMkr1_open.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D95C1FCD326400AB7C27 /* CityMkr1_open.png */; };
+		EC97D96B1FCD326400AB7C27 /* CityMkr1_close.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D95D1FCD326400AB7C27 /* CityMkr1_close.png */; };
+		EC97D96C1FCD326400AB7C27 /* ShipMkr_war.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D95E1FCD326400AB7C27 /* ShipMkr_war.png */; };
+		EC97D96D1FCD326400AB7C27 /* ShipMkr_master.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D95F1FCD326400AB7C27 /* ShipMkr_master.png */; };
 		ECA1FEDE1ECE40B400328542 /* TaskFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1FEDD1ECE40B400328542 /* TaskFactory.m */; };
 		ECBADDCF1DD81EC200DC490D /* BaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDCE1DD81EC200DC490D /* BaseScene.m */; };
 		ECBADDD21DD821D600DC490D /* TradePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD11DD821D600DC490D /* TradePanel.m */; };
 		ECBADDD51DD8467800DC490D /* ShipExchangePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD41DD8467800DC490D /* ShipExchangePanel.m */; };
 		ECBADDD81DD84A7B00DC490D /* DockYardPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD61DD84A7B00DC490D /* DockYardPanel.m */; };
 		ECBADDDB1DD861ED00DC490D /* GameTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDDA1DD861ED00DC490D /* GameTimerManager.m */; };
+		ECD700321FCB86740052A389 /* CategoryUpdateData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD700311FCB86740052A389 /* CategoryUpdateData.m */; };
+		ECD700351FCB9D8B0052A389 /* CultureData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD700331FCB9D8A0052A389 /* CultureData.m */; };
+		ECD7003E1FCB9DB50052A389 /* america.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECD700361FCB9DB40052A389 /* america.mp3 */; };
+		ECD7003F1FCB9DB50052A389 /* china.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECD700371FCB9DB40052A389 /* china.mp3 */; };
+		ECD700401FCB9DB50052A389 /* north_europe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECD700381FCB9DB40052A389 /* north_europe.mp3 */; };
+		ECD700411FCB9DB50052A389 /* japan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECD700391FCB9DB40052A389 /* japan.mp3 */; };
+		ECD700421FCB9DB50052A389 /* southeast_asia.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECD7003A1FCB9DB50052A389 /* southeast_asia.mp3 */; };
+		ECD700431FCB9DB50052A389 /* arab.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECD7003B1FCB9DB50052A389 /* arab.mp3 */; };
+		ECD700441FCB9DB50052A389 /* india.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECD7003C1FCB9DB50052A389 /* india.mp3 */; };
+		ECD700451FCB9DB50052A389 /* south_europe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECD7003D1FCB9DB50052A389 /* south_europe.mp3 */; };
+		ECD700471FCBA7A90052A389 /* WorldMap.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD700461FCBA7A90052A389 /* WorldMap.png */; };
+		ECD7004A1FCBA93E0052A389 /* LabelFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD700491FCBA93E0052A389 /* LabelFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1038,7 +1061,6 @@
 		278F4A4C1C83D65800D724EF /* GameStoryTriggerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameStoryTriggerManager.m; path = Classes/Data/GameStoryTriggerManager.m; sourceTree = "<group>"; };
 		278F4A4E1C8405F900D724EF /* LogicDataData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogicDataData.h; path = Classes/DataProcessing/LogicDataData.h; sourceTree = "<group>"; };
 		278F4A4F1C8405F900D724EF /* LogicDataData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogicDataData.m; path = Classes/DataProcessing/LogicDataData.m; sourceTree = "<group>"; };
-		278F4A521C84280E00D724EF /* city_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = city_1.mp3; path = Resources/Sound/BGM/city_1.mp3; sourceTree = "<group>"; };
 		278F4A581C86BA6D00D724EF /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		278F4A5B1C86BA6E00D724EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		278F4A5D1C86BA6E00D724EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1673,9 +1695,7 @@
 		27C26DCA1C6DCDC0009EDE53 /* SailScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SailScene.m; path = Classes/UIScene/SailScene.m; sourceTree = "<group>"; };
 		27C26DCC1C6DD552009EDE53 /* sailScene.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sailScene.png; path = Resources/Graph/Frame/sailScene.png; sourceTree = "<group>"; };
 		27C26DCF1C6FF879009EDE53 /* Map1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Map1.jpg; path = Resources/Graph/Map/Map1.jpg; sourceTree = "<group>"; };
-		27C26DD31C700860009EDE53 /* city1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = city1.png; path = Resources/Graph/Map/city1.png; sourceTree = "<group>"; };
 		27C26DD51C70141E009EDE53 /* BlackFrame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = BlackFrame.jpg; path = Resources/Graph/Frame/BlackFrame.jpg; sourceTree = "<group>"; };
-		27C26DD71C70198D009EDE53 /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship.png; path = Resources/Graph/Map/ship.png; sourceTree = "<group>"; };
 		27C26DD91C701BD1009EDE53 /* ShipSailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipSailModel.h; path = Classes/Image/Icon/ShipSailModel.h; sourceTree = "<group>"; };
 		27C26DDA1C701BD1009EDE53 /* ShipSailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSailModel.m; path = Classes/Image/Icon/ShipSailModel.m; sourceTree = "<group>"; };
 		27C26DDF1C714A92009EDE53 /* cityInfoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cityInfoFrame.png; path = Resources/Graph/Frame/cityInfoFrame.png; sourceTree = "<group>"; };
@@ -2072,7 +2092,6 @@
 		27FBB79C1CED8F8F002B106B /* RolePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RolePanel.m; path = Classes/Image/Panel/RolePanel.m; sourceTree = "<group>"; };
 		27FBB7A21CED8FA4002B106B /* ShipExchangeUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipExchangeUnit.h; path = Classes/Image/Icon/ShipExchangeUnit.h; sourceTree = "<group>"; };
 		27FBB7A31CED8FA4002B106B /* ShipExchangeUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipExchangeUnit.m; path = Classes/Image/Icon/ShipExchangeUnit.m; sourceTree = "<group>"; };
-		27FBB7A51CF1660C002B106B /* city_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = city_2.mp3; path = Resources/Sound/BGM/city_2.mp3; sourceTree = "<group>"; };
 		27FBB7A71CF171BD002B106B /* CG_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CG_4.png; path = Resources/Graph/CG/CG_4.png; sourceTree = "<group>"; };
 		27FBB7A81CF171BD002B106B /* CG_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CG_5.png; path = Resources/Graph/CG/CG_5.png; sourceTree = "<group>"; };
 		27FBB7AB1CF171D4002B106B /* Portrait_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Portrait_5.png; path = Resources/Graph/Portrait/Portrait_5.png; sourceTree = "<group>"; };
@@ -2251,6 +2270,22 @@
 		EC94444B1DE0D8C0004FBEC2 /* GameDataObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameDataObserver.h; path = Classes/Manager/GameDataObserver.h; sourceTree = "<group>"; };
 		EC94444C1DE0D8C0004FBEC2 /* GameDataObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameDataObserver.m; path = Classes/Manager/GameDataObserver.m; sourceTree = "<group>"; };
 		EC94444E1DE16EAF004FBEC2 /* SailSceneGoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SailSceneGoProtocol.h; path = Classes/Protocol/SailSceneGoProtocol.h; sourceTree = "<group>"; };
+		EC97D94C1FCD16F100AB7C27 /* SailMapPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SailMapPanel.h; path = Classes/Image/Panel/SailMapPanel.h; sourceTree = "<group>"; };
+		EC97D94D1FCD16F100AB7C27 /* SailMapPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SailMapPanel.m; path = Classes/Image/Panel/SailMapPanel.m; sourceTree = "<group>"; };
+		EC97D9521FCD326300AB7C27 /* ShipMkr_mine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipMkr_mine.png; path = Resources/Graph/RouteMkr/ShipMkr_mine.png; sourceTree = "<group>"; };
+		EC97D9531FCD326300AB7C27 /* CityMkr2_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CityMkr2_close.png; path = Resources/Graph/RouteMkr/CityMkr2_close.png; sourceTree = "<group>"; };
+		EC97D9541FCD326300AB7C27 /* ShipMkr_alliance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipMkr_alliance.png; path = Resources/Graph/RouteMkr/ShipMkr_alliance.png; sourceTree = "<group>"; };
+		EC97D9551FCD326300AB7C27 /* ShipMkr_peace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipMkr_peace.png; path = Resources/Graph/RouteMkr/ShipMkr_peace.png; sourceTree = "<group>"; };
+		EC97D9561FCD326300AB7C27 /* ShipMkr_secondary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipMkr_secondary.png; path = Resources/Graph/RouteMkr/ShipMkr_secondary.png; sourceTree = "<group>"; };
+		EC97D9571FCD326300AB7C27 /* ShipMkr_friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipMkr_friend.png; path = Resources/Graph/RouteMkr/ShipMkr_friend.png; sourceTree = "<group>"; };
+		EC97D9581FCD326300AB7C27 /* ShipMkr_pirate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipMkr_pirate.png; path = Resources/Graph/RouteMkr/ShipMkr_pirate.png; sourceTree = "<group>"; };
+		EC97D9591FCD326400AB7C27 /* VillageMkr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = VillageMkr.png; path = Resources/Graph/RouteMkr/VillageMkr.png; sourceTree = "<group>"; };
+		EC97D95A1FCD326400AB7C27 /* CityMkr2_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CityMkr2_open.png; path = Resources/Graph/RouteMkr/CityMkr2_open.png; sourceTree = "<group>"; };
+		EC97D95B1FCD326400AB7C27 /* CityMkr_popular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CityMkr_popular.png; path = Resources/Graph/RouteMkr/CityMkr_popular.png; sourceTree = "<group>"; };
+		EC97D95C1FCD326400AB7C27 /* CityMkr1_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CityMkr1_open.png; path = Resources/Graph/RouteMkr/CityMkr1_open.png; sourceTree = "<group>"; };
+		EC97D95D1FCD326400AB7C27 /* CityMkr1_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CityMkr1_close.png; path = Resources/Graph/RouteMkr/CityMkr1_close.png; sourceTree = "<group>"; };
+		EC97D95E1FCD326400AB7C27 /* ShipMkr_war.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipMkr_war.png; path = Resources/Graph/RouteMkr/ShipMkr_war.png; sourceTree = "<group>"; };
+		EC97D95F1FCD326400AB7C27 /* ShipMkr_master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipMkr_master.png; path = Resources/Graph/RouteMkr/ShipMkr_master.png; sourceTree = "<group>"; };
 		ECA1FEDC1ECE40B400328542 /* TaskFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskFactory.h; path = Classes/Factory/TaskFactory.h; sourceTree = "<group>"; };
 		ECA1FEDD1ECE40B400328542 /* TaskFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskFactory.m; path = Classes/Factory/TaskFactory.m; sourceTree = "<group>"; };
 		ECBADDCD1DD81EC200DC490D /* BaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseScene.h; path = Classes/UIScene/BaseScene.h; sourceTree = "<group>"; };
@@ -2263,6 +2298,21 @@
 		ECBADDD71DD84A7B00DC490D /* DockYardPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockYardPanel.h; path = Classes/Image/Panel/DockYardPanel.h; sourceTree = "<group>"; };
 		ECBADDD91DD861ED00DC490D /* GameTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameTimerManager.h; path = Classes/Manager/GameTimerManager.h; sourceTree = "<group>"; };
 		ECBADDDA1DD861ED00DC490D /* GameTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameTimerManager.m; path = Classes/Manager/GameTimerManager.m; sourceTree = "<group>"; };
+		ECD700301FCB86730052A389 /* CategoryUpdateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryUpdateData.h; path = Classes/DataProcessing/CategoryUpdateData.h; sourceTree = "<group>"; };
+		ECD700311FCB86740052A389 /* CategoryUpdateData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryUpdateData.m; path = Classes/DataProcessing/CategoryUpdateData.m; sourceTree = "<group>"; };
+		ECD700331FCB9D8A0052A389 /* CultureData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CultureData.m; path = Classes/DataProcessing/CultureData.m; sourceTree = "<group>"; };
+		ECD700341FCB9D8B0052A389 /* CultureData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CultureData.h; path = Classes/DataProcessing/CultureData.h; sourceTree = "<group>"; };
+		ECD700361FCB9DB40052A389 /* america.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = america.mp3; path = Resources/Sound/BGM/america.mp3; sourceTree = "<group>"; };
+		ECD700371FCB9DB40052A389 /* china.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = china.mp3; path = Resources/Sound/BGM/china.mp3; sourceTree = "<group>"; };
+		ECD700381FCB9DB40052A389 /* north_europe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = north_europe.mp3; path = Resources/Sound/BGM/north_europe.mp3; sourceTree = "<group>"; };
+		ECD700391FCB9DB40052A389 /* japan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = japan.mp3; path = Resources/Sound/BGM/japan.mp3; sourceTree = "<group>"; };
+		ECD7003A1FCB9DB50052A389 /* southeast_asia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = southeast_asia.mp3; path = Resources/Sound/BGM/southeast_asia.mp3; sourceTree = "<group>"; };
+		ECD7003B1FCB9DB50052A389 /* arab.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = arab.mp3; path = Resources/Sound/BGM/arab.mp3; sourceTree = "<group>"; };
+		ECD7003C1FCB9DB50052A389 /* india.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = india.mp3; path = Resources/Sound/BGM/india.mp3; sourceTree = "<group>"; };
+		ECD7003D1FCB9DB50052A389 /* south_europe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = south_europe.mp3; path = Resources/Sound/BGM/south_europe.mp3; sourceTree = "<group>"; };
+		ECD700461FCBA7A90052A389 /* WorldMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WorldMap.png; path = Resources/Graph/Map/WorldMap.png; sourceTree = "<group>"; };
+		ECD700481FCBA93E0052A389 /* LabelFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LabelFrame.h; path = Classes/Image/Panel/LabelFrame.h; sourceTree = "<group>"; };
+		ECD700491FCBA93E0052A389 /* LabelFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LabelFrame.m; path = Classes/Image/Panel/LabelFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2346,9 +2396,15 @@
 		278F4A511C8427EB00D724EF /* BGM */ = {
 			isa = PBXGroup;
 			children = (
+				ECD700361FCB9DB40052A389 /* america.mp3 */,
+				ECD7003B1FCB9DB50052A389 /* arab.mp3 */,
+				ECD700371FCB9DB40052A389 /* china.mp3 */,
+				ECD7003C1FCB9DB50052A389 /* india.mp3 */,
+				ECD700391FCB9DB40052A389 /* japan.mp3 */,
+				ECD700381FCB9DB40052A389 /* north_europe.mp3 */,
+				ECD7003D1FCB9DB50052A389 /* south_europe.mp3 */,
+				ECD7003A1FCB9DB50052A389 /* southeast_asia.mp3 */,
 				27FBB7BA1CF26986002B106B /* lafeier.wav */,
-				27FBB7A51CF1660C002B106B /* city_2.mp3 */,
-				278F4A521C84280E00D724EF /* city_1.mp3 */,
 			);
 			name = BGM;
 			sourceTree = "<group>";
@@ -3270,6 +3326,10 @@
 		279BAD061C59E9480069EF5D /* DataProcessing */ = {
 			isa = PBXGroup;
 			children = (
+				ECD700341FCB9D8B0052A389 /* CultureData.h */,
+				ECD700331FCB9D8A0052A389 /* CultureData.m */,
+				ECD700301FCB86730052A389 /* CategoryUpdateData.h */,
+				ECD700311FCB86740052A389 /* CategoryUpdateData.m */,
 				EC8D31121FC5545A00F11A8F /* CitySystemBarData.h */,
 				EC8D31111FC5545A00F11A8F /* CitySystemBarData.m */,
 				EC4CC7FF1FC2A1960008E7F5 /* NpcInfoData.h */,
@@ -3382,6 +3442,10 @@
 				EC3B89841DCEB83E00482A42 /* BasePanel.m */,
 				EC93C8AC1EDE5B8C0069391B /* TaskPanel.h */,
 				EC93C8AD1EDE5B8C0069391B /* TaskPanel.m */,
+				ECD700481FCBA93E0052A389 /* LabelFrame.h */,
+				ECD700491FCBA93E0052A389 /* LabelFrame.m */,
+				EC97D94C1FCD16F100AB7C27 /* SailMapPanel.h */,
+				EC97D94D1FCD16F100AB7C27 /* SailMapPanel.m */,
 			);
 			name = Panel;
 			sourceTree = "<group>";
@@ -3818,14 +3882,13 @@
 		27C26DCE1C6FF867009EDE53 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				ECD700461FCBA7A90052A389 /* WorldMap.png */,
 				27C26DF31C741A4E009EDE53 /* Map7.jpg */,
 				27C26DF41C741A4E009EDE53 /* Map6.jpg */,
 				27C26DF51C741A4E009EDE53 /* Map5.jpg */,
 				27C26DF61C741A4E009EDE53 /* Map4.jpg */,
 				27C26DF71C741A4E009EDE53 /* Map3.jpg */,
 				27C26DF81C741A4E009EDE53 /* Map2.jpg */,
-				27C26DD71C70198D009EDE53 /* ship.png */,
-				27C26DD31C700860009EDE53 /* city1.png */,
 				27C26DCF1C6FF879009EDE53 /* Map1.jpg */,
 			);
 			name = Map;
@@ -3849,6 +3912,7 @@
 		27E040B01C5C2EA90068171E /* Graph */ = {
 			isa = PBXGroup;
 			children = (
+				EC97D94F1FCD322C00AB7C27 /* RouteMkr */,
 				27FBB7AD1CF171ED002B106B /* Town */,
 				27FBB7851CEAE09C002B106B /* Portrait */,
 				27FBB5A11CD843CF002B106B /* Item */,
@@ -4261,6 +4325,27 @@
 			name = Task;
 			sourceTree = "<group>";
 		};
+		EC97D94F1FCD322C00AB7C27 /* RouteMkr */ = {
+			isa = PBXGroup;
+			children = (
+				EC97D95B1FCD326400AB7C27 /* CityMkr_popular.png */,
+				EC97D95D1FCD326400AB7C27 /* CityMkr1_close.png */,
+				EC97D95C1FCD326400AB7C27 /* CityMkr1_open.png */,
+				EC97D9531FCD326300AB7C27 /* CityMkr2_close.png */,
+				EC97D95A1FCD326400AB7C27 /* CityMkr2_open.png */,
+				EC97D9541FCD326300AB7C27 /* ShipMkr_alliance.png */,
+				EC97D9571FCD326300AB7C27 /* ShipMkr_friend.png */,
+				EC97D95F1FCD326400AB7C27 /* ShipMkr_master.png */,
+				EC97D9521FCD326300AB7C27 /* ShipMkr_mine.png */,
+				EC97D9551FCD326300AB7C27 /* ShipMkr_peace.png */,
+				EC97D9581FCD326300AB7C27 /* ShipMkr_pirate.png */,
+				EC97D9561FCD326300AB7C27 /* ShipMkr_secondary.png */,
+				EC97D95E1FCD326400AB7C27 /* ShipMkr_war.png */,
+				EC97D9591FCD326400AB7C27 /* VillageMkr.png */,
+			);
+			name = RouteMkr;
+			sourceTree = "<group>";
+		};
 		ECA1FEDB1ECE408B00328542 /* Factory */ = {
 			isa = PBXGroup;
 			children = (
@@ -4411,6 +4496,7 @@
 				27FBB6A11CD843F6002B106B /* item48.png in Resources */,
 				27C26F291C82A7C1009EDE53 /* goods20.jpg in Resources */,
 				27FBB70B1CD843F6002B106B /* item154.png in Resources */,
+				ECD700421FCB9DB50052A389 /* southeast_asia.mp3 in Resources */,
 				27ACAB771C9674C4005C0881 /* c000_21-1.png in Resources */,
 				27FBB6891CD843F6002B106B /* item24.png in Resources */,
 				27C26F381C82A7C1009EDE53 /* goods6.jpg in Resources */,
@@ -4438,6 +4524,7 @@
 				27FBB69D1CD843F6002B106B /* item44.png in Resources */,
 				27C26EE71C82A7C1009EDE53 /* goods86.jpg in Resources */,
 				27FBB7FC1CF2700A002B106B /* c007_21-1.png in Resources */,
+				EC97D9651FCD326400AB7C27 /* ShipMkr_friend.png in Resources */,
 				270AB2191CC75C9000533B47 /* Shipdeck8_5.png in Resources */,
 				27FBB7171CD843F6002B106B /* item166.png in Resources */,
 				27ACAB7F1C9674C4005C0881 /* c008_8-1.png in Resources */,
@@ -4459,6 +4546,7 @@
 				27FBB6E01CD843F6002B106B /* item111.png in Resources */,
 				27C26F051C82A7C1009EDE53 /* goods56.jpg in Resources */,
 				27FBB6731CD843F6002B106B /* item2.png in Resources */,
+				EC97D9611FCD326400AB7C27 /* CityMkr2_close.png in Resources */,
 				27FBB6881CD843F6002B106B /* item23.png in Resources */,
 				270AB1D01C9BCE5300533B47 /* duelDeck.png in Resources */,
 				27C26F241C82A7C1009EDE53 /* goods25.jpg in Resources */,
@@ -4499,6 +4587,7 @@
 				270AB2341CC75D3400533B47 /* 27-1.png in Resources */,
 				27FBB6E31CD843F6002B106B /* item114.png in Resources */,
 				27FBB6D61CD843F6002B106B /* item101.png in Resources */,
+				ECD7003E1FCB9DB50052A389 /* america.mp3 in Resources */,
 				27FBB70D1CD843F6002B106B /* item156.png in Resources */,
 				27ACAB7A1C9674C4005C0881 /* c008_3-1.png in Resources */,
 				27FBB80D1CF2700A002B106B /* c009_17-1.png in Resources */,
@@ -4517,12 +4606,14 @@
 				27FBB70C1CD843F6002B106B /* item155.png in Resources */,
 				27FBB6761CD843F6002B106B /* item5.png in Resources */,
 				27C26F321C82A7C1009EDE53 /* goods12.jpg in Resources */,
+				ECD700451FCB9DB50052A389 /* south_europe.mp3 in Resources */,
 				27FBB6A41CD843F6002B106B /* item51.png in Resources */,
 				27FBB6C21CD843F6002B106B /* item81.png in Resources */,
 				27C26F2E1C82A7C1009EDE53 /* goods16.jpg in Resources */,
 				27C26F131C82A7C1009EDE53 /* goods42.jpg in Resources */,
 				27C26F2F1C82A7C1009EDE53 /* goods15.jpg in Resources */,
 				27C26CDF1C5F48B6009EDE53 /* city_building_10.png in Resources */,
+				ECD700441FCB9DB50052A389 /* india.mp3 in Resources */,
 				27C26EFC1C82A7C1009EDE53 /* goods65.jpg in Resources */,
 				27FBB7EE1CF2700A002B106B /* c007_7-1.png in Resources */,
 				EC4589E21DA1EB8400B833A9 /* ship1.png in Resources */,
@@ -4531,6 +4622,7 @@
 				27ACAB7C1C9674C4005C0881 /* c008_5-1.png in Resources */,
 				27FBB6C71CD843F6002B106B /* item86.png in Resources */,
 				27C26D531C6470BC009EDE53 /* ShipFrame.png in Resources */,
+				EC97D9631FCD326400AB7C27 /* ShipMkr_peace.png in Resources */,
 				27C26F191C82A7C1009EDE53 /* goods36.jpg in Resources */,
 				27C26F1A1C82A7C1009EDE53 /* goods35.jpg in Resources */,
 				279BAA491C59E3B50069EF5D /* Icon@2x.png in Resources */,
@@ -4549,6 +4641,7 @@
 				27FBB6B91CD843F6002B106B /* item72.png in Resources */,
 				27FBB7221CD843F6002B106B /* item177.png in Resources */,
 				27FBB6931CD843F6002B106B /* item34.png in Resources */,
+				EC97D9621FCD326400AB7C27 /* ShipMkr_alliance.png in Resources */,
 				27C26DAF1C6BEF1C009EDE53 /* CG_Bg.png in Resources */,
 				27ACAB6F1C9674C4005C0881 /* c000_13-1.png in Resources */,
 				27FBB80A1CF2700A002B106B /* c009_14-1.png in Resources */,
@@ -4667,6 +4760,7 @@
 				27FBB6DE1CD843F6002B106B /* item109.png in Resources */,
 				27C26F0F1C82A7C1009EDE53 /* goods46.jpg in Resources */,
 				EC4589EB1DA1EB8400B833A9 /* ship10.png in Resources */,
+				EC97D96B1FCD326400AB7C27 /* CityMkr1_close.png in Resources */,
 				270AB1C21C97EA0500533B47 /* RoleInfoPanel.jpg in Resources */,
 				270AB20B1CC75C9000533B47 /* Shipdeck2_3.png in Resources */,
 				27FBB6C01CD843F6002B106B /* item79.png in Resources */,
@@ -4683,6 +4777,7 @@
 				27FBB6741CD843F6002B106B /* item3.png in Resources */,
 				27C26ED81C82A7C1009EDE53 /* goods101.jpg in Resources */,
 				27FBB71B1CD843F6002B106B /* item170.png in Resources */,
+				EC97D9691FCD326400AB7C27 /* CityMkr_popular.png in Resources */,
 				27FBB6CC1CD843F6002B106B /* item91.png in Resources */,
 				27FBB6E21CD843F6002B106B /* item113.png in Resources */,
 				27C26F341C82A7C1009EDE53 /* goods10.jpg in Resources */,
@@ -4698,6 +4793,7 @@
 				27FBB8051CF2700A002B106B /* c009_9-1.png in Resources */,
 				27FBB6911CD843F6002B106B /* item32.png in Resources */,
 				27FBB7FA1CF2700A002B106B /* c007_19-1.png in Resources */,
+				EC97D96C1FCD326400AB7C27 /* ShipMkr_war.png in Resources */,
 				27FBB6A81CD843F6002B106B /* item55.png in Resources */,
 				27FBB6801CD843F6002B106B /* item15.png in Resources */,
 				27FBB6751CD843F6002B106B /* item4.png in Resources */,
@@ -4737,6 +4833,7 @@
 				27FBB6D81CD843F6002B106B /* item103.png in Resources */,
 				27FBB7E81CF2700A002B106B /* c007_1-1.png in Resources */,
 				279BAA441C59E3B50069EF5D /* Default-Landscape~ipad.png in Resources */,
+				ECD700431FCB9DB50052A389 /* arab.mp3 in Resources */,
 				EC4589E81DA1EB8400B833A9 /* ship7.png in Resources */,
 				270AB2351CC75D3400533B47 /* 23-1.png in Resources */,
 				27C26E471C8100D0009EDE53 /* seaWave.m4v in Resources */,
@@ -4752,6 +4849,7 @@
 				27FBB7AA1CF171BD002B106B /* CG_5.png in Resources */,
 				279BAA571C59E3B50069EF5D /* Icon-Small-50.png in Resources */,
 				27ACABA01C9674C4005C0881 /* c045_20-1.png in Resources */,
+				EC97D9681FCD326400AB7C27 /* CityMkr2_open.png in Resources */,
 				27FBB85C1D0FB79F002B106B /* duelDeck1.png in Resources */,
 				27FBB6DC1CD843F6002B106B /* item107.png in Resources */,
 				27FBB6A01CD843F6002B106B /* item47.png in Resources */,
@@ -4812,18 +4910,22 @@
 				27FBB6BA1CD843F6002B106B /* item73.png in Resources */,
 				27FBB7F81CF2700A002B106B /* c007_17-1.png in Resources */,
 				27FBB7B71CF256C3002B106B /* Town_2.png in Resources */,
+				EC97D9641FCD326400AB7C27 /* ShipMkr_secondary.png in Resources */,
+				EC97D9661FCD326400AB7C27 /* ShipMkr_pirate.png in Resources */,
 				27C26D701C658503009EDE53 /* bg_trade.png in Resources */,
 				27C26F211C82A7C1009EDE53 /* goods28.jpg in Resources */,
 				27FBB6901CD843F6002B106B /* item31.png in Resources */,
 				27FBB7AC1CF171D4002B106B /* Portrait_5.png in Resources */,
 				27C26D7D1C65BFFE009EDE53 /* goods1.jpg in Resources */,
 				EC4589F81DA1EB8400B833A9 /* ship23.png in Resources */,
+				ECD7003F1FCB9DB50052A389 /* china.mp3 in Resources */,
 				27C26EEF1C82A7C1009EDE53 /* goods78.jpg in Resources */,
 				27FBB8151CF27142002B106B /* Town_3.png in Resources */,
 				27FBB69A1CD843F6002B106B /* item41.png in Resources */,
 				27FBB8001CF2700A002B106B /* c009_4-1.png in Resources */,
 				27ACAB961C9674C4005C0881 /* c045_10-1.png in Resources */,
 				27FBB73B1CD843F6002B106B /* item202.png in Resources */,
+				EC97D9671FCD326400AB7C27 /* VillageMkr.png in Resources */,
 				27C26D761C658928009EDE53 /* goodsIconFrame.png in Resources */,
 				27FBB7EF1CF2700A002B106B /* c007_8-1.png in Resources */,
 				279BAA4B1C59E3B50069EF5D /* Icon-72.png in Resources */,
@@ -4839,6 +4941,7 @@
 				EC4589EA1DA1EB8400B833A9 /* ship9.png in Resources */,
 				27C26DFB1C741A4E009EDE53 /* Map5.jpg in Resources */,
 				27C26EFB1C82A7C1009EDE53 /* goods66.jpg in Resources */,
+				EC97D96A1FCD326400AB7C27 /* CityMkr1_open.png in Resources */,
 				EC4589FC1DA1EB8400B833A9 /* ship27.png in Resources */,
 				27FBB7101CD843F6002B106B /* item159.png in Resources */,
 				27FBB7ED1CF2700A002B106B /* c007_6-1.png in Resources */,
@@ -4858,19 +4961,19 @@
 				27FBB72A1CD843F6002B106B /* item185.png in Resources */,
 				27FBB6EE1CD843F6002B106B /* item125.png in Resources */,
 				27C26CDA1C5F48B6009EDE53 /* city_building_5.png in Resources */,
+				ECD700411FCB9DB50052A389 /* japan.mp3 in Resources */,
 				27FBB6D71CD843F6002B106B /* item102.png in Resources */,
 				EC4589FF1DA1EB8400B833A9 /* ship30.png in Resources */,
-				278F4A531C84280E00D724EF /* city_1.mp3 in Resources */,
 				27C26EFD1C82A7C1009EDE53 /* goods64.jpg in Resources */,
 				27C26F1B1C82A7C1009EDE53 /* goods34.jpg in Resources */,
 				279BAB491C59E3B70069EF5D /* CCEffectRenderer.h in Resources */,
 				27C26F3A1C82A7C1009EDE53 /* goods5.jpg in Resources */,
 				27C26CF01C604E61009EDE53 /* invest.png in Resources */,
+				EC97D9601FCD326400AB7C27 /* ShipMkr_mine.png in Resources */,
 				27FBB6E11CD843F6002B106B /* item112.png in Resources */,
 				2723D4BD1D19034F000B1990 /* cannon3.png in Resources */,
 				27ACAB881C9674C4005C0881 /* c008_17-1.png in Resources */,
 				27FBB8191D000054002B106B /* CG_7.png in Resources */,
-				27FBB7A61CF1660C002B106B /* city_2.mp3 in Resources */,
 				27C26F041C82A7C1009EDE53 /* goods57.jpg in Resources */,
 				270AB2101CC75C9000533B47 /* Shipdeck7_2.png in Resources */,
 				27FBB71F1CD843F6002B106B /* item174.png in Resources */,
@@ -4883,7 +4986,6 @@
 				27FBB7021CD843F6002B106B /* item145.png in Resources */,
 				27ACAB6B1C9674C4005C0881 /* c000_9-1.png in Resources */,
 				27ACAB051C94FC63005C0881 /* InfoBox.jpg in Resources */,
-				27C26DD41C700860009EDE53 /* city1.png in Resources */,
 				270AB22A1CC75D3400533B47 /* 38-1.png in Resources */,
 				27FBB7201CD843F6002B106B /* item175.png in Resources */,
 				EC4589F91DA1EB8400B833A9 /* ship24.png in Resources */,
@@ -4922,11 +5024,13 @@
 				27FBB7331CD843F6002B106B /* item194.png in Resources */,
 				27ACAB6A1C9674C4005C0881 /* c000_8-1.png in Resources */,
 				27C26F141C82A7C1009EDE53 /* goods41.jpg in Resources */,
+				ECD700401FCB9DB50052A389 /* north_europe.mp3 in Resources */,
 				27ACAB931C9674C4005C0881 /* c045_7-1.png in Resources */,
 				27FBB6DA1CD843F6002B106B /* item105.png in Resources */,
 				27FBB6FD1CD843F6002B106B /* item140.png in Resources */,
 				27FBB6981CD843F6002B106B /* item39.png in Resources */,
 				27C26F081C82A7C1009EDE53 /* goods53.jpg in Resources */,
+				ECD700471FCBA7A90052A389 /* WorldMap.png in Resources */,
 				270AB2061CC75C9000533B47 /* Shipdeck6.png in Resources */,
 				279BAA5D1C59E3B50069EF5D /* Icon-Spotlight-iOS7.png in Resources */,
 				EC4589E61DA1EB8400B833A9 /* ship5.png in Resources */,
@@ -4938,6 +5042,7 @@
 				27FBB6E91CD843F6002B106B /* item120.png in Resources */,
 				27FBB6F41CD843F6002B106B /* item131.png in Resources */,
 				27C26D5B1C647B01009EDE53 /* leftArrowButton.png in Resources */,
+				EC97D96D1FCD326400AB7C27 /* ShipMkr_master.png in Resources */,
 				27C26F171C82A7C1009EDE53 /* goods38.jpg in Resources */,
 				270AB22C1CC75D3400533B47 /* Shipdeck1_1.png in Resources */,
 				27FBB77E1CE309B7002B106B /* upArrowButton.png in Resources */,
@@ -5030,7 +5135,6 @@
 				27FBB6B31CD843F6002B106B /* item66.png in Resources */,
 				27FBB7301CD843F6002B106B /* item191.png in Resources */,
 				27FBB6D91CD843F6002B106B /* item104.png in Resources */,
-				27C26DD81C70198D009EDE53 /* ship.png in Resources */,
 				27FBB7271CD843F6002B106B /* item182.png in Resources */,
 				27C26EF81C82A7C1009EDE53 /* goods69.jpg in Resources */,
 				27C26EF61C82A7C1009EDE53 /* goods71.jpg in Resources */,
@@ -5199,6 +5303,7 @@
 				27FBB7441CD844A1002B106B /* ItemData.m in Sources */,
 				278F4A4A1C83D31400D724EF /* StoryTriggerData.m in Sources */,
 				2723D4AB1D18FD4A000B1990 /* PopUpFrame.m in Sources */,
+				ECD700351FCB9D8B0052A389 /* CultureData.m in Sources */,
 				279BAC161C59E3B80069EF5D /* CCBsequence.m in Sources */,
 				276EB5771ED4D67C00C5CC60 /* CityTaskButtonGroup.m in Sources */,
 				279BAADB1C59E3B60069EF5D /* CCNode.m in Sources */,
@@ -5232,11 +5337,13 @@
 				279BAB3A1C59E3B70069EF5D /* CCTiledMapObjectGroup.m in Sources */,
 				278F4A4D1C83D65800D724EF /* GameStoryTriggerManager.m in Sources */,
 				EC9444471DDEEC97004FBEC2 /* ShipPanel.m in Sources */,
+				ECD700321FCB86740052A389 /* CategoryUpdateData.m in Sources */,
 				279BABDC1C59E3B80069EF5D /* NSEvent+CC.m in Sources */,
 				279BAAA31C59E3B60069EF5D /* CCActionProgressTimer.m in Sources */,
 				279BABF51C59E3B80069EF5D /* CGPointExtension.m in Sources */,
 				ECBADDCF1DD81EC200DC490D /* BaseScene.m in Sources */,
 				27ACAAF91C8EC5B0005C0881 /* CityBuildingData.m in Sources */,
+				ECD7004A1FCBA93E0052A389 /* LabelFrame.m in Sources */,
 				279BAAC81C59E3B60069EF5D /* CCLabelTTF.m in Sources */,
 				27C26D271C63312E009EDE53 /* BaseButtonGroup.m in Sources */,
 				27C26D8C1C695291009EDE53 /* NpcData.m in Sources */,
@@ -5262,6 +5369,7 @@
 				EC85DBED1DCB021400613F44 /* ConditionData.m in Sources */,
 				279BABC61C59E3B80069EF5D /* CCDirectorIOS.m in Sources */,
 				279BAA881C59E3B60069EF5D /* CCShader.m in Sources */,
+				EC97D94E1FCD16F100AB7C27 /* SailMapPanel.m in Sources */,
 				279BABF21C59E3B80069EF5D /* CCVertex.m in Sources */,
 				279BABF81C59E3B80069EF5D /* NSAttributedString+CCAdditions.m in Sources */,
 				279BAAA61C59E3B60069EF5D /* CCActionTween.m in Sources */,

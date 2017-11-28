@@ -409,7 +409,7 @@ typedef enum : NSUInteger {
             NSString *logicId = storyData.parameter1;
             if ([storyData.parameter2 intValue] == -1) {
               // remove logic
-              [[GameDataManager sharedGameData] removeLogicDataWithLogicId:logicId];
+              NSAssert(NO, @"need write the logic");
             } else {
               NSString *value;
               if ([storyData.parameter4 intValue] == 1) {

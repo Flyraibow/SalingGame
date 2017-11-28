@@ -50,8 +50,8 @@
     NSString *thePath = [[NSBundle mainBundle] pathForResource: @"game" ofType: @"dat"];
     NSData *myData = [NSData dataWithContentsOfFile:thePath];
     DataManager *dataManager = [DataManager dataManagerWithData:myData];
-    [GameRouteData initWithRouteDic:dataManager.getRouteDic];
-    
+//    [GameRouteData initWithRouteDic:dataManager.getRouteDic];
+  
     [self schedule:@selector(loadComplete) interval:0.2f];
     
     // done

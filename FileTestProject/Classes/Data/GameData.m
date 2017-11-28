@@ -17,6 +17,7 @@
 #import "OALSimpleAudio.h"
 #import "GameValueManager.h"
 #import "GameDataObserver.h"
+#import "GameTeamData.h"
 
 @implementation  GameDialogData
 @end
@@ -70,15 +71,20 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
   _cityDic = [NSMutableDictionary new];
   _itemDic = [NSMutableDictionary new];
   _shipDic = [NSMutableDictionary new];
+  _teamDic = [NSMutableDictionary new];
 }
 
 -(void)initGuildData
 {
+  // todo: need rewrite it.
   _guildDic = [NSMutableDictionary new];
   NSDictionary *guildDic = [[DataManager sharedDataManager].getGuildDic getDictionary];
   for (id key in guildDic) {
     GameGuildData *guildData = [[GameGuildData alloc] initWithGuildData:[guildDic objectForKey:key]];
     [(NSMutableDictionary *)_guildDic setObject:guildData forKey:key];
+    for (GameTeamData *teamData in guildData.teamList) {
+      ((NSMutableDictionary *)_teamDic)[teamData.teamId] = teamData;
+    }
   }
   _storyLockData = [NSMutableDictionary new];
   NSDictionary *storyTriggerDic = [[[DataManager sharedDataManager] getStoryTriggerDic] getDictionary];
@@ -118,6 +124,7 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
   } else {
     NSAssert(false, @"undefined logic");
   }
+  return nil;
 }
 
 -(void)setSpecialLogical:(NSString *)logicName parameter2:(NSString *)parameter2 parameter3:(NSString *)parameter3 parameter4:(NSString *)parameter4
@@ -223,7 +230,11 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
       gameItemData.itemData = itemDic[itemNo];
     }
     self.currentMusic = [aDecoder decodeObjectForKey:GameMuiscData];
-    
+    for (GameGuildData *guildData in _guildDic) {
+      for (GameTeamData *teamData in guildData.teamList) {
+        ((NSMutableDictionary *)_teamDic)[teamData.teamId] = teamData;
+      }
+    }
   }
   return self;
 }
@@ -448,10 +459,10 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
       continue;
     }
     GameCityData *city = [_cityDic objectForKey:cityId];
-    if ((condition & CityNear) && city.cityData.seaArea != cityData.cityData.seaArea) {
+    if ((condition & CityNear) && ![city.cityData.seaAreaId isEqualToString:cityData.cityData.seaAreaId]) {
       continue;
     }
-    if ((condition & CityFaraway) && city.cityData.seaArea == cityData.cityData.seaArea) {
+    if ((condition & CityFaraway) && [city.cityData.seaAreaId isEqualToString:cityData.cityData.seaAreaId]) {
       continue;
     }
     if ((condition & CityCapital) && city.cityData.cityScale != CityScaleTypeBigCity) {

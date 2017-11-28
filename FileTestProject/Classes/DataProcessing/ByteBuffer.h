@@ -26,5 +26,6 @@
 -(double)readDouble;
 -(NSString *)readString;
 -(NSMutableDictionary *)readMatrix;
+-(NSSet *)readSet;
 
 @end

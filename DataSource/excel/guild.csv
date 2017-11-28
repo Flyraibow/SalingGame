@@ -1,1 +1,1 @@
-﻿guildId,guildName,cityList,occupationList,teamList,money,leaderIdid,-,string,string,string,long,string1,海雷丁军,1;2;3,20;30;20,1,3000000,12,卡斯特路商会,67;63,100;20,2,0,2
+﻿guildId	guildName	cityList	occupationList	teamList	money	leaderIdid	-	string	string	string	long	string1	海雷丁军	1;2;3	20;30;20	1	3000000	12	卡斯特路商会	67;63	20;20	2	0	2

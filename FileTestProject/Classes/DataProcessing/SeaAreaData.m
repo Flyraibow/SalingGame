@@ -7,12 +7,22 @@
 	if (self) {
 		_areaId = [buffer readString];
 		_left = [buffer readString];
+		_rightUp = [buffer readString];
 		_right = [buffer readString];
+		_rightDown = [buffer readString];
 		_up = [buffer readString];
 		_down = [buffer readString];
-		_scale = [buffer readDouble];
+		_x1 = [buffer readDouble];
+		_y1 = [buffer readDouble];
+		_x2 = [buffer readDouble];
+		_y2 = [buffer readDouble];
 	}
 	return self;
+}
+-(NSString *)areaLabel
+{
+	NSString *string = [NSString stringWithFormat:@"area_name_%@",_areaId];
+	return NSLocalizedString(string, nil);
 }
 
 @end

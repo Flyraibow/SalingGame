@@ -24,6 +24,7 @@
 @property (nonatomic, assign) BOOL onTheSea;
 @property (nonatomic, readonly) NSArray<GameNPCData *> *npcList;
 @property (nonatomic, readonly) NSArray<NSString *> *carryShipList; // 拖船
+@property (nonatomic, readonly) CGPoint pos;
 
 @property (nonatomic, readonly) NSInteger shipNumber;
 @property (nonatomic, readonly) NSInteger haveSailors;
@@ -56,5 +57,7 @@
 -(NSMutableArray<GameShipData *> *)carryShipDataList;
 
 -(CGFloat)getTeamSpeed;
+
+-(NSString *)relationToGuild:(NSString *)guildId;
 
 @end

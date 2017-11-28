@@ -1,3 +1,8 @@
+
+"lab_my_money" = "所持金";
+"lab_whole_world" = "全世界";
+"lab_goto_world" = "去全世界";
+
 "ship_price" = "%d金币";
 "ship_buy" = "购买";
 "ship_sell" = "售出";
@@ -87,7 +92,6 @@
 "lab_agile" = "敏捷";
 "lab_hp" = "生命值";
 
-"lab_ship_modify_my_money" = "所持金";
 "lab_ship_modify_spend_money" = "费用";
 "lab_ship_modify_spend_day" = "%d日";
 "btn_ship_modify_change_name" = "变更船名";

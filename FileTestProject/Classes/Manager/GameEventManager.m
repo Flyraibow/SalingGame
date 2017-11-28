@@ -37,6 +37,7 @@ static GameEventManager *_sharedEventManager;
   NSArray *_tempDialogContent;
   CCNode *_transCover;
   __weak DialogPanel *_dialog;
+  NSString *_cacheEventId;
 }
 
 + (void)clearCurrentGame
@@ -175,11 +176,6 @@ static GameEventManager *_sharedEventManager;
       [[CCDirector sharedDirector] presentScene:[[MenuPage alloc] init]];
       // 清除当前所有数据
       [GameDataManager clearCurrentGame];
-      [GameConditionManager clearCurrentGame];
-      [GameValueManager clearCurrentGame];
-      [GameTimerManager clearCurrentGame];
-      [GameDataObserver clearCurrentGame];
-      [GameEventManager clearCurrentGame];
     } else if ([eventData.eventType isEqualToString:@"cityTask"]) {
       // 当前城市任务
       GameCityData *cityData = [[GameDataManager sharedGameData].cityDic objectForKey:[GameDataManager sharedGameData].myGuild.myTeam.currentCityId];
@@ -194,6 +190,14 @@ static GameEventManager *_sharedEventManager;
       };
       [_viewStack addObject:buttonGroup];
       [scene addChild:buttonGroup];
+    } else if ([eventData.eventType isEqualToString:@"saveEvent"]) {
+      _cacheEventId = eventId;
+      _eventList = [eventData.parameter componentsSeparatedByString:@";"];
+      _currentEventIndex = 0;
+      [self _startEventList];
+    } else if ([eventData.eventType isEqualToString:@"loadEvent"]) {
+      NSAssert(_cacheEventId != nil, @"cached event cannot be nil");
+      [self startEventId:_cacheEventId];
     }
   } else if (eventId.length == 0) {
     [self _startEventList];

@@ -127,7 +127,7 @@ CannonSelectionPanelDelegate>
     }
     if (_shipSceneType == DeckShipSceneModify) {
       _currentCannonId = _shipData.cannonId;
-      _myMoneylPanel = [[MoneyPanel alloc] initWithText:getLocalString(@"lab_ship_modify_my_money")];
+      _myMoneylPanel = [[MoneyPanel alloc] init];
       _myMoneylPanel.anchorPoint = ccp(0, 0);
       _myMoneylPanel.positionType = CCPositionTypeNormalized;
       _myMoneylPanel.position = ccp(0.01, 0.01);

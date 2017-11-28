@@ -51,17 +51,7 @@ static NSString* const CityTaskList = @"CityTaskList";
     _shipsSet = [NSMutableSet setWithArray:[cityData.ships componentsSeparatedByString:@";"]];
     _commerceValue = cityData.commerce;
     _milltaryValue = cityData.milltary;
-    
-    _boostDict = [NSMutableDictionary new];
-    NSArray *boostList = [cityData.goodsBoost componentsSeparatedByString:@";"];
-    for (int i = 0; i < boostList.count; ++i) {
-      NSString *boost = [boostList objectAtIndex:i];
-      if (boost.length > 0) {
-        NSArray *boostPair = [boost componentsSeparatedByString:@":"];
-        [_boostDict setObject:boostPair[1] forKey:boostPair[0]];
-      }
-    }
-    
+
     NSArray *goodsList = [cityData.goods componentsSeparatedByString:@";"];
     _goodsDict = [NSMutableDictionary new];
     for (int i = 0; i < goodsList.count; ++i) {
@@ -89,6 +79,7 @@ static NSString* const CityTaskList = @"CityTaskList";
     _categoryPriceDict = [NSMutableDictionary new];
     _goodsPriceDict = [NSMutableDictionary new];
     _taskGeneratedDate = 0;
+    _cultureData = [[[DataManager sharedDataManager] getCultureDic] getCultureById:_cityData.cultureId];
   }
   return self;
 }
@@ -102,7 +93,6 @@ static NSString* const CityTaskList = @"CityTaskList";
     _buildingSet = [aDecoder decodeObjectForKey:CityBuildingList];
     _goodsDict = [aDecoder decodeObjectForKey:CitySaleList];
     _shipsSet = [aDecoder decodeObjectForKey:CityShipsList];
-    _boostDict = [aDecoder decodeObjectForKey:CityBoostList];
     _commerceValue = [aDecoder decodeIntForKey:CityCommerceValue];
     _milltaryValue = [aDecoder decodeIntForKey:CityMilltaryValue];
     _transactionRecordDict = [aDecoder decodeObjectForKey:CityTransactionRecord];
@@ -115,6 +105,7 @@ static NSString* const CityTaskList = @"CityTaskList";
     _taskGeneratedDate = [aDecoder decodeIntegerForKey:CityTaskGenerateDate];
     _cityTasks = [aDecoder decodeObjectForKey:CityTaskList];
     _cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
+    _cultureData = [[[DataManager sharedDataManager] getCultureDic] getCultureById:_cityData.cultureId];
   }
   return self;
 }
@@ -126,7 +117,6 @@ static NSString* const CityTaskList = @"CityTaskList";
   [aCoder encodeObject:_buildingSet forKey:CityBuildingList];
   [aCoder encodeObject:_goodsDict forKey:CitySaleList];
   [aCoder encodeObject:_shipsSet forKey:CityShipsList];
-  [aCoder encodeObject:_boostDict forKey:CityBoostList];
   [aCoder encodeInt:_commerceValue forKey:CityCommerceValue];
   [aCoder encodeInt:_milltaryValue forKey:CityMilltaryValue];
   [aCoder encodeObject:_transactionRecordDict forKey:CityTransactionRecord];
@@ -149,9 +139,6 @@ static NSString* const CityTaskList = @"CityTaskList";
 {
   GoodsData *goodsData = [[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId];
   int maxNum = goodsData.maxNum * _commerceValue / CityMaxCommerce;
-  if ([_boostDict objectForKey:goodsId] != nil) {
-    maxNum *= (100 + [[_boostDict objectForKey:goodsId] intValue]) / 100.0;
-  }
   return maxNum;
 }
 
@@ -171,15 +158,6 @@ static NSString* const CityTaskList = @"CityTaskList";
 {
   int maxNum = [self getGoodsNum:goodsNo];
   [_goodsDict setObject:@(maxNum) forKey:goodsNo];
-}
-
--(void)modifyBoost:(NSString *)goodsNo value:(int)boostValue
-{
-  if (boostValue == 0) {
-    [_boostDict removeObjectForKey:goodsNo];
-  } else {
-    [_boostDict setObject:@(boostValue) forKey:goodsNo];
-  }
 }
 
 -(void)addShips:(NSString *)shipNo
@@ -315,6 +293,11 @@ static NSString* const CityTaskList = @"CityTaskList";
   [[GameDataObserver sharedObserver] sendListenerForKey:LISTENNING_KEY_CITY_OCCUPATION data:_cityNo];
 }
 
+-(int)getMyGuildOccupation
+{
+  return [_guildOccupation[[GameDataManager sharedGameData].myGuild.guildId] intValue];
+}
+
 -(void)addTransactionRecord:(NSString *)guildId buyRecord:(NSDictionary *)buyRecords sellRecord:(NSDictionary *)sellRecords
 {
   NSMutableDictionary *record = [_transactionRecordDict objectForKey:guildId];
@@ -380,23 +363,9 @@ static NSString* const CityTaskList = @"CityTaskList";
       int maxNum = [self getGoodsNum:goodsId];
       [_goodsDict setObject:@(maxNum) forKey:goodsId];
     }
-    //添加解锁货物
-    CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
-    NSArray *arr = [cityData.unlockGoodsByCommerce componentsSeparatedByString:@";"];
-    for (NSString *str in arr) {
-      if (str.length > 0) {
-        NSString *goodsId = [str componentsSeparatedByString:@"_"][0];
-        if ([_goodsDict objectForKey:goodsId] == nil) {
-          int value = [[str componentsSeparatedByString:@"_"][1] intValue];
-          if (_commerceValue >= value) {
-            int maxNum = [self getGoodsNum:goodsId];
-            [_goodsDict setObject:@(maxNum) forKey:goodsId];
-          }
-        }
-      }
-    }
     // 解锁新的船只
-    arr = [cityData.unlockShipsByCommerce componentsSeparatedByString:@";"];
+    CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
+    NSArray *arr = [cityData.unlockShipsByCommerce componentsSeparatedByString:@";"];
     for (NSString *str in arr) {
       if (str.length > 0) {
         NSString *shipId = [str componentsSeparatedByString:@"_"][0];
@@ -418,7 +387,8 @@ static NSString* const CityTaskList = @"CityTaskList";
     for (NSString *goodsId in goodsDic) {
       GoodsData* goodsData = [[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId];
       GoodsCategoriesData *categoryData = [[[DataManager sharedDataManager] getGoodsCategoriesDic] getGoodsCategoriesById:[@(goodsData.type) stringValue]];
-      if (categoryData.updateType == 1 || (categoryData.updateType == 2 && month % 2== 1) || (categoryData.updateType == 3 && month % 2 == 0) || (categoryData.updateType == 4 && month % 3 == 0)) {
+      CategoryUpdateData *categoryUpdate = [[[DataManager sharedDataManager] getCategoryUpdateDic] getCategoryUpdateById:categoryData.categoryUpdateId];
+      if ([categoryUpdate.updateMonth containsObject:[@(month) stringValue]]) {
         [removeList addObject:goodsId];
       }
     }

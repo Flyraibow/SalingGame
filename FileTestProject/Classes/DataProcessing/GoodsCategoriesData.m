@@ -6,7 +6,7 @@
 	self = [self init];
 	if (self) {
 		_categoryId = [buffer readString];
-		_updateType = [buffer readInt];
+		_categoryUpdateId = [buffer readString];
 	}
 	return self;
 }

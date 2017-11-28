@@ -9,15 +9,27 @@
 
 @property (nonatomic,readonly) NSString *left;
 
+@property (nonatomic,readonly) NSString *rightUp;
+
 @property (nonatomic,readonly) NSString *right;
+
+@property (nonatomic,readonly) NSString *rightDown;
 
 @property (nonatomic,readonly) NSString *up;
 
 @property (nonatomic,readonly) NSString *down;
 
-@property (nonatomic,readonly) double scale;
+@property (nonatomic,readonly) double x1;
+
+@property (nonatomic,readonly) double y1;
+
+@property (nonatomic,readonly) double x2;
+
+@property (nonatomic,readonly) double y2;
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
+
+-(NSString *)areaLabel;
 
 @end
 

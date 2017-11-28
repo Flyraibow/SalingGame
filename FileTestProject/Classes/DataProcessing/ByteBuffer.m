@@ -108,4 +108,14 @@
     return dictionary;
 }
 
+-(NSSet *)readSet
+{
+  NSInteger len = [self readLong];
+  NSMutableSet *set = [NSMutableSet new];
+  for (NSUInteger i = 0; i < len; ++i) {
+    [set addObject:[self readString]];
+  }
+  return set;
+}
+
 @end

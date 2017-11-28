@@ -3,10 +3,12 @@
 #import <Foundation/Foundation.h>
 #import "ActionData.h"
 #import "CannonData.h"
+#import "CategoryUpdateData.h"
 #import "CityData.h"
 #import "CityBuildingData.h"
 #import "CitySystemBarData.h"
 #import "ConditionData.h"
+#import "CultureData.h"
 #import "DefaultDialogData.h"
 #import "EventActionData.h"
 #import "GoodsData.h"
@@ -40,6 +42,8 @@
 
 -(CannonDic *)getCannonDic;
 
+-(CategoryUpdateDic *)getCategoryUpdateDic;
+
 -(CityDic *)getCityDic;
 
 -(CityBuildingDic *)getCityBuildingDic;
@@ -47,6 +51,8 @@
 -(CitySystemBarDic *)getCitySystemBarDic;
 
 -(ConditionDic *)getConditionDic;
+
+-(CultureDic *)getCultureDic;
 
 -(DefaultDialogDic *)getDefaultDialogDic;
 

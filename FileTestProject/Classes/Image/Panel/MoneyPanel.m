@@ -7,10 +7,16 @@
 //
 
 #import "MoneyPanel.h"
+#import "LocalString.h"
 
 @implementation MoneyPanel
 {
     CCLabelTTF *_labelMoney;
+}
+
+-(instancetype)init
+{
+  return [self initWithText:getLocalString(@"lab_my_money")];
 }
 
 -(instancetype)initWithText:(NSString *)labelText

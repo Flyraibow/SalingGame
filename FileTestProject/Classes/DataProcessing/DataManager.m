@@ -7,10 +7,12 @@ static DataManager *_sharedDataManager;
 {
 	ActionDic *_actionDic;
 	CannonDic *_cannonDic;
+	CategoryUpdateDic *_categoryUpdateDic;
 	CityDic *_cityDic;
 	CityBuildingDic *_cityBuildingDic;
 	CitySystemBarDic *_citySystemBarDic;
 	ConditionDic *_conditionDic;
+	CultureDic *_cultureDic;
 	DefaultDialogDic *_defaultDialogDic;
 	EventActionDic *_eventActionDic;
 	GoodsDic *_goodsDic;
@@ -39,10 +41,12 @@ static DataManager *_sharedDataManager;
 		ByteBuffer *buffer = [[ByteBuffer alloc] initWithData:data];
 		_actionDic = [[ActionDic alloc] initWithByteBuffer:buffer];
 		_cannonDic = [[CannonDic alloc] initWithByteBuffer:buffer];
+		_categoryUpdateDic = [[CategoryUpdateDic alloc] initWithByteBuffer:buffer];
 		_cityDic = [[CityDic alloc] initWithByteBuffer:buffer];
 		_cityBuildingDic = [[CityBuildingDic alloc] initWithByteBuffer:buffer];
 		_citySystemBarDic = [[CitySystemBarDic alloc] initWithByteBuffer:buffer];
 		_conditionDic = [[ConditionDic alloc] initWithByteBuffer:buffer];
+		_cultureDic = [[CultureDic alloc] initWithByteBuffer:buffer];
 		_defaultDialogDic = [[DefaultDialogDic alloc] initWithByteBuffer:buffer];
 		_eventActionDic = [[EventActionDic alloc] initWithByteBuffer:buffer];
 		_goodsDic = [[GoodsDic alloc] initWithByteBuffer:buffer];
@@ -85,6 +89,10 @@ static DataManager *_sharedDataManager;
 {
 	return _cannonDic;
 }
+-(CategoryUpdateDic *)getCategoryUpdateDic
+{
+	return _categoryUpdateDic;
+}
 -(CityDic *)getCityDic
 {
 	return _cityDic;
@@ -100,6 +108,10 @@ static DataManager *_sharedDataManager;
 -(ConditionDic *)getConditionDic
 {
 	return _conditionDic;
+}
+-(CultureDic *)getCultureDic
+{
+	return _cultureDic;
 }
 -(DefaultDialogDic *)getDefaultDialogDic
 {

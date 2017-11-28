@@ -7,15 +7,13 @@
 
 @property (nonatomic,readonly) NSString *cityId;
 
-@property (nonatomic,readonly) int cityBackground;
-
-@property (nonatomic,readonly) int musicId;
+@property (nonatomic,readonly) NSString *cultureId;
 
 @property (nonatomic,readonly) int cityType;
 
-@property (nonatomic,readonly) int country;
+@property (nonatomic,readonly) double longitude;
 
-@property (nonatomic,readonly) int cityStyle;
+@property (nonatomic,readonly) double latitude;
 
 @property (nonatomic,readonly) int commerce;
 
@@ -23,21 +21,13 @@
 
 @property (nonatomic,readonly) NSString *goods;
 
-@property (nonatomic,readonly) NSString *unlockGoodsByCommerce;
-
-@property (nonatomic,readonly) NSString *goodsBoost;
-
 @property (nonatomic,readonly) NSString *buildings;
 
 @property (nonatomic,readonly) NSString *ships;
 
-@property (nonatomic,readonly) int seaArea;
+@property (nonatomic,readonly) NSString *seaAreaId;
 
 @property (nonatomic,readonly) int cityScale;
-
-@property (nonatomic,readonly) int cityPosX;
-
-@property (nonatomic,readonly) int cityPosY;
 
 @property (nonatomic,readonly) NSString *unlockGoodsByItem;
 

@@ -41,8 +41,15 @@
 
 - (instancetype)init
 {
-  if (self = [super init]) {
+  if (self = [self initWithoutBackground]) {
     [self addChild:[BGImage getTransparentBackground]];
+  }
+  return self;
+}
+
+- (instancetype)initWithoutBackground
+{
+  if (self = [super init]) {
     CGSize contentSize = [CCDirector sharedDirector].viewSize;
     self.contentSize = contentSize;
     self.positionType = CCPositionTypeNormalized;
