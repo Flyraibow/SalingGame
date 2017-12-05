@@ -12,6 +12,10 @@
 
 -(void)seaAreaIdChanged:(NSString *)seaId;
 
+-(void)clickCity:(NSString *)cityNo;
+
+-(void)clickTeam:(NSString *)teamNo;
+
 @end
 
 @interface SailMapPanel : CCSprite

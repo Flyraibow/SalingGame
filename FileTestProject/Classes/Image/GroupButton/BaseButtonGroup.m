@@ -35,7 +35,7 @@
                 if ([[GameConditionManager sharedConditionManager] checkConditions:selectedData.conditionList]) {
                     DefaultButton *button = [DefaultButton buttonWithTitle:getSelectLab(selectedData.selectId)];
                     button.name = buttonId;
-                    [button setTarget:self selector:@selector(clickButton:)];
+                    [button setTarget:self selector:@selector(clickEventButton:)];
                     [buttonList addObject:button];
                 }
             }
@@ -98,7 +98,7 @@
     }
 }
 
--(void)clickButton:(DefaultButton *)button
+-(void)clickEventButton:(DefaultButton *)button
 {
     [[GameEventManager sharedEventManager] startEventId:button.name];
 }

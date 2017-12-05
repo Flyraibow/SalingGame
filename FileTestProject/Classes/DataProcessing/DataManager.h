@@ -30,6 +30,7 @@
 #import "TeamData.h"
 #import "PriceData.h"
 
+
 @interface DataManager : NSObject
 
 -(instancetype)initWithData:(NSData *)data;

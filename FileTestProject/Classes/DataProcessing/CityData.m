@@ -22,6 +22,10 @@
 	}
 	return self;
 }
+-(NSString *)cityLabel
+{
+	return getCityLabel(_cityId);
+}
 
 @end
 

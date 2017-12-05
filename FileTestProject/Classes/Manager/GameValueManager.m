@@ -234,7 +234,7 @@ static GameValueManager *_sharedValueManager;
         } else if([stringType isEqualToString:@"ship"]) {
           finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getShipsName(stringId)];
         } else if([stringType isEqualToString:@"city"]) {
-          finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getCityName(stringId)];
+          finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getCityLabel(stringId)];
         } else if([stringType isEqualToString:@"country"]) {
           finalText = [finalText stringByReplacingOccurrencesOfString:fullString withString:getCountryName(stringId)];
         } else if([stringType isEqualToString:@"guild"]) {

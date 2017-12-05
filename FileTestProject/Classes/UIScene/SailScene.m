@@ -56,7 +56,7 @@ SailMapPanelDelegate>
   GameTeamData *_myTeam;
   GoodsPricePanel *_goodsPricePanel;
   CCLabelTTF *_labArea;
-  CCLabelTTF *_labCurrentCity;
+  CCLabelTTF *_labCurrentLocation;
 }
 
 - (instancetype)initWithDataList:(NSArray *)dataList
@@ -135,22 +135,28 @@ SailMapPanelDelegate>
     _btnClose.anchorPoint = ccp(1, 1);
     _btnClose.positionType = CCPositionTypeNormalized;
     _btnClose.position = ccp(1, 0.97);
-    _btnClose.scale = 0.4;
+    _btnClose.scale = 0.6;
     [_btnClose setTarget:self selector:@selector(clickCloseButton)];
     [self addChild:_btnClose];
     
     SeaAreaData *seaAreaData = [[DataManager sharedDataManager].getSeaAreaDic getSeaAreaById:_seaId];
     _labArea = [CCLabelTTF labelWithString:seaAreaData.areaLabel fontName:nil fontSize:15];
     _labArea.fontColor = [CCColor whiteColor];
-    _labArea.positionType = CCPositionTypePoints;
-    _labArea.position = ccp(225, 530);
-    [sprite addChild:_labArea];
+    _labArea.positionType = CCPositionTypeNormalized;
+    _labArea.position = ccp(0.05, 1.02);
+    [_mapSprite addChild:_labArea];
+    
+    _labCurrentLocation = [CCLabelTTF labelWithString:_currentCityData.cityLabel fontName:nil fontSize:15];
+    _labCurrentLocation.fontColor = [CCColor whiteColor];
+    _labCurrentLocation.positionType = CCPositionTypeNormalized;
+    _labCurrentLocation.position = ccp(0.95, - 0.02);
+    [_mapSprite addChild:_labCurrentLocation];
     
     _btnGotoWorld = [DefaultButton buttonWithTitle:getLocalString(@"lab_goto_world")];
     _btnGotoWorld.anchorPoint = ccp(1, 1);
     _btnGotoWorld.positionType = CCPositionTypeNormalized;
     _btnGotoWorld.position = ccp(1, 0.87);
-    _btnGotoWorld.scale = 0.4;
+    _btnGotoWorld.scale = 0.6;
     [_btnGotoWorld setTarget:self selector:@selector(clickGotoWorld)];
     [self addChild:_btnGotoWorld];
     
@@ -185,9 +191,8 @@ SailMapPanelDelegate>
   }
 }
 
--(void)clickCity:(CCButton *)cityBtn
+-(void)clickCity:(NSString *)cityNo
 {
-  NSString *cityNo = cityBtn.name;
   if (_cityPanel == nil) {
     _cityPanel = [[CityDataPanel alloc] initWithCityNo:cityNo sceneType:_type];
     _cityPanel.delegate = self;
@@ -207,6 +212,11 @@ SailMapPanelDelegate>
       [self addChild:_goodsPricePanel];
     }
   }
+}
+
+-(void)clickTeam:(NSString *)teamNo
+{
+  CCLOG(@" ===== click team : %@", teamNo);
 }
 
 -(id)copyWithZone:(NSZone *)zone

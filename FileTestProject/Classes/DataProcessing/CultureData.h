@@ -3,6 +3,12 @@
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
+static NSString * getCultureLabel(NSString *cutureId)
+{
+	NSString *string = [NSString stringWithFormat:@"culture_name_%@", cutureId];
+	return NSLocalizedString(string, nil);
+}
+
 @interface CultureData : NSObject
 
 @property (nonatomic,readonly) NSString *cutureId;

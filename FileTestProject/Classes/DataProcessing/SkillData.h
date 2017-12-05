@@ -3,6 +3,7 @@
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
+
 @interface SkillData : NSObject
 
 @property (nonatomic,readonly) NSString *skillId;

@@ -75,11 +75,6 @@ static NSString* getShipsName(NSString *shipId)
     return getLocalStringByString(@"ship_name_", shipId);
 }
 
-static NSString* getCityName(NSString *cityId)
-{
-    return getLocalStringByString(@"city_name_", cityId);
-}
-
 static NSString* getCountryName(NSString *countryId)
 {
     return getLocalStringByString(@"city_country_", countryId);

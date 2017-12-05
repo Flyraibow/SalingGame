@@ -3,6 +3,12 @@
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
+static NSString * getAreaLabel(NSString *areaId)
+{
+	NSString *string = [NSString stringWithFormat:@"area_name_%@", areaId];
+	return NSLocalizedString(string, nil);
+}
+
 @interface SeaAreaData : NSObject
 
 @property (nonatomic,readonly) NSString *areaId;

@@ -3,6 +3,7 @@
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
+
 @interface PriceData : NSObject
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;

@@ -35,7 +35,7 @@
     _sceneType = sceneType;
     
     CGSize contentSize = [CCDirector sharedDirector].viewSize;
-    self.scale = (contentSize.height - 22) / self.contentSize.height;
+    self.scale = contentSize.height / self.contentSize.height;
     self.positionType = CCPositionTypeNormalized;
     self.anchorPoint = ccp(1, 0.5);
     self.position = ccp(1, 0.5);
@@ -44,7 +44,7 @@
     closeBtn.anchorPoint = ccp(1, 0.5);
     closeBtn.positionType = CCPositionTypeNormalized;
     closeBtn.position = ccp(1, 0.05);
-    closeBtn.scale = 0.5;
+    closeBtn.scale = 0.7;
     [self addChild:closeBtn];
     [closeBtn setTarget:self selector:@selector(clickCloseBtn)];
     

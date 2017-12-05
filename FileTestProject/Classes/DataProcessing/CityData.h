@@ -3,6 +3,12 @@
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
+static NSString * getCityLabel(NSString *cityId)
+{
+	NSString *string = [NSString stringWithFormat:@"city_name_%@", cityId];
+	return NSLocalizedString(string, nil);
+}
+
 @interface CityData : NSObject
 
 @property (nonatomic,readonly) NSString *cityId;
@@ -34,6 +40,8 @@
 @property (nonatomic,readonly) NSString *unlockShipsByCommerce;
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
+
+-(NSString *)cityLabel;
 
 @end
 

@@ -16,6 +16,7 @@
 
 @property (nonatomic, readonly) NSString *teamId;
 @property (nonatomic, readonly) NSString *leaderId;
+@property (nonatomic, readonly) NSString *teamLabel;
 @property (nonatomic) NSInteger teamMoney;
 @property (nonatomic, readonly) NSArray<NSString *> *shipList;
 @property (nonatomic, readonly) NSString *belongToGuildId;

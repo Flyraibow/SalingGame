@@ -13,8 +13,7 @@
 }
 -(NSString *)cultureLabel
 {
-	NSString *string = [NSString stringWithFormat:@"culture_name_%@",_cutureId];
-	return NSLocalizedString(string, nil);
+	return getCultureLabel(_cutureId);
 }
 
 @end

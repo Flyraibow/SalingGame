@@ -168,9 +168,9 @@ static NSString * const kDialogTypeCityNPC = @"city";
 
 -(void)setDialogWithNpcId:(NSString *)npcId text:(NSString *)text
 {
-  NpcData *npcData = [[[DataManager sharedDataManager] getNpcDic] getNpcById:npcId];
+  NpcInfoData *npcInfoData = [[[DataManager sharedDataManager] getNpcInfoDic] getNpcInfoById:npcId];
   if (npcId != nil) {
-    [self setDialogWithPhotoNo:npcData.dialogPotraitId npcName:getNpcFirstName(npcId) text:text];
+    [self setDialogWithPhotoNo:npcInfoData.portrait npcName:getNpcFirstName(npcId) text:text];
   } else {
     [self setDialogWithPhotoNo:@"0" npcName:getNpcFirstName(npcId) text:text];
   }

@@ -216,7 +216,7 @@
         [_photo setRect:CGRectMake(25, 154, 78, 95)];
         [self addChild:_photo];
         
-        _labGender.string = getLocalStringByInt(@"gender_", _npcData.npcData.gender + 1);
+        _labGender.string = getLocalStringByInt(@"gender_", _npcData.npcInfo.gender + 1);
         [self drawAttributeGraph];
     }
     if (_npcData.weaponId) {

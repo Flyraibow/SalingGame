@@ -3,6 +3,7 @@
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
+
 @interface StoryTriggerData : NSObject
 
 @property (nonatomic,readonly) NSString *storyId;

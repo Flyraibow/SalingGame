@@ -75,7 +75,7 @@ typedef enum : NSUInteger {
         
         CCTexture *enemyTexture = [CCTexture textureWithFile:_enemyData.portrait];
         CCSprite *enermyPhoto = [CCSprite spriteWithTexture:enemyTexture
-                                                       rect:CGRectMake(_enemyData.npcData.portraitPosX, _enemyData.npcData.portraitPosY, 81, 96)];
+                                                       rect:CGRectMake(_enemyData.npcInfo.portraitPosX, _enemyData.npcInfo.portraitPosY, 81, 96)];
         enermyPhoto.anchorPoint = ccp(0.5, 1);
         enermyPhoto.positionType = CCPositionTypePoints;
         enermyPhoto.position = ccp(offx + 74 * _backSprite.scale, 418 * _backSprite.scale);
@@ -106,7 +106,7 @@ typedef enum : NSUInteger {
         
         CCTexture *heroTexture = [CCTexture textureWithFile:_heroData.portrait];
         CCSprite *heroPhoto = [CCSprite spriteWithTexture:heroTexture
-                                                     rect:CGRectMake(_heroData.npcData.portraitPosX, _heroData.npcData.portraitPosY, 81, 96)];
+                                                     rect:CGRectMake(_heroData.npcInfo.portraitPosX, _heroData.npcInfo.portraitPosY, 81, 96)];
         heroPhoto.anchorPoint = ccp(0.5, 1);
         heroPhoto.positionType = CCPositionTypePoints;
         heroPhoto.position = ccp(offx + 424 * _backSprite.scale, 162 * _backSprite.scale);

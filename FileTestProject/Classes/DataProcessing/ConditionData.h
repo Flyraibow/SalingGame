@@ -3,6 +3,7 @@
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
+
 @interface ConditionData : NSObject
 
 @property (nonatomic,readonly) NSString *conditionId;

@@ -69,6 +69,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) int intelligence;
 @property (nonatomic) NSDictionary* skillDataDict;
 @property (nonatomic, readonly, weak) NpcData *npcData;
+@property (nonatomic, readonly, weak) NpcInfoData *npcInfo;
 @property (nonatomic, weak) GameGuildData *guildData;
 @property (nonatomic, weak) GameTeamData *teamData;
 @property (nonatomic, readonly, assign) int maxHp;

@@ -12,8 +12,7 @@
 }
 -(NSString *)buttonLabel
 {
-	NSString *string = [NSString stringWithFormat:@"building_name_%@",_bottomBarId];
-	return NSLocalizedString(string, nil);
+	return getButtonLabel(_bottomBarId);
 }
 
 @end

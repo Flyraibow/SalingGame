@@ -38,7 +38,7 @@
 
 -(NSString *)destCity
 {
-  return getCityName(_destCityId);
+  return getCityLabel(_destCityId);
 }
 
 @end

@@ -6,12 +6,6 @@
 	self = [self init];
 	if (self) {
 		_npcId = [buffer readString];
-		_character = [buffer readString];
-		_gender = [buffer readInt];
-		_dialogPotraitId = [buffer readString];
-		_potraitId = [buffer readString];
-		_portraitPosX = [buffer readInt];
-		_portraitPosY = [buffer readInt];
 		_level = [buffer readInt];
 		_hp = [buffer readInt];
 		_equipWeapon = [buffer readString];

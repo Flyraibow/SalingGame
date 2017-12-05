@@ -6,6 +6,12 @@
 	self = [self init];
 	if (self) {
 		_npcId = [buffer readString];
+		_portrait = [buffer readString];
+		_potraitId = [buffer readString];
+		_portraitPosX = [buffer readInt];
+		_portraitPosY = [buffer readInt];
+		_gender = [buffer readInt];
+		_character = [buffer readString];
 		_birthMonth = [buffer readInt];
 		_birthDay = [buffer readInt];
 	}

@@ -21,8 +21,7 @@
 }
 -(NSString *)areaLabel
 {
-	NSString *string = [NSString stringWithFormat:@"area_name_%@",_areaId];
-	return NSLocalizedString(string, nil);
+	return getAreaLabel(_areaId);
 }
 
 @end

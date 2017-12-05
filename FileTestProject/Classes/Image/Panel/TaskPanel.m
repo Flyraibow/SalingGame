@@ -90,7 +90,7 @@
     labCity.position = ccp(0.2, 0.7);
     [_bgSprite addChild:labCity];
     
-    CCLabelTTF *labCityStr = [CCLabelTTF labelWithString:getCityName(taskData.cityId) fontName:nil fontSize:12];
+    CCLabelTTF *labCityStr = [CCLabelTTF labelWithString:getCityLabel(taskData.cityId) fontName:nil fontSize:12];
     labCityStr.positionType = CCPositionTypeNormalized;
     labCityStr.anchorPoint = ccp(0, 0.5);
     labCityStr.position = ccp(0.5, 0.7);

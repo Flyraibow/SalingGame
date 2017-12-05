@@ -3,6 +3,7 @@
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
+
 @interface CityBuildingData : NSObject
 
 @property (nonatomic,readonly) NSString *buildingId;

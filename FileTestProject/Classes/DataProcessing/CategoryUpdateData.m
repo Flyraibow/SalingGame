@@ -12,8 +12,7 @@
 }
 -(NSString *)categoryUpdateLabel
 {
-	NSString *string = [NSString stringWithFormat:@"category_update_%@",_categoryUpdateId];
-	return NSLocalizedString(string, nil);
+	return getCategoryUpdateLabel(_categoryUpdateId);
 }
 
 @end

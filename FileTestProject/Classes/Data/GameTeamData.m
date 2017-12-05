@@ -12,6 +12,7 @@
 #import "DataManager.h"
 #import "GameNPCData.h"
 #import "GameItemData.h"
+#import "LocalString.h"
 
 static NSString* const GameTeamMoney = @"GameTeamMoney";
 static NSString* const GameTeamId = @"GameTeamId";
@@ -117,6 +118,12 @@ static NSInteger const FoodCapacityPerUnit = 100;
     [npcList addObject:npcData.npcId];
   }
   [aCoder encodeObject:npcList forKey:GameTeamNPCData];
+}
+
+- (NSString *)teamLabel
+{
+  GameNPCData *npcData = [[GameDataManager sharedGameData].npcDic objectForKey:_leaderId];
+  return [NSString stringWithFormat:getLocalString(@"lab_team_name"), npcData.firstName];
 }
 
 - (void)setCurrentCityId:(NSString *)currentCityId

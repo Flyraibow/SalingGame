@@ -3,21 +3,10 @@
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
+
 @interface NpcData : NSObject
 
 @property (nonatomic,readonly) NSString *npcId;
-
-@property (nonatomic,readonly) NSString *character;
-
-@property (nonatomic,readonly) int gender;
-
-@property (nonatomic,readonly) NSString *dialogPotraitId;
-
-@property (nonatomic,readonly) NSString *potraitId;
-
-@property (nonatomic,readonly) int portraitPosX;
-
-@property (nonatomic,readonly) int portraitPosY;
 
 @property (nonatomic,readonly) int level;
 

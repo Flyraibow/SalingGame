@@ -56,7 +56,7 @@ static NSString* const GameTaskBuyGoodsDataNum = @"GameTaskBuyGoodsDataNum";
     }
     NSAssert(goodsList.count > 0, @"Must contain goods doesn't sell here");
     _goodsId = goodsList[arc4random() % goodsList.count];
-    NSAssert(_goodsId.length > 0, @"GoodsId cannot be empty, city Name: %@", getCityName(destCity.cityNo));
+    NSAssert(_goodsId.length > 0, @"GoodsId cannot be empty, city Name: %@", getCityLabel(destCity.cityNo));
     _destCityId = destCity.cityNo;
     
     // calculate the profit
@@ -103,7 +103,7 @@ static NSString* const GameTaskBuyGoodsDataNum = @"GameTaskBuyGoodsDataNum";
 
 -(NSString *)destCity
 {
-  return getCityName(_destCityId);
+  return getCityLabel(_destCityId);
 }
 
 @end

@@ -944,6 +944,7 @@
 		EC97D96B1FCD326400AB7C27 /* CityMkr1_close.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D95D1FCD326400AB7C27 /* CityMkr1_close.png */; };
 		EC97D96C1FCD326400AB7C27 /* ShipMkr_war.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D95E1FCD326400AB7C27 /* ShipMkr_war.png */; };
 		EC97D96D1FCD326400AB7C27 /* ShipMkr_master.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D95F1FCD326400AB7C27 /* ShipMkr_master.png */; };
+		EC97D9701FCDE89000AB7C27 /* RouteMarkIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC97D96F1FCDE89000AB7C27 /* RouteMarkIcon.m */; };
 		ECA1FEDE1ECE40B400328542 /* TaskFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1FEDD1ECE40B400328542 /* TaskFactory.m */; };
 		ECBADDCF1DD81EC200DC490D /* BaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDCE1DD81EC200DC490D /* BaseScene.m */; };
 		ECBADDD21DD821D600DC490D /* TradePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD11DD821D600DC490D /* TradePanel.m */; };
@@ -2286,6 +2287,8 @@
 		EC97D95D1FCD326400AB7C27 /* CityMkr1_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CityMkr1_close.png; path = Resources/Graph/RouteMkr/CityMkr1_close.png; sourceTree = "<group>"; };
 		EC97D95E1FCD326400AB7C27 /* ShipMkr_war.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipMkr_war.png; path = Resources/Graph/RouteMkr/ShipMkr_war.png; sourceTree = "<group>"; };
 		EC97D95F1FCD326400AB7C27 /* ShipMkr_master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipMkr_master.png; path = Resources/Graph/RouteMkr/ShipMkr_master.png; sourceTree = "<group>"; };
+		EC97D96E1FCDE89000AB7C27 /* RouteMarkIcon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RouteMarkIcon.h; path = Classes/Image/Icon/RouteMarkIcon.h; sourceTree = "<group>"; };
+		EC97D96F1FCDE89000AB7C27 /* RouteMarkIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RouteMarkIcon.m; path = Classes/Image/Icon/RouteMarkIcon.m; sourceTree = "<group>"; };
 		ECA1FEDC1ECE40B400328542 /* TaskFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskFactory.h; path = Classes/Factory/TaskFactory.h; sourceTree = "<group>"; };
 		ECA1FEDD1ECE40B400328542 /* TaskFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskFactory.m; path = Classes/Factory/TaskFactory.m; sourceTree = "<group>"; };
 		ECBADDCD1DD81EC200DC490D /* BaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseScene.h; path = Classes/UIScene/BaseScene.h; sourceTree = "<group>"; };
@@ -3850,6 +3853,8 @@
 				277A48021D47329900500E3E /* SailorNumberUnit.m */,
 				EC0C3B7E1D847020007E8D46 /* ShipSimpleInfoIcon.h */,
 				EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */,
+				EC97D96E1FCDE89000AB7C27 /* RouteMarkIcon.h */,
+				EC97D96F1FCDE89000AB7C27 /* RouteMarkIcon.m */,
 			);
 			name = Icon;
 			sourceTree = "<group>";
@@ -5250,6 +5255,7 @@
 				279BAC3C1C59E3B80069EF5D /* OALSimpleAudio.m in Sources */,
 				27FBB79E1CED8F8F002B106B /* DialogPanel.m in Sources */,
 				EC93C8AE1EDE5B8C0069391B /* TaskPanel.m in Sources */,
+				EC97D9701FCDE89000AB7C27 /* RouteMarkIcon.m in Sources */,
 				27FBB85F1D0FB7F4002B106B /* TimePanel.m in Sources */,
 				279BAB9C1C59E3B70069EF5D /* CCControl.m in Sources */,
 				279BAB031C59E3B60069EF5D /* CCProgressNode.m in Sources */,

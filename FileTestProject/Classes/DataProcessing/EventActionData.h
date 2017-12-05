@@ -3,6 +3,7 @@
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
+
 @interface EventActionData : NSObject
 
 @property (nonatomic,readonly) NSString *eventId;

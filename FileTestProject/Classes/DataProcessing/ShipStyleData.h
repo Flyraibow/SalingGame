@@ -3,6 +3,7 @@
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
+
 @interface ShipStyleData : NSObject
 
 @property (nonatomic,readonly) NSString *shipStyleId;
