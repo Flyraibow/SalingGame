@@ -13,6 +13,7 @@
 #import "cocos2d-ui.h"
 #import "RoleInfoPanel.h"
 #import "LocalString.h"
+#import "ShipExchangePanel.h"
 
 @implementation TeamPanel
 {
@@ -78,6 +79,13 @@
     btnLeaderInfo.position = ccp(274, 112);
     [btnLeaderInfo setTarget:self selector:@selector(clickLeaderInfoButton)];
     [sprite addChild:btnLeaderInfo];
+    
+    
+    DefaultButton *btnShipInfo = [[DefaultButton alloc] initWithTitle:getLocalString(@"team_panel_ship_info")];
+    btnShipInfo.positionType = CCPositionTypePoints;
+    btnShipInfo.position = ccp(193, 26);
+    [btnShipInfo setTarget:self selector:@selector(clickShipInfoButton)];
+    [sprite addChild:btnShipInfo];
   }
   return self;
 }
@@ -108,6 +116,13 @@
 - (void)clickCloseButton
 {
   [self removeFromParent];
+}
+
+- (void)clickShipInfoButton
+{
+  ShipExchangePanel *shipInfoPanel = [[ShipExchangePanel alloc] initWithType:ShipSceneTypeInfo];
+  [shipInfoPanel showShipList:_teamData.shipDataList];
+  [self.scene addChild:shipInfoPanel];
 }
 
 @end

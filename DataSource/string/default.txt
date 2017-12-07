@@ -6,6 +6,8 @@
 "lab_team_name" = "%@舰队";
 
 "team_panel_target" = "目的";
+"team_panel_leader_info" = "提督咨询";
+"team_panel_ship_info" = "船咨询";
 
 "ship_price" = "%d金币";
 "ship_buy" = "购买";

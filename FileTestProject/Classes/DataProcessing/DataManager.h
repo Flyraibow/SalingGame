@@ -15,6 +15,7 @@
 #import "GoodsCategoriesData.h"
 #import "GuildData.h"
 #import "ItemData.h"
+#import "JobData.h"
 #import "NpcData.h"
 #import "NpcInfoData.h"
 #import "RoleInitialData.h"
@@ -66,6 +67,8 @@
 -(GuildDic *)getGuildDic;
 
 -(ItemDic *)getItemDic;
+
+-(JobDic *)getJobDic;
 
 -(NpcDic *)getNpcDic;
 

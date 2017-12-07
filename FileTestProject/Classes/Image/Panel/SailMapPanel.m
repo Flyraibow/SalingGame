@@ -84,8 +84,8 @@
 {
   _seaId = seaId;
   SeaAreaData *seaAreaData = nil;
-  CGPoint p1 = CGPointMake(-180, -180);
-  CGPoint p2 = CGPointMake(180, 180);
+  CGPoint p1 = CGPointMake(-180, -90);
+  CGPoint p2 = CGPointMake(180, 90);
   if ([seaId isEqualToString:@"0"]) {
     [self setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"WorldMap.png"]];
     for (int i = 0; i < _seaAreaFrameList.count; ++i) {
@@ -129,12 +129,13 @@
         [currentCitySet addObject:cityNo];
         GameCityData *gameCityData = [[GameDataManager sharedGameData].cityDic objectForKey:cityNo];
         NSString *status = gameCityData.getMyGuildOccupation > 0 ? @"open" : @"close";
-        NSString *cityIconName = [NSString stringWithFormat:@"CityMkr%d_%@.png", cityData.cityScale, status];
+        NSString *cityIconName = [NSString stringWithFormat:@"CityMkr%d_%@.png", cityData.cityType, status];
         RouteMarkIcon *cityBtn = [RouteMarkIcon buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:cityIconName]];
         cityBtn.type = RouteMarkIconTypeCity;
         cityBtn.delegate = _delegate;
         cityBtn.buttonLabel = cityData.cityLabel;
         cityBtn.name = cityNo;
+        cityBtn.scale = 1.2;
         [cityBtn setTarget:self selector:@selector(clickMapMark:)];
         cityBtn.positionType = CCPositionTypeNormalized;
         CGPoint point = CGPointMake(cityData.longitude, cityData.latitude);
@@ -164,6 +165,7 @@
     CGPoint point = teamData.pos;
     shipBtn.positionType = CCPositionTypeNormalized;
     shipBtn.position = ccp((point.x - p1.x) / (p2.x - p1.x), (point.y - p1.y) / (p2.y - p1.y));
+    shipBtn.scale = 1.2;
     [self addChild:shipBtn];
     [_markButtonList addObject:shipBtn];
   }

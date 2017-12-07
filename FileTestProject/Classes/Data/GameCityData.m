@@ -61,15 +61,15 @@ static NSString* const CityTaskList = @"CityTaskList";
         [_goodsDict setObject:@(maxNum) forKey:goodsList[i]];
       }
     }
-    NSArray *unlockGoodsList = [cityData.unlockGoodsByItem componentsSeparatedByString:@";"];
-    _unlockGoodsDict = [NSMutableDictionary new];
-    for (int i = 0; i < unlockGoodsList.count; ++i) {
-      NSString *unlockPairStr = unlockGoodsList[i];
-      if (unlockPairStr.length > 0) {
-        NSArray *unlockPair = [unlockPairStr componentsSeparatedByString:@"_"];
-        [(NSMutableDictionary *)_unlockGoodsDict setObject:unlockPair[0] forKey:unlockPair[1]];
-      }
-    }
+//    NSArray *unlockGoodsList = [cityData.unlockGoodsByItem componentsSeparatedByString:@";"];
+//    _unlockGoodsDict = [NSMutableDictionary new];
+//    for (int i = 0; i < unlockGoodsList.count; ++i) {
+//      NSString *unlockPairStr = unlockGoodsList[i];
+//      if (unlockPairStr.length > 0) {
+//        NSArray *unlockPair = [unlockPairStr componentsSeparatedByString:@"_"];
+//        [(NSMutableDictionary *)_unlockGoodsDict setObject:unlockPair[0] forKey:unlockPair[1]];
+//      }
+//    }
     _cityData = cityData;
     _transactionRecordDict = [NSMutableDictionary new];
     _guildOccupation = [NSMutableDictionary new];
@@ -364,19 +364,19 @@ static NSString* const CityTaskList = @"CityTaskList";
       [_goodsDict setObject:@(maxNum) forKey:goodsId];
     }
     // 解锁新的船只
-    CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
-    NSArray *arr = [cityData.unlockShipsByCommerce componentsSeparatedByString:@";"];
-    for (NSString *str in arr) {
-      if (str.length > 0) {
-        NSString *shipId = [str componentsSeparatedByString:@"_"][0];
-        if (![_shipsSet containsObject:shipId]) {
-          int value = [[str componentsSeparatedByString:@"_"][1] intValue];
-          if (_commerceValue >= value) {
-            [_shipsSet addObject:shipId];
-          }
-        }
-      }
-    }
+//    CityData *cityData = [[[DataManager sharedDataManager] getCityDic] getCityById:_cityNo];
+//    NSArray *arr = [cityData.unlockShipsByCommerce componentsSeparatedByString:@";"];
+//    for (NSString *str in arr) {
+//      if (str.length > 0) {
+//        NSString *shipId = [str componentsSeparatedByString:@"_"][0];
+//        if (![_shipsSet containsObject:shipId]) {
+//          int value = [[str componentsSeparatedByString:@"_"][1] intValue];
+//          if (_commerceValue >= value) {
+//            [_shipsSet addObject:shipId];
+//          }
+//        }
+//      }
+//    }
     
   }
   _commerceInvestRecord = 0;

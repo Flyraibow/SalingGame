@@ -13,4 +13,8 @@
 
 @property (nonatomic, assign, readonly) ShipSceneType sceneType;
 
+- (instancetype)initWithType:(ShipSceneType)type;
+
+-(void)showShipList:(NSArray *)shipList;
+
 @end

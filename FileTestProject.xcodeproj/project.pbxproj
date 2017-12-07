@@ -947,6 +947,7 @@
 		EC97D96D1FCD326400AB7C27 /* ShipMkr_master.png in Resources */ = {isa = PBXBuildFile; fileRef = EC97D95F1FCD326400AB7C27 /* ShipMkr_master.png */; };
 		EC97D9701FCDE89000AB7C27 /* RouteMarkIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC97D96F1FCDE89000AB7C27 /* RouteMarkIcon.m */; };
 		ECA1FEDE1ECE40B400328542 /* TaskFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1FEDD1ECE40B400328542 /* TaskFactory.m */; };
+		ECA2E8341FD9224A0099696B /* JobData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA2E8331FD9224A0099696B /* JobData.m */; };
 		ECBADDCF1DD81EC200DC490D /* BaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDCE1DD81EC200DC490D /* BaseScene.m */; };
 		ECBADDD21DD821D600DC490D /* TradePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD11DD821D600DC490D /* TradePanel.m */; };
 		ECBADDD51DD8467800DC490D /* ShipExchangePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD41DD8467800DC490D /* ShipExchangePanel.m */; };
@@ -2291,6 +2292,8 @@
 		EC97D96F1FCDE89000AB7C27 /* RouteMarkIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RouteMarkIcon.m; path = Classes/Image/Icon/RouteMarkIcon.m; sourceTree = "<group>"; };
 		ECA1FEDC1ECE40B400328542 /* TaskFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskFactory.h; path = Classes/Factory/TaskFactory.h; sourceTree = "<group>"; };
 		ECA1FEDD1ECE40B400328542 /* TaskFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskFactory.m; path = Classes/Factory/TaskFactory.m; sourceTree = "<group>"; };
+		ECA2E8321FD922490099696B /* JobData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JobData.h; path = Classes/DataProcessing/JobData.h; sourceTree = "<group>"; };
+		ECA2E8331FD9224A0099696B /* JobData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobData.m; path = Classes/DataProcessing/JobData.m; sourceTree = "<group>"; };
 		ECBADDCD1DD81EC200DC490D /* BaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseScene.h; path = Classes/UIScene/BaseScene.h; sourceTree = "<group>"; };
 		ECBADDCE1DD81EC200DC490D /* BaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseScene.m; path = Classes/UIScene/BaseScene.m; sourceTree = "<group>"; };
 		ECBADDD01DD821D600DC490D /* TradePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradePanel.h; path = Classes/Image/Panel/TradePanel.h; sourceTree = "<group>"; };
@@ -3328,6 +3331,8 @@
 		279BAD061C59E9480069EF5D /* DataProcessing */ = {
 			isa = PBXGroup;
 			children = (
+				ECA2E8321FD922490099696B /* JobData.h */,
+				ECA2E8331FD9224A0099696B /* JobData.m */,
 				ECD700341FCB9D8B0052A389 /* CultureData.h */,
 				ECD700331FCB9D8A0052A389 /* CultureData.m */,
 				ECD700301FCB86730052A389 /* CategoryUpdateData.h */,
@@ -5219,6 +5224,7 @@
 				27C26D011C615F99009EDE53 /* DataButton.m in Sources */,
 				279BAA711C59E3B50069EF5D /* CCRenderDispatch.m in Sources */,
 				279BABB11C59E3B80069EF5D /* CCPlatformTextField.m in Sources */,
+				ECA2E8341FD9224A0099696B /* JobData.m in Sources */,
 				EC3B89881DD0026E00482A42 /* GameValueManager.m in Sources */,
 				279BAB871C59E3B70069EF5D /* CCEffectColorPulse.m in Sources */,
 				EC7C97561F9F031E007B0316 /* GameTaskBuyGoodsData.m in Sources */,

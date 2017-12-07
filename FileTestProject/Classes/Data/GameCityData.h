@@ -31,9 +31,9 @@ typedef enum : NSUInteger {
 } CityStateType;
 
 typedef enum : NSUInteger {
-    CityScaleTypeBigCity,
-    CityScaleTypeSmallCity,
-    CityScaleTypeUndevelopingCity,
+  CityScaleTypeUndevelopingCity = 0,
+  CityScaleTypeBigCity = 1,
+  CityScaleTypeSmallCity = 2,
 } CityScaleType;
 
 typedef enum : NSUInteger {

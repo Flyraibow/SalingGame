@@ -17,6 +17,10 @@
 	}
 	return self;
 }
+-(NSString *)itemDescription
+{
+	return getItemDescription(_itemId);
+}
 
 @end
 

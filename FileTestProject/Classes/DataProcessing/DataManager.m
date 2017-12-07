@@ -19,6 +19,7 @@ static DataManager *_sharedDataManager;
 	GoodsCategoriesDic *_goodsCategoriesDic;
 	GuildDic *_guildDic;
 	ItemDic *_ItemDic;
+	JobDic *_jobDic;
 	NpcDic *_npcDic;
 	NpcInfoDic *_npcInfoDic;
 	RoleInitialDic *_roleInitialDic;
@@ -53,6 +54,7 @@ static DataManager *_sharedDataManager;
 		_goodsCategoriesDic = [[GoodsCategoriesDic alloc] initWithByteBuffer:buffer];
 		_guildDic = [[GuildDic alloc] initWithByteBuffer:buffer];
 		_ItemDic = [[ItemDic alloc] initWithByteBuffer:buffer];
+		_jobDic = [[JobDic alloc] initWithByteBuffer:buffer];
 		_npcDic = [[NpcDic alloc] initWithByteBuffer:buffer];
 		_npcInfoDic = [[NpcInfoDic alloc] initWithByteBuffer:buffer];
 		_roleInitialDic = [[RoleInitialDic alloc] initWithByteBuffer:buffer];
@@ -136,6 +138,10 @@ static DataManager *_sharedDataManager;
 -(ItemDic *)getItemDic
 {
 	return _ItemDic;
+}
+-(JobDic *)getJobDic
+{
+	return _jobDic;
 }
 -(NpcDic *)getNpcDic
 {

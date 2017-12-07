@@ -3,6 +3,11 @@
 #import <Foundation/Foundation.h>
 #import "ByteBuffer.h"
 
+static NSString * getItemDescription(NSString *itemId)
+{
+	NSString *string = [NSString stringWithFormat:@"item_description_%@", itemId];
+	return NSLocalizedString(string, nil);
+}
 
 @interface ItemData : NSObject
 
@@ -25,6 +30,8 @@
 @property (nonatomic,readonly) NSString *ownerGuildId;
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
+
+-(NSString *)itemDescription;
 
 @end
 

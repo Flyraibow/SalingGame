@@ -465,7 +465,7 @@ static NSString* const GameShipMaxIndex = @"GameShipMaxIndex";
     if ((condition & CityFaraway) && [city.cityData.seaAreaId isEqualToString:cityData.cityData.seaAreaId]) {
       continue;
     }
-    if ((condition & CityCapital) && city.cityData.cityScale != CityScaleTypeBigCity) {
+    if ((condition & CityCapital) && city.cityData.cityType != CityScaleTypeBigCity) {
       continue;
     }
     if ((condition & CityWithShop) && ![cityData.buildingSet containsObject:[@(CityBuildingShop) stringValue]]) {

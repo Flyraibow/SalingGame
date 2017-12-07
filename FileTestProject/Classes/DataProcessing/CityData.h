@@ -13,6 +13,8 @@ static NSString * getCityLabel(NSString *cityId)
 
 @property (nonatomic,readonly) NSString *cityId;
 
+@property (nonatomic,readonly) NSString *seaAreaId;
+
 @property (nonatomic,readonly) NSString *cultureId;
 
 @property (nonatomic,readonly) int cityType;
@@ -30,14 +32,6 @@ static NSString * getCityLabel(NSString *cityId)
 @property (nonatomic,readonly) NSString *buildings;
 
 @property (nonatomic,readonly) NSString *ships;
-
-@property (nonatomic,readonly) NSString *seaAreaId;
-
-@property (nonatomic,readonly) int cityScale;
-
-@property (nonatomic,readonly) NSString *unlockGoodsByItem;
-
-@property (nonatomic,readonly) NSString *unlockShipsByCommerce;
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 

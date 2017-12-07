@@ -6,6 +6,7 @@
 	self = [self init];
 	if (self) {
 		_cityId = [buffer readString];
+		_seaAreaId = [buffer readString];
 		_cultureId = [buffer readString];
 		_cityType = [buffer readInt];
 		_longitude = [buffer readDouble];
@@ -15,10 +16,6 @@
 		_goods = [buffer readString];
 		_buildings = [buffer readString];
 		_ships = [buffer readString];
-		_seaAreaId = [buffer readString];
-		_cityScale = [buffer readInt];
-		_unlockGoodsByItem = [buffer readString];
-		_unlockShipsByCommerce = [buffer readString];
 	}
 	return self;
 }
