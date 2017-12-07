@@ -416,7 +416,6 @@
 		27C26DCD1C6DD552009EDE53 /* sailScene.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DCC1C6DD552009EDE53 /* sailScene.png */; };
 		27C26DD01C6FF879009EDE53 /* Map1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DCF1C6FF879009EDE53 /* Map1.jpg */; };
 		27C26DD61C70141E009EDE53 /* BlackFrame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DD51C70141E009EDE53 /* BlackFrame.jpg */; };
-		27C26DDB1C701BD1009EDE53 /* ShipSailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DDA1C701BD1009EDE53 /* ShipSailModel.m */; };
 		27C26DE01C714A92009EDE53 /* cityInfoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DDF1C714A92009EDE53 /* cityInfoFrame.png */; };
 		27C26DE61C729419009EDE53 /* SeaAreaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DE51C729419009EDE53 /* SeaAreaData.m */; };
 		27C26DF91C741A4E009EDE53 /* Map7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DF31C741A4E009EDE53 /* Map7.jpg */; };
@@ -858,6 +857,8 @@
 		EC0C3B7D1D846E57007E8D46 /* ShipSimpeInfoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */; };
 		EC0C3B801D847020007E8D46 /* ShipSimpleInfoIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */; };
 		EC102D781DFC826E005AF05E /* BaseData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC102D771DFC826E005AF05E /* BaseData.m */; };
+		EC1D55191FD7CF1E009ED9A6 /* TeamPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1D55181FD7CF1E009ED9A6 /* TeamPanel.m */; };
+		EC1D551B1FD7CFBB009ED9A6 /* TeamPanel.png in Resources */ = {isa = PBXBuildFile; fileRef = EC1D551A1FD7CFBA009ED9A6 /* TeamPanel.png */; };
 		EC2A00741FB3E5ED000410A7 /* GameTaskShipLetterData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A00731FB3E5EC000410A7 /* GameTaskShipLetterData.m */; };
 		EC2A00771FB3E623000410A7 /* SailorNumberPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A00761FB3E622000410A7 /* SailorNumberPanel.m */; };
 		EC3B89851DCEB83E00482A42 /* BasePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3B89841DCEB83E00482A42 /* BasePanel.m */; };
@@ -1697,10 +1698,7 @@
 		27C26DCC1C6DD552009EDE53 /* sailScene.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sailScene.png; path = Resources/Graph/Frame/sailScene.png; sourceTree = "<group>"; };
 		27C26DCF1C6FF879009EDE53 /* Map1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Map1.jpg; path = Resources/Graph/Map/Map1.jpg; sourceTree = "<group>"; };
 		27C26DD51C70141E009EDE53 /* BlackFrame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = BlackFrame.jpg; path = Resources/Graph/Frame/BlackFrame.jpg; sourceTree = "<group>"; };
-		27C26DD91C701BD1009EDE53 /* ShipSailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipSailModel.h; path = Classes/Image/Icon/ShipSailModel.h; sourceTree = "<group>"; };
-		27C26DDA1C701BD1009EDE53 /* ShipSailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSailModel.m; path = Classes/Image/Icon/ShipSailModel.m; sourceTree = "<group>"; };
 		27C26DDF1C714A92009EDE53 /* cityInfoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cityInfoFrame.png; path = Resources/Graph/Frame/cityInfoFrame.png; sourceTree = "<group>"; };
-		27C26DE21C717611009EDE53 /* SailSceneShipProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SailSceneShipProtocol.h; path = Classes/Protocol/SailSceneShipProtocol.h; sourceTree = "<group>"; };
 		27C26DE41C729419009EDE53 /* SeaAreaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeaAreaData.h; path = Classes/DataProcessing/SeaAreaData.h; sourceTree = "<group>"; };
 		27C26DE51C729419009EDE53 /* SeaAreaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeaAreaData.m; path = Classes/DataProcessing/SeaAreaData.m; sourceTree = "<group>"; };
 		27C26DF31C741A4E009EDE53 /* Map7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Map7.jpg; path = Resources/Graph/Map/Map7.jpg; sourceTree = "<group>"; };
@@ -2178,6 +2176,9 @@
 		EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipSimpleInfoIcon.m; path = Classes/Image/Icon/ShipSimpleInfoIcon.m; sourceTree = "<group>"; };
 		EC102D761DFC826E005AF05E /* BaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseData.h; path = Classes/Data/BaseData.h; sourceTree = "<group>"; };
 		EC102D771DFC826E005AF05E /* BaseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseData.m; path = Classes/Data/BaseData.m; sourceTree = "<group>"; };
+		EC1D55171FD7CF1E009ED9A6 /* TeamPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TeamPanel.h; path = Classes/Image/Panel/TeamPanel.h; sourceTree = "<group>"; };
+		EC1D55181FD7CF1E009ED9A6 /* TeamPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TeamPanel.m; path = Classes/Image/Panel/TeamPanel.m; sourceTree = "<group>"; };
+		EC1D551A1FD7CFBA009ED9A6 /* TeamPanel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TeamPanel.png; path = Resources/Graph/Frame/TeamPanel.png; sourceTree = "<group>"; };
 		EC2A00721FB3E5EC000410A7 /* GameTaskShipLetterData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameTaskShipLetterData.h; path = Classes/Data/Task/GameTaskShipLetterData.h; sourceTree = "<group>"; };
 		EC2A00731FB3E5EC000410A7 /* GameTaskShipLetterData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GameTaskShipLetterData.m; path = Classes/Data/Task/GameTaskShipLetterData.m; sourceTree = "<group>"; };
 		EC2A00751FB3E622000410A7 /* SailorNumberPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SailorNumberPanel.h; path = Classes/Image/Panel/SailorNumberPanel.h; sourceTree = "<group>"; };
@@ -2270,7 +2271,6 @@
 		EC9444491DE0D730004FBEC2 /* GameDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameDataManager.m; path = Classes/Manager/GameDataManager.m; sourceTree = "<group>"; };
 		EC94444B1DE0D8C0004FBEC2 /* GameDataObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameDataObserver.h; path = Classes/Manager/GameDataObserver.h; sourceTree = "<group>"; };
 		EC94444C1DE0D8C0004FBEC2 /* GameDataObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameDataObserver.m; path = Classes/Manager/GameDataObserver.m; sourceTree = "<group>"; };
-		EC94444E1DE16EAF004FBEC2 /* SailSceneGoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SailSceneGoProtocol.h; path = Classes/Protocol/SailSceneGoProtocol.h; sourceTree = "<group>"; };
 		EC97D94C1FCD16F100AB7C27 /* SailMapPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SailMapPanel.h; path = Classes/Image/Panel/SailMapPanel.h; sourceTree = "<group>"; };
 		EC97D94D1FCD16F100AB7C27 /* SailMapPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SailMapPanel.m; path = Classes/Image/Panel/SailMapPanel.m; sourceTree = "<group>"; };
 		EC97D9521FCD326300AB7C27 /* ShipMkr_mine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShipMkr_mine.png; path = Resources/Graph/RouteMkr/ShipMkr_mine.png; sourceTree = "<group>"; };
@@ -3309,7 +3309,6 @@
 				ECA1FEDB1ECE408B00328542 /* Factory */,
 				27C26E361C803A37009EDE53 /* Ext */,
 				27FBB7741CDF114C002B106B /* Manager */,
-				27C26D411C63FA74009EDE53 /* Protocol */,
 				27C26D021C616198009EDE53 /* Data */,
 				27C26CEA1C603D25009EDE53 /* UIScene */,
 				27E040B41C5C315B0068171E /* Image */,
@@ -3449,6 +3448,8 @@
 				ECD700491FCBA93E0052A389 /* LabelFrame.m */,
 				EC97D94C1FCD16F100AB7C27 /* SailMapPanel.h */,
 				EC97D94D1FCD16F100AB7C27 /* SailMapPanel.m */,
+				EC1D55171FD7CF1E009ED9A6 /* TeamPanel.h */,
+				EC1D55181FD7CF1E009ED9A6 /* TeamPanel.m */,
 			);
 			name = Panel;
 			sourceTree = "<group>";
@@ -3587,6 +3588,7 @@
 		27C26CEE1C604E4F009EDE53 /* Frame */ = {
 			isa = PBXGroup;
 			children = (
+				EC1D551A1FD7CFBA009ED9A6 /* TeamPanel.png */,
 				EC0C3B7C1D846E57007E8D46 /* ShipSimpeInfoFrame.png */,
 				277A47FF1D47317500500E3E /* sailorNumberFrame.png */,
 				2723D4A71D18FCE3000B1990 /* default_frame.png */,
@@ -3819,15 +3821,6 @@
 			name = GroupButton;
 			sourceTree = "<group>";
 		};
-		27C26D411C63FA74009EDE53 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				EC94444E1DE16EAF004FBEC2 /* SailSceneGoProtocol.h */,
-				27C26DE21C717611009EDE53 /* SailSceneShipProtocol.h */,
-			);
-			name = Protocol;
-			sourceTree = "<group>";
-		};
 		27C26D711C65884D009EDE53 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
@@ -3835,8 +3828,6 @@
 				27C26D731C65889A009EDE53 /* GoodsIcon.m */,
 				27C26D771C658962009EDE53 /* ShipIcon.h */,
 				27C26D781C658962009EDE53 /* ShipIcon.m */,
-				27C26DD91C701BD1009EDE53 /* ShipSailModel.h */,
-				27C26DDA1C701BD1009EDE53 /* ShipSailModel.m */,
 				27C26E261C801418009EDE53 /* SelectPeopleIcon.h */,
 				27C26E271C801418009EDE53 /* SelectPeopleIcon.m */,
 				27C26E501C8125BD009EDE53 /* DialogPhotoIcon.h */,
@@ -5000,6 +4991,7 @@
 				27C26EFF1C82A7C1009EDE53 /* goods62.jpg in Resources */,
 				27FBB7381CD843F6002B106B /* item199.png in Resources */,
 				27FBB6F51CD843F6002B106B /* item132.png in Resources */,
+				EC1D551B1FD7CFBB009ED9A6 /* TeamPanel.png in Resources */,
 				27FBB6C11CD843F6002B106B /* item80.png in Resources */,
 				27FBB6CA1CD843F6002B106B /* item89.png in Resources */,
 				279BAA421C59E3B50069EF5D /* Default-568h@2x.png in Resources */,
@@ -5199,6 +5191,7 @@
 				279BAC291C59E3B80069EF5D /* OALActionManager.m in Sources */,
 				279BAB531C59E3B70069EF5D /* CCLightNode.m in Sources */,
 				27E0409C1C5AA5B80068171E /* DataManager.m in Sources */,
+				EC1D55191FD7CF1E009ED9A6 /* TeamPanel.m in Sources */,
 				27C26D201C62EAEE009EDE53 /* RoleInitialData.m in Sources */,
 				279BAA8C1C59E3B60069EF5D /* CCCache.m in Sources */,
 				279BAC5C1C59E3B80069EF5D /* ALWrapper.m in Sources */,
@@ -5331,7 +5324,6 @@
 				27C26DBD1C6C0476009EDE53 /* DefaultDialogData.m in Sources */,
 				279BAC191C59E3B80069EF5D /* CCBSequenceProperty.m in Sources */,
 				27C26E281C801418009EDE53 /* SelectPeopleIcon.m in Sources */,
-				27C26DDB1C701BD1009EDE53 /* ShipSailModel.m in Sources */,
 				EC7C52B01FB82D1E0098CF87 /* GameTaskData.m in Sources */,
 				279BABD61C59E3B80069EF5D /* CCGLView.m in Sources */,
 				279BAAA01C59E3B60069EF5D /* CCActionManager.m in Sources */,

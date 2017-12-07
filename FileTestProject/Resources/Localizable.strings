@@ -615,7 +615,7 @@
 "select_lab_buyShip" = "购买船只";
 "select_lab_cancelSleep" = "取消";
 "select_lab_cancelTask" = "中断委托";
-"select_lab_close" = "关闭";
+"select_lab_close" = "返回";
 "select_lab_commerceInfo" = "物价资讯";
 "select_lab_commerceInvest" = "商业投资";
 "select_lab_diaryInfo" = "航海日志";
@@ -875,3 +875,4 @@
 "task_title_8" = "运送宝物";
 "tavern_hire_full" = "满编雇佣";
 "tavern_hire_minimum" = "最小雇佣";
+"team_panel_target" = "目的";

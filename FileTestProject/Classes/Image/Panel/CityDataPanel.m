@@ -201,14 +201,10 @@
 -(void)clickCloseBtn
 {
   [self removeFromParent];
-  if ([_delegate respondsToSelector:@selector(closeCityPanel)]) {
-    [_delegate closeCityPanel];
-  }
 }
 
 -(void)clickBtnGo
 {
-  [_delegate SailSceneGo:_cityNo];
 }
 
 @end

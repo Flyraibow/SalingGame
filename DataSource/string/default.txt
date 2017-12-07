@@ -5,6 +5,8 @@
 
 "lab_team_name" = "%@舰队";
 
+"team_panel_target" = "目的";
+
 "ship_price" = "%d金币";
 "ship_buy" = "购买";
 "ship_sell" = "售出";

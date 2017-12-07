@@ -8,6 +8,7 @@
 		_buildingId = [buffer readString];
 		_position = [buffer readInt];
 		_eventAction = [buffer readString];
+		_buildingImage = [buffer readString];
 	}
 	return self;
 }

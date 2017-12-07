@@ -12,6 +12,8 @@
 
 @property (nonatomic,readonly) NSString *eventAction;
 
+@property (nonatomic,readonly) NSString *buildingImage;
+
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 @end

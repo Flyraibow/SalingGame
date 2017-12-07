@@ -10,6 +10,8 @@
 #import "TeamData.h"
 #import "BaseData.h"
 
+extern const int TEAM_MAX_SHIP_NUMBER;
+
 @class GameShipData;
 @class GameNPCData;
 @interface GameTeamData : BaseData <NSCoding>

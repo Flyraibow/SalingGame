@@ -8,7 +8,6 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "SailSceneGoProtocol.h"
 
 typedef enum : NSUInteger {
     SailSceneTypeRead,
@@ -19,7 +18,6 @@ typedef enum : NSUInteger {
 @interface CityDataPanel : CCSprite
 
 @property (nonatomic, readonly, assign) SailSceneType sceneType;
-@property (nonatomic) id<SailSceneGoProtocol> delegate;
 
 -(instancetype)initWithCityNo:(NSString *)cityNo sceneType:(SailSceneType)sceneType;
 

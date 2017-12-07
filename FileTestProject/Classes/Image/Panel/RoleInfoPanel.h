@@ -8,6 +8,7 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
+#import "BasePanel.h"
 
 @class GameItemData;
 @protocol RoleInfoPanelDelegate <NSObject>
@@ -18,7 +19,7 @@
 
 @end
 
-@interface RoleInfoPanel : CCSprite
+@interface RoleInfoPanel : BasePanel
 
 @property (nonatomic) id<RoleInfoPanelDelegate> delegate;
 @property (nonatomic, readwrite) NSString *roleId;

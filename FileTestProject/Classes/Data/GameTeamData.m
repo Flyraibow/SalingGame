@@ -14,6 +14,8 @@
 #import "GameItemData.h"
 #import "LocalString.h"
 
+const int TEAM_MAX_SHIP_NUMBER = 5;
+
 static NSString* const GameTeamMoney = @"GameTeamMoney";
 static NSString* const GameTeamId = @"GameTeamId";
 static NSString* const GameTeamLeader = @"GameTeamLeader";
@@ -232,7 +234,7 @@ static NSInteger const FoodCapacityPerUnit = 100;
     [[GameDataManager sharedGameData] registerGameShipData:shipData];
   }
   shipData.belongToGuild = self.belongToGuildId;
-  if (self.shipList.count < 5) {
+  if (self.shipList.count < TEAM_MAX_SHIP_NUMBER) {
     [_shipList addObject:shipData.shipId];
   } else {
     shipData.cityId = cityId;

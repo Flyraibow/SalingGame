@@ -7,6 +7,7 @@
 //
 
 #import "CCSprite.h"
+#import "CityDataPanel.h"
 
 @protocol SailMapPanelDelegate
 
@@ -20,7 +21,8 @@
 
 @interface SailMapPanel : CCSprite
 
-- (instancetype)initWithDelegate:(id<SailMapPanelDelegate>)delegate SeaId:(NSString *)seaId;
+- (instancetype)initWithDelegate:(id<SailMapPanelDelegate>)delegate
+                            type:(SailSceneType)type;
 
 - (void)setSeaId:(NSString *)seaId;
 

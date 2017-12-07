@@ -9,10 +9,14 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
-@interface LabelFrame : CCSprite
+@interface LabelFrame : CCSprite9Slice
 
 @property (nonatomic, readwrite, copy) NSString *string;
+@property (nonatomic, assign) BOOL center;
+@property (nonatomic, assign) BOOL vertical;
 
 - (instancetype)initWithPrefix:(NSString *)prefix;
+
+-(void)setTarget:(id)target selector:(SEL)selector;
 
 @end

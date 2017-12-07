@@ -52,7 +52,7 @@ static int const frameOffsetY = 20;
     if (btnCityBuilding == nil) {
       CityBuildingData *cityBuildingData = [[[DataManager sharedDataManager] getCityBuildingDic] getCityBuildingById:buildingNo];
       int index = cityBuildingData.position;
-      btnCityBuilding = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"city_building_%@.png", buildingNo]]];
+      btnCityBuilding = [CCButton buttonWithTitle:nil spriteFrame:[CCSpriteFrame frameWithImageNamed:cityBuildingData.buildingImage]];
       btnCityBuilding.positionType = CCPositionTypePoints;
       btnCityBuilding.name = buildingNo;
       if (index <= 1) {

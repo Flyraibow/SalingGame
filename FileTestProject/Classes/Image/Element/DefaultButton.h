@@ -11,4 +11,6 @@
 
 @interface DefaultButton : CCButton
 
++ (DefaultButton *)closeButton;
+
 @end

@@ -7,9 +7,9 @@
 //
 
 #import "DefaultButton.h"
+#import "LocalString.h"
 
 @implementation DefaultButton
-
 
 -(instancetype)initWithTitle:(NSString *)title
 {
@@ -19,6 +19,12 @@
     [self setHorizontalPadding:23];
     
     return self;
+}
+
+
++ (DefaultButton *)closeButton
+{
+  return [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_close")];
 }
 
 @end
