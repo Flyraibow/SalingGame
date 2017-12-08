@@ -48,11 +48,12 @@ static NSString* const CityTaskList = @"CityTaskList";
   if (self) {
     _cityNo = cityData.cityId;
     _buildingSet = [NSSet setWithArray:[cityData.buildings componentsSeparatedByString:@";"]];
-    _shipsSet = [NSMutableSet setWithArray:[cityData.ships componentsSeparatedByString:@";"]];
+    // todo: redo ship 
+//    _shipsSet = [NSMutableSet setWithArray:[cityData.ships componentsSeparatedByString:@";"]];
     _commerceValue = cityData.commerce;
     _milltaryValue = cityData.milltary;
 
-    NSArray *goodsList = [cityData.goods componentsSeparatedByString:@";"];
+    NSArray *goodsList = cityData.goods;
     _goodsDict = [NSMutableDictionary new];
     for (int i = 0; i < goodsList.count; ++i) {
       NSString *goodsId = goodsList[i];
@@ -137,21 +138,23 @@ static NSString* const CityTaskList = @"CityTaskList";
 
 -(int)getGoodsNum:(NSString *)goodsId
 {
-  GoodsData *goodsData = [[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId];
-  int maxNum = goodsData.maxNum * _commerceValue / CityMaxCommerce;
+//  GoodsData *goodsData = [[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId];
+  // TODO:
+  int maxNum = 100 * _commerceValue / CityMaxCommerce;
   return maxNum;
 }
 
 -(int)getGoodsLevel:(NSString *)goodsId
 {
-  GoodsData *goodsData = [[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId];
-  int level;
-  if (goodsData.needCommerce < _commerceValue) {
-    level = 1;
-  } else {
-    level = 6 - _commerceValue * 4 / goodsData.needCommerce;
-  }
-  return level;
+  // TODO: need calculate
+//  GoodsData *goodsData = [[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId];
+//  int level;
+//  if (goodsData.needCommerce < _commerceValue) {
+//    level = 1;
+//  } else {
+//    level = 6 - _commerceValue * 4 / goodsData.needCommerce;
+//  }
+  return 5;
 }
 
 -(void)addGoods:(NSString *)goodsNo
@@ -178,7 +181,7 @@ static NSString* const CityTaskList = @"CityTaskList";
 
 -(int)getSalePriceForGoodsId:(NSString *)goodsId level:(int)level
 {
-  int basePrice = [[DataManager sharedDataManager].getPriceData getPriceByCityId:_cityNo goodsId:goodsId];
+  int basePrice = [[DataManager sharedDataManager].getPriceData getPriceByCultureId:self.cityData.cultureId goodsId:goodsId];
   basePrice *= 1 + 0.1 * (5 - level);
   if ([_goodsDict objectForKey:goodsId] != nil) {
     basePrice /= 2.5;
@@ -206,7 +209,7 @@ static NSString* const CityTaskList = @"CityTaskList";
 
 -(int)getBuyPriceForGoodsId:(NSString *)goodsId level:(int)level
 {
-  int basePrice = [[DataManager sharedDataManager].getPriceData getPriceByCityId:_cityNo goodsId:goodsId];
+  int basePrice = [[DataManager sharedDataManager].getPriceData getPriceByCultureId:self.cityData.cultureId goodsId:goodsId];
   basePrice *= 1 + 0.1 * (level - 5);
   
   NSNumber *categoryId = @([[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId].type);

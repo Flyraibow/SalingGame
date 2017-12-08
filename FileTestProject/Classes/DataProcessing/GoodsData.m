@@ -8,8 +8,8 @@
 		_goodsId = [buffer readString];
 		_type = [buffer readInt];
 		_iconId = [buffer readString];
-		_maxNum = [buffer readInt];
-		_needCommerce = [buffer readInt];
+		_maxPrice = [buffer readInt];
+		_levelUpExp = [buffer readInt];
 	}
 	return self;
 }

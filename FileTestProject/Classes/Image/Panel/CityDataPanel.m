@@ -161,7 +161,7 @@
   _labMilltary.string = [@(gameCityData.milltaryValue) stringValue];
   _cityState.string = getLocalStringByInt(@"city_state_", gameCityData.cityState);
   
-  NSArray *array = [cityData.goods componentsSeparatedByString:@";"];
+  NSArray *array = cityData.goods;
   for (int i = 0; i < array.count; ++i) {
     NSString *goodsId = [array objectAtIndex:i];
     CCLabelTTF *labGoods = [_labCityGoodsArray objectAtIndex:i];

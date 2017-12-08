@@ -27,11 +27,17 @@ static NSString * getCityLabel(NSString *cityId)
 
 @property (nonatomic,readonly) int milltary;
 
-@property (nonatomic,readonly) NSString *goods;
+@property (nonatomic,readonly) NSArray *goods;
+
+@property (nonatomic,readonly) NSArray *goodsCommercialNeed;
+
+@property (nonatomic,readonly) NSArray *goodsPrices;
+
+@property (nonatomic,readonly) NSArray *goodsAbundance;
+
+@property (nonatomic,readonly) NSArray *goodsHidden;
 
 @property (nonatomic,readonly) NSString *buildings;
-
-@property (nonatomic,readonly) NSString *ships;
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 

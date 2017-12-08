@@ -118,4 +118,14 @@
   return set;
 }
 
+-(NSArray *)readArray
+{
+  NSInteger len = [self readLong];
+  NSMutableArray *array = [NSMutableArray new];
+  for (NSUInteger i = 0; i < len; ++i) {
+    [array addObject:[self readString]];
+  }
+  return array;
+}
+
 @end

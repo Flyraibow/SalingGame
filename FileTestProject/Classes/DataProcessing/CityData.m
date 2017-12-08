@@ -13,9 +13,12 @@
 		_latitude = [buffer readDouble];
 		_commerce = [buffer readInt];
 		_milltary = [buffer readInt];
-		_goods = [buffer readString];
+		_goods = [buffer readArray];
+		_goodsCommercialNeed = [buffer readArray];
+		_goodsPrices = [buffer readArray];
+		_goodsAbundance = [buffer readArray];
+		_goodsHidden = [buffer readArray];
 		_buildings = [buffer readString];
-		_ships = [buffer readString];
 	}
 	return self;
 }

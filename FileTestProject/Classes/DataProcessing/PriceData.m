@@ -30,9 +30,9 @@
 	}
 	return self;
 }
--(int )getPriceByCityId:(NSString *)cityId goodsId:(NSString *)goodsId
+-(int )getPriceByCultureId:(NSString *)cultureId goodsId:(NSString *)goodsId
 {
-	NSString *value = _dictionary[goodsId][cityId];
+	NSString *value = _dictionary[goodsId][cultureId];
 	int val = [value intValue];
 	return val;
 }

@@ -12,9 +12,9 @@
 
 @property (nonatomic,readonly) NSString *iconId;
 
-@property (nonatomic,readonly) int maxNum;
+@property (nonatomic,readonly) int maxPrice;
 
-@property (nonatomic,readonly) int needCommerce;
+@property (nonatomic,readonly) int levelUpExp;
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 

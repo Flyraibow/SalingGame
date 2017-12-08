@@ -8,7 +8,7 @@
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
--(int )getPriceByCityId:(NSString *)cityId goodsId:(NSString *)goodsId;
+-(int )getPriceByCultureId:(NSString *)cultureId goodsId:(NSString *)goodsId;
 
 @end
 

@@ -70,7 +70,7 @@
             GoodsData *goodsData = [[[DataManager sharedDataManager] getGoodsDic] getGoodsById:goodsId];
             if (![_iconNo isEqualToString:goodsData.iconId]) {
                 _iconNo = goodsData.iconId;
-                [_icon setSpriteFrame:[CCSpriteFrame frameWithImageNamed:[NSString stringWithFormat:@"goods%@.jpg", _iconNo]]];
+                [_icon setSpriteFrame:[CCSpriteFrame frameWithImageNamed:_iconNo]];
             }
             _labGoodsName.string = getGoodsName(goodsId);
         } else {
