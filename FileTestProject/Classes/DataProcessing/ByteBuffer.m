@@ -52,6 +52,15 @@
     [_data appendData:newData];
 }
 
+-(Byte)readByte
+{
+  Byte value = 0;
+  [_data getBytes:&value range:NSMakeRange(_pos, 1)];
+  _pos += 1;
+  return value;
+}
+
+
 -(int)readInt
 {
     int value = 0;

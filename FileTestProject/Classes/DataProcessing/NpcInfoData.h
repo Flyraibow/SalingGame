@@ -20,9 +20,7 @@
 
 @property (nonatomic,readonly) NSString *character;
 
-@property (nonatomic,readonly) int birthMonth;
-
-@property (nonatomic,readonly) int birthDay;
+@property (nonatomic,readonly) int zodiac;
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 

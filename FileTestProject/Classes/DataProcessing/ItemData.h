@@ -27,8 +27,6 @@ static NSString * getItemDescription(NSString *itemId)
 
 @property (nonatomic,readonly) NSString *ownerCityId;
 
-@property (nonatomic,readonly) NSString *ownerGuildId;
-
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;
 
 -(NSString *)itemDescription;

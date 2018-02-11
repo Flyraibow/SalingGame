@@ -10,17 +10,19 @@
 #import "cocos2d-ui.h"
 
 typedef enum : NSUInteger {
-    SailSceneTypeRead,
-    SailSceneTypeGo,
-    SailSceneTypeTradeInfo,
-} SailSceneType;
+  CityDataPanelSailRead,
+  CityDataPanelSailGo,
+  CityDataPanelSailTradeInfo,
+  CityDataPanelPlaza,
+} CityDataPanelType;
 
 @interface CityDataPanel : CCSprite
 
-@property (nonatomic, readonly, assign) SailSceneType sceneType;
+@property (nonatomic, readonly, assign) CityDataPanelType sceneType;
 
--(instancetype)initWithCityNo:(NSString *)cityNo sceneType:(SailSceneType)sceneType;
+-(instancetype)initWithCityNo:(NSString *)cityNo sceneType:(CityDataPanelType)sceneType;
 
 -(void)setCityNo:(NSString *)cityNo;
 
 @end
+

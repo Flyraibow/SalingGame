@@ -1,34 +1,34 @@
 /* This file is generated, do not modify it !*/
 
 #import <Foundation/Foundation.h>
-#import "ActionData.h"
-#import "CannonData.h"
-#import "CategoryUpdateData.h"
-#import "CityData.h"
-#import "CityBuildingData.h"
-#import "CitySystemBarData.h"
-#import "ConditionData.h"
-#import "CultureData.h"
-#import "DefaultDialogData.h"
-#import "EventActionData.h"
-#import "GoodsData.h"
-#import "GoodsCategoriesData.h"
-#import "GuildData.h"
-#import "ItemData.h"
-#import "JobData.h"
-#import "NpcData.h"
-#import "NpcInfoData.h"
-#import "RoleInitialData.h"
-#import "RouteData.h"
-#import "SeaAreaData.h"
 #import "SelectListData.h"
-#import "ShipData.h"
-#import "ShipStyleData.h"
-#import "SkillData.h"
+#import "ConditionData.h"
+#import "JobData.h"
+#import "GuildData.h"
+#import "CultureData.h"
 #import "StoryData.h"
-#import "StoryTriggerData.h"
+#import "DefaultDialogData.h"
+#import "NpcInfoData.h"
+#import "ItemData.h"
+#import "RoleInitialData.h"
+#import "GoodsCategoriesData.h"
+#import "NpcData.h"
+#import "ShipStyleData.h"
+#import "CannonData.h"
+#import "RouteData.h"
+#import "GoodsData.h"
+#import "CityData.h"
 #import "TaskData.h"
+#import "CityBuildingData.h"
+#import "SkillData.h"
+#import "CitySystemBarData.h"
+#import "CategoryUpdateData.h"
 #import "TeamData.h"
+#import "ActionData.h"
+#import "ShipData.h"
+#import "EventActionData.h"
+#import "StoryTriggerData.h"
+#import "SeaAreaData.h"
 #import "PriceData.h"
 
 
@@ -40,61 +40,61 @@
 
 +(DataManager *)sharedDataManager;
 
--(ActionDic *)getActionDic;
-
--(CannonDic *)getCannonDic;
-
--(CategoryUpdateDic *)getCategoryUpdateDic;
-
--(CityDic *)getCityDic;
-
--(CityBuildingDic *)getCityBuildingDic;
-
--(CitySystemBarDic *)getCitySystemBarDic;
+-(SelectListDic *)getSelectListDic;
 
 -(ConditionDic *)getConditionDic;
 
--(CultureDic *)getCultureDic;
-
--(DefaultDialogDic *)getDefaultDialogDic;
-
--(EventActionDic *)getEventActionDic;
-
--(GoodsDic *)getGoodsDic;
-
--(GoodsCategoriesDic *)getGoodsCategoriesDic;
+-(JobDic *)getJobDic;
 
 -(GuildDic *)getGuildDic;
 
--(ItemDic *)getItemDic;
-
--(JobDic *)getJobDic;
-
--(NpcDic *)getNpcDic;
-
--(NpcInfoDic *)getNpcInfoDic;
-
--(RoleInitialDic *)getRoleInitialDic;
-
--(RouteDic *)getRouteDic;
-
--(SeaAreaDic *)getSeaAreaDic;
-
--(SelectListDic *)getSelectListDic;
-
--(ShipDic *)getShipDic;
-
--(ShipStyleDic *)getShipStyleDic;
-
--(SkillDic *)getSkillDic;
+-(CultureDic *)getCultureDic;
 
 -(StoryDic *)getStoryDic;
 
--(StoryTriggerDic *)getStoryTriggerDic;
+-(DefaultDialogDic *)getDefaultDialogDic;
+
+-(NpcInfoDic *)getNpcInfoDic;
+
+-(ItemDic *)getItemDic;
+
+-(RoleInitialDic *)getRoleInitialDic;
+
+-(GoodsCategoriesDic *)getGoodsCategoriesDic;
+
+-(NpcDic *)getNpcDic;
+
+-(ShipStyleDic *)getShipStyleDic;
+
+-(CannonDic *)getCannonDic;
+
+-(RouteDic *)getRouteDic;
+
+-(GoodsDic *)getGoodsDic;
+
+-(CityDic *)getCityDic;
 
 -(TaskDic *)getTaskDic;
 
+-(CityBuildingDic *)getCityBuildingDic;
+
+-(SkillDic *)getSkillDic;
+
+-(CitySystemBarDic *)getCitySystemBarDic;
+
+-(CategoryUpdateDic *)getCategoryUpdateDic;
+
 -(TeamDic *)getTeamDic;
+
+-(ActionDic *)getActionDic;
+
+-(ShipDic *)getShipDic;
+
+-(EventActionDic *)getEventActionDic;
+
+-(StoryTriggerDic *)getStoryTriggerDic;
+
+-(SeaAreaDic *)getSeaAreaDic;
 
 -(PriceData *)getPriceData;
 

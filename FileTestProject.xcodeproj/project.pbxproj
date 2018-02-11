@@ -409,7 +409,7 @@
 		27C26DBA1C6C00BF009EDE53 /* dialogFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DB91C6C00BF009EDE53 /* dialogFrame.png */; };
 		27C26DBD1C6C0476009EDE53 /* DefaultDialogData.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DBC1C6C0476009EDE53 /* DefaultDialogData.m */; };
 		27C26DBF1C6C102E009EDE53 /* photoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DBE1C6C102E009EDE53 /* photoFrame.png */; };
-		27C26DCB1C6DCDC0009EDE53 /* SailScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DCA1C6DCDC0009EDE53 /* SailScene.m */; };
+		27C26DCB1C6DCDC0009EDE53 /* SailMapScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C26DCA1C6DCDC0009EDE53 /* SailMapScene.m */; };
 		27C26DCD1C6DD552009EDE53 /* sailScene.png in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DCC1C6DD552009EDE53 /* sailScene.png */; };
 		27C26DD01C6FF879009EDE53 /* Map1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DCF1C6FF879009EDE53 /* Map1.jpg */; };
 		27C26DD61C70141E009EDE53 /* BlackFrame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 27C26DD51C70141E009EDE53 /* BlackFrame.jpg */; };
@@ -758,6 +758,22 @@
 		EC1D551B1FD7CFBB009ED9A6 /* TeamPanel.png in Resources */ = {isa = PBXBuildFile; fileRef = EC1D551A1FD7CFBA009ED9A6 /* TeamPanel.png */; };
 		EC2A00741FB3E5ED000410A7 /* GameTaskShipLetterData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A00731FB3E5EC000410A7 /* GameTaskShipLetterData.m */; };
 		EC2A00771FB3E623000410A7 /* SailorNumberPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2A00761FB3E622000410A7 /* SailorNumberPanel.m */; };
+		EC2F9FC11FF18F1200D590F0 /* SailScene.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F9FC01FF18F1200D590F0 /* SailScene.m */; };
+		EC2F9FC41FF1D4B300D590F0 /* MapData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F9FC31FF1D4B300D590F0 /* MapData.m */; };
+		EC2F9FC71FF1DA2900D590F0 /* GameMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F9FC61FF1DA2900D590F0 /* GameMapManager.m */; };
+		EC2F9FC91FF1DB6600D590F0 /* map.dat in Resources */ = {isa = PBXBuildFile; fileRef = EC2F9FC81FF1DB6600D590F0 /* map.dat */; };
+		EC2F9FCC1FF1E5E800D590F0 /* SailSceneFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F9FCB1FF1E5E800D590F0 /* SailSceneFrame.m */; };
+		EC2F9FDA1FF4223000D590F0 /* OceanFrameFight.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2F9FD81FF4223000D590F0 /* OceanFrameFight.png */; };
+		EC2F9FDB1FF4223000D590F0 /* OceanFrameNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2F9FD91FF4223000D590F0 /* OceanFrameNormal.png */; };
+		EC2F9FDE1FF427E300D590F0 /* SystemButtonBarGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F9FDD1FF427E300D590F0 /* SystemButtonBarGroup.m */; };
+		EC2F9FE11FF4319100D590F0 /* OceanFrameRudder.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2F9FDF1FF4319000D590F0 /* OceanFrameRudder.png */; };
+		EC2F9FE21FF4319100D590F0 /* OceanFrameAnchor.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2F9FE01FF4319100D590F0 /* OceanFrameAnchor.png */; };
+		EC2F9FE51FF4327100D590F0 /* OcFrmAnchorButton_down.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2F9FE31FF4327100D590F0 /* OcFrmAnchorButton_down.png */; };
+		EC2F9FE61FF4327100D590F0 /* OcFrmAnchorButton_up.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2F9FE41FF4327100D590F0 /* OcFrmAnchorButton_up.png */; };
+		EC2F9FEB1FF4360500D590F0 /* OcFrmCanvasLeft_up.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2F9FE71FF4360400D590F0 /* OcFrmCanvasLeft_up.png */; };
+		EC2F9FEC1FF4360500D590F0 /* OcFrmCanvasRight_up.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2F9FE81FF4360400D590F0 /* OcFrmCanvasRight_up.png */; };
+		EC2F9FED1FF4360500D590F0 /* OcFrmCanvasRight_down.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2F9FE91FF4360400D590F0 /* OcFrmCanvasRight_down.png */; };
+		EC2F9FEE1FF4360500D590F0 /* OcFrmCanvasLeft_down.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2F9FEA1FF4360500D590F0 /* OcFrmCanvasLeft_down.png */; };
 		EC3B89851DCEB83E00482A42 /* BasePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3B89841DCEB83E00482A42 /* BasePanel.m */; };
 		EC3B89881DD0026E00482A42 /* GameValueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3B89871DD0026E00482A42 /* GameValueManager.m */; };
 		EC4589E21DA1EB8400B833A9 /* ship1.png in Resources */ = {isa = PBXBuildFile; fileRef = EC4589BB1DA1EB8400B833A9 /* ship1.png */; };
@@ -798,11 +814,32 @@
 		EC4CC8011FC2A1970008E7F5 /* NpcInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4CC8001FC2A1970008E7F5 /* NpcInfoData.m */; };
 		EC7C52B01FB82D1E0098CF87 /* GameTaskData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7C52AF1FB82D1E0098CF87 /* GameTaskData.m */; };
 		EC7C97561F9F031E007B0316 /* GameTaskBuyGoodsData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7C97551F9F031E007B0316 /* GameTaskBuyGoodsData.m */; };
+		EC7DACA11FEB2AD700D9A718 /* PlazaStoreIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7DACA01FEB2AD700D9A718 /* PlazaStoreIcon.m */; };
 		EC85DBE11DC85CA300613F44 /* EventActionData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE01DC85CA300613F44 /* EventActionData.m */; };
 		EC85DBE41DC85CE200613F44 /* GameEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE31DC85CE200613F44 /* GameEventManager.m */; };
 		EC85DBE71DCAFBD400613F44 /* SelectListData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE61DCAFBD400613F44 /* SelectListData.m */; };
 		EC85DBEA1DCAFC7100613F44 /* GameConditionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBE91DCAFC7100613F44 /* GameConditionManager.m */; };
 		EC85DBED1DCB021400613F44 /* ConditionData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC85DBEC1DCB021400613F44 /* ConditionData.m */; };
+		EC8CEA711FE357C400E71DD5 /* PlazaBestBtn_down.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA5F1FE357C200E71DD5 /* PlazaBestBtn_down.png */; };
+		EC8CEA721FE357C400E71DD5 /* PlazaBuilding2.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA601FE357C200E71DD5 /* PlazaBuilding2.png */; };
+		EC8CEA731FE357C400E71DD5 /* PlazaBuilding4.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA611FE357C300E71DD5 /* PlazaBuilding4.png */; };
+		EC8CEA741FE357C400E71DD5 /* PlazaLeaveBtn_up.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA621FE357C300E71DD5 /* PlazaLeaveBtn_up.png */; };
+		EC8CEA751FE357C400E71DD5 /* PlazaBuilding3.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA631FE357C300E71DD5 /* PlazaBuilding3.png */; };
+		EC8CEA761FE357C400E71DD5 /* PlazaBestBtn_up.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA641FE357C300E71DD5 /* PlazaBestBtn_up.png */; };
+		EC8CEA771FE357C400E71DD5 /* PlazaBuilding5.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA651FE357C300E71DD5 /* PlazaBuilding5.png */; };
+		EC8CEA781FE357C400E71DD5 /* PlazaBuilding1.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA661FE357C300E71DD5 /* PlazaBuilding1.png */; };
+		EC8CEA791FE357C400E71DD5 /* PlazaStore1.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA671FE357C300E71DD5 /* PlazaStore1.png */; };
+		EC8CEA7A1FE357C400E71DD5 /* PlazaLeaveBtn_down.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA681FE357C300E71DD5 /* PlazaLeaveBtn_down.png */; };
+		EC8CEA7B1FE357C400E71DD5 /* PlazaStore2.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA691FE357C300E71DD5 /* PlazaStore2.png */; };
+		EC8CEA7C1FE357C400E71DD5 /* PlazaSupportBtn_up.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA6A1FE357C300E71DD5 /* PlazaSupportBtn_up.png */; };
+		EC8CEA7D1FE357C400E71DD5 /* PlazaStore3.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA6B1FE357C300E71DD5 /* PlazaStore3.png */; };
+		EC8CEA7E1FE357C400E71DD5 /* PlazaBGGrass.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA6C1FE357C400E71DD5 /* PlazaBGGrass.png */; };
+		EC8CEA7F1FE357C400E71DD5 /* PlazaBG.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA6D1FE357C400E71DD5 /* PlazaBG.png */; };
+		EC8CEA801FE357C400E71DD5 /* PlazaStore5.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA6E1FE357C400E71DD5 /* PlazaStore5.png */; };
+		EC8CEA811FE357C400E71DD5 /* PlazaStore4.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA6F1FE357C400E71DD5 /* PlazaStore4.png */; };
+		EC8CEA821FE357C400E71DD5 /* PlazaSupportBtn_down.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8CEA701FE357C400E71DD5 /* PlazaSupportBtn_down.png */; };
+		EC8CEA851FE3584F00E71DD5 /* PlazaScene.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEA841FE3584F00E71DD5 /* PlazaScene.m */; };
+		EC8CEA881FE4653F00E71DD5 /* CCButton+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8CEA871FE4653F00E71DD5 /* CCButton+Ext.m */; };
 		EC8D30FB1FC3E1C300F11A8F /* city_portrait_9.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8D30EF1FC3E1C200F11A8F /* city_portrait_9.png */; };
 		EC8D30FC1FC3E1C300F11A8F /* city_portrait_1.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8D30F01FC3E1C200F11A8F /* city_portrait_1.png */; };
 		EC8D30FD1FC3E1C300F11A8F /* city_portrait_3.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8D30F11FC3E1C200F11A8F /* city_portrait_3.png */; };
@@ -850,6 +887,7 @@
 		ECBADDD51DD8467800DC490D /* ShipExchangePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD41DD8467800DC490D /* ShipExchangePanel.m */; };
 		ECBADDD81DD84A7B00DC490D /* DockYardPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDD61DD84A7B00DC490D /* DockYardPanel.m */; };
 		ECBADDDB1DD861ED00DC490D /* GameTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBADDDA1DD861ED00DC490D /* GameTimerManager.m */; };
+		ECD5AB121FFD6802004357C5 /* PressDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD5AB111FFD6802004357C5 /* PressDownButton.m */; };
 		ECD700321FCB86740052A389 /* CategoryUpdateData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD700311FCB86740052A389 /* CategoryUpdateData.m */; };
 		ECD700351FCB9D8B0052A389 /* CultureData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD700331FCB9D8A0052A389 /* CultureData.m */; };
 		ECD7003E1FCB9DB50052A389 /* america.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECD700361FCB9DB40052A389 /* america.mp3 */; };
@@ -1693,8 +1731,8 @@
 		27C26DBB1C6C0476009EDE53 /* DefaultDialogData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultDialogData.h; path = Classes/DataProcessing/DefaultDialogData.h; sourceTree = "<group>"; };
 		27C26DBC1C6C0476009EDE53 /* DefaultDialogData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultDialogData.m; path = Classes/DataProcessing/DefaultDialogData.m; sourceTree = "<group>"; };
 		27C26DBE1C6C102E009EDE53 /* photoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = photoFrame.png; path = Resources/Graph/Frame/photoFrame.png; sourceTree = "<group>"; };
-		27C26DC91C6DCDC0009EDE53 /* SailScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SailScene.h; path = Classes/UIScene/SailScene.h; sourceTree = "<group>"; };
-		27C26DCA1C6DCDC0009EDE53 /* SailScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SailScene.m; path = Classes/UIScene/SailScene.m; sourceTree = "<group>"; };
+		27C26DC91C6DCDC0009EDE53 /* SailMapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SailMapScene.h; path = Classes/UIScene/SailMapScene.h; sourceTree = "<group>"; };
+		27C26DCA1C6DCDC0009EDE53 /* SailMapScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SailMapScene.m; path = Classes/UIScene/SailMapScene.m; sourceTree = "<group>"; };
 		27C26DCC1C6DD552009EDE53 /* sailScene.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sailScene.png; path = Resources/Graph/Frame/sailScene.png; sourceTree = "<group>"; };
 		27C26DCF1C6FF879009EDE53 /* Map1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Map1.jpg; path = Resources/Graph/Map/Map1.jpg; sourceTree = "<group>"; };
 		27C26DD51C70141E009EDE53 /* BlackFrame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = BlackFrame.jpg; path = Resources/Graph/Frame/BlackFrame.jpg; sourceTree = "<group>"; };
@@ -2084,6 +2122,27 @@
 		EC2A00751FB3E622000410A7 /* SailorNumberPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SailorNumberPanel.h; path = Classes/Image/Panel/SailorNumberPanel.h; sourceTree = "<group>"; };
 		EC2A00761FB3E622000410A7 /* SailorNumberPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SailorNumberPanel.m; path = Classes/Image/Panel/SailorNumberPanel.m; sourceTree = "<group>"; };
 		EC2C05C11FB19222008760BF /* GameBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameBaseManager.h; path = Classes/Manager/GameBaseManager.h; sourceTree = "<group>"; };
+		EC2F9FBF1FF18F1200D590F0 /* SailScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SailScene.h; path = Classes/UIScene/SailScene.h; sourceTree = "<group>"; };
+		EC2F9FC01FF18F1200D590F0 /* SailScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SailScene.m; path = Classes/UIScene/SailScene.m; sourceTree = "<group>"; };
+		EC2F9FC21FF1D4B300D590F0 /* MapData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MapData.h; path = Classes/DataProcessing/MapData.h; sourceTree = "<group>"; };
+		EC2F9FC31FF1D4B300D590F0 /* MapData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MapData.m; path = Classes/DataProcessing/MapData.m; sourceTree = "<group>"; };
+		EC2F9FC51FF1DA2900D590F0 /* GameMapManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameMapManager.h; path = Classes/Manager/GameMapManager.h; sourceTree = "<group>"; };
+		EC2F9FC61FF1DA2900D590F0 /* GameMapManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GameMapManager.m; path = Classes/Manager/GameMapManager.m; sourceTree = "<group>"; };
+		EC2F9FC81FF1DB6600D590F0 /* map.dat */ = {isa = PBXFileReference; lastKnownFileType = file; name = map.dat; path = Resources/map.dat; sourceTree = "<group>"; };
+		EC2F9FCA1FF1E5E800D590F0 /* SailSceneFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SailSceneFrame.h; path = Classes/Image/Panel/SailSceneFrame.h; sourceTree = "<group>"; };
+		EC2F9FCB1FF1E5E800D590F0 /* SailSceneFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SailSceneFrame.m; path = Classes/Image/Panel/SailSceneFrame.m; sourceTree = "<group>"; };
+		EC2F9FD81FF4223000D590F0 /* OceanFrameFight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OceanFrameFight.png; path = Resources/Graph/OcFrm/OceanFrameFight.png; sourceTree = "<group>"; };
+		EC2F9FD91FF4223000D590F0 /* OceanFrameNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OceanFrameNormal.png; path = Resources/Graph/OcFrm/OceanFrameNormal.png; sourceTree = "<group>"; };
+		EC2F9FDC1FF427E300D590F0 /* SystemButtonBarGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SystemButtonBarGroup.h; path = Classes/Image/GroupButton/SystemButtonBarGroup.h; sourceTree = "<group>"; };
+		EC2F9FDD1FF427E300D590F0 /* SystemButtonBarGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SystemButtonBarGroup.m; path = Classes/Image/GroupButton/SystemButtonBarGroup.m; sourceTree = "<group>"; };
+		EC2F9FDF1FF4319000D590F0 /* OceanFrameRudder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OceanFrameRudder.png; path = Resources/Graph/OcFrm/OceanFrameRudder.png; sourceTree = "<group>"; };
+		EC2F9FE01FF4319100D590F0 /* OceanFrameAnchor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OceanFrameAnchor.png; path = Resources/Graph/OcFrm/OceanFrameAnchor.png; sourceTree = "<group>"; };
+		EC2F9FE31FF4327100D590F0 /* OcFrmAnchorButton_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OcFrmAnchorButton_down.png; path = Resources/Graph/OcFrm/OcFrmAnchorButton_down.png; sourceTree = "<group>"; };
+		EC2F9FE41FF4327100D590F0 /* OcFrmAnchorButton_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OcFrmAnchorButton_up.png; path = Resources/Graph/OcFrm/OcFrmAnchorButton_up.png; sourceTree = "<group>"; };
+		EC2F9FE71FF4360400D590F0 /* OcFrmCanvasLeft_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OcFrmCanvasLeft_up.png; path = Resources/Graph/OcFrm/OcFrmCanvasLeft_up.png; sourceTree = "<group>"; };
+		EC2F9FE81FF4360400D590F0 /* OcFrmCanvasRight_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OcFrmCanvasRight_up.png; path = Resources/Graph/OcFrm/OcFrmCanvasRight_up.png; sourceTree = "<group>"; };
+		EC2F9FE91FF4360400D590F0 /* OcFrmCanvasRight_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OcFrmCanvasRight_down.png; path = Resources/Graph/OcFrm/OcFrmCanvasRight_down.png; sourceTree = "<group>"; };
+		EC2F9FEA1FF4360500D590F0 /* OcFrmCanvasLeft_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OcFrmCanvasLeft_down.png; path = Resources/Graph/OcFrm/OcFrmCanvasLeft_down.png; sourceTree = "<group>"; };
 		EC3B89831DCEB83E00482A42 /* BasePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasePanel.h; path = Classes/Image/Panel/BasePanel.h; sourceTree = "<group>"; };
 		EC3B89841DCEB83E00482A42 /* BasePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasePanel.m; path = Classes/Image/Panel/BasePanel.m; sourceTree = "<group>"; };
 		EC3B89861DD0026E00482A42 /* GameValueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameValueManager.h; path = Classes/Manager/GameValueManager.h; sourceTree = "<group>"; };
@@ -2130,6 +2189,8 @@
 		EC7C52AF1FB82D1E0098CF87 /* GameTaskData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameTaskData.m; path = Classes/Data/Task/GameTaskData.m; sourceTree = "<group>"; };
 		EC7C97541F9F031E007B0316 /* GameTaskBuyGoodsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameTaskBuyGoodsData.h; path = Classes/Data/Task/GameTaskBuyGoodsData.h; sourceTree = "<group>"; };
 		EC7C97551F9F031E007B0316 /* GameTaskBuyGoodsData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GameTaskBuyGoodsData.m; path = Classes/Data/Task/GameTaskBuyGoodsData.m; sourceTree = "<group>"; };
+		EC7DAC9F1FEB2AD700D9A718 /* PlazaStoreIcon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlazaStoreIcon.h; path = Classes/Image/Icon/PlazaStoreIcon.h; sourceTree = "<group>"; };
+		EC7DACA01FEB2AD700D9A718 /* PlazaStoreIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PlazaStoreIcon.m; path = Classes/Image/Icon/PlazaStoreIcon.m; sourceTree = "<group>"; };
 		EC85DBDF1DC85CA300613F44 /* EventActionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventActionData.h; path = Classes/DataProcessing/EventActionData.h; sourceTree = "<group>"; };
 		EC85DBE01DC85CA300613F44 /* EventActionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventActionData.m; path = Classes/DataProcessing/EventActionData.m; sourceTree = "<group>"; };
 		EC85DBE21DC85CE200613F44 /* GameEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameEventManager.h; path = Classes/Manager/GameEventManager.h; sourceTree = "<group>"; };
@@ -2140,6 +2201,28 @@
 		EC85DBE91DCAFC7100613F44 /* GameConditionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameConditionManager.m; path = Classes/Manager/GameConditionManager.m; sourceTree = "<group>"; };
 		EC85DBEB1DCB021400613F44 /* ConditionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConditionData.h; path = Classes/DataProcessing/ConditionData.h; sourceTree = "<group>"; };
 		EC85DBEC1DCB021400613F44 /* ConditionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConditionData.m; path = Classes/DataProcessing/ConditionData.m; sourceTree = "<group>"; };
+		EC8CEA5F1FE357C200E71DD5 /* PlazaBestBtn_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaBestBtn_down.png; path = Resources/Graph/Plaza/PlazaBestBtn_down.png; sourceTree = "<group>"; };
+		EC8CEA601FE357C200E71DD5 /* PlazaBuilding2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaBuilding2.png; path = Resources/Graph/Plaza/PlazaBuilding2.png; sourceTree = "<group>"; };
+		EC8CEA611FE357C300E71DD5 /* PlazaBuilding4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaBuilding4.png; path = Resources/Graph/Plaza/PlazaBuilding4.png; sourceTree = "<group>"; };
+		EC8CEA621FE357C300E71DD5 /* PlazaLeaveBtn_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaLeaveBtn_up.png; path = Resources/Graph/Plaza/PlazaLeaveBtn_up.png; sourceTree = "<group>"; };
+		EC8CEA631FE357C300E71DD5 /* PlazaBuilding3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaBuilding3.png; path = Resources/Graph/Plaza/PlazaBuilding3.png; sourceTree = "<group>"; };
+		EC8CEA641FE357C300E71DD5 /* PlazaBestBtn_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaBestBtn_up.png; path = Resources/Graph/Plaza/PlazaBestBtn_up.png; sourceTree = "<group>"; };
+		EC8CEA651FE357C300E71DD5 /* PlazaBuilding5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaBuilding5.png; path = Resources/Graph/Plaza/PlazaBuilding5.png; sourceTree = "<group>"; };
+		EC8CEA661FE357C300E71DD5 /* PlazaBuilding1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaBuilding1.png; path = Resources/Graph/Plaza/PlazaBuilding1.png; sourceTree = "<group>"; };
+		EC8CEA671FE357C300E71DD5 /* PlazaStore1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaStore1.png; path = Resources/Graph/Plaza/PlazaStore1.png; sourceTree = "<group>"; };
+		EC8CEA681FE357C300E71DD5 /* PlazaLeaveBtn_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaLeaveBtn_down.png; path = Resources/Graph/Plaza/PlazaLeaveBtn_down.png; sourceTree = "<group>"; };
+		EC8CEA691FE357C300E71DD5 /* PlazaStore2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaStore2.png; path = Resources/Graph/Plaza/PlazaStore2.png; sourceTree = "<group>"; };
+		EC8CEA6A1FE357C300E71DD5 /* PlazaSupportBtn_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaSupportBtn_up.png; path = Resources/Graph/Plaza/PlazaSupportBtn_up.png; sourceTree = "<group>"; };
+		EC8CEA6B1FE357C300E71DD5 /* PlazaStore3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaStore3.png; path = Resources/Graph/Plaza/PlazaStore3.png; sourceTree = "<group>"; };
+		EC8CEA6C1FE357C400E71DD5 /* PlazaBGGrass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaBGGrass.png; path = Resources/Graph/Plaza/PlazaBGGrass.png; sourceTree = "<group>"; };
+		EC8CEA6D1FE357C400E71DD5 /* PlazaBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaBG.png; path = Resources/Graph/Plaza/PlazaBG.png; sourceTree = "<group>"; };
+		EC8CEA6E1FE357C400E71DD5 /* PlazaStore5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaStore5.png; path = Resources/Graph/Plaza/PlazaStore5.png; sourceTree = "<group>"; };
+		EC8CEA6F1FE357C400E71DD5 /* PlazaStore4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaStore4.png; path = Resources/Graph/Plaza/PlazaStore4.png; sourceTree = "<group>"; };
+		EC8CEA701FE357C400E71DD5 /* PlazaSupportBtn_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlazaSupportBtn_down.png; path = Resources/Graph/Plaza/PlazaSupportBtn_down.png; sourceTree = "<group>"; };
+		EC8CEA831FE3584F00E71DD5 /* PlazaScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlazaScene.h; path = Classes/UIScene/PlazaScene.h; sourceTree = "<group>"; };
+		EC8CEA841FE3584F00E71DD5 /* PlazaScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PlazaScene.m; path = Classes/UIScene/PlazaScene.m; sourceTree = "<group>"; };
+		EC8CEA861FE4653F00E71DD5 /* CCButton+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CCButton+Ext.h"; path = "Classes/Ext/CCButton+Ext.h"; sourceTree = "<group>"; };
+		EC8CEA871FE4653F00E71DD5 /* CCButton+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CCButton+Ext.m"; path = "Classes/Ext/CCButton+Ext.m"; sourceTree = "<group>"; };
 		EC8D30EF1FC3E1C200F11A8F /* city_portrait_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = city_portrait_9.png; path = Resources/Graph/Portrait/city_portrait_9.png; sourceTree = "<group>"; };
 		EC8D30F01FC3E1C200F11A8F /* city_portrait_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = city_portrait_1.png; path = Resources/Graph/Portrait/city_portrait_1.png; sourceTree = "<group>"; };
 		EC8D30F11FC3E1C200F11A8F /* city_portrait_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = city_portrait_3.png; path = Resources/Graph/Portrait/city_portrait_3.png; sourceTree = "<group>"; };
@@ -2203,6 +2286,8 @@
 		ECBADDD71DD84A7B00DC490D /* DockYardPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockYardPanel.h; path = Classes/Image/Panel/DockYardPanel.h; sourceTree = "<group>"; };
 		ECBADDD91DD861ED00DC490D /* GameTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameTimerManager.h; path = Classes/Manager/GameTimerManager.h; sourceTree = "<group>"; };
 		ECBADDDA1DD861ED00DC490D /* GameTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameTimerManager.m; path = Classes/Manager/GameTimerManager.m; sourceTree = "<group>"; };
+		ECD5AB101FFD6802004357C5 /* PressDownButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PressDownButton.h; path = Classes/Ext/PressDownButton.h; sourceTree = "<group>"; };
+		ECD5AB111FFD6802004357C5 /* PressDownButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PressDownButton.m; path = Classes/Ext/PressDownButton.m; sourceTree = "<group>"; };
 		ECD700301FCB86730052A389 /* CategoryUpdateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryUpdateData.h; path = Classes/DataProcessing/CategoryUpdateData.h; sourceTree = "<group>"; };
 		ECD700311FCB86740052A389 /* CategoryUpdateData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryUpdateData.m; path = Classes/DataProcessing/CategoryUpdateData.m; sourceTree = "<group>"; };
 		ECD700331FCB9D8A0052A389 /* CultureData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CultureData.m; path = Classes/DataProcessing/CultureData.m; sourceTree = "<group>"; };
@@ -2479,6 +2564,7 @@
 		279BAA3C1C59E3B50069EF5D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EC2F9FC81FF1DB6600D590F0 /* map.dat */,
 				27E040BF1C5C38FA0068171E /* Sound */,
 				27E040B01C5C2EA90068171E /* Graph */,
 				279BAA3D1C59E3B50069EF5D /* Default.png */,
@@ -3402,6 +3488,8 @@
 				27E0409A1C5AA5B80068171E /* DataManager.h */,
 				27E0409B1C5AA5B80068171E /* DataManager.m */,
 				27C26CC51C5F2F7D009EDE53 /* LocalString.h */,
+				EC2F9FC21FF1D4B300D590F0 /* MapData.h */,
+				EC2F9FC31FF1D4B300D590F0 /* MapData.m */,
 			);
 			name = DataProcessing;
 			sourceTree = "<group>";
@@ -3459,6 +3547,8 @@
 				EC97D94D1FCD16F100AB7C27 /* SailMapPanel.m */,
 				EC1D55171FD7CF1E009ED9A6 /* TeamPanel.h */,
 				EC1D55181FD7CF1E009ED9A6 /* TeamPanel.m */,
+				EC2F9FCA1FF1E5E800D590F0 /* SailSceneFrame.h */,
+				EC2F9FCB1FF1E5E800D590F0 /* SailSceneFrame.m */,
 			);
 			name = Panel;
 			sourceTree = "<group>";
@@ -3580,8 +3670,8 @@
 			children = (
 				27C26DB01C6BEFFF009EDE53 /* CGStoryScene.h */,
 				27C26DB11C6BEFFF009EDE53 /* CGStoryScene.m */,
-				27C26DC91C6DCDC0009EDE53 /* SailScene.h */,
-				27C26DCA1C6DCDC0009EDE53 /* SailScene.m */,
+				27C26DC91C6DCDC0009EDE53 /* SailMapScene.h */,
+				27C26DCA1C6DCDC0009EDE53 /* SailMapScene.m */,
 				27C26E231C800F49009EDE53 /* SelectPeopleScene.h */,
 				27C26E241C800F49009EDE53 /* SelectPeopleScene.m */,
 				27C26E311C802F98009EDE53 /* RoleDescriptionScene.h */,
@@ -3590,6 +3680,10 @@
 				270AB1C71C9A61C700533B47 /* DuelScene.m */,
 				ECBADDCD1DD81EC200DC490D /* BaseScene.h */,
 				ECBADDCE1DD81EC200DC490D /* BaseScene.m */,
+				EC8CEA831FE3584F00E71DD5 /* PlazaScene.h */,
+				EC8CEA841FE3584F00E71DD5 /* PlazaScene.m */,
+				EC2F9FBF1FF18F1200D590F0 /* SailScene.h */,
+				EC2F9FC01FF18F1200D590F0 /* SailScene.m */,
 			);
 			name = UIScene;
 			sourceTree = "<group>";
@@ -3828,6 +3922,8 @@
 				27C26D231C6330FC009EDE53 /* CityBuildingGroup.m */,
 				276EB5751ED4D67C00C5CC60 /* CityTaskButtonGroup.h */,
 				276EB5761ED4D67C00C5CC60 /* CityTaskButtonGroup.m */,
+				EC2F9FDC1FF427E300D590F0 /* SystemButtonBarGroup.h */,
+				EC2F9FDD1FF427E300D590F0 /* SystemButtonBarGroup.m */,
 			);
 			name = GroupButton;
 			sourceTree = "<group>";
@@ -3857,6 +3953,8 @@
 				EC0C3B7F1D847020007E8D46 /* ShipSimpleInfoIcon.m */,
 				EC97D96E1FCDE89000AB7C27 /* RouteMarkIcon.h */,
 				EC97D96F1FCDE89000AB7C27 /* RouteMarkIcon.m */,
+				EC7DAC9F1FEB2AD700D9A718 /* PlazaStoreIcon.h */,
+				EC7DACA01FEB2AD700D9A718 /* PlazaStoreIcon.m */,
 			);
 			name = Icon;
 			sourceTree = "<group>";
@@ -3912,6 +4010,10 @@
 				27ACAAF21C8954F3005C0881 /* NSArray+Sort.m */,
 				27FBB7821CE46D5B002B106B /* NSString+Ext.h */,
 				27FBB7831CE46D5B002B106B /* NSString+Ext.m */,
+				EC8CEA861FE4653F00E71DD5 /* CCButton+Ext.h */,
+				EC8CEA871FE4653F00E71DD5 /* CCButton+Ext.m */,
+				ECD5AB101FFD6802004357C5 /* PressDownButton.h */,
+				ECD5AB111FFD6802004357C5 /* PressDownButton.m */,
 			);
 			name = Ext;
 			sourceTree = "<group>";
@@ -3919,6 +4021,8 @@
 		27E040B01C5C2EA90068171E /* Graph */ = {
 			isa = PBXGroup;
 			children = (
+				EC2F9FCD1FF1E62200D590F0 /* OcFrm */,
+				EC8CEA5E1FE3579E00E71DD5 /* Plaza */,
 				EC97D94F1FCD322C00AB7C27 /* RouteMkr */,
 				27FBB7AD1CF171ED002B106B /* Town */,
 				27FBB7851CEAE09C002B106B /* Portrait */,
@@ -4269,6 +4373,8 @@
 				EC94444B1DE0D8C0004FBEC2 /* GameDataObserver.h */,
 				EC94444C1DE0D8C0004FBEC2 /* GameDataObserver.m */,
 				EC2C05C11FB19222008760BF /* GameBaseManager.h */,
+				EC2F9FC51FF1DA2900D590F0 /* GameMapManager.h */,
+				EC2F9FC61FF1DA2900D590F0 /* GameMapManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -4319,6 +4425,23 @@
 			name = Animation;
 			sourceTree = "<group>";
 		};
+		EC2F9FCD1FF1E62200D590F0 /* OcFrm */ = {
+			isa = PBXGroup;
+			children = (
+				EC2F9FEA1FF4360500D590F0 /* OcFrmCanvasLeft_down.png */,
+				EC2F9FE71FF4360400D590F0 /* OcFrmCanvasLeft_up.png */,
+				EC2F9FE91FF4360400D590F0 /* OcFrmCanvasRight_down.png */,
+				EC2F9FE81FF4360400D590F0 /* OcFrmCanvasRight_up.png */,
+				EC2F9FE31FF4327100D590F0 /* OcFrmAnchorButton_down.png */,
+				EC2F9FE41FF4327100D590F0 /* OcFrmAnchorButton_up.png */,
+				EC2F9FE01FF4319100D590F0 /* OceanFrameAnchor.png */,
+				EC2F9FDF1FF4319000D590F0 /* OceanFrameRudder.png */,
+				EC2F9FD81FF4223000D590F0 /* OceanFrameFight.png */,
+				EC2F9FD91FF4223000D590F0 /* OceanFrameNormal.png */,
+			);
+			name = OcFrm;
+			sourceTree = "<group>";
+		};
 		EC7C97531F9F02BC007B0316 /* Task */ = {
 			isa = PBXGroup;
 			children = (
@@ -4330,6 +4453,31 @@
 				EC2A00731FB3E5EC000410A7 /* GameTaskShipLetterData.m */,
 			);
 			name = Task;
+			sourceTree = "<group>";
+		};
+		EC8CEA5E1FE3579E00E71DD5 /* Plaza */ = {
+			isa = PBXGroup;
+			children = (
+				EC8CEA5F1FE357C200E71DD5 /* PlazaBestBtn_down.png */,
+				EC8CEA641FE357C300E71DD5 /* PlazaBestBtn_up.png */,
+				EC8CEA6D1FE357C400E71DD5 /* PlazaBG.png */,
+				EC8CEA6C1FE357C400E71DD5 /* PlazaBGGrass.png */,
+				EC8CEA661FE357C300E71DD5 /* PlazaBuilding1.png */,
+				EC8CEA601FE357C200E71DD5 /* PlazaBuilding2.png */,
+				EC8CEA631FE357C300E71DD5 /* PlazaBuilding3.png */,
+				EC8CEA611FE357C300E71DD5 /* PlazaBuilding4.png */,
+				EC8CEA651FE357C300E71DD5 /* PlazaBuilding5.png */,
+				EC8CEA681FE357C300E71DD5 /* PlazaLeaveBtn_down.png */,
+				EC8CEA621FE357C300E71DD5 /* PlazaLeaveBtn_up.png */,
+				EC8CEA671FE357C300E71DD5 /* PlazaStore1.png */,
+				EC8CEA691FE357C300E71DD5 /* PlazaStore2.png */,
+				EC8CEA6B1FE357C300E71DD5 /* PlazaStore3.png */,
+				EC8CEA6F1FE357C400E71DD5 /* PlazaStore4.png */,
+				EC8CEA6E1FE357C400E71DD5 /* PlazaStore5.png */,
+				EC8CEA701FE357C400E71DD5 /* PlazaSupportBtn_down.png */,
+				EC8CEA6A1FE357C300E71DD5 /* PlazaSupportBtn_up.png */,
+			);
+			name = Plaza;
 			sourceTree = "<group>";
 		};
 		EC97D94F1FCD322C00AB7C27 /* RouteMkr */ = {
@@ -4502,6 +4650,7 @@
 				27FBB7291CD843F6002B106B /* item184.png in Resources */,
 				EC4589EF1DA1EB8400B833A9 /* ship14.png in Resources */,
 				EC4589E71DA1EB8400B833A9 /* ship6.png in Resources */,
+				EC2F9FEB1FF4360500D590F0 /* OcFrmCanvasLeft_up.png in Resources */,
 				27C26E301C802CC2009EDE53 /* SmallPortrait2.png in Resources */,
 				27FBB6A11CD843F6002B106B /* item48.png in Resources */,
 				27FBB70B1CD843F6002B106B /* item154.png in Resources */,
@@ -4514,10 +4663,12 @@
 				27ACAB871C9674C4005C0881 /* c008_16-1.png in Resources */,
 				27FBB8061CF2700A002B106B /* c009_10-1.png in Resources */,
 				27C26DF91C741A4E009EDE53 /* Map7.jpg in Resources */,
+				EC2F9FED1FF4360500D590F0 /* OcFrmCanvasRight_down.png in Resources */,
 				27FBB7F11CF2700A002B106B /* c007_10-1.png in Resources */,
 				27C26CFA1C608E74009EDE53 /* money_bag.png in Resources */,
 				27ACAB751C9674C4005C0881 /* c000_19-1.png in Resources */,
 				270AB2161CC75C9000533B47 /* Shipdeck7.png in Resources */,
+				EC8CEA7B1FE357C400E71DD5 /* PlazaStore2.png in Resources */,
 				ECE17B271FDA52D300FF6871 /* [TItem48]#78.png in Resources */,
 				270AB1CE1C9BCC1900533B47 /* DuelBackground.png in Resources */,
 				27ACAB7E1C9674C4005C0881 /* c008_7-1.png in Resources */,
@@ -4592,12 +4743,14 @@
 				ECE17ADA1FDA52D300FF6871 /* [TItem48]#6.png in Resources */,
 				270AB2341CC75D3400533B47 /* 27-1.png in Resources */,
 				27FBB6E31CD843F6002B106B /* item114.png in Resources */,
+				EC8CEA7C1FE357C400E71DD5 /* PlazaSupportBtn_up.png in Resources */,
 				27FBB6D61CD843F6002B106B /* item101.png in Resources */,
 				ECD7003E1FCB9DB50052A389 /* america.mp3 in Resources */,
 				27FBB70D1CD843F6002B106B /* item156.png in Resources */,
 				27ACAB7A1C9674C4005C0881 /* c008_3-1.png in Resources */,
 				27FBB80D1CF2700A002B106B /* c009_17-1.png in Resources */,
 				27FBB7081CD843F6002B106B /* item151.png in Resources */,
+				EC2F9FE21FF4319100D590F0 /* OceanFrameAnchor.png in Resources */,
 				2723D4BC1D19034F000B1990 /* cannon2.png in Resources */,
 				EC8D31041FC3E1C300F11A8F /* city_portrait_2.png in Resources */,
 				27FBB7241CD843F6002B106B /* item179.png in Resources */,
@@ -4619,7 +4772,9 @@
 				27FBB7EE1CF2700A002B106B /* c007_7-1.png in Resources */,
 				EC4589E21DA1EB8400B833A9 /* ship1.png in Resources */,
 				279BAA531C59E3B50069EF5D /* Icon-120.png in Resources */,
+				EC2F9FDB1FF4223000D590F0 /* OceanFrameNormal.png in Resources */,
 				270AB1DE1CB78F4000533B47 /* Deckship2.png in Resources */,
+				EC2F9FE11FF4319100D590F0 /* OceanFrameRudder.png in Resources */,
 				ECE17B011FDA52D300FF6871 /* [TItem48]#66.png in Resources */,
 				27ACAB7C1C9674C4005C0881 /* c008_5-1.png in Resources */,
 				ECE17AE81FDA52D300FF6871 /* [TItem48]#41.png in Resources */,
@@ -4637,6 +4792,7 @@
 				27C26CDD1C5F48B6009EDE53 /* city_building_8.png in Resources */,
 				27FBB6D31CD843F6002B106B /* item98.png in Resources */,
 				270AB2291CC75D3400533B47 /* 37-1.png in Resources */,
+				EC8CEA771FE357C400E71DD5 /* PlazaBuilding5.png in Resources */,
 				27E040B31C5C2F3B0068171E /* bg1.jpg in Resources */,
 				27ACAB921C9674C4005C0881 /* c045_6-1.png in Resources */,
 				27FBB6B91CD843F6002B106B /* item72.png in Resources */,
@@ -4671,6 +4827,7 @@
 				ECE17B1A1FDA52D300FF6871 /* [TItem48]#60.png in Resources */,
 				27ACAB981C9674C4005C0881 /* c045_12-1.png in Resources */,
 				27FBB6CE1CD843F6002B106B /* item93.png in Resources */,
+				EC8CEA7D1FE357C400E71DD5 /* PlazaStore3.png in Resources */,
 				27FBB6F91CD843F6002B106B /* item136.png in Resources */,
 				27FBB6A21CD843F6002B106B /* item49.png in Resources */,
 				270AB2181CC75C9000533B47 /* Shipdeck8_2.png in Resources */,
@@ -4701,6 +4858,7 @@
 				EC458A001DA1EB8400B833A9 /* ship31.png in Resources */,
 				ECE17B2F1FDA52D300FF6871 /* [TItem48]#77.png in Resources */,
 				27FBB6D01CD843F6002B106B /* item95.png in Resources */,
+				EC8CEA791FE357C400E71DD5 /* PlazaStore1.png in Resources */,
 				ECE17AD71FDA52D300FF6871 /* [TItem48]#50.png in Resources */,
 				27ACAB721C9674C4005C0881 /* c000_16-1.png in Resources */,
 				27FBB7121CD843F6002B106B /* item161.png in Resources */,
@@ -4738,6 +4896,7 @@
 				27ACAB951C9674C4005C0881 /* c045_9-1.png in Resources */,
 				27C26D591C647A05009EDE53 /* rightArrowButton.png in Resources */,
 				27FBB7231CD843F6002B106B /* item178.png in Resources */,
+				EC8CEA731FE357C400E71DD5 /* PlazaBuilding4.png in Resources */,
 				27FBB67C1CD843F6002B106B /* item11.png in Resources */,
 				27FBB7B41CF210F9002B106B /* golds.wav in Resources */,
 				EC8D30FF1FC3E1C300F11A8F /* city_portrait_4.png in Resources */,
@@ -4765,6 +4924,7 @@
 				270AB1C21C97EA0500533B47 /* RoleInfoPanel.jpg in Resources */,
 				270AB20B1CC75C9000533B47 /* Shipdeck2_3.png in Resources */,
 				27FBB6C01CD843F6002B106B /* item79.png in Resources */,
+				EC8CEA7E1FE357C400E71DD5 /* PlazaBGGrass.png in Resources */,
 				ECE17B1B1FDA52D300FF6871 /* [TItem48]#89.png in Resources */,
 				EC4589F61DA1EB8400B833A9 /* ship21.png in Resources */,
 				27FBB69B1CD843F6002B106B /* item42.png in Resources */,
@@ -4811,11 +4971,13 @@
 				27FBB7351CD843F6002B106B /* item196.png in Resources */,
 				270AB1DF1CB78F4000533B47 /* Deckship1.png in Resources */,
 				27ACAB8A1C9674C4005C0881 /* c008_19-1.png in Resources */,
+				EC8CEA821FE357C400E71DD5 /* PlazaSupportBtn_down.png in Resources */,
 				27FBB6771CD843F6002B106B /* item6.png in Resources */,
 				274EE2741CCA01960082B982 /* Shipdeck_selected.png in Resources */,
 				27FBB7141CD843F6002B106B /* item163.png in Resources */,
 				27FBB6E41CD843F6002B106B /* item115.png in Resources */,
 				27FBB74E1CD8505C002B106B /* ItemLabelButton_Down.png in Resources */,
+				EC8CEA751FE357C400E71DD5 /* PlazaBuilding3.png in Resources */,
 				ECE17AE61FDA52D300FF6871 /* [TItem48]#30.png in Resources */,
 				EC4589FB1DA1EB8400B833A9 /* ship26.png in Resources */,
 				EC4589F21DA1EB8400B833A9 /* ship17.png in Resources */,
@@ -4845,6 +5007,7 @@
 				27FBB6B11CD843F6002B106B /* item64.png in Resources */,
 				ECE17B061FDA52D300FF6871 /* [TItem48]#93.png in Resources */,
 				27FBB7251CD843F6002B106B /* item180.png in Resources */,
+				EC2F9FEE1FF4360500D590F0 /* OcFrmCanvasLeft_down.png in Resources */,
 				EC4589F41DA1EB8400B833A9 /* ship19.png in Resources */,
 				279BAA591C59E3B50069EF5D /* Icon-Small.png in Resources */,
 				27FBB7AA1CF171BD002B106B /* CG_5.png in Resources */,
@@ -4900,6 +5063,7 @@
 				27FBB8091CF2700A002B106B /* c009_13-1.png in Resources */,
 				ECE17AD21FDA52D300FF6871 /* [TItem48]#72.png in Resources */,
 				27FBB7BD1CF26FCA002B106B /* addTeam.wav in Resources */,
+				EC8CEA781FE357C400E71DD5 /* PlazaBuilding1.png in Resources */,
 				27FBB8171CFEBF82002B106B /* CG_6.png in Resources */,
 				27FBB7A91CF171BD002B106B /* CG_4.png in Resources */,
 				ECE17AF81FDA52D300FF6871 /* [TItem48]#57.png in Resources */,
@@ -4938,6 +5102,7 @@
 				27C26D761C658928009EDE53 /* goodsIconFrame.png in Resources */,
 				27FBB7EF1CF2700A002B106B /* c007_8-1.png in Resources */,
 				279BAA4B1C59E3B50069EF5D /* Icon-72.png in Resources */,
+				EC8CEA721FE357C400E71DD5 /* PlazaBuilding2.png in Resources */,
 				270AB20A1CC75C9000533B47 /* Shipdeck2_2.png in Resources */,
 				ECE17B261FDA52D300FF6871 /* [TItem48]#83.png in Resources */,
 				ECE17B0B1FDA52D300FF6871 /* [TItem48]#94.png in Resources */,
@@ -4973,6 +5138,7 @@
 				ECE17B0A1FDA52D300FF6871 /* [TItem48]#73.png in Resources */,
 				27FBB6EE1CD843F6002B106B /* item125.png in Resources */,
 				ECE17B031FDA52D300FF6871 /* [TItem48]#44.png in Resources */,
+				EC8CEA741FE357C400E71DD5 /* PlazaLeaveBtn_up.png in Resources */,
 				27C26CDA1C5F48B6009EDE53 /* city_building_5.png in Resources */,
 				ECD700411FCB9DB50052A389 /* japan.mp3 in Resources */,
 				ECE17B1C1FDA52D300FF6871 /* [TItem48]#52.png in Resources */,
@@ -4983,6 +5149,7 @@
 				EC97D9601FCD326400AB7C27 /* ShipMkr_mine.png in Resources */,
 				27FBB6E11CD843F6002B106B /* item112.png in Resources */,
 				2723D4BD1D19034F000B1990 /* cannon3.png in Resources */,
+				EC2F9FEC1FF4360500D590F0 /* OcFrmCanvasRight_up.png in Resources */,
 				27ACAB881C9674C4005C0881 /* c008_17-1.png in Resources */,
 				27FBB8191D000054002B106B /* CG_7.png in Resources */,
 				ECE17AE41FDA52D300FF6871 /* [TItem48]#42.png in Resources */,
@@ -4995,6 +5162,7 @@
 				ECE17AD11FDA52D300FF6871 /* [TItem48]#99.png in Resources */,
 				27ACAB6C1C9674C4005C0881 /* c000_10-1.png in Resources */,
 				27C26CE01C5F48B6009EDE53 /* city_building_11.png in Resources */,
+				EC8CEA7A1FE357C400E71DD5 /* PlazaLeaveBtn_down.png in Resources */,
 				27FBB69F1CD843F6002B106B /* item46.png in Resources */,
 				ECE17B381FDA52D300FF6871 /* [TItem48]#45.png in Resources */,
 				ECE17B0C1FDA52D300FF6871 /* [TItem48]#48.png in Resources */,
@@ -5049,7 +5217,9 @@
 				279BAA5D1C59E3B50069EF5D /* Icon-Spotlight-iOS7.png in Resources */,
 				EC4589E61DA1EB8400B833A9 /* ship5.png in Resources */,
 				ECE17B211FDA52D300FF6871 /* [TItem48]#55.png in Resources */,
+				EC8CEA711FE357C400E71DD5 /* PlazaBestBtn_down.png in Resources */,
 				27FBB69E1CD843F6002B106B /* item45.png in Resources */,
+				EC2F9FC91FF1DB6600D590F0 /* map.dat in Resources */,
 				27ACAB711C9674C4005C0881 /* c000_15-1.png in Resources */,
 				27FBB6DD1CD843F6002B106B /* item108.png in Resources */,
 				27FBB67A1CD843F6002B106B /* item9.png in Resources */,
@@ -5072,6 +5242,7 @@
 				270AB2081CC75C9000533B47 /* Shipdeck8_4.png in Resources */,
 				27FBB7281CD843F6002B106B /* item183.png in Resources */,
 				270AB2311CC75D3400533B47 /* 34-1.png in Resources */,
+				EC8CEA761FE357C400E71DD5 /* PlazaBestBtn_up.png in Resources */,
 				ECE17AED1FDA52D300FF6871 /* [TItem48]#14.png in Resources */,
 				27ACAB861C9674C4005C0881 /* c008_15-1.png in Resources */,
 				27ACAB8D1C9674C4005C0881 /* c045_1-1.png in Resources */,
@@ -5081,6 +5252,8 @@
 				ECE17AEB1FDA52D300FF6871 /* [TItem48]#26.png in Resources */,
 				ECE17B2C1FDA52D300FF6871 /* [TItem48]#63.png in Resources */,
 				27FBB6A71CD843F6002B106B /* item54.png in Resources */,
+				EC8CEA801FE357C400E71DD5 /* PlazaStore5.png in Resources */,
+				EC8CEA7F1FE357C400E71DD5 /* PlazaBG.png in Resources */,
 				27FBB7031CD843F6002B106B /* item146.png in Resources */,
 				27ACAB811C9674C4005C0881 /* c008_10-1.png in Resources */,
 				270AB2321CC75D3400533B47 /* 24-1.png in Resources */,
@@ -5110,6 +5283,7 @@
 				27FBB6EF1CD843F6002B106B /* item126.png in Resources */,
 				27FBB69C1CD843F6002B106B /* item43.png in Resources */,
 				27ACAB9C1C9674C4005C0881 /* c045_16-1.png in Resources */,
+				EC2F9FDA1FF4223000D590F0 /* OceanFrameFight.png in Resources */,
 				27FBB67E1CD843F6002B106B /* item13.png in Resources */,
 				27C26E431C80DE32009EDE53 /* CG_1.png in Resources */,
 				ECE17AEF1FDA52D300FF6871 /* [TItem48]#92.png in Resources */,
@@ -5121,12 +5295,14 @@
 				ECE17B311FDA52D300FF6871 /* [TItem48]#68.png in Resources */,
 				27FBB7AF1CF171FB002B106B /* Town_1.png in Resources */,
 				27ACAB9E1C9674C4005C0881 /* c045_18-1.png in Resources */,
+				EC2F9FE61FF4327100D590F0 /* OcFrmAnchorButton_up.png in Resources */,
 				EC4589F01DA1EB8400B833A9 /* ship15.png in Resources */,
 				27FBB8081CF2700A002B106B /* c009_12-1.png in Resources */,
 				ECE17AD61FDA52D300FF6871 /* [TItem48]#79.png in Resources */,
 				27FBB7F51CF2700A002B106B /* c007_14-1.png in Resources */,
 				27FBB72E1CD843F6002B106B /* item189.png in Resources */,
 				EC4589F51DA1EB8400B833A9 /* ship20.png in Resources */,
+				EC2F9FE51FF4327100D590F0 /* OcFrmAnchorButton_down.png in Resources */,
 				270AB1E61CC0A9AF00533B47 /* Shipdeck2.png in Resources */,
 				2723D4B81D19034F000B1990 /* cannon4.png in Resources */,
 				270AB2141CC75C9000533B47 /* Shipdeck7_6.png in Resources */,
@@ -5153,6 +5329,7 @@
 				27FBB7F71CF2700A002B106B /* c007_16-1.png in Resources */,
 				27ACAB691C9674C4005C0881 /* c000_7-1.png in Resources */,
 				27FBB80F1CF2700A002B106B /* c009_19-1.png in Resources */,
+				EC8CEA811FE357C400E71DD5 /* PlazaStore4.png in Resources */,
 				27FBB6841CD843F6002B106B /* item19.png in Resources */,
 				27C26CBD1C5EFC0B009EDE53 /* City_Background.png in Resources */,
 			);
@@ -5175,6 +5352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2F9FCC1FF1E5E800D590F0 /* SailSceneFrame.m in Sources */,
 				279BABB51C59E3B80069EF5D /* CCPlatformTextFieldIOS.m in Sources */,
 				279BAAB51C59E3B60069EF5D /* CCConfiguration.m in Sources */,
 				279BABA91C59E3B70069EF5D /* CCTableView.m in Sources */,
@@ -5189,6 +5367,7 @@
 				279BAC2F1C59E3B80069EF5D /* OALUtilityActions.m in Sources */,
 				279BACEF1C59E3B90069EF5D /* main.m in Sources */,
 				EC3B89851DCEB83E00482A42 /* BasePanel.m in Sources */,
+				EC2F9FC71FF1DA2900D590F0 /* GameMapManager.m in Sources */,
 				279BAC451C59E3B80069EF5D /* ALCaptureDevice.m in Sources */,
 				279BAAFF1C59E3B60069EF5D /* CCPhysicsShape.m in Sources */,
 				279BABE71C59E3B80069EF5D /* CCColor.m in Sources */,
@@ -5196,13 +5375,16 @@
 				279BAC0D1C59E3B80069EF5D /* CCBAnimationManager.m in Sources */,
 				279BAAFC1C59E3B60069EF5D /* CCPhysicsNode.m in Sources */,
 				279BAC131C59E3B80069EF5D /* CCBReader.m in Sources */,
+				EC8CEA881FE4653F00E71DD5 /* CCButton+Ext.m in Sources */,
 				EC85DBE41DC85CE200613F44 /* GameEventManager.m in Sources */,
 				27C26D171C6181E5009EDE53 /* MyGuild.m in Sources */,
 				27C26E331C802F98009EDE53 /* RoleDescriptionScene.m in Sources */,
+				EC2F9FC41FF1D4B300D590F0 /* MapData.m in Sources */,
 				279BAC6D1C59E3B90069EF5D /* mach_timing.c in Sources */,
 				27BF3E2D1ECCC17100284A42 /* TaskData.m in Sources */,
 				279BAC291C59E3B80069EF5D /* OALActionManager.m in Sources */,
 				279BAB531C59E3B70069EF5D /* CCLightNode.m in Sources */,
+				ECD5AB121FFD6802004357C5 /* PressDownButton.m in Sources */,
 				27E0409C1C5AA5B80068171E /* DataManager.m in Sources */,
 				EC1D55191FD7CF1E009ED9A6 /* TeamPanel.m in Sources */,
 				27C26D201C62EAEE009EDE53 /* RoleInitialData.m in Sources */,
@@ -5215,6 +5397,7 @@
 				277A48031D47329900500E3E /* SailorNumberUnit.m in Sources */,
 				27FBB7A41CED8FA4002B106B /* ShipExchangeUnit.m in Sources */,
 				279BAD091C59EF300069EF5D /* ByteBuffer.m in Sources */,
+				EC2F9FDE1FF427E300D590F0 /* SystemButtonBarGroup.m in Sources */,
 				279BAB8A1C59E3B70069EF5D /* CCEffectPixellate.m in Sources */,
 				279BAAB11C59E3B60069EF5D /* CCClippingNode.m in Sources */,
 				27E040AD1C5C2ABC0068171E /* MenuPage.m in Sources */,
@@ -5240,7 +5423,7 @@
 				279BAC361C59E3B80069EF5D /* OALAudioTrackNotifications.m in Sources */,
 				27C26E1F1C7DA86D009EDE53 /* GameRouteData.m in Sources */,
 				279BAB121C59E3B70069EF5D /* CCScene.m in Sources */,
-				27C26DCB1C6DCDC0009EDE53 /* SailScene.m in Sources */,
+				27C26DCB1C6DCDC0009EDE53 /* SailMapScene.m in Sources */,
 				279BABE41C59E3B80069EF5D /* CCFileUtils.m in Sources */,
 				27FBB7A01CED8F8F002B106B /* InvestPanel.m in Sources */,
 				270AB1C81C9A61C700533B47 /* DuelScene.m in Sources */,
@@ -5273,6 +5456,7 @@
 				2723D4AE1D190043000B1990 /* CannonSelectionPanel.m in Sources */,
 				EC8D31131FC5545A00F11A8F /* CitySystemBarData.m in Sources */,
 				279BAACB1C59E3B60069EF5D /* CCNodeColor.m in Sources */,
+				EC7DACA11FEB2AD700D9A718 /* PlazaStoreIcon.m in Sources */,
 				ECA1FEDE1ECE40B400328542 /* TaskFactory.m in Sources */,
 				279BAAED1C59E3B60069EF5D /* CCParticleSystem.m in Sources */,
 				27C26E251C800F4A009EDE53 /* SelectPeopleScene.m in Sources */,
@@ -5343,6 +5527,7 @@
 				279BAAA01C59E3B60069EF5D /* CCActionManager.m in Sources */,
 				27FBB7771CDF116C002B106B /* GamePanelManager.m in Sources */,
 				279BABA61C59E3B70069EF5D /* CCSlider.m in Sources */,
+				EC8CEA851FE3584F00E71DD5 /* PlazaScene.m in Sources */,
 				27FBB7471CD84693002B106B /* ItemInfoPanel.m in Sources */,
 				27FBB8491D092ECF002B106B /* RoleJobAnimation.m in Sources */,
 				279BAC331C59E3B80069EF5D /* OALAudioTrack.m in Sources */,
@@ -5397,6 +5582,7 @@
 				279BABD31C59E3B80069EF5D /* CCDirectorMac.m in Sources */,
 				279BAC581C59E3B80069EF5D /* ALSource.m in Sources */,
 				279BACF31C59E3B90069EF5D /* AppDelegate.m in Sources */,
+				EC2F9FC11FF18F1200D590F0 /* SailScene.m in Sources */,
 				EC0345F71FBD16A9000C371F /* PriceData.m in Sources */,
 				279BAC741C59E3B90069EF5D /* NSMutableDictionary+WeakReferences.m in Sources */,
 				279BAB811C59E3B70069EF5D /* CCEffectContrast.m in Sources */,

@@ -24,9 +24,8 @@ static NSString* const GameItemItemId= @"GameItemItemId";
     if (self = [super init]) {
         _itemData = itemData;
         _cityNo = itemData.ownerCityId;
-        _guildId = itemData.ownerGuildId;
         _itemId = itemData.itemId;
-        if ([_itemData.ownerCityId isEqualToString:@"0"] && [_itemData.ownerGuildId isEqualToString:@"0"]) {
+        if ([_itemData.ownerCityId isEqualToString:@"0"]) {
             _exist = NO;
         } else {
             _exist = YES;
@@ -45,7 +44,7 @@ static NSString* const GameItemItemId= @"GameItemItemId";
         _roleId = [aDecoder decodeObjectForKey:GameItemRoleId];
         _shipId = [aDecoder decodeObjectForKey:GameItemShipId];
         _itemId = [aDecoder decodeObjectForKey:GameItemItemId];
-        if ([_itemData.ownerCityId isEqualToString:@"0"] && [_itemData.ownerGuildId isEqualToString:@"0"]) {
+        if ([_itemData.ownerCityId isEqualToString:@"0"]) {
             _exist = NO;
         } else {
             _exist = YES;

@@ -11,6 +11,11 @@
 
 @interface DefaultButton : CCButton
 
+/*
+ * assign horizontalpadding according to the label width
+ */
+@property (nonatomic, readwrite, assign) CGFloat width;
+
 + (DefaultButton *)closeButton;
 
 @end

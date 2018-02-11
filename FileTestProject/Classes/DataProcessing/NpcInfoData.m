@@ -12,8 +12,7 @@
 		_portraitPosY = [buffer readInt];
 		_gender = [buffer readInt];
 		_character = [buffer readString];
-		_birthMonth = [buffer readInt];
-		_birthDay = [buffer readInt];
+		_zodiac = [buffer readInt];
 	}
 	return self;
 }

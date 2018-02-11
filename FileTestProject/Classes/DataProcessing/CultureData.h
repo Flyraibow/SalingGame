@@ -15,6 +15,10 @@ static NSString * getCultureLabel(NSString *cutureId)
 
 @property (nonatomic,readonly) NSString *music;
 
+@property (nonatomic,readonly) NSString *PlazaStore;
+
+@property (nonatomic,readonly) NSString *PlazaBuilding;
+
 @property (nonatomic,readonly) int portrait;
 
 -(instancetype )initWithByteBuffer:(ByteBuffer *)buffer;

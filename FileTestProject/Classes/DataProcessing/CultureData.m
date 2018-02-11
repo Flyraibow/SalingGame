@@ -7,6 +7,8 @@
 	if (self) {
 		_cutureId = [buffer readString];
 		_music = [buffer readString];
+		_PlazaStore = [buffer readString];
+		_PlazaBuilding = [buffer readString];
 		_portrait = [buffer readInt];
 	}
 	return self;

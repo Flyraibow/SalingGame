@@ -26,7 +26,7 @@
   NSString *_selectedSeaId;
   CCSprite *_selectedSeaSprite;
   CCLabelTTF *_labSelectedSea;
-  SailSceneType _type;
+  CityDataPanelType _type;
   LabelFrame *_leftFrame;
   LabelFrame *_rightFrame;
   LabelFrame *_rightUpFrame;
@@ -37,7 +37,7 @@
 }
 
 - (instancetype)initWithDelegate:(id<SailMapPanelDelegate>)delegate
-                           type:(SailSceneType)type
+                           type:(CityDataPanelType)type
 {
   if (self = [super init]) {
     _delegate = delegate;
@@ -149,7 +149,7 @@
   NSDictionary *teamDic = [GameDataManager sharedGameData].teamDic;
   for (NSString *teamId in teamDic) {
     GameTeamData *teamData = teamDic[teamId];
-    if (_type == SailSceneTypeTradeInfo && ![teamId isEqualToString:[GameDataManager sharedGameData].myGuild.myTeam.teamId]) {
+    if (_type == CityDataPanelSailTradeInfo && ![teamId isEqualToString:[GameDataManager sharedGameData].myGuild.myTeam.teamId]) {
       // only show my team in trade mode.
       continue;
     }
@@ -159,7 +159,7 @@
     shipBtn.type = RouteMarkIconTypeShip;
     shipBtn.delegate = _delegate;
     shipBtn.buttonLabel = teamData.teamLabel;
-    if (_type != SailSceneTypeTradeInfo) {
+    if (_type != CityDataPanelSailTradeInfo) {
       [shipBtn setTarget:self selector:@selector(clickMapMark:)];
     }
     CGPoint point = teamData.pos;

@@ -13,7 +13,6 @@
 		_job = [buffer readInt];
 		_price = [buffer readInt];
 		_ownerCityId = [buffer readString];
-		_ownerGuildId = [buffer readString];
 	}
 	return self;
 }

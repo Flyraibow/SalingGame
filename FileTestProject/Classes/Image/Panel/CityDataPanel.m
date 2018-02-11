@@ -28,7 +28,7 @@
   
 }
 
--(instancetype)initWithCityNo:(NSString *)cityNo sceneType:(SailSceneType)sceneType
+-(instancetype)initWithCityNo:(NSString *)cityNo sceneType:(CityDataPanelType)sceneType
 {
   if (self = [super initWithImageNamed:@"cityInfoFrame.png"]) {
     
@@ -46,6 +46,7 @@
     closeBtn.position = ccp(1, 0.05);
     closeBtn.scale = 0.7;
     [self addChild:closeBtn];
+    closeBtn.visible = sceneType != CityDataPanelPlaza;
     [closeBtn setTarget:self selector:@selector(clickCloseBtn)];
     
     _cityName = [CCLabelTTF labelWithString:@"" fontName:nil fontSize:15];
@@ -132,8 +133,7 @@
     
     [self setCityNo:cityNo];
     
-    if (_sceneType == SailSceneTypeGo) {
-      
+    if (_sceneType == CityDataPanelSailGo) {
       DefaultButton *btnGo = [DefaultButton buttonWithTitle:@"Go"];
       btnGo.anchorPoint = ccp(0, 0.5);
       btnGo.positionType = CCPositionTypeNormalized;

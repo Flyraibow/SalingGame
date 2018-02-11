@@ -17,11 +17,12 @@
 #import "DataManager.h"
 #import "DialogPanel.h"
 #import "LocalString.h"
-#import "DuelScene.h"
+#import "SailScene.h"
 #import "ItemInfoPanel.h"
 #import "ItemBrowsePanel.h"
 #import "NSString+Ext.h"
 #import "CannonSelectionPanel.h"
+#import "DuelScene.h"
 
 @interface MenuPage()
 
@@ -98,6 +99,9 @@
 
 -(void)clickTest
 {
+//  SailScene *sailScene = [[SailScene alloc] init];
+//  [[CCDirector sharedDirector] pushScene:sailScene];
+  
 //    DialogPanel *panel = [[DialogPanel alloc] init];
 //    NSString *npcName = getNpcFullName(@"1");
 //    NSString *text = getStoryText(@"12");
@@ -105,13 +109,13 @@
 //    [panel setDefaultDialog:@"dialog_buy_item" arguments:@[@"东方宝典", @"1000"] cityStyle:1];
 //    [self addChild:panel];
     
-//    DuelScene *duelScene = [[DuelScene alloc] initWithRoleId:@"1" roleId:@"2"];
-//    [[CCDirector sharedDirector] pushScene:duelScene];
+    DuelScene *duelScene = [[DuelScene alloc] initWithRoleId:@"1" roleId:@"2"];
+    [[CCDirector sharedDirector] pushScene:duelScene];
 //    CGStoryScene *storyScene = [[CGStoryScene alloc] initWithStoryId:@"2"];
 //    [[CCDirector sharedDirector] pushScene:storyScene];
 //    CannonSelectionPanel *frame = [[CannonSelectionPanel alloc] initWithCannonList:@[@(1),@(2),@(3),@(4),@(5),@(6)] currPower:1];
 //    [self addChild:frame];
-    
+  
 }
 
 

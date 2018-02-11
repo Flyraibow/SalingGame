@@ -11,7 +11,7 @@
 #import "DefaultButton.h"
 #import "LocalString.h"
 #import "GameDataManager.h"
-#import "SailScene.h"
+#import "SailMapScene.h"
 #import "RolePanel.h"
 #import "SailorNumberPanel.h"
 #import "GamePanelManager.h"

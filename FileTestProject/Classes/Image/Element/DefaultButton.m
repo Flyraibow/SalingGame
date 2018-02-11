@@ -27,4 +27,10 @@
   return [[DefaultButton alloc] initWithTitle:getLocalString(@"lab_close")];
 }
 
+- (void)setWidth:(CGFloat)width
+{
+  _width = width;
+  self.horizontalPadding = (width - self.label.contentSize.width) / 2;
+}
+
 @end

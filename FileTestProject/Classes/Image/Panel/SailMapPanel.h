@@ -22,7 +22,7 @@
 @interface SailMapPanel : CCSprite
 
 - (instancetype)initWithDelegate:(id<SailMapPanelDelegate>)delegate
-                            type:(SailSceneType)type;
+                            type:(CityDataPanelType)type;
 
 - (void)setSeaId:(NSString *)seaId;
 

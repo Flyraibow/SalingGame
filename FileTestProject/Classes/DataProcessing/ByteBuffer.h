@@ -21,6 +21,7 @@
 -(void)writeDouble:(double)value;
 -(void)writeString:(NSString *)value;
 
+-(Byte)readByte;
 -(int)readInt;
 -(NSUInteger)readLong;
 -(double)readDouble;
